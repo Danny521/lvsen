@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.danny.lvsen.mapper.StoragePartitionMapper">
+  <resultMap id="BaseResultMap" type="com.danny.lvsen.pojo.StoragePartition">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="partition_number" jdbcType="VARCHAR" property="partitionNumber" />
+    <result column="storage_id" jdbcType="INTEGER" property="storageId" />
+    <result column="area" jdbcType="VARCHAR" property="area" />
+    <result column="row" jdbcType="INTEGER" property="row" />
+    <result column="layer" jdbcType="INTEGER" property="layer" />
+    <result column="place" jdbcType="INTEGER" property="place" />
+    <result column="status" jdbcType="BIT" property="status" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, partition_number, storage_id, area, row, layer, place, status
+  </sql>
+  <select id="selectByExample" parameterType="com.danny.lvsen.pojo.StoragePartitionExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from storage_partition
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from storage_partition
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from storage_partition
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.danny.lvsen.pojo.StoragePartitionExample">
+    delete from storage_partition
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.danny.lvsen.pojo.StoragePartition" useGeneratedKeys="true">
+    insert into storage_partition (partition_number, storage_id, area, 
+      row, layer, place, 
+      status)
+    values (#{partitionNumber,jdbcType=VARCHAR}, #{storageId,jdbcType=INTEGER}, #{area,jdbcType=VARCHAR}, 
+      #{row,jdbcType=INTEGER}, #{layer,jdbcType=INTEGER}, #{place,jdbcType=INTEGER}, 
+      #{status,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.danny.lvsen.pojo.StoragePartition" useGeneratedKeys="true">
+    insert into storage_partition
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="partitionNumber != null">
+        partition_number,
+      </if>
+      <if test="storageId != null">
+        storage_id,
+      </if>
+      <if test="area != null">
+        area,
+      </if>
+      <if test="row != null">
+        row,
+      </if>
+      <if test="layer != null">
+        layer,
+      </if>
+      <if test="place != null">
+        place,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="partitionNumber != null">
+        #{partitionNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="storageId != null">
+        #{storageId,jdbcType=INTEGER},
+      </if>
+      <if test="area != null">
+        #{area,jdbcType=VARCHAR},
+      </if>
+      <if test="row != null">
+        #{row,jdbcType=INTEGER},
+      </if>
+      <if test="layer != null">
+        #{layer,jdbcType=INTEGER},
+      </if>
+      <if test="place != null">
+        #{place,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.danny.lvsen.pojo.StoragePartitionExample" resultType="java.lang.Long">
+    select count(*) from storage_partition
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update storage_partition
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.partitionNumber != null">
+        partition_number = #{record.partitionNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.storageId != null">
+        storage_id = #{record.storageId,jdbcType=INTEGER},
+      </if>
+      <if test="record.area != null">
+        area = #{record.area,jdbcType=VARCHAR},
+      </if>
+      <if test="record.row != null">
+        row = #{record.row,jdbcType=INTEGER},
+      </if>
+      <if test="record.layer != null">
+        layer = #{record.layer,jdbcType=INTEGER},
+      </if>
+      <if test="record.place != null">
+        place = #{record.place,jdbcType=INTEGER},
+      </if>
+      <if test="record.status != null">
+        status = #{record.status,jdbcType=BIT},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update storage_partition
+    set id = #{record.id,jdbcType=INTEGER},
+      partition_number = #{record.partitionNumber,jdbcType=VARCHAR},
+      storage_id = #{record.storageId,jdbcType=INTEGER},
+      area = #{record.area,jdbcType=VARCHAR},
+      row = #{record.row,jdbcType=INTEGER},
+      layer = #{record.layer,jdbcType=INTEGER},
+      place = #{record.place,jdbcType=INTEGER},
+      status = #{record.status,jdbcType=BIT}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.danny.lvsen.pojo.StoragePartition">
+    update storage_partition
+    <set>
+      <if test="partitionNumber != null">
+        partition_number = #{partitionNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="storageId != null">
+        storage_id = #{storageId,jdbcType=INTEGER},
+      </if>
+      <if test="area != null">
+        area = #{area,jdbcType=VARCHAR},
+      </if>
+      <if test="row != null">
+        row = #{row,jdbcType=INTEGER},
+      </if>
+      <if test="layer != null">
+        layer = #{layer,jdbcType=INTEGER},
+      </if>
+      <if test="place != null">
+        place = #{place,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=BIT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.danny.lvsen.pojo.StoragePartition">
+    update storage_partition
+    set partition_number = #{partitionNumber,jdbcType=VARCHAR},
+      storage_id = #{storageId,jdbcType=INTEGER},
+      area = #{area,jdbcType=VARCHAR},
+      row = #{row,jdbcType=INTEGER},
+      layer = #{layer,jdbcType=INTEGER},
+      place = #{place,jdbcType=INTEGER},
+      status = #{status,jdbcType=BIT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

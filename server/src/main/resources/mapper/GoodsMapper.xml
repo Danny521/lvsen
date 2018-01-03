@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.danny.lvsen.mapper.GoodsMapper">
+  <resultMap id="BaseResultMap" type="com.danny.lvsen.pojo.Goods">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="goods_number" jdbcType="VARCHAR" property="goodsNumber" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="pinyin" jdbcType="VARCHAR" property="pinyin" />
+    <result column="acronym" jdbcType="VARCHAR" property="acronym" />
+    <result column="category_id" jdbcType="INTEGER" property="categoryId" />
+    <result column="specification" jdbcType="VARCHAR" property="specification" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="min_price" jdbcType="REAL" property="minPrice" />
+    <result column="capacity" jdbcType="INTEGER" property="capacity" />
+    <result column="mini_unit" jdbcType="VARCHAR" property="miniUnit" />
+    <result column="default_unit_id" jdbcType="INTEGER" property="defaultUnitId" />
+    <result column="storage_partition_number" jdbcType="VARCHAR" property="storagePartitionNumber" />
+    <result column="is_scan" jdbcType="BIT" property="isScan" />
+    <result column="single_code" jdbcType="VARCHAR" property="singleCode" />
+    <result column="weight" jdbcType="REAL" property="weight" />
+    <result column="volume" jdbcType="REAL" property="volume" />
+    <result column="ext" jdbcType="VARCHAR" property="ext" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, goods_number, name, pinyin, acronym, category_id, specification, status, min_price, 
+    capacity, mini_unit, default_unit_id, storage_partition_number, is_scan, single_code, 
+    weight, volume, ext
+  </sql>
+  <select id="selectByExample" parameterType="com.danny.lvsen.pojo.GoodsExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from goods
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from goods
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from goods
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.danny.lvsen.pojo.GoodsExample">
+    delete from goods
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.danny.lvsen.pojo.Goods" useGeneratedKeys="true">
+    insert into goods (goods_number, name, pinyin, 
+      acronym, category_id, specification, 
+      status, min_price, capacity, 
+      mini_unit, default_unit_id, storage_partition_number, 
+      is_scan, single_code, weight, 
+      volume, ext)
+    values (#{goodsNumber,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{pinyin,jdbcType=VARCHAR}, 
+      #{acronym,jdbcType=VARCHAR}, #{categoryId,jdbcType=INTEGER}, #{specification,jdbcType=VARCHAR}, 
+      #{status,jdbcType=INTEGER}, #{minPrice,jdbcType=REAL}, #{capacity,jdbcType=INTEGER}, 
+      #{miniUnit,jdbcType=VARCHAR}, #{defaultUnitId,jdbcType=INTEGER}, #{storagePartitionNumber,jdbcType=VARCHAR}, 
+      #{isScan,jdbcType=BIT}, #{singleCode,jdbcType=VARCHAR}, #{weight,jdbcType=REAL}, 
+      #{volume,jdbcType=REAL}, #{ext,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.danny.lvsen.pojo.Goods" useGeneratedKeys="true">
+    insert into goods
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="goodsNumber != null">
+        goods_number,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="pinyin != null">
+        pinyin,
+      </if>
+      <if test="acronym != null">
+        acronym,
+      </if>
+      <if test="categoryId != null">
+        category_id,
+      </if>
+      <if test="specification != null">
+        specification,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="minPrice != null">
+        min_price,
+      </if>
+      <if test="capacity != null">
+        capacity,
+      </if>
+      <if test="miniUnit != null">
+        mini_unit,
+      </if>
+      <if test="defaultUnitId != null">
+        default_unit_id,
+      </if>
+      <if test="storagePartitionNumber != null">
+        storage_partition_number,
+      </if>
+      <if test="isScan != null">
+        is_scan,
+      </if>
+      <if test="singleCode != null">
+        single_code,
+      </if>
+      <if test="weight != null">
+        weight,
+      </if>
+      <if test="volume != null">
+        volume,
+      </if>
+      <if test="ext != null">
+        ext,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="goodsNumber != null">
+        #{goodsNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="pinyin != null">
+        #{pinyin,jdbcType=VARCHAR},
+      </if>
+      <if test="acronym != null">
+        #{acronym,jdbcType=VARCHAR},
+      </if>
+      <if test="categoryId != null">
+        #{categoryId,jdbcType=INTEGER},
+      </if>
+      <if test="specification != null">
+        #{specification,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="minPrice != null">
+        #{minPrice,jdbcType=REAL},
+      </if>
+      <if test="capacity != null">
+        #{capacity,jdbcType=INTEGER},
+      </if>
+      <if test="miniUnit != null">
+        #{miniUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="defaultUnitId != null">
+        #{defaultUnitId,jdbcType=INTEGER},
+      </if>
+      <if test="storagePartitionNumber != null">
+        #{storagePartitionNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="isScan != null">
+        #{isScan,jdbcType=BIT},
+      </if>
+      <if test="singleCode != null">
+        #{singleCode,jdbcType=VARCHAR},
+      </if>
+      <if test="weight != null">
+        #{weight,jdbcType=REAL},
+      </if>
+      <if test="volume != null">
+        #{volume,jdbcType=REAL},
+      </if>
+      <if test="ext != null">
+        #{ext,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.danny.lvsen.pojo.GoodsExample" resultType="java.lang.Long">
+    select count(*) from goods
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update goods
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.goodsNumber != null">
+        goods_number = #{record.goodsNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.name != null">
+        name = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pinyin != null">
+        pinyin = #{record.pinyin,jdbcType=VARCHAR},
+      </if>
+      <if test="record.acronym != null">
+        acronym = #{record.acronym,jdbcType=VARCHAR},
+      </if>
+      <if test="record.categoryId != null">
+        category_id = #{record.categoryId,jdbcType=INTEGER},
+      </if>
+      <if test="record.specification != null">
+        specification = #{record.specification,jdbcType=VARCHAR},
+      </if>
+      <if test="record.status != null">
+        status = #{record.status,jdbcType=INTEGER},
+      </if>
+      <if test="record.minPrice != null">
+        min_price = #{record.minPrice,jdbcType=REAL},
+      </if>
+      <if test="record.capacity != null">
+        capacity = #{record.capacity,jdbcType=INTEGER},
+      </if>
+      <if test="record.miniUnit != null">
+        mini_unit = #{record.miniUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="record.defaultUnitId != null">
+        default_unit_id = #{record.defaultUnitId,jdbcType=INTEGER},
+      </if>
+      <if test="record.storagePartitionNumber != null">
+        storage_partition_number = #{record.storagePartitionNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isScan != null">
+        is_scan = #{record.isScan,jdbcType=BIT},
+      </if>
+      <if test="record.singleCode != null">
+        single_code = #{record.singleCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.weight != null">
+        weight = #{record.weight,jdbcType=REAL},
+      </if>
+      <if test="record.volume != null">
+        volume = #{record.volume,jdbcType=REAL},
+      </if>
+      <if test="record.ext != null">
+        ext = #{record.ext,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update goods
+    set id = #{record.id,jdbcType=INTEGER},
+      goods_number = #{record.goodsNumber,jdbcType=VARCHAR},
+      name = #{record.name,jdbcType=VARCHAR},
+      pinyin = #{record.pinyin,jdbcType=VARCHAR},
+      acronym = #{record.acronym,jdbcType=VARCHAR},
+      category_id = #{record.categoryId,jdbcType=INTEGER},
+      specification = #{record.specification,jdbcType=VARCHAR},
+      status = #{record.status,jdbcType=INTEGER},
+      min_price = #{record.minPrice,jdbcType=REAL},
+      capacity = #{record.capacity,jdbcType=INTEGER},
+      mini_unit = #{record.miniUnit,jdbcType=VARCHAR},
+      default_unit_id = #{record.defaultUnitId,jdbcType=INTEGER},
+      storage_partition_number = #{record.storagePartitionNumber,jdbcType=VARCHAR},
+      is_scan = #{record.isScan,jdbcType=BIT},
+      single_code = #{record.singleCode,jdbcType=VARCHAR},
+      weight = #{record.weight,jdbcType=REAL},
+      volume = #{record.volume,jdbcType=REAL},
+      ext = #{record.ext,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.danny.lvsen.pojo.Goods">
+    update goods
+    <set>
+      <if test="goodsNumber != null">
+        goods_number = #{goodsNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="pinyin != null">
+        pinyin = #{pinyin,jdbcType=VARCHAR},
+      </if>
+      <if test="acronym != null">
+        acronym = #{acronym,jdbcType=VARCHAR},
+      </if>
+      <if test="categoryId != null">
+        category_id = #{categoryId,jdbcType=INTEGER},
+      </if>
+      <if test="specification != null">
+        specification = #{specification,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="minPrice != null">
+        min_price = #{minPrice,jdbcType=REAL},
+      </if>
+      <if test="capacity != null">
+        capacity = #{capacity,jdbcType=INTEGER},
+      </if>
+      <if test="miniUnit != null">
+        mini_unit = #{miniUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="defaultUnitId != null">
+        default_unit_id = #{defaultUnitId,jdbcType=INTEGER},
+      </if>
+      <if test="storagePartitionNumber != null">
+        storage_partition_number = #{storagePartitionNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="isScan != null">
+        is_scan = #{isScan,jdbcType=BIT},
+      </if>
+      <if test="singleCode != null">
+        single_code = #{singleCode,jdbcType=VARCHAR},
+      </if>
+      <if test="weight != null">
+        weight = #{weight,jdbcType=REAL},
+      </if>
+      <if test="volume != null">
+        volume = #{volume,jdbcType=REAL},
+      </if>
+      <if test="ext != null">
+        ext = #{ext,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.danny.lvsen.pojo.Goods">
+    update goods
+    set goods_number = #{goodsNumber,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      pinyin = #{pinyin,jdbcType=VARCHAR},
+      acronym = #{acronym,jdbcType=VARCHAR},
+      category_id = #{categoryId,jdbcType=INTEGER},
+      specification = #{specification,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
+      min_price = #{minPrice,jdbcType=REAL},
+      capacity = #{capacity,jdbcType=INTEGER},
+      mini_unit = #{miniUnit,jdbcType=VARCHAR},
+      default_unit_id = #{defaultUnitId,jdbcType=INTEGER},
+      storage_partition_number = #{storagePartitionNumber,jdbcType=VARCHAR},
+      is_scan = #{isScan,jdbcType=BIT},
+      single_code = #{singleCode,jdbcType=VARCHAR},
+      weight = #{weight,jdbcType=REAL},
+      volume = #{volume,jdbcType=REAL},
+      ext = #{ext,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
