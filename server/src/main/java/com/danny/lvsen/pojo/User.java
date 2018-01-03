@@ -17,6 +17,8 @@ public class User {
 
     private String birthday;
 
+    private Integer score;
+
     private String jobDesc;
 
     private String phone2;
@@ -87,6 +89,14 @@ public class User {
 
     public void setBirthday(String birthday) {
         this.birthday = birthday == null ? null : birthday.trim();
+    }
+
+    public Integer getScore() {
+        return score;
+    }
+
+    public void setScore(Integer score) {
+        this.score = score;
     }
 
     public String getJobDesc() {

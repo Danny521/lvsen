@@ -10,6 +10,7 @@
     <result column="acronym" jdbcType="VARCHAR" property="acronym" />
     <result column="phone" jdbcType="VARCHAR" property="phone" />
     <result column="birthday" jdbcType="VARCHAR" property="birthday" />
+    <result column="score" jdbcType="INTEGER" property="score" />
     <result column="job_desc" jdbcType="VARCHAR" property="jobDesc" />
     <result column="phone2" jdbcType="VARCHAR" property="phone2" />
     <result column="department" jdbcType="VARCHAR" property="department" />
@@ -74,7 +75,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, account, password, name, pinyin, acronym, phone, birthday, job_desc, phone2, 
+    id, account, password, name, pinyin, acronym, phone, birthday, score, job_desc, phone2, 
     department, status
   </sql>
   <select id="selectByExample" parameterType="com.danny.lvsen.pojo.UserExample" resultMap="BaseResultMap">
@@ -110,12 +111,14 @@
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.danny.lvsen.pojo.User" useGeneratedKeys="true">
     insert into user (account, password, name, 
       pinyin, acronym, phone, 
-      birthday, job_desc, phone2, 
-      department, status)
+      birthday, score, job_desc, 
+      phone2, department, status
+      )
     values (#{account,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
       #{pinyin,jdbcType=VARCHAR}, #{acronym,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
-      #{birthday,jdbcType=VARCHAR}, #{jobDesc,jdbcType=VARCHAR}, #{phone2,jdbcType=VARCHAR}, 
-      #{department,jdbcType=VARCHAR}, #{status,jdbcType=BIT})
+      #{birthday,jdbcType=VARCHAR}, #{score,jdbcType=INTEGER}, #{jobDesc,jdbcType=VARCHAR}, 
+      #{phone2,jdbcType=VARCHAR}, #{department,jdbcType=VARCHAR}, #{status,jdbcType=BIT}
+      )
   </insert>
   <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.danny.lvsen.pojo.User" useGeneratedKeys="true">
     insert into user
@@ -140,6 +143,9 @@
       </if>
       <if test="birthday != null">
         birthday,
+      </if>
+      <if test="score != null">
+        score,
       </if>
       <if test="jobDesc != null">
         job_desc,
@@ -175,6 +181,9 @@
       </if>
       <if test="birthday != null">
         #{birthday,jdbcType=VARCHAR},
+      </if>
+      <if test="score != null">
+        #{score,jdbcType=INTEGER},
       </if>
       <if test="jobDesc != null">
         #{jobDesc,jdbcType=VARCHAR},
@@ -223,6 +232,9 @@
       <if test="record.birthday != null">
         birthday = #{record.birthday,jdbcType=VARCHAR},
       </if>
+      <if test="record.score != null">
+        score = #{record.score,jdbcType=INTEGER},
+      </if>
       <if test="record.jobDesc != null">
         job_desc = #{record.jobDesc,jdbcType=VARCHAR},
       </if>
@@ -250,6 +262,7 @@
       acronym = #{record.acronym,jdbcType=VARCHAR},
       phone = #{record.phone,jdbcType=VARCHAR},
       birthday = #{record.birthday,jdbcType=VARCHAR},
+      score = #{record.score,jdbcType=INTEGER},
       job_desc = #{record.jobDesc,jdbcType=VARCHAR},
       phone2 = #{record.phone2,jdbcType=VARCHAR},
       department = #{record.department,jdbcType=VARCHAR},
@@ -282,6 +295,9 @@
       <if test="birthday != null">
         birthday = #{birthday,jdbcType=VARCHAR},
       </if>
+      <if test="score != null">
+        score = #{score,jdbcType=INTEGER},
+      </if>
       <if test="jobDesc != null">
         job_desc = #{jobDesc,jdbcType=VARCHAR},
       </if>
@@ -306,6 +322,7 @@
       acronym = #{acronym,jdbcType=VARCHAR},
       phone = #{phone,jdbcType=VARCHAR},
       birthday = #{birthday,jdbcType=VARCHAR},
+      score = #{score,jdbcType=INTEGER},
       job_desc = #{jobDesc,jdbcType=VARCHAR},
       phone2 = #{phone2,jdbcType=VARCHAR},
       department = #{department,jdbcType=VARCHAR},
