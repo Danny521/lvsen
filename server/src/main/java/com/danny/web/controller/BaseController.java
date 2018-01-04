@@ -1,8 +1,5 @@
 package com.danny.web.controller;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -12,12 +9,13 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.danny.commons.exception.BusinessException;
-import com.danny.commons.utils.BaseResponseInfo;
+import com.danny.commons.utils.ApiResponseInfo;
 
-/**
- * @author zhangtao
- *
- */
+/**   
+* @Description: TODO
+* @author zhangtao
+* @date 2018年1月4日 下午10:06:47 
+*/
 public class BaseController {
 
     private static final Logger LOG = LoggerFactory.getLogger(BaseController.class);
@@ -32,20 +30,16 @@ public class BaseController {
      */
     @ResponseBody
     @ExceptionHandler(Exception.class)
-    public BaseResponseInfo handlerException(HttpServletRequest request, HttpServletResponse response, Exception ex) {
+    public ApiResponseInfo handlerException(HttpServletRequest request, HttpServletResponse response, Exception ex) {
         LOG.error("服务器内部错误", ex);
         ex.printStackTrace();
-        BaseResponseInfo info = new BaseResponseInfo();
-        Map<String, Object> data = new HashMap<String, Object>();
+        ApiResponseInfo info = new ApiResponseInfo();
         
         if (ex instanceof BusinessException) {
-            info.code = 500;
-            data.put("message", ex.getMessage());
+        	info.setContent(500, ex.getMessage());
         } else {
-            info.code = 500;
-            data.put("message", "服务器内部错误");
+        	info.setContent(500, ex.getMessage());
         }
-        info.data = data;
         
         return info;
     }

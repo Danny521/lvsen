@@ -13,9 +13,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
-/**
- * Created by zhoujw on 2014/9/4.
- */
 public class WebUtils {
 
 	private static String applicationContext;
@@ -64,9 +61,9 @@ public class WebUtils {
 	 *            post请求所需要的参数
 	 * @return
 	 */
-	public static BaseResponseInfo post(RestTemplate restTemplate, String url,
+	public static ApiResponseInfo post(RestTemplate restTemplate, String url,
 			MultiValueMap<String, ?> vars) {
-		return restTemplate.postForObject(url, vars, BaseResponseInfo.class);
+		return restTemplate.postForObject(url, vars, ApiResponseInfo.class);
 	}
 
 	public static <T> T get(RestTemplate restTemplate, String url,

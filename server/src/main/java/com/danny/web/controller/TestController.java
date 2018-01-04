@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping({ "/test" })
-public class TestController {
+public class TestController extends BaseController {
     private static Logger logger = LoggerFactory.getLogger(TestController.class);
 
     @ResponseBody

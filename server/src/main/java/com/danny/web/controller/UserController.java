@@ -23,104 +23,50 @@ import io.swagger.annotations.ApiParam;
 @RestController
 @Api(tags = { "用户" })
 @RequestMapping({ "/user" })
-public class UserController {
-    private static Logger logger = LoggerFactory.getLogger(UserController.class);
+public class UserController extends BaseController {
+	private static Logger logger = LoggerFactory.getLogger(UserController.class);
 
-    @ApiOperation(value = "获取用户列表", notes = "获取全部用户的列表")
-    @GetMapping(path = "/list")
-    @ResponseBody
-    public ApiResponseInfo list(HttpServletRequest request, @ApiParam(name = "key", value = "用户名称", required = false) String key,
-            @ApiParam(name = "currentPage", value = "当前页码", required = false) Integer currentPage,
-            @ApiParam(name = "pageSize", value = "每页数量", required = false) Integer pageSize,
-            @ApiParam(name = "status", value = "状态", required = false, defaultValue = "1") Integer status) {
-        ApiResponseInfo res = new ApiResponseInfo(HttpStatus.OK.value(), HttpStatus.OK.name());
+	@ApiOperation(value = "获取用户列表", httpMethod = "GET", notes = "获取全部用户的列表")
+	@GetMapping(path = "/list")
+	@ResponseBody
+	public ApiResponseInfo list(HttpServletRequest request,
+			@ApiParam(name = "key", value = "用户名称", required = false) String key,
+			@ApiParam(name = "currentPage", value = "当前页码", required = false) Integer currentPage,
+			@ApiParam(name = "pageSize", value = "每页数量", required = false) Integer pageSize,
+			@ApiParam(name = "status", value = "状态", required = false, defaultValue = "1") Integer status) {
+		ApiResponseInfo res = new ApiResponseInfo(HttpStatus.OK.value(), HttpStatus.OK.name());
 
-        return res;
-    }
+		return res;
+	}
 
-    @ApiOperation(value = "添加用户信息", notes = "添加新增用户的详细信息")
-    @PostMapping(path = "/add")
-    @ResponseBody
-    public ApiResponseInfo add(HttpServletRequest request, @ApiParam UserVo user) {
-        ApiResponseInfo res = new ApiResponseInfo(HttpStatus.OK.value(), HttpStatus.OK.name());
+	@ApiOperation(value = "添加用户信息", httpMethod = "POST", notes = "添加新增用户的详细信息")
+	@PostMapping(path = "/add")
+	@ResponseBody
+	public ApiResponseInfo add(HttpServletRequest request, @ApiParam UserVo user) {
+		ApiResponseInfo res = new ApiResponseInfo(HttpStatus.OK.value(), HttpStatus.OK.name());
 
-        return res;
-    }
-    // @ApiOperation(value = "添加用户信息", notes = "添加新增用户的详细信息")
-    // @ApiParams({ @ApiParam(name = "name", value = "用户名称", required = true,
-    // dataType = "String"),
-    // @ApiParam(name = "account", value = "帐号", required = true, dataType =
-    // "String"),
-    // @ApiParam(name = "password", value = "密码", required = true, dataType =
-    // "String"),
-    // @ApiParam(name = "phone", value = "电话", required = true, dataType =
-    // "String"),
-    // @ApiParam(name = "birthday", value = "生日", required = false, dataType =
-    // "String"),
-    // @ApiParam(name = "jobDesc", value = "工作描述", required = false, dataType =
-    // "String"),
-    // @ApiParam(name = "phone2", value = "备用电话", required = false, dataType =
-    // "String"),
-    // @ApiParam(name = "department", value = "部门", required = false, dataType =
-    // "String") })
-    // @PostMapping(path = "/add")
-    // @ResponseBody
-    // public ApiResponseInfo add(HttpServletRequest request) {
-    // ApiResponseInfo res = new ApiResponseInfo(HttpStatus.OK.value(),
-    // HttpStatus.OK.name());
-    //
-    // return res;
-    // }
+		return res;
+	}
 
-    @ApiOperation(value = "修改用户信息", notes = "修改新增用户的详细信息")
-    @PostMapping(path = "/edit")
-    @ResponseBody
-    public ApiResponseInfo edit(HttpServletRequest request, @ApiParam UserVo user) {
+	@ApiOperation(value = "修改用户信息", httpMethod = "POST", notes = "修改新增用户的详细信息")
+	@PostMapping(path = "/edit")
+	@ResponseBody
+	public ApiResponseInfo edit(HttpServletRequest request, @ApiParam UserVo user) {
 
-        ApiResponseInfo res = new ApiResponseInfo(HttpStatus.OK.value(), HttpStatus.OK.name());
-        return res;
-    }
-    //
-    // @ApiOperation(value = "修改用户信息", notes = "修改新增用户的详细信息")
-    // @ApiParams({
-    // @ApiParam(name = "id", value = "用户ID", required = true, dataType =
-    // "Integer", paramType = "path"),
-    // @ApiParam(name = "name", value = "用户名称", required = true, dataType =
-    // "String"),
-    // @ApiParam(name = "account", value = "帐号", required = true, dataType =
-    // "String"),
-    // @ApiParam(name = "password", value = "密码", required = true, dataType =
-    // "String"),
-    // @ApiParam(name = "phone", value = "电话", required = true, dataType =
-    // "String"),
-    // @ApiParam(name = "birthday", value = "生日", required = false, dataType =
-    // "String"),
-    // @ApiParam(name = "jobDesc", value = "工作描述", required = false, dataType =
-    // "String"),
-    // @ApiParam(name = "phone2", value = "备用电话", required = false, dataType =
-    // "String"),
-    // @ApiParam(name = "department", value = "部门", required = false, dataType =
-    // "String"),
-    // @ApiParam(name = "status", value = "状态(0-禁用，1-启用)", required = false,
-    // defaultValue="1", dataType = "Integer") })
-    // @PostMapping(path = "/edit/{id}")
-    // @ResponseBody
-    // public ApiResponseInfo edit(HttpServletRequest request) {
-    //
-    // ApiResponseInfo res = new ApiResponseInfo(HttpStatus.OK.value(),
-    // HttpStatus.OK.name());
-    // return res;
-    // }
+		ApiResponseInfo res = new ApiResponseInfo(HttpStatus.OK.value(), HttpStatus.OK.name());
+		return res;
+	}
 
-    @ApiOperation(value = "获取用户详细信息", notes = "根据指定ID获取用户的详细信息")
-    @GetMapping(path = "/{id}")
-    @ResponseBody
-    public ApiResponseInfo get(HttpServletRequest request, @PathVariable @ApiParam(name = "id", value = "用户ID", required = true) Integer id) {
-        // TODO
-        ApiResponseInfo res = new ApiResponseInfo(HttpStatus.OK.value(), HttpStatus.OK.name());
+	@ApiOperation(value = "获取用户详细信息", httpMethod = "GET", notes = "根据指定ID获取用户的详细信息")
+	@GetMapping(path = "/{id}")
+	@ResponseBody
+	public ApiResponseInfo get(HttpServletRequest request,
+			@PathVariable @ApiParam(name = "id", value = "用户ID", required = true) Integer id) {
+		// TODO
+		ApiResponseInfo res = new ApiResponseInfo(HttpStatus.OK.value(), HttpStatus.OK.name());
 
-        res.data.put("userInfo", new User());
-        return res;
-    }
+		res.data.put("userInfo", new User());
+		return res;
+	}
 
 }

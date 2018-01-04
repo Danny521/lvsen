@@ -15,6 +15,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
+import com.danny.web.listener.ContextListener;
+import com.danny.web.listener.UserListener;
 
 @SpringBootApplication
 @EnableTransactionManagement
@@ -40,6 +42,8 @@ public class MyProApplication extends WebMvcConfigurerAdapter {
 
 	public static void main(String[] args) {
 		SpringApplication application = new SpringApplication(MyProApplication.class);
+		application.addListeners(new ContextListener());
+		application.addListeners(new UserListener());
 		application.run(args);
 		application.setLogStartupInfo(true);
 	}

@@ -24,6 +24,11 @@ public class ApiResponseInfo {
         this.code = code;
         this.data.put("message", message);
     }
+    
+    public void setContent(int code, String message) {
+    	this.code = code;
+    	this.data.put("message", message);
+    }
 
     public ApiResponseInfo append(String key, Object value) {
         this.data.put(key, value);

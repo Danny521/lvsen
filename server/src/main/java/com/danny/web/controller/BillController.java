@@ -20,10 +20,10 @@ import io.swagger.annotations.ApiParam;
 @RestController
 @Api(tags = { "账单" })
 @RequestMapping({ "/bill" })
-public class BillController {
+public class BillController extends BaseController{
     private static Logger logger = LoggerFactory.getLogger(BillController.class);
 
-    @ApiOperation(value = "获取账单列表", notes = "获取全部账单的列表")
+    @ApiOperation(value = "获取账单列表", httpMethod = "GET", notes = "获取全部账单的列表")
     @GetMapping(path = "/list")
     @ResponseBody
     public ApiResponseInfo list(HttpServletRequest request, @ApiParam(name = "key", value = "任意模糊关键字(账单编号,客户名称)", required = false) String key,
@@ -37,7 +37,7 @@ public class BillController {
         return res;
     }
 
-    @ApiOperation(value = "获取账单详细信息", notes = "根据指定ID获取账单的详细信息")
+    @ApiOperation(value = "获取账单详细信息", httpMethod = "GET", notes = "根据指定ID获取账单的详细信息")
     @GetMapping(path = "/{id}")
     @ResponseBody
     public ApiResponseInfo get(HttpServletRequest request, @PathVariable @ApiParam(name = "id", value = "账单ID", required = true) Integer id) {

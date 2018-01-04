@@ -18,9 +18,7 @@ import com.danny.commons.utils.SessionKey;
 
 /**
  * 对于用户session创建以及销毁建立监听
- * 
  * @author zhangtao
- *
  */
 @WebListener
 public class UserListener implements HttpSessionAttributeListener, ServletRequestListener, ApplicationListener<ContextRefreshedEvent> {
