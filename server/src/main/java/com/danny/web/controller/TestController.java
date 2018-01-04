@@ -1,33 +1,49 @@
 package com.danny.web.controller;
 
-import javax.servlet.http.HttpServletRequest;
+import java.util.Random;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.commons.lang3.RandomUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.danny.commons.utils.SystemConfig;
-
-import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiOperation;
 
 @RestController
 @RequestMapping({ "/test" })
 public class TestController {
     private static Logger logger = LoggerFactory.getLogger(TestController.class);
 
-    @ApiOperation(value="获取用户详细信息", notes="根据url的id来获取用户详细信息")
-	@ApiImplicitParam(name = "id", value = "用户ID", required = true, dataType = "Integer", paramType = "path")
-    @RequestMapping({ "/user_info" })
-    public String greeting(HttpServletRequest request) {
+    @ResponseBody
+    @GetMapping(path = "/login")
+    public String greeting(HttpServletRequest request, HttpServletResponse response) {
+        String ck = request.getHeader("cookie");
+        logger.info("----old cookie=" + ck);
+        String jessionString = "123456"+RandomUtils.nextInt(0, 100);
+        logger.info("----new cookie=" + jessionString);
+//        Cookie cookie = new Cookie("JSESSIONID", jessionString);
+//        Cookie token = new Cookie("tokenId", jessionString);
+//        cookie.setPath("/");
+//        cookie.setMaxAge(-1);// 设置24小时生存期，当设置为负值时，则为浏览器进程Cookie(内存中保存)，关闭浏览器就失效。
+//        response.addCookie(cookie);
+//        response.addCookie(token);
+        response.setHeader("tokenId", jessionString);
+        return jessionString;
+    }
+
+    @ResponseBody
+    @GetMapping(path = "/hello")
+    public String hello(HttpServletRequest request) {
         String cookie = request.getHeader("cookie");
-        String referer = request.getHeader("referer");
+        String token = request.getHeader("tokenId");
+//        request.getCookies()[0].getName();
         logger.info("----cookie=" + cookie);
-        logger.info("----referer=" + referer);
-//        logger.info("------------url=" + AiermuHttpUrlUtil.makeGetUserInfoUrl());
-//        String userInfo = HttpClientUtil.doGet4Https(AiermuHttpUrlUtil.makeGetUserInfoUrl(), cookie, referer);
-//        logger.info("------------userInfo=" + userInfo);
-        return SystemConfig.getString("redis.ip");
+        logger.info("----token=" + token);
+        return cookie + request.getCookies();
     }
 }

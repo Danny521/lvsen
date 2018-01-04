@@ -9,13 +9,13 @@ public class BillVo {
     @ApiModelProperty(value = "客户ID", position = 1)
     private Integer clientId;
 
-    @ApiModelProperty(value = "单据ID", position = 1)
+    @ApiModelProperty(value = "单据ID", position = 2)
     private Long orderId;
 
-    @ApiModelProperty(value = "应付金额", position = 1)
+    @ApiModelProperty(value = "应付金额", position = 3)
     private Float payableAmount;
 
-    @ApiModelProperty(value = "已付金额", position = 1)
+    @ApiModelProperty(value = "已付金额", position = 4)
     private Float paidAmount;
 
     @ApiModelProperty(value = "状态(0-禁用，1-启用)", allowableValues="0,1")

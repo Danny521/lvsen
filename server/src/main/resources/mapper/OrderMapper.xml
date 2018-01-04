@@ -1,49 +1,49 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.danny.lvsen.mapper.OrderMapper">
-  <resultMap id="BaseResultMap" type="com.danny.lvsen.pojo.Order">
-    <id column="id" jdbcType="BIGINT" property="id" />
-    <result column="number" jdbcType="VARCHAR" property="number" />
-    <result column="code" jdbcType="VARCHAR" property="code" />
-    <result column="create_user" jdbcType="VARCHAR" property="createUser" />
-    <result column="way_id" jdbcType="INTEGER" property="wayId" />
-    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
-    <result column="delivery_date" jdbcType="TIMESTAMP" property="deliveryDate" />
-    <result column="handle_date" jdbcType="TIMESTAMP" property="handleDate" />
-    <result column="check_user_id" jdbcType="INTEGER" property="checkUserId" />
-    <result column="category_id" jdbcType="INTEGER" property="categoryId" />
-    <result column="client_id" jdbcType="INTEGER" property="clientId" />
-    <result column="handle_user_id" jdbcType="INTEGER" property="handleUserId" />
-    <result column="discount" jdbcType="REAL" property="discount" />
-    <result column="digest" jdbcType="VARCHAR" property="digest" />
-    <result column="storage_id" jdbcType="INTEGER" property="storageId" />
-    <result column="comment" jdbcType="VARCHAR" property="comment" />
-    <result column="total_money" jdbcType="REAL" property="totalMoney" />
-    <result column="paid_money" jdbcType="REAL" property="paidMoney" />
-    <result column="is_changed" jdbcType="BIT" property="isChanged" />
-    <result column="print_count" jdbcType="INTEGER" property="printCount" />
-    <result column="pay_status" jdbcType="BIT" property="payStatus" />
-    <result column="ext" jdbcType="VARCHAR" property="ext" />
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.danny.lvsen.mapper.OrderMapper" >
+  <resultMap id="BaseResultMap" type="com.danny.lvsen.pojo.Order" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="number" property="number" jdbcType="VARCHAR" />
+    <result column="code" property="code" jdbcType="VARCHAR" />
+    <result column="create_user_id" property="createUserId" jdbcType="INTEGER" />
+    <result column="way_id" property="wayId" jdbcType="INTEGER" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="delivery_date" property="deliveryDate" jdbcType="TIMESTAMP" />
+    <result column="handle_date" property="handleDate" jdbcType="TIMESTAMP" />
+    <result column="check_user_id" property="checkUserId" jdbcType="INTEGER" />
+    <result column="category_id" property="categoryId" jdbcType="INTEGER" />
+    <result column="client_id" property="clientId" jdbcType="INTEGER" />
+    <result column="handle_user_id" property="handleUserId" jdbcType="INTEGER" />
+    <result column="discount" property="discount" jdbcType="REAL" />
+    <result column="digest" property="digest" jdbcType="VARCHAR" />
+    <result column="storage_id" property="storageId" jdbcType="INTEGER" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="total_money" property="totalMoney" jdbcType="REAL" />
+    <result column="paid_money" property="paidMoney" jdbcType="REAL" />
+    <result column="is_changed" property="isChanged" jdbcType="BIT" />
+    <result column="print_count" property="printCount" jdbcType="INTEGER" />
+    <result column="pay_status" property="payStatus" jdbcType="BIT" />
+    <result column="ext" property="ext" jdbcType="VARCHAR" />
   </resultMap>
-  <sql id="Example_Where_Clause">
-    <where>
-      <foreach collection="oredCriteria" item="criteria" separator="or">
-        <if test="criteria.valid">
-          <trim prefix="(" prefixOverrides="and" suffix=")">
-            <foreach collection="criteria.criteria" item="criterion">
-              <choose>
-                <when test="criterion.noValue">
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
                   and ${criterion.condition}
                 </when>
-                <when test="criterion.singleValue">
+                <when test="criterion.singleValue" >
                   and ${criterion.condition} #{criterion.value}
                 </when>
-                <when test="criterion.betweenValue">
+                <when test="criterion.betweenValue" >
                   and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
                 </when>
-                <when test="criterion.listValue">
+                <when test="criterion.listValue" >
                   and ${criterion.condition}
-                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
                     #{listItem}
                   </foreach>
                 </when>
@@ -54,25 +54,25 @@
       </foreach>
     </where>
   </sql>
-  <sql id="Update_By_Example_Where_Clause">
-    <where>
-      <foreach collection="example.oredCriteria" item="criteria" separator="or">
-        <if test="criteria.valid">
-          <trim prefix="(" prefixOverrides="and" suffix=")">
-            <foreach collection="criteria.criteria" item="criterion">
-              <choose>
-                <when test="criterion.noValue">
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
                   and ${criterion.condition}
                 </when>
-                <when test="criterion.singleValue">
+                <when test="criterion.singleValue" >
                   and ${criterion.condition} #{criterion.value}
                 </when>
-                <when test="criterion.betweenValue">
+                <when test="criterion.betweenValue" >
                   and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
                 </when>
-                <when test="criterion.listValue">
+                <when test="criterion.listValue" >
                   and ${criterion.condition}
-                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
                     #{listItem}
                   </foreach>
                 </when>
@@ -83,278 +83,278 @@
       </foreach>
     </where>
   </sql>
-  <sql id="Base_Column_List">
-    id, number, code, create_user, way_id, create_date, delivery_date, handle_date, check_user_id, 
-    category_id, client_id, handle_user_id, discount, digest, storage_id, comment, total_money, 
-    paid_money, is_changed, print_count, pay_status, ext
+  <sql id="Base_Column_List" >
+    id, number, code, create_user_id, way_id, create_date, delivery_date, handle_date, 
+    check_user_id, category_id, client_id, handle_user_id, discount, digest, storage_id, 
+    remark, total_money, paid_money, is_changed, print_count, pay_status, ext
   </sql>
-  <select id="selectByExample" parameterType="com.danny.lvsen.pojo.OrderExample" resultMap="BaseResultMap">
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.danny.lvsen.pojo.OrderExample" >
     select
-    <if test="distinct">
+    <if test="distinct" >
       distinct
     </if>
     <include refid="Base_Column_List" />
     from orders
-    <if test="_parameter != null">
+    <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
-    <if test="orderByClause != null">
+    <if test="orderByClause != null" >
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
     select 
     <include refid="Base_Column_List" />
     from orders
     where id = #{id,jdbcType=BIGINT}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
     delete from orders
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="com.danny.lvsen.pojo.OrderExample">
+  <delete id="deleteByExample" parameterType="com.danny.lvsen.pojo.OrderExample" >
     delete from orders
-    <if test="_parameter != null">
+    <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.danny.lvsen.pojo.Order" useGeneratedKeys="true">
-    insert into orders (number, code, create_user, 
+  <insert id="insert" parameterType="com.danny.lvsen.pojo.Order" useGeneratedKeys="true" keyProperty="id" >
+    insert into orders (number, code, create_user_id, 
       way_id, create_date, delivery_date, 
       handle_date, check_user_id, category_id, 
       client_id, handle_user_id, discount, 
-      digest, storage_id, comment, 
+      digest, storage_id, remark, 
       total_money, paid_money, is_changed, 
       print_count, pay_status, ext
       )
-    values (#{number,jdbcType=VARCHAR}, #{code,jdbcType=VARCHAR}, #{createUser,jdbcType=VARCHAR}, 
+    values (#{number,jdbcType=VARCHAR}, #{code,jdbcType=VARCHAR}, #{createUserId,jdbcType=INTEGER}, 
       #{wayId,jdbcType=INTEGER}, #{createDate,jdbcType=TIMESTAMP}, #{deliveryDate,jdbcType=TIMESTAMP}, 
       #{handleDate,jdbcType=TIMESTAMP}, #{checkUserId,jdbcType=INTEGER}, #{categoryId,jdbcType=INTEGER}, 
       #{clientId,jdbcType=INTEGER}, #{handleUserId,jdbcType=INTEGER}, #{discount,jdbcType=REAL}, 
-      #{digest,jdbcType=VARCHAR}, #{storageId,jdbcType=INTEGER}, #{comment,jdbcType=VARCHAR}, 
+      #{digest,jdbcType=VARCHAR}, #{storageId,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR}, 
       #{totalMoney,jdbcType=REAL}, #{paidMoney,jdbcType=REAL}, #{isChanged,jdbcType=BIT}, 
       #{printCount,jdbcType=INTEGER}, #{payStatus,jdbcType=BIT}, #{ext,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.danny.lvsen.pojo.Order" useGeneratedKeys="true">
+  <insert id="insertSelective" parameterType="com.danny.lvsen.pojo.Order" useGeneratedKeys="true" keyProperty="id" >
     insert into orders
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="number != null">
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="number != null" >
         number,
       </if>
-      <if test="code != null">
+      <if test="code != null" >
         code,
       </if>
-      <if test="createUser != null">
-        create_user,
+      <if test="createUserId != null" >
+        create_user_id,
       </if>
-      <if test="wayId != null">
+      <if test="wayId != null" >
         way_id,
       </if>
-      <if test="createDate != null">
+      <if test="createDate != null" >
         create_date,
       </if>
-      <if test="deliveryDate != null">
+      <if test="deliveryDate != null" >
         delivery_date,
       </if>
-      <if test="handleDate != null">
+      <if test="handleDate != null" >
         handle_date,
       </if>
-      <if test="checkUserId != null">
+      <if test="checkUserId != null" >
         check_user_id,
       </if>
-      <if test="categoryId != null">
+      <if test="categoryId != null" >
         category_id,
       </if>
-      <if test="clientId != null">
+      <if test="clientId != null" >
         client_id,
       </if>
-      <if test="handleUserId != null">
+      <if test="handleUserId != null" >
         handle_user_id,
       </if>
-      <if test="discount != null">
+      <if test="discount != null" >
         discount,
       </if>
-      <if test="digest != null">
+      <if test="digest != null" >
         digest,
       </if>
-      <if test="storageId != null">
+      <if test="storageId != null" >
         storage_id,
       </if>
-      <if test="comment != null">
-        comment,
+      <if test="remark != null" >
+        remark,
       </if>
-      <if test="totalMoney != null">
+      <if test="totalMoney != null" >
         total_money,
       </if>
-      <if test="paidMoney != null">
+      <if test="paidMoney != null" >
         paid_money,
       </if>
-      <if test="isChanged != null">
+      <if test="isChanged != null" >
         is_changed,
       </if>
-      <if test="printCount != null">
+      <if test="printCount != null" >
         print_count,
       </if>
-      <if test="payStatus != null">
+      <if test="payStatus != null" >
         pay_status,
       </if>
-      <if test="ext != null">
+      <if test="ext != null" >
         ext,
       </if>
     </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="number != null">
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="number != null" >
         #{number,jdbcType=VARCHAR},
       </if>
-      <if test="code != null">
+      <if test="code != null" >
         #{code,jdbcType=VARCHAR},
       </if>
-      <if test="createUser != null">
-        #{createUser,jdbcType=VARCHAR},
+      <if test="createUserId != null" >
+        #{createUserId,jdbcType=INTEGER},
       </if>
-      <if test="wayId != null">
+      <if test="wayId != null" >
         #{wayId,jdbcType=INTEGER},
       </if>
-      <if test="createDate != null">
+      <if test="createDate != null" >
         #{createDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="deliveryDate != null">
+      <if test="deliveryDate != null" >
         #{deliveryDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="handleDate != null">
+      <if test="handleDate != null" >
         #{handleDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="checkUserId != null">
+      <if test="checkUserId != null" >
         #{checkUserId,jdbcType=INTEGER},
       </if>
-      <if test="categoryId != null">
+      <if test="categoryId != null" >
         #{categoryId,jdbcType=INTEGER},
       </if>
-      <if test="clientId != null">
+      <if test="clientId != null" >
         #{clientId,jdbcType=INTEGER},
       </if>
-      <if test="handleUserId != null">
+      <if test="handleUserId != null" >
         #{handleUserId,jdbcType=INTEGER},
       </if>
-      <if test="discount != null">
+      <if test="discount != null" >
         #{discount,jdbcType=REAL},
       </if>
-      <if test="digest != null">
+      <if test="digest != null" >
         #{digest,jdbcType=VARCHAR},
       </if>
-      <if test="storageId != null">
+      <if test="storageId != null" >
         #{storageId,jdbcType=INTEGER},
       </if>
-      <if test="comment != null">
-        #{comment,jdbcType=VARCHAR},
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
       </if>
-      <if test="totalMoney != null">
+      <if test="totalMoney != null" >
         #{totalMoney,jdbcType=REAL},
       </if>
-      <if test="paidMoney != null">
+      <if test="paidMoney != null" >
         #{paidMoney,jdbcType=REAL},
       </if>
-      <if test="isChanged != null">
+      <if test="isChanged != null" >
         #{isChanged,jdbcType=BIT},
       </if>
-      <if test="printCount != null">
+      <if test="printCount != null" >
         #{printCount,jdbcType=INTEGER},
       </if>
-      <if test="payStatus != null">
+      <if test="payStatus != null" >
         #{payStatus,jdbcType=BIT},
       </if>
-      <if test="ext != null">
+      <if test="ext != null" >
         #{ext,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.danny.lvsen.pojo.OrderExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.danny.lvsen.pojo.OrderExample" resultType="java.lang.Integer" >
     select count(*) from orders
-    <if test="_parameter != null">
+    <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </select>
-  <update id="updateByExampleSelective" parameterType="map">
+  <update id="updateByExampleSelective" parameterType="map" >
     update orders
-    <set>
-      <if test="record.id != null">
+    <set >
+      <if test="record.id != null" >
         id = #{record.id,jdbcType=BIGINT},
       </if>
-      <if test="record.number != null">
+      <if test="record.number != null" >
         number = #{record.number,jdbcType=VARCHAR},
       </if>
-      <if test="record.code != null">
+      <if test="record.code != null" >
         code = #{record.code,jdbcType=VARCHAR},
       </if>
-      <if test="record.createUser != null">
-        create_user = #{record.createUser,jdbcType=VARCHAR},
+      <if test="record.createUserId != null" >
+        create_user_id = #{record.createUserId,jdbcType=INTEGER},
       </if>
-      <if test="record.wayId != null">
+      <if test="record.wayId != null" >
         way_id = #{record.wayId,jdbcType=INTEGER},
       </if>
-      <if test="record.createDate != null">
+      <if test="record.createDate != null" >
         create_date = #{record.createDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="record.deliveryDate != null">
+      <if test="record.deliveryDate != null" >
         delivery_date = #{record.deliveryDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="record.handleDate != null">
+      <if test="record.handleDate != null" >
         handle_date = #{record.handleDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="record.checkUserId != null">
+      <if test="record.checkUserId != null" >
         check_user_id = #{record.checkUserId,jdbcType=INTEGER},
       </if>
-      <if test="record.categoryId != null">
+      <if test="record.categoryId != null" >
         category_id = #{record.categoryId,jdbcType=INTEGER},
       </if>
-      <if test="record.clientId != null">
+      <if test="record.clientId != null" >
         client_id = #{record.clientId,jdbcType=INTEGER},
       </if>
-      <if test="record.handleUserId != null">
+      <if test="record.handleUserId != null" >
         handle_user_id = #{record.handleUserId,jdbcType=INTEGER},
       </if>
-      <if test="record.discount != null">
+      <if test="record.discount != null" >
         discount = #{record.discount,jdbcType=REAL},
       </if>
-      <if test="record.digest != null">
+      <if test="record.digest != null" >
         digest = #{record.digest,jdbcType=VARCHAR},
       </if>
-      <if test="record.storageId != null">
+      <if test="record.storageId != null" >
         storage_id = #{record.storageId,jdbcType=INTEGER},
       </if>
-      <if test="record.comment != null">
-        comment = #{record.comment,jdbcType=VARCHAR},
+      <if test="record.remark != null" >
+        remark = #{record.remark,jdbcType=VARCHAR},
       </if>
-      <if test="record.totalMoney != null">
+      <if test="record.totalMoney != null" >
         total_money = #{record.totalMoney,jdbcType=REAL},
       </if>
-      <if test="record.paidMoney != null">
+      <if test="record.paidMoney != null" >
         paid_money = #{record.paidMoney,jdbcType=REAL},
       </if>
-      <if test="record.isChanged != null">
+      <if test="record.isChanged != null" >
         is_changed = #{record.isChanged,jdbcType=BIT},
       </if>
-      <if test="record.printCount != null">
+      <if test="record.printCount != null" >
         print_count = #{record.printCount,jdbcType=INTEGER},
       </if>
-      <if test="record.payStatus != null">
+      <if test="record.payStatus != null" >
         pay_status = #{record.payStatus,jdbcType=BIT},
       </if>
-      <if test="record.ext != null">
+      <if test="record.ext != null" >
         ext = #{record.ext,jdbcType=VARCHAR},
       </if>
     </set>
-    <if test="_parameter != null">
+    <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByExample" parameterType="map">
+  <update id="updateByExample" parameterType="map" >
     update orders
     set id = #{record.id,jdbcType=BIGINT},
       number = #{record.number,jdbcType=VARCHAR},
       code = #{record.code,jdbcType=VARCHAR},
-      create_user = #{record.createUser,jdbcType=VARCHAR},
+      create_user_id = #{record.createUserId,jdbcType=INTEGER},
       way_id = #{record.wayId,jdbcType=INTEGER},
       create_date = #{record.createDate,jdbcType=TIMESTAMP},
       delivery_date = #{record.deliveryDate,jdbcType=TIMESTAMP},
@@ -366,91 +366,91 @@
       discount = #{record.discount,jdbcType=REAL},
       digest = #{record.digest,jdbcType=VARCHAR},
       storage_id = #{record.storageId,jdbcType=INTEGER},
-      comment = #{record.comment,jdbcType=VARCHAR},
+      remark = #{record.remark,jdbcType=VARCHAR},
       total_money = #{record.totalMoney,jdbcType=REAL},
       paid_money = #{record.paidMoney,jdbcType=REAL},
       is_changed = #{record.isChanged,jdbcType=BIT},
       print_count = #{record.printCount,jdbcType=INTEGER},
       pay_status = #{record.payStatus,jdbcType=BIT},
       ext = #{record.ext,jdbcType=VARCHAR}
-    <if test="_parameter != null">
+    <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.danny.lvsen.pojo.Order">
+  <update id="updateByPrimaryKeySelective" parameterType="com.danny.lvsen.pojo.Order" >
     update orders
-    <set>
-      <if test="number != null">
+    <set >
+      <if test="number != null" >
         number = #{number,jdbcType=VARCHAR},
       </if>
-      <if test="code != null">
+      <if test="code != null" >
         code = #{code,jdbcType=VARCHAR},
       </if>
-      <if test="createUser != null">
-        create_user = #{createUser,jdbcType=VARCHAR},
+      <if test="createUserId != null" >
+        create_user_id = #{createUserId,jdbcType=INTEGER},
       </if>
-      <if test="wayId != null">
+      <if test="wayId != null" >
         way_id = #{wayId,jdbcType=INTEGER},
       </if>
-      <if test="createDate != null">
+      <if test="createDate != null" >
         create_date = #{createDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="deliveryDate != null">
+      <if test="deliveryDate != null" >
         delivery_date = #{deliveryDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="handleDate != null">
+      <if test="handleDate != null" >
         handle_date = #{handleDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="checkUserId != null">
+      <if test="checkUserId != null" >
         check_user_id = #{checkUserId,jdbcType=INTEGER},
       </if>
-      <if test="categoryId != null">
+      <if test="categoryId != null" >
         category_id = #{categoryId,jdbcType=INTEGER},
       </if>
-      <if test="clientId != null">
+      <if test="clientId != null" >
         client_id = #{clientId,jdbcType=INTEGER},
       </if>
-      <if test="handleUserId != null">
+      <if test="handleUserId != null" >
         handle_user_id = #{handleUserId,jdbcType=INTEGER},
       </if>
-      <if test="discount != null">
+      <if test="discount != null" >
         discount = #{discount,jdbcType=REAL},
       </if>
-      <if test="digest != null">
+      <if test="digest != null" >
         digest = #{digest,jdbcType=VARCHAR},
       </if>
-      <if test="storageId != null">
+      <if test="storageId != null" >
         storage_id = #{storageId,jdbcType=INTEGER},
       </if>
-      <if test="comment != null">
-        comment = #{comment,jdbcType=VARCHAR},
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
       </if>
-      <if test="totalMoney != null">
+      <if test="totalMoney != null" >
         total_money = #{totalMoney,jdbcType=REAL},
       </if>
-      <if test="paidMoney != null">
+      <if test="paidMoney != null" >
         paid_money = #{paidMoney,jdbcType=REAL},
       </if>
-      <if test="isChanged != null">
+      <if test="isChanged != null" >
         is_changed = #{isChanged,jdbcType=BIT},
       </if>
-      <if test="printCount != null">
+      <if test="printCount != null" >
         print_count = #{printCount,jdbcType=INTEGER},
       </if>
-      <if test="payStatus != null">
+      <if test="payStatus != null" >
         pay_status = #{payStatus,jdbcType=BIT},
       </if>
-      <if test="ext != null">
+      <if test="ext != null" >
         ext = #{ext,jdbcType=VARCHAR},
       </if>
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.danny.lvsen.pojo.Order">
+  <update id="updateByPrimaryKey" parameterType="com.danny.lvsen.pojo.Order" >
     update orders
     set number = #{number,jdbcType=VARCHAR},
       code = #{code,jdbcType=VARCHAR},
-      create_user = #{createUser,jdbcType=VARCHAR},
+      create_user_id = #{createUserId,jdbcType=INTEGER},
       way_id = #{wayId,jdbcType=INTEGER},
       create_date = #{createDate,jdbcType=TIMESTAMP},
       delivery_date = #{deliveryDate,jdbcType=TIMESTAMP},
@@ -462,7 +462,7 @@
       discount = #{discount,jdbcType=REAL},
       digest = #{digest,jdbcType=VARCHAR},
       storage_id = #{storageId,jdbcType=INTEGER},
-      comment = #{comment,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
       total_money = #{totalMoney,jdbcType=REAL},
       paid_money = #{paidMoney,jdbcType=REAL},
       is_changed = #{isChanged,jdbcType=BIT},

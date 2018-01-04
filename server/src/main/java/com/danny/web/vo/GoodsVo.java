@@ -52,7 +52,7 @@ public class GoodsVo {
 	@ApiModelProperty(value = "重量(单位:kg)")
 	private Float weight;
 
-	@ApiModelProperty(value = "体积(单位：立方米)")
+	@ApiModelProperty(value = "体积(单位:立方米)")
 	private Float volume;
 
 	@ApiModelProperty(value = "备注信息")

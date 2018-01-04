@@ -6,7 +6,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface OrderWayMapper {
-    long countByExample(OrderWayExample example);
+    int countByExample(OrderWayExample example);
 
     int deleteByExample(OrderWayExample example);
 

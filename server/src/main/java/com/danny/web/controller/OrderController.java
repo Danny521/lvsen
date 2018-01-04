@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -108,6 +109,16 @@ public class OrderController {
 		ApiResponseInfo res = new ApiResponseInfo(HttpStatus.OK.value(), HttpStatus.OK.name());
 		// TODO
 		return res;
+	}
+	
+	@ApiOperation(value = "删除单据", notes = "根据指定ID删除单据")
+	@DeleteMapping(path = "/{id}")
+	@ResponseBody
+	public ApiResponseInfo delete(HttpServletRequest request,
+	        @PathVariable @ApiParam(name = "id", value = "单据ID", required = true) Long id) {
+	    ApiResponseInfo res = new ApiResponseInfo(HttpStatus.OK.value(), HttpStatus.OK.name());
+	    // TODO
+	    return res;
 	}
 
 }

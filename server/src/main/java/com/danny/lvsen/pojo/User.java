@@ -13,6 +13,8 @@ public class User {
 
     private String acronym;
 
+    private Boolean sex;
+
     private String phone;
 
     private String birthday;
@@ -73,6 +75,14 @@ public class User {
 
     public void setAcronym(String acronym) {
         this.acronym = acronym == null ? null : acronym.trim();
+    }
+
+    public Boolean getSex() {
+        return sex;
+    }
+
+    public void setSex(Boolean sex) {
+        this.sex = sex;
     }
 
     public String getPhone() {

@@ -1,5 +1,7 @@
 package com.danny.lvsen.pojo;
 
+import java.util.Date;
+
 public class Bill {
     private Long id;
 
@@ -12,6 +14,8 @@ public class Bill {
     private Float paidAmount;
 
     private Boolean status;
+
+    private Date createTime;
 
     public Long getId() {
         return id;
@@ -59,5 +63,13 @@ public class Bill {
 
     public void setStatus(Boolean status) {
         this.status = status;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 }

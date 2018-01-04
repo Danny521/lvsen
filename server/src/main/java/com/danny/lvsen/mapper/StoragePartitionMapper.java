@@ -6,7 +6,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface StoragePartitionMapper {
-    long countByExample(StoragePartitionExample example);
+    int countByExample(StoragePartitionExample example);
 
     int deleteByExample(StoragePartitionExample example);
 

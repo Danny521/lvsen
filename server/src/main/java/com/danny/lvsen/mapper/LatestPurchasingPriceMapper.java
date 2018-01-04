@@ -6,7 +6,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface LatestPurchasingPriceMapper {
-    long countByExample(LatestPurchasingPriceExample example);
+    int countByExample(LatestPurchasingPriceExample example);
 
     int deleteByExample(LatestPurchasingPriceExample example);
 

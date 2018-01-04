@@ -1,16 +1,23 @@
 package com.danny.web.vo;
 
+import io.swagger.annotations.ApiModelProperty;
+
 public class ClientVo {
     private Integer id;
-
+    
+    @ApiModelProperty(value = "客户编号", hidden = true)
     private String clientNumber;
-
+    
+    @ApiModelProperty(value = "客户类别")
     private Integer category;
 
+    @ApiModelProperty(value = "客户名称")
     private String name;
 
+    @ApiModelProperty(hidden = true)
     private String pinyin;
 
+    @ApiModelProperty(hidden = true)
     private String acronym;
 
     private String address;

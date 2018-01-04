@@ -16,7 +16,7 @@
 
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
                         connectionURL="jdbc:mysql://127.0.0.1:3306/lvsen?generateSimpleParameterMetadata=true"
-                        userId="root" password="1234">
+                        userId="root" password="root">
         </jdbcConnection>
 
         <javaTypeResolver>
@@ -118,7 +118,19 @@
         	<property name="useActualColumnNames" value="false"/>
             <generatedKey column="id" sqlStatement="JDBC"/>
         </table>
-        <table tableName="user" domainObjectName="User">
+        <table tableName="sys_user" domainObjectName="User">
+        	<property name="useActualColumnNames" value="false"/>
+            <generatedKey column="id" sqlStatement="JDBC"/>
+        </table>
+        <table tableName="sys_role" domainObjectName="Role">
+        	<property name="useActualColumnNames" value="false"/>
+            <generatedKey column="id" sqlStatement="JDBC"/>
+        </table>
+        <table tableName="sys_menu" domainObjectName="Menu">
+        	<property name="useActualColumnNames" value="false"/>
+            <generatedKey column="id" sqlStatement="JDBC"/>
+        </table>
+        <table tableName="sys_role_privilege" domainObjectName="RolePrivilege">
         	<property name="useActualColumnNames" value="false"/>
             <generatedKey column="id" sqlStatement="JDBC"/>
         </table>

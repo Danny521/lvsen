@@ -25,6 +25,8 @@ public class Client {
 
     private Integer defaultPriceCategory;
 
+    private String remark;
+
     public Integer getId() {
         return id;
     }
@@ -119,5 +121,13 @@ public class Client {
 
     public void setDefaultPriceCategory(Integer defaultPriceCategory) {
         this.defaultPriceCategory = defaultPriceCategory;
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark == null ? null : remark.trim();
     }
 }

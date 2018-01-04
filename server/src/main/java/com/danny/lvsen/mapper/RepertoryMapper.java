@@ -6,7 +6,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface RepertoryMapper {
-    long countByExample(RepertoryExample example);
+    int countByExample(RepertoryExample example);
 
     int deleteByExample(RepertoryExample example);
 

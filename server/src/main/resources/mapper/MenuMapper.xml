@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.danny.lvsen.mapper.RepertoryMapper" >
-  <resultMap id="BaseResultMap" type="com.danny.lvsen.pojo.Repertory" >
+<mapper namespace="com.danny.lvsen.mapper.MenuMapper" >
+  <resultMap id="BaseResultMap" type="com.danny.lvsen.pojo.Menu" >
     <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="goods_id" property="goodsId" jdbcType="INTEGER" />
-    <result column="category" property="category" jdbcType="INTEGER" />
-    <result column="total_num" property="totalNum" jdbcType="INTEGER" />
-    <result column="cost_price" property="costPrice" jdbcType="REAL" />
-    <result column="money" property="money" jdbcType="REAL" />
+    <result column="menu_code" property="menuCode" jdbcType="VARCHAR" />
+    <result column="menu_name" property="menuName" jdbcType="VARCHAR" />
+    <result column="menu_order" property="menuOrder" jdbcType="INTEGER" />
+    <result column="parent_id" property="parentId" jdbcType="INTEGER" />
+    <result column="menu_url" property="menuUrl" jdbcType="VARCHAR" />
+    <result column="menu_status" property="menuStatus" jdbcType="BIT" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -68,15 +69,15 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, goods_id, category, total_num, cost_price, money
+    id, menu_code, menu_name, menu_order, parent_id, menu_url, menu_status
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.danny.lvsen.pojo.RepertoryExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.danny.lvsen.pojo.MenuExample" >
     select
     <if test="distinct" >
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from repertory
+    from sys_menu
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
@@ -87,88 +88,99 @@
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
-    from repertory
+    from sys_menu
     where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from repertory
+    delete from sys_menu
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.danny.lvsen.pojo.RepertoryExample" >
-    delete from repertory
+  <delete id="deleteByExample" parameterType="com.danny.lvsen.pojo.MenuExample" >
+    delete from sys_menu
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.danny.lvsen.pojo.Repertory" useGeneratedKeys="true" keyProperty="id" >
-    insert into repertory (goods_id, category, total_num, 
-      cost_price, money)
-    values (#{goodsId,jdbcType=INTEGER}, #{category,jdbcType=INTEGER}, #{totalNum,jdbcType=INTEGER}, 
-      #{costPrice,jdbcType=REAL}, #{money,jdbcType=REAL})
+  <insert id="insert" parameterType="com.danny.lvsen.pojo.Menu" useGeneratedKeys="true" keyProperty="id" >
+    insert into sys_menu (menu_code, menu_name, menu_order, 
+      parent_id, menu_url, menu_status
+      )
+    values (#{menuCode,jdbcType=VARCHAR}, #{menuName,jdbcType=VARCHAR}, #{menuOrder,jdbcType=INTEGER}, 
+      #{parentId,jdbcType=INTEGER}, #{menuUrl,jdbcType=VARCHAR}, #{menuStatus,jdbcType=BIT}
+      )
   </insert>
-  <insert id="insertSelective" parameterType="com.danny.lvsen.pojo.Repertory" useGeneratedKeys="true" keyProperty="id" >
-    insert into repertory
+  <insert id="insertSelective" parameterType="com.danny.lvsen.pojo.Menu" useGeneratedKeys="true" keyProperty="id" >
+    insert into sys_menu
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="goodsId != null" >
-        goods_id,
+      <if test="menuCode != null" >
+        menu_code,
       </if>
-      <if test="category != null" >
-        category,
+      <if test="menuName != null" >
+        menu_name,
       </if>
-      <if test="totalNum != null" >
-        total_num,
+      <if test="menuOrder != null" >
+        menu_order,
       </if>
-      <if test="costPrice != null" >
-        cost_price,
+      <if test="parentId != null" >
+        parent_id,
       </if>
-      <if test="money != null" >
-        money,
+      <if test="menuUrl != null" >
+        menu_url,
+      </if>
+      <if test="menuStatus != null" >
+        menu_status,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="goodsId != null" >
-        #{goodsId,jdbcType=INTEGER},
+      <if test="menuCode != null" >
+        #{menuCode,jdbcType=VARCHAR},
       </if>
-      <if test="category != null" >
-        #{category,jdbcType=INTEGER},
+      <if test="menuName != null" >
+        #{menuName,jdbcType=VARCHAR},
       </if>
-      <if test="totalNum != null" >
-        #{totalNum,jdbcType=INTEGER},
+      <if test="menuOrder != null" >
+        #{menuOrder,jdbcType=INTEGER},
       </if>
-      <if test="costPrice != null" >
-        #{costPrice,jdbcType=REAL},
+      <if test="parentId != null" >
+        #{parentId,jdbcType=INTEGER},
       </if>
-      <if test="money != null" >
-        #{money,jdbcType=REAL},
+      <if test="menuUrl != null" >
+        #{menuUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="menuStatus != null" >
+        #{menuStatus,jdbcType=BIT},
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.danny.lvsen.pojo.RepertoryExample" resultType="java.lang.Integer" >
-    select count(*) from repertory
+  <select id="countByExample" parameterType="com.danny.lvsen.pojo.MenuExample" resultType="java.lang.Integer" >
+    select count(*) from sys_menu
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map" >
-    update repertory
+    update sys_menu
     <set >
       <if test="record.id != null" >
         id = #{record.id,jdbcType=INTEGER},
       </if>
-      <if test="record.goodsId != null" >
-        goods_id = #{record.goodsId,jdbcType=INTEGER},
+      <if test="record.menuCode != null" >
+        menu_code = #{record.menuCode,jdbcType=VARCHAR},
       </if>
-      <if test="record.category != null" >
-        category = #{record.category,jdbcType=INTEGER},
+      <if test="record.menuName != null" >
+        menu_name = #{record.menuName,jdbcType=VARCHAR},
       </if>
-      <if test="record.totalNum != null" >
-        total_num = #{record.totalNum,jdbcType=INTEGER},
+      <if test="record.menuOrder != null" >
+        menu_order = #{record.menuOrder,jdbcType=INTEGER},
       </if>
-      <if test="record.costPrice != null" >
-        cost_price = #{record.costPrice,jdbcType=REAL},
+      <if test="record.parentId != null" >
+        parent_id = #{record.parentId,jdbcType=INTEGER},
       </if>
-      <if test="record.money != null" >
-        money = #{record.money,jdbcType=REAL},
+      <if test="record.menuUrl != null" >
+        menu_url = #{record.menuUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.menuStatus != null" >
+        menu_status = #{record.menuStatus,jdbcType=BIT},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -176,45 +188,50 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map" >
-    update repertory
+    update sys_menu
     set id = #{record.id,jdbcType=INTEGER},
-      goods_id = #{record.goodsId,jdbcType=INTEGER},
-      category = #{record.category,jdbcType=INTEGER},
-      total_num = #{record.totalNum,jdbcType=INTEGER},
-      cost_price = #{record.costPrice,jdbcType=REAL},
-      money = #{record.money,jdbcType=REAL}
+      menu_code = #{record.menuCode,jdbcType=VARCHAR},
+      menu_name = #{record.menuName,jdbcType=VARCHAR},
+      menu_order = #{record.menuOrder,jdbcType=INTEGER},
+      parent_id = #{record.parentId,jdbcType=INTEGER},
+      menu_url = #{record.menuUrl,jdbcType=VARCHAR},
+      menu_status = #{record.menuStatus,jdbcType=BIT}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.danny.lvsen.pojo.Repertory" >
-    update repertory
+  <update id="updateByPrimaryKeySelective" parameterType="com.danny.lvsen.pojo.Menu" >
+    update sys_menu
     <set >
-      <if test="goodsId != null" >
-        goods_id = #{goodsId,jdbcType=INTEGER},
+      <if test="menuCode != null" >
+        menu_code = #{menuCode,jdbcType=VARCHAR},
       </if>
-      <if test="category != null" >
-        category = #{category,jdbcType=INTEGER},
+      <if test="menuName != null" >
+        menu_name = #{menuName,jdbcType=VARCHAR},
       </if>
-      <if test="totalNum != null" >
-        total_num = #{totalNum,jdbcType=INTEGER},
+      <if test="menuOrder != null" >
+        menu_order = #{menuOrder,jdbcType=INTEGER},
       </if>
-      <if test="costPrice != null" >
-        cost_price = #{costPrice,jdbcType=REAL},
+      <if test="parentId != null" >
+        parent_id = #{parentId,jdbcType=INTEGER},
       </if>
-      <if test="money != null" >
-        money = #{money,jdbcType=REAL},
+      <if test="menuUrl != null" >
+        menu_url = #{menuUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="menuStatus != null" >
+        menu_status = #{menuStatus,jdbcType=BIT},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.danny.lvsen.pojo.Repertory" >
-    update repertory
-    set goods_id = #{goodsId,jdbcType=INTEGER},
-      category = #{category,jdbcType=INTEGER},
-      total_num = #{totalNum,jdbcType=INTEGER},
-      cost_price = #{costPrice,jdbcType=REAL},
-      money = #{money,jdbcType=REAL}
+  <update id="updateByPrimaryKey" parameterType="com.danny.lvsen.pojo.Menu" >
+    update sys_menu
+    set menu_code = #{menuCode,jdbcType=VARCHAR},
+      menu_name = #{menuName,jdbcType=VARCHAR},
+      menu_order = #{menuOrder,jdbcType=INTEGER},
+      parent_id = #{parentId,jdbcType=INTEGER},
+      menu_url = #{menuUrl,jdbcType=VARCHAR},
+      menu_status = #{menuStatus,jdbcType=BIT}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

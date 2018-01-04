@@ -6,7 +6,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface StorageMapper {
-    long countByExample(StorageExample example);
+    int countByExample(StorageExample example);
 
     int deleteByExample(StorageExample example);
 

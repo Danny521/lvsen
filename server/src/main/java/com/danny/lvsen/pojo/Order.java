@@ -9,7 +9,7 @@ public class Order {
 
     private String code;
 
-    private String createUser;
+    private Integer createUserId;
 
     private Integer wayId;
 
@@ -33,7 +33,7 @@ public class Order {
 
     private Integer storageId;
 
-    private String comment;
+    private String remark;
 
     private Float totalMoney;
 
@@ -71,12 +71,12 @@ public class Order {
         this.code = code == null ? null : code.trim();
     }
 
-    public String getCreateUser() {
-        return createUser;
+    public Integer getCreateUserId() {
+        return createUserId;
     }
 
-    public void setCreateUser(String createUser) {
-        this.createUser = createUser == null ? null : createUser.trim();
+    public void setCreateUserId(Integer createUserId) {
+        this.createUserId = createUserId;
     }
 
     public Integer getWayId() {
@@ -167,12 +167,12 @@ public class Order {
         this.storageId = storageId;
     }
 
-    public String getComment() {
-        return comment;
+    public String getRemark() {
+        return remark;
     }
 
-    public void setComment(String comment) {
-        this.comment = comment == null ? null : comment.trim();
+    public void setRemark(String remark) {
+        this.remark = remark == null ? null : remark.trim();
     }
 
     public Float getTotalMoney() {
