@@ -1,0 +1,709 @@
+.win-dialog{
+	border:solid 1px #ccc;
+	background-color: rgb( 245, 244, 241 );
+	border-radius: 5px;
+	display: block;
+	position: absolute;
+	width:282px;
+	height: 281px;
+	cursor:default;
+	z-index: 999;
+}
+
+.win-dialog iframe{
+	position: absolute;
+	left: 0;
+	top:0;
+	width:100%;
+	height: 100%;
+	z-index: -1;  
+}
+
+.win-dialog-title{
+	height: 45px;
+	line-height: 45px;
+	padding-left: 20px;
+	font-size: 14px;
+	color:#666666;
+	border-radius: 5px;
+}
+
+.win-dialog-title .close{
+	display: inline-block;
+	background-image:url(images/close.png);
+	width:16px;
+	height: 16px;
+	position: absolute;
+	right:15px;
+	top:15px;
+	cursor: pointer;
+}
+
+.win-dialog-title .close:hover{
+	background-position: -20px 0;
+}
+
+.win-dialog-neck{
+	font-size: 0;
+	height:1px;
+	line-height: 1px;
+	border-top:solid 1px #dddddd;
+	border-bottom:solid 1px white;
+}
+
+.win-dialog-body{
+	position: absolute;
+	top:45px;
+	bottom: 40px;
+	width:100%;
+}
+
+
+.win-dialog-foot{
+	position: absolute;
+	bottom: 20px;
+	right:10px;
+	text-align: right;
+	padding-left: 20px;
+	padding-right: 20px;
+	height: 30px;
+	line-height: 30px;
+}
+
+.win-dialog-foot .okcancel{
+	display: inline-block;
+	float: right;
+	text-align: right;
+}
+
+.win-dialog-body ul {
+	margin-top: 20px;
+}
+
+.win-dialog-body ul li{
+	line-height: 3.2;
+	color:#666666;
+	padding-left: 10px;
+}
+
+.win-dialog-body ul li span.item{
+	display: inline-block;
+	*float: left; /*IE6兼容性问题*/
+	width:50px;
+	text-align: right;
+	padding-right: 10px;
+}
+
+.win-dialog-body ul li div.slider{
+	display: inline-block;
+	*float: left;/*IE6兼容性问题*/
+	*margin-top: 13px;/*IE6兼容性问题*/
+	width:50%;
+}
+
+.win-dialog-body ul li div.slider > div{
+	background-color: #188dfb !important;
+}
+
+.ui-slider-horizontal{
+	height: 0.5em;
+}
+
+.win-dialog-body ul li span.count{
+	display: inline-block;
+	*float: left;/*IE6兼容性问题*/
+	*margin: 10px 0 0 10px;/*IE6兼容性问题*/
+	width:30px;
+	height: 16px;
+	line-height: 16px;
+	background-color: white;
+	border:solid 1px #cccccc;
+	border-radius: 3px;
+	text-align: center;
+}
+
+div.ui-slider-range{
+	background-image: none;
+	background-color: #188dfb !important;
+	border:solid 1px red;
+}
+
+.ui-slider-horizontal a.ui-slider-handle{
+	width:16px;
+	height: 16px;
+	border-radius: 8px;
+	position: absolute;
+	top:-0.4em !important;
+	background: url(images/drager.png) no-repeat 5px 4px white;
+	border:solid 1px #e2e2e2;
+	cursor: pointer;
+}
+
+.ui-slider-horizontal a.ui-slider-handle:hover{
+	background-image: url(images/drager-hover.png);
+}
+
+.video-color{
+	left:0;
+	top:0;
+}
+
+.ptz-control{
+	left:0;
+	top:300px;
+	height: 316px;
+	background-position:-497px -3px;
+}
+
+.win-dialog-title{
+	padding-left: 10px;
+}
+
+.win-dialog-title .ptztab{
+	display: inline-block;
+	text-align: center;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+
+.win-dialog-title .ptztab:hover{
+	border-bottom:solid 3px #188dfb;
+	color:#188dfb;
+}
+
+.win-dialog-title .ptztab.active{
+	border-bottom:solid 2px #188dfb;
+	color:#188dfb;
+}
+
+.win-dialog-title .vline{
+	width:2px;
+	height: 18px;
+	border-left:solid 1px #dddddd;
+	border-right:solid 1px white;
+}
+
+div.dir-control{
+	display: block;
+	width: auto;
+	height: 134px;
+	background: url(images/ptz-disable.png) no-repeat;
+	margin-top: 30px;
+	margin-left: 20px;
+	position: relative;
+	border:solid 0 red;
+	*width: 240px;
+}
+
+div.dir-control span{
+	display: inline-block;
+	background: url(images/ptz-normal.png) no-repeat;
+	position: absolute;
+	width:  15px;
+	height: 15px;
+	border:solid 0 red;
+}
+
+div.dir-control span:hover{
+	background-image: url(images/ptz-hover.png);
+}
+
+div.dir-control span:hover{
+	background-image: url(images/ptz-hover.png);
+}
+
+div.dir-control span:active{
+	background-image: url(images/ptz-active.png);
+}
+
+div.dir-control span.dir.up{
+	left:59px;
+	top:21px;
+	background-position: -59px -21px;
+}
+
+div.dir-control span.dir.leftup{
+	left:35px;
+	top:36px;
+	background-position: -35px -36px;
+}
+
+div.dir-control span.dir.left{
+	left:23px;
+	top:61px;
+	background-position: -23px -61px;
+}
+
+div.dir-control span.dir.leftdown{
+	left:35px;
+	top:87px;
+	background-position: -35px -87px;
+}
+
+div.dir-control span.dir.down{
+	left:60px;
+	top:101px;
+	background-position: -60px -101px;
+}
+
+div.dir-control span.dir.rightdown{
+	left:86px;
+	top:87px;
+	background-position: -86px -87px;
+}
+
+div.dir-control span.dir.right{
+	left:101px;
+	top:61px;
+	background-position: -101px -61px;
+}
+
+div.dir-control span.dir.rightup{
+	left:86px;
+	top:36px;
+	background-position: -86px -36px;
+}
+
+div.dir-control span.zoom.up.adjust{
+	left:152px;
+	top:45px;
+	background-position: -152px -45px;
+}
+
+div.dir-control span.zoom.down.adjust{
+	left:152px;
+	top:76px;
+	background-position: -152px -76px;
+}
+
+
+div.dir-control span.focus.up.adjust{
+	left:183px;
+	top:44px;
+	background-position: -183px -44px;
+}
+
+div.dir-control span.focus.down.adjust{
+	left:183px;
+	top:75px;
+	background-position: -183px -75px;
+}
+
+div.dir-control span.iris.up.adjust{
+	left:214px;
+	top:44px;
+	background-position: -214px -44px;
+}
+
+div.dir-control span.iris.down.adjust{
+	left:214px;
+	top:75px;
+	background-position: -214px -75px;
+}
+
+.ptz-speed{
+	margin-left: 25px;
+	margin-top: 10px;
+}
+
+.control-speed .item {
+	*display: inline;
+	zoom: 1;
+	*width: 60px;
+}
+
+.speedSlider{
+	width:65%;
+	display: inline-block;
+	*float: left;
+	*margin-top: -16px;
+	*margin-left: 33px;
+}
+
+.equipment{
+	margin-top: 15px;
+}
+
+.equipment .choose select{
+	width:150px;
+	vertical-align: middle;
+}
+
+.equipment .switch{
+	display: inline-block;
+	border:solid 1px #cccccc;
+	width:75px;
+	height: 18px;
+	vertical-align: middle;
+	padding-left:2px;
+	text-align: center;
+	padding-top: 3px;
+	border-radius: 5px;
+	*float: right;
+	*margin:-30px 0 0 180px;
+}
+
+.equipment .switch span {
+	display: inline-block;
+	width: 35px;
+	cursor: pointer;
+	*float: left;
+	*display: inline;
+	zoom: 1;
+}
+
+.equipment .switch span.active{
+	color:#4c94e6;
+}
+
+.win-dialog.ptz-control .win-dialog-body div.view{
+	display: none;
+}
+
+.win-dialog.ptz-control .win-dialog-body ul li {
+	padding-left: 0;
+}
+
+.win-dialog.ptz-control{
+	width:275px;
+}
+
+.win-dialog.ptz-control .win-dialog-body div.view.active{
+	display: block;
+	margin-top: 3px;
+}
+
+.win-dialog.ptz-control .win-dialog-body div.view.preset div.head{
+	height: 32px;
+	line-height: 32px;
+	text-align: center;
+	padding-left: 10px;
+	*width: 260px;
+	*padding-left: 0;
+	*text-align: left;
+	*font-size: 0;
+}
+
+.win-dialog.ptz-control .win-dialog-body div.view.preset div.head input{
+	vertical-align: middle;
+}
+
+.win-dialog.ptz-control .win-dialog-body div.view.preset div.head span{
+	display: inline-block;
+	color:#999999;
+	text-align: center;
+	*display: inline;
+	zoom: 1;
+	*font-size: 12px;
+}
+
+.win-dialog.ptz-control .win-dialog-body div.view.preset div.head span.preset-index{
+	width:40px;
+}
+
+.win-dialog.ptz-control .win-dialog-body div.view.preset div.head span.preset-img{
+	width:64px;
+}
+
+.win-dialog.ptz-control .win-dialog-body div.view.preset div.head span.preset-name{
+	width:90px;
+	text-align: left;
+	*text-align: center;
+}
+
+.win-dialog.ptz-control .win-dialog-body div.view.preset div.head span.preset-do{
+	width:50px;
+	text-align: left;
+	*text-align: right;
+	padding-left: 0;
+}
+
+
+.win-dialog.ptz-control .win-dialog-body div.view.preset .hline11{
+	height: 0;
+	line-height: 0;
+	font-size: 0;
+	border-top:solid 1px #e5e5e5;
+	width:80%;
+	margin-left: 30px;
+}
+
+.win-dialog.ptz-control .win-dialog-body .preset-content{
+	height: 200px;
+	overflow: auto;
+	overflow-x: hidden;
+	padding-left: 10px;
+	border-top: solid 1px #cccccc;
+}
+
+.win-dialog.ptz-control .win-dialog-body .preset-content ul{
+	margin: 10px 0 0 0;
+	padding:0;
+	border:solid 0 red;	
+}
+
+.win-dialog.ptz-control .win-dialog-body .preset-content ul li{
+	height: 60px;
+	line-height: 60px;
+	border-bottom:solid 1px #cccccc;
+	white-space: nowrap;
+}
+
+.win-dialog.ptz-control .win-dialog-body .preset-content ul li span{
+	vertical-align: middle;
+	display: inline-block;
+	border:solid 0 red;
+	text-align: center;
+}
+
+.win-dialog.ptz-control .win-dialog-body .preset-content ul li span.preset-index{
+	width:40px;
+}
+
+.win-dialog.ptz-control .win-dialog-body .preset-content ul li span.preset-img{
+	width:64px;
+	height: 50px;
+}
+
+.win-dialog.ptz-control .win-dialog-body .preset-content ul li span.preset-img img{
+	vertical-align: middle;
+	padding: 0;
+	margin: -15px 0 0 0;
+	width:64px;
+	height: 50px;
+}
+
+.win-dialog.ptz-control  .win-dialog-foot{
+	display: none;
+}
+
+.win-dialog.ptz-control .win-dialog-body .preset-content ul li span.preset-name{
+	width:90px;
+}
+
+.win-dialog.ptz-control .win-dialog-body .preset-content ul li span.preset-do{
+	width:50px;
+}
+
+.win-dialog.ptz-control .win-dialog-body .preset-content ul li span.preset-use{
+	width:18px;
+	height: 18px;
+	background: url(images/preset-use.png) no-repeat;
+}
+
+.win-dialog.ptz-control .win-dialog-body .preset-content ul li span.preset-use:hover{
+	background-position: -22px 0;
+}
+
+.win-dialog.ptz-control .win-dialog-body .preset-content ul li span.preset-delete{
+	width:18px;
+	height: 18px;
+	background: url(images/preset-delete.png) no-repeat;
+}
+
+.win-dialog.ptz-control .win-dialog-body .preset-content ul li span.preset-delete:hover{
+	background-position: -22px 0;
+}
+
+.win-dialog.ptz-control .win-dialog-body .preset-content ul li span img{
+	vertical-align: middle;
+}
+
+/*历史录像下载*/
+
+.win-dialog.history-record{
+	width:438px;
+	height: 253px;
+}
+
+.win-dialog .win-dialog-title .camerainfo{
+	font-size: 12px;
+	color:#999;
+}
+
+.win-dialog.history-record .win-dialog-body .search-history{
+	margin-top: 10px;
+	text-align: center;
+	*text-align: left; /*IE6/7兼容性处理*/
+}
+
+.win-dialog.history-record .win-dialog-body .search-history span{
+	display: inline-block;
+	width:20px;
+	height: 24px;
+	background-color: white;
+	vertical-align: middle;
+	border-top:solid 1px #dbdbdb;
+	border-bottom:solid 1px #dbdbdb;
+	text-align: center;
+}
+
+.win-dialog.history-record .win-dialog-body .search-history span .line{
+	display: inline-block;
+	width:14px;
+	height: 0;
+	line-height: 0;
+	font-size: 0;
+	border-top:solid 1px #999999;
+	margin-top: 5px;
+}
+
+.win-dialog.history-record .win-dialog-body .search-history input.time{
+	vertical-align: middle;
+	width:127px;
+	height: 18px;
+	padding:3px;
+	border:solid 1px #dbdbdb;
+	border-radius: 3px;
+	color:#666666;
+}
+.win-dialog.history-record .his-fun-btn,
+.win-dialog-body .cruise-fun-btn {
+	width: 40px;
+	height: 26px;
+	line-height: 22px;
+	text-align: center;
+	padding:0;
+	padding-bottom: 2px !important;
+	margin-left: 2px;
+	cursor: pointer;
+	display: inline-block;
+	vertical-align: middle;
+	border-radius: 3px;
+	outline: none;
+
+	color: #fff;
+	border: 1px solid #2da5ec;
+	box-shadow: 0 1px #94caff inset;
+	background-color: #44adef;
+	background-image: -webkit-linear-gradient(#69b4ff, #3499ff);
+	background-image: -moz-linear-gradient(#69b4ff, #3499ff);
+	background-image: linear-gradient(#69b4ff, #3499ff);
+	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#69b4ff, endColorstr=#3499ff);
+}
+
+.win-dialog.history-record .his-fun-btn:hover,
+.win-dialog-body .cruise-fun-btn:hover {
+	color: #fff;
+	border: 1px solid #2da5ec;
+	box-shadow: 0 1px #94caff inset;
+	background-color: #39afed;
+	background-image: -webkit-linear-gradient(#5ec5ff, #39afed);
+	background-image: -moz-linear-gradient(#5ec5ff, #39afed);
+	background-image: linear-gradient(#5ec5ff, #39afed);
+	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#5ec5ff, endColorstr=#39afed);
+}
+
+.win-dialog-body .cruise-fun-btn {
+	width: 100px;
+}
+
+#history-list{
+	height: 160px;
+	*width: 435px;
+	overflow-y: auto;
+}
+
+#history-list ul{
+	list-style: none;
+	margin: 10px 0 0 0;
+	padding: 0;
+	*width: 435px;/*IE6/7兼容性处理*/
+}
+
+#history-list ul li{
+	height: 30px;
+	line-height: 30px;
+	border:solid 1px #dddddd;
+	padding-left: 15px;
+	*padding-left: 0;/*IE6/7兼容性处理*/
+	*width: 433px;/*IE6/7兼容性处理*/
+}
+#history-list ul li:hover{
+	color:#217eec;
+}
+
+#history-list ul li.active{
+	color:#217eec;
+	border:solid 1px #b7d3e7;
+	background: url("/module/ptz-controller/images/play.png") 5px 10px no-repeat #e5f4ff;
+}
+
+#history-list ul li .buttons .hide {
+	display: none;
+}
+
+#history-list ul li .buttons{
+	/*padding-left: 35px;*/
+	float:right;
+	margin-right:5px;
+	*float:none;/*IE6/7兼容性处理*/
+	*margin-left:20px;/*IE6/7兼容性处理*/
+}
+
+#history-list ul li .buttons span{
+	display: inline-block;
+	*display:inline;/*IE6/7兼容性处理*/
+	zoom: 1;
+	width:16px;
+	height:16px;
+	vertical-align: middle;
+	margin-left: 5px;
+}
+
+#history-list ul li .buttons span.play{
+	background: url(/module/ptz-controller/images/inspect.png) 0 -19px no-repeat;
+}
+
+#history-list ul li .buttons span.play:hover{
+	background-position: -21px -19px;
+}
+
+
+#history-list ul li .buttons span.download-local{
+	background: url(/module/ptz-controller/images/download.png) 0 0 no-repeat;
+}
+#history-list ul li .buttons span.apply-local{
+	background: url(/module/ptz-controller/images/download_2.png) 0 0 no-repeat;
+}
+
+#history-list ul li .buttons span.download-local:hover{
+	background-position: -21px 0;
+}
+
+#history-list ul li .buttons span.into-viewlib{
+	background: url(/module/ptz-controller/images/download.png) 0 -21px no-repeat;
+}
+
+#history-list ul li .buttons span.into-viewlib:hover{
+	background-position: -21px -21px;
+}
+
+#history-list .hline{
+	border-top:solid 1px #cccccc;
+	color:#7c7c7c;
+	font-size:13px;
+	text-align:center;
+	padding-top:48px;
+}
+
+#history-list ul li .buttons span.tvwall {
+	background: url(/module/common/images/sprites/operate-bg-new.png) 0 -84px no-repeat;
+}
+
+#history-list ul li .buttons span.tvwall:hover {	
+	background-position: -19px -84px;
+}
+#history-list ul li .buttons span.marks {
+	background: url(/module/ptz-controller/images/marknormal.png) no-repeat;
+}
+
+#history-list ul li .buttons span.marks:hover {	
+	background: url(/module/ptz-controller/images/markhover.png) no-repeat;
+}
+#history-list ul li .buttons span{
+	cursor: pointer;
+}
+
+

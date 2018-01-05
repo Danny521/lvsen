@@ -1,0 +1,892 @@
+@charset "utf-8";
+/*
+ * CSS Library 2.0.0
+ */
+/*========================================== 样式开始@Start ==========================================*/
+html {
+	overflow:hidden;
+}
+html, body {
+	height: 100%;
+}
+input::-ms-clear { display: none }
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+	box-shadow:0 0 0 60px #2f3f54 inset;
+}
+body {
+	background:url(../images/login_bg.jpg);
+}
+.top {
+	height:9px;
+	background:url(../images/top_bg.png) repeat-x;
+}
+.login {
+	position: relative;
+	top: 50%;
+	width:1000px;
+	height:560px;
+	margin: -280px auto 0;
+}
+.login span {
+	height:90px;
+	display:block;
+}
+.login h6 {
+	height:257px;
+	/*padding:2% 0;*/
+	display:block;
+	background:url(../images/login_text_huaian.png) center center no-repeat;
+}
+.login_cont {
+	width: 715px;
+    /* height:190px; */
+	margin: 0 auto;
+}
+.login ul.login-method {
+    width: 260px;
+    margin: 30px auto 0;
+    color: #FFF;
+}
+.login ul.login-method li {
+    display: inline-block;
+    width: 93px;
+    font-size: 14px;
+    cursor: pointer;
+}
+.login ul.login-method {
+    width: 260px;
+    margin: 30px auto 0;
+    color: #FFF;
+}
+.login ul.login-method li {
+    display: inline-block;
+    width: 93px;
+    font-size: 14px;
+    cursor: pointer;
+}
+.login ul.login-method li.accout {
+    height: 19px;
+    padding-left: 24px;
+    line-height: 19px;
+    background: url(../images/account-login.png) no-repeat;
+}
+.login ul.login-method li.certificate {
+    height: 19px;
+    padding-left: 36px;
+    line-height: 19px;
+     background: url(../images/certificate-login-two.png) no-repeat 0 3px;
+}
+.login ul.login-method li.current {
+    color: #0b74e1;
+    font-weight: bold;
+}
+.login ul.login-method li:hover {
+    color: #00BAFF;
+    font-weight: bold;
+}
+.login ul.login-method li.accout.current {
+    background: url(../images/account-login-selected.png) no-repeat;
+}
+.login ul.login-method li.certificate.current {
+    background: url(../images/certificate-login-one.png) no-repeat 0 3px;
+}
+
+.login ul.login-method-ukey {
+    width: 100px;
+    margin: 50px auto 0;
+    color: #FFF;
+}
+
+.login_name {
+    margin-top: 90px;
+    height: 70px;
+	overflow:hidden;
+}
+.login_name ol {
+    display: inline-block;
+	width: 626px;
+    /*height:77px; */
+	padding: 3px 0;
+	overflow:hidden;
+	vertical-align: middle;
+	/* background:url(../images/form_bg.png) 0 -45px no-repeat; */
+}
+.login_name ol li {
+    float: left;
+	position: relative;
+    width: 308px;
+    height: 44px;
+    /*padding-left: 5px;*/
+    background: url(../images/input-field.png) no-repeat;
+	/* height:38px; */
+}
+.login_name ol li.current {
+	background: url(../images/input-field-hover.png) no-repeat;
+}
+.login_name ol li.username-filed {
+    margin-right: 2px;
+}
+.login_name ol li label {
+	width: 28px;
+	height: 44px;
+	margin: 0 8px;
+	float:left;
+}
+.login_name ol li.username-filed label {
+    background: url(../images/username_icon.png) no-repeat center;
+}
+.login_name ol li.password-filed label {
+    background: url(../images/password_icon.png) no-repeat center;
+}
+.login_name input.login-input {
+    margin-top: 4px;
+    width: 250px;
+    _width: 240px;/*only work in IE6, 解决在此版本下提示显示位置异常的问题*/
+    height: 36px;
+    line-height: 36px;
+    padding: 0 5px;
+    float: left;
+    color: #FFF;
+    background: none;
+    border: none;
+}
+/*.login_certificate a.ukey-ocx {
+    margin-top:-10px;
+}*/
+
+a.ukey-ocx{
+	color: white;
+	margin-left: 305px;
+}
+
+a.ukey-ocx:hover{
+	color: #00BAFF;
+}
+
+
+.placeholder{
+	color:#999;
+}
+
+.login_name .login-submit {
+    display: inline-block;
+	width: 75px;
+	height: 36px;
+    line-height: 36px;
+    text-align: center;
+    font-size: 14px;
+    color: #FFF;
+    background-color: #0B74E1;
+    border: none;
+	cursor:pointer;
+    vertical-align: middle;
+}
+.login_name .login-submit:hover {
+    background-color: #0765C6;
+}
+.login_certificate {
+    margin-top: 90px;
+    height: 70px;
+	text-align:center;
+	display:none;
+    color:#FFF;
+}
+.login_certificate input.login-certify {
+	width: 175px;
+	height: 36px;
+	background: url(../images/certificate-login-bt.png) no-repeat;
+	border: none;
+	cursor: pointer;
+}
+.login_certificate input.login-certify-uk {
+	width: 175px;
+	height: 36px;
+	background: url(../images/uk.png) no-repeat;
+	border: none;
+	cursor: pointer;
+}
+.login_certificate input.login-finger{
+	width:200px;
+	height:36px;
+	margin-left:10px;
+	background:url(../images/fingerButtonSet.png)  no-repeat;
+	border:none;
+	cursor:pointer;
+}
+.login_certificate input.login-finger.disabled{
+	background:url(../images/fingerButtonDis.png) no-repeat;
+}
+.login_certificate input.login-finger.disabled:hover{
+	background:url(../images/fingerButtonDis.png) no-repeat;	
+}
+.login_certificate input.login-finger:hover{
+	background:url(../images/fingerButton.png) no-repeat;
+}
+.login_certificate input.login-certify:hover {
+    background: url(../images/certificate-login-bt-hover.png) no-repeat;
+}
+.login_certificate input.login-certify-uk:hover {
+    background: url(../images/uk_hover.png) no-repeat;
+}
+.login_certificate a {
+	line-height:32px;
+    margin-right: 10px;
+	color:#fff;
+    display:block;
+}
+.login_certificate a:hover {
+	text-decoration:underline;
+}
+.download_pki {
+    width:284px;
+    margin-left:-30px;
+}
+.download_pki i {
+    margin: 0px 10px;
+    position: relative;
+    top: -4px;
+    width: 2px;
+    height: 2px;
+    display: inline-block;
+    background: url("../images/pki.png") 0px 0px no-repeat;
+}
+
+
+.footer {
+	height:46px;
+	padding:15px;
+	background:#212121;
+	border-top:2px solid #132341;
+	position:fixed;
+    _position: absolute;/*only work in IE6, 解决在此版本下提示显示位置异常的问题*/
+	left:0px;
+	bottom:0px;
+	right: 0px;
+}
+.footer_cont {
+	width:620px;
+	height:46px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.footer_cont img{
+	margin: 0 auto;
+}
+.footer_cont em {
+	height:44px;
+	width:170px;
+	float:left;
+	background:url(../images/logo.png) center center no-repeat;
+}
+.footer_cont span {
+	float:left;
+	padding-left:10px;
+	border-left:1px solid #3059a6;
+	height:44px;
+}
+.footer_cont p {
+	height:22px;
+	line-height:22px;
+	color:#3059a6;
+	text-shadow: 0 1px #000;
+}
+
+.login li a.del-text{
+	display: none;
+	position: absolute;
+	left: 240px;
+	top:0px;
+	/*display: inline-block;*/
+	width: 38px;
+	height: 40px;
+	background-color: green;
+	border:1px solid red;
+}
+
+
+
+
+
+/**xukai@2015-4-17**/
+
+.login-warn-bg {
+    display: none;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,.2);
+	left: 0;
+	top: 0;
+	z-index:999;
+	line-height: 100%;
+}
+.login-warn-window ,
+.login-set-pass {
+    position: relative;
+	width: 470px;
+	height: 260px;
+	margin: 207px auto 0;
+	background-color: #fff;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	text-align:center;
+}
+.login-warn-window:before {
+    content:"您的密码过于简单，请重新设置！";
+	position:absolute;
+	left: 100px;
+    height: 50px;
+    top: 40px;
+    background: url(../images/login_warn.png) center 25px no-repeat;
+    padding-top: 108px;
+	font-size: 18px;
+}
+
+.login-warn-title {
+    height: 45px;
+	padding-left: 15px;
+	-webkit-border-top-left-radius: 5px;
+	-moz-border-top-left-radius: 5px;
+	border-top-left-radius: 5px;
+	-webkit-border-top-right-radius: 5px;
+	-moz-border-top-right-radius: 5px;
+	border-top-right-radius: 5px;
+    line-height: 45px;
+    box-shadow: 0 1px 1px #ccc;
+	text-align:left;
+	background-color: #f3f3f3;
+}
+
+.login-warn-close {
+    cursor:pointer;
+    position: absolute;
+	right: 10px;
+	top: 10px;
+	width: 20px;
+	height: 20px;
+	border: none;
+	background:url(../images/login_ico.png) center -50px no-repeat;
+}
+.login-set-pass  .login-btn ,
+.login-warn-window  .login-btn {
+    cursor: pointer;
+    margin-top:145px;
+
+	height: 35px;
+	width: 160px;
+    color:#fff;
+    -webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+    border:1px solid #2da5ec;
+    box-shadow:0 1px #94caff inset;
+    background-color:#44adef;
+    background-image:-webkit-linear-gradient(#69b4ff, #3499ff);
+    background-image:-moz-linear-gradient(#69b4ff, #3499ff);
+    background-image:linear-gradient(#69b4ff, #3499ff);
+    filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#69b4ff, endColorstr=#3499ff)
+}
+
+.login-set-pass {
+    display: none;
+}
+.login-set-pass  .login-btn {
+    margin-top: 10px;
+}
+
+.login-set-pass > li:first-child {
+	margin-bottom: 20px;
+}
+.login-set-li {
+	margin: 0 0 10px 55px;
+}
+.login-set-li input {
+	box-sizing: border-box;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    line-height: 20px;
+    height: 35px;
+	width:160px;
+	padding: 0 6px;
+	background-color:#fcfcfc;
+}
+.login-set-li span {
+    position: relative;
+	width:120px;
+	display: inline-block;
+	margin-left: 10px;
+}
+.old-pass:before ,
+.repeat-pass:before {
+    content:"";
+    position:absolute;
+	left:-2px;
+	top:-18px;
+	width:25px;
+	height:25px;
+	background:url(../images/login_ico.png) -15px -331px no-repeat;
+	padding-left: 10px;
+}
+.old-pass-warn:before {
+    content:"旧密码输入错误";
+    position:absolute;
+	left:-2px;
+	top:-18px;
+	width:120px;
+	height:25px;
+	line-height: 25px;
+	font-size:12px;
+	color:red;
+	background:url(../images/login_ico.png) -15px -430px no-repeat;
+	padding-left: 10px;
+}
+.repeat-pass-warn:before {
+    content:"两次输入不一致";
+    position:absolute;
+	left:-2px;
+	top:-18px;
+	width:120px;
+	height:25px;
+	line-height: 25px;
+	font-size:12px;
+	color:red;
+	background:url(../images/login_ico.png) -15px -430px no-repeat;
+	padding-left: 10px;
+}
+.new-pass:before {
+	position:absolute;
+	left:-2px;
+	top: 20px;
+	width: 120px;
+	height: 20px;
+	line-height: 20px;
+	font-size:12px;
+	content:"6-20个字符";
+	top: -20px;
+	left:-10px;
+	color:#ccc;
+	width: 105px;
+	background:url(../images/login_ico.png) -12px -131px no-repeat;
+}
+
+.new-pass:after {
+	position:absolute;
+	left:5px;
+	top: 20px;
+	width: 120px;
+	height: 20px;
+	line-height: 20px;
+	font-size:12px;
+	content:"字母/数字/字符组合";
+	top: -8px;
+	left:-10px;
+	color:#ccc;
+	background:url(../images/login_ico.png) -12px -131px no-repeat;
+	padding-left: 13px;
+}
+
+[class^="new-pass-input"] ,
+[class^="new-pass-input"]:after ,
+[class^="new-pass-input"]:before {
+    position:absolute;
+    left:5px;
+	top: 20px;
+    width: 120px;
+    height: 20px;
+    line-height: 20px;
+	font-size:12px;
+}
+
+
+.new-pass-input:after {
+    content:"6-20个字符";
+	top: -20px;
+	left:-10px;
+	color:#ccc;
+	width: 105px;
+	background:url(../images/login_ico.png) -15px -195px no-repeat;
+}
+
+.new-pass-input:before {
+    content:"字母/数字/字符组合";
+	top: -8px;
+	left:-10px;
+ 	color:#ccc;
+	background:url(../images/login_ico.png) -15px -195px no-repeat;
+	padding-left: 13px;
+}
+
+.new-pass-input-warn:after {
+    content:"6-20个字符";
+	top: -20px;
+	left:-10px;
+	color:red;
+	width: 105px;
+	background:url(../images/login_ico.png) -15px -260px no-repeat;
+}
+
+.new-pass-input-warn:before {
+    content:"字母/数字/字符组合";
+	top: -8px;
+	left:-10px;
+	color:red;
+	background:url(../images/login_ico.png) -15px -260px no-repeat;
+	padding-left: 13px;
+}
+.new-pass-input-warn1:after {
+    content:"6-20个字符";
+	top: -20px;
+	left:-10px;
+ 	color:red;
+	width: 105px;
+	background:url(../images/login_ico.png) -15px -260px no-repeat;
+}
+.new-pass-input-warn1:before {
+    content:"字母/数字/字符组合";
+	top: -8px;
+	left:-10px;
+	color:#ccc;
+	background:url(../images/login_ico.png) -15px -195px no-repeat;
+	padding-left: 13px;
+}
+
+.new-pass-input-warn2:after {
+    content:"6-20个字符";
+	top: -20px;
+	left:-10px;
+	color:#ccc;
+	width: 105px;
+	background:url(../images/login_ico.png) -15px -195px no-repeat;
+}
+.new-pass-input-warn2:before {
+    content:"字母/数字/字符组合";
+	top: -8px;
+	left:-10px;
+	color:red;
+	background:url(../images/login_ico.png) -15px -260px no-repeat;
+	padding-left: 13px;
+}
+
+/*.new-pass-easy {*/
+	/*width:80px!important;*/
+	/*height:8px;*/
+	/*background-color:#eee;*/
+	/*border-left:40px solid red;*/
+	/*top: -12px;*/
+/*}*/
+/*.new-pass-easy:before {*/
+    /*content:"弱";*/
+    /*position:absolute;*/
+	/*left:15px;*/
+	/*top: -6px;*/
+    /*width: 120px;*/
+    /*height: 20px;*/
+    /*line-height: 20px;*/
+	/*font-size:12px;*/
+	/*color:red;*/
+	/*padding-left: 20px;*/
+	/**/
+/*}*/
+/*.new-pass-easy:after {*/
+    /*content:"您的密码太简单了。";*/
+    /*position:absolute;*/
+	/*left:-36px;*/
+	/*top: 15px;*/
+    /*width: 120px;*/
+    /*height: 20px;*/
+    /*line-height: 20px;*/
+	/*font-size:12px;*/
+	/*color:#999;*/
+	/*background:url(../images/login_ico.png) -15px -433px no-repeat;*/
+	/*padding-left: 20px;*/
+/*}*/
+
+.new-pass-mid {
+	width:60px!important;
+	height:8px;
+	background-color:#eee;
+	border-left:60px solid #ff8d33;
+	top: -12px;
+}
+.new-pass-mid:before {
+    content:"中";
+    position:absolute;
+	left:-8px;
+	top: -6px;
+    width: 120px;
+    height: 20px;
+    line-height: 20px;
+	font-size:12px;
+	color:#ff8d33;
+	padding-left: 20px;
+}
+.new-pass-mid:after {
+    content:"您的密码可以更复杂。";
+    position:absolute;
+	left:-62px;
+	top: 15px;
+    width: 120px;
+    height: 20px;
+    line-height: 20px;
+	font-size:12px;
+	color:#999;
+	background:url(../images/login_ico.png) -15px -335px no-repeat;
+	padding-left: 25px;
+}
+
+.new-pass-complex {
+    top: -12px;
+	height:8px;
+	background-color:#8fc31f;
+
+}
+.new-pass-complex:before {
+    content:"强";
+    position:absolute;
+	left:50px;
+	top: -6px;
+    width: 120px;
+    height: 20px;
+    line-height: 20px;
+	font-size:12px;
+	color:#8fc31f;
+	padding-left: 20px;
+}
+.new-pass-complex:after {
+    content:"您的密码很安全。";
+    position:absolute;
+	left:-7px;
+	top: 15px;
+    width: 120px;
+    height: 20px;
+    line-height: 20px;
+	font-size:12px;
+	color:#999;
+	background:url(../images/login_ico.png) -10px -335px no-repeat;
+	padding-left: 18px;
+}
+
+.new-pass-err {
+    top: -12px;
+	height:8px;
+	background-color:red;
+
+}
+.new-pass-err:before {
+    content:"警告";
+    position:absolute;
+	left:55px;
+	top: -6px;
+    width: 120px;
+    height: 20px;
+    line-height: 20px;
+	font-size:12px;
+	color:red;
+	padding-left: 20px;
+}
+.new-pass-err:after {
+    content:"密码不符合规则！";
+    position:absolute;
+	left:0;
+	top: 15px;
+    width: 125px;
+    height: 20px;
+    line-height: 20px;
+	font-size:12px;
+	color:#999;
+	background:url(../images/login_ico.png) -15px -433px no-repeat;
+	padding-left: 10px;
+}
+
+
+
+
+/*animat by xukai*/
+
+.animat-enlarge {
+-webkit-animation: enlarge .2s;
+-moz-animation: enlarge .2s;
+-o-animation: enlarge .2s;
+animation: enlarge .2s;
+
+}
+.animat-shrink {
+
+}
+
+
+@-webkit-keyframes enlarge {
+	0% {
+	-webkit-transform: scale(0,0) ;
+	transform: scale(0,0);
+	opacity: 0;
+	}
+	80% {
+	-webkit-transform: scale(1.2,1.2) ;
+	transform: scale(1.2,1.2);
+	opacity: .8;
+	}
+	100%{
+	-webkit-transform: scale(1,1) ;
+	transform: scale(1,1);
+	opacity: 1;
+	}
+}
+@-o-keyframes enlarge {
+	0% {
+	-o-transform: scale(0,0);
+	opacity: 0;
+	}
+	80% {
+	-o-transform: scale(1.2,1.2);
+	opacity: .8;
+	}
+	100%{
+	-o-transform: scale(1,1);
+	opacity: 1;
+	}
+}
+@-moz-keyframes enlarge {
+	0% {
+	-moz-transform: scale(0,0);
+	opacity: 0;
+	}
+	80% {
+	-moz-transform: scale(1.2,1.2);
+	opacity: .8;
+	}
+	100%{
+	-moz-transform: scale(1,1);
+	opacity: 1;
+	}
+}
+@keyframes enlarge {
+	0% {
+	transform: scale(0,0);
+	opacity: 0;
+	}
+	80% {
+	transform: scale(1.2,1.2);
+	opacity: .8;
+	}
+	100%{
+	transform: scale(1,1);
+	opacity: 1;
+	}
+}
+
+/*******手指静脉*****/
+.fingerSet{
+	display: inline-block;
+}
+.fingerprint,.fingerVein{
+	width:100px;
+}
+.disabled{
+color:#cdcdcd;
+background: #ccc
+}
+.FingerMasker{
+	background: #000;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 8001;
+	opacity: 0.85;
+	display: none;
+	filter: alpha(opacity=85);
+}
+.FingerMasker i.myClose{
+	width: 28px;
+	height: 28px;
+	line-height: 28px;
+	text-align: center;
+	font-weight: bolder;
+	color: #FFF;
+	position: absolute;
+	right: 5px;
+	top: 5px;
+	z-index: 20;
+	background-color:none;
+	border:2px solid #333;
+	border-radius: 16px;
+	cursor: pointer;
+	transition: all .5s ease;
+	-moz-transition: all .5s ease;
+	-o-transition: all .5s ease;
+	-webkit-transition: all .5s ease;
+}
+.FingerMasker i.myClose:hover{
+background:red;
+}
+.mainpanel{
+	width:500px;
+	position: absolute;
+	margin:0 auto;
+	z-index:10000;
+	left:0;
+	top:0;
+	display: none
+}
+.hidden{
+	display: none
+}
+.alertInfo,.demoPanel,.myloading{
+text-align: center;
+vertical-align: middle
+}
+
+.bottomPanel{
+	text-align: center;
+	margin-top:50px;
+}
+
+.demoPanel{
+	padding: 30px 0 50px 0
+}
+.myloading{
+	margin-left:-5px;
+}
+.p20{
+	padding:50px 0!important;
+}
+.bottomPanel .fingerOver{
+	width:104px;
+	height:35px;
+	background: url("../images/finished.png") no-repeat;
+	display: inline-block;
+	cursor: pointer;
+}	
+.bottomPanel .errstep{
+	width:104px;
+	height:35px;
+	background: url("../images/resetFinger.png") no-repeat;
+	display: inline-block;
+	cursor: pointer;
+}
+
+
+
+
+/*========================================== 样式开始@End ==========================================*/
+.login_aboutSpan{
+	display: inline-block; 
+    cursor: pointer;
+    position: absolute;
+    right: 330px;
+	top: 195px;
+    width: 17px;
+    height: 20px !important;
+}
+.commonLayer { 
+ 	opacity: 0.5 !important;
+    filter: alpha(opacity=50) !important;
+}

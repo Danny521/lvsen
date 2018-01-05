@@ -1,0 +1,43 @@
+.dialogContent {
+	height: 150px;
+	margin-top: 18px;
+}
+.dialogContent .icon {
+	background: url(/module/common/images/bg/media_video.png) 0 0 no-repeat;
+	width: 63px;
+	height: 63px;
+	margin-left: 100px;
+	margin-right: 10px;
+	float: left;
+}
+
+.dialogContent .icon1 {
+	background: url(/module/common/images/bg/media_video1.png) 0 0 no-repeat;
+	padding: 15px 11px 14px 19px; 
+	margin-bottom: 5px;
+	margin-top: -2px;
+	margin-left: -57px;
+	margin-right: 40px;
+}
+
+.dialogContent .detail {
+	/*float: right;*/
+	margin-top: 12px;
+	display: inline-block;
+}
+
+.dialogContent .detail .opera {
+	font-size: 16px;
+	/*font-weight: bold;*/
+}
+.dialogContent .detail .detail_word {
+	color: #CCCCCC;
+}
+.dialogContent .dialog_btn {
+	margin-top: 25px;
+	text-align: center;
+}
+
+.common-dialog footer {
+	/*display: none;*/
+}

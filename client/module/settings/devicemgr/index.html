@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=10,chrome=1"/>
+		<title>视云实战平台</title>
+		<!--[if lt IE 9]><script src="/libs/html5/html5.js"></script><![endif]-->
+		<!--[if IE]><script src="/libs/canvas/excanvas.js"></script><![endif]-->
+
+		<link type="text/css" rel="stylesheet" href="/module/common/css/base.css" />
+		<link type="text/css" rel="stylesheet" href="/libs/semantic/semantic.css" />
+		<link type="text/css" rel="stylesheet" href="/libs/jquery/jquery-ui.css">
+		<link type="text/css" rel="stylesheet" href="/libs/jquery/jquery.pagination.css"/>
+		<link type="text/css" rel="stylesheet" href="/module/settings/common/tool/tree.css"/>
+		<link type="text/css" rel="stylesheet" href="/module/settings/common/tool/small-tree.css"/>
+		<link type="text/css" rel="stylesheet" href="/module/settings/common/css/struct.css"/>
+		<link type="text/css" rel="stylesheet" href="/module/settings/common/css/table.css"/>
+		<link type="text/css" rel="stylesheet" href="/module/settings/common/css/group.css"/>
+		<link type="text/css" rel="stylesheet" href="/module/settings/usermgr/css/user.css"/>
+	</head>
+
+	<body>
+		<div id="content">
+			<div class="wrapper">
+				<aside id="sidebar">
+					<!-- <a id="sideResize">
+						<iframe src="about:blank"></iframe>
+						<span class="resize"></span>
+					</a> -->
+					<!--#include file="/module/settings/devicemgr/inc/devicemgr-aside.html" -->
+				</aside>
+
+				<div id="major">
+					
+					<!-- 仓库列表 -->
+					<div id="departStoreHouse" class="main"  data-view="storehouse" ></div>
+			
+					<!-- 仓库详情 -->
+					<div id="storeHouseDetail" class="main"></div>
+
+					<!-- 新增仓库 -->
+					<div id="createStoreHouse" class="main"></div>
+
+					<!-- 编辑仓库 -->
+					<div id="editStoreHouse" class="main"></div>
+
+				</div>
+			</div>
+		</div>
+
+		<script type="text/javascript" src="/libs/requirejs/require.js" data-main="/require-conf"></script>
+		<script type="text/javascript">
+			require(['/module/settings/devicemgr/js/main.js']);
+		</script>
+
+	</body>
+</html>

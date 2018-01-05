@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=10,chrome=1"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<title>视云实战平台</title>
+	<!--[if lt IE 9]>
+	<script src="/libs/html5/html5.js"></script>
+	<![endif]-->
+    <link type="text/css" rel="stylesheet" href="/module/common/css/base.css" />
+    <link type="text/css" rel="stylesheet" href="../common/css/tree.css" />
+    <link type="text/css" rel="stylesheet" href="/libs/semantic/semantic.css" />
+    <link type="text/css" rel="stylesheet" href="/libs/jquery/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="/libs/thickbox/thickbox.css">
+    <link type="text/css" rel="stylesheet" href="/libs/jquery/jquery.pagination.css"/>
+    <link type="text/css" rel="stylesheet" href="../common/css/pub.css">
+    <link type="text/css" rel="stylesheet" href="css/alarmanalysis.css">
+     <link type="text/css" rel="stylesheet" href="/module/common/popLayer/css/details.css">
+</head>
+<body>
+	<div id="content">
+        <!--下拉列表等浮动层-->
+        <div class="alarmanalysis pubdiv" data-type="">
+            <ul>
+            </ul>
+        </div>
+		<div class="wrapper">
+			<aside id="sidebar">
+				<a id="sideResize">
+					<iframe src="about:blank"></iframe>
+					<span class="resize">调整宽度</span>
+				</a>
+				<div id="aside">
+					<div class="tab-panel">
+						<div class="tab-header">
+							<div data-hview = "history-alarm" class="active"><i class="icons-shistory-alarm"></i><span>历史报警</span></div>
+							<div data-hview = "statistic-analysis" ><i class="icons-sstatistic-analysis"></i><span>统计分析</span></div>
+						</div>
+						<div class="tabs">
+							<ul>
+								<li data-tab="history-alarm" class="active alarmhistory"><i class="icons-history-alarm" title="历史报警"></i></li>
+								<li data-tab="statistic-analysis" class="alarmhistoryanalysis"><i class="icons-statistic-analysis" title="统计分析"></i></li>
+							</ul>
+						</div>
+						<div class="tab-content">
+							<!-- 历史报警摄像机树 -->
+                            <div data-view="history-alarm">
+                                <div class="tree-search">
+                                    <input id="hisSearchInput" class="searchInput" type="text" placeholder="全局搜索..." name="q" autocomplete="off">
+                                    <button id="hisSearchBtn" class="searchBtn" title="搜索"></button>
+                                </div>
+                                <div class="tree-container">
+                                    <div class="hisScrollbarPanel">
+                                        <div class="viewport">
+                                            <div class="overview">
+                                                <div class="treePanel hisTree">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 统计分析组织树 -->
+                            <div data-view="statistic-analysis" >
+                               <div class="tree-search">
+                                    <input id="statSearchInput" class="searchInput" type="text" placeholder="全局搜索..." name="q" autocomplete="off">
+                                    <button id="statSearchBtn" class="searchBtn" title="搜索"></button>
+                                </div>
+
+                                <div class="tree-container">
+                                    <div class="statScrollbarPanel">
+
+                                        <div class="viewport">
+                                            <div class="overview">
+                                                <div class="treePanel statTree">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+						</div>
+					</div>
+				</div>
+			</aside>
+			<aside id="countDetial">
+				<div class="countTop">
+					<span class="countType">报警类型选择：</span>
+					<span class="price">今日新增/总数</span>
+				</div>
+				<div class="slidePanel"><i class="icon_left"></i></div>
+				<div class="countList">
+
+				</div>
+
+			</aside>
+		</div>
+		<!--视频播放窗口框架-->
+        <div class="video-play-frame">
+        </div>
+		<div id="major">
+		<!-- 历史 -->
+			<div id="historySearch" class="main" data-view="history-alarm">
+				<div class="breadcrumb">
+					<span class="active section">&nbsp;</span>
+				</div>
+				<div class="content">
+					<div class="conditions">
+						<label>开始时间：</label>
+						<span class="ui input"><input type="text" class="begin-time input-time" readonly="true" placeholder="请选择开始时间"/></span>
+
+						<label>结束时间：</label>
+						<span class="ui input"><input type="text" class="end-time input-time" readonly="true" placeholder="请选择结束时间"/></span>
+						<!-- <label>报警类型：</label>
+						<span class="select_container" data-type="defence-type">
+				            <span class="text" data-value="">全部</span>
+				            <span class="arrow-down"></span>
+				        </span> -->
+						<label>处理状态：</label>
+				        <span class="select_container" data-type="deal-status">
+				            <span class="text" data-value="">全部</span>
+				            <span class="arrow-down"></span>
+				        </span>
+						<a href="javascript:void(0);" title="查询" class="hisSearch"></a>
+						<span>
+							<a href="javascript:void(0);" class="export permission permission-export-alarm-msg">导出</a>
+						</span>
+					</div>
+					<div class="table_lists_wrap">
+						<div id="historyTable"></div>
+						<div class="pagepart">
+						</div>
+					</div>
+				</div>
+			</div>
+		<!-- 统计分析 -->
+			<div id="statisticAnalysis" class="main" data-view="statistic-analysis">
+				<div class="breadcrumb">
+					<span class="active section">&nbsp;</span>
+				</div>
+				<div class="content">
+				 	<div class="conditions">
+				 		<label>开始时间：</label>
+				 		<span class="ui input"><input type="text" class="begin-time input-time" readonly="true" placeholder="请选择开始时间" /></span>
+				 		<label>结束时间：</label>
+				 		<span class="ui input"><input type="text" class="end-time input-time" readonly="true" placeholder="请选择结束时间"/></span>
+				 		<label>事件类型：</label>
+				 		<span class="select_container" data-type="event-type">
+				            <span class="text" data-value="">全部</span>
+				            <span class="arrow-down"></span>
+				        </span>
+				 		<a href="javascript:void(0);" title="查询" class="countSearch"></a>
+				 		<span>
+				 			<a href="javascript:void(0);" class="dataExport permission permission-export-stat">导出</a>
+				 		</span>
+				 	</div>
+
+				 	<div class="table_lists_chat">
+				 		<div id="countAnalysisTable"></div>
+				 	</div>
+				 	<div class="count_chat">
+				 		<div class="chatBar">
+				 			<span class="tabWaper">
+				 				<i class="chat_tab active" data-tab="denfenceType">防控类型</i>
+				 				<i class="chat_tab" data-tab="alarmLevel">报警级别</i>
+				 			</span>
+				 		</div>
+				 		<div class="chatTable" id="bar"></div>
+				 	</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<!-- 遮罩层 -->
+	<iframe class="checkAlarm_layout_ifr hidden" scroll="none" src="about:blank"></iframe>
+	<iframe id="exportRecords" scroll="none" src="about:blank"></iframe>
+	<div class="checkAlarm_layout hidden"></div>
+	<div class="alarm-list-dialog hidden show_event_pic"></div>
+	<div class="icon_close"></div>
+	<div class="export-loading hidden">正在导出，请稍候....<a class="close-ifr"></a></div>
+	<script type="text/javascript" src="/libs/requirejs/require.js" data-main="/require-conf"></script>
+	<script type="text/javascript">
+		require(['/module/protection-monitor/alarmanalysis/js/superMain.js']);
+	</script>
+</body>
+</html>

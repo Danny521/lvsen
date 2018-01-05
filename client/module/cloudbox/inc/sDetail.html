@@ -1,0 +1,112 @@
+<div class="s-detail">
+	<div class="s-body">
+		<div class="s-info">
+			<span class='l-oper'>
+				<a href="javascript:void(0)"  data-action="download" {{{hideDownload fileType}}} class="oper-item permission permission-download"> <i class="icon_download"></i>
+					下载
+				</a>
+				<a href="javascript:void(0)"  data-action="sedit" class='oper-item'  {{isShow pvd}}>
+					<i class="icon_edit"></i>
+					编辑
+				</a>
+				<a href="javascript:void(0)" data-action="medialib"  class="oper-item permission permission-tobaselib"> <i class="icon_storage"></i>
+					入库
+				</a>
+				<a href="javascript:void(0)" data-action="delFile" class="oper-item permission permission-create">
+	                <i class="icon_delete"></i>
+	                删除
+	            </a>
+			</span>
+			<ul class="show-info active s-c-info">
+				<li class='info-li-item'>
+					<label>出现时刻：</label> <em class="appearTime shootTime" title="{{mills2ISODate appearTime}}">{{mills2ISODate appearTime}}</em>
+				</li>
+				<li class="odd info-li-item">
+					<label>{{sourceFrom sourceType}}</label> <em title="{{fileExtName}}">{{fileExtName}}</em>
+				</li>
+				<li class='info-li-item'>
+					<label>备注信息：</label>
+					<em title="{{remark}}" class="contents">{{noValue remark}}</em>
+				</li>
+			</ul>
+			<ul class="edit-info s-e-info">
+				<li class='info-li-item'>
+					<label>出现时刻：</label> <input value="{{mills2ISODate appearTime}}" readonly type="text" id="shootTime" class="datepicker" name="shootTime">
+				</li>
+				<li class='info-li-item'>
+					<label>备注信息：</label>
+					<textarea name="remark" id="remark">{{remark}}</textarea>
+				</li>
+				<li class='info-li-item'>
+					<a href="javascript:void(0);" class="btn btn_ok" id="jump_medialib" data-action="save" data-id="{{id}}">保存</a>
+					<a href="javascript:void(0);" class="btn" id="save_cloud" data-action="cancel">取消</a>
+				</li>
+			</ul>
+		</div>
+		<div class="s-content show-area">
+			{{#if hasVideo}}
+				<div class="tab-title">
+					<a href="javascript:void(0)" class="active tab-title-item" data-anchor="0">特征图片</a>
+					<a href="javascript:void(0)"  class="clip video-part tab-title-item" data-anchor="1">视频片段</a>
+				</div>
+				<div class="tab-content">
+					<div class="active tab-content-item" data-target="0">
+						{{#if markPath}}
+						<img src="{{markPath}}" class='s-pic' alt=''>
+						{{else}}
+						<img src="{{picture}}" class='s-pic' alt=''>
+						{{/if}}
+					</div>
+					<div class="tab-content-item v-box" data-target="1">
+						<div class="ocx-box">
+							<object id="UIOCX" class="UIOCX" type="applicatin/x-firebreath" align="center" width="100%" style="width:100%">
+								<param name="onload" value="pluginLoaded"/>
+							</object>
+						</div>
+						<div class="video-block">
+							<div class="progress-bg">
+							</div>
+							<div class="progress-bar">
+								<div class="bullet">
+									<i class="play-point"></i>
+								</div>
+								<i class='start-mark'></i>
+								<i class='end-mark'></i>
+							</div>
+							<div class="panel" onselectstart="return false">
+								<div class="vbar-right">
+									<span class="grab" title='抓图' data-id="{{video.id}}" data-type="1" data-name="{{video.fileName}}" data-shootTime="{{video.shootTime}}"></span>
+									<span class="fullwin" title='全屏'></span>
+								</div>
+								<div class="time vbar-left">
+									<span class="nowtime" nowtime-ms="0">00:00:00</span>&nbsp;/
+									<span class="alltime" alltime-ms="0">00:00:00</span>
+									<span class="speed">倍速：<em></em></span>
+								</div>
+								<div class="vbar-mid">
+									<span class="rewind" title='慢放'></span>
+									<span class="switch" title='播放'></span>
+									<span class="forward" title='快进'></span>
+									<span class="stop" title='停止'></span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			{{else}}
+			<div class="tab-title">
+				<a href="javascript:void(0)" class="active">特征图片</a>
+			</div>
+			<div class="tab-content">
+				<div class="active">
+					{{#if markPath}}
+					<img src="{{markPath}}" class='s-pic' alt=''>
+					{{else}}
+					<img src="{{picture}}" class='s-pic' alt=''>
+					{{/if}}
+				</div>
+			</div>
+			{{/if}}
+		</div>
+	</div>
+</div>

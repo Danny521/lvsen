@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=10,chrome=1">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<title>视云实战平台</title>
+	<!--[if lt IE 9]><script src="/libs/html5/html5.js"></script><![endif]-->
+
+	<link rel="stylesheet" type="text/css" href="/module/common/css/base.css" />
+	<link rel="stylesheet" type="text/css" href="/libs/semantic/semantic.css" />
+	<link rel="stylesheet" type="text/css" href="/libs/jquery/jquery.datetimepicker.css" />
+	<link rel="stylesheet" type="text/css" href="/libs/jquery/zTreeStyle.css" />
+	<link rel="stylesheet" type="text/css" href="/module/viewlibs/common/medialib.css" />
+	<link rel="stylesheet" type="text/css" href="/module/viewlibs/common/aside.css" />
+	<link rel="stylesheet" type="text/css" href="css/statistic.css" />
+	<link rel="stylesheet" type="text/css" href="/component/panel/main.css"/>
+	<link rel="stylesheet" type="text/css" href="/module/viewlibs/common/panel_import.css"/>
+</head>
+
+<body>
+	<div id="content">
+		<div class="wrapper">
+			<!--#include file="/module/viewlibs/common/sidebar.html" -->
+			<div class="content-left">
+				<div class="data-filter">
+					<ul class="inline-list">
+						<li>
+							<label>开始时间</label>
+							<input type="text" placeholder="请选择开始时间" id="start-date" class="Wdate date-selector" />
+						</li>
+						<li>
+							<label>结束时间</label>
+							<input type="text" placeholder="请选择结束时间" id="end-date" class="Wdate date-selector" />
+						</li>
+						<li>
+							<label>统计对象</label>
+							<select id="statisticType">
+								<option value="1">用户</option>
+								<option value="2">单位</option>
+							</select>
+						</li>
+						<li>
+							<label>单位</label>
+							<input  id="orgSelectTrigger" class="org-select" type="text" readonly="readonly" placeholder="请选择机构"/></li>
+						<li>
+							<label>用户</label>
+							<select id="userSelector" class="user-select">
+								<option value='-1'>请选择</option>
+							</select>
+						</li>
+						<li>
+							<button type="button" class="search" id="search-data">筛选</button>
+						</li>
+					</ul>
+					<div class="data-switch">
+						<div class="chart-type" id="chart-type">
+							<div class="chart-data-type active" data-type="month">按月</div>
+							<div class="chart-data-type" data-type="year">按年</div>
+						</div>
+						<div class="push-right data-show-switch" id="data-show-switch">
+							<button type="button" class="list-icon" data-id="data-list"></button>
+							<button type="button" class="chart-icon button-icon-active" data-id="data-chart"></button>
+							<button type="button" class="save-icon" data-id="save-data" style="display:none;"></button>
+						</div>
+
+					</div>
+				</div>
+				<div class="data-show" id="data-show">
+					<div class="data-list data-show-item">
+						<div class="data-list-header">
+							<ul class="inline-list list-header">
+								<li class="list-item">
+									<span>名称</span>
+								</li>
+								<li class="list-item">
+									<span>时间</span>
+								</li>
+								<li class="list-item">
+									<span>类型</span>
+								</li>
+								<li class="list-item">
+									<span>数量(通过/打回/总数)</span>
+								</li>
+								<li class="list-item">
+									<span>通过率</span>
+								</li>
+							</ul>
+						</div>
+
+						<div class="data-list-body"></div>
+					</div>
+					<div class="data-chart data-show-item">
+						<div class="text-notice"></div>
+						<div class="chart-item" id="chart-item"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="tree_select_dialog" class="tree_select_dialog">
+		<div class="header">
+			<span class="dialog_title">单位选择</span>
+			<a href="javascript:void(0)"></a>
+		</div>
+		<div class="body">
+			<div class="treecontain">
+				<ul id="org-tree" class="ztree customTree" ></ul>
+				<ul id="user-tree" class="ztree customTree" ></ul>
+			</div>
+		</div>
+		<div class="footer">
+			<a href="javascript:void(0)" class="cancel">取消</a>
+			<a href="javascript:void(0)" class="ensure">确定</a>
+		</div>
+	</div>
+	<div id="tree_select_dialog-bg" class="tree_select_dialog-bg"></div>
+
+    <script type="text/javascript" data-main="/module/viewlibs/statistic/js/main.js" src="/libs/requirejs/require.js"></script>
+	<!--script type="text/javascript" src="/assets/js/lib/seajs/sea.js" id="sea"></script>
+	<script type="text/javascript" src="/assets/js/config.js"></script>
+	<script type="text/javascript">
+		seajs.config({
+			alias: {
+				'scrollbar' : '/assets/js/lib/scrollbar',
+				'tool' : '/assets/js/apps/viewlibs/tool',
+				'ztree' : '/assets/js/lib/jquery.ztree.all-3.5.min',
+				'pubsub' : '/assets/js/lib/pubsub.js'
+			}
+		});
+		seajs.use(['base', 'echart', 'menu', 'date','scrollbar', 'tool','ztree','pubsub'], function() {
+			seajs.use('/assets/module/panel/main',function(){
+				seajs.use('/assets/js/apps/viewlibs/panel_import');
+			});
+			seajs.use('/assets/module/viewLib/statistic/js/main');
+			seajs.use('/assets/js/modules/permission/permission.js');
+		});
+	</script>-->
+</body>
+
+</html>

@@ -1,0 +1,226 @@
+<div id="incidentDetail">
+<div class='wrapper'>
+	<!-- <div class='graybar'></div> -->
+	<h1>
+		<img alt="" class='loading' src="/module/common/images/animate/horizontal-loading.gif"/>
+	</h1>
+	<script id='incidentInfo' type="text/x-handlebars-template">
+	
+		<p class='crumbs'>
+			<a class='first' data-pagetype="workbench"></a>
+			<span>&gt;</span>
+			<a class='second case-title'>{{name}}</a>
+		</p>
+
+		<div class='main'>
+			<div class='left-main'>
+				<div class='case-head' id='incidentId'>
+					
+					<div>
+						<p id='associateId'>案事件编号:&nbsp; {{associateId}}</p>
+						<p class='case-title'><span id='incidentName' data-incidentname={{name}}>案事件名称:&nbsp; {{name}}</span>
+						{{#uneq state "已通过"}}
+						<span id='status' class='{{statecolor ../state}}'>[{{../state}}]</span>
+						{{/uneq}}
+						</p>
+						{{#uneq state "已通过"}}
+						<a class='clue {{textdisabe ../count}}'>( 结构化信息<i>{{../count}}</i>条 )</a>
+						{{/uneq}}		
+					</div>
+					{{#auditBar status 1 3}}
+					<div class='operate clearfix'>
+						<p class='edit permission permission-create {{isLogUser ../userId }}'>
+							<a href=''>
+								<i></i>
+								<span>编辑</span>
+							</a>
+						</p>
+					</div>
+					{{/auditBar}}
+				</div>
+
+				<div class='case-body'>
+					<table class="case-details">
+						<tr>
+							<td class="name">案件描述：</td>
+							<td class="value" colspan="3">{{ description }}</td>
+						</tr>
+						<tr>
+							<td class="name">案件类别：</td>
+							<td id='category' class="value fix-wid">{{translate category 'category'}}</td>
+							<td class="name">危害程度：</td>
+							<td id='hazardRating' class="value">{{translate hazardRating 'hazardRating'}}</td>
+						</tr>
+						<tr>
+							<td class="name">案发时间：</td>
+							<td class="value fix-wid">
+								<span >{{mills2str timeUpper }}（上限）</span>
+								<br />
+								<span id=''>{{mills2str timeLower }}（下限）</span>
+							</td>
+							<td class="name">案发地点：</td>
+							<td id='' class="value">{{location}}</td>
+						</tr>
+						<tr>
+							<td class="name">嫌疑犯人数：</td>
+							<td id='' class="value fix-wid">{{suspectCount}}</td>
+							<td class="name">作案手段：</td>
+							<td id='' class="value">{{crimeMethod}}</td>
+						</tr>
+						<tr>
+							<td class="name">报案人：</td>
+							<td id='' class="value fix-wid">{{reporter}}</td>
+							<td class="name">报案人证件类型：</td>
+							<td id='' class="value">{{translate reporterCardtype 'reporterCardtype'}}</td>
+						</tr>
+						<tr>
+							<td class="name">报案人证件号码：</td>
+							<td id='' class="value fix-wid">{{reporterCardnumb}}</td>
+							<td class="name">报案单位：</td>
+							<td id='' class="value">{{reporterCompany}}</td>
+						</tr>
+						<tr>
+							<td class="name">归类：</td>
+							<td id='' class="value fix-wid">{{archive}}</td>
+							<td class="name">创建单位：</td>
+							<td class='value'>{{unitName}}</td>
+						</tr>
+						<tr>
+							<td class="name">创建人员：</td>
+							<td id='' class="value fix-wid">{{userName}}</td>
+							<td class="name">创建时间：</td>
+							<td id='' class='value'>{{mills2str storageTime}}</td>
+						</tr>
+					</table>
+				</div>
+
+				<div class="notes-panel" id="notes">
+						<div class='wrap-btn'>
+							<a id='toComment' href="javascript:void(0);">发表评论</a>
+						</div>
+						<ul class='tabs clearfix'>
+							<li data-tab='comment' class='active'>评论</li>
+							<li data-tab='operate' class=''>操作记录</li>
+							
+						</ul>
+						<div class='views'>
+							<div data-view='operate' class='operate'>
+								<ul class='clearfix'>
+									
+								</ul>
+								<div class="pagebar pagination operate">
+									<span class="current">1</span>
+									<a href="#">2</a>
+									<a href="#">3</a>
+									<a href="#">4</a>
+									<a class="next pagination-icon-next" href="#"></a>
+									<p><span>1</span>/<span>2</span></p>
+								</div>
+							</div>
+							<div data-view='comment' class='comment active'>
+								<div class='comment-form clearfix'>
+									<textarea id="commentContent" placeholder="输入评论..."></textarea>
+									<input type='button' id='saveComment' value='发表'/>
+								</div>
+								<ul class='clearfix'>
+								
+								</ul>
+								<div class="pagebar pagination comment">
+									<span class="current">1</span>
+									<a href="#">2</a>
+									<a href="#">3</a>
+									<a href="#">4</a>
+									<a class="next pagination-icon-next" href="#"></a>
+									<p><span>1</span>/<span>2</span></p>
+								</div>
+							</div>
+						</div>
+					
+				</div>
+			</div>
+
+			<div class='right-main'>
+				<p class='btn clearfix'>
+					{{#belongs this type="2"}}
+					{{else}}
+					<!--<a data-type='9' id='pullIncident' class='permission  permission-review'>同步</a>-->
+					{{/belongs}}
+					
+					<span>
+						{{#unwaitPass status}}
+						<a data-type='0' class='delete permission {{isOwner ../userId ../status}}'>删除</a>
+						{{/unwaitPass}}
+						{{#auditBar status 1 3}}
+						<a data-type='2' id='commit' class="permission permission-create {{isLogUser ../userId }}" >提交审核</a>
+						{{/auditBar}}
+						
+						{{#eq state "已通过"}}
+						<a data-type='5' class='save-to-clound permission permission-import'>保存</a>
+						{{/eq}}
+						{{#unless isCommOrgid}}	
+						{{#eq state "已通过"}}					
+						<a data-type='10' id='recaption' class="permission permission-create {{isLogUser ../userId}}">取回</a>
+						{{/eq}}
+						{{/unless}}
+						{{isUpload sys_status status}}
+					</span>
+
+					<span class='permission permission-review'>
+						<!--<a data-type='1' id='dispense'>任务分发</a>-->
+						{{#eq state "待审核"}}
+						<a data-type='3' id='reject' class={{readOnly}}><i></i>打回</a>
+						<a data-type='4' id='pass' class={{readOnly}}><i></i>通过</a>
+						{{/eq}}
+						{{#belongs this type="1"}}
+						{{#eq state "已通过"}}
+						<!--<a data-type='8' id='pushIncident' class="permission permission-create">上传</a>-->
+						{{/eq}}
+						{{/belongs}}
+					</span>
+				</p>
+				<div id='caseCover'>
+					<p class='cover-head'>
+						<span>封面</span>
+					</p>
+					<div class='cover-body'>
+						<a class='thickbox' href="{{picture}}">
+						<span class='vbox'>
+							<img src= "{{picture}}" />
+						</span>	
+						</a>
+					</div>
+				</div>
+				<div id='relatedMedia'>
+					<ul class='tabs clearfix'>
+						<li data-tab='video' class='active'>视频(<span class='vcount'></span>)</li>
+						<li data-tab='picture'>图片(<span class='pcount'></span>)</li>
+						<li data-tab='thread' >线索(<span class='tcount'></span>)</li>
+					</ul>
+					{{#auditBar status 1 3}}
+					<input type='button' value='导入视图' id='importMedia' class='permission permission-create {{isLogUser ../userId }}'/>
+					{{/auditBar}}
+					<div class='views'>
+						<div data-view='video' class='videos active'>
+							<ul class='clearfix'>
+								<li>加载中<img class='loading' src="/module/common/images/animate/horizontal-loading.gif"/></li>
+							</ul>
+
+							<div id="" class="pagebar pagination videos"></div>
+						</div>
+						<div data-view='picture' class='pictures'>
+							<ul class='clearfix'>
+							</ul>
+							<div class="pagebar pagination pictures"></div>
+						</div>
+						<div data-view='thread' class='pictures'>
+							<ul class='clearfix'>
+							</ul>
+							<div class="pagebar pagination threads"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>		
+	</script>		
+</div>
+</div>

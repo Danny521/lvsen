@@ -1,0 +1,12 @@
+{{#each comments}}
+<li>
+	<div class='core'>
+		<span class='user' title='{{userName}}'>{{userName}}</span><span> :</span>
+		<span>{{content}}</span>
+		<div class='clearfix wrap'>
+			<span class='reply' data-commentid={{id}}>回复</span>
+			<span class='time'>{{mills2str storageTime}}</span>
+		</div>
+	</div>
+</li>
+{{/each}}

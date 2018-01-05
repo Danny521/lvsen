@@ -1,0 +1,1222 @@
+    html{
+    	overflow:hidden;
+    }
+    body{
+    	overflow: hidden;
+    }
+    #dom_Panel
+    {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0px;
+        top:0px;
+        z-index: 100;
+    }
+	
+    #dom_Panel iframe{
+        width: 100%;
+        height:100%;
+        padding: 0px;
+        margin:0px;
+        overflow: hidden;
+    }
+	
+    #dom_Panel #mask_Layer
+    {
+        background-color:black; 
+        width: 100%;
+        height:100%;
+        padding: 0px;
+        margin:0px;
+        overflow: hidden; 
+        opacity: 0.5;
+        filter: alpha(opacity=50);
+        position: absolute;
+        left: 0px;
+        top:0px;
+    }
+
+    #dom_Panel #dialog
+    {
+        width: 880px;
+        height:480px;
+        border: solid 1px #cccccc;
+        background-color:white; 
+        position: absolute;
+        left: 50%;
+        top:50%;
+        margin-left: -440px;
+        margin-top: -240px;
+        border-radius: 5px;
+        padding-right: 0px;
+        font-size: 8.8pt;
+    }
+
+    #dom_Panel .leftPanel
+    {
+        width: 230px;
+        height: 100%;
+        float: left;
+        border: solid 0px green;
+        padding: 0px;
+    }
+
+    #dom_Panel .rightPanel{
+        float: left;
+        width: 634px;
+        height: 100%;
+        margin-left: 8px;
+        border-left: solid 1px #dbdbdb;
+        padding: 0px;
+    }
+
+    #dom_Panel .leftPanel .content{
+        padding: 3px;
+        height: auto;
+        color: #444444;
+    }
+
+    #dom_Panel .rightPanel .content{
+        padding: 3px;
+        height: auto;
+        padding-right: 0px;
+    }
+
+    #dom_Panel .leftPanel .content ul{
+        list-style: none;
+        text-align: left;
+        padding-top: 0px;
+        margin-top: 0px;
+        padding-left: 10px;
+        line-height: 2.5;
+     }
+
+     #dom_Panel .leftPanel .content ul li{
+        border-bottom: dotted 1px #cccccc;
+     }
+
+
+    #dom_Panel .leftPanel .content ul li span.text{
+        width: 70px;
+        text-align: right;
+        display: inline-block;
+        color: #444444;
+        margin-right: 2px;
+        text-indent: 0px !important;
+     }
+
+     #dom_Panel .leftPanel .content ul li input{
+        width: 125px;
+        padding:2px;
+        border: solid 1px #cccccc;
+        border-radius: 3px;
+        padding-left: 4px;
+     }
+     #dom_Panel .leftPanel .content ul li select{
+        width: 138px;
+        border: solid 1px #cccccc;
+     }
+
+     #dom_Panel .description
+     {
+        padding:5px;
+        padding-left: 20px;
+        border-top: dotted 0px #cccccc;
+     }
+
+     #dom_Panel .description #pre_description
+     {
+        overflow: auto;
+        height: 75px;
+        text-indent: 0em; 
+        border: solid 1px #cccccc;
+        padding:5px;
+        border-radius: 3px;
+     }
+
+     #dom_Panel .description .desdata
+     {
+        height: 90px;
+     }
+
+     #dom_Panel .description .desdata textarea
+     {
+        height: 70px;
+        width: 90%;
+        margin: 4px;
+        border-radius: 3px;
+        text-align: left;
+        border:solid 1px #dfdfdf;
+        padding: 3px;
+        color: #444444;
+     }
+
+     #dom_Panel .leftPanel .button{
+        text-align: center;
+     }
+
+	#dom_Panel .leftPanel .button .more
+	{
+		width: 15px;
+		vertical-align: middle;
+		margin-left: -1px;
+		background-image: url("/module/framemark/images/down.png");
+		background-position: 4px 10px;
+		background-repeat: no-repeat;
+		margin-right: 0px;
+	}
+
+	 #dom_Panel .leftPanel .button button{
+		width: 100px;
+		height: 26px;
+		margin: 5px;
+		border:solid 1px #dfdfdf;
+		border-radius: 3px;
+		vertical-align: middle;
+		cursor: pointer;
+	 }
+
+	 #dom_Panel .leftPanel .button .picture
+	 {
+	 	width: 82px;
+	 	margin-right: 0px;
+	 }
+
+	 #dom_Panel .leftPanel .button .moredo
+	{
+		position:absolute;
+		left:110px;
+		top:5px;
+		width: 60px;
+		height: 60px;
+		border: solid 1px #cccccc;
+		background-color: white;
+		cursor: default;
+		margin-left: 0px;
+		margin-right: 0px;
+		border-radius: 3px;
+		display: none;
+	}
+
+	 #dom_Panel .leftPanel .button .moredo li{
+	 	line-height: 20px;
+	 	height: 20px;
+	 }
+
+	 #dom_Panel .leftPanel .button .moredo li:hover{
+	 	background-color: rgb(68, 173, 239);
+	 	color:white;
+	 }
+
+
+	#dom_Panel #dialog img.frame-close{
+		position: absolute;
+		top:-15px;
+		right: -15px;
+	 }
+
+     #dom_Panel .rightPanel img{
+        width:634px;
+        height: 474px;
+     }
+
+    #dom_Panel #level{
+        border-radius: 3px; 
+        left: 0px; 
+        top: 0px; 
+        width: 48px; 
+        height: 18px; 
+        display: inline-block; 
+        /*position:relative;*/
+        vertical-align: middle;
+    }
+
+    #dom_Panel #level>div{
+         height: 18px; 
+    }
+
+    #dom_Panel .leftPanel .content input.red{background-color: red;}
+    #dom_Panel .leftPanel .content input.orange{background-color: orange;}
+    #dom_Panel .leftPanel .content input.yellow{background-color: yellow;}
+    #dom_Panel .leftPanel .content input.blue{background-color: #00ccff;}
+    #dom_Panel .leftPanel .content input.gray{background-color: #e1e1e1;}
+
+     .marker_Levelcolor> div
+    {
+        border:solid 1px black;
+        height: 16px;
+    }
+
+    .marker_Levelcolor> div:hover
+    {
+        border:solid 1px #ffffff;
+    }
+
+    .marker_Levelcolor {
+        width:30px;
+        position: absolute;
+        left:0px;
+
+        top:0px;
+        display: none;
+        height: 80px;
+        border: solid 1px rgb(77,77,78);
+        z-index: 9999999999;
+    }
+
+
+   .marker_Levelcolor .red{
+        background-color: red;
+    }
+
+    .marker_Levelcolor .orange{
+        background-color: orange;
+    }
+
+    .marker_Levelcolor .yellow{
+        background-color: yellow;
+    }
+
+   .marker_Levelcolor .blue{
+        background-color: #00ccff;
+    }
+
+    .marker_Levelcolor .gray{
+        background-color: #e1e1e1
+    }
+
+    #dom_Panel #marker_Level{
+        width: 48px;
+    }
+
+
+#major .markHeader {
+  -moz-border-bottom-colors: none;
+  -moz-border-left-colors: none;
+  -moz-border-right-colors: none;
+  -moz-border-top-colors: none;
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #E3E2E2;
+  border-image: none;
+  border-left: medium none !important;
+  border-right: px solid #E3E2E2;
+  border-top: 1px solid #E3E2E2;
+  height: 34px;
+  width: 100%;
+  padding-left: 14px;
+}
+/*
+.treeMenu .leaf:hover .more {
+  display: none;
+}
+*/
+
+#major .markHeader .mark-model {
+  margin: 8px auto;
+  font-weight: bold;
+}
+
+#major .model-content {
+  bottom: 0px;
+  right: 0px;
+  top: 20px;
+  border: 1px #E8E8E8 solid;
+}
+
+#major .markContent {
+  border-bottom: 1px #E8E8E8 solid;
+  height: 76px;
+  line-height: 76px;
+  background-color: #F5F3F0;
+}
+
+#major .markContent ul li {
+  float: left;
+  margin: 0px -6px auto;
+  color: #666666;
+}
+
+
+#framePanel
+{
+	padding: 10px 10px 5px 10px; 
+	display: none;
+	border-top: solid 1px #d7dfe8;
+	margin-top: 10px;
+}
+
+#framePanel ul>li{
+	line-height: 2.5;
+	margin-top: 3px;
+	margin-bottom: 3px;
+}
+
+#framePanel ul>li span.titleText
+{
+	display: inline-block;
+	text-align: right;
+	width: 70px;
+	margin-right: 5px;
+	vertical-align: middle;
+	white-space: nowrap;
+	color: #666666;
+}
+
+#framePanel ul>li span.content{
+	display: inline-block;
+	width: 160px;
+	height: 26px;
+	border-radius:3px;
+	border: solid 1px #d9d9d9;
+	vertical-align: middle;
+	background-color: white;
+	padding-left: 3px;
+	padding-right:3px;
+	white-space: nowrap;
+}
+
+#framePanel ul>li span.simpercolorpicker
+{
+	padding:0px;
+	padding-left: 0px;
+	padding-top: 0px;
+}
+
+#framePanel ul>li span.simpercolorpicker input{
+	margin: 0px;
+	height: 20px;
+	padding:0px;
+	position: relative;
+	top:-2px;
+}
+
+#framePanel ul>li span.content>.color{
+	 vertical-align: middle;
+	 display: inline-block;
+	 width: 16px;
+	 height: 16px;
+	 background-image: url(/module/framemark/images/time-icon.png);
+	 margin-bottom: 5px;
+}
+
+
+#framePanel ul>li span.content input.time{
+	border:none;
+	width: 137px;
+}
+#framePanel ul>li span.content input.text{
+	border:none;
+	width: 100%;
+}
+
+.ShowframeName{
+	background-color: #f6fbff;
+}
+
+.ShowframeName .mark-checkbox
+{
+	padding-top: 5px;
+	padding-bottom: 10px;
+}
+
+.ShowframeName .frame-mark-names .mark
+{
+	display: inline-block;
+	border:solid 0px red;
+	float: left;
+	height: 27px;
+	line-height: 26px;
+	margin: 5px;
+	cursor: default;
+}
+
+.ShowframeName .mark span.name{
+	border:solid 1px #bbbbbb;
+	border-radius: 3px;
+	display: inline-block;
+	height: 25px;
+	line-height: 25px;
+	vertical-align: middle;
+	border-right: none;
+	padding-left:4px; 
+	padding-right:4px; 
+	border-bottom:solid 2px #bbbbbb;
+	background-color: white;
+}
+
+.ShowframeName .mark span.name:hover{
+	color:#005eac;
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.ShowframeName .mark .arrow{
+	width: 12px;
+	height: 27px;
+	line-height: 27px;
+	display: inline-block;
+	border:solid 0px #cccccc;
+	/*background-image1: url(/assets/images/inspect/mark-arrow.png) no-repeat;*/
+	background-position: 0px 0px;
+	vertical-align: middle;
+}
+.ShowframeName .mark .arrow img{
+	padding:0px;
+	margin:0px;
+	border:solid 0px red;
+	margin-top: 0px;
+	margin-left: -2px;
+}
+
+
+.label-manage .searchok
+{
+	text-align: left;
+	/* border-bottom: solid 2px #d7dfe8; */
+	padding-top: 10px;
+	padding-bottom: 0px;
+	margin-left: 118px;
+}
+
+.label-manage .ShowframeName
+{
+	border-top: solid 1px #d7dfe8;
+    margin-top: 10px;
+	padding: 5px 10px;
+}
+
+.label-manage .ShowframeName input
+{
+  vertical-align: middle;
+}
+
+.expand1{
+	background:url(/module/framemark/images/expand.png) no-repeat -10px 0px;
+	width:10px;
+	padding-top:11px;
+	display: inline-block;
+	vertical-align: middle;
+	margin-left:5px;
+}
+.expand2{
+	background:url(/module/framemark/images/expand.png) no-repeat 0px 0px;
+	width:10px;
+	padding-top:11px;
+	display: inline-block;
+	vertical-align: middle;
+	margin-left:5px;
+}
+
+.label-manage .input.ui input{
+	width: 170px;
+	border-radius: 3px;
+}
+
+.markHeader .mark-model{
+	display: inline-block;
+	float: left;
+}
+
+.markHeader .change-mode
+{
+	display: inline-block;
+	float: right;
+	border:solid 0px red;
+	height: 100%;
+	margin-right: 20px;
+	padding-top: 8px;
+	white-space: nowrap;
+}
+
+.markHeader .change-mode
+{
+	display: inline-block;
+}
+
+.markHeader .change-mode .list
+{
+	width: 20px;
+	display: inline-block;
+}
+
+.markHeader .change-mode .icon
+{
+	width: 20px;
+	display: inline-block;
+}
+
+.modelcontent
+{
+	padding:0px; 
+}
+
+.all-frame-list li{
+	border-bottom: solid 1px #e1e1e1;
+	line-height: 1.5;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 10px;
+}
+.all-frame-list li.head{
+	background-color: #f3f3f3
+}
+
+.thead{
+	background-color: #f3f3f3;
+	font-family: "Î¢ÈíÑÅºÚ";
+	font-weight: bold;
+}
+#frameMarkResult
+{
+	border-collapse:separate;
+	border: solid 0px #cccccc;
+	width: 100%;
+	height: 100%;
+	border-left:none;
+	border-right: none;
+	margin-top: 0px;
+	vertical-align: top;
+	border-top:none;
+}
+
+#frameMarkResult tr:hover{
+	background-color: #EEEEEE;
+}
+
+#frameMarkResult .cell0{
+	width: 40px;
+}
+
+#frameMarkResult .cell1{
+	width: 60px;
+}
+
+#frameMarkResult .cell2{
+	width: 100px;
+}
+
+#frameMarkResult .cell3{
+	width: 100px;
+}
+
+#frameMarkResult .cell4{
+	width: 200px;
+}
+
+#frameMarkResult .cell5{
+	width: 80px;
+}
+
+#frameMarkResult .cell6{
+	width: 120px;
+}
+
+#frameMarkResult .cell7{
+	width: 200px;
+}
+
+#frameMarkList
+{
+	padding-top: 0px;
+	vertical-align: top;
+	border-top:solid 0px red;
+	display: block;
+	height: auto;
+	overflow: auto;
+	width: 100%;
+	overflow-x:hidden;
+/*	height:530px;
+	min-height: 530px;*/
+}
+
+#frameMarkList tr>td{
+	white-space: nowrap;
+}
+
+#frameMarkList span.button
+{
+	background: url(/module/framemark/images/frame-mark-icons.png) no-repeat;
+	width: 30px;
+	height: 25px;
+	display: inline-block;
+	border: solid 0px #cccccc;
+	vertical-align: middle;
+}
+
+#frameMarkList span.explorer
+{
+	background-position: 0px -3px; 
+}
+#frameMarkList span.explorer:hover
+{
+	background-position: 0px -33px; 
+}
+
+#frameMarkList span.edit
+{
+	background-position: -30px -3px; 
+}
+
+#frameMarkList span.edit:hover
+{
+	background-position: -30px -33px; 
+}
+
+#frameMarkList span.play
+{
+	background-position: -60px -3px; 
+}
+#frameMarkList span.play:hover
+{
+	background-position: -60px -33px; 
+}
+
+#frameMarkList span.saveto
+{
+	background-position: -90px -3px; 
+}
+
+#frameMarkList span.saveto:hover
+{
+	background-position: -90px -33px; 
+}
+
+#frameMarkList span.delete
+{
+	background-position: -120px -3px; 
+}
+
+#frameMarkList span.delete:hover
+{
+	background-position: -120px -33px; 
+}
+
+.markHeader .change-mode >span>span
+{
+	background: url(/module/framemark/images/frame-mark-icons.png) no-repeat;
+	width: 30px;
+	height: 25px;
+	display: inline-block;
+	border: solid 0px #cccccc;
+	vertical-align: middle;
+}
+
+.markHeader .change-mode span.list
+{
+	background-position: -155px -3px;
+}
+.markHeader .change-mode span.list:hover
+{
+	background-position: -155px -33px;
+}
+
+.markHeader .change-mode span.icon
+{
+	background-position: -185px -3px;
+}
+.markHeader .change-mode span.icon:hover
+{
+	background-position: -185px -33px;  
+}
+
+.markHeader .change-mode>span:hover{
+  color: #999DDD;
+  /* font-weight: bold; */
+}
+
+
+#frameMarkResult
+{
+	height: auto;
+}
+
+#frameImageList
+{
+	display: none;
+	padding-top: 0px;
+	padding-left: 90px;
+	text-align: left;
+}
+
+#frameImageList .markImage
+{
+	display: inline-block;
+	width: 168px;
+	height:176px;
+	border: solid 2px #ffffff;
+	text-align: center;
+	margin: 0px;
+	border-radius: 3px;
+	cursor: default;
+	margin-left: 11px;
+	margin-right: 11px;
+	position: relative;
+}
+
+#frameImageList .markImage span.title{
+	position:absolute;
+	right: 10px;
+	top: 10px;
+	display: inline-block;
+	height: 18px;
+	border-radius: 10px;
+	z-index: 1;
+	color: white;
+	padding-left: 6px;
+	padding-right: 6px;
+	border:solid 1px red;
+	background-color: red;
+	filter:alpha(opacity=70); 
+	-moz-opacity:0.70; 
+	opacity:0.70; 
+}
+
+#frameImageList .markImage div.image{
+	padding: 4px;
+	text-align: center;
+	width: 160px;
+	height: 120px;
+	border:solid 1px #cccccc;
+	overflow: hidden;
+	position: relative;
+	left:0px;
+	top:0px;
+}
+
+#frameImageList .markImage .image:hover
+{
+	padding: 3px;   
+	border:solid 2px #ff8d33;
+}
+
+
+#frameImageList .markImage .image span.imgbtn
+{
+	  display: inline-block;
+	  width: 30px;
+	  height: 26px;
+	  background: url(/module/framemark/images/frame-mark-img.png) no-repeat;
+	  border: solid 0px #cccccc;
+}
+
+#frameImageList .markImage .image .buttons{
+	display: none;
+	height: 26px;
+	line-height: 26px;
+	background-color: black;
+	border: solid 0px red;
+	position: relative;
+	top:-30px;
+	filter:alpha(opacity=70); 
+	-moz-opacity:0.70; 
+	opacity:0.70; 
+}
+
+
+#frameImageList .markImage .image span.edit
+{
+  background-position: 0px 0px;
+}
+
+#frameImageList .markImage .image span.play
+{
+  background-position: -25px 0px;
+}
+
+#frameImageList .markImage .image span.saveto
+{
+  background-position: -50px 0px;
+}
+
+#frameImageList .markImage .image span.delete
+{
+  background-position: -75px 0px;
+}
+
+#frameImageList .markImage .image span.edit:hover
+{
+  background-position: 0px -26px;
+}
+
+#frameImageList .markImage .image span.play:hover
+{
+  background-position: -25px -26px;
+}
+
+#frameImageList .markImage .image span.saveto:hover
+{
+  background-position: -50px -26px;
+}
+
+#frameImageList .markImage .image span.delete:hover
+{
+  background-position: -75px -26px;
+}
+
+#frameImageList .markImage div.image img.thumbnail{
+	width: 160px;
+	height: 120px;
+	position: relative;
+	left: 0px;
+	top:0px;
+}
+
+/*
+#frameImageList .markImage div.image img.thumbnail:hover{
+	width: 166px;
+	height: 126px;
+	left: -3px;
+	top:-3px;
+}*/
+
+#frameImageList .markImage div.time{
+   margin: 0px;
+   color: #666666;
+   font-size:12px;
+   line-height: 20px;
+}
+
+#frameImageList .markImage div.cameraName{
+   margin: 3px;
+   color: #666666;
+   font-size:12px;
+   line-height: 20px;
+}
+
+
+#frameMarkResult tr{
+	height: 31px;
+	line-height: 31px;
+	border: solid 1px #e1e1e1;
+	text-align: center;
+}
+
+#frameMarkResult td{
+	border-bottom: solid 1px #e1e1e1;
+}
+
+#Pagination
+{
+	padding: 7px;
+	padding-top: 3px;
+	margin-right: 50px;
+	width: 90%;
+}
+
+/*
+.pages
+{
+	height: 20px;
+	border: solid 1px red;
+}
+
+#Pagination
+{
+	width: 100%;
+	text-align: center;
+	white-space: nowrap;
+	padding-top: 15px;
+	padding-left: 20px;
+}
+
+.pagination {
+	font-size: 80%;
+	text-align: center;
+	padding-left: auto;
+	padding-right: auto;
+	display: block;
+}
+
+.pagination a {
+	text-decoration: none;
+	border: solid 1px #cccccc;
+	height: 16px;
+	line-height: 16px;
+	border-radius: 3px;
+	padding-left: 3px;
+	padding-right: 3px;
+}
+
+.pagination a, .pagination span {
+	display: block;
+	float: left;
+	padding: 0.3em 0.8em;
+	margin-right: 5px;
+	margin-bottom: 5px;
+	min-width:1em;
+	text-align:center;
+}
+
+.pagination span.current {
+	background-color: #3499ff;
+	color:white;
+	border: solid 1px #cccccc;
+	height: 16px;
+	line-height: 16px;
+	border-radius: 3px;
+}
+*/
+
+
+
+#MatchesList
+{
+	position: absolute;
+	left:0px;
+	top:0px;
+	display: none;
+	width:160px;
+	height: auto;
+	line-height: 20px;
+	font-size: 12px;
+	border: solid 1px #cccccc;
+	border-radius: 10px;
+	z-index: 200;
+	padding: 10px;
+	background-color: white;
+	cursor: default;
+}
+#MatchesList li
+{
+	padding: 3px;
+	border-radius: 3px;
+}
+
+#MatchesList li.active{
+ background-color: blue;
+ color:white;
+}
+
+
+#MatchesList li .bold
+{
+	font-weight: bold;
+}
+
+#MatchesList li .text{
+
+}
+
+
+#MatchesList li:hover{
+	background-color: #E8E8E8;
+	color: #005eac;
+};
+
+#MatchesList #tagNames
+{
+	text-indent: 4em;
+	padding-left: 40px;
+	border:solid 1px red;
+	color: red;
+}
+
+#MatchesList .tagNamesList
+{
+	text-indent: 5em;
+}
+
+#inputText
+{
+	display: inline-block;
+	width:150px;
+	height: 30px;
+	border:solid 1px #cccccc;
+	border-radius: 15px;
+	line-height: 30px;
+	padding-left: 10px;
+	padding-right: 10px;
+	white-space: nowrap;
+	background-color: white;
+	cursor: default;
+}
+
+.framespan
+{
+	border-radius: 9px;
+	background-color: #c7ddf2;
+	color: #005eac;
+	padding: 2px;
+	height: 26px;
+	cursor: default;
+}
+
+.framespan .head{
+	padding-left: 5px;
+}
+
+.framespan .text{
+	margin-left: 3px;
+	margin-right: 3px;
+}
+.framespan .close{
+	padding-right: 5px;
+	color: red;
+	cursor: default;
+	font-size: 10px;
+	margin-left: 5px;
+	cursor:crosshair;
+	z-index: 1;
+}
+
+#frameMarkList td .title{
+	border-radius: 12px;
+	padding-left: 8px;
+	padding-right: 8px;
+	border: solid 0px #cccccc;
+	height: 18px;
+	padding-top: 4px;
+	padding-bottom: 3px;
+/*	filter:alpha(opacity=70); 
+	-moz-opacity:0.70; 
+	opacity:0.70; */
+}
+
+.ShowframeName .tagcount
+{
+	border-radius: 12px;
+	padding-left: 8px;
+	padding-right: 8px;
+	border: solid 0px #cccccc;
+	height: 18px;
+	padding-top: 4px;
+	padding-bottom: 3px;
+	margin:3px;
+	cursor: default;
+}
+
+#Show-Simple-Color > div{
+    border: solid 1px #ffffff;
+    height: 20px;
+    margin: 0px;
+    padding: 0px;
+    padding-left: 10px;
+    line-height: 20px;
+}
+
+#Show-Simple-Color>  div:hover{
+    border: solid 1px #999fff;
+    background-color: blue;
+}
+
+#framePanel #level
+{
+	width:164px;
+	width: 25px;
+	height: 22px;
+	border: solid 1px #d9d9d9;
+	border-radius: 5px;
+}
+
+#framePanel span.checkbox
+{
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    color:red;
+    display: inline-block;
+    border: solid 1px #cccccc;
+    vertical-align: middle;
+    border-radius: 3px;
+    margin-right: 8px;
+}
+
+#framePanel  span.checked{
+    background-image:url(/module/framemark/images/checkbox.png);
+    background-position: 2px 2px;
+}
+
+#framePanel span.checkbox.color1
+{
+    background-color:red;
+}
+#framePanel span.checkbox.color2
+{
+    background-color:orange;
+}
+#framePanel span.checkbox.color3
+{
+    background-color:yellow;
+}
+#framePanel span.checkbox.color4
+{
+    background-color:#00ccff;
+}
+#framePanel span.checkbox.color5
+{
+    background-color:#e1e1e1;
+}
+
+#show-frame-small-picture
+{
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 130px;
+	height: 120px;
+	display: none;
+	border: solid 1px #cccccc;
+	border-radius: 5px;
+	z-index: 10;
+	background-image: url(/module/framemark/images/bottom-arrow.png);
+	background-position: 65px 115px;
+	background-repeat: no-repeat;
+	overflow: hidden;
+	text-align: center;
+/*	background-color: #777777;*/
+}
+
+#show-frame-small-picture .show-frame-content
+{
+	height: 115px;
+	width: 130px;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	background-color: #777777;
+}
+
+#show-frame-small-picture img{
+	width: 120px;
+	height: 90px;
+	margin:5px;
+	margin-bottom: 0px;
+	padding-bottom: 0px;
+}
+
+#show-frame-small-picture .frameText
+{
+	position: absolute;
+	right: 20px;
+	top:10px;
+	height: 20px;
+	border-radius: 10px;
+	font-size: 12px;
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-top: 2px;
+	filter:alpha(opacity=70); 
+	-moz-opacity:0.70; 
+	opacity:0.70; 
+}
+
+#show-frame-small-picture .frameTime
+{
+	color: white;
+	text-align: center;
+	position: relative;
+	top:-3px;
+}
+#major-label-manage{
+	height: 100%;
+}
+
+#rightContent
+{
+	height: 90%;
+	width: 100%;
+	overflow: auto;
+}

@@ -1,0 +1,329 @@
+<div id="content">
+	<div class="wrapper clearfix">
+		<ul class="breadcrumb">
+			<li>
+				<a href="/module/viewlibs/workbench/index.html">我的工作台</a>
+				<span class="divider">&gt;</span>
+			</li>
+			<li>
+				<a href=""></a>
+				<span class="divider">&gt;</span>
+			</li>
+			<li>
+				<a href="">线索列表</a>
+				<span class="divider">&gt;</span>
+			</li>
+			<li class="active">车辆信息</li>
+		</ul>			
+		<div class="main">	
+			<div class="loading"></div>
+		<script id="view-template" type="text/x-handlebars-template">
+		{{#car}}
+		<div class="resources tabview">
+			<div data-type="video" data-id="{{id}}" class="actions">
+			 	<!--疑情信息关联案事件-->
+				{{#unless incidentId}}
+				{{#belongs this}}
+				{{#auditBar status 1 3}}
+				<a class="action ui button relate permission permission-create" data-rtype="2" id="chooseIncident" {{getMediaId ../videoId ../imageId}}>关联案事件</a>
+				{{/auditBar}}
+				{{/belongs}}
+				<!--疑情信息关联案事件结束-->
+				<!--未通过，未提交提交审核-->
+				{{#auditBar status 1 3}}
+				<a class="action ui button audit permission permission-create {{isLogUser ../userId }}" data-id="{{../id}}" data-type="2"  data-status="{{../status}}">提交审核</a>
+				{{/auditBar}}
+				<!--未通过，未提交提交审核结束-->
+				{{/unless}}
+				<!--案事件的结构化信息生成线索-->
+				{{#if incidentId}}
+				{{#isiStruct this}}
+				<a class="action ui button save save-to-thread permission permission-create" data-id="{{id}}">生成线索</a>
+				{{/isiStruct}}
+				{{/if}}
+				<!--案事件结构化信息生成线索结束-->
+				<!--已通过才有保存-->
+				
+				{{#auditStatus status}}
+				<a class="action ui button save save-to-clound permission permission-import" data-id="{{../id}}">保存</a>
+				{{/auditStatus}}
+				
+				{{#belongs1 this}}
+				<a class="action ui button edit permission permission-create">编辑</a>
+				{{/belongs1}}
+				<!--只有待审核不显示删除-->
+				{{#unwaitPass status}}
+				<a class="action remove ui button permission {{isOwner ../userId ../status}}">删除</a>
+				{{/unwaitPass}}
+			</div>
+			{{#waitPass status}}
+			<div id="auditSection" class="actions permission permission-review" data-type="2" data-id="{{../id}}">
+				<a id="reject" class="reject {{isIncident ../incidentId}}" data-incidentid="{{../incidentId}}"><i></i>打回</a>
+				{{#unless ../incidentId}}
+				<a class='reject'><i></i>打回</a>
+				<a class='pass'><i></i>通过</a>
+				{{/unless}}
+			</div>
+			{{/waitPass}}
+			<div class="header">
+				<ul class="tabs menus ui tabular">
+					<li data-tab="info" class="active">
+						<a>基本信息</a>
+					</li>
+					{{#if incidentId}}
+					<li data-tab="incident" class="" data-incidentid="{{incidentId}}">
+						<a>所属案事件</a>
+					</li>
+					{{/if}}
+					<li data-tab="video" class="">
+						<a>所属视图信息</a>
+					</li>
+				</ul>
+			</div>
+			<div class="views ui tab active">
+				<div class="scrollbar disable">
+					<div class="track">
+						<div class="thumb"></div>
+					</div>
+				</div>
+				<div class="viewport">
+					<div class="overview">
+						<div data-tab="info" class="view active ui tab">
+						<table class="common-table">
+						    <tbody>
+						        <tr>
+						        	<td class="attr-name">来源视频绝对时间：</td>
+						            <td class="attr-value">
+						                <span class="value">{{datetransfer appearTime}}</span>
+						            </td>
+						        </tr>
+						        <tr>
+						        	<td class="attr-name">车牌种类：</td>
+						            <td class="attr-value">
+						                <span class="value">{{licenseType}}</span>
+						            </td>
+						        </tr>
+						        <tr>
+						        	<td class="attr-name">车牌颜色：</td>
+						            <td class="attr-value">
+						                <span class="value">{{licenseColor}}</span>
+						            </td>
+						        </tr>
+						        <tr>
+						        	<td class="attr-name">车牌号码：</td>
+						            <td class="attr-value">
+						               {{#searchCar licenseNumber}}
+										
+										{{else}}
+										<span class="value">{{licenseNumber}}</span>
+										{{/searchCar}}
+						            </td>
+						        </tr>
+						        <tr>
+						        	<td class="attr-name">车牌颜色：</td>
+						            <td class="attr-value">
+						                <span class="value">{{plateColor}}</span>
+						            </td>
+						        </tr>
+						        <tr>
+						        	<td class="attr-name">是否套牌：</td>
+						            <td class="attr-value">
+						                <span class="value">{{isChecked isFakeLicense}}</span>
+						            </td>
+						        </tr>
+						        <tr>
+						        	<td class="attr-name">行驶速度：</td>
+						            <td class="attr-value">
+						                <span class="value">{{driveSpeed}}</span>
+						            </td>
+						        </tr>
+						        <tr>
+						        	<td class="attr-name">行驶状态：</td>
+						            <td class="attr-value">
+						                <span class="value">{{driveStatus}}</span>
+						            </td>
+						        </tr>
+						        <tr>
+						        	<td class="attr-name">车辆使用性质：</td>
+						            <td class="attr-value">
+						                <span class="value">{{useNature}}</span>
+						            </td>
+						        </tr>
+						        <tr>
+						        	<td class="attr-name">车辆品牌：</td>
+						            <td class="attr-value">
+						                <span class="value">{{carBrand}}</span>
+						            </td>
+						        </tr>
+						        <tr>
+						        	<td class="attr-name">车辆型号：</td>
+						            <td class="attr-value">
+						                <span class="value">{{carModel}}</span>
+						            </td>
+						        </tr>
+						        <tr>
+						        	<td class="attr-name">车辆类型：</td>
+						            <td class="attr-value">
+						                <span class="value">
+						                    {{translate carTypeMain carTypeSub '' '' 'cartype'}}
+						                </span>
+						            </td>
+						        </tr>
+						        <tr>
+						        	<td class="attr-name">车辆外型：</td>
+						            <td class="attr-value">
+						                <span class="value">{{carShape}}</span>
+						            </td>
+						        </tr>
+						        <tr>
+						        	<td class="attr-name">车身颜色：</td>
+						            <td class="attr-value">
+						                <span class="value">{{carColor}}</span>
+						            </td>
+						        </tr>
+						        <tr>
+						        	<td class="attr-name">车前盖：</td>
+						            <td class="attr-value">
+						                <span class="value">{{frontHood}}</span>
+						            </td>
+						        </tr>
+						        <tr>
+						        	<td class="attr-name">车后盖：</td>
+						            <td class="attr-value">
+						                <span class="value">{{backHood}}</span>
+						            </td>
+						        </tr>
+						        <tr>
+						        	<td class="attr-name">车轮：</td>
+						            <td class="attr-value">
+						                <span class="value">{{ wheel}}</span>
+						            </td>
+						        </tr>
+						        <tr>
+						        	<td class="attr-name">车轮印花纹：</td>
+						            <td class="attr-value">
+						                <span class="value">{{wheelTracks}}</span>
+						            </td>
+						        </tr>
+						        <tr>
+						        	<td class="attr-name">车窗：</td>
+						            <td class="attr-value">
+						                <span class="value">{{carWindow}}</span>
+						            </td>
+						        </tr>
+						        <tr>
+						        	<td class="attr-name">车顶：</td>
+						            <td class="attr-value">
+						                <span class="value">{{carRoof}}</span>
+						            </td>
+						        </tr>
+						        <tr>
+						        	<td class="attr-name">底盘：</td>
+						            <td class="attr-value">
+						                <span class="value">{{carChassis}}</span>
+						            </td>
+						        </tr>
+						        <tr>
+						        	<td class="attr-name">遮挡：</td>
+						            <td class="attr-value">
+						                <span class="value">{{carFilming}}</span>
+						            </td>
+						        </tr>
+						        <tr>
+						        	<td class="attr-name">贴膜颜色：</td>
+						            <td class="attr-value">
+						                <span class="value">{{filmingColor}}</span>
+						            </td>
+						        </tr>
+						        <tr>
+						        	<td class="attr-name">经过时刻：</td>
+						            <td class="attr-value">
+						                <span class="value">{{datetransfer transitTime}}</span>
+						            </td>
+						        </tr>
+						        <tr>
+						        	<td class="attr-name">经过道路名称：</td>
+						            <td class="attr-value">
+						                <span class="value">{{transitRoad}}</span>
+						            </td>
+						        </tr>
+						        <tr style="display:none;">
+						            <td id="points1" value="{{points}}">{{points}}</td>
+						            <td class="value">{{points}}</td>
+						        </tr>
+						    </tbody>
+						</table>
+						</div>
+						<div data-tab="incident" class="view ui tab">							
+						</div>
+						<div data-tab="video" class="view ui tab">								
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="entity-preview" data-id="{{id}}" data-videoId="{{videoId}}" data-imageId="{{imageId}}">
+			<div class="markwrap clearfix">
+				{{#if status}}
+				<div class="audit-status">
+					<span class="track-type">{{casecar licenseNumber licenseType carColor}}</span>
+					{{#belongs this}}
+					<span class="{{translateStatus status 'color'}} status">[{{translateStatus status 'name'}}]</span>
+					{{/belongs}}
+				</div>
+				{{/if}}
+				<div class="display-format tab-title">
+			        <ul class="menus">
+			            <li data-tab="picture" data-anchor="picture" class="tab-title-item active"><a class="btn">特征图片</a></li>
+			            {{#tabular videoId}}<li data-tab="ocxbody" data-anchor="ocxbody" class=" tab-title-item"><a class="btn">视频片段</a></li>{{/tabular}}
+			        </ul>
+
+				</div>
+			</div>
+		    <div class="entity-box tab-content">
+		    	{{#tabular videoId}}
+                    <div class="video tab-content-item" data-target="ocxbody" data-tab="ocxbody" data-videopath="{{videoPath}}">
+                        <object id="UIOCX" type="applicatin/x-firebreath" width = "800" height = "450">
+                            	<param name="onload" value="pluginLoaded"/>                            
+                            </object>
+                        <div class="video-block">
+                       		 <div class="progress-bg">
+                            </div>
+                            <div class="progress-bar">
+                                <div class="bullet">
+                                	<i class="play-point"></i>
+                                </div>
+                                <i class='start-mark'></i>
+                                <i class='end-mark'></i>
+                            </div>
+                            <div class="panel" onselectstart="return false">
+                           <span class="time">
+										<span class="nowtime" nowtime-ms="0">00:00:00</span>&nbsp;/
+										<span class="alltime" alltime-ms="14859247">04:07:39</span>
+									</span>
+									<span class="speed">倍速：<em></em></span>
+									<span class="fullwin" title="全屏"></span>
+									<span class="grab" title="抓图"></span>
+									<span class="editing" title="人工标注"></span>
+									<span style="display:none;" class="loop" title="循环"></span>
+									<span class="sequence" title="顺序"></span>
+									<span class="stop" title="停止"></span>
+									<span class="forward" title="快进"></span>
+									<span class="switch" title="播放"></span>
+									<span class="rewind" title="慢放"></span>
+                            </div>
+
+                        </div>
+                    </div>
+		        {{/tabular}}
+		        <div class="picture tab-content-item active" data-tab="picture" data-target="picture">
+		            <span class="hook"></span>
+		            <img src="{{markPath}}" alt="" class="entity-img">
+		        </div>
+		    </div>
+		</div>
+		{{/car}}
+		</script>			
+		</div>
+	</div>
+</div>

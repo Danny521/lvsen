@@ -1,0 +1,271 @@
+<!-- 已入平台数据-->
+{{#if enterDataListPart}}
+	{{#if enterDataList}}
+		{{#each enterDataList}}
+	  	<tr class="{{islogout status}}" data-id="{{id}}" data-deviceid="{{deviceId}}" data-deviceclassify="{{deviceClassify}}" data-devicepixel="{{devicePixel}}" data-iscontrol="{{isControl}}" data-installposition="{{installPosition}}" data-devicepurpose="{{devicePurpose}}" data-devicelongitude="{{deviceLongitude}}" data-devicelatitude="{{deviceLatitude}}" data-monitorpointheight="{{monitorPointHeight}}" data-devicecreatedate="{{deviceCreateDate}}" data-ip="{{IP}}" data-enterplatformstatus ="{{enterPlatformStatus}}" data-monitorsystemid="{{monitorSystemId}}" data-pointid="{{pointId}}" data-devicetype ="{{this.deviceType}}" data-devicemanufacturer="{{this.deviceManufacturer}}" data-monitortype="{{this.monitorType}}" data-status="{{status}}"  data-policedept ="{{policeDept}}" data-cancelreason="{{this.cancelReason}}" data-countynumber="{{countyNumber}}" data-basicaccessunitnum="{{basicAccessUnitNum}}">
+	  		<td><span class="deviceName" title="{{deviceName}}">{{deviceName}}</span></td>
+	  		<td><span class="deviceId">{{deviceId}}</span></td>
+	  		<td><span class="monitorSystemName" title="{{monitorSystemName}}">{{monitorSystemName}}</span></td>
+	  		<td><span class="manageType">{{#showDeviceType "deviceType" deviceType}}{{/showDeviceType}}</span></td>
+	  		<td><span class="deviceManufacturer"  title="{{this.deviceManufacturer}}">{{ this.deviceManufacturer}}</span></td>
+	  		<td><span class="monitorType">{{#showDeviceType "monitorType" monitorType}}{{/showDeviceType}}</span></td>
+	  		<td><span class="managerUnitName" title="{{managerUnitName}}">{{managerUnitName}}</span></td>
+			<td><span class="camerastatus">{{#camerastatus status}}{{/camerastatus}}</span></td>
+	  		<td width="150px">
+	  			<span  class="iconSet">
+		  			<i class="icon-edit {{isLogoutCamera status}}  permission permission-camera-edit" title="编辑" data-event="click" data-handler="EditCamera"></i>
+		  			<i class="icon-logout {{isLogoutCamera status}} permission permission-camera-cancel" data-logouttype="tr" data-id="{{id}}" title="注销" data-event="click" data-handler="logoutCamera"></i>
+		  			<i class="icon-showDetail permission permission-camera-view" title="查看详情" data-event="click" data-handler="getDetailInfo"></i>
+	  			</span>
+	  		</td>
+	  	</tr>
+		{{/each}}
+	{{else}}
+		<tr>
+			<td class="noData" colspan="9">暂无数据</td>
+		</tr>
+	{{/if}}
+{{/if}}
+
+
+<!-- 未入平台数据-->
+{{#if unenterDataListPart}}
+	{{#if unenterDataList}}
+		{{#each unenterDataList}}
+		<tr class="{{islogout status}}" data-id="{{id}}" data-deviceid="{{deviceId}}" data-deviceclassify="{{deviceClassify}}" data-devicepixel="{{devicePixel}}" data-iscontrol="{{isControl}}" data-installposition="{{installPosition}}" data-devicepurpose="{{devicePurpose}}" data-devicelongitude="{{deviceLongitude}}" data-devicelatitude="{{deviceLatitude}}" data-monitorpointheight="{{monitorPointHeight}}" data-devicecreatedate="{{deviceCreateDate}}" data-ip="{{IP}}" data-enterplatformstatus ="{{enterPlatformStatus}}" data-monitorsystemid="{{monitorSystemId}}" data-pointid="{{pointId}}" data-devicetype ="{{this.deviceType}}" data-devicemanufacturer="{{this.deviceManufacturer}}" data-monitortype="{{this.monitorType}}" data-status="{{status}}"  data-policedept ="{{policeDept}}" data-cancelreason="{{this.cancelReason}}" data-countynumber="{{countyNumber}}" data-basicaccessunitnum="{{basicAccessUnitNum}}">
+			<td width="50px"><i class="icon-checkbox {{isLogoutCamera status}}" data-event="click" data-handler="withTabCheckboxActive"></i></td>
+			<td><span class="deviceName" title="{{deviceName}}">{{deviceName}}</span></td>
+	  		<td><span class="deviceId">{{deviceId}}</span></td>
+	  		<td><span class="monitorSystemName" title="{{monitorSystemName}}">{{monitorSystemName}}</span></td>
+	  		<td><span class="manageType">{{#showDeviceType "deviceType" deviceType}}{{/showDeviceType}}</span></td>
+	  		<td><span class="deviceManufacturer"  title="{{deviceManufacturer}}">{{#showDeviceType "deviceManufacturer" deviceManufacturer}}{{/showDeviceType}}</span></td>
+	  		<td><span class="monitorType">{{#showDeviceType "monitorType" monitorType}}{{/showDeviceType}}</span></td>
+	  		<td><span class="managerUnitName" title="{{managerUnitName}}">{{managerUnitName}}</span></td>
+			<td><span class="camerastatus">{{#camerastatus status}}{{/camerastatus}}</span></td>
+			<td width="150px">
+				<span  class="iconSet">
+		  			<i class="icon-edit {{isLogoutCamera status}}  permission permission-camera-edit" title="编辑" data-event="click" data-handler="EditCamera"></i>
+		  			<i class="icon-logout {{isLogoutCamera status}} permission permission-camera-cancel" data-logouttype="tr" data-id="{{id}}" title="注销" data-event="click" data-handler="logoutCamera"></i>
+		  			<i class="icon-showDetail permission permission-camera-view" title="查看详情" data-event="click" data-handler="getDetailInfo"></i>
+	  			</span>
+	  		</td>
+		</tr>
+		{{/each}}
+	{{else}}
+		<tr>
+			<td class="noData" colspan="10">暂无数据</td>
+		</tr>
+	{{/if}}
+{{/if}}
+
+<!-- 添加或者编辑-->
+{{#if editOrAddPanelData}}
+ 	<div class="importBread">
+		<span data-event="click" data-handler="gobackOrgin">摄像机列表</span>
+		<i class="icon-right"></i>
+		<span class="currCamera"><em class="actionTitle">{{isNew editOrAddPanelData}}</em><em class="cameraName">{{#getCameraName editOrAddPanelData}}{{/getCameraName}}</em>摄像机详情</span>
+	</div>
+	<div class="detailPanel" >
+		<div class="detailLeftPanel">
+			<div class="normalPart">
+				<label ><span class="require">*</span>设备名称：</label>
+				<span><input type="text" name="deviceName" maxlength="13" placeholder="请输入设备名称" value="{{#if editOrAddPanelData.deviceName}}{{editOrAddPanelData.deviceName}}{{/if}}" /></span>
+			</div>
+			<div class="normalPart">
+				<label><span class="require">*</span>设备类型：</label>
+				<span class="commonPanelPart" data-event="click" data-pubtype="deviceType" data-handler="loadPanelPubData"><span class="deviceType" data-code="{{editOrAddPanelData.deviceType}}">{{#if editOrAddPanelData.deviceType}}{{#showDeviceType "deviceType" editOrAddPanelData.deviceType "edit"}}{{/showDeviceType}}{{else}}请选择设备类型{{/if}}</span><i class="icon-arrow"></i></span>
+			</div>
+			<div class="normalPart">
+				<label>设备分类：</label>
+				<span class="commonPanelPart" data-event="click" data-pubtype="deviceClassify" data-handler="loadPanelPubData"><span class="deviceClassify" data-code="{{editOrAddPanelData.deviceClassify}}">{{#if editOrAddPanelData.deviceClassify}}{{#showDeviceType "deviceClassify" editOrAddPanelData.deviceClassify "edit"}}{{/showDeviceType}}{{else}}请选择设备分类{{/if}}</span><i class="icon-arrow"></i></span>
+			</div>
+			<div class="normalPart">
+				<label>设备厂家：</label>
+				<span class="commonPanelPart" data-event="click" data-pubtype="deviceManufacturer" data-handler="loadPanelPubData"><span class="deviceManufacturer" data-code="{{editOrAddPanelData.deviceManufacturer}}">
+				<!-- 不用助手了 haoyong
+				{{#if editOrAddPanelData.deviceManufacturer}}{{#showDeviceType "deviceManufacturer" editOrAddPanelData.deviceManufacturer "edit"}}{{/showDeviceType}}{{else}}请选择厂家{{/if}}-->
+				<span class="commonPanelPart" data-event="click" data-pubtype="deviceManufacturer" data-handler="loadPanelPubData"><span class="deviceManufacturer" data-code="{{editOrAddPanelData.deviceManufacturer}}">{{#if editOrAddPanelData.deviceManufacturer}}{{editOrAddPanelData.deviceManufacturer}}{{else}}请选择厂家{{/if}}</span><i class="icon-arrow"></i></span>
+				<!--默认隐藏的文本框 如果选择99-其他则显示它-->
+				<span class="otherDeviceManufacturer" style="display: none;"><input type="text" class="deviceManufacturer" name="deviceManufacturer" maxlength="30" placeholder="请输入其他厂家" value="{{#if editOrAddPanelData.deviceManufacturer}}{{editOrAddPanelData.deviceManufacturer}}{{/if}}" /></span>
+			</div>
+			<div class="normalPart">
+				<label>设备像素：</label>
+				<span><input type="text" class="pixel" name="devicePixel" maxlength="13" placeholder="请输入设备像素(万DPI) value="{{#if editOrAddPanelData.devicePixel}}{{editOrAddPanelData.devicePixel}}{{/if}}" /></span>
+			</div>
+			<div class="normalPart">
+				<label>监控类型：</label>
+				<span class="commonPanelPart" data-event="click" data-pubtype="monitorType" data-handler="loadPanelPubData"><span class="monitorType" data-code="{{editOrAddPanelData.monitorType}}">{{#if editOrAddPanelData.monitorType}}{{#showDeviceType "monitorType" editOrAddPanelData.monitorType "edit"}}{{/showDeviceType}}{{else}}请选择监控类型{{/if}}</span><i class="icon-arrow"></i></span>
+			</div>
+			<br>
+			<div class="normalPart">
+				<label><span class="require">*</span>是否可控：</label>
+				<span class="radiohPart">
+					{{#isActiveRadio editOrAddPanelData}}
+						<i class="icon-radio active" data-isctr="1" data-event="click" data-checktype="detailctr" data-handler="withActive"></i><span class="isCtr">是</span>
+						<i class="icon-radio ml10" data-isctr="0" data-event="click" data-checktype="detailctr" data-handler="withActive"></i><span class="isCtr">否</span>
+					{{else}}
+						<i class="icon-radio " data-isctr="1" data-event="click" data-checktype="detailctr" data-handler="withActive"></i><span class="isCtr">是</span>
+							<i class="icon-radio ml10 active" data-isctr="0" data-event="click" data-checktype="detailctr" data-handler="withActive"></i><span class="isCtr">否</span>
+						</span>
+					{{/isActiveRadio}}
+			</div>
+			<div class="normalPart">
+				<label>安装位置：</label>
+				<!--安装位置改为直接输入型 haoyong-->
+				<span><input class="installPosition" type="text" name="installPosition" maxlength="100" placeholder="请输入安装位置" value="{{#if editOrAddPanelData.installPosition}}{{editOrAddPanelData.installPosition}}{{/if}}" /></span>
+				<!--
+				<span class="commonPanelPart" data-event="click" data-pubtype="devicePurpose" data-handler="loadPanelPubData"><span class="installPosition" data-code="{{editOrAddPanelData.installPosition}}">{{#if editOrAddPanelData.installPosition}}{{#showDeviceType "installPosition" editOrAddPanelData.installPosition "edit"}}{{/showDeviceType}}{{else}}请选择安装位置{{/if}}</span><i class="icon-arrow"></i></span>-->
+			</div>
+		</div>
+		<div class="detailRightPanel">
+			
+			<!--
+			修改为可以输入的下拉菜单
+			<div class="normalPart">
+				<label class="larger">设备用途：</label>
+				<span class="commonPanelPart" data-event="click" data-pubtype="devicePurpose" data-handler="loadPanelPubData"><span class="devicePurpose" data-code="{{editOrAddPanelData.devicePurpose}}">{{#if editOrAddPanelData.devicePurpose}}{{#showDeviceType "devicePurpose" editOrAddPanelData.devicePurpose "edit"}}{{/showDeviceType}}{{else}}请选择设备用途{{/if}}</span><i class="icon-arrow"></i></span>
+			</div>-->
+			<div class="normalPart">
+				<label class="larger">设备用途：</label>
+				<span class="commonPanelPart" data-event="click" data-pubtype="devicePurpose" data-handler="loadPanelPubData"><input style="border: none;" class="devicePurpose" maxlength="20" data-code="{{editOrAddPanelData.devicePurpose}}" value="{{#if editOrAddPanelData.devicePurpose}}{{#showDeviceType 'devicePurpose' editOrAddPanelData.devicePurpose 'edit'}}{{/showDeviceType}}{{else}}{{/if}}"  data-event="blur" data-handler="inputCodeCheck" placeholder="输入用途编码或选择" onclick="event.stopPropagation();"/><i class="icon-arrow"></i></span>
+			</div>
+
+			<div class="normalPart">
+				<label class="larger"><span class="require">*</span>所属警种：</label>
+				<!--
+				修改为可以输入的下拉菜单
+				<span class="commonPanelPart" data-event="click" data-pubtype="policeDept" data-handler="loadPanelPubData"><span class="policeDept" data-code="{{editOrAddPanelData.policeDept}}">{{#if editOrAddPanelData.policeDept}}{{#showDeviceType "policeDept" editOrAddPanelData.policeDept "edit"}}{{/showDeviceType}}{{else}}请选择警种{{/if}}</span><i class="icon-arrow"></i></span>-->
+				<span class="commonPanelPart" data-event="click" data-pubtype="policeDept" data-handler="loadPanelPubData"><input style="border: none;" class="policeDept" maxlength="20" placeholder="输入警种编码或选择" data-code="{{editOrAddPanelData.policeDept}}" value="{{#if editOrAddPanelData.policeDept}}{{#showDeviceType 'policeDept' editOrAddPanelData.policeDept 'edit'}}{{/showDeviceType}}{{else}}{{/if}}" data-event="blur" data-handler="inputCodeCheck" onclick="event.stopPropagation();" /><i class="icon-arrow"></i></span>
+			</div>
+			<div class="normalPart">
+				<label class="larger"><span class="require">*</span>所属监控系统编号：</label>
+				<span><input type="text" name="monitorSystemId" placeholder="请输入所属监控系统编号"  value="{{#if editOrAddPanelData.monitorSystemId}}{{editOrAddPanelData.monitorSystemId}}{{/if}}" /></span>
+			</div>
+			<div class="normalPart">
+				<label class="larger"><span class="require">*</span>所属点位编号：</label>
+				<span><input type="text" name="pointId" placeholder="请输入所属点位编号"  value="{{#if editOrAddPanelData.pointId}}{{editOrAddPanelData.pointId}}{{/if}}" /></span>
+			</div>
+			<div class="normalPart">
+				<label class="larger"><span class="require">*</span>区级编号：</label>
+				<span><input type="text" name="countyNumber" maxlength ="2" placeholder="请输入区级编号"  value="{{#if editOrAddPanelData.countyNumber}}{{editOrAddPanelData.countyNumber}}{{/if}}" /></span>
+			</div>
+			<div class="normalPart">
+				<label class="larger"><span class="require">*</span>基层单位接入编号：</label>
+				<span><input type="text" name="basicAccessUnitNum" maxlength ="2" placeholder="请输入基层单位接入编号" value="{{#if editOrAddPanelData.basicAccessUnitNum}}{{editOrAddPanelData.basicAccessUnitNum}}{{/if}}" /></span>
+			</div>
+			<div class="normalPart">
+				<label class="larger">设备建设日期：</label>
+				<span><input type="text" class="input-time manageTime"  name="deviceCreateDate" placeholder="请选择日期"   value="{{#if editOrAddPanelData.deviceCreateDate}}{{editOrAddPanelData.deviceCreateDate}}{{/if}}" /><i class="icon-date"></i></span>
+			</div>
+			<div class="normalPart">
+				<label class="larger">状态：</label>
+				<span class="commonPanelPart" data-event="click" data-pubtype="enterPlatformStatus" data-handler="loadPanelPubData"><span class="enterPlatformStatus">{{#if editOrAddPanelData.enterPlatformStatus}}{{#showDeviceType "enterPlatformStatus" editOrAddPanelData.enterPlatformStatus}}{{/showDeviceType}}{{else}}未进入平台{{/if}}</span><i class="icon-arrow"></i></span>
+			</div>
+		</div>
+		<div class="subBtnGroup">
+			<span class="ui button blue savePanel" data-id="{{editOrAddPanelData.id}}" data-event="click" data-handler="savePanelData">保存</span>
+			<span class="ui button cancel {{isHidden1 editOrAddPanelData}}" data-event="click" data-handler="cancelPanel">取消</span>
+			<span class="ui button logout {{isHidden editOrAddPanelData}}" data-logouttype="addOrEdit" data-id="{{editOrAddPanelData.id}}" data-event="click" data-handler="logoutCamera">注销此设备</span>
+		</div>
+	</div>
+{{/if}}
+<!-- 查看摄像机详情-->
+{{#if cameraDetailData}}
+<div class="importBread">
+	<span data-event="click" data-handler="gobackOrgin">摄像机列表</span>
+	<i class="icon-right"></i>
+	<span class="currCamera">“<em class="cameraName">{{cameraDetailData.deviceName}}</em>”摄像机详情</span>
+	<span class="ui button blue enterEditBtn {{isHiddenEdit cameraDetailData.status}}" data-event="click" data-handler="enterEditPanel">编辑</span>
+</div>
+<div class="detailPanel">
+	<div class="detailLeftPanel">
+		<div class="normalPart allW">
+			<label>设备类型：</label>
+			<span class="commontext">{{#if cameraDetailData.deviceType}}{{#showDeviceType "deviceType" cameraDetailData.deviceType "detail"}}{{/showDeviceType}}{{else}}暂无{{/if}}</span>
+		</div>
+		<div class="normalPart allW">
+			<label>设备分类：</label>
+			<span class="commontext">{{#if cameraDetailData.deviceClassify}}{{#showDeviceType "deviceClassify" cameraDetailData.deviceClassify "detail"}}{{/showDeviceType}}{{else}}暂无{{/if}}</span>
+		</div>
+		<div class="normalPart allW">
+			<label>设备厂家：</label>
+			<!--存储文本 不需要helper助手转换 haoyong-->
+			<span class="commontext">{{#if cameraDetailData.deviceManufacturer}}{{cameraDetailData.deviceManufacturer}}{{else}}暂无{{/if}}</span>
+			<!--
+			<span class="commontext">{{#if cameraDetailData.deviceManufacturer}}{{#showDeviceType "deviceManufacturer" cameraDetailData.deviceManufacturer "detail"}}{{/showDeviceType}}{{else}}暂无{{/if}}</span>-->
+		</div>
+		<div class="normalPart allW">
+			<label>设备像素：</label>
+			<span class="commontext">{{#if cameraDetailData.devicePixel}}{{cameraDetailData.devicePixel}}{{else}}暂无{{/if}}</span>
+			
+		</div>
+		<div class="normalPart allW">
+			<label>监控类型：</label>
+			<span class="commontext">{{#if cameraDetailData.monitorType}}{{#showDeviceType "monitorType" cameraDetailData.monitorType "detail"}}{{/showDeviceType }}{{else}}暂无{{/if}}</span>
+		</div>
+		<div class="normalPart allW">
+			<label>是否可控：</label>
+			<span class="commontext">{{#if cameraDetailData}}{{#isControll cameraDetailData.isControl}}{{/isControll}}{{else}}暂无{{/if}}</span>
+		</div>
+		<div class="normalPart allW">
+			<label>安装位置：</label>
+			<!--安装位置改为直接输入型 不需要helper助手转换 haoyong-->
+			<span class="commontext">{{#if cameraDetailData.installPosition}}{{cameraDetailData.installPosition}}{{else}}暂无{{/if}}</span>
+			<!--<span class="commontext">{{#if cameraDetailData.installPosition}}{{#showDeviceType "devicePurpose" cameraDetailData.installPosition "detail"}}{{/showDeviceType}}{{else}}暂无{{/if}}</span>-->
+		</div>
+		<div class="normalPart allW">
+			<label>设备用途：</label>
+			<span class="commontext">{{#if cameraDetailData.devicePurpose}}{{#showDeviceType "devicePurpose" cameraDetailData.devicePurpose "detail"}}{{/showDeviceType}}{{else}}暂无{{/if}}</span>
+		</div>
+		<div class="normalPart allW">
+			<label >所属警种：</label>
+			<span class="commontext">{{#if cameraDetailData.policeDept}}{{#showDeviceType "policeDept" cameraDetailData.policeDept  "detail"}}{{/showDeviceType}}{{else}}暂无{{/if}}</span>
+		</div>
+	</div>
+	<div class="detailRightPanel">
+		<div class="normalPart allW">
+			<label class="larger">设备经度：</label>
+			<span class="commontext">{{#if cameraDetailData.deviceLongitude}}{{cameraDetailData.deviceLongitude}}{{else}}暂无{{/if}}</span>
+		</div>
+		<div class="normalPart allW">
+			<label class="larger">设备纬度：</label>
+			<span class="commontext">{{#if cameraDetailData.deviceLatitude}}{{cameraDetailData.deviceLatitude}}{{else}}暂无{{/if}}</span>
+		</div>
+		<div class="normalPart allW">
+			<label class="larger">海拔：</label>
+			<span class="commontext">{{#if cameraDetailData.monitorPointHeight}}{{cameraDetailData.monitorPointHeight}}{{else}}暂无{{/if}}</span>
+		</div>
+		<div class="normalPart allW">
+			<label class="larger">区级编号：</label>
+			<span class="commontext">{{#if cameraDetailData.countyNumber}}{{cameraDetailData.countyNumber}}{{else}}暂无{{/if}}</span>
+		</div>
+		<div class="normalPart allW">
+			<label class="larger">基层单位接入编号：</label>
+			<span class="commontext">{{#if cameraDetailData.basicAccessUnitNum}}{{cameraDetailData.basicAccessUnitNum}}{{else}}暂无{{/if}}</span>
+		</div>
+		<div class="normalPart allW">
+			<label class="larger">设备管理单位名称：</label>
+			<span class="commontext">{{#if cameraDetailData.managerUnitName}}{{cameraDetailData.managerUnitName}}{{else}}暂无{{/if}}</span>
+		</div>
+		<div class="normalPart allW">
+			<label class="larger">设备建设日期：</label>
+			<span class="commontext">{{#if cameraDetailData.deviceCreateDate}}{{cameraDetailData.deviceCreateDate}}{{else}}暂无{{/if}}</span>
+		</div>
+		<div class="normalPart allW">
+			<label class="larger">状态：</label>
+			<span class="commontext">{{#if cameraDetailData}}{{#showDeviceType "enterPlatformStatus" cameraDetailData.enterPlatformStatus}}{{/showDeviceType}}{{else}}暂无{{/if}}</span>
+		</div>
+		{{#if cameraDetailData.cancelReason}}
+			<div class="normalPart allW">
+				<label class="larger">注销原因：</label>
+				<span class="commontext">{{cameraDetailData.cancelReason}}</span>
+			</div>
+		{{/if}}
+	</div>
+</div>
+{{/if}}
+
+
+{{#if pagebar}}
+<div class="pagination"></div>
+{{/if}} 

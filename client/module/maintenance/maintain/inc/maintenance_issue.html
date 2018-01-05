@@ -1,0 +1,25 @@
+{{#exceptInfo}}
+<div class="image disable clearfix">
+	<span>图像</span>
+	<ul>
+		{{#each graphics}}
+		<li>
+			<input id='issue_{{id}}' data-id="{{id}}" type="checkbox" disabled="disabled">
+			<label for="issue_{{id}}">{{name}}</label>
+		</li>
+		{{/each}}
+		
+	</ul>
+</div>
+<div class="clound disable clearfix">
+	<span>云台</span>
+	<ul>
+		{{#each ptzInfos}}
+		<li>
+			<input id='issue_{{id}}' data-id="{{id}}" type="checkbox" disabled="disabled">
+			<label for="issue_{{id}}">{{name}}</label>
+		</li>
+		{{/each}}
+	</ul>
+</div>
+{{/exceptInfo}}

@@ -1,0 +1,286 @@
+{{#video}}
+<table class="common-table">
+    <tbody>
+        <tr>
+      		<td class="attr-name">视频名称：</td>
+            <td class="attr-value">
+                <span class="value"><a class="track-media" target='media'>{{name}}</a>
+                </span>
+            </td>
+        </tr>
+        <tr>
+        	<td class="attr-name">来源：</td>
+            <td class="attr-value">
+                <span class="value">{{sourceId}}</span>
+            </td>
+        </tr>
+        <tr>
+        	<td class="attr-name">设备编码：</td>
+            <td class="attr-value">
+                <span class="value">{{device}}</span>
+            </td>
+        </tr>
+        <tr>
+        	<td class="attr-name">文件格式：</td>
+            <td class="attr-value">
+                <span class="value">{{fileFormat}}</span>
+            </td>
+        </tr>
+        <tr>
+        	<td class="attr-name">编码格式：</td>
+            <td class="attr-value">
+                <span class="value">{{codeFormat}}</span>
+            </td>
+        </tr>
+        <tr>
+        	<td class="attr-name">拍摄日期：</td>
+            <td class="attr-value">
+                <span class="value">{{shootTime}}</span>
+            </td>
+        </tr>
+        <tr>
+        	<td class="attr-name">分类：</td>
+            <td class="attr-value">
+                <span class="value">{{category}}</span>
+            </td>
+        </tr>
+        <tr>
+        	<td class="attr-name">题名补充：</td>
+            <td class="attr-value">
+                <span class="value">{{supplement}}</span>
+            </td>
+        </tr>
+        <tr>
+        	<td class="attr-name">专项名：</td>
+            <td class="attr-value">
+                <span class="value">{{earmark}}</span>
+            </td>
+        </tr>
+        <tr>
+        	<td class="attr-name">主题词：</td>
+            <td class="attr-value">
+                <span class="value">{{subject}}</span>
+            </td>
+        </tr>
+        <tr>
+        	<td class="attr-name">关键词：</td>
+            <td class="attr-value">
+                <span class="value">{{keywords}}</span>
+            </td>
+        </tr>
+        <tr>
+        	<td class="attr-name">内容描述：</td>
+            <td class="attr-value">
+                <span class="value">{{description}}</span>
+            </td>
+        </tr>
+        <tr>
+        	<td class="attr-name">主题人物：</td>
+            <td class="attr-value">
+                <span class="value">{{keyman}}</span>
+            </td>
+        </tr>
+        <tr>
+        	<td class="attr-name">拍摄地点：</td>
+            <td class="attr-value">
+                <span class="value">
+                    {{transLocation province }} {{transLocation city }} {{transLocation country }} {{streets}}
+                </span>
+            </td>
+        </tr>
+        <tr>
+        	<td class="attr-name">拍摄地点经纬度：</td>
+            <td class="attr-value">
+                <span class="value">{{latitude}}，{{longitude}}</span>
+            </td>
+        </tr>
+
+        <tr>
+        	<td class="attr-name">密级：</td>
+            <td class="attr-value">
+                <span class="value">{{secrecy}}</span>
+            </td>
+        </tr>
+        <tr>
+        	<td class="attr-name">语言：</td>
+            <td class="attr-value">
+                <span class="value">{{language}}</span>
+            </td>
+        </tr>
+        <tr>
+        	<td class="attr-name">视频长度(秒)：</td>
+            <td class="attr-value">
+                <span class="value">{{duration}}</span>
+            </td>
+        </tr>
+        <tr>
+        	<td class="attr-name">视频入点：</td>
+            <td class="attr-value">
+                <span class="value">{{enterTime}}</span>
+            </td>
+        </tr>
+        <tr>
+        	<td class="attr-name">视频开始绝对时间：</td>
+            <td class="attr-value">
+                <span class="value">{{startTime}}</span>
+            </td>
+        </tr>
+        <tr>
+        	<td class="attr-name">视频结束绝对时间：</td>
+            <td class="attr-value">
+                <span class="value">{{endTime}}</span>
+            </td>
+        </tr>
+        <tr>
+        	<td class="attr-name">视频宽高：</td>
+            <td class="attr-value">
+                <span class="value">{{width}} X {{height}}</span>
+            </td>
+        </tr>
+        <tr>
+        	<td class="attr-name">质量等级：</td>
+            <td class="attr-value">
+                <span class="value">{{quality}}</span>
+            </td>
+        </tr>
+        <tr>
+        	<td class="attr-name">采集人：</td>
+            <td class="attr-value">
+                <span class="value">{{picker}}</span>
+            </td>
+        </tr>
+        <tr>
+        	<td class="attr-name">采集单位名称：</td>
+            <td class="attr-value">
+                <span class="value">{{pickerCompany}}</span>
+            </td>
+        </tr>
+    </tbody>
+</table>
+{{/video}} {{#image}}
+<table class="common-table">
+    <tbody>
+        <tr>
+        	<td class="attr-name">图片名称：</td>
+            <td class="attr-value">
+                <span class="value"><a class="track-media" target='media'>{{name}}</a>
+                </span>
+            </td>
+        </tr>
+        <tr>
+        	<td class="attr-name">来源：</td>
+            <td class="attr-value">
+                <span class="value">{{sourceId}}</span>
+            </td>
+        </tr>
+        <tr>
+        	<td class="attr-name">设备编码：</td>
+            <td class="attr-value">
+                <span class="value">{{device}}</span>
+            </td>
+        </tr>
+        <!--<tr>
+			<td class="attr-value">文件格式:</td>
+			<td class="value">{{fileFormat}}</td>
+		</tr>
+	-->
+        <tr>
+        	<td class="attr-name">拍摄日期：</td>
+            <td class="attr-value">
+                <span class="value">{{shootTime}}</span>
+            </td>
+        </tr>
+        <tr>
+        	<td class="attr-name">分类：</td>
+            <td class="attr-value">
+                <span class="value">{{category}}</span>
+            </td>
+        </tr>
+        <tr>
+        	<td class="attr-name">题名补充：</td>
+            <td class="attr-value">
+                <span class="value">{{supplement}}</span>
+            </td>
+        </tr>
+        <tr>
+        	<td class="attr-name">专项名：</td>
+            <td class="attr-value">
+                <span class="value">{{earmark}}</span>
+            </td>
+        </tr>
+        <tr>
+        	<td class="attr-name">主题词：</td>
+            <td class="attr-value">
+                <span class="value">{{subject}}</span>
+            </td>
+        </tr>
+        <tr>
+        	<td class="attr-name">关键词：</td>
+            <td class="attr-value">
+                <span class="value">{{keywords}}</span>
+            </td>
+        </tr>
+        <tr>
+        	<td class="attr-name">内容描述：</td>
+            <td class="attr-value">
+                <span class="value">{{description}}</span>
+            </td>
+        </tr>
+        <tr>
+        	<td class="attr-name">主题人物：</td>
+            <td class="attr-value">
+                <span class="value">{{keyman}}</span>
+            </td>
+        </tr>
+        <tr>
+        	<td class="attr-name">拍摄地点：</td>
+            <td class="attr-value">
+                <span class="value">{{location}}</span>
+            </td>
+        </tr>
+        <tr>
+        	<td class="attr-name">拍摄地点经纬度：</td>
+            <td class="attr-value">
+                <span class="value">{{latitude}}，{{longitude}}</span>
+            </td>
+        </tr>
+
+        <tr>
+        	<td class="attr-name">密级：</td>
+            <td class="attr-value">
+                <span class="value">{{secrecy}}</span>
+            </td>
+        </tr>
+        <tr>
+        	<td class="attr-name">语言：</td>
+            <td class="attr-value">
+                <span class="value">暂未填写</span>
+            </td>
+        </tr>
+        <tr>
+        	<td class="attr-name">图片宽高：</td>
+            <td class="attr-value">
+                <span class="value">{{width}} X {{height}}</span>
+            </td>
+        </tr>
+        <tr>
+        	<td class="attr-name">质量等级：</td>
+            <td class="attr-value">
+                <span class="value">{{quality}}</span>
+            </td>
+        </tr>
+        <tr>
+        	<td class="attr-name">采集人：</td>
+            <td class="attr-value">
+                <span class="value">{{picker}}</span>
+            </td>
+        </tr>
+        <tr>
+        	<td class="attr-name">采集单位名称：</td>
+            <td class="attr-value">
+                <span class="value">{{pickerCompany}}</span>
+            </td>
+        </tr>
+    </tbody>
+</table>
+{{/image}}

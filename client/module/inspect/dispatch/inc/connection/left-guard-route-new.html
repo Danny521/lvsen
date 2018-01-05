@@ -1,0 +1,88 @@
+{{#if routeFrame}}
+<div class="route-new np-new-guard-route">
+    <div class="route-header">
+        <div class="route-header-title">
+            <i class="sidebar-home-icon" data-event="click" data-handler="GoBackToBusiness"></i>
+            <b> > </b><span class="np-sidebar-click pointer" data-event="click" data-handler="BackToRouteGroup" data-mark="route" data-dom="#sidebar-body">警卫路线</span> <b> > </b> <span>{{data.eventType}}</span>
+            <a href="javascript:viod(0)" class="blue-button save-button" data-event="click" data-handler="SaveGuardRoute" style="float: right;">保存</a>
+        </div>
+    </div>
+    <div class="build-new-team-content np-new-route-content">
+
+    </div>
+</div>
+{{/if}}
+
+{{#if addOrEditRoute}}
+<div class="build-new-team-form np-new-route-info" data-groupid="{{data.groupId}}"  data-id="{{data.routeData.id}}">
+    <div class="row">
+        <i>*</i>
+        <span> 路线名称:</span>
+        <input id="routeName" maxlength="30" placeholder="请输入线路名称" data-event="blur" data-handler="CheckRouteName" value="{{data.routeData.name}}">
+    </div>
+    <div class="row">
+        <i>*</i>
+        <span>起 点:</span>
+        <input id="startName" maxlength="30" placeholder="请输入起点名称" value="{{data.routeData.startname}}">
+        <button class="begin-point" data-event="click" data-handler="DrawRoute"></button>
+    </div>
+    <div class="row">
+        <i>*</i>
+        <span>终 点:</span>
+        <input id="stopName" maxlength="30" placeholder="请输入终点名称" value="{{data.routeData.stopname}}">
+    </div>
+    <div class="row">
+        <span>GPS编号:</span>
+        <input id="gpsId" maxlength="20" placeholder="请输入GPS编号" value="{{data.routeData.gpsid}}">
+    </div>
+    <div class="row">
+        <span>车队代号:</span>
+        <input id="carCode" maxlength="20" placeholder="请输入车队代号" value="{{data.routeData.code}}">
+    </div>
+    <div class="row clearfix">
+        <span>搜索范围:</span>
+        <input id="distance" placeholder="0" data-event="blur" data-handler="ModifyBuffer" value="{{#FilterDistance data.routeData.distance}}{{/FilterDistance}}">
+        <strong style="position:absolute;right:10px;top:3px; font-size:14px;color:#a5a5a5;">米</strong>
+    </div>
+</div>
+<div style="margin-top:10px; height:30px;line-height:30px;" class="np-new-route-opera">
+    <span>点位：</span> <span class="camera-num"></span>
+    <button class="blue-button save-button np-sidebar-click np-route-select init np-first" data-mark="route-select" data-dom="#sidebar-body" data-event="click" data-handler="CheckSelectCamera">勾选</button>
+    <button class="blue-button save-button" data-event="click" data-handler="RectSelectCamera">框选</button>
+</div>
+<ul class="camera-list build-new-route-camera np-route-camera-list">
+
+</ul>
+{{/if}}
+
+
+{{#if cameraList}}
+    {{#if routedata.cameras.length}}
+        {{#each routedata.cameras}}
+        <li class="camera-item np-route-camera clearfix" data-event="click" data-handler="PlayCamera" data-id='{{id}}' data-name='{{name}}' data-type='{{type}}' data-camerastatus='{{camera_status}}' data-cameracode='{{#cameraCodeShow cameraCode}}{{/cameraCodeShow}}' data-installsddress='{{installAddress}}'  data-cameratype='{{camera_type}}' data-latitude='{{latitude}}' data-longitude='{{longitude}}' data-hdchannel='{{translate hd_channel}}' data-sdchannel='{{translate sd_channel}}' data-installtype='{{installType}}' data-score='{{score}}'>
+            <i class="ico {{#cameraStatusAndTypeByChannels hd_channel sd_channel  camera_type score}}{{/cameraStatusAndTypeByChannels}}"></i>
+            <span class="name" title="{{name}}{{#cameraCodeShow cameraCode}}{{/cameraCodeShow}}">{{name}}{{#cameraCodeShow cameraCode}}{{/cameraCodeShow}}</span>
+            <div class="camera-item-button">
+                <i class="camera-up" title="上移" data-event="click" data-handler="SortUp"></i>
+                <i class="camera-down" title="下移" data-event="click" data-handler="SortDown"></i>
+                <i class="camera-delete" title="删除" data-event="click" data-handler="DeleteCamera"></i>
+            </div>
+        </li>
+        {{/each}}
+    {{else}}
+    {{!--暂无数据。--}}
+    {{/if}}
+{{/if}}
+
+{{#if selectRouteCameras}}
+<div class="route-select np-route-select-camera" data-opera="{{operaName}}">
+    <div class="route-header">
+        <div class="route-header-title">
+            <i class="sidebar-home-icon" data-mark="business"></i>
+            <b> > </b><span class="pointer" data-event="click" data-handler="BackToRouteGroup">警卫路线</span> <b> > </b> <span class="np-sidebar-click pointer" data-mark="newOrEidtRoute" data-dom="#sidebar-body">{{operaName}}</span><b> > </b> <span>勾选</span>
+            <a href="javascript:viod(0)" class="blue-button save-button" data-event="click" data-handler="GetCheckCameras" style="float: right;">添加</a>
+        </div>
+    </div>
+    <div class="camera-tree np-camera-check-tree"></div>
+</div>
+{{/if}}

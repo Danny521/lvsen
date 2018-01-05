@@ -1,0 +1,651 @@
+
+[data-tabor="monitor-inspect"] .patrol{
+	margin-left: 15px;
+	height: 100%;
+}
+[data-tabor="monitor-inspect"] .groups,[data-tabor="inspect-layout"] .group {
+	color: #333333;
+	padding-left: 19px;
+}
+[data-tabor="inspect-layout"] .group{
+	padding-top: 25px;
+}
+.monitor-joint .groups {
+	padding: 5px 5px 5px 0;
+	overflow-y: auto;
+	margin-top: 50px;
+	position: absolute;
+	width: 252px;
+}
+.groups >.group-content .no-data{
+	color: #999;
+	 padding-left: 5px; /*addby*/
+}
+
+.group-content{
+	width: 257px;
+	overflow-y: auto;
+	height: 100%;
+}
+[data-tabor="monitor-inspect"] .group-item:hover{
+	border: 1px solid #4dc2ff;
+}
+[data-tabor="monitor-inspect"] .run-inspect .group-item:hover{
+	border: 1px solid #cad5df;
+}
+.group-content .group-item:hover:first-child .item-header > a.up,.group-content .group-item:hover:last-child .item-header > a.down{
+	display: none;
+}
+
+.run-inspect .group-item:hover > .item-footer{
+	display: none;
+}
+.group-item:hover > .item-footer{
+	display: inherit;
+}
+.group-item {
+	width: 237px;
+	border: 1px solid #cad5df;
+	margin-bottom: 5px;
+	background: url("/module/common/images/inspect/inspect-header-bg.png") repeat-x scroll 0 0 #fff;
+	border-radius: 3px;
+}
+.group-item .item-footer .ui.button.blue{
+	height: 22px;
+	line-height: 22px;
+	padding:0 6px; 
+}
+.group-item .item-header {
+	height: 28px;
+	line-height: 28px;
+	padding-left: 10px;
+	border: none;
+	/*background-color: #F9F9F9;*/
+	border-bottom: 1px solid #EEEEEE;
+	/*background: url("/module/common/images/inspect/inspect-header-bg.png") repeat-x scroll 0 0;*/
+}
+.group-item .item-header .hovershow{
+	display: none;
+}
+.group-item:hover .item-header .hovershow{
+	display: inline-block;
+}
+.monitor-joint .item-header span {
+	display: inline-block;
+	width: 200px;
+}
+
+.monitor-joint .head .icon-joint {
+	margin-left: -4px;
+	/* margin-left: -8px\0; */
+}
+
+.monitor-joint .head .operation{
+	display: inline-block;
+	height: 16px;
+	margin-left: 3px;
+}
+
+.monitor-joint .head span{
+	display: inline-block;
+	height: 23px;
+	width: 23px;
+	background: url("/module/common/images/icons/inspect-icons.png") no-repeat scroll 0 0;
+	cursor: pointer;
+	float: left;
+}
+
+.monitor-joint .head .start{
+	background-position: 0 0;
+}
+
+.monitor-joint .head .pause{
+	background-position: -24px 0;
+}
+
+.monitor-joint .head .stop{
+	background-position: -48px 0;
+	margin-left: 2px;
+	display: none;
+}
+
+.item-header a.del {
+	display: inline-block;
+	margin-top: 4px;
+}
+
+
+.item-body .level {
+	margin-left: 15px;
+}
+
+.group-item a {
+	display: inline-block;
+	float: right;
+	margin-right: 10px;
+	cursor: pointer;
+}
+
+.icon-del {
+	display: inline-block;
+	line-height: 25px;
+	width: 12px;
+	height: 12px;
+	background: url("/module/common/images/inspect/gruop-head-ico.png")  no-repeat scroll 0 0;
+}
+.icon-del:hover{
+	background-position: -17px 0;
+}
+
+.item-header .updown{
+	margin-top: 8px;
+}
+.item-header .updown i{
+	display: block;
+	width: 11px;
+	height: 11px;
+	background: url("/module/common/images/inspect/gruop-head-updown.png")  no-repeat scroll 0 0;
+}
+.item-header .updown .icon-down{
+	background-position: 0 -19px;
+}
+.item-header .updown .icon-down:hover{
+	background-position: -18px -19px;
+}
+.item-header .updown .icon-up{
+	background-position: 0 0;
+}
+.item-header .updown .icon-up:hover{
+	background-position: -18px 0px;
+}
+.group-item .item-body {
+	margin: 10px;
+}
+/* add by wujingwen */
+.group-item .item-num {
+	margin: 10px;
+}
+.group-item .item-num>span{
+	color:#0088CC;
+	cursor: pointer;
+}
+.group-item .item-num>span:hover{
+	text-decoration: underline;
+}
+/* 结束 */
+/* 上下编辑样式 开始 */
+.cameraslist .result .ico{
+	display:none;
+	width: 16px;
+	height: 16px;
+	margin-bottom:-4px;
+	background: url("/module/inspect/dispatch/images/sidebar/camera-up-down.png")  no-repeat scroll 0 0;
+
+}
+.cameraslist .result .mupDown{
+	 /* margin-left:-9px; */
+	float:right;
+	margin-right:4px;	
+}
+ .cameraslist .result li:hover .move-up{
+	background-position: 0 0px;
+	display: inline-block;
+	cursor:pointer;
+}
+.cameraslist .result li:hover .move-down{
+	background-position: 0 -18px;
+	display: inline-block;
+	cursor:pointer;
+} 
+
+/* 结束 */
+.group-item .item-footer {
+	display: none;
+	clear: both;
+	height: 24px;
+	margin: 0 10px;
+	border-top: 1px solid #e9eef2;
+	padding: 10px 0 10px 5px;
+}
+.group-item .item-footer .layout{
+	margin-right: 6px;
+}
+
+/*	end--监巡列表--	*/
+
+
+
+/*	--设定--	*/
+.joint-setting {
+	color: #333333;
+	height: 100%;
+}
+
+.setting-head {
+	background-color: #FFFFFF;
+	height: 45px;
+	line-height: 45px;
+	padding-left: 10px;
+	/*padding-top: 10px;*/
+	padding-right: 10px;
+	position: fixed;
+	top: 130px;
+	z-index: 10;
+	border-bottom: 1px solid #cad5df;
+}
+.joint-setting .setting-head {
+	padding-right: 5px;
+}
+.setting-head .back {
+	display: inline-block;
+	width: 24px;
+	border: none;
+	margin-right: 126px;
+	background-color: transparent;
+}
+.setting-head .add-video-watch-back {
+	margin-right: 162px;
+}
+
+.setting-head .back i {
+	display: inline-block;
+	width: 40px;
+	height: 19px;
+	margin-bottom: -5px;
+	background: url("/module/common/images/safety/back.png")  no-repeat scroll 0 0;
+}
+
+.setting-items {
+	padding: 15px 5px 5px 0;
+	height: 85%;
+	/*overflow-y: auto;*/
+}
+
+.setting-item {
+	width: 237px;
+	border: 1px solid #cad5df;
+	border-radius: 3px;
+	background: url("/module/common/images/inspect/inspect-header-bg.png") repeat-x scroll 0 0 #fff;
+}
+
+.setting-item .item-header {
+	height: 28px;
+	line-height: 28px;
+	padding-left: 10px;
+	border-bottom:1px solid #EEEEEE ;
+}
+
+.setting-item li {
+	border-bottom: 1px solid #CCC;
+	margin: 0 5px;
+}
+
+.setting-item li:last-child {
+	border-bottom: none;
+}
+
+.setting-content {
+	background: #FDFDFD;
+}
+
+.setting-content .item-body {
+	margin: 10px;
+}
+
+#content .setting-content .item-body .item-title {
+	display: inline-block;
+	width: 60px;
+	text-align: right;
+	padding: 0px;
+}
+
+.setting-content input, .setting-content select {
+    width:135px;
+    font-size: 12px;
+    margin: 0;
+    padding:0 3px;
+    color: #333333;
+    font-size: 12px;
+    height: 28px;
+    line-height: 30px;
+    vertical-align: middle;
+    border-radius: 3px;
+    border: 1px solid #D9D9D9;
+    background-color: #FFFFFF;
+    -webkit-transition: background-color .2s ease-out,box-shadow .2s ease,border-color .2s ease;
+    -os-transition: background-color .2s ease-out,box-shadow .2s ease,border-color .2s ease;
+    -moz-transition: background-color .2s ease-out,box-shadow .2s ease,border-color .2s ease;
+    -mstransition: background-color .2s ease-out,box-shadow .2s ease,border-color .2s ease;
+    transition: background-color .2s ease-out,box-shadow .2s ease,border-color .2s ease;
+}
+.setting-content input:focus {
+    border: 1px solid #78A8D5;
+    color: #444;
+}
+
+.setting-content select {
+	width: 142px;
+    padding-right:0px;
+}
+
+.joint-setting .item-header .name, .group-item .item-header .name {
+	display: inline-block;
+	width: 90px;
+	height: 30px;
+	vertical-align: top;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.group-item .item-header .name {
+	width: 160px;
+}
+#cameraadd{
+	width: 12px;
+	height: 12px;
+	display: inline-block;
+	float: right;
+	background: url('/module/common/images/inspect/gruop-head-ico.png') 0px -16px no-repeat;
+	margin-top: 9px;
+	margin-right: 12px;
+	cursor: pointer;
+}
+#cameraadd:hover{
+	background-position: -18px -16px;
+}
+.joint-setting .item-header  .time-tip {
+	display: inline-block;
+	text-align: right;
+	font-size: 11px;
+}
+
+.setting-item .item-header input {
+	width: 36px;
+	height: 18px;
+	font-size: 11px;
+	text-align: center;
+    border: 1px solid #D9D9D9;
+}
+.setting-item .item-header input:focus {
+    border: 1px solid #78A8D5;
+}
+
+.setting-item .action {
+	clear: both;
+	height: 20px;
+	margin: 0 10px;
+	padding: 5px 0 5px 5px;
+	border-bottom: 1px solid #e9eef2;
+}
+
+.setting-item .action a {
+	display: inline-block;
+	float: right;
+	margin-right: 10px;
+	cursor: pointer;
+}
+
+
+
+
+
+/*-----布局设置------*/
+.joint-layer {
+	color: #333333;
+}
+
+.joint-layer .setting-head {
+	height: 45px;
+	line-height: 45px;
+	padding-left: 10px;
+	padding-top: 0px;
+	border-bottom: 1px solid #cad5df;
+	position: fixed;
+	top: 130px;
+	background-color: #FFFFFF;
+}
+
+.joint-layer .setting-head .back {
+	display: inline-block;
+	width: 24px;
+	border: none;
+	background-color: transparent;
+	margin-right: 162px;
+}
+
+.joint-layer .groups {
+	padding: 5px 5px 5px 0;
+	background: #F6FBFF;
+	position: absolute;
+	top: 70px;
+}
+
+.joint-layer .group-item {
+	width: 238px;
+	border: 1px solid #cad5df;
+	margin-bottom: 5px;
+}
+
+.joint-layer .group-item .item-header {
+	height: 30px;
+	line-height: 30px;
+	padding-left: 10px;
+	border: none;
+	background-color: #E9EEF2;
+}
+
+.time-fregment {
+	margin-right: 20px;
+}
+
+.joint-layer .group-item .camera-list {
+	height: auto;
+}
+
+.time-fregments {
+	display: block;
+	margin: 0;
+	padding-top: 8px;
+}
+
+.time-fregments li {
+	margin-bottom: 2px;
+	height: 22px;
+	padding-left: 10px;
+}
+
+.camera-list {
+	/* border-top: 1px solid #e9eef2;
+	padding-top: 5px;
+	padding-bottom: 8px;  add by wu jingwen*/ 
+	display:none;
+	border:1px solid #e9eef2; 
+	padding-top: 5px;
+	padding-bottom: 8px;
+	margin:10px 10px;
+	background:#F7F7F7;
+}
+
+.camera-list ul {
+	margin: 0;
+}
+
+.camera-list ul a {
+	display: none;
+	float: right;
+	width: 12px;
+	height: 12px;
+	margin-top: 7px;
+	margin-right: 13px;
+	background: url("/module/common/images/inspect/operate-ico.png") no-repeat scroll -17px -20px;
+}
+
+.camera-list li {
+	display: block;
+	position: relative;
+	height: 25px;
+	line-height: 25px;
+	padding-left: 24px;
+	margin-top: 0;
+	margin-bottom: 2px;
+}
+/* .camera-list li:hover{
+	background-color: #f7f7f7;
+	color: #188dfb;
+} add by wu jingwen */
+.camera-list li:hover a{
+	display: inline-block;
+}
+.camera-list li i {
+	margin-left: 10px;
+	display: inline-block;
+	position: absolute;
+	background: url("/module/common/images/sprites/tree_bg.png")  no-repeat scroll 0 0;
+}
+.camera-list li i.shoot{
+    top: 7px;
+    left: 2px;
+    width: 15px;
+    height: 15px;
+    background-position: -85px 0;
+}
+.camera-list li i.ball{
+    top: 5px;
+    left: 2px;
+    height: 14px;
+    width: 16px;
+    background-position: -353px 0;
+}
+.camera-list li i.disabled{
+    top: 5px;
+    left: 2px;
+    height: 14px;
+    width: 16px;
+    background: url("/module/common/images/sprites/camera-disabled.png") no-repeat 0 0;
+}
+#sidebar .camera-list .title{
+	height: 20px;
+	line-height: 20px;
+	overflow: hidden;
+	width: 146px;
+	display: inline-block;
+	padding-top: 2px;
+	white-space: nowrap;
+	text-overflow:ellipsis;
+	margin-left: 10px;
+}
+.head-setting a {
+	margin-left: 3px;
+}
+
+.head-setting .setting-head i {
+	/*margin-left: 6px;*/
+}
+.patrol .treeMenu,.patrol .setting-items{/*
+	position: absolute;*/
+	margin-top: 60px;
+}
+.treeMenu .item-footer a, .treeMenu .groups a, .treeMenu .setting-content a {
+	color: #005EAB;
+}
+
+.treeMenu .item-footer a:hover, .treeMenu .groups a:hover, .treeMenu .setting-content a:hover {
+	color: #00BAFF;
+	;
+}
+
+.treeMenu .setting-head a {
+	color: #FFFFFF;
+}
+
+/* --布局-- */
+#sidebar {
+	background: #F6FBFF;
+}
+
+#sidebar > .ui.menu.tabular {
+	border-color: #C5C9CC;
+	margin: 0;
+}
+
+#sidebar > .ui.menu.tabular .video-down {
+	width: 10px;
+	height: 10px;
+	background: url("/module/common/images/icons/video-down.png") center no-repeat #FFFFFF;
+}
+
+#sidebar > .ui.menu.tabular .item {
+	background-color: #C5C9CC;
+}
+
+#sidebar > .ui.menu.tabular .active.item {
+	background-color: #F6FBFF;
+	border-bottom-color: #F6FBFF;
+	color: #2872C3;
+}
+
+.setting-head a {
+	cursor: pointer;
+}
+
+.setting-head .ui.button.green,.setting-head .ui.button.blue {
+	padding: 0px 6px;
+	border: none;
+	height: 22px;
+	line-height: 22px;
+}
+
+.setting-head .ioc-confirm {
+	background-color: #1D85F9;
+	border: medium none;
+	color: #FFFFFF;
+	font-size: 12px;
+	margin-right: 3px;
+	padding: 1px 3px;
+	margin-left: 40px;
+}
+
+.setting-head .left-show {
+	margin-left: 3px;
+}
+#camerasPanel .patrol .monitor-joint .groups{
+    position: absolute;
+    top: 45px;
+    bottom: 0px;
+}
+.monitor-joint .head, .monitor-joint .groups {
+	position: static;
+	margin-top: 0;
+}
+
+/* Loading */
+.patrol .loading {
+	text-align:center;
+	padding:15px 0;
+	text-transform: capitalize;
+	background: transparent url(/module/common/images/animate/loader-mini.gif) 70px center no-repeat;
+}
+#startbyrule label{
+    margin-right: 14px;
+}
+
+/* For 630 */
+.patrol .joint-layer .setting-head, .patrol .joint-setting.head-setting .setting-head{
+    background-color:#fff;
+    top:130px;
+}
+
+.item-body .endTime.xdsoft_inline,  .item-body .startTime.xdsoft_inline {
+    margin-top:29px;
+}
+.back-home .titie-text{
+	color: #999999;
+	cursor: default;
+}
+.back-home .setlayout{
+	cursor: pointer;
+}
+#sidebar-head .loop-header{
+	margin: 9px 9px 9px 28px;
+}

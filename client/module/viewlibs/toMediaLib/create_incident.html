@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="zh-CN" style="height:100%;overflow-y:auto">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=10,chrome=1">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<title>视云实战平台</title>
+	<!--[if lt IE 9]>
+	<script src="/libs/html5/html5.js"></script>
+	<![endif]-->
+
+	<link type="text/css" rel="stylesheet" href="/module/common/css/base.css" />
+	<link type="text/css" rel="stylesheet" href="/libs/semantic/semantic.css" />
+	<link type="text/css" rel="stylesheet" href="/libs/jquery/jquery-ui.css">
+	<link type="text/css" rel="stylesheet" href="/libs/jquery/jquery.datetimepicker.css"/>
+	<link type="text/css" rel="stylesheet" href="/libs/thickbox/thickbox.css"/>
+	<link type="text/css" rel="stylesheet"  href="/module/viewlibs/common/common.css"/>
+	<link type="text/css" rel="stylesheet"  href="/module/viewlibs/caselib/css/incident.css"/>
+
+	<link type="text/css" rel="stylesheet" href="/module/viewlibs/caselib/css/localhost.css"/>
+	<link rel="stylesheet" type="text/css" href="/module/viewlibs/caselib/css/dialog_video.css"/>
+</head>
+<body style="height:100%;overflow-y:auto">
+	<div id="content">
+		<div class="libbanner">
+			<span class="four">
+				<a href="javascript:void(0)" onclick="return false;" class="already">选择结构化信息</a>
+				<a href="javascript:void(0)" onclick="return false;" class="already">填写结构化信息表单</a>
+				<a href="javascript:void(0)" onclick="return false;" class="already">填写所属视图表单</a>
+				<a href="javascript:void(0)" onclick="return false;" class="current">创建案事件</a>
+				<a href="javascript:void(0)" onclick="return false;">完成入库操作</a>
+			</span>
+		</div>
+		<div class="wrapper clearfix">
+			<ul class="breadcrumb">
+				<li>
+					<a href="/module/viewlibs/workbench/index.html">视图库</a>
+					<span class="divider">&gt;</span>
+				</li>
+				<li class="active">创建案事件</li>
+			</ul>
+
+			<div class="main">
+
+				<form id="incidentForm">
+					<div class="form-panel">
+						<script id="incidentTemplate" type="text/x-handlebars-template">
+							{{#if incident}}
+							{{#with incident}}
+							<div class="accordion">
+								<div class="module active">
+									<div class="module-head">
+										<h3>基本信息</h3>
+										<i class="fix-png"></i>
+									</div>
+									<div class="module-body">
+
+										<ul>
+											<li>
+												<div class="label"><span class="require"></span>案事件编号：</div>
+												<input class="input-text" type="text" placeholder="--请输入警综平台对应的案事件编号--" value="{{associateId}}" id="incident_associateId" maxlength="50" name="associateId"/>
+											</li>
+
+											<li>
+												<div class="label"><span class="require">*</span>案事件名称：</div>
+												<input  class="input-text" type="text" id="incident_name" name="name" value="{{name}}" placeholder="--请输入案事件名称--"  maxlength="100"/>
+											</li>
+
+											<li>
+												<div class="label"><span class="require">*</span>案事件主类别：</div>
+												<select id="incident_category" class="select" name="category" >
+													<option value="">--请选择--</option>
+													<option value="01"	{{selected category "01"}}>刑事犯罪案件</option>
+													<option value="02"	{{selected category "02"}}>出入境案事件</option>
+													<option value="03"	{{selected category "03"}}>船舶（民）管理事件、案件</option>
+													<option value="04"	{{selected category "04"}}>报警信息</option>
+													<option value="05"	{{selected category "05"}}>违反治安管理行为</option>
+													<option value="06"	{{selected category "06"}}>群体性事件</option>
+													<option value="07"	{{selected category "07"}}>治安灾害事故</option>
+													<option value="08"	{{selected category "08"}}>道路交通事故</option>
+													<option value="09"	{{selected category "09"}}>涉恐事件</option>
+													<option value="10"	{{selected category "10"}}>重大事件预警</option>
+													<option value="99"	{{selected category "99"}}>其他</option>
+												</select>
+											</li>
+
+											<li>
+												<div class="label"><span class="require">*</span>案发上限时间：</div>
+												<input  class="input-date-time" id="incident_timeUpper" maxlength="50" name="timeUpper" type="text" value="{{mills2str timeUpper}}" />
+											</li>
+
+											<li>
+												<div class="label"><span class="require">*</span>案发下限时间：</div>
+												<input  class="input-date-time" type="text" id="incident_timeLower" maxlength="50" name="timeLower" value="{{mills2str timeLower}}" />
+											</li>
+
+											<li>
+												<div class="label"><span class="require">*</span>案发地点：</div>
+												<select class="select" id="incident_province" name="province" data-default="{{province}}"></select>
+											</li>
+
+											<li>
+												<div class="label"><span class="require"></span></div>
+												<select class="select" id="incident_city" name="city" data-default="{{city}}"></select>
+											</li>
+
+											<li>
+												<div class="label"><span class="require"></span></div>
+												<select class="select" id="incident_country" name="country" data-default="{{country}}"></select>
+											</li>
+
+											<li>
+												<div class="label"><span class="require"></span></div>
+												<input  id="incident_streets" class="input-text" type="text" value="{{streets}}"  placeholder="--请输入街道详细地址--"  name="streets">
+											</li>
+
+											<li>
+												<div class="label description">案事件描述：</div>
+												<textarea  id="incident_description" placeholder="--请输入案事件描述--"  maxlength="200" name="description">{{description}}</textarea>
+											</li>
+
+										</ul>
+									</div>
+
+
+								</div>
+
+								<div class="module">
+									<div class="module-head">
+										<h3>其他信息</h3>
+										<i class="fix-png"></i>
+									</div>
+									<div class="module-body">
+										<ul>
+											<li>
+												<div class="label">案事件副类别：</div>
+												<select class="select" id="incident_classifyPartFirst" name="classifyPartFirst" data-default="{{classifyPartFirst}}"></select>
+											</li>
+
+											<li>
+												<div class="label"><span class="require"></span></div>
+												<select class="select" id="incident_classifyPartSecond" data-default="{{classifyPartSecond}}" name="classifyPartSecond"></select>
+											</li>
+
+											<li>
+												<div class="label">案事件危害程度：</div>
+												<select class="select" id="incident_hazardRating" name="hazardRating">
+													<option value="">--请选择--</option>
+													<option value="01" {{selected hazardRating "01"}}>严重暴力</option>
+													<option value="02" {{selected hazardRating "02"}}>特大</option>
+													<option value="03" {{selected hazardRating "03"}}>重大</option>
+													<option value="04" {{selected hazardRating "04"}}>一般</option>
+													<option value="05" {{selected hazardRating "05"}}>轻微</option>
+													<option value="06" {{selected hazardRating "06"}}>其他</option>
+												</select>
+											</li>
+
+											<li>
+												<div class="label">嫌疑人数量：</div>
+												<input  class="input-text" type="text"  placeholder="0-99" value="{{suspectCount}}" id="incident_suspectCount" maxlength="2" name="suspectCount"/>
+											</li>
+
+											<li>
+												<div class="label">作案手段：</div>
+												<input  class="input-text" type="text" value="{{crimeMethod}}" id="incident_crimeMethod" maxlength="200" name="crimeMethod"/>
+											</li>
+
+											<li>
+												<div class="label">报案人姓名：</div>
+												<input  class="input-text" type="text" value="{{reporter}}" id="incident_reporter" maxlength="20" name="reporter"/>
+											</li>
+
+											<li>
+												<div class="label">报案人证件类型：</div>
+												<select class="select" id="incident_reporterCardtype" maxlength="50" name="reporterCardtype">
+													<option value="">--请选择--</option>
+													<option value="01" {{selected reporterCardtype "01" }}>身份证</option>
+													<option value="02" {{selected reporterCardtype "02" }}>临时身份证</option>
+													<option value="03" {{selected reporterCardtype "03" }}>军官证</option>
+													<option value="04" {{selected reporterCardtype "04" }}>驾驶证</option>
+													<option value="05" {{selected reporterCardtype "05" }}>护照</option>
+													<option value="06" {{selected reporterCardtype "06" }}>其他</option>
+												</select>
+											</li>
+
+											<li>
+												<div class="label">报案人证件号码：</div>
+												<input  class="input-text" type="text" value="{{reporterCardnumb}}" id="incident_reporterCardnumb" maxlength="50" name="reporterCardnumb" />
+											</li>
+
+											<li>
+												<div class="label">报案单位：</div>
+												<input  class="input-text" type="text" value="{{reporterCompany}}" id="incident_reporterCompany" maxlength="100" name="reporterCompany"/>
+											</li>
+
+											<li>
+												<div class="label">归类：</div>
+												<input  class="input-text" type="text" value="{{archive}}" id="incident_archive" maxlength="50" name="archive"/>
+											</li>
+
+										</ul>
+
+									</div>
+
+								</div>
+							</div>
+							<input id="incident_id" name="id" type="hidden" value="{{id}}"/>
+							<input id="incident_save" class="input-submit permission permission-analysis" type="submit" value="保存信息"/>
+							{{/with}}
+							{{/if}}
+						</script>
+					</div>
+				</form>
+
+				<div class="incident-cover">
+					<h3>选择封面</h3>
+					<div class="cover-box">
+						<a class="thumb-anchor thickbox" href="/module/common/images/upload.png">
+						<span class="vbox">
+							<img id="incident_cover" alt="案事件封面" data-default="/module/common/images/upload.png" src="/module/common/images/upload.png"/>
+						</span>
+						</a>
+					</div>
+
+					<div class="action">
+						<span>支持JPG、PNG、GIF、BMP</span>
+						<a id="uploadFile" class="ui button permission permission-analysis">选择上传</a>
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+	</div>
+	<script type="text/javascript" src="/libs/requirejs/require.js"></script>
+	<script type="text/javascript">
+		require(['/require-conf.js'],function(){
+			require(['/module/viewlibs/toMediaLib/js/incident.js']);
+		});
+	</script>
+
+	<!--<script type="text/javascript" src="/assets/js/lib/base.self.js"></script>
+
+	<script type="text/javascript" src="/assets/js/lib/plupload/plupload.full.js"></script>
+	<script type="text/javascript" src="/assets/js/lib/jquery-ui-1.10.1.custom.min.js"></script>
+	<script type="text/javascript" src="/assets/js/lib/jquery-ui-timepicker-addon.js"></script>
+	<script type="text/javascript" src="/assets/js/modules/common.cascade.js"></script>
+	<script type="text/javascript" src="/assets/js/modules/thickbox.js"></script>
+	<script type="text/javascript" src="/assets/js/modules/jquery.validate.js"></script>
+	<script type="text/javascript" src="/assets/js/apps/viewlibs/tool.js"></script>
+	<script type="text/javascript" src="/assets/js/modules/permission/permission.js"></script>
+	<script type="text/javascript" src="/assets/js/apps/viewlibs/permission_role.js"></script>
+	<script type="text/javascript" src="/assets/js/apps/medialib/incident.js"></script>-->
+</body>
+</html>

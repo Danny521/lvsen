@@ -1,0 +1,95 @@
+{{#if applyMsg}}
+<div id="departDetail" class="main">
+	<div class="breadcrumb">
+		<span class="active section">权限申请</span>
+	</div>
+	<form id="roleForm" method="post" onsubmit="return false;">
+		<div class="base-info" >
+			<div class="header"><span class="title"><i></i>权限信息</span></div>
+			<div class="content">
+				<span class="tip"><span class="required">*</span>设置功能权限</span>
+				<div id="rolePanel"></div>
+			</div>
+		</div>
+		<input type="hidden" id="roleId" value="">
+		<div class="action">
+			<button id="saveRole" class="ui button blue" type="submit">申请</button>
+		</div>
+	</form>
+</div>
+{{/if}}
+
+{{#if approvalList}}
+<div class="approvalList">
+	<div class="breadcrumb">
+		<span class="active section">权限审批</span>
+	</div>
+	<div>
+		<table>
+		</table>
+		<div class="pagination"></div>
+	</div>
+</div>
+{{/if}}
+
+{{#if approvalListData}}
+	<tr class="header">
+		<th>用户名</th>
+		<th>申请信息</th>
+		<th>时间</th>
+		<th>操作</th>
+	</tr>
+	{{#if data}}
+		{{#each data}}
+		<tr>
+			<td width="15%">{{getUserName description}}</td>
+			<td width="35%" title="{{getMsg description}}">{{getMsg description}}</td>
+			<td width="15%">{{formatTime createDate}}</td>
+			<td width="15%" class="opera">
+                <span class="approvalicon" title="审批" data-id="{{id}}"></span>
+            </td>
+		</tr>
+		{{/each}}
+	{{else}}
+		<tr class="unresult"><td colspan="4">暂无待审批数据</td></tr>
+	{{/if}}
+{{/if}}
+
+{{#if approvalMsg}}
+<div class="approvalMsgDetail">
+	<div class="breadcrumb">
+		<span class="active section">权限审批</span>
+		<span class="delect" title="取消"></span>
+	</div>
+	<form id="roleForm" method="post" onsubmit="return false;">
+		<div class="base-info">
+			<div class="header"><span class="title"><i></i>基本信息</span></div>
+			<div class="content ">
+				<table class="info">
+					<tr><td class="name">用户名：</td><td><div class="ui input"><input id="roleName" data-id="{{approvalMsg.userId}}" name="roleName" type="text" value="{{approvalMsg.userName}}" placeholder="请输入角色名称"  disabled="true"　readOnly="true" ></div></td></tr>
+				</table>
+			</div>
+		</div>
+		<div class="base-info" >
+			<div class="header"><span class="title"><i></i>权限信息</span></div>
+			<div class="content">
+				<span class="tip"><span class="required">*</span>设置功能权限</span>
+				<div id="rolePanel"></div>
+			</div>
+		</div>
+		<div class="base-info">
+			<div class="header"><span class="title"><i></i>说明信息</span></div>
+			<div class="content ">
+				<table class="info">
+					<tr><td class="name top">备注：<div class="count"><span id="count">0</span>/150</div></td><td><textarea id="description" name="description" maxlength="150"></textarea></td></tr>
+				</table>
+			</div>
+		</div>
+		<input type="hidden" id="roleId" value="">
+		<div class="action">
+			<button id="saveRole" class="ui button blue" type="submit">同意</button>
+			<button id="cancel" class="ui button blue" type="button">打回</button>
+		</div>
+	</form>
+</div>
+{{/if}}

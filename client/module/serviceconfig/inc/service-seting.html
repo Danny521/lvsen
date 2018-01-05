@@ -1,0 +1,22 @@
+
+{{#if configList}}
+	{{#each configList}}
+		<li class="mailtitle" data-index="{{@index}}">{{key}}<i class="func-folder up"></i></li>
+		<div class="content" data-index="{{@index}}">
+		{{#if childrenList}}
+		    {{#each childrenList}}
+				<li class="servicetype">{{key}}</li>
+				{{#if childrenList}}
+					{{#each childrenList}}
+						<li class="setlist">
+							<lable>{{key}}：</lable>
+							<input class="send" type="text" value="{{value}}" readonly></input>
+							<i class="error-info">请输入正确的ip地址</i>
+						</li>
+					{{/each}}
+				{{/if}}
+			{{/each}}
+		{{/if}}
+		</div>
+	{{/each}}
+{{/if}}

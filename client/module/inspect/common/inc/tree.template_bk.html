@@ -1,0 +1,40 @@
+{{#if cameras}}
+	<ul class="tree">
+		{{#each cameras}}
+			{{#equals 'type' 'group'}}
+				<li class="node {{checktree}}" data-id='{{id}}' data-name="{{name}}" data-type ="{{type}}">
+					<a class="group">
+						{{#enable true}}
+							<i class="checkbox {{ checked }}"></i>
+						{{/enable}}
+						
+						<i class="fold {{ homeicon }}"></i>
+						<span class="text-over" title="{{name}}">{{ name }}</span>						
+						{{#enable false}}
+							{{#customize}}
+							<i class=" group-operator remove" title="删除分组"></i>
+							<i class=" group-operator edit" title="重命名"></i>
+							{{/customize}}
+						{{/enable}}
+					</a>
+				</li>
+			{{else}}
+				<li class="node {{offline hd_channel sd_channel}} clearfix {{checktree}}" data-id='{{id}}' data-hdchannel='{{translate hd_channel}}' data-cameracode='{{cameraCode}}' data-sdchannel='{{translate sd_channel}}' data-name="{{name}}" data-type="{{type}}" data-cameratype="{{camera_type}}" data-status="{{camera_status}}" data-cstatus="{{cstatus hd_channel sd_channel}}" data-latitude="{{latitude}}" data-longitude="{{longitude}}">
+					<a class="leaf {{isActive}} clearfix">
+						{{#enable true}}
+							<i class="checkbox {{ checked }}"></i>
+						{{/enable}}
+						<i class="camera {{cameratype camera_type}} {{state hd_channel sd_channel}} {{hasHD hd_channel}}"></i>
+						<span class="text-over" title="{{name}}{{#cameraCodeShow cameraCode}}{{/cameraCodeShow}}"><em class="{{isSD hd_channel}}">{{ name }}{{#cameraCodeShow cameraCode}}{{/cameraCodeShow}}</em></span>
+						<i class="tv-history" title="录像上墙"></i>
+						{{#enable false}}
+							<i class="more" title="更多"></i>
+						{{/enable}}
+					</a>
+				</li>
+			{{/equals}}
+		{{/each}}
+	</ul>
+{{else}}
+	<h2 class="no-data">{{nodata}}</h2>
+{{/if}}

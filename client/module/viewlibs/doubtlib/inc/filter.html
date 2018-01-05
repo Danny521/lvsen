@@ -1,0 +1,85 @@
+<div class="filter-box" style=" border-top: 0px;">
+    <div  class="doubtlib_tabs header">
+		<ul class="tabs menus ui tabular select">
+			<li data-tab="info" class="active">
+				<a>疑情信息</a>
+			</li>
+			<li data-tab="video" class="">
+				<a>实时视频标注</a>
+			</li>
+		</ul>
+	</div>
+	<div class="content">
+		<div class="filter-panel">
+			<div class="filter clearfix" data-filter='t'>
+				<span class="type">创建时间：</span>
+				<ul class="createtime">
+					<li class="active"  data-key="0">
+						<a>全部</a>
+					</li>
+					<li  data-key="7">
+						<a>近10分钟</a>
+					</li>
+					<li  data-key="9">
+						<a>近1小时</a>
+					</li>
+					<li  data-key="1">
+						<a>今日</a>
+					</li>
+					<li  data-key="2">
+						<a>昨日</a>
+					</li>
+					<li  data-key="3">
+						<a>近7天</a>
+					</li>
+					<li  data-key="4">
+						<a>近30天</a>
+					</li>
+					<li  class="custom" data-key="6">
+						<a class="custom-a">自定义</a>
+						<div class="custom-time"> <i class="brace"></i>
+							<input type="text" value="" name="" class="input-text input-time valid" data-filter='s'>
+							<span>—</span>
+							<input type="text" value="" name="" class="input-text input-time valid" data-filter='e'>
+							<span class="span-btn">
+								<button type="submit"   class="btn">确定</button>
+							</span>
+						</div>
+					</li>
+				</ul>
+			</div>
+
+						
+			<div class="filter clearfix" data-filter='l'>
+				<span class="type">信息类型：</span>
+				<ul class="info-type">
+					<li class="active" data-key="0" data-type="all">
+						<a>全部</a>
+					</li>
+					<li  data-type="person" data-key="1" >
+						<a>人员</a>
+					</li>
+					<li data-type="car" data-key="2">
+						<a>车辆</a>
+					</li>
+					<li data-type="exhibit" data-key="3">
+						<a>物品</a>
+					</li>
+					<li data-type="scene" data-key="4">
+						<a>场景</a>
+					</li>
+					<li data-type="move" data-key="5">
+						<a>运动目标</a>
+					</li>
+					<li data-type="others" data-key="6">
+						<a>其他</a>
+					</li>
+				</ul>
+			</div>
+			<div class="filter clearfix" data-filter="n">
+				<span class="type">创建人员：</span>
+					<input type="text" value="" name="" class="input-text create" /><input class="seach" readonly />
+			</div>
+		</div>
+	</div>
+</div>

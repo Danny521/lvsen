@@ -1,0 +1,57 @@
+{
+    "code": 200,
+    "data": {
+        "message": "成功",
+        "event": {
+            "deployEvent": {
+                "id": 52,
+                "eventId": null,
+                "absTime": 1412904240000,
+                "eventType": 6,
+                "level": 1,
+                "areaName": "框2",
+                "dealStatus": 0,
+                "comment": "挖掘机啊",
+                "handleAuthor": "王一",
+                "handleTime": 1412904240000,
+                "cameraId": 32,
+                "cameraChannelId": 32,
+                "cameraName": "大华",
+                "validImgNum": null,
+                "imgInfo": ["/assets/images/nopic.jpg"],
+                "ipvsTaskId": null,
+                "pccTaskId": "1",
+                "orgId": 2
+            },
+            "deployControlEvent": null,
+            "targetPersons": [
+                {
+                    "id": 4,
+                    "targetPersonId": 4,
+                    "targetPersonName": "赵六",
+                    "compareScore": 800,
+                    "createTime": 1412826407000,
+                    "handleStatus": 2,
+                    "featureImagePath":  [
+"/assets/images/nopic.jpg"
+            ],
+                    "description": "涉案人员",
+                    "libName": "人员库"
+                },
+                {
+                    "id": 1,
+                    "targetPersonId": 1,
+                    "targetPersonName": "张三",
+                    "compareScore": 600,
+                    "createTime": 1412826244000,
+                    "handleStatus": 2,
+                    "featureImagePath": [
+"/assets/images/nopic.jpg"
+            ],
+                    "description": null,
+                    "libName": "人员库"
+                }
+            ]
+        }
+    }
+}

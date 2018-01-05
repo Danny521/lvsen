@@ -1,0 +1,399 @@
+#content {
+	margin-top: 12px;
+	min-height: 660px;
+}
+
+#content .wrapper{
+	width: 1200px;
+	margin: 0 auto;
+	/*border: 1px solid #dddddd;*/
+}
+
+div.permission{
+	display: none;
+}
+#content .wrapper div.loading{
+	height: 140px;
+	background: url(/module/common/images/animate/horizontal-loading.gif) no-repeat scroll center center transparent;
+}
+#content .wrapper .header .crumbs{
+	margin-top: 10px;
+}
+#content .wrapper .header .crumbs > a.gray{
+	color: #a8a8a8;
+}
+#content .wrapper .header .body{
+	margin-top: 10px;
+	font-size: 0px;
+}
+
+#content .wrapper .header > .body > div{
+	display: inline-block;
+}
+#content .wrapper .header > div > div.title{
+	width: 800px;
+	font-size: 0px;
+}
+#content .wrapper .header > div > div.title > span{
+	font-size: 16px;
+}
+#content .wrapper .header > div > div.title .clue{
+	float: right;
+	font-size: 14px;
+	color: #FA7B30;
+}
+#content .wrapper .header > div > div.title .clue:hover{
+	text-decoration: underline;
+}
+#content .wrapper .header > div > div.title a.textdisabe{
+	color: #7f7f7f;
+}
+#content .wrapper .header > div > div.operate{
+	margin-left: 20px;
+	width: 380px;
+	font-size: 14px;
+}
+#content .wrapper .header > div > div.call-back{
+	margin-bottom: 5px;
+	float: right;
+}
+
+#content .wrapper .header > div > div.operate a{
+	float: right;
+	border: 1px solid #e0e0e0;
+	padding: 5px 20px;
+	margin-left: 5px;
+}
+
+#content .wrapper div.crumbs a.first,#content .wrapper div.crumbs a.second{
+	color: #175FAE;
+}
+#content .wrapper div.crumbs a.third{
+	color: #A8A8A8;
+}
+	
+#content .wrapper .main{
+	margin-top: 10px;
+	font-size: 0px;
+	/*border: 1px solid #ff0066;*/
+	min-height: 590px;
+	clear: both;
+}
+
+#content .wrapper .main .media{
+	display: inline-block;
+	width: 800px;
+	height: 576px;
+	vertical-align: top;
+	background: #F0F0F0;
+	font-size: 14px;
+}
+#content .wrapper .main .picture{
+	background: transparent;
+}
+
+#content .wrapper .main .media > div{
+	height: 510px;
+	border: 1px solid #DDDDDD;
+	font-size: 0px;
+	text-align: center;
+}
+#content .wrapper .main .media > div > span{
+	display: inline-block;
+	width: 1px;
+	height: 100%;
+	margin-left: -1px;
+	vertical-align: middle;
+}
+#content .wrapper .main .media > div > img{
+	vertical-align: middle;
+	max-width: 700px;
+	max-height: 424px;
+}
+#content .wrapper .main .media > a{
+	float: right;
+	margin: 7px 0 0 10px;
+	display: inline-block;
+	padding: 5px 10px;
+	border: 1px solid #dddddd;
+}
+#content .wrapper .main .media-info{
+	display: inline-block;
+	width: 380px;
+	height: 576px;
+	margin-left: 20px;
+	font-size: 12px;
+	font-family: "Microsoft Yahei";
+}
+/*------------------选项卡--start-------------------*/
+.media-info{
+}
+.media-info .tabs{
+	height: 38px;
+	border: 1px solid #d9e0f0;
+	background-color: #f9f9f9;
+}
+.media-info .tabs li{
+	float: left;
+	width: 80px;
+	line-height: 36px;
+	margin-left: -1px;
+	border-width: 0;
+	border-style: solid;
+	border-color: #d9e0f0;
+	border-top-color:#f9f9f9;
+	text-align: center;
+	font-size: 14px;
+	color: #7F7F7F;
+}
+.media-info .tabs li:last-child{
+	border-right-color: #f9f9f9;
+}
+.media-info .tabs li:hover{
+	cursor: pointer;
+}
+.media-info .tabs li.active{
+	height: 37px;
+	background-color: #FFFFFF;
+	border-color: #d9e0f0;
+	border-top-color:#1051b2;
+	color: #075db0;
+	border-width: 2px 1px 0px 1px;
+}
+.media-info .views{
+	border-width: 0px 1px 1px 1px;
+	border-style: solid;
+	border-color: #EEEEEE;
+}
+.media-info .views .viewport .overview > div{
+	/*height: 535px;*/
+	background-color: #FFFFFF;
+	display: none;
+	/*overflow: hidden;*/
+}
+.media-info .views .viewport .overview > div.active{
+	display: block;
+}
+/*------------------选项卡--end-------------------*/
+
+/*视图详情页表单样式-------------start*/
+
+.views .common-table{
+	width: 350px;
+	table-layout: fixed;
+}
+.views .common-table td {
+    font-size: 12px;
+    color: #666666;
+    padding: 3px 5px;
+
+    overflow: hidden;
+    word-wrap: break-word;
+    word-break: break-all;    
+    text-overflow: ellipsis;
+}
+.views .common-table td.attr-name {
+	width: 120px;
+	text-align: right;
+}
+.views .common-table td.attr-value {
+	width: 230px;
+	text-align: left;
+	color: #111;
+}
+
+.common-table td.value {
+    background-color: #FFFFFF;
+    word-break: break-all;
+}
+.views .common-table td > span{
+	display: inline-block;
+	vertical-align: top;
+}
+/*视图详情页表单样式-------------end*/
+
+/* Tiny Scrollbar --------------start*/
+.views { width: 378px; margin: 0px 0 10px; position: relative;}
+.views .viewport { width: 378px; height: 510px; overflow: hidden; position: relative; background-color: #ffffff;}
+.views .overview { list-style: none; position: absolute; left: 0; top: 0; padding: 0; margin: 0; }
+.views .scrollbar{ position: absolute;right:0px; background-position: 0 0; width: 10px; z-index: 1;}
+.views .track { background-color: #F0F0F0; height: 100%; width:10px; position: relative; padding: 0 1px; }
+.views .thumb { background: url(/module/common/images/bg/pvd_scroll.png) no-repeat; height: 20px; width: 8px; cursor: pointer; overflow: hidden; position: absolute; top: 0; left: 3px; }
+.views .thumb .end { overflow: hidden; height: 5px; width: 25px; }
+.views .disable { display: none; }
+.noSelect { user-select: none; -o-user-select: none; -moz-user-select: none; -khtml-user-select: none; -webkit-user-select: none; }
+/* Tiny Scrollbar --------------end*/
+
+#content .wrapper .header .body .operate a{
+	padding: 0 18px;
+	height: 28px;
+	line-height: 28px;
+	border: 1px solid #dfdfdf;
+	border-radius: 3px;
+	box-shadow: 0 1px #ffffff inset;
+	background: #f7f7f7;
+	background: linear-gradient(top, #f7f7f7, #ebecec);
+	background: -moz-linear-gradient(top, #f7f7f7, #ebecec);
+	background: -webkit-linear-gradient(top, #f7f7f7, #ebecec);
+	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#f7f7f7,endColorstr=#ebecec);
+	font-family: "Microsoft Yahei";
+	font-size: 12px;
+	color: #333333;
+	cursor: pointer;
+}
+#content .wrapper .header .body .operate a:hover{
+	border-color: #dfdfdf;
+	box-shadow: 0 1px #f0f0f0 inset;
+	background: #fdfdfd;
+	background: linear-gradient(top, #fefefe, #f0f0f0);
+	background: -moz-linear-gradient(top, #fefefe, #f0f0f0);
+	background: -webkit-linear-gradient(top, #fefefe, #f0f0f0);
+	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#fefefe,endColorstr=#f0f0f0);
+	font-family: "Microsoft Yahei";
+	font-size: 12px;
+	color: #333333;
+	cursor: pointer;
+}
+/**新增打回按钮样式--------开始---------*/
+#content .wrapper .header .body .operate a#reject{
+	display: none;
+	float: right;
+	width: 80px;
+	height: 26px;
+	padding: 0 0px;
+	line-height: 26px;
+	margin-left: 10px;
+	text-align: center;
+	border: 1px solid #CCCCCC;
+	border-radius: 2px;
+	color: #666666;
+	/*-ms-filter: "progid:DXImageTransform.Microsoft.gradient (GradientType=0, startColorstr=#186ece, endColorstr=#186fcf)";/*IE8+*/;*/
+}
+#content .wrapper .header .body .operate a#reject i{
+	display: inline-block;
+	margin-right: 5px;
+	width: 15px;
+	height: 15px;
+	background: url('/module/common/images/viewlibs/role.png') no-repeat -38px -2px;
+}
+#content .wrapper .header .body .operate a.delete, #content .wrapper .header .body .operate a.edit{
+	display: none;
+}
+#content .wrapper .header .body .operate a.show{
+	display: inline-block;
+}
+/*--------------------结束-----------------*/
+
+/**************弹窗样式覆盖start******************************/
+#domPanel .wrapper section .cover{
+	text-align: center;
+}
+
+#domPanel .incident .wrapper section{
+	padding: 15px 20px;
+}
+#domPanel .incident .wrapper section textarea{
+	width: 520px;
+	height: 100px;
+	margin-bottom: 10px;
+	font-size: 14px;
+}
+#domPanel .incident .wrapper section span{
+	font-size: 12px;
+}
+#domPanel .incident.reject .wrapper footer > input.blue{
+	box-shadow: 0 1px #E34A4D inset;
+	border-color: #B81F24;
+	background: #E34A4D;
+	background: linear-gradient:(top, #E34A4D, #F26866);
+	background: -moz-linear-gradient:(top, #E34A4D, #F26866);
+	background: -webkit-linear-gradient:(top, #E34A4D, #F26866);
+	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#E34A4D, endColorstr=#F26866);/*IE<9>*/
+	color: #FFFFFF;
+}
+/**************弹窗样式覆盖end******************************/
+
+.views .thread > ul{
+	display: block;
+	padding: 1px;
+	padding-bottom: 12px;
+}
+.views .thread > ul li{
+	float: left;
+	display: block;
+	margin-top: 12px;
+	margin-left: 12px;
+	height: 181px;
+	text-align: center;
+}
+.views .thread ul li > a.box{
+	display: table-cell;
+	width: 160px;
+	height: 120px;
+	padding: 4px;
+	vertical-align: middle;
+	border: 1px solid #dddddd;
+	overflow: hidden;
+}
+.views .thread ul li > a.box img{
+	max-width: 152px;
+	max-height: 112px;
+	transition: all 0.3s ease 0s;
+}
+.views .thread ul li > a.box:hover{
+	border: 1px solid #0088CC;
+	box-shadow: 0 0 8px #A7C1DE;
+}
+.views .thread ul li > a.box:hover > img{
+	transform: scale(1.1);
+	cursor: pointer;
+}
+
+.views .thread ul li > p, .views .thread ul li > p > a{
+	display: block;
+	max-width: 168px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+.views .thread ul .picthreadli-span{
+	display: block;
+	margin-left: 160px;
+	margin-top: 20px;
+}
+
+/**************************分页样式 start*****************************************/
+.views > div .pagebar{
+	position: relative;
+	height: 38px;
+	border-top: 1px solid #EEEEEE;
+}
+.pagebar a{
+	height: 20px;
+	margin-top: 9px;
+}
+.pagebar span.current{
+	margin-top: 9px;
+	height: auto;
+    background-color: #C4CBCF;
+    color: #FFFFFF;
+}
+.pagebar > p{
+	position: absolute;
+	display: inline-block;
+	height: 12px;
+	top: 8px;
+	left: 20px;
+	color: #C4CBCF;
+}
+.pagebar > p > span{
+	display: inline;
+	margin-right: 0px;
+	color: #C4CBCF;
+}
+
+/**************分页样式 end*****************************************/
+#content .wrapper .header > div > div.operate a span.disable{
+background: transparent;
+color: #BDBEC2;
+}

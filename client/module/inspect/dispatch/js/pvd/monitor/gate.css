@@ -1,0 +1,129 @@
+/**************************************ZTREE图标*****************************************/
+
+
+.list-inline{
+    font-size: 0px;
+}
+
+.list-inline li{
+    display: inline-block;
+    font-size: 12px;
+}
+.ztree li span.button.root_ico_open, .ztree li span.button.root_ico_close, .ztree li span.button.root_ico_docu {
+    background: url('images/tree.png') no-repeat -148px -11px;
+    width: 20px;
+    height: 18px;
+    margin-top: -6px;
+}
+.ztree li span.button.org_ico_open, .ztree li span.button.org_ico_close, .ztree li span.button.org_ico_docu {
+    background: url('images/tree.png') no-repeat -152px -547px;
+    width: 20px;
+    height: 18px;
+    margin-top: -7px;
+}
+.ztree li span.button.custom_ico_open, .ztree li span.button.custom_ico_close, .ztree li span.button.custom_ico_docu {
+    background: url('images/vimIcons.png') no-repeat -242px -163px;
+    width: 16px;
+    height: 18px;
+}
+.ztree li span.button.gate_ico_open, .ztree li span.button.gate_ico_close, .ztree li span.button.gate_ico_docu {
+    background: url('images/vimIcons.png') no-repeat -242px -163px;
+    width: 16px;
+    height: 18px;
+}
+.ztree li span.button.up-online_ico_open, .ztree li span.button.up-online_ico_close, .ztree li span.button.up-online_ico_docu {
+    width: 30px;
+    height: 15px;
+    background: url('images/roadIcons.png') no-repeat -4px -4px;
+}
+.ztree li span.button.up-online-selected_ico_open, .ztree li span.button.up-online-selected_ico_close, .ztree li span.button.up-online-selected_ico_docu {
+    width: 30px;
+    height: 15px;
+    background: url('images/roadIcons.png') no-repeat -37px -4px;
+}
+.ztree li span.button.down-online_ico_open, .ztree li span.button.down-online_ico_close, .ztree li span.button.down-online_ico_docu {
+    width: 30px;
+    height: 15px;
+    background: url('images/roadIcons.png') no-repeat -72px -4px;
+}
+.ztree li span.button.down-online-selected_ico_open, .ztree li span.button.down-online-selected_ico_close, .ztree li span.button.down-online-selected_ico_docu {
+    width: 30px;
+    height: 15px;
+    background: url('images/roadIcons.png') no-repeat -108px -4px;
+}
+.ztree li span.button.up-offline_ico_open, .ztree li span.button.up-offline_ico_close, .ztree li span.button.up-offline_ico_docu {
+    width: 30px;
+    height: 15px;
+    background: url('images/roadIcons.png') no-repeat -142px -4px;
+}
+.ztree li span.button.up-offline-selected_ico_open, .ztree li span.button.up-offline-selected_ico_close, .ztree li span.button.up-offline-selected_ico_docu {
+    width: 30px;
+    height: 15px;
+    background: url('images/roadIcons.png') no-repeat -175px -4px;
+}
+.ztree li span.button.down-offline_ico_open, .ztree li span.button.down-offline_ico_close, .ztree li span.button.down-offline_ico_docu {
+    width: 30px;
+    height: 15px;
+    background: url('images/roadIcons.png') no-repeat -206px -4px;
+}
+.ztree li span.button.down-offline-selected_ico_open, .ztree li span.button.down-offline-selected_ico_close, .ztree li span.button.down-offline-selected_ico_docu {
+    width: 30px;
+    height: 15px;
+    background: url('images/roadIcons.png') no-repeat -239px -4px;
+}
+
+/**** 卡口监控弹窗 ****/
+
+.swan-info {
+    width: 300px;
+    margin: 0 auto;
+    padding-bottom: 5px;
+    border-radius: 5px;
+    background: #fff;
+    -webkit-box-shadow: 0 0 12px #999;
+    -moz-box-shadow: 0 0 12px #999;
+    box-shadow: 0 0 12px #999;
+}
+
+
+.swan-info .gate-info-body {
+    padding: 5px 15px 0 15px;
+}
+
+.swan-info .info-close {
+    width: 20px;
+    height: 21px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: url(images/map/remove.png) center center no-repeat;
+    float: right;
+}
+
+.infowindow-content .list-inline {
+    margin: 10px auto;
+}
+
+.infowindow-content .number {
+    color: #ff8d33;
+}
+
+.infowindow-content .list-inline li {
+    margin-right: 25px;
+    color: #333333;
+}
+
+
+.olPopup {
+    background: transparent !important;
+}
+
+.clearfixPop {
+    display: none;
+    zoom: 1;
+}
+
+.clearfixPop.active {
+    display: block;
+}
+

@@ -1,0 +1,16 @@
+{{#each list}}
+<div class="markedVideoImage" data-id="{{id}}" data-fileUrl="{{localPath}}" data-pid="{{pid}}" data-cid="{{cid}}" data-shootTime="{{shootTime}}" data-isClue="{{isClue}}">
+    <div class="originalImageDiv">
+        <image class="originalImage" src="{{thumbnail}}"></image>
+    </div>
+    <div class="hoverCurrentImage hidden" >
+        <image src="/module/imagejudge/resource-process/images/hoverCurrentImage.png"></image>
+    </div>
+    <div class="hoverImage hidden" >
+        <image src="/module/imagejudge/resource-process/images/hoverImage.png"></image>
+    </div>
+    <div class="ThumbnailTitle">
+        {{fileName}}
+    </div>
+</div>
+{{/each}}

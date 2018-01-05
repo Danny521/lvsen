@@ -1,0 +1,225 @@
+<div class="download-record">
+    <iframe src="about:blank"></iframe>
+</div>
+<div class="dialog-history postform markPanel">
+    <div class="dialog-title borb">
+        <span class="head">摘要信息选择</span>
+        <span class="close"></span>
+    </div>
+    <div class="dialog-body unselect markBody">
+        <!--智能标注选项-->
+        <form id="smartMarkform" >
+            <div class="video_info">
+                <dl class="video_form">
+                    <dt>
+                        <div class="blockline"><span>标注信息类型</span></div>
+                        <dd>
+                            <ul class="stMli">
+                                <li class="type type-mark">
+                                    <input id="type-mark-move" name="type-mark-move" type="checkBox" />
+                                    <label for="type-mark-move">运动目标</label>
+                                    <a href="#" data-type="move" class="videdoRight_advancedSet">高级设置</a>
+                                </li>
+                                <li class="type-params">
+                                    <div class="type-params-item">
+                                        <input id="videoRight_targetHeight" disabled="disabled" class="videoRight_target" type="checkBox" />
+                                        <label for="videoRight_targetHeight"> 目标高度:</label>
+                                        <input class="spinner move-height-spinner" name="move-height" value="50" size="2">
+                                        <label class="resetReminder">[10～1000]</label>
+                                    </div>
+                                    <div class="type-params-item">
+                                        <input id="videoRight_delicacyLevel" disabled="disabled" class="videoRight_target" type="checkBox" />
+                                        <label for="videoRight_delicacyLevel">灵敏度: </label>
+                                        <input class="spinner move-sensitivity-spinner" name="move-sensitivity" value="3" size="2">
+                                        <label class="resetReminder">[1～5]</label>
+                                    </div>
+                                    <div class="arrow"></div>
+                                    <!--<div class="type-params-item">
+                                        <label>跳桢数: </label>
+                                        <input class="spinner skipFrames-spinner" name="move-skipFrames" value="0" size="6">
+                                    </div>-->
+                                </li>
+                                <li class="type type-mark">
+                                    <input id="type-mark-face" type="checkBox"/>
+                                    <label for="type-mark-face">人脸(人员)</label>
+                                    <a href="#" data-type="face" class="videdoRight_advancedSet">高级设置</a>
+                                </li>
+                                <li class="type-params">
+                                    <div class="type-params-item">
+                                        <input id="videoRight_minimumFace" disabled="disabled" class="videoRight_face" type="checkBox" />
+                                        <label for="videoRight_minimumFace">最小人脸: </label>
+                                        <input class="spinner face-spinner" name="face-minFace" value="60" size="2">
+                                        <label class="resetReminder">[60～1000]</label>
+                                    </div>
+                                    <div class="type-params-item">
+                                        <input id="videoRight_maximumFace" disabled="disabled" class="videoRight_face" type="checkBox" />
+                                        <label for="videoRight_maximumFace">最大人脸: </label>
+                                        <input class="spinner face-spinner" name="face-maxFace"  value="200" size="2">
+                                        <label class="resetReminder">[60～1000]</label>
+                                    </div>
+                                    <div class="arrow"></div>
+                                    <!--<div class="type-params-item">
+                                        <label>跳桢数: </label>
+                                        <input class="spinner skipFrames-spinner" name="face-skipFrames" value="0" size="6">
+                                    </div>-->
+                                </li>
+                                <li class="type type-mark">
+                                    <input id="type-mark-car" type="checkBox" />
+                                    <label for="type-mark-car">车辆</label>
+                                    <a href="#" data-type="car" class="videdoRight_advancedSet">高级设置</a>
+                                </li>
+                                <li class="type-params">
+                                    <div class="type-params-item">
+                                        <input id="videoRight_minimumSize" disabled="disabled" class="videoRight_size" type="checkBox" />
+                                        <label for="videoRight_minimumSize">最小尺寸: </label>
+                                        <input class="spinner car-spinner" name="car-minPlate" value="40" size="2">
+                                        <label class="resetReminder">[40～1000]</label>
+                                    </div>
+                                    <div class="type-params-item">
+                                        <input id="videoRight_maximumSize" disabled="disabled" class="videoRight_size" type="checkBox" />
+                                        <label for="videoRight_maximumSize">最大尺寸: </label>
+                                        <input class="spinner car-spinner" name="car-maxPlate"  value="400" size="2">
+                                        <label class="resetReminder">[40～1000]</label>
+                                    </div>
+                                    <div class="type-params-item">
+                                        <input id="videoRight_defaultProvinceName" disabled="disabled" class="videoRight_size" type="checkBox" />
+                                        <label for="videoRight_defaultProvinceName">默认省名: </label>
+                                        <select name="car-defaultProvince" disabled="disabled">
+                                            <option value="京">京</option>
+                                            <option value="津">津</option>
+                                            <option value="沪" selected>沪</option>
+                                            <option value="冀">冀</option>
+                                            <option value="黑">黑</option>
+                                            <option value="吉">吉</option>
+                                            <option value="辽">辽</option>
+                                            <option value="豫">豫</option>
+                                            <option value="晋">晋</option>
+                                            <option value="陕">陕</option>
+                                            <option value="宁">宁</option>
+                                            <option value="甘">甘</option>
+                                            <option value="新">新</option>
+                                            <option value="蒙">蒙</option>
+                                            <option value="青">青</option>
+                                            <option value="藏">藏</option>
+                                            <option value="川">川</option>
+                                            <option value="贵">贵</option>
+                                            <option value="湘">湘</option>
+                                            <option value="鄂">鄂</option>
+                                            <option value="闽">闽</option>
+                                            <option value="苏">苏</option>
+                                            <option value="浙">浙</option>
+                                            <option value="皖">皖</option>
+                                            <option value="鲁">鲁</option>
+                                            <option value="桂">桂</option>
+                                            <option value="云">云</option>
+                                            <option value="粤">粤</option>
+                                            <option value="琼">琼</option>
+                                            <option value="渝">渝</option>
+                                            <option value="赣">赣</option>
+                                            <option value="港">港</option>
+                                            <option value="学">学</option>
+                                            <option value="军">军</option>
+                                            <option value="空">空</option>
+                                            <option value="海">海</option>
+                                            <option value="北">北</option>
+                                            <option value="沈">沈</option>
+                                            <option value="兰">兰</option>
+                                            <option value="济">济</option>
+                                            <option value="南">南</option>
+                                            <option value="广">广</option>
+                                            <option value="成">成</option>
+                                            <option value="警">警</option>
+                                            <option value="消">消</option>
+                                            <option value="边">边</option>
+                                            <option value="通">通</option>
+                                            <option value="森">森</option>
+                                            <option value="金">金</option>
+                                            <option value="电">电</option>
+                                            <option value="挂">挂</option>
+                                        </select>
+                                    </div>
+                                    <div class="arrow"></div>
+                                    <!--<div class="type-params-item">
+                                        <label>融合帧数: </label>
+                                        <input class="spinner integrationFrameRate-spinner" name="car-integrationFrameRate" value="1" size="6">
+                                    </div>
+                                    <div class="type-params-item">
+                                        <label>跳桢数: </label>
+                                        <input class="spinner skipFrames-spinner" name="car-skipFrames" value="0" size="6">
+                                    </div>
+                                    <div class="type-params-item">
+                                        <label>虚拟线圈: </label>
+                                        <select name="car-virtualCoil"></select>
+                                        <button class="ui button blue btn-add-virtualCoil">添加</button>
+                                    </div>-->
+                                </li>
+                            </ul>
+                        </dd>
+                    </dt>
+                    <dt>
+                        <div class="blockline"><span>摘要类型</span></div>
+                        <dd>
+                            <ul class="stMli">
+                                <li class="type type-summary">
+                                    <input id="type-summary-cut" type="checkBox" />
+                                    <label for="type-summary-cut">剪切型</label>
+                                    <a href="#" data-type="cut" class="videdoRight_advancedSet">高级设置</a>
+                                </li>
+                                <li class="type-params">
+                                    <div class="type-params-item">
+                                        <input id="videoRight_brightSensibility" disabled="disabled" class="videoRight_bright" type="checkBox" />
+                                        <label for="videoRight_brightSensibility">亮度灵敏度: </label>
+                                        <input class="spinner frmThresh-spinner" name="cut-frmThresh" value="2" size="2">
+                                        <label class="resetReminder">[1～5]</label>
+                                    </div>
+                                    <div class="type-params-item">
+                                        <input id="videoRight_areaSensibility" disabled="disabled" class="videoRight_bright" type="checkBox" />
+                                        <label for="videoRight_areaSensibility">面积灵敏度: </label>
+                                        <input class="spinner sensitiveThresh-spinner" name="cut-sensitiveThresh" value="50" size="2">
+                                        <label class="resetReminder">[1～100]</label>
+                                    </div>
+                                    <div class="arrow"></div>
+                                    <!--<div class="type-params-item">
+                                        <label>跳桢数: </label>
+                                        <input class="spinner stepFrmCnt-spinner" name="cut-stepFrmCnt" value="0" size="6">
+                                    </div>-->
+                                </li>
+                                <li class="type type-summary">
+                                    <input id="type-summary-overlay" type="checkBox" />
+                                    <label for="type-summary-overlay">叠加型</label>
+                                </li>
+                            </ul>
+                        </dd>
+                    </dt>
+                   <!--  <dt>
+                       <h6>范围选择</h6>
+                       <dd>
+                           <ul class="stMli">
+                               <li class="type type-region">
+                                   <input id="type-region-proc" type="checkBox" />
+                                   <label for="type-region-proc">处理区域</label>
+                                   <input id="btn-toggle-region-proc" type="checkbox" disabled>
+                                   <label for="btn-toggle-region-proc"></label>
+                                   <a title="查看" id="videoRight_showProc" class="viwe viwe-device operate-icon-view-close"></a>
+                               </li>
+                               <li class="type type-region">
+                                   <input id="type-region-shield" type="checkBox" />
+                                   <label for="type-region-shield">屏蔽区域</label>
+                                   <input id="btn-toggle-region-shield" type="checkbox" disabled>
+                                   <label for="btn-toggle-region-shield"></label>
+                                   <a title="查看" id="videoRight_showShield" class="viwe viwe-device operate-icon-view-close"></a>
+                               </li>
+                           </ul>
+                       </dd>
+                   </dt> -->
+                </dl>
+            </div>
+        </form>         
+    </div>
+    <div class="dialog-foot noborder">
+        <span class="okcancel">
+            <span class="ok ui button blue"  id="smartMarkSave">生成标注</span>                
+            <span class="cancel ui button ml10">取消</span>                
+        </span>
+    </div>
+</div>

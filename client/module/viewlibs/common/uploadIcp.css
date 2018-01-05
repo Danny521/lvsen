@@ -1,0 +1,45 @@
+.upload-icpDialog {
+	height: 202px;
+}
+.upload-icpDialog section {
+	text-align: center;
+}
+.upload-icpDialog section .loading{ 
+	margin-top: 20px;
+}
+.upload-icpDialog section .loading .icon{ 
+	padding-top: 40px;
+	line-height: 20px;
+	margin: 0 auto;
+	background: url("/module/viewlibs/caselib/images/upload-loading.gif") no-repeat center top;
+	font-size: 12px;
+}
+.upload-icpDialog .disnone {
+	display: none;
+}
+.upload-icpDialog .result {
+	padding-top: 20px;
+}
+.upload-icpDialog .result .tips {
+	width: 70px;
+	height: 40px;
+	line-height: 40px;
+	padding-left: 40px;
+	margin: 0 auto;
+	background-repeat: no-repeat;
+	background-position: 0 center;
+}
+.upload-icpDialog .success .tips {
+	width: 125px;
+	background-image: url("/module/viewlibs/caselib/images/upload-success.png");
+}
+.upload-icpDialog .fail .tips {
+	background-image: url("/module/viewlibs/caselib/images/upload-fail.png");
+}
+.upload-icpDialog .result .foot {
+	position: absolute;
+	bottom: 10px;
+	left: 0px;
+	text-align: center;
+	width: 100%;
+}

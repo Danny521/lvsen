@@ -1,0 +1,77 @@
+{{!--   检索结果 （左侧）   --}} 
+{{#if taskList}}
+	{{#each taskList.list}}
+	<dl class="retrieve_list">
+		<dt data-cat='{{id}}' class='tasklist-detail'> <i class="icon_downarrow"></i>
+			<h6 title='{{name}}'>{{name}}</h6>
+			{{#status status 1}}
+			<em class="cGreen">已完成</em>
+			{{/status}}
+			{{#status status 2}}
+			<em class="cRed">失败</em>
+			{{/status}}
+			{{#status status 3}}
+			<em class="cBlue">进行中</em>
+			{{/status}}
+		</dt>
+		<dd class='tasklist-content'>
+			<a class="icon_close" data-cat='{{id}}' title="删除" href="javascript:void(0);"></a>
+			<p>
+				<label>检索结果：</label> <em class='result-num'>统计中...</em>
+			</p>
+			<p>
+				<label>完成时间：</label>
+				<em class='finish-time'>计算中...</em>
+			</p>
+		</dd>
+	</dl>
+	{{else}}
+		<p style='color:#ccc;'>暂无数据！</p>
+	{{/each}}
+{{/if}}
+
+{{!--   历史记录    --}}
+{{#if historyTasks}}
+	{{#each historyTasks.list}}
+		<dl class="retrieve_list">
+			<dt><!-- <i class="up down"></i> -->{{#timeShow timeMark}}<h6>{{date_current}}</h6>{{/timeShow}}</dt>
+			{{#each details}}
+			<dd class='history-details' data-cat='{{id}}'>
+				<p>
+					<span><em>{{mills2ISODate creatTime}}</em></span>
+					<span><em title='{{transform key}}'>{{transform key}}</em></span>
+					<a class="icon_close" title="删除" data-cat='{{id}}' href="javascript:void(0);"></a>
+				</p>
+			</dd>
+			{{else}}
+			<dd class="noData" style='color:#ccc;'>暂无数据!</dd>
+			{{/each}}
+		</dl>
+	{{else}}
+		<p class="noData" style='color:#ccc;'>暂无数据！</p>
+	{{/each}}
+{{/if}}
+
+{{!-- 检索结果列表 --}}
+{{#if contentList}}
+	{{#each contentList.list}}
+		<li class='thumb-figure'>
+			<a class='thumb-anchor' data-id='{{id}}' data-name='{{name}}'>
+				<span><img src="{{ctm_THUMBNAIL}}"></span>
+			</a>
+			<h6>{{name}}</h6>
+			<p>{{whatTime this}}</p>
+		</li>
+		{{else}}
+		<p style='color:#ccc;'>查询结果为空！</p>
+	{{/each}}
+{{/if}}
+
+{{!-- 检索结果名称列表 --}}
+{{#if listOptions}}
+	{{#each listOptions.list}}
+	<option data-id='{{id}}' value='{{id}}'>{{displayname}}</option>
+	{{else}}
+	<option value=''>无检索结果</option>
+	{{/each}}
+{{/if}}

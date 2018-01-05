@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=10,chrome=1"/>
+	<title>视云实战平台</title>
+	<link type="text/css" rel="stylesheet" href="/module/common/css/base.css" />
+	<link type="text/css" rel="stylesheet" href="/libs/semantic/semantic.css" />
+	<link type="text/css" rel="stylesheet" href="/libs/jquery/jquery-ui.css">
+
+	<link type="text/css" rel="stylesheet" href="/module/ptz-controller/win-dialog.css"/>
+	<link type="text/css" rel="stylesheet" href="/module/ptz-controller/cruise/main.css"/>
+
+	<style>
+		#camera-color{
+			height:220px;
+		}
+
+		.win-dialog{
+			border:none;
+		}
+
+		.win-dialog-body{
+
+		}
+
+		.win-dialog-body ul{
+			margin-top:15px;
+		}
+
+		.win-dialog-foot{
+			bottom:20px;
+		}
+
+		html{
+			overflow:hidden;
+		}
+
+		body{
+			overflow:hidden;
+			background-color:#f5f4f1;
+		}
+
+		.event-data{
+			display:none;
+		}
+
+		.ptz-control{
+			display:block;
+			top:0px;
+			border:solid 1px #dddddd;
+			border-radius:0px;
+		}
+
+		.active{
+			display:block;
+		}
+
+		div.dir-control{
+			margin-top:0px;
+		}
+
+		.win-dialog-body{
+			position: static;
+			border:solid 0px red;;
+		}
+
+		.win-dialog-neck1{
+			display:none;
+		}
+
+		.win-dialog-title{
+			height:35px;
+			line-height:35px;
+		}
+
+		.view[data-tab="ptz"]{
+			padding-top:20px;
+		}
+		.ptz-control{
+			height:270px;
+		}
+
+		.win-dialog-title .ptztab.active{
+			border-bottom: solid 3px #188dfb;
+			_width:90px;
+		}
+
+		.preset-list{
+			padding:0px;
+		}
+
+		.auto-content.tab-content{
+			padding:3px;
+			margin-right:5px;
+			border:solid 0px red;
+			padding-top:0px;
+		}
+
+		li{
+			display:block;
+			border:solid 0px yellow;
+			white-space:nowrap;
+		}
+
+		div.auto-title.common-title{
+			display:inline-block;
+			height:30px;
+			line-height:30px;
+			white-space:nowrap;
+		}
+
+		div.auto-title.common-title > span{
+			display:inline-block;
+			white-space:nowrap;
+		}
+
+		li.common-list{
+			white-space:nowrap;
+		}
+
+		.new-cruise {
+			height:235px;
+		}
+
+		.show-cruise-list{
+			overflow:auto;
+			height:200px;
+		}
+
+
+		.new-cruise .c-header{
+			height:36px;
+			line-height:36px;
+		}
+
+		.new-cruise .c-header span{
+			vertical-align:middle;
+		}
+
+		.win-dialog-body{
+			margin-top:-4px;
+		}
+
+
+		.cruise-list ul.show-cruise-list{
+			height: 190px !important;
+			overflow: auto;
+		}
+
+		.control-speed{
+			color:#666666;
+			font-size:12px;
+		}
+
+		.equipment .choose{
+			color:#666666;
+			font-size:12px;
+		}
+
+		select{
+			border:solid 1px #cccccc;
+			font-size:12px;
+		}
+
+		.switch span{
+			color:#dddddd;
+			background-color:#f3f2f1;
+		}
+
+		.switch span.active{
+			color:#157dde;
+			background-color:#fefefe;
+		}
+
+		.preset-content .preset-list li > span{
+			width:60px;
+			display:inline-block;
+		}
+		.auto-ul{
+			overflow-x: hidden;
+		}
+
+		#loading{
+			position:absolute;
+			z-index:99999;
+			width:100%;
+			height:100%;
+			text-align:center;
+			padding-top:100px;
+			font-size:14px;
+			font-family: 'Microsoft Yahei';
+			background-color:white;
+			display:none;
+		}
+
+		.speedSlider{
+			width:170px;
+		}
+
+		.ruler{
+			width:180px;
+			height:21px;
+			margin-left:63px;
+		}
+
+	</style>
+	<!--[if lt IE 8]><script src="/libs/localStorage/json2.js"></script><![endif]-->
+	<!--[if lt IE 8]><script src="/libs/localStorage/localStorage.js"></script><![endif]-->
+	<script type="text/javascript"  src="/libs/requirejs/require.js"></script>
+	<script type="text/javascript">
+		var OnBeforeNavigate2=function(data) {
+			jQuery("#input-data").val(data);
+			var html = "<iframe id='OnBeforeNavigate2' etype='input' eid='input-data' src='about:blank' style='width:0px;height:0px;'></iframe>";
+			if (jQuery("#OnBeforeNavigate2")[0]) {
+				jQuery("#OnBeforeNavigate2").remove();
+			}
+			setTimeout(function () {
+				jQuery(document.body).append(html);
+			}, 0);
+		}
+
+		require(['/require-conf.js'],function() {
+			require(["jquery", 'jquery-ui', "mootools"], function () {
+				require([
+					'/module/ptz-controller/ptzctrl/js/gptz-init.js',
+					'/module/ptz-controller/ptzctrl/js/gptz-service.js',
+					'/module/ptz-controller/ptzctrl/js/ptzctrl-inside.js',
+					'/module/ptz-controller/cruise/main.js'], function () {
+					//加载公共方法
+					require([
+						'/component/base/self/notify.js',
+						'/component/base/self/log.js',
+						'/component/base/self/dialog.js'
+					], function(Notify, Log, Dialog) {
+						//初始化pva系统消息提示相关逻辑
+						Notify.initGlobal();
+						//初始化pva前端日志相关逻辑
+						Log.initGlobal();
+						//初始化pva弹窗逻辑
+						Dialog.initGlobal();
+					});
+
+					var obj = JSON.stringify({
+						type: "complete",
+						data: "ok"
+					});
+					OnBeforeNavigate2(obj);
+				});
+			});
+		});
+	</script>
+</head>
+<body>
+<input id="input-data" type="hidden" class="event-data" value=""/>
+<div id="ptz-control" class="win-dialog ptz-control">
+	<iframe src="about:blank"></iframe>
+	<div class="win-dialog-title">
+		<span data-type="ptz"  class="ptztab active">云台控制</span>
+		<span class="vline"></span>
+		<span data-type="preset"  class="ptztab">预置位</span>
+		<span class="vline"></span>
+		<span data-type="cruise"  class="ptztab">巡航</span> 
+	</div>
+	<div class="win-dialog-neck"></div>
+	<div class="win-dialog-body unselect">
+		<div class="view ptz active test" data-tab="ptz">
+			<div class="dir-control">
+				<span class="cmd vertical dir right" data-cmd="0">
+				</span>
+				<span class="cmd dir rightup" data-cmd="1">
+				</span>
+				<span class="cmd dir up" data-cmd="2">
+				</span>
+				<span class="cmd dir leftup" data-cmd="3">
+				</span>
+				<span class="cmd vertical dir left" data-cmd="4">
+				</span>
+				<span class="cmd dir leftdown" data-cmd="5">
+				</span>
+				<span class="cmd dir down" data-cmd="6">
+				</span>
+				<span class="cmd dir rightdown" data-cmd="7">
+				</span>
+
+				<span class="cmd zoom up adjust" data-cmd="11" title="焦距增大">
+				</span>
+				<span class="cmd zoom down adjust" data-cmd="11" title="焦距减小">
+				</span>
+				<span class="cmd focus up adjust" data-cmd="12" title="焦点增大">
+				</span>
+				<span class="cmd focus down adjust" data-cmd="12" title="焦点减小">
+				</span>
+				<span class="cmd iris up adjust" data-cmd="10" title="光圈增大">
+				</span>
+				<span class="cmd iris down adjust" data-cmd="10" title="光圈减小">
+				</span>
+			</div>
+			<div class="ptz-speed">
+				<div class="control-speed">
+					<span class="item">
+						控制速度：
+					</span>
+					<div class="speedSlider"></div>
+					<img class="ruler" src="/module/ptz-controller/images/ruler.png"/>
+				</div>
+				<div class="equipment">
+					<span class="choose">
+						<select>
+							<option class="wipe" id="wipe">雨刷</option>
+							<option class="light" id="light">灯光</option>
+							<option class="power" id="power">电源开关</option>
+							<option class="scanning" id="scanning">自动扫描</option>
+							<option class="customSwitch" id="customSwitch">自定义辅助开关</option>
+						</select>
+					</span>
+					<span class="switch off">
+						<span class="on active">ON</span>
+						<span class="off">OFF</span>
+					</span>
+				</div>
+			</div>
+		</div>
+
+		<div class="view preset" data-tab="preset">
+			<div class="head">
+				<span class="preset-index">编号</span>
+				<span class="preset-img">图片</span>
+				<span class="preset-name">&nbsp;&nbsp;&nbsp;&nbsp;标题</span>
+				<span class="preset-do">操作</span>
+			</div>
+			<div class="preset-content">
+				<ul class="preset-list">
+				</ul>
+			</div>
+			<div class="hline"></div>
+		</div>
+
+		<div class="view cruise" data-tab="cruise">
+			<div class="new-cruise">
+				<div class="cruise-inner">
+					<div class="c-content">
+						<div class="auto-content common-content active tab-content" data-tab="auto">
+						</div>
+					</div>
+					<div class="cruise-btn">
+						<button class="cruise-fun-btn addcruise">新增巡航计划</button>
+					</div>
+				</div>
+				<div class="add-content add-auto">
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="win-dialog-foot">
+		<span class="okcancel"></span>
+	</div>
+</div>
+<div id="loading">
+	窗口正在加载中...
+</div>
+</body>
+</html>

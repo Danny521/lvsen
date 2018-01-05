@@ -1,0 +1,40 @@
+{
+    "code": 200,
+    "data": {
+        "message": "成功",
+        "infos": [
+            {
+                "orgId": 2,
+                "orgName": "上海市公安局(本部)",
+                "camCnt": 0,
+                "selfBuildCnt": 0,
+                "markCnt": 0,
+                "deviceCorrCnt": 0,
+                "selfCheckCameraCnt": 0,
+                "selfCheckCameraBrokenCnt": 0,
+                "selfCheckCnt": 0,
+                "selfCheckBrokenCnt": 0,
+                "allCheckCameraCnt": 0,
+                "allCheckCameraBrokenCnt": 0,
+                "allCheckCnt": 0,
+                "allCheckBrokenCnt": 0
+            },
+            {
+                "orgId": 3,
+                "orgName": "市局22楼",
+                "camCnt": 129,
+                "selfBuildCnt": 0,
+                "markCnt": 0,
+                "deviceCorrCnt": 0,
+                "selfCheckCameraCnt": 0,
+                "selfCheckCameraBrokenCnt": 0,
+                "selfCheckCnt": 0,
+                "selfCheckBrokenCnt": 0,
+                "allCheckCameraCnt": 0,
+                "allCheckCameraBrokenCnt": 0,
+                "allCheckCnt": 0,
+                "allCheckBrokenCnt": 0
+            }
+        ]
+    }
+}

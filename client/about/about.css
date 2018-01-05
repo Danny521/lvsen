@@ -1,0 +1,132 @@
+.commonLayer {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    opacity: 0.2;
+    background: #000;
+    z-index: 80;
+    filter: alpha(opacity=20);
+}
+.aboutDialog {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 563px;
+    height: 381px;
+    z-index: 200;
+}
+.aboutDialog.baseline {
+    width: 563px;
+    height: 381px;
+    margin-top: -190px;
+    margin-left: -281px;
+    background: url(images/baseline-about-bg.png) no-repeat;
+}
+.aboutDialog.project {
+    width: 344px;
+    height: 186px;
+    margin-top: -93px;
+    margin-left: -172px;
+    background: url(images/project-about-bg.png) no-repeat;
+}
+.aboutDialog .aboutHeader {
+    margin-top: 30px;
+    font-size: 0;
+    border-bottom: 1px solid #DADADA;
+}
+.aboutDialog.baseline .aboutHeader {
+    margin-left: 148px;
+    margin-right: 30px;
+    padding-bottom: 20px;
+}
+.aboutDialog.project .aboutHeader {
+    margin-left: 40px;
+    margin-right: 30px;
+    min-height: 69px;
+    max-height: 110px;
+    overflow: hidden;
+}
+.aboutHeader .aboutBadges {
+    display: inline-block;
+    margin: 2px 12px 0 14px;
+    background: url(images/badges.png) no-repeat;
+    background-size: 100% 100%;
+}
+ .aboutDialog.baseline .aboutHeader .aboutBadges {
+    width: 29px;
+    height: 33px;
+}
+.aboutDialog.project .aboutHeader .aboutBadges {
+    width: 21px;
+    height: 24px;
+}
+.aboutHeader .aboutTitle {
+    display: inline-block;
+    font-size: 26px;
+    font-weight: bold;
+    color: #101010;
+    vertical-align: top;
+}
+.aboutDialog.project .aboutHeader .aboutTitle {
+    font-size: 20px;
+    width: 212px;
+}
+.aboutHeader .aboutPlatformName {
+    display: inline-block;
+}
+.aboutDialog .aboutBody {
+    margin: 0 40px 0 0;
+}
+.aboutDialog.baseline .aboutBody {
+    padding-top: 14px;
+    margin-left: 148px;
+}
+.aboutDialog.project .aboutBody {
+    margin-left: 41px;
+}
+.aboutBody .aboutVersion {
+    font-size: 14px;
+    color: #101010;
+}
+.aboutDialog.baseline .aboutBody .aboutVersion{
+    margin-bottom: 40px;
+}
+.aboutDialog.project .aboutBody .aboutVersion{
+    line-height: 38px;
+}
+.aboutBody .aboutIntroduction {
+    font-size: 12px;
+    color: #9D9D9D;
+}
+.aboutDialog .aboutFooter {
+    position: absolute;
+    left: 148px;
+    bottom: 10px;
+    width: 385px;
+    height: 26px;
+    line-height: 26px;
+    text-align: left;
+    border-top: 1px solid #DADADA;
+}
+.aboutFooter .copyRight {
+    display: inline-block;
+    -webkit-text-size-adjust: none;
+    -webkit-transform: scale(0.75);
+    font-size: 9px;
+    color: #101010;
+}
+.aboutDialog .cancleDialog {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+    background: url(images/close-about-dialog.png) 0 0;
+    cursor: pointer;
+}
+.aboutDialog .cancleDialog:hover {
+    background-position: -9px 0;
+}

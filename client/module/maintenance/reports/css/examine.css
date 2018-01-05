@@ -1,0 +1,294 @@
+    .examinetable {
+    width: 100%;
+    min-width: 800px;
+    text-align: center;  
+    margin-top:10px;  
+    }
+    .examinetable tr {
+        height: 38px;
+    }
+    .examinetable tr:first-child {
+        font-weight: bold;
+        background: #f3f3f3;
+    }
+   .examinetable tr:first-child:hover{
+        background: #f3f3f3;
+     }
+    .examinetable tr:hover {
+        background-color: #f9f9f9;
+    }
+     .examinetable .f9{
+        background-color: #f9f9f9!important;
+        min-width: 60px;
+     }
+    .examinetable table  {
+    border-collapse: collapse;
+    border: none;           
+    }
+    .detailPanel .morePanel{
+       width:auto; 
+       cursor: pointer;
+       position: relative;
+    }
+    .detailPanel .morePanel .more.right{
+       width: 10px;
+        height: 23px;
+        background: url("../images/right.png") no-repeat;
+        display: inline-block;
+        vertical-align: middle;
+        cursor: pointer;
+        margin-left: 5px;
+        position: absolute;
+        left: 15px;
+        top: 0px;;
+    }
+    .detailPanel .morePanel .more.right:hover{
+         background-position: -10px 0
+    }
+    .detailPanel .timesPanel{
+       width: 545px;
+        vertical-align: middle;
+        overflow: hidden;
+        position: relative;
+        height: 20px;
+        display: inline-block;
+    }
+     .detailPanel .morePanel .more.left{
+         width: 10px;
+        height: 23px;
+        background: url("../images/left.png") no-repeat;
+        display: inline-block;
+        vertical-align: middle;
+        cursor: pointer;
+        margin-left: 5px;
+        position: absolute;
+        left: 0;
+        top: 0px;
+    }
+    .detailPanel .morePanel .more.left:hover{
+         background-position: -10px 0
+    }
+    .examinetable td.minw{
+        min-width: 55px!important;
+        width: auto;
+    }
+    .examinetable td.minw1{
+        min-width: 75px!important;
+        width: auto;
+    }
+    .examinetable td
+    {
+    border: solid #ddd 1px;
+    vertical-align: middle;
+    line-height: normal;
+    }
+    .orgexamine {
+        height: 40px;
+        background-color: #f8f8f8;
+    }
+    .orgexamine li .line{
+        position: absolute;
+        left: 140px;
+        top: 7px;
+        background: #CACACA;
+        width: 1px;
+        height: 25px;
+    }
+    .ml15{
+        margin-left: 15px!important;
+    }
+    .bolds{
+        font-weight: bold!important
+    }
+
+    .orgexamine li {
+        float:left;
+        padding: 0 30px;
+        line-height: 40px;
+        cursor: pointer;
+        position: relative;
+    }
+    .orgexamine .helper{
+        float:left;
+        padding: 0 30px;
+        line-height: 40px;
+        cursor: pointer;
+        position: relative;
+    }
+    .orgexamine .resultHelper{
+        display: none;
+        width: auto;
+        position: absolute;
+        z-index: 100;
+        right: 20px;
+        top: 30px;
+    }
+    .orgexamine .detailHelper{
+        display: none;
+        width: auto;
+        position: absolute;
+        z-index: 100;
+        right: 20px;
+        top: 30px;
+    }
+    #stat.menus li.examine{
+        background: url("../images/videoCheck.png") 4px 4px no-repeat;
+    }
+    #stat.menus li.examine.active{
+        background-color: #3D9DE0
+    }
+    .chronological,.detail{
+        height: 40px;
+        line-height: 40px;
+        border-top: 1px;
+        position: relative;
+        margin-top:5px;
+    }
+    .hide{
+        display: none!important
+    }
+    .chronological .timesSelect{
+        display: inherit;
+    }
+    .detailPanel .timesSelect{
+        display: inherit;
+        height: 20px;
+        line-height: 20px;
+        vertical-align: middle;
+        white-space: nowrap;
+        margin-left: 2px;
+        position: absolute;
+        top: 0px;
+        left:0px;
+    }
+    .chronological label,.detail label{
+        font-weight: bold
+    }
+   .timesSelect li{
+        display: inherit;
+        width: 50px;
+        border-radius: 20px;
+        text-align: center;
+        cursor:pointer; 
+        margin-left:0!important;
+    }
+    .detail .input-time{
+        width:140px!important;
+        background: url(./../../common/images/date.png) 125px 0px no-repeat;
+    }
+     .chronological li.active,.timesSelect li.active{
+         background: #ff8d33;
+         color:#fff;
+    }
+    .orgexamine li.active {
+        color: #1e8ae5;
+        font-weight: bold;
+        position: relative;
+    }
+    .orgexamine li.active:before {
+        content: "";
+        position: absolute;
+        right: 46%;
+        bottom: 2px;
+        width: 0;
+        height: 0;
+    }
+    .orgexamine li.active:after {
+        content: "";
+        position: absolute;
+        left: 5%;
+        bottom: 0;
+        width: 90%;
+        border-bottom: 3px solid #1e8ae5;
+    }
+    .orgexamine .helper{
+        float:right;
+        height:100%;
+        width:20px;
+    }
+    .orgexamine .helper .icon-helper{
+        background: url("../images/helper.png") no-repeat;
+        width:16px;
+        height:16px;
+        display: inline-block;
+        margin-top:12px;
+    }
+    .orgexamine .helper .icon-helper:hover,.orgexamine .helper.active .icon-helper{
+        background-position: -16px 0
+    }
+    .chronological li,.detail li{
+         display: inline-block;
+         line-height: 20px;
+         margin-left: 10px;
+         position: relative;
+    }
+    .exportXls {
+         display: inline-block;
+         height: 20px;
+         line-height: 20px;
+         margin-left: 10px;        
+         padding: 4px 20px;
+         cursor: pointer;
+         border-radius: 3px;
+         -webkit-border-radius: 3px;
+    }
+    .exportXls {
+        color: #fff;
+        background-color: #32a4f9;
+    }
+    .exportXls {
+        position: absolute;
+        right: 20px;
+        top: 8px;
+    }
+    
+    .chronological input ,
+    .month input {
+        border-radius: 3px;
+        -webkit-border-radius: 3px;
+        border:1px solid #ddd;
+        padding: 2px 25px 2px 6px;
+        margin-left: 10px;
+    }
+    
+    .hide{
+        display: none;
+    }
+    .dateinput {
+       background: url(./../../common/images/date.png) 137px -2px no-repeat;
+       width: 166px;
+       height: 25px;
+       box-sizing: border-box;
+       -webkit-box-sizing: border-box;
+    }
+    
+    .camera.result {
+        display: none;
+    }
+    
+    .overview > .ui.tab.filter {
+        padding: 8px 0 8px 15px!important;
+    }
+  
+    .ishide:after {
+        border:none!important;
+    }   
+    
+    #sideResize ,
+    .hide,
+    #npplay h3 {
+        display: none;
+    }
+    #cont .content{
+        height:100%;
+        position: relative;
+    }
+    .tabLayout{
+      position: absolute;
+    width: 100%;
+    overflow-y: auto;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    top: 35px;
+    }

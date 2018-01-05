@@ -1,0 +1,118 @@
+{{#task}}
+<div id="header">
+    <div class="setting-head newinsertheader">
+        <a class="ui button blue float-right" task-id="{{taskId}}" id="submittask">确定</a>
+        <a class="back back-home"> <i></i></a>
+    </div>
+</div>
+
+<div id="body">
+    <div class="make-polling">
+        <div class="group-info">
+            <div class="item-header">
+                <h3 class="name show-hide" title="{{groupName}}">
+                    <i class='icon arrow'></i>{{taskName}}
+                </h3>
+
+                <form onsubmit="return false;" autoComplete="off" class='cameraSearch'>
+
+                    <div class="searching">
+                        <div class="status">
+                            <!--<p class="mis-time">
+                                任务时间 :  <span class="time">{{mills2str taskDate}}</span>
+                            </p>-->
+                            <p class="mis-status">
+                                任务状态 :  <span class="status">{{status taskStatus}}</span>
+                            </p>
+                        </div>
+                        <div class="serchbox simple">
+                            <div class="ui input action search">
+                                <input type="text" placeholder="全局搜索..." id="searchCameraSimple" name="cameraName">
+                                <button class="search action searchCameras">搜索</button>
+                            </div>
+                            <a class="show-details left" href="##">高级>></a>
+                        </div>
+                    </div>
+
+                    <div class='details'>
+                        <div class="detailsinner">
+                            <div class="serchbox high">
+                                <div class="ui input polling cameraName">
+                                    <label>
+                                        摄像机名：
+                                    </label>
+                                        <input type="text" placeholder='摄像机名' id="searchCameraAdvance" name='cameraName'>
+                                </div>
+                                <div class="polling status">
+                                    <label>
+                                        巡检状态：
+                                    </label>
+                                    <select id="status" name='status'>
+                                        <option value="1">未巡检</option>
+                                        <option value="2">已巡检</option>
+                                        <!--<option data-value="option2">提交待审核</option>
+                                        <option data-value="option2">已巡检</option>-->
+                                    </select>
+                                </div>
+                                <div class="polling type">
+                                    <label>
+                                        巡检方式：
+                                    </label>
+                                        <select id="type" name='type'>
+                                            <option value="1">手动</option>
+                                            <option value="2">自动</option>
+                                        </select>
+                                </div>
+                                <div class="polling result">
+                                    <label>
+                                        巡检结果：
+                                    </label>
+                                        <select id="result" name='result'>
+                                            <option value="1">正常</option>
+                                            <option value="2">异常</option>
+                                        </select>
+                                </div>
+                                <!--<div class="polling ui input ">
+                                    <label>
+                                        巡检时间：
+                                    </label>
+                                        <input type='text' id='time' class='datepicker' placeholder='巡检时间'/>
+                                </div>-->
+                            </div>
+                            <div class='confirm-btn'>
+                                <span class="ui blue tiny button searchCameras">搜索</span>
+                                <span class="ui tiny button cancel">取消</span>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class='cameras'>
+                <div class="opration">
+                    <p class='auto-polling'>
+                        <!--<span type="text" id='auto-polling' class="ui blue tiny button" task-id="{{taskId}}">自动巡检</span>-->
+                        巡检摄像机 :
+                        <span class="mode" data-manual="0" data-automatic="0">
+                            <a href='#' class="manual">手动</a><a href='#' class="automatic" task-id="{{taskId}}">自动</a>
+                        </span>
+                    </p>
+                    <p class="polling-model clearfix">
+                        <a href='#' title='模块模式' class="block-model" data-tab="block"></a>
+                        <a href='#' title='列表模式' class="list-model active" data-tab="list"></a>
+                        <!--<span class="bytime"><a href='#' class="time"> 时间 </a><i class="downarrow darkarrow"></i></span>
+                        <span class="byhand actived"><a href='#' class="action"> 手动 </a> <i class="downarrow darkarrow"></i></span>-->
+                    </p>
+                </div>
+                <div class="cameras-list polling" data-tab="list">
+                    <div class="treePanel">摄像机列表</div>
+                    <div class="autoLayout"><div class="automain"><img src="images/auto-loading.gif"><p>巡检中 <b id="percent">...</b></p></div></div>
+                </div>
+                <div class="tasks-list polling" data-tab="block">
+
+                </div>
+            </div>
+            <div class="cameraSearch treePanel"></div>
+        </div>
+    </div>
+</div>
+{{/task}}

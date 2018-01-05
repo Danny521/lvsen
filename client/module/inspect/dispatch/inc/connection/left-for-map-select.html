@@ -1,0 +1,61 @@
+{{#if searchResult}}
+<div class="search-result np-camera-search-result">
+    {{#if showHeader}}
+    <div class="search-result-header">
+        <i class="sidebar-home-icon" data-mark="{{homeBreadUrl}}"></i>
+        <span class="search-result-header-nearby"> <b> > </b> {{searchPlace}}“
+                        <strong>摄像机</strong>”
+                    </span>
+        <span class="search-result-number">共{{count}}个</span>
+    </div>
+    {{/if}}
+    <div class="search-result-batch">
+        <span><b class="checkbox np-check-all" data-event="click" data-handler="CheckSelectResult"></b></span>
+        <span>全选</span>
+        <a href="javascript:void(0)" class="blue-button">批量操作</a>
+        <ul class="operationg-detail np-batch-operator">
+            <span class="arrow"></span>
+            <li class="np-poll">轮巡播放</li>
+            <li data-event="click" data-handler="AddToNewGroup">新建分组</li>
+            <li data-event="click" data-handler="HistoryVideoDownload" class="permission permission-download-history">历史录像下载</li>
+            <li style="display: none;" data-event="click" data-handler="AddToProtectMonitor">批量布控</li>
+        </ul>
+    </div>
+    <div class="new-team np-create-new-group">
+        <span class="arrow"></span>
+        <form onsubmit="return false;">
+            <input class="new-team-name np-new-group-name" data-event="blur" data-handler="CheckGroupName" placeholder="请输入分组名称">
+            <div class="pull-right">
+                <button type="submit" data-event="click" data-handler="SaveNewCameraGroup" class="blue-button save-button">保存</button>
+                <button type="button" data-event="click" data-handler="CancelNewCameraGroup" class="white-button cancle-button">取消</button>
+            </div>
+        </form>
+    </div>
+    <div class="sidebar-div-line"></div>
+    <div class="search-result-content np-map-camera-search-content">
+        <ul class="search-result-content-list np-roll-play np-map-select-camera-list">
+            {{#if data.cameras.length}} {{#each data.cameras}}
+            <li class="search-result-content-list-item np-map-select-camera-item clearfix node" data-event="click dblclick mouseenter mouseleave" data-handler="EventOnResultItem" item_id="{{num}}" Index="{{index}}" data-id="{{id}}" data-name="{{name}}" data-status="{{camera_status}}" data-cameratype="{{camera_type}}" data-code="{{#cameraCodeShow cameraCode}}{{/cameraCodeShow}}" data-longitude="{{longitude}}" data-latitude="{{latitude}}" data-hdchannel="{{translate hd_channel}}" data-sdchannel="{{translate sd_channel}}" data-type='camera'>
+                <div class="list-item-div">
+                    <span class="checkbox np-check" data-event="click" data-handler="CheckSelectResult" data-id="{{id}}"></span>
+                    <span class="list-icon">{{#numToLetter @index}}{{/numToLetter}}</span>
+                    <span class="list-text np-result-item-name" title="{{name}}{{#cameraCodeShow cameraCode}}{{/cameraCodeShow}}">{{name}}{{#cameraCodeShow cameraCode}}{{/cameraCodeShow}}</span> {{!--{{#isOnline hd_channel sd_channel}}
+                    <span class="blue">(在线)</span> {{else}}
+                    <span>(离线)</span> {{/isOnline}} --}}
+                    <button class="list-dropdown"></button>
+                </div>
+                <div class="list-item-dropdown">
+                    <button title="播放" class="play permission permission-real-time-view" data-event="click" data-handler="PlayCamera"></button>
+                    <button title="布防设置" class="defence permission permission-set-defence-task" data-event="click" data-handler="AddDefence"></button>
+                    <button title="添加到我的分组" class="myteam" data-event="click" data-handler="AddToMyGroup"></button>
+                    <button title="发送到电视墙" class="tvwall permission permission-sendto-tvwall" data-event="click" data-handler="SendToWall"></button>
+                    <button title="纠错" class="correct" data-event="click" data-handler="recovery"></button>
+                </div>
+            </li>
+            {{/each}} {{else}}
+            <p class="no-result-style">暂无数据。</p>
+            {{/if}}
+        </ul>
+    </div>
+</div>
+{{/if}}

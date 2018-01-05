@@ -1,0 +1,150 @@
+@charset "UTF-8";
+/**
+ * 
+ * @authors yuqiu (yuqiu_xa@netposa.com)
+ * @date    2014-12-25 14:57:29
+ * @version $Id$
+ */
+.localhost,.image-localhost{
+	height:28px;
+	line-height:28px;
+	padding:10px 0;
+	text-align:center;
+	margin:0 auto;
+}
+.localhost span {
+	width:600px;
+	height:28px;
+	display:block;
+	text-align:center;
+	margin:0 auto;
+	background:url(/module/common/images/viewlibs/localhost_bg.png) no-repeat;
+}
+.image-localhost span {
+	width:600px;
+	height:28px;
+	display:block;
+	text-align:center;
+	margin:0 auto;
+	background:url(/module/common/images/viewlibs/imagetolib_bg.png) no-repeat;
+}
+.localhost span.thr {
+	background:url(/module/common/images/viewlibs/localhost_bg.png) 0 -30px no-repeat;
+}
+.localhost span.four {
+	background:url(/module/common/images/viewlibs/localhost_bg.png) 0 -60px no-repeat;
+}
+.localhost span a, .image-localhost span a{
+	width:200px;
+	height:28px;
+	line-height:28px;
+	color:#333;
+	float:left;
+}
+.localhost span a.current ,.image-localhost span a.current{
+	color:#fff;
+}
+
+
+/*新增视图库入户表单填写页面banner*/
+#content .libbanner {
+	height:31px;
+	line-height:31px;
+	padding:10px 0;
+	text-align:center;
+	margin:0 auto;
+}
+#content .libbanner span {
+	width:840px;
+	height:31px;
+	display:block;
+	text-align:center;
+	margin:0 auto;
+	background:url(/module/common/images/libbanner.png) no-repeat 5px -36px;
+}
+#content .libbanner span.thr {
+	background:url(/module/common/images/libbanner.png) no-repeat 5px -72px;
+}
+#content .libbanner span.four {
+	background:url(/module/common/images/libbanner.png) no-repeat 5px -108px;
+}
+#content .libbanner span.five {
+	background:url(/module/common/images/libbanner.png) no-repeat 5px -144px;
+}
+#content .libbanner span a {
+	width:168px;
+	height:31px;
+	line-height:31px;
+	color:#333;
+	float:left;
+}
+#content .libbanner span a.current {
+	color:#fff;
+}
+#content .libbanner span a.already {
+	color:#bbb;
+}
+/*banner 结束*/
+
+.entity-preview .display-format {
+	float:right;
+	background:none;
+	border:none;
+}
+.display-format .menus li.active a.btn {
+    background: url(/module/common/images/imagejudge/icon.png) -389px -6px no-repeat;
+    color: #fff;
+}
+.display-format .menus li {
+    float: left;
+    height: 32px;
+    line-height: 24px;
+    margin-left: 10px;
+    text-align: center;
+    text-decoration: none;
+	padding:0px;
+    width: 84px;
+	background: url(/module/common/images/imagejudge/icon.png) -303px -6px no-repeat;
+}
+.display-format .menus li.active a.btn,.entity-preview .display-format .btn {
+    float: left;
+    height: 32px;
+    line-height: 24px;
+    margin-right: 10px;
+    text-align: center;
+    text-decoration: none;
+	padding:0px;
+    width: 84px;
+	color:#333;
+	background:none;
+}
+.display-format .menus li.active {
+    background: url("/module/common/images/imagejudge/icon.png") no-repeat scroll -389px -6px rgba(0, 0, 0, 0);
+    
+}
+.display-format .menus li.active a.btn {
+	color: #FFFFFF;
+}
+
+
+.next_update, .before_update {
+	border-radius: 2px;
+	border-style: solid;
+	border-width: 1px;
+	cursor: pointer;
+	height: 30px;
+	padding: 0 20px;
+	overflow: visible;
+	vertical-align: middle;
+    background: -moz-linear-gradient(top,#3A8BE8,#1869C3);
+    background: -webkit-linear-gradient(top,#3A8BE8,#1869C3);
+    border-color: #1471CD;
+    color: #FFFFFF;
+    box-shadow: 0 1px #5EA2EC inset;
+}
+
+#domPanel .info-message {
+
+}
+
+

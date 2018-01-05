@@ -1,0 +1,1505 @@
+.disnone {
+    display: none;
+}
+.text-ellipis: {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    word-wrap: normal;
+}
+#control-setting-major {
+    bottom: 0;
+    left: 280px;
+    position: absolute;
+    right: 0;
+    top: 10px;
+    /*overflow: hidden;*/
+}
+
+#control-setting-sidebar {
+    background-color: #F6FBFF;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    top: 10px;
+    width: 280px;
+}
+
+/*布防主体框架样式*/
+#control-setting-content {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 15px 0;
+    background-color: #f4f4f4;
+    z-index: 999;
+}
+/*布防顶部导航样式*/
+#control-setting-nav {
+    width: 282px;
+    height: 31px;
+    margin: 0 auto 10px;
+}
+#control-setting-nav ul li {
+    float: left;
+    height: 31px;
+    line-height: 31px;
+}
+#control-setting-nav ul li * {
+    vertical-align: middle;
+}
+#control-setting-nav ul li .bar {
+    display: inline-block;
+    width: 50px;
+    height: 7px;
+    background: url("../images/bar.png") repeat-x 0 0;
+}
+#control-setting-nav ul li a {
+    display: inline-block;
+    width: 110px;
+    height: 31px;
+}
+#control-setting-nav ul li .bar.active {
+    background-image: url("../images/bar-active.png");
+}
+#control-setting-nav ul li.first-step a {
+    background: url("../images/control-first-step.png") no-repeat -110px 0;
+}
+#control-setting-nav ul li.first-step.active a {
+    background-position: 0 0;
+}
+#control-setting-nav ul li.second-step a {
+    background: url("../images/defence-second-step.png") no-repeat -110px 0;
+}
+#control-setting-nav ul li.complete-step a {
+    background: url("../images/complete-step.png") no-repeat -110px 0;
+}
+#control-setting-nav ul li.complete-step.active a {
+    background-position: 0 0;
+}
+/*布控关闭按钮样式*/
+#control-setting-close {
+    position: absolute;
+    top: 15px;
+    right: 5px;
+    width: 22px;
+    height: 22px;
+    background: url("../images/close.png") no-repeat 0 0;
+}
+/*关闭按钮hover样式*/
+#control-setting-close:hover {
+    background-image: url("../images/close-hover.png");
+}
+/*内容区样式*/
+#control-main-content {
+    position: absolute;
+    top: 56px;
+    left: 60px;
+    right: 60px;
+    bottom: 46px;
+    border: 1px solid #E1E1E1;
+}
+/*
+*   右侧样式
+*/
+#control-setting-gismap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+}
+/*地图工具栏*/
+#control-setting-gismap .map-tool a {
+    cursor: pointer
+}
+
+#control-setting-gismap .map-region {
+    width: 150px;
+    margin-top: 9px;
+    float: left;
+    display: none;
+}
+
+#control-setting-gismap .map-tool-item, 
+#control-setting-gismap .map-tools-a {
+    position: relative;
+    float: left;
+}
+
+#control-setting-gismap .map-operator a, 
+#control-setting-gismap .map-region a {
+    color: #333333;
+    display: inline-block;
+    margin: 0 0 0 16px;
+}
+
+#control-setting-gismap .map-region a span b.map-text, 
+#control-setting-gismap .map-operator a span b.map-text {
+    font-weight: normal;
+    float: left;
+}
+
+#control-setting-gismap .map-operator {
+    margin: 6px 10px 0 0;
+    float: right;
+}
+
+#control-setting-gismap .map-tool, 
+.video-play-frame .video-top {
+    position: absolute;
+    width: 100%;
+    height: 36px;
+    border-left: none !important;
+    background: url("/module/common/images/map/map-tool-bg.png") repeat-x;
+    z-index: 100
+}
+#control-setting-gismap .map-tool {
+    display: none;
+}
+#control-setting-gismap .map-tools-a a.map-tools {
+    width: 62px;
+    height: 25px;
+    background: url('/module/common/images/map/map-tools-func.png') 0 -125px no-repeat;
+}
+
+#control-setting-gismap .map-tools-a:hover .map-tools-list {
+    top: 23px;
+}
+
+#control-setting-gismap .map-tools-list {
+    position: absolute;
+    left: 18px;
+    top: -2000px;
+    z-index: 100;
+    border: 1px solid #dfdfdf;
+    background-color: #FFFFFF
+}
+
+#control-setting-gismap .map-tools-list li {
+    padding: 2px 8px
+}
+
+#control-setting-gismap .map-tools-list li a {
+    padding: 0 0 0 16px;
+    margin: 0;
+    background: url('../../../common/images/map/map-tools.png') no-repeat
+}
+
+#control-setting-gismap .map-tools-list li:hover {
+    background-color: #EBF4F9
+}
+
+#control-setting-gismap .map-tools-list li a.map-max {
+    padding: 0 0 0 16px;
+    margin: 0;
+    background: url('../../../common/images/map/max-min.png') no-repeat -2px 1px;
+}
+
+#control-setting-gismap .map-tools-list li a.map-min {
+    padding: 0 0 0 16px;
+    margin: 0;
+    background: url('../../../common/images/map/max-min.png') no-repeat -2px -18px;
+}
+
+#control-setting-gismap .map-tools-list li a.map-measure {
+    background-position: 0 -140px
+}
+
+#control-setting-gismap .map-tools-list li a.map-screenshot {
+    background-position: 0 -160px
+}
+
+#control-setting-gismap .map-tools-list li a.map-mark {
+    background-position: 0 -180px
+}
+
+#control-setting-gismap .map-tools-list li a.map-print {
+    background-position: 0 -200px
+}
+
+#control-setting-gismap .map-tools-list li a.map-clear {
+    background-position: 0 -480px
+}
+
+#control-setting-gismap .map-tool-item a.map-fullscreen {
+    width: 60px;
+    height: 25px;
+    background: url('../../../common/images/map/map-tools-func.png') 0 -75px no-repeat;
+}
+
+#control-setting-gismap .map-tool-item a.map-exitfullscreen {
+    width: 88px;
+    height: 25px;
+    background: url('../../../common/images/map/map-tools-func.png') 0 -100px no-repeat;
+}
+
+/*地图内容*/
+.gismap, .video-play-frame .video-down {
+    position: absolute;
+    top: 0px;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.video-play-frame .video-down {
+    background-color: #F9F9F9;
+}
+
+/*卫星图层*/
+#control-setting-gismap .map-layer-normal {
+    display: block;
+    height: 51px;
+    width: 49px;
+    position: absolute;
+    top: 36px;
+    right: 20px;
+    background: url('../../../common/images/map/map-layer.gif') no-repeat;
+    background-position: 0 -51px !important;
+    z-index: 1000;
+    cursor: pointer
+}
+
+#control-setting-gismap .map-layer-normal:hover {
+    background-position: -49px -51px !important
+}
+
+#control-setting-gismap .map-layer-satellite {
+    display: block;
+    height: 51px;
+    width: 49px;
+    position: absolute;
+    top: 36px;
+    right: 20px;
+    background: url('../../../common/images/map/map-layer.gif') 0 0 no-repeat;
+    z-index: 1000;
+    cursor: pointer
+}
+
+#control-setting-gismap .map-layer-satellite:hover {
+    background-position: -49px 0
+}
+
+/*
+*   右侧视频播放层的样式
+*/
+.video-play-frame {
+    position: absolute;
+    z-index: 6000;
+    display: none;
+    background-color: #000000;
+    /*opacity:0.80;
+    filter:alpha(opacity=80);*/
+}
+
+.video-play-frame .video-top {
+    z-index: 6000;
+    background-color: white;
+    line-height: 36px;
+}
+
+.video-play-frame .fullscreen-videotop {
+    height: 74px;
+    line-height: 74px;
+    background: white;
+    border-bottom: 1px solid #B7B7B7;
+}
+
+.video-play-frame .fullscreen-video-down {
+    top: 75px;
+}
+
+.video-top .video-win-close {
+    display: inline-block;
+    padding-right: 20px;
+    float: right;
+}
+
+.video-top .video-camera-info {
+    display: inline-block;
+    padding-left: 20px;
+    float: left;
+}
+
+#UIOCX_HIS {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+/*右侧地图上显示视频视频的样式*/
+#control-setting-gismap .video-play-close {
+    float: right;
+    margin-right: 5px;
+    margin-top: 6px;
+}
+
+#control-setting-gismap .map-video-container {
+    height: 300px;
+    width: 400px
+}
+
+.hidden {
+    display: none !important;
+}
+/*资源图层控制样式*/
+#control-setting-mapId {
+    background-color: #fff;
+}
+#control-setting-mapId .control-map-resource-layers {
+    width: 48px;
+    height: auto;
+    border: 1px solid #AAA79E;
+    position: absolute;
+    top: 40px;
+    right: 20px;
+    z-index: 1000;
+    background-color: #fff;
+    display: none;
+}
+
+#control-setting-mapId .control-map-resource-layers h2.layers-head {
+    height: 26px;
+    line-height: 26px;
+}
+
+#control-setting-mapId .control-map-resource-layers h2.layers-head span.title {
+    padding-left: 7px;
+    display: inline-block;
+}
+
+#control-setting-mapId .control-map-resource-layers h2.layers-head span.contract-btn {
+    display: inline-block;
+    height: 12px;
+    width: 12px;
+    background: url('../../../common/images/map/map-tools.png') 0 3px no-repeat;
+    cursor: pointer;
+    float: right;
+    margin: 5px 3px 5px 0;
+}
+
+#control-setting-mapId .control-map-resource-layers h2.layers-head span.contract-btn:hover {
+    background-position: 0 -117px;
+}
+
+#control-setting-mapId .control-map-resource-layers h2.layers-head span.contract-btn.down {
+    background-position: 0 -257px;
+}
+
+#control-setting-mapId .control-map-resource-layers h2.layers-head span.contract-btn.down:hover {
+    background-position: 0 -277px;
+}
+
+#control-setting-mapId .control-map-resource-layers ul {
+    display: none;
+    border-top: 1px solid #AAA79E;
+}
+
+#control-setting-mapId .control-map-resource-layers ul.hide {
+    display: none;
+}
+
+#control-setting-mapId .control-map-resource-layers ul li {
+    cursor: pointer;
+    height: 26px;
+    line-height: 26px;
+}
+
+#control-setting-mapId .control-map-resource-layers ul li i.checkbox {
+    float: left;
+    display: inline-block;
+    height: 15px;
+    margin: 6px 6px 0 5px;
+    padding: 0;
+    position: relative;
+    width: 15px;
+    cursor: pointer;
+    background: url("../../../common/images/sprites/tree_bg.png") no-repeat scroll -32px 0 transparent;
+}
+
+#control-setting-mapId .control-map-resource-layers ul li.active i.checkbox {
+    background: url("../../../common/images/sprites/tree_bg.png") no-repeat scroll -47px 0 transparent;
+}
+
+#control-setting-mapId .control-map-resource-layers ul li i.ico {
+    height: 20px;
+    width: 18px;
+    display: inline-block;
+    background: url("../../../common/images/map/map-resource-ico.png") no-repeat;
+    margin: 5px 3px 0 0;
+    float: left;
+}
+
+#control-setting-mapId .control-map-resource-layers ul li i.ico.indoor {
+    background-position: 0 0;
+}
+
+#control-setting-mapId .control-map-resource-layers ul li i.ico.hishpomt {
+    background-position: 0 -20px;
+}
+
+#control-setting-mapId .control-map-resource-layers ul li i.ico.elevated {
+    background-position: 0 -40px;
+}
+
+#control-setting-mapId .control-map-resource-layers ul li i.ico.water {
+    background-position: 0 -60px;
+}
+
+#control-setting-mapId .control-map-resource-layers ul li i.ico.ground {
+    background-position: 0 -80px;
+}
+
+/*信息窗样式*/
+/*npmap 窗口样式*/
+#control-setting-content .map-camera-info {
+    width: 258px
+}
+
+#control-setting-content .map-camera-info tr {
+    height: 26px;
+    line-height: 26px
+}
+
+#control-setting-content .map-camera-info tr.head {
+    background-color: #E7ECF2
+}
+
+#control-setting-content .map-camera-info tr.odd {
+    background-color: #FAFCFF
+}
+
+#control-setting-content .map-camera-info tr.even {
+    background-color: #FFFFFF;
+    border-top: 1px solid #EFF3F6;
+    border-bottom: 1px solid #EFF3F6
+}
+
+#control-setting-content .map-camera-info tr td.label {
+    width: 45px;
+    text-align: right
+}
+
+#control-setting-content .map-camera-info tr td.camera-status {
+    text-align: right;
+    padding-right: 10px
+}
+
+#control-setting-content .map-camera-info tr td span.camera-status-online {
+    color: #1480FF;
+    cursor: pointer
+}
+
+#control-setting-content .map-camera-info tr td span.camera-ball-online {
+    width: 13px;
+    height: 14px;
+    margin-top: 6px;
+    background: url('../../../common/images/sprites/tree_bg.png') no-repeat -352px 0;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+#control-setting-content .map-camera-info tr td span.camera-ball-offline {
+    width: 13px;
+    height: 14px;
+    margin-top: 6px;
+    background: url('../../../common/images/sprites/tree_bg.png') no-repeat -156px 0;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+#control-setting-content .map-camera-info tr td span.camera-gun-online {
+    background: url('../../../common/images/sprites/tree_bg.png') no-repeat -85px 0;
+    width: 15px;
+    height: 14px;
+    margin-right: 4px;
+    margin-top: 9px;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+#control-setting-content .map-camera-info tr td span.camera-gun-offline {
+    background: url('../../../common/images/sprites/tree_bg.png') no-repeat 0 0;
+    width: 15px;
+    height: 14px;
+    margin-right: 4px;
+    margin-top: 9px;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+#control-setting-content .icon_close{
+    width: 62px;
+    height: 62px;
+    position: absolute;
+    right: 0px;
+    top:0;
+    z-index: 1000000;
+    background: url('../images/close-bg.png') no-repeat center center;
+    cursor: pointer;
+    display: none;
+    
+   
+}
+#control-setting-content .icon_close:hover{
+    background: url('../images/close-bg-hover.png') no-repeat center center;
+}
+#control-setting-content .toolbar{
+    display: none;
+    height: 35px;
+    line-height: 30px;
+    font-weight: bolder;
+    position: absolute;
+    left: 50%;
+    z-index: 20;
+    bottom: 0px;
+    z-index: 100000000;
+    background-color: #7F7F7F;
+    border-radius: 5px 5px 0px 0px;
+    overflow: hidden;
+    cursor: pointer;
+}
+#control-setting-content .toolbar>div{
+    width: 45px;
+    height: 35px;
+    float: left;
+    text-align: center;
+    transition: background-color 0.2s ease;
+    -moz-transition: background-color 0.2s ease;
+    -o-transition: background-color 0.2s ease;
+    -webkit-transition: background-color 0.2s ease;
+}
+#control-setting-content .toolbar>div:hover{
+    background-color:#46A6DB;   
+}
+#control-setting-content .toolbar>div.active{
+    background-color:#46A6DB;    
+}
+#control-setting-content .toolbar span{
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    vertical-align: middle;
+}
+#control-setting-content .toolbar .image-viewer-tool-realsize{
+    background: url('../images/realSize.png') no-repeat;
+
+}
+#control-setting-content .toolbar .image-viewer-tool-rotate{
+  background: url('../images/rotateRight.png') no-repeat;
+
+}
+#control-setting-content .toolbar .image-viewer-tool-horizontalturn{
+    background: url('../images/horizontalTurn.png') no-repeat;
+
+}
+#control-setting-content .toolbar .image-viewer-tool-verticalturn{
+    background: url('../images/verticalTurn.png') no-repeat;
+
+}
+/*
+*   信息窗样式
+*/
+#control-setting-content .infowindow-alarm-mgr {
+    background-color: #f6f6f6;
+    height: 100%;
+    overflow: hidden;
+}
+
+#control-setting-content .infowindow-top {
+    height: 38px;
+    line-height: 38px;
+    border-bottom: solid 1px #DFDFDF;
+}
+
+#control-setting-content .infowindow-top.video-play {
+    height: 30px;
+    line-height: 30px;
+}
+
+#control-setting-content .infowindow-top .infowindow-title, .infowindow-top.infowindow-title .text {
+    display: inline-block;
+    text-indent: 10px;
+    width: 72%;
+    float: left;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+#control-setting-content .infowindow-top .infowindow-operator, .infowindow-top.infowindow-title .infowindow-operator {
+    display: inline-block;
+    width: 28%;
+    height: 100%;
+    float: right;
+}
+
+#control-setting-content .icon_mark_close {
+    background: url('../../common/images/icon.png') -15px -62px no-repeat;
+}
+#control-setting-content .arrow-down {
+    background: url('../../common/images/icon.png') -2px -65px no-repeat;
+}
+#control-setting-content .infowindow-top .infowindow-operator a {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    margin: 9px 4px 0 0;
+    float: right;
+}
+/*底部 上一步 下一步 完成的样式*/
+#control-setting-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    line-height: 46px;
+    text-align: center;
+}
+#control-setting-footer button {
+    display: none;
+    margin: 0 2px;
+    padding: 0;
+    width: 70px;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+}
+#control-setting-sidebar, 
+#control-setting-major {
+    top: 0;
+}
+#control-setting-sidebar {
+    border-right: 1px solid #E1E1E1;
+    width: 279px;
+}
+#control-setting-aside .step-left-title {
+    line-height: 36px;
+    font-weight: bold;
+    text-indent: 14px;
+}
+#control-first-step .people-control-edit-form {
+    position: absolute;
+    left: 0;
+    top: 36px;
+    right: 0;
+    bottom: 0;
+    border-top: 1px solid #D2E6F7;
+    padding: 0 5px;
+    overflow: auto;
+}
+#control-first-step .people-task-form table {
+    margin: 10px 0 5px 3px;
+}
+
+#control-first-step .people-task-form table tr {
+    height: 30px;
+}
+
+#control-first-step #PeopleTaskFrom table tr {
+    height: 35px;
+}
+
+#control-first-step .people-task-form table tr td.label {
+    width: 60px;
+}
+
+#control-first-step .people-task-form table tr td input {
+    font-size: 12px;
+}
+
+#control-first-step .people-task-form table tr td input[type='text'] {
+    width: 172px;
+    height: 16px;
+    border: 1px solid #DADBDC;
+    padding-top: 4px;
+}
+
+#control-first-step .people-task-form table tr td input[type='text'].input-time {
+    background: url('../images/date.png') 162px 5px no-repeat;
+}
+
+#control-first-step .people-task-form table tr td select {
+    width: 100%;
+    height: 21px;
+    border: 1px solid #DADBDC;
+}
+
+#control-first-step .people-task-form table tr td .control-library {
+    height: 160px;
+    width: 174px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    border: 1px solid #DADBDC;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+#control-first-step .people-task-form table tr td .taskname {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 137px;
+}
+
+#control-first-step #PeopleTaskCheckFrom .control-library {
+    width: 137px;
+}
+
+#control-first-step .people-task-form table tr td .control-library li {
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+}
+
+#control-first-step .people-task-form table tr td .control-library li i.checkbox {
+    background: url("../../../common/images/sprites/tree_bg.png") -32px 0 no-repeat;
+    display: inline-block;
+    height: 15px;
+    width: 15px;
+    margin: 8px 5px 0 5px;
+    cursor: pointer;
+    float: left;
+}
+
+#control-first-step .people-task-form table tr td .control-library li i.checkbox.checked {
+    background-position: -47px 0;
+}
+
+#control-first-step .people-task-form table tr td .control-library li .text {
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#control-first-step #PeopleTaskCheckFrom table tr td .control-library li .text {
+    width: 100%;
+}
+
+#control-first-step #PeopleTaskFrom table tr td .control-library li .text {
+    width: 80%;
+}
+
+#control-first-step .people-task-form table tr td.time {
+    font-size: 12px;
+    line-height: 20px;
+}
+#control-first-step .people-task-form p.linkage-head {
+    height: 30px;
+    padding: 0 5px 10px;
+    border-bottom: 1px dotted #ccc;
+    line-height: 30px;
+}
+#control-first-step .people-task-form p.linkage-head .linkage-check {
+    float: right;
+    padding: 0 5px;
+    width: 70px;
+    height: 22px;
+    line-height: 22px;
+}
+#control-first-step .people-task-form p.camera-list-head {
+    height: 30px;
+    line-height: 30px;
+    /*border-top: 1px solid #D2E6F7;*/
+    padding: 5px 5px 0;
+}
+
+#control-first-step .people-task-form p.camera-list-head .opera {
+    float: right;
+}
+
+#control-first-step .people-task-form p.camera-list-head .opera input {
+    margin-bottom: 3px;
+}
+
+#control-first-step .people-task-form ul.camera-list {
+    margin: 10px 10px 5px 10px;
+}
+
+#control-first-step .people-task-form ul.camera-list li.camera-item {
+    /*height: 20px;*/
+    line-height: 20px;
+    cursor: pointer;
+}
+
+#control-first-step .people-task-form ul.camera-list li.camera-item .camera-img {
+    display: inline-block;
+    float: left;
+    margin: 4px 5px 0 0;
+    width: 15px;
+    height: 15px;
+    background: url('../../../common/images/sprites/tree_bg.png') no-repeat;
+}
+
+#control-first-step .people-task-form ul.camera-list li.camera-item .camera-img.camera-gun-online {
+    background-position: -85px 0;
+}
+
+#control-first-step .people-task-form ul.camera-list li.camera-item .camera-img.camera-gun-offline {
+    background-position: 0 0;
+}
+
+#control-first-step .people-task-form ul.camera-list li.camera-item .camera-img.camera-ball-online {
+    background-position: -353px 0;
+}
+
+#control-first-step .people-task-form ul.camera-list li.camera-item .camera-img.camera-ball-offline {
+    background-position: -155px 0;
+}
+
+#control-first-step .people-task-form ul.camera-list li.camera-item .camera-img.camera-gun-hd-online {
+    width: 21px;
+    background: url('../../../common/images/sprites/camera-gun-HD-online.png') no-repeat;
+}
+
+#control-first-step .people-task-form ul.camera-list li.camera-item .camera-img.camera-gun-hd-offline {
+    width: 21px;
+    background: url('../../../common/images/sprites/camera-gun-HD-offline.png') no-repeat;
+}
+
+#control-first-step .people-task-form ul.camera-list li.camera-item .camera-img.camera-ball-hd-online {
+    width: 21px;
+    background: url('../../../common/images/sprites/camera-ball-HD-oNline.png') no-repeat;
+}
+
+#control-first-step .people-task-form ul.camera-list li.camera-item .camera-img.camera-ball-hd-offline {
+    width: 21px;
+    background: url('../../../common/images/sprites/camera-ball-HD-offline.png') no-repeat;
+}
+
+#control-first-step .people-task-form ul.camera-list li.camera-item .text {
+    float: left;
+    width: 68%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+#control-first-step .people-task-form ul.camera-list li.camera-item .camera-opera {
+    float: right;
+}
+
+#control-first-step .people-task-form ul.camera-list li.camera-item .camera-opera i.config {
+    height: 16px;
+    width: 16px;
+    display: inline-block;
+    margin-top: 5px;
+    margin-right: 5px;
+    cursor: pointer;
+    background: url('../images/set.png') -32px 0;
+}
+#control-first-step .people-task-form ul.camera-list li.camera-item .camera-opera i.config:hover {
+    background-position: 0 0;
+}
+#control-first-step .people-task-form ul.camera-list li.camera-item .camera-opera i.config.active {
+    background-position: -16px 0;
+}
+#control-first-step .control-camera-config {
+    padding: 5px 0;
+    border: 1px solid #dfdfdf;
+    margin: 5px 0 5px 0;
+    cursor: default;
+    display: none;
+}
+
+#control-first-step .control-camera-config.active {
+    display: inline-block;
+}
+
+#control-first-step .control-camera-config p.first-line, 
+#control-first-step .control-camera-config p.second-line, 
+#control-first-step .control-camera-config p.third-line, 
+#control-first-step .control-camera-config p.forth-line {
+    width: 96%;
+    padding: 3px;
+    margin: auto;
+    text-align: left;
+}
+
+#control-first-step .control-camera-config p.forth-line {
+    border-top: 1px dashed #dfdfdf;
+    text-align: left;
+    padding-top: 6px;
+    margin-top: 3px;
+}
+
+#control-first-step .control-camera-config p.forth-line .alarm-btn {
+    margin-left: 148px;
+}
+
+#control-first-step .control-camera-config p.second-line input[type='text'], 
+#control-first-step .control-camera-config p.third-line input[type='text'] {
+    width: 12%;
+    height: 22px;
+    text-align: center;
+    border: 1px solid #DADBDC;
+    margin-right: 5px;
+}
+
+#control-first-step .control-camera-config .alarm-btn {
+    padding: 0 1px;
+    height: 22px;
+    width: 33px;
+    cursor: pointer;
+}
+#control-first-step .people-task-form ul.camera-list li.camera-item .camera-opera i.delete {
+    height: 16px;
+    width: 16px;
+    display: inline-block;
+    margin-top: 5px;
+    cursor: pointer;
+    background: url('../images/delete.png') -32px 0;
+}
+#control-first-step .people-task-form ul.camera-list li.camera-item .camera-opera i.delete:hover {
+    background-position: -16px 0;
+}
+#control-first-step .people-task-form ul.camera-list li.camera-item .camera-opera i.delete.active {
+    background-position: 0 0;
+}
+#control-first-step #PeopleTaskFrom .select_container {
+    width: 184px;
+    margin-left: 0;
+    height: 25px;
+    line-height: 25px;
+}
+
+#control-first-step #PeopleTaskFrom .select_container .arrow-down {
+    margin-top: 8px;
+}
+
+#control-first-step .preventioncontrolmgr.pubdiv {
+    overflow-x: hidden;
+    overflow-y: auto;
+    max-height: 150px;
+    z-index: 998;
+}
+/*布控视频页面样式*/
+#control-first-step .alarm-events-content-video {
+    width: 100%;
+    height: 100%;
+}
+
+#control-first-step .alarm-events-content-video .content-top-video-tool {
+    height: 36px;
+    width: 100%;
+    background-image: url("/module/common/images/map/map-tool-bg.png");
+    background-color: #fff;
+    position: absolute;
+    border-left: 1px solid #e3e3e3;
+}
+
+#control-first-step .alarm-events-content-video .content-top-video-tool .camera-name-text {
+    height: 36px;
+    width: 50%;
+    display: inline-block;
+    line-height: 36px;
+    text-indent: 5px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+#control-first-step .alarm-events-content-video .content-top-video-tool .video-operation-tool {
+    height: 36px;
+    float: right;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+#control-first-step .alarm-events-content-video .content-top-video-tool a {
+    height: 20px;
+    width: 20px;
+    display: inline-block;
+    margin-right: 2px;
+    margin-top: 8px;
+    cursor: pointer;
+}
+
+#control-first-step .alarm-events-content-video .content-top-video-tool .intercept {
+    height: 24px;
+    width: 24px;
+    cursor: pointer;
+    margin-top: 6px;
+    margin-right: 5px;
+    float: left;
+}
+
+#control-first-step .alarm-events-content-video .content-down-video {
+    top: 36px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+}
+
+/***********摄像机截图时的遮罩层样式***********/
+#control-first-step .video-screen-shot {
+    top: 0;
+    position: absolute;
+}
+
+#control-first-step #TempSnapCover {
+    -moz-user-select: none; /*火狐*/
+    -webkit-user-select: none; /*webkit浏览器*/
+    -ms-user-select: none; /*IE10*/
+    -khtml-user-select: none; /*早期浏览器*/
+    user-select: none;
+}
+#control-setting-content .icon_eye {
+    background:url(../images/icon.png) -186px 2px no-repeat;
+}
+#control-setting-content .icon_eye_gray {
+    background:url(../images/icon.png) -350px 2px no-repeat
+}
+#control-setting-content .icon_eye:hover, 
+#control-setting-content .icon_eye_active {
+    background:url(../images/icon.png) -186px 2px no-repeat;
+    background-position:-186px -40px;
+}
+#control-setting-content .icon_pause{
+    background:url(../images/icon.png) -25px -82px no-repeat;
+}
+#control-setting-content .icon_play{
+    background-position: -1px -82px;
+}
+
+.control-choose-camera-panel {
+    width: 460px;
+    height: 594px;
+}
+.control-choose-camera-panel .name {
+    font-size: 12px;
+}
+.control-choose-camera-panel .choose-result {
+    position: absolute;
+    left: 472px;
+    top: 0;
+    border-radius: 2px;
+    padding: 0 15px;
+    width: 250px;
+    height: 402px;
+    background-color: #fff;
+}
+.control-choose-camera-panel .wrapper section {
+    padding: 12px 20px 22px;
+}
+.control-choose-camera-panel .tree-search-box input {
+    margin: 0;
+    border: 1px solid #DBDBDB;
+    border-radius: 3px;
+    padding: 0 25px 0 11px;
+    width: 382px;
+    height: 33px;
+    line-height: 33px;
+    font-size: 12px;
+    color: #999;
+    vertical-align: middle;
+}
+
+.control-choose-camera-panel .tree-search-box .btn-search {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 60px;
+    right: 22px;
+    background: url("../../../common/images/search_small.png") no-repeat scroll center center transparent;
+    border: medium none;
+    cursor: pointer;
+    font-size: 0;
+}
+.control-choose-camera-panel .tree-wrap {
+    margin-top: 10px;
+    padding: 5px 0 5px 12px;
+    border: 1px solid #DBDBDB;
+    width: 406px;
+    height: 465px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.control-choose-camera-panel .choose-result .head {
+    border-bottom: 1px solid #DBDBDB;
+    height: 38px;
+    line-height: 38px;
+    font-weight: bold; 
+}
+.control-choose-camera-panel .choose-result .result {
+    margin-top: 3px;
+    height: 310px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.control-choose-camera-panel .choose-result footer {
+    border-top: 1px solid #DBDBDB;
+    padding: 0;
+    height: 49px;
+    background-color: #fff;
+    text-align: center;
+    line-height: 49px;
+}
+.control-choose-camera-panel .wrapper header .close {
+    background: url("../images/close.png") no-repeat center;
+}
+.control-choose-camera-panel .wrapper header .close:hover {
+    background: url("../images/close-hover.png") no-repeat center;
+}
+/* 覆写样式 默认显示枪机*/
+.control-choose-camera-panel .choose-result .result li i.leaf{
+    display: inline-block;
+    position: relative;
+    top:1px;
+    *top:-3px;
+    width: 15px;
+    height: 13px;
+    margin-right: 3px;
+    padding: 0;
+    vertical-align: middle;
+}
+
+/*选择结果 枪机、离线 */
+.control-choose-camera-panel .choose-result .result li i.leaf{
+    background: url("/module/common/images/sprites/tree_bg.png") no-repeat scroll 0 0 transparent;
+}
+/*选择结果 枪机、在线 */
+.control-choose-camera-panel .choose-result .result li i.leaf.marked{
+    background: url("/module/common/images/sprites/tree_bg.png") no-repeat scroll -85px 0 transparent;
+}
+/*选择结果 球机、离线 */
+.control-choose-camera-panel .choose-result .result li i.leaf.dom{
+    background: url("../../../common/images/sprites/tree_bg.png") no-repeat scroll -156px 0 transparent;
+}
+/*选择结果 球机、在线 */
+.control-choose-camera-panel .choose-result .result li i.leaf.dom.dom-marked{
+    background: url("../../../common/images/sprites/tree_bg.png") no-repeat scroll -353px 0 transparent;
+}
+/*文本超出显示……*/
+.control-choose-camera-panel .text-elips {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    word-wrap: normal;
+}
+.control-choose-camera-panel .choose-result .result li.leaf {
+    height: 30px;
+    line-height: 30px;
+}
+.control-choose-camera-panel .choose-result .result li.leaf:hover {
+    background-color: #F3F3F3;
+    color: #0088cc;
+}
+.control-choose-camera-panel .choose-result .result li.leaf:hover .remove-ipc {
+    display: block;
+}
+.control-choose-camera-panel .choose-result .result .name {
+    display: inline-block;
+    width: 180px;
+    vertical-align: middle;
+}
+.control-choose-camera-panel .choose-result .result .remove-ipc {
+    float: right;
+    display: none;
+    margin: 9px 10px 0 0;
+    width: 12px;
+    height: 12px;
+    background: url("../images/remove-ipc.png") no-repeat 0 0;
+    cursor: pointer;
+}
+.control-choose-camera-panel .choose-result .result .remove-ipc:hover {
+    background-position: -12px 0;
+}
+#chooseCounts {
+    font-size: 14px;
+    font-weight: bold;
+    color: #DD0330;
+}
+.linkage-panel .disnone {
+    display: none;
+}
+.linkage-panel {
+    height:auto;
+}
+.linkage-panel .wrapper header {
+    border-bottom: 1px solid #ddd;
+    height: 44px;
+    background-color: #f3f3f3;
+}
+.linkage-panel .wrapper header .close {
+    background: url(../images/dialog-close.png) no-repeat scroll center center transparent;
+}
+.linkage-panel .wrapper header .close:hover {
+    background-image: url(../images/dialog-close-hover.png);
+}
+.linkage-panel .wrapper header .title {
+    font-size: 14px;
+    color: #444;
+}
+.linkage-panel .wrapper section {
+    padding: 0;
+}
+#linkageChooseContent nav {
+    border-bottom: 1px solid #E1E1E1;
+    height: 34px;
+    background-color: #FAFAFA;
+}
+#linkageChooseContent nav .item {
+    float: left;
+    box-sizing: border-box;
+    width: 114px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    font-size: 12px;
+}
+#linkageChooseContent nav .item.active {
+    border-bottom: 2px solid #188DFB;
+}
+#linkageChooseContent nav .item.active a {
+    font-size: 13px;
+    color: #188DFB;
+}
+#linkageChooseContent nav .item a {
+    display: inline-block;
+    border-right: 1px solid #E9E9E9;
+    width: 100%;
+    height: 14px;
+    line-height: 14px;
+    color: #444;
+}
+#linkageChooseContent nav .item a * {
+    vertical-align: middle;
+}
+#linkageChooseContent nav .item .icon {
+    display: inline-block;
+    margin-right: 5px;
+    height: 14px;
+    width: 14px;
+    background: url("../images/notify-type.png") no-repeat 0 0;
+}
+#linkageChooseContent nav .telephone .icon {
+    background-position: 0 0;
+}
+#linkageChooseContent nav .telephone.active .icon {
+    background-position: 0 -15px;
+}
+#linkageChooseContent nav .email .icon {
+    background-position: -14px 0;
+}
+#linkageChooseContent nav .email.active .icon {
+    background-position: -14px -15px;
+}
+#linkageChooseContent nav .message .icon {
+    background-position: -30px 0;
+}
+#linkageChooseContent nav .message.active .icon {
+    background-position: -30px -15px;
+}
+.linkage-panel .wrapper section .linkage-content {
+    padding: 0 20px;
+}
+#linkageChooseContent .linkage-content {
+    margin-top: 13px;
+}
+#linkageChooseContent .linkage-content .add-area {
+    height: 32px;
+    line-height: 32px;
+}
+#linkageChooseContent .linkage-content .add-area .add-input {
+    border: 1px solid #DBDBDB;
+    padding: 5px 10px;
+    width: 278px;
+    height: 20px;
+    line-height: 20px;
+    border-radius: 4px;
+}
+#linkageChooseContent .linkage-content .add-area .add-btn {
+    margin: 0 0 0 10px;
+    padding: 0;
+    width: 50px;
+    height: 32px;
+}
+#linkageChooseContent .linkage-content .add-area .tips {
+    font-size: 12px;
+    color: #E24332;
+}
+#linkageChooseContent .linkage-content .add-result {
+    margin-top: 10px;
+    padding: 9px;
+    width: 510px;
+    height: 210px;
+    border: 1px solid #DBDBDB;
+    background-color: #FAFAFA;
+}
+#linkageChooseContent .linkage-content .add-result .no-result {
+    margin: 80px auto 0;
+    width: 280px;
+    line-height: 20px;
+    font-size: 12px;
+    color: #AAAAAA;
+}
+#linkageChooseContent .linkage-content .add-result .result-list li {
+    float: left;
+    margin-bottom: 6px;
+    margin-right: 4px;
+    padding: 0 4px;
+    width: 158px;
+    height: 25px;
+    background-color: #EFF7FE;
+    line-height: 25px;
+    font-size: 12px;
+    color: #333333;
+}
+#linkageChooseContent .linkage-content .add-result .result-list .element-name {
+    display: inline-block;
+    width: 140px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+}
+#linkageChooseContent .linkage-content .add-result .result-list li .delete {
+    float: right;
+    margin-top: 5px;
+    width: 14px;
+    height: 14px;
+    background: url("../images/result-close.png") no-repeat -1px 0;
+    cursor: pointer;
+}
+#linkageChooseContent .linkage-content .add-result .result-list li .delete:hover {
+    background-position: -13px 0;
+}
+#linkageChooseContent .linkage-content .add-footer {
+    margin: 10px 0;
+    height: 24px;
+    color: #AAA;
+}
+#linkageChooseContent .linkage-content .add-footer .time-input-ctrl {
+    float: none;
+    vertical-align: middle;
+}
+#linkageChooseContent .linkage-content .add-footer .time-type {
+    display: inline-block;
+    cursor: pointer;
+}
+#linkageChooseContent .linkage-content .add-footer .time-type * {
+    vertical-align: middle;
+}
+#linkageChooseContent .linkage-content .add-footer .whole-day {
+    margin-right: 26px;
+}
+#linkageChooseContent .linkage-content .add-footer .time-type i {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background: url("../images/time-radio.png") no-repeat -16px 0;
+}
+#linkageChooseContent .linkage-content .add-footer .time-type i.active {
+    background-position: 0 0;   
+}
+#linkageChooseContent .linkage-content .add-footer .time {
+    border: 1px solid #ddd;
+    width: 28px;
+    height: 22px;
+    border-radius: 4px;
+    text-align: center;
+}
+#linkageChooseContent .linkage-content .add-footer .time-group {
+    color: #AAA;
+}
+#linkageChooseContent .linkage-content .message-content {
+    padding-left: 15px;
+}
+#linkageChooseContent .linkage-content .message-content .header *{
+    vertical-align: middle;
+}
+#linkageChooseContent .linkage-content .message-content .header .checkbox {
+    display: inline-block;
+    margin-right: 5px;
+    width: 17px;
+    height: 16px;
+    background: url("../images/link-checkbox.png") no-repeat 0 0;
+    cursor: pointer;
+}
+#linkageChooseContent .linkage-content .message-content .header .checkbox.active {
+    background-position: -17px 0;
+}
+#linkageChooseContent .linkage-content .message-content p {
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #E5E5E5;
+    width: 438px;
+    height: 18px;
+    border-radius: 4px;
+    background-color: #F9F9F9;
+    line-height: 18px;
+    font-size: 12px;
+    color: #999;
+}
+
+/***********时间段设置控件的样式***********/
+#linkageChooseContent .time-input-ctrl {
+    position: relative;
+    border: 1px solid black;
+    width: 80px;
+    height: 24px;
+    line-height: 24px;
+    display: inline-block;
+    float: left;
+}
+
+#linkageChooseContent .time-input-ctrl .text-select {
+    position: absolute;
+    width: 28px;
+    height: 100%;
+    margin: 0;
+    border: 0;
+    text-align: center;
+}
+
+#linkageChooseContent .time-input-ctrl .text1 {
+    left: 0;
+}
+
+#linkageChooseContent .time-input-ctrl .text2 {
+    left: 34px;
+}
+
+#linkageChooseContent .time-input-ctrl .dot {
+    position: absolute;
+    left: 29px;
+}
+
+#linkageChooseContent .time-input-ctrl .ctrl {
+    position: absolute;
+    right: 0;
+    display: inline-block;
+    font-size: 8px;
+    width: 15px;
+    height: 8px;
+    border: 1px solid #7E8083;
+    border-radius: 2px;
+}
+
+#linkageChooseContent .time-input-ctrl .ctrl1 {
+    top: 1px;
+    cursor: pointer;
+    background: url('../images/icon.png') -20px -185px no-repeat;
+}
+
+#linkageChooseContent .time-input-ctrl .ctrl1-active {
+    background-position: -67px -185px;
+}
+
+#linkageChooseContent .time-input-ctrl .ctrl2 {
+    top: 13px;
+    cursor: pointer;
+    background: url('../images/icon.png') -5px -185px no-repeat;
+}
+
+#linkageChooseContent .time-input-ctrl .ctrl2-active {
+    background-position: -52px -185px;
+}

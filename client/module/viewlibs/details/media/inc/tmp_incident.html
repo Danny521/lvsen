@@ -1,0 +1,72 @@
+<table class='common-table'>
+    <tbody>
+        <tr>
+            <td class="attr-name">案件名称：</td>
+            <td class="attr-value"><a class="incident-name">{{name}}</a>
+            </td>
+        </tr>
+        <tr>
+            <td class="attr-name">案件描述：</td>
+            <td class="attr-value">{{description}}</td>
+        </tr>
+        <tr>
+            <td class="attr-name">案件类别：</td>
+            <td class="attr-value">{{translate_case category 'category'}}</td>
+        </tr>
+        <tr>
+            <td class="attr-name">危害程度：</td>
+            <td class="attr-value">{{translate_case hazardRating 'hazardRating'}}</td>
+        </tr>
+        <tr>
+            <td class="attr-name">案发时间：</td>
+            <td class="attr-value">
+                <p>{{mills2str timeUpper }} （上限）</p>
+                <p>{{mills2str timeLower }} （下限）</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="attr-name">案发地点：</td>
+            <td class="attr-value">{{location}}</td>
+        </tr>
+        <tr>
+            <td class="attr-name">嫌疑犯人数：</td>
+            <td class="attr-value">{{suspectCount}}</td>
+        </tr>
+        <tr>
+            <td class="attr-name">作案手段：</td>
+            <td class="attr-value">{{crimeMethod}}</td>
+        </tr>
+        <tr>
+            <td class="attr-name">报案人：</td>
+            <td class="attr-value">{{reporter}}</td>
+        </tr>
+        <tr>
+            <td class="attr-name">报案人证件类型：</td>
+            <td class="attr-value">{{translate_case reporterCardtype 'reporterCardtype'}}</td>
+        </tr>
+        <tr>
+            <td class="attr-name">报案人证件号码：</td>
+            <td class="attr-value">{{reporterCardnumb}}</td>
+        </tr>
+        <tr>
+            <td class="attr-name">报案单位：</td>
+            <td class="attr-value">{{reporterCompany}}</td>
+        </tr>
+        <tr>
+            <td class="attr-name">归类：</td>
+            <td class="attr-value">{{archive}}</td>
+        </tr>
+        <tr>
+            <td class="attr-name">创建单位：</td>
+            <td class="attr-value">{{unitName}}</td>
+        </tr>
+        <tr>
+            <td class="attr-name">创建人员：</td>
+            <td class="attr-value">{{userName}}</td>
+        </tr>
+        <tr>
+            <td class="attr-name">创建时间：</td>
+            <td class="attr-value">{{mills2str storageTime}}</td>
+        </tr>
+    </tbody>
+</table>

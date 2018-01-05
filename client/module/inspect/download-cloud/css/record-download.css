@@ -1,0 +1,742 @@
+/*
+* @Author: Administrator
+* @Date:   2015-03-09 16:11:31
+* @Last Modified by:   Administrator
+* @Last Modified time: 2015-05-13 18:06:09
+*/
+
+.unselect {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -ms-user-select: none;
+    /* 以下两个属性目前并未支持，写在这里为了减少风险 */
+    -o-user-select: none;
+    user-select: none;
+}
+
+.vip{
+	color:red;
+	margin-right: 3px;
+}
+
+.download-record{
+	position: absolute;
+	left:0px;
+	top:0px;
+	width:100%;
+	height: 100%;
+	cursor: default;
+	z-index: 1000;
+	background-color: #000;
+	filter:alpha(opacity=20);
+	-moz-opacity:0.20;
+	opacity:0.20;
+}
+
+.download-record iframe{
+	position: absolute;
+	left:0px;
+	top:0px;
+	width:100%;
+	height: 100%;
+	border:none;
+}
+
+ div.dialog-history{
+	position: absolute;
+	width: 500px;
+	height: 400px;
+	left:50%;
+	top:50%;
+	margin-left:-250px;
+	margin-top: -200px;
+	border:solid 1px #cccccc;
+	border-radius: 10px;
+	background-color: #f3f3f3;
+	overflow: hidden;
+	z-index: 1001;
+}
+
+.dialog-history .close{
+	width:16px;
+	height: 16px;
+	display:inline-block;
+	background-image: url("../images/close.png");
+	vertical-align: middle;
+	position: absolute;
+	right:10px;
+	top:18px;
+}
+.dialog-history .close:hover {
+	background-image: url("../images/close-hover.png");
+	cursor: pointer;
+}
+
+.dialog-history .dialog-title{
+	font-family: "Microsoft YaHei" !important;
+	padding: 3px;
+	height: 43px;
+	background-color: #f3f3f3;
+	line-height: 43px;
+	padding-left: 10px;
+	font-size: 13px;
+	border-radius: 10px;
+	cursor:default;
+}
+
+.dialog-history .dialog-title i.list{
+	display: inline-block;
+	border:solid 1px #e0e4e8;
+	width:24px;
+	height: 24px;
+	background-image: url("../images/icons.png");
+	background-position: 0px -34px;
+	position: absolute;
+	right:64px;
+	top:15px;
+}
+
+.dialog-history .dialog-title .tab i{
+  vertical-align: -5px;
+}
+
+.dialog-history .dialog-title i.list:hover{
+	background-position: -24px -34px;
+}
+
+.dialog-history .dialog-title i.list.active{
+	background-position: -48px -34px;
+}
+
+.dialog-history .dialog-title i.thumb{
+	display: inline-block;
+	border:solid 1px #e0e4e8;
+	width:24px;
+	height: 24px;
+	background-image: url("../images/icons.png");
+	background-position: 0px 0px;
+	position: absolute;
+	right:40px;
+	top:15px;
+}
+
+.dialog-history .dialog-title i.thumb:hover{
+	background-position: -24px 0px;
+}
+
+.dialog-history .dialog-title i.thumb.active{
+	background-position: -48px 0px;
+}
+
+.dialog-history .dialog-foot{
+	border:solid 1px #DDDDDD;
+	height: 40px;
+	line-height: 40px;
+	background-color: #f3f3f3;
+	border-radius: 10px;
+	font-family: "Microsoft YaHei" !important;
+	font-size: 13px;
+	color:white;
+	text-align: left;
+}
+
+/*
+ .dialog-history .dialog-foot .btn{
+	vertical-align: middle;
+	display: inline-block;
+	height: 20px;
+	line-height: 20px;
+	border-radius: 3px;
+	background-color: #0088cc;
+	padding: 2px;
+	padding-left: 10px;
+	padding-right: 10px;
+	cursor: default;
+}
+*/
+
+/*******历史录像下载模块************/
+#history-list ul>li .litime:hover{
+   color:#1a77de;
+}
+
+
+#history-list ul>li.active{
+	/*background-color:#d8ecfc;*/
+}
+
+#history-list ul>li.active .litime{
+	color:black;
+	/*border-left: solid 1px #cccccc;*/
+}
+
+#history-list ul>li.active .litime:hover{
+	color:black;
+}
+
+
+#history-list ul>li>.litime
+{
+	cursor:default;
+	vertical-align: middle;
+}
+
+#history-list ul>li>.btn
+{
+   width:  16px;
+   height: 18px;
+   background-repeat: no-repeat;
+   display: inline-block;
+   vertical-align: middle;
+   cursor: default;
+}
+
+#history-list ul>li .bgimg
+{
+   background-image: url("/module/common/images/sprites/operate-bg.png");
+}
+
+/*
+#history-list ul>li .download-local{
+   background-image: url("/module/inspect/download-cloud/images/down.png");
+   background-position: -190px 0px;
+}
+
+#history-list ul>li .download-local:hover{
+   background-position: -190px 0px;
+}
+
+#history-list ul>li .download-local:active{
+   background-position: -210px 0px;
+}
+
+#history-list ul>li .into-viewlib{
+   background-image: url("/module/inspect/download-cloud/images/down.png");
+   background-position: 0px 0px;
+}
+
+#history-list ul>li .into-viewlib:hover{
+   background-position: -20px 0px;
+}
+
+#history-list ul>li .into-viewlib:active{
+   background-position: -40px 0px;
+}
+*/
+
+#history-list ul>li .btn1
+{
+	background-position: -57px 0;
+	vertical-align: middle;
+	margin-left: 5px;
+}
+
+#history-list ul>li .btn1:hover
+{
+	background-position: -248px 0;
+	cursor: pointer;
+	background-image: url("/module/common/images/sprites/operate-bg.png");
+	background-repeat: no-repeat;
+	background-position: -57px 0;
+}
+
+#download-showList{
+	position: absolute;
+	left:0px;
+	top:0px;
+	width:90px;
+	height: 50px;
+	display: none;
+	border:solid 1px #cccccc;
+	border-radius: 3px;
+	z-index: 10000;
+	background-color: white;
+	cursor: default;
+}
+
+#download-showList iframe{
+	position: absolute;
+	left:0px;
+	top:0px;
+	z-index: -1;
+	width: 100%;
+	height: 100%;
+}
+
+#download-showList div.item{
+	height: 25px;
+	line-height: 25px;
+	color: #666666;
+	padding-left: 5px;
+}
+
+#download-showList div.item:hover{
+	background-color: #D8ECFC;
+}
+
+/* ****************************************** */
+
+.dialog-history.filedir .okcancel{
+	float:right;
+	margin-right: 20px;
+}
+
+.dialog-history .okcancel{
+	/*float:right;*/
+	margin-right: 20px;
+}
+
+.dialog-history .dialog-foot .newdir{
+	margin-left: 20px !important;
+    width: 62px;
+}
+
+#dialog-history-right
+{
+	width:80px;
+	height: 56px;
+	background-color: white;
+	border:solid 1px #cccccc;
+	border-radius: 3px;
+	position: absolute !important;
+	left:0px;
+	top:0px;
+	z-index: 1002;
+	font-size: 12px;
+}
+
+#dialog-history-right div{
+	margin-top: 1px;
+	margin-bottom: 1px;
+	padding-top:2px;
+	padding-bottom: 2px;
+	height: 22px;
+	line-height: 25px;
+	padding-left: 10px;
+	padding-right:10px;
+	cursor: default;
+}
+
+#dialog-history-right div:hover{
+	background-color: rgb(229,247,255);
+}
+
+#dialog-history-right iframe{
+	position: absolute !important;
+	left:0px;
+	top:0px;
+	width:100%;
+	height: 100%;
+	border:none;
+	z-index: -1;
+}
+
+ .dialog-history .dialog-foot .cancel
+{
+
+}
+
+.dialog-history .dialog-body{
+	background-color: white;
+	height: 300px;
+	overflow: auto;
+	padding: 5px;
+	font-size: 13px;
+	font-family: "Microsoft YaHei" !important;
+	cursor: default;
+}
+
+.dialog-history.filedir .dialog-body input.input{
+	display: none;
+	background-color: white;
+	z-index: 10;
+	width: 80px;
+	border:solid 1px #cccccc;
+	height: 20px;
+	border-radius: 3px;
+	vertical-align: middle;
+	font-family: "Microsoft YaHei" !important;
+}
+
+.dialog-history .dialog-body .big-list{
+	text-align: left;
+	padding-left: 20px !important;
+}
+
+.dialog-history .dialog-body .big-list .text-align-left{
+	text-align: left;
+	display: inline-block;
+}
+
+
+/*大图标列表模式*/
+.dialog-history .dialog-body .big-list .file{
+	display: inline-block;
+	text-align: center;
+	width: 107px;
+	height: 96px;
+	border:solid 1px white;
+	padding-top:5px;
+	padding-bottom: 5px;
+	border-radius: 3px;
+	float: left;
+}
+
+.dialog-history .dialog-body .filedir-path{
+	height: 36px;
+	line-height: 36px;
+	padding-left: 10px;
+	font-family: "Microsoft YaHei" !important;
+	background-color: rgb(229,247,255);
+	text-align: left;
+}
+
+.dialog-history .dialog-body .filedir-path .right-icon{
+	background-image: url("../images/right.png");
+	background-position: 0px 9px;
+	background-repeat: no-repeat;
+	vertical-align: middle;
+	display: inline-block;
+	width:16px;
+	height: 36px;
+}
+
+.dialog-history .dialog-body .filedir-path .rootdir{
+	/*display:inline-table;*/
+	vertical-align: middle;
+	text-align: left;
+	white-space: nowrap;
+	max-width: 100px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	display: inline-block;
+}
+.dialog-history .dialog-body .filedir-path .rootdir.hided,.dialog-history .dialog-body .filedir-path .right-icon.hided{
+	display: none;
+}
+.dialog-history .dialog-body .filedir-path .rootdir:hover{
+	text-decoration: underline;
+}
+.dialog-history .dialog-body .filedir-path .rootdir.more:hover{
+	text-decoration: none;
+}
+
+.dialog-history .dialog-body .file:hover{
+	background-color: #f7f9fd;
+	border:solid 1px #b8d6fb;
+}
+
+.dialog-history .dialog-body .big-list .file.active{
+	background-color: #d0e4fc;
+	border:solid 1px #7da2ce;
+}
+
+.dialog-history .dialog-body .big-list .file .icon{
+	display: inline-block;
+	background-image: url("../images/folder-cover-big.png");
+	background-position: 0px 0px;
+	width:77px;
+	height: 62px;
+	margin-right: 3px;
+	vertical-align: middle;
+}
+
+.dialog-history .dialog-body .big-list .file .title{
+	display: block;
+	padding: 3px;
+	white-space: nowrap;
+	width:80px;
+	max-width: 80px;
+	overflow: hidden;
+	text-overflow:ellipsis;
+}
+
+/*小图标列表模式*/
+ .dialog-history .dialog-body .small-list{
+	text-align: left;
+}
+
+.dialog-history .dialog-body .small-list .file{
+	display: block;
+	line-height: 30px;
+	height: 30px;
+	padding-left: 10px;
+	border:solid 1px white;
+}
+
+.dialog-history .dialog-body .small-list .file:hover{
+	/*background-color: #E8E8E8;*/
+	border:solid 1px #b8d6fb;
+	border-radius: 3px;
+}
+
+.dialog-history .dialog-body .small-list .file.active{
+	background-color: #d0e4fc;
+	border:solid 1px #7da2ce;
+}
+
+.dialog-history .dialog-body .small-list .file .icon{
+	display: inline-block;
+	background-image: url("../images/folder-cover.png");
+	background-position: 0px 0px;
+	width:20px;
+	height: 16px;
+	margin-right: 3px;
+	vertical-align: -5px;
+}
+
+.dialog-history .dialog-body .small-list .file .icon:hover{
+	background-image: url("../images/folder-cover.png");
+	background-position: -30px 0px;
+}
+
+.dialog-history .dialog-body .small-list .file .title{
+	display: inline-block;
+	min-width: 50px;
+	height: 100%;
+	width:430px;
+	overflow: hidden;
+	vertical-align: middle;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+/*
+.dialog-history.postform .dialog-body   input.input{
+	border-radius: 3px;
+	border:solid 1px #cccccc;
+	font-family: "Microsoft YaHei" !important;
+}
+*/
+.dialog-history.postform .dialog-body input.input,.dialog-history.postform .dialog-body input.input-text{
+	background-color: white;
+	z-index: 10;
+	width: 148px;
+	border:solid 1px #cccccc;
+	height: 20px;
+	border-radius: 3px;
+	vertical-align: middle;
+	font-family: "Microsoft YaHei" !important;
+	padding-left: 3px;
+	padding-right: 3px;
+}
+
+div.dialog-history.postform{
+	position: absolute;
+	width: 684px;
+	height: 475px;
+	left:50%;
+	top:50%;
+	margin-left:-225px;
+	margin-top: -238px;
+}
+
+div.dialog-history.postform .formlist select{
+	width:155px;
+	margin-left: 2px;
+	height: 25px;
+	font-family: "Microsoft YaHei" !important;
+}
+
+div.dialog-history.postform .head{
+	width:90px;
+	height: 40px;
+	font-weight: bold;
+	font-size: 14px;
+	color:#444444;
+	display: inline-block;
+	text-align: center;
+	padding-left: 10px;
+}
+
+div.dialog-history.postform .dialog-title{
+	padding-left: 0px;
+	height: 40px;
+}
+
+div.dialog-history.postform .head:hover{
+	/*color:#1865b7;
+	border-bottom: solid 2px #1865b7;
+	padding-bottom: 0px;*/
+}
+
+.dialog-history.postform .dialog-body{
+  height: 372px;
+  color:#444444;
+}
+
+.dialog-history.postform .dialog-body .content-main{
+	display: block;
+}
+
+.dialog-history.postform .dialog-body .formlist{
+	display: inline-block;
+	/*width:300px;*/
+	height: 400px;
+	border:solid 0px #cccccc;
+	width:45%;
+	vertical-align: middle;
+	padding:5px;
+}
+
+.dialog-history.postform .dialog-body .formlist>div{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.dialog-history.postform .dialog-body .formlist span.header{
+	display: inline-block;
+	width:100px;
+	text-align: right;
+}
+
+.dialog-history.postform .dialog-body .formlist.option{
+	width:300px;
+	height: 230px;
+}
+
+.dialog-history.postform .dialog-body .formlist.option span.header{
+	width:120px;
+	white-space: nowrap;
+}
+
+.dialog-history.postform .dialog-body .formlist span.form{
+	text-align: left;
+}
+
+.dialog-history .dialog-body .formlist textarea{
+	width: 155px;
+	height: 131px;
+	vertical-align: top;
+	border-radius: 3px;
+	border:solid 1px #cccccc;
+	padding:3px;
+}
+
+.dialog-history .dialog-body .formlist #input-data-name{
+	width:150px;
+	height: 20px;
+	padding-left: 3px;
+}
+
+.dialog-history.postform .dialog-body .radio{
+
+}
+
+.dialog-history.postform .dialog-foot{
+	text-align: center;
+}
+
+.dialog-history.postform .okcancel{
+	margin-right: 20px;
+	text-align: center;
+}
+
+.dialog-history.filedir .okcancel input {
+    width: 40px;
+}
+
+.dialog-history.postform .blockline{
+	border-bottom: solid 2px #e7e7e7;
+	height: 35px;
+	width: 95%;
+	white-space: nowrap;
+	line-height: 35px;
+	margin-left:10px;
+	margin-right: 10px;
+	margin-bottom: 8px;
+}
+
+.dialog-history.postform .blockline span{
+	display: inline-block;
+	height: 35px;
+	line-height: 35px;
+	border-bottom:  solid 2px #ff8d33;
+	padding-left: 10px;
+	padding-right: 10px;
+	color:#ff8d33;
+	font-weight: bold;
+}
+
+#animate-icon iframe{
+	position: absolute;
+	left:0px;
+	top:0px;
+	width:100%;
+	height: 100%;
+	border:none;
+	z-index: -1;
+}
+
+#animate-icon img{
+	position: absolute;
+	left:0px;
+	top:0px;
+	z-index: 1;
+}
+
+
+.dialog-history.postform textarea{
+	width:148px;
+}
+.dialog-history.postform select{
+	border:solid 1px #cccccc;
+}
+
+#incidentPanel{
+	width:1200px !important;
+	height: 640px;
+	margin-top: -320px;
+	margin-left: -600px;
+}
+
+/*	自动填充样式	*/
+.suggest-panel {
+	position: absolute;
+	left: 8px;
+	top: 0px;
+	display: none;
+	background-color: #FFFFFF;
+	z-index: 10;
+	border: 1px solid #B8BCC3;
+	border-radius: 0 0 3px 3px;
+	overflow: hidden;
+	color: #929292;
+	width: 183px;
+	padding: 5px;
+	_width: 183px;
+	border-top: none;
+	font-size: 12px;
+}
+
+.suggest-panel li {
+	height: 20px;
+	line-height: 20px;
+	display: block;
+	cursor: default;
+	width: 183px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	word-break: keep-all;
+}
+
+.suggest-panel li.active {
+	background-color: #F2F5F9;
+}
+/*	END OF自动填充样式	*/
+
+/* 编辑模式 */
+.modify .resources {
+	width: 380px;
+}
+
+.modify .entity-preview {
+	margin-right: 440px;
+}
+.modify .entity-preview .entity-box .picture{
+    /*border: 1px solid #E4E4E4;*/
+}
+.modify .entity-preview .picture,.modify .entity-preview .picture .entity-img {
+	max-width: 100%;
+}

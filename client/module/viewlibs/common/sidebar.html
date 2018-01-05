@@ -1,0 +1,128 @@
+<aside id="sidebar" class="rside">
+		<div class="module op-module">
+			<div class="module-body actions">
+				<div class="warp-mod">
+					<div class="bor-mod permission permission-create">
+						<a class="import-resource guide" id="importResource" > <i class=" fix-png can-drop"></i>
+							导入视频/图片
+						</a>
+
+					</div>
+					<div class="bor-mod permission permission-create">
+						<a class="create-incident guide" href="/module/viewlibs/workbench/create_incident.html"> <i class=" fix-png can-drop"></i>
+							创建案事件
+						</a>
+
+					</div>
+					<div class="bor-mod permission permission-review">
+						<a class="audit-incident guide" href="/module/viewlibs/workbench/index.html?pagetype=auditlist"> <i class="fix-png can-drop"></i>
+							审核案事件
+						</a>
+
+					</div>
+					<div class="bor-mod permission permission-review">
+						<a class="audit-struct guide" href="/module/viewlibs/workbench/index.html?pagetype=auditstructlist"> <i class="fix-png can-drop"></i>
+							审核结构化信息
+						</a>
+
+					</div>
+
+                    <div class="bor-mod" style="display: none;">
+						<a id="import" class="audit-struct guide" href="#"> <i class="fix-png can-drop"></i>
+							导入案事件
+						</a>
+
+					</div>
+
+					<div class="bor-mod" style="display:none;">
+						<a id="export" class="audit-struct guide" href="#"> <i class="fix-png can-drop"></i>
+							导出案事件
+						</a>
+
+					</div>
+					<!-- <div class="bor-mod permission permission-review" id="setImportantIncident">
+						<a class="audit-struct guide"> <i class="fix-png can-drop"></i>
+							设置重大案事件
+						</a>
+					
+					</div> -->
+				</div>
+			</div>
+		</div>
+		<!-- 统计信息 -->
+		<div class="module hightchats" data-type="normal">
+			<div class="module-head">
+				<h3>统计信息<span class="location"></span></h3>
+			</div>
+			<div class="module-body">
+				<ul class="statistics permission permission-analysis permission-verify">
+					<!-- 录入分析 -->
+					<li class=" permission permission-analysis">
+						<span class="count">
+							<a><span class="no-commit">0 </span></a>
+							个
+						</span>
+						<span class="name">未提交审核案事件</span>
+					</li>
+					<li class=" permission permission-analysis">
+						<span class="count">
+							<a><span class="no-pass">0</span></a>
+							个
+						</span>
+						<span class="name">审核未通过案事件</span>
+					</li>
+
+					<li class=" permission permission-analysis">
+						<span class="count">
+							<a><span class="struct-no-commit">0 </span></a>
+							个
+						</span>
+						<span class="name">未提交审核结构化信息</span>
+					</li>
+					<li class=" permission permission-analysis">
+						<span class="count">
+							<a><span class="struct-no-pass">0</span></a>
+							个
+						</span>
+						<span class="name">审核未通过结构化信息</span>
+					</li>
+
+
+					<!-- END 录入分析 -->
+					<!-- 审核 -->
+					<li class=" permission permission-verify">
+						<span class="count">
+							<a><span class="auditing">0</span></a>
+							个
+						</span>
+						<span class="name">待审核案事件</span>
+					</li>
+					<li class=" permission permission-verify">
+						<span class="count">
+							<a><span class="struct-auditing">0</span></a>
+							个
+						</span>
+						<span class="name">待审核结构化信息</span>
+					</li>
+					<!-- END 审核 -->
+				</ul>
+
+				<ul class="statistics pie-legend">
+					<script id="pieLegendTemplate" type="text/x-handlebars-template">
+					{{#each items}}
+						<li class="">
+							<span class="count">
+								<span>{{value}}</span>
+								个
+							</span>
+							<i style="background-color:{{{color}}}"></i>
+							<span class="name">{{name}}</span>
+						</li>
+					{{/each}}
+					</script>
+				</ul>
+
+				<div id="pieContainer" style="min-width: 157px; height: 157px; margin:0 auto"></div>
+			</div>
+		</div>
+</aside>

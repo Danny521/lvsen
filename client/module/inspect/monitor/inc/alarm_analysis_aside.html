@@ -1,0 +1,58 @@
+﻿<div id="aside" class="user-org" >
+	<div class="tab-panel ">
+			<div class="tab-header">
+				<div data-hview = "history" class="active"><i class="icons-shistory"></i>历史报警查询</div>
+				<div data-hview = "stat" ><i class="icons-sstat"></i><span>统计分析</span></div>
+			</div>
+			<div class="tabs">
+				<ul>
+					<li data-tab="history"  class="active"><i class="icons-history" title="历史报警查询"></i></li>
+					<li data-tab="stat" ><i class="icons-stat" title="统计分析"></i></li>
+				</ul>
+			</div>
+
+			<div class="tab-content stat">
+				<div data-view="org" class="active">
+					<div class="tree-search">
+						<input id="searchInput" type="text" placeholder="全局搜索..." name="q" autocomplete="off">
+						<button id="searchBtn" title="搜索"></button>
+					</div>
+					<div class="tree-container">
+						<div class="scrollbarPanel scrollbarPanel2">
+							<div class="scrollbar"><div class="track"><div class="thumb"><div class="end"></div></div></div></div>
+							<div class="viewport">
+								<div class="overview">
+									<div class="treePanel treePanel2">
+										
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="tab-content history">
+				<div data-view="org2" class="active">
+					<div class="tree-search">
+						<input id="searchInput2" type="text" placeholder="全局搜索..." name="q" autocomplete="off">
+						<button id="searchBtn2" title="搜索"></button>
+					</div>
+						<div class="tree-container">
+						<div class=" scrollbarPanel scrollbarPanel1" id="tree">
+							<div class="scrollbar"><div class="track"><div class="thumb"><div class="end"></div></div></div></div>
+							<div class="viewport">
+								<div class="overview">
+									<div class="treePanel treePanel1" id="carmeTree">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+	</div>
+</div>
+
+

@@ -1,0 +1,131 @@
+/*警卫路线摄像机列表拖拽排序的样式*/
+.np-new-guard-route .place-hoder-li {
+    display: none
+}
+
+.np-new-guard-route .place-hoder-li-active {
+    border: dashed 1px gray;
+    background-color: #f0f1f2
+}
+
+.np-new-guard-route .will-move-li {
+    cursor: pointer;
+    z-index: 1000
+}
+/*指挥调度不需要历史调阅*/
+ul.tree .operator a.history {
+    display: none !important;
+}
+/*指挥调度不需要纠错功能*/
+.infowindow-title span.btns i.recoveryBtn {
+    display: none !important;
+}
+.list-item-dropdown .correct {
+    display: none !important;
+}
+/*指挥调度暂不需要gps轨迹查看功能*/
+.np-gps-check-locus {
+    /*display: none;*/
+}
+/*空数据时的样式*/
+.no-result-style {
+    text-align: left;
+    line-height: 30px;
+    color: #A3A2A2;
+    margin-left: 5px !important;
+}
+.total{
+    text-align: left;
+    line-height: 30px;
+    color: #666666;
+    margin-left: 5px !important;
+}
+/*警卫路线分组摄像机列表、新建/编辑警卫路线摄像机列表、防空圈分组摄像机列表、新建/编辑防空圈摄像机列表的样式*/
+.np-result-camera-icon {
+    background: url("../images/map/left-camera-icon.png") no-repeat !important;
+}
+.np-camera-ball-online {
+    background-position: -32px 0 !important;
+}
+.np-camera-ball-offline {
+    background-position: -48px 0 !important;
+}
+.np-camera-gun-online {
+    background-position: 0 0 !important;
+}
+.np-camera-gun-offline {
+    background-position: -16px 0 !important;
+}
+/*警卫路线播放左侧头部的tip样式*/
+.play-route-tips {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 34px;
+    border-bottom: 1px solid #CACACA;
+    background: #F6FBFF;
+    color: #188DFB;
+    text-align: left;
+}
+/*全景功能地图上鼠标跟随图标样式*/
+#gismap .map-fullview-img {
+    width: 24px;
+    height: 41px;
+    background: url('/module/common/images/map/map-fullview-marker.png') no-repeat;
+    position: absolute;
+    top: -2000px;
+    left: -2000px;
+    z-index: 10001
+}
+/*警力调度地图上鼠标跟随图标样式*/
+#gismap .map-police-schedule-img {
+    width: 26px;
+    height: 29px;
+    background: url('../images/map/map-icon/map-marker.png') no-repeat;
+    position: absolute;
+    top: -2000px;
+    left: -2000px;
+    z-index: 10001
+}
+/*附近、视野范围内查找卡口、灯杆、警力、报警资源的左侧展现内容区的样式*/
+.np-range-circle-select-content {
+    top: 50px !important;
+}
+/*附近、视野范围内输入搜索结果的样式*/
+.np-search-all .np-range-circle-select-content {
+    top: 140px !important;
+}
+/*附近、视野范围内输入搜索摄像机的列表样式*/
+.np-search-all .np-map-camera-search-content {
+    top: 175px !important;
+}
+/*警卫路线摄像机列表中的上一个下一个操作按钮*/
+.np-group-camera-content .np-play-opera {
+    margin-right: 5px;
+    cursor: pointer;
+    float: right;
+}
+.np-group-camera-content .play-opera-icon {
+    width: 13px;
+    height: 12px;
+    display: inline-block;
+    background: url("../images/map/pre-next.png");
+}
+.np-group-camera-content .play-prev {
+    background-position: 0 0;
+}
+.np-group-camera-content .play-next {
+    background-position: 0 -12px;
+}
+.np-group-camera-content .play-prev:hover {
+    background-position: -12px 0;
+}
+.np-group-camera-content .play-next:hover {
+    background-position: -12px -12px;
+}
+/* 点击放大样式开始，采用插入class的方法 ,和修改原来行内样式的方法*/
+.map-video-object{position:absolute;width:100%;height:100%;top:36px;padding:0;}
+.map-video-playBar{position: absolute;left:280px;right:0px;bottom:0px;top:35px;box-shadow: 0px 0px 2px #ccc;background: rgba(255, 255, 255, 0.5);}
+.map-video-playBarSin{position: absolute;left:280px;right:0px;bottom:0px;top:46px;box-shadow: 0px 0px 2px #ccc;background: rgba(255, 255, 255, 0.5);}
+.video-content1{width:100%;height:100%;}
+/* 点击放大样式结束 */

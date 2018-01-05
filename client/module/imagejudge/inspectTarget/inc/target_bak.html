@@ -1,0 +1,126 @@
+{{!--   检索结果 （左侧）   --}} 
+{{#if taskList}}
+    {{#each taskList}}
+    <dl class="retrieve_list">
+        <dt> <i class="icon_downarrow"></i>
+            <h6>{{taskName}}</h6> 
+            {{#status taskStatus 1}}
+            <em class="cGreen">已完成</em>
+            {{/status}}
+            {{#status taskStatus 2}}
+            <em class="cRed">失败</em>
+            {{/status}}
+            {{#status taskStatus 3}}
+            <em class="cBlue">进行中</em>
+            {{/status}}
+        </dt>
+        <dd>
+            <a class="icon_close" title="删除" href="javascript:void(0);"></a>
+            <p>
+                <label>检索结果：</label> <em>{{taskResult}}条</em>
+            </p>
+            <p>
+                <label>完成时间：</label>
+                <em>{{taskTime}}</em>
+            </p>
+        </dd>
+    </dl>
+    {{else}}
+        <p style='color:#ccc;text-align:center'>暂无数据！</p>
+    {{/each}}
+{{/if}}
+
+
+{{!--   历史记录    --}}
+{{#if historyTasks}}
+    {{#each historyTasks}}
+        <dl class="retrieve_list">
+            <dt> <i class="icon_downarrow"></i>
+                {{#timeShow timeMark}}
+                <h6>{{date_current}}</h6>
+                {{/timeShow}}
+            </dt>
+            {{#detail}}
+            <dd>
+                <p>
+                    {{#timeFormat historyTime}}
+                    <label>{{data_mass}}</label>
+                    {{/timeFormat}}
+                    <em>{{historyMessage}}</em>
+                    <a class="icon_close" title="删除" href="javascript:void(0);"></a>
+                </p>
+            </dd>
+            {{/detail}}
+        </dl>
+    {{else}}
+        <p style='color:#ccc;text-align:center'>暂无数据！</p> 
+    {{/each}}
+{{/if}}
+
+{{!-- 检索结果列表 --}}
+{{#if contentList}}
+    {{#each contentList}}
+        <li class='thumb-figure'>
+            <a class='thumb-anchor'>
+                <span>
+                    <img src="{{ctm_THUMBNAIL}}"></span>
+                <h6>{{name}}</h6>
+                <p>{{std_APPEAR_TIME}}</p>
+            </a>
+        </li>
+    {{else}}
+        <p style='color:#ccc;text-align:center'>暂无数据！</p>
+    {{/each}}
+{{/if}}
+
+{{#if searchArea}}
+<div class="search_text">
+    <span class="search_type">
+        <label> <b>云管理</b> <i class="icon_downarrow_white"></i>
+        </label>
+        <ul>
+            <li data-type ="1">云管理</li>
+            <li data-type ="2">视图库</li>
+        </ul>
+    </span>
+    <input type="text" id='searchValue' placeholder="多个关键词请用空格分开" />
+    <a href="javascript:void(0)" class="btn btn_ok disable-btn" id='doSearch'>检索</a>
+</div>
+<div class="control-toggle">
+    <div class="search_select_file">
+        <i class="icon_import"></i>
+        <h6>选择资源文件范围</h6>
+        <a href="javascript:void(0);" class="select_file_btn">打开文件列表</a>
+    </div>
+    <div class="select_list disable">
+        <label>
+            <input type="checkbox" id='isTimeCheck' />
+            目标出现时间范围
+        </label>
+        <input type="text" placeholder='起始时间' class="input-time" id='begin_time' /> <em>至</em>
+        <input type="text" placeholder='结束时间' class="input-time" id='end_time' />
+    </div>
+    <div class="select_list disable">
+        <label>
+            <input type="checkbox" id='isResultCheck'/>
+            在检索结果中检索
+        </label>
+        <select id='searchResult' >
+            <option>选择检索结果1</option>
+            <option>选择检索结果2</option>
+            <option>选择检索结果3</option>
+        </select>
+    </div>
+    <div class="select_list disable">
+        <label>
+            <input type="checkbox" id="isResultSaved" />
+            保存检索结果
+        </label>
+        <input type="text" placeholder='此次检索结果名称' id='resultSaveValue'/>
+    </div>
+</div>
+<a href="javascript:void(0)" class='toggle-search'>
+    隐藏检索条件
+    <i class="icon_downarrow"></i>
+</a>
+{{/if}}

@@ -1,0 +1,329 @@
+
+/**************部门创建和部门编辑页面的样式****************/
+.content-depart{
+    padding-top: 20px;
+    *padding-top: 38px;
+}
+.content-depart .form-item{
+    margin-bottom: 5px;
+    *margin-bottom: 15px;
+}
+
+.form-item .item-label {
+    color: #666666;
+    float: left;
+    line-height: 30px;
+    padding-right: 10px;
+    text-align: right;
+    width: 140px;
+}
+
+.content-depart .form-item input[type='checkbox']{
+    position: relative;
+    top:6px;
+
+}
+.content-depart input[readonly]{
+    background-color: #F8F8F8;
+}
+
+.form-item .submit-wrapper{
+    margin-top: 20px;
+    margin-left: 110px;
+}
+
+.form-item .item-label {
+    float: left;
+    line-height: 28px;
+    padding-right: 10px;
+    text-align: right;
+    width: 100px;
+}
+/*.form-item .ui.input input{
+    width: 194px;
+    padding: 6px 5px;
+}*/
+.form-item .input-select {
+    font-size: 12px;
+    height: 28px;
+    line-height: 28px;
+    margin: 0;
+    padding: 3px 0 3px 6px;
+    vertical-align: middle;
+    width: 180px;
+
+}
+.form-item .input-area {
+    font-size: 12px;
+    height: 100px;
+    width: 370px;
+    padding: 5px;
+}
+.form-item .countPanel{
+    display: inline-block;
+    position: absolute;
+    width: 75px;
+    top:95px;
+    left: 30px;
+    color: #C4C4C4;
+}
+.form-item .countPanel #count{
+    display: inline-block;
+    width: 40px;
+    text-align: right;
+}
+
+.form-item .submit-wrapper button {
+   *margin-right: 10px;
+}
+
+/*******************END*************************/
+
+/***********部门列表页面的部分样式**************/
+
+.main .information {
+    border-bottom: 1px solid #E3E3E3;
+    background-color: #F7F7F7;
+}
+.main .information .title{
+    height: 35px;
+    line-height: 35px;
+}
+.main .information .title ul li{
+    float: left;
+}
+.main .information .title ul li.info{
+    padding-left: 15px;
+    font-size: 13px;
+    color: #333333;
+}
+.main .information .title ul li.operate{
+    float: right;
+    margin-right: 15px;
+}
+
+.main .information li.operate .add{
+    position: relative;
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    margin: 0 6px;
+    background: url("/module/settings/common/images/icons.png") no-repeat scroll -108px -320px transparent;
+}
+.main .information li.operate .add:hover{
+    background-position: -108px -352px;
+}
+
+.main .information li.operate .add ul{
+    position: absolute;
+    display: none;
+    top:23px;
+    right: -20px;
+    border:1px solid #C9C9C9;
+    padding:0;
+    /*box-shadow: 0 0 0.1px  #000;*/
+    width: 78px;
+    border-radius: 5px;
+}
+/*.main .information li.operate .add ul.active{
+    display: block;
+}*/
+/*.main .information li.operate .add ul:before{
+    position: absolute;
+    right: 50%;
+    margin-right: -7px;
+    top:-7px;
+    display: block;
+    content: '';
+    width: 0;
+    height: 0;
+    border-style:solid;
+    border-width:0 7px 7px;
+    border-color: transparent;
+    border-bottom-color: #C9C9C9;
+    z-index: 10;
+}
+.main .information li.operate .add ul:after{
+    position: absolute;
+    top:-5px;
+    right: 50%;
+    margin-right: -7px;
+    display: block;
+    content: '';
+    width: 0;
+    height: 0;
+    border-style:solid;
+    border-width:0 7px 6px;
+    border-color: transparent;
+    border-bottom-color: #fff;
+    z-index: 10;
+}*/
+
+/*.main .information li.operate .add ul:hover,
+.main .information li.operate .add:hover ul{
+    display: inline-block;
+}*/
+.main .information li.operate .add ul li{
+    padding:0 15px;
+    text-align: center;
+    line-height: 34px;
+    font-size: 12px;
+    color:#666;
+    background-color: #FFF;
+    border-radius: 5px;
+
+}
+
+.main .information li.operate .add ul li:last-child{
+    /*border-top:1px solid #ccc;*/
+}
+.main .information li.operate .add ul li:hover{
+    /*color:#1F8BFF;*/
+    background-color: #F3F3F3;
+}
+.main .information .title ul li.operate a{
+    vertical-align: middle;
+}
+
+
+/* 复写样式 */
+.common-dialog .wrapper section{
+    padding:10px;
+}
+
+
+/*.main .information .title ul li a{
+    display: block;
+    float: left;
+    height: 35px;
+    width: 35px;
+    line-height: 35px;
+    cursor: pointer;
+    background:url('/images/icons/alloperate.png') no-repeat scroll 0px 0px;
+}
+.main .information .title .operate .edit{
+    background-position: -5px -90px;
+}
+.main .information .title .operate .delete1{
+    background-position: -5px -132px;
+}
+.main .information .title .operate .check-user{
+    background-position: -6px -172px;
+}
+.main .information .title .operate .check-device{
+    background-position: -5px -211px;
+    display: none;
+}*/
+.main .information .detail,.main .information .describe{
+    height: 25px;
+    line-height: 25px;
+}
+.main .information .detail li{
+    float: left;
+    padding-left: 10px;
+    margin-right: 65px;
+}
+.main .information .detail li span{
+    margin-left: 5px;
+    color: #929599;
+}
+.main .information .describe1{
+    clear: both;
+    padding-left: 15px;
+    color: #929599;
+    padding-bottom: 5px;
+}
+
+.main  .tablename{
+    height: 35px;
+    line-height: 35px;
+    background-image:-moz-linear-gradient(#FDFDFD,#F1F0F0);
+    background-image:-webkit-linear-gradient(#FDFDFD,#F1F0F0);
+    background-image:-o-linear-gradient(#FDFDFD,#F1F0F0);
+    background-image:-ms-linear-gradient(#FDFDFD,#F1F0F0);
+    background-image:linear-gradient(#FDFDFD,#F1F0F0);
+}
+.main .tablename span{
+    font-size: 14px;
+    font-weight: bold;
+    height: 35px;
+    line-height:38px;
+    padding-left: 15px;
+    color: #333333;
+}
+.main  .tablename .add{
+    display: block;
+    float: right;
+    margin-right: 15px;
+    margin-top: 6px;
+    width: 55px;
+    height: 20px;
+    line-height: 20px;
+    /*padding-left: 20px;*/
+    cursor: pointer;
+    border:1px solid #cfd2d4;
+    background-color:#dce1e6;
+}
+.main  .tablename .add.disable{
+    color:#969696;
+}
+.search-form .add.disable{
+    color:#969696;
+}
+.main .tablename .add i{
+    display: inline-block;
+    float: left;
+    height: 20px;
+    width: 10px;
+    margin: 0 6px;
+    background: url("/module/settings/common/images/icons.png") no-repeat scroll -120px -29px transparent;
+}
+.search-form .add.disable i{
+    background-position: -153px -29px;
+}
+.main  .tablename .add.disable i{
+    background-position: -152px -29px;
+}
+/******************END********************/
+
+.global-sync {
+    display: none;
+    background-color: #dce1e6;
+    border: 1px solid #cfd2d4;
+    cursor: pointer;
+    float: right;
+    height: 20px;
+    line-height: 20px;
+    margin-right: 15px;
+    margin-top: 6px;
+    width: 64px;
+    text-align: center;
+    color:#005EAB;
+    font-size: 12px;
+}
+.global-sync:hover{
+    color:#00BAFF;
+}
+
+/**/
+#departDetail{
+    position: relative;
+}
+
+.list-container .list-section{
+    /*position: absolute;*/
+    /*top:0;*/
+    
+    /*border:1px solid green;*/
+    overflow-y: auto; 
+
+}
+.list-container .list-section:last-child{
+    /*margin-top: 8px;*/
+}
+.list-container .list-title{
+    cursor:pointer;
+    border-bottom:1px solid #dadee3;
+    margin-bottom:-1px;
+    
+}

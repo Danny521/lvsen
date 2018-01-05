@@ -1,0 +1,37 @@
+{{#if choosePanel}}
+<div class="choose-list">
+	<div class="choose-list-left">
+		<div class="list-head">案事件类型</div>
+		<div class="list-content">
+			<div id="cpscrollbar1">
+			    <div class="scrollbar"><div class="track"><div class="thumb"><div class="end"></div></div></div></div>
+			    <div class="viewport">
+			        <div class="overview">
+						{{#with choosePanel}}
+						<ul>
+						{{#each category}}
+							<li data-id="{{id}}" data-code="{{categoryCode}}" data-name="{{categoryName}}"><i></i><span>{{categoryName}}</span></li>
+						{{/each}}
+						</ul>
+						{{/with}}
+					</div>
+				</div>
+			</div>	
+		</div>
+	</div>
+	<div class="choose-list-right">
+		<div class="list-head">已选重大案件类别<span class="count">0</span>个</div>
+		<div class="list-content">
+			<div id="cpscrollbar2">
+			    <div class="scrollbar"><div class="track"><div class="thumb"><div class="end"></div></div></div></div>
+			    <div class="viewport">
+			        <div class="overview">
+						<ul></ul>
+					</div>
+				</div>		
+			</div>
+		</div>
+	</div>
+</div>
+{{/if}}
+

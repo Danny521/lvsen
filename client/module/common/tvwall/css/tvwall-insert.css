@@ -1,0 +1,89 @@
+/* #major .model-content {
+	border: none;
+} */
+ .major-reset {
+	position: absolute;
+	z-index: 1000;
+	width: 100%;
+	height: 100%;
+	right: -3000px;
+	border-left: 1px solid #E3E2E2;
+} 
+ #autoMousewheel {
+	cursor: pointer;
+}
+
+#major .tvHeader .downAll {
+	margin-right: -140px;
+}
+.treeMenu .leaf:hover,.treeMenu .leaf.active,.treeMenu .group span:hover {
+	color: #1B6BBC;
+}
+
+.treeMenu .leaf .more {
+	position: absolute;
+	width: 16px;
+	height: 16px;
+	background: transparent url(../images/sprites/operate-bg.png) -151px 0 no-repeat;
+	top: 4px;
+	right: 5px;
+	display: none;
+}
+
+.treeMenu .leaf:hover .more {
+	display: block;
+}
+
+.treeMenu .leaf .more:hover {
+	background-position: -134px 0;
+}
+#major .tvHeader {
+	z-index: 1000px;
+	position: absolute;
+}
+
+
+/*.treeMenu .leaf .more {
+  	position: absolute;
+	width: 16px;
+	height: 16px;
+	background: transparent url(../images/sprites/operate-bg.png) -151px 0 no-repeat;
+	top: 4px;
+	right: 5px;
+	display: none;
+}
+#major .tvHeader {
+	-moz-border-bottom-colors: none;
+  -moz-border-left-colors: none;
+  -moz-border-right-colors: none;
+  -moz-border-top-colors: none;
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #E3E2E2;
+  border-image: none;
+  border-left: medium none !important;
+  border-right: 1px solid #E3E2E2;
+  border-top: 1px solid #E3E2E2;
+  height: 34px;
+  width: 100%;
+  padding-left: 14px;
+  z-index: 800;
+  border-color: red;
+}
+
+#major .tvHeader .tv-model {
+	z-index: 800px;
+}
+#major .tvHeader .downAll {
+	margin: -27px -163px auto;
+}*/
+ #iframeWall {
+ 	position: absolute;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 1000px;
+}  
+.changeLyt {
+	margin-right: 130px;
+}
+

@@ -1,0 +1,342 @@
+html, body {
+    overflow: hidden;
+}
+.pubdiv ul{
+    max-height:150px;
+    overflow-y:auto;
+}
+/*loading覆盖map加载时的loading*/
+.loading {
+    background: transparent url('../../../common/images/animate/horizontal-loading.gif') center center no-repeat;
+    height: 40px;
+}
+
+.tab-panel .tab-header i, .tab-panel .tabs i {
+    display: inline-block;
+}
+.tab-panel .tabs i {
+    width: 47px;
+    height: 40px;
+
+}
+.tab-panel .tab-header i {
+    width: 29px;
+    height: 25px;
+}
+.tab-panel .tab-header .camera-control{
+    display: none
+}
+/*左侧tab*/
+.tab-panel .tab-header i.icons-monitor-system {
+    background: url("../images/monitorHeader.png") no-repeat;
+    background-position: 7px 3px;
+}
+.tab-panel .tabs i.icon-monitor-system {
+    background: url("../images/monitorSystem.png") no-repeat;
+    background-position: 4px 1px;
+}
+
+.tab-panel .tab-header i.icons-point-control {
+    background: url("../images/pointHeader.png") no-repeat;
+    background-position: 7px 3px;
+}
+
+.tab-panel .tabs i.icon-point-control {
+    background: url("../images/points.png") no-repeat;
+    background-position: 14px 1px;
+}
+
+.tab-panel .tab-header i.icons-camera-control {
+    background: url("../images/cameraHeader.png") no-repeat;
+    background-position: 9px 6px;
+}
+
+.tab-panel .tabs i.icon-camera-control {
+    background: url("../images/camera.png") no-repeat;
+    background-position: 10px 5px;
+}
+.monitor-system,.point-control,.camera-control{
+    display: none;
+}
+.monitor-system.active,.point-control.active,.camera-control.active{
+    display:block;
+}
+.breadcrumb span{
+    margin-left:-13px;
+}
+.tab-panel .tab-content {
+    position: absolute;
+    top: 40px;
+    left: 50px;
+    right: 0;
+    bottom: 0;
+    padding-left: 15px;
+    border-right: 1px solid #e3e2e2;
+    background-color: #EBF0F4;
+    display: none
+}
+/**上传成功**/
+
+
+.uploading,.uploadSuccess,.uploadError{
+    position: absolute;
+    top:50%;
+    left: 50%;
+    width:431px;
+    margin-left:-244px;
+    margin-top:-200px;
+    z-index: 100;
+    text-align: center;
+    display: none
+}
+.uploading .loadingPart{
+    background: url("../images/loading-upload.gif");
+    display: inline-block;
+    width:200px;
+    height:136px;
+}
+.uploadSuccess .successPart{
+    background: url("../images/upsuccess.png");
+    display: inline-block;
+    width:167px;
+    height:60px;
+}
+.uploadError .errorPart{
+    background: url("../images/uperror.png") 120px 0 no-repeat;
+    display: inline-block;
+    width: 100%;
+    height: 61px;
+}
+.uploadError .refreshBtn{
+    display: inline-block;
+    margin-top:20px;
+    height:28px!important;
+}
+/*批量导入模板弹出层*/
+.import-model{
+    position: absolute;
+    top:50%;
+    left: 50%;
+    width:431px;
+    margin-left:-244px;
+    margin-top:-200px;
+    border: solid 1px #ddd;
+    border-radius:5px;
+    z-index: 100;
+    background-color: white;
+    display: none
+}
+.import-model-title{
+    height:40px;
+    background: #F3f3f3;
+    border-bottom: 1px solid #ddd;
+    padding-top: 7px;
+    padding-left: 10px;
+    line-height: 32px
+}
+.import-model-title span{
+    font-size: 16px
+}
+.import-model .loadUploadTemp{
+    margin-left:10px;
+    width:75px!important;
+    height:25px!important;
+    padding: 0;
+    line-height: 22px!important
+}
+.import-model .orginCode{
+    width:235px!important;
+}
+.icon-close-btn{
+    position:absolute;
+    top:15px;
+    right: 15px;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background: url(../images/dialog-close.png) no-repeat ;
+    cursor: pointer;
+}
+.icon-close-btn:hover{
+    background: url(../images/dialog-close-hover.png) no-repeat;
+}
+.icon-cloudload{
+    display: inline-block;
+    width: 19px;
+    height: 19px;
+    background: url(../images/loadXML.png) no-repeat;
+}
+.icon-import-number{
+    display: inline-block;
+    width: 19px;
+    height: 19px;
+    background: url(../images/compose.png) no-repeat;
+}
+.icon-write-excel{
+    display: inline-block;
+    width: 19px;
+    height: 19px;
+    background: url(../images/cloud-upload.png) no-repeat;
+}
+
+.import-step{
+    padding:15px;
+}
+
+.import-step li i{
+    position: relative;
+    top:5px;
+    margin-left: 17px;
+    margin-right:5px;
+}
+.import-step p{
+    margin-top: 10px;
+    margin-left: 40px;
+    margin-bottom: 20px;
+    color:#666; 
+}
+.import-step span{
+    font-weight: bold;
+    font-size:14px;
+    color:#444
+}
+
+.import-step input{
+    margin-left: 5px;
+}
+.input-number input{
+    width:220px;
+}
+.import-excel #aa.excel-name {
+    width:225px;
+}
+.import-cancel{
+    margin-left: 130px;
+}
+.commonLayer{
+    position: fixed;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    opacity: 0.7;
+    background: #000;
+    z-index: 80;
+    filter: alpha(opacity=70);
+    display: none
+}
+
+
+
+/**
+    注销框样式
+*/
+textarea {
+    resize: none;
+}
+.monitorDialogTitle {
+    display: block;
+    float: left;
+    width: 100%;
+    vertical-align: middle;
+    background-color: #F3F3F3;
+    border-bottom: solid #ccc 1px;
+    height:45px;
+    line-height: 45px;
+    border-radius: 7px 7px 0 0;
+}
+.monitorDialogTitle h2 {
+    display: block;
+    float: left;
+    font-size: 1.2em;
+    padding-left: 10px;
+    text-align: left;
+    border: none;
+}
+.cancleDialog {
+    float: right;
+    width: 15px;
+    height: 2.7em;
+    margin-right: 10px;
+    background: url(../images/dialog-close.png) no-repeat ;
+    cursor: pointer;
+    margin-top:15px;
+}
+.cancleDialog:hover{
+    background: url(../images/dialog-close-hover.png) no-repeat;
+}
+.formEditOutter {
+    display: block;
+    float: left;
+    padding: 15px 10px 10px 20px;
+}
+
+.formEdit fieldset {
+    float: left;
+    border: none;
+}
+.formEdit fieldset:last-child {
+    margin-top: 10px;
+    clear: both;
+    width: 100%;
+    text-align: center;
+}
+.formEdit label {
+    display: inline-block;
+    width: 110px;
+    font-size: 1.2em;
+    height: 30px;
+    float: left;
+    line-height: 30px;
+    text-align: right;
+}
+
+
+.formEdit .primaryBtn {
+    margin-right: 10px;
+}
+.formEdit .primaryBtn {
+    padding: 0 9px!important;
+    cursor: pointer;
+    height:28px!important;
+}
+.cancleBtn {
+    background-color: #F2F2F2;
+    color: #555;
+    height:28px!important;
+}
+.primaryBtn:hover {
+    -webkit-box-shadow:1px 1px 2px #bbb;
+    -moz-box-shadow:1px 1px 2px #bbb;
+    box-shadow:1px 1px 2px #bbb;
+}
+
+
+#content .logOffDialog {
+    border-radius: 7px;
+    width: 340px;
+    position: absolute;
+    top:50%;
+    left: 50%;
+    margin-left: -150px;
+    margin-top: -150px;
+    background-color: #fff;
+    border: 1px solid #aaa;
+    display: none;
+    z-index:100
+
+}
+#content .logOffDialog label {
+    width: 77px;
+}
+#content .logOffDialog textarea {
+    width: 208px;
+    height: 82px;
+}
+.require{
+    color: red;
+    line-height: initial;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 1px;
+}

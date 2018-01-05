@@ -1,0 +1,114 @@
+{{#compareValue tplName "list"}}
+    {{#if list}}
+        {{#each list}}
+            <div class="view-item">
+                <a href="#">
+                    <div class="view-item-inner" data-id="{{id}}" data-starttime="{{startTime}}" data-endtime="{{endTime}}" data-type="{{type}}" >
+                        <div class="view-item-img">
+                            <img class="hidden readImg" src="/module/imagejudge/resource-process/images/readed.png" />
+                            <img class="snapshoot_img" src="{{getPicUrl thumbnails}}" />
+                        </div>
+                        <div class="view-item-tools">
+                            <span class="alltime">{{getTargetTime startTime}}</span>
+                            <button title="删除" class="tool-remove" type="button"><i class="tool-icon tool-icon-remove"></i></button>
+                            <button title="生成线索" class="tool-add" type="button"><i class="tool-icon tool-icon-add"></i></button>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        {{/each}}
+    {{else}}
+        <p class="noresult">没有查询到数据</p>
+    {{/if}}
+{{/compareValue}}
+
+
+{{#compareValue tplName "movingObject"}}
+    {{#movingObject}}
+         <table>
+            <tr>
+                <td class="label">类型：</td>
+                <td class="value">{{typeName}}</td>
+                <td class="label">出现时间：</td>
+                <td class="value">{{getTargetTime timeBegin}}</td>
+                <td class="label">消失时间：</td>
+                <td class="value">{{getTargetTime timeEnd}}</td>
+            </tr>
+            <tr>
+                {{#compareValue typeName "人体"}}
+                    <td class="label">颜色：</td>
+                    <td class="value">{{colorName}}</td>
+                    <td class="label">头颜色：</td>
+                    <td class="value">{{headColorName}}</td>
+                    <td class="label">上身颜色：</td>
+                    <td class="value">{{upperColorName}}</td>
+                {{else}}
+                    <td class="label">颜色：</td>
+                    <td class="value">{{colorName}}</td>
+                {{/compareValue}}
+            </tr>
+            {{#compareValue typeName "人体"}}
+                <tr>
+                    <td class="label">下身颜色：</td>
+                    <td class="value">{{lowerColorName}}</td>
+                    <td class="label">脚颜色：</td>
+                    <td class="value">{{footColorName}}</td>
+                    <td class="label">&nbsp;</td>
+                    <td class="value">&nbsp;</td>
+                </tr>
+            {{/compareValue}}
+        </table>
+    {{else}}
+        <p class="noresult">没有查询到数据</p>
+    {{/movingObject}}
+{{/compareValue}}
+
+{{#compareValue tplName "person"}}
+    {{#person}}
+         <table>
+            <tr>
+                <td class="label">出现时间：</td>
+                <td class="value">{{getTargetTime ctmTimeBegin}}</td>
+                <td class="label">消失时间：</td>
+                <td class="value">{{getTargetTime ctmTimeEnd}}</td>
+                <td class="label">&nbsp;</td>
+                <td class="value">&nbsp;</td>
+            </tr>
+        </table>
+    {{else}}
+        <p class="noresult">没有查询到数据</p>
+    {{/person}}
+{{/compareValue}}
+
+{{#compareValue tplName "car"}}
+    {{#car}}
+         <table>
+            <tr>
+                <td class="label">出现时间：</td>
+                <td class="value">{{getTargetTime ctmTimeBegin}}</td>
+                <td class="label">消失时间：</td>
+                <td class="value">{{getTargetTime ctmTimeEnd}}</td>
+                <td class="label">号牌种类：</td>
+                <td class="value">{{stdLicenseType}}</td>
+            </tr>
+            <tr>
+                <td class="label">车牌颜色：</td>
+                <td class="value">{{stdLicenseColorName}}</td>
+                <td class="label">车牌号码：</td>
+                <td class="value">{{stdLicenseNumber}}</td>
+                <td class="label">车辆类型：</td>
+                <td class="value">{{stdCarType}}</td>
+            </tr>
+            <tr>
+                <td class="label">车身颜色：</td>
+                <td class="value">{{stdCarColorName}}</td>
+                <td class="label">车标：</td>
+                <td class="value">{{stdCarBrand}}</td>
+                <td class="label">&nbsp;</td>
+                <td class="value">&nbsp;</td>
+            </tr>
+        </table>
+    {{else}}
+        <p class="noresult">没有查询到数据</p>
+    {{/car}}
+{{/compareValue}}

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=10,chrome=1"/>
+		<title>视云实战平台</title>
+		<!--[if lt IE 9]><script src="/libs/html5/html5.js"></script><![endif]-->
+		<!--[if IE]><script src="/libs/canvas/excanvas.js"></script><![endif]-->
+
+		<link type="text/css" rel="stylesheet" href="/module/common/css/base.css" />
+		<link type="text/css" rel="stylesheet" href="/libs/semantic/semantic.css" />
+		<link type="text/css" rel="stylesheet" href="/libs/jquery/jquery-ui.css">
+		<link type="text/css" rel="stylesheet" href="/libs/jquery/jquery.pagination.css"/>
+		<link type="text/css" rel="stylesheet" href="../common/css/struct.css"/>
+		<link type="text/css" rel="stylesheet" href="../common/css/table.css"/>
+		<link type="text/css" rel="stylesheet" href="../common/css/structure.css"/>
+		<link type="text/css" rel="stylesheet" href="/module/settings/mail/css/mail.css"/>
+
+	</head>
+
+	<body>
+		<div id="content">
+			<div class="wrapper">
+				<aside id="sidebar">
+					<a id="sideResize">
+						<iframe src="about:blank"></iframe>
+						<span class="resize"></span>
+					</a>
+
+					<ul class="leftmenu">
+						<li>邮箱配置</li>
+					</ul>
+
+				</aside>
+
+				<div id="major">
+
+				<div class="mailset">
+					<ul>
+						<li class="mailtitle">服务器信息</li>
+						<!--<li class="setlist"><lable>账户类型：</lable><input class="usertype" type="text"></li>-->
+						<!--<li class="setlist"><lable>接收邮件服务器：</lable><input class="receive" type="email"><ul class="mailplg"></ul></li>-->
+						<li class="setlist"><lable>发送邮件服务器(SMTP)：</lable><input class="send" type="text"><i class="error-info">请输入正确的邮件服务器</i></li>
+						<li class="setlist"><lable>端口：</lable><input class="port" type="text"><i class="error-info">请输入1~65536范围内的正整数！</i></li>
+
+						<li class="mailtitle">登陆信息</li>
+						<li class="setlist"><lable>邮箱用户名：</lable><input class="username" type="email"><ul class="mailplg"></ul><i class="error-info">请输入正确的邮箱格式</i></li>
+						<li class="setlist"><lable>密码：</lable><input class="userpass" type="password"><i class="error-info">密码由字母、数字、下划线组成！</i></li>
+
+						<li class="enter">
+							<button class="ui button test">邮箱检测</button>
+							<button class="ui button blue save">确定</button>
+					   </li>
+					</ul>
+				</div>
+
+			</div>
+		</div>
+
+</div>
+		<script type="text/javascript" src="/libs/requirejs/require.js" data-main="/require-conf"></script>
+		<script type="text/javascript">
+			require(['/module/settings/mail/js/main.js']);
+		</script>
+
+
+
+
+
+
+
+
+	</body>
+</html>

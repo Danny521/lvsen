@@ -1,0 +1,55 @@
+{{#if globalSearchReusltPubinfo}}
+<table cellSpacing="0" cellPadding="1" align="center" border="0" id="pubdiv-content-table">
+    <tr class="search-result-header">
+        {{#if fiterTab.map}}
+        <th data-type="map" class="active">门牌</th>
+        {{/if}}
+        {{#if fiterTab.route}}
+        <th data-type="route">道路</th>
+        {{/if}}
+        {{#if fiterTab.lightbar}}
+        <th data-type="lightbar">灯杆</th>
+        {{/if}}
+        {{#if fiterTab.gps}}
+        <th data-type="gps">GPS</th>
+        {{/if}}
+        {{#if fiterTab.tfz}}
+        <th data-type="tfz">350M</th>
+        {{/if}}
+    </tr>
+    <tr class="search-result-content">
+        <td nowrap colspan="{{colSpan}}">
+            <ul class="resultWrap">
+
+            </ul>
+        </td>
+    </tr>
+    <tr class="search-result-footer">
+        <td nowrap colspan="{{colSpan}}">
+            <i id="list-option-moreitems" title="点击查看更多">查看更多</i>
+        </td>
+    </tr>
+</table>
+<iframe class="global-search-content-iframe" scroll="none" src="about:blank"></iframe>
+{{/if}}
+
+{{#if globalSearchReusltItem}}
+    {{#if data.items.length}}
+        {{#each data.items}}
+            {{#if ../isMapAndRoute}}
+            <li class="resultItem" title="{{value}}" data-index = {{index}}>{{value}}</li>
+            {{/if}}
+            {{#if ../isLightBar}}
+            <li class="resultItem" title="{{code}}" data-index = {{index}}>{{code}}</li>
+            {{/if}}
+            {{#if ../isGps}}
+            <li class="resultItem" title="{{key}}" data-index = {{index}}>{{key}}</li>
+            {{/if}}
+            {{#if ../is350M}}
+            <li class="resultItem" title="{{key}}" data-index = {{index}}>{{key}}</li>
+            {{/if}}
+        {{/each}}
+    {{else}}
+    <li class="none_resultItem">搜索结果为空！</li>
+    {{/if}}
+{{/if}}

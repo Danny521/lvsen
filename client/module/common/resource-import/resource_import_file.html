@@ -1,0 +1,22 @@
+{{#if file}}
+<tr data-id='{{file.id}}'>
+    <td class="name" title='{{file.name}}'><i class="icon {{iconType file.type}}"></i>{{file.name}}</td>
+    <td class="size">{{formatSize file.size}}</td>
+    <td class="time">
+        <input type="text" class="input-time start-time" readonly="true" placeholder='起始时间'/>
+        <span class="stime hidden"></span>
+    </td>
+    <td class="time-diff">
+        <input type="text" class="input-time time-diff" readonly="true" placeholder='校正时间'/>
+        <span class="dtime hidden"></span>
+    </td>
+    <td class="progress">
+        <div class="progressbar"><div class="progress-label"></div></div>
+        <span class="status-text text-primary">未开始</span>
+    </td>
+    <td class="actions">
+        <a href="javascript:void(0);" class="btn remove-file ">删除</a>
+        <a href="javascript:void(0);" class="btn cancel-import hidden">取消</a>       
+    </td>
+</tr>
+{{/if}}  

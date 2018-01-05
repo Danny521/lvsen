@@ -1,0 +1,32 @@
+{
+	"code": 200,
+	"data": {
+		"list": [{
+				"id": "144",
+				"name": "检索结果1",
+				"status": "进行中"
+			},{
+				"id": "144",
+				"name": "检索结果1",
+				"status": "进行中"
+			},{
+				"id": "144",
+				"name": "检索结果1",
+				"status": "进行中"
+			},{
+				"id": "144",
+				"name": "检索结果1",
+				"status": "进行中"
+			}
+		],
+		"totalRecords": 50,
+		"pageSize": 12,
+		"pageNo": 1,
+		"totalPages": 1,
+		"previousPageNo": 1,
+		"nextPageNo": 1,
+		"ids": null,
+		"topPageNo": 1,
+		"bottomPageNo": 1
+	}
+}

@@ -1,0 +1,249 @@
+{{#if enterplatform}}
+    {{#if data}}
+    {{#each data}}
+    <tr>
+        <td class="pointNum">{{pointId}}</td>
+        <td class="pointName" title="{{pointName}}"><span class="limitLen">{{pointName}}</span></td>
+        <td class="pointAddress"  title="{{pointPosition}}"><span class="limitLen">{{pointPosition}}</span></td>
+        <td class="department" data-code="{{pointSite}}">{{pointSite}}</td>      
+        <td class="longitude">{{pointLongitude}}</td>  
+        <td class="latitude">{{pointLatitude}}</td>     
+        <td class="pointHeight">{{pointHeight}}</td>
+        <td class="roadTowards" data-code="{{roadDirection}}">{{pointRoadDirection roadDirection}}</td> 
+        <td class="linkman"  title="{{contactName}}"><span class="limitLen">{{contactName}}</span></td>
+        <td class="tel">{{contactPhone}}</td>
+        <td class="companyName"  title="{{managerUnitName}}"><span class="limitLen">{{managerUnitName}}</span></td>
+        <td class="pointState">{{pointstatus status}}</td>           
+        <td class="opera-btn">
+            <i class="icon-edit permission permission-point-new point-edit" title="编辑" data-id="{{id}}" data-event="click" data-handler="EditTask"></i> 
+            <i class="icon-delete permission permission-point-cancel" title="注销" data-id="{{id}}" data-event="click" data-handler="LogoutTask"></i>
+            <i class="icon-showDetail permission permission-point-view" title="显示点位监控" data-id="{{id}}" data-event="click" data-handler="ShowDetailTb"></i>
+        </td>
+    </tr>
+    {{/each}}
+    {{else}}
+        <tr>
+            <td class="noData" colspan="13">暂无数据</td>
+        </tr>
+    {{/if}}
+{{/if}}
+
+{{#if noEnterplatform}}
+    {{#if data}}
+    {{#each data}}
+    <tr>
+        <td class="checkbox"><i class="icon-nochecked" data-id="{{id}}" data-event="click" data-handler="CheckSingle"></i></td>
+        <td class="pointNum">{{pointId}}</td>  
+        <td class="pointName" title="{{pointName}}"><span class="limitLen">{{pointName}}</span></td>
+        <td class="pointAddress"  title="{{pointPosition}}"><span class="limitLen">{{pointPosition}}</span></td>
+        <td class="department" data-code="{{pointSite}}">{{pointSite}}</td>
+        <td class="longitude">{{pointLongitude}}</td>
+        <td class="latitude">{{pointLatitude}}</td>
+        <td class="pointHeight">{{pointHeight}}</td>
+        <td class="roadTowards" data-code="{{roadDirection}}">{{pointRoadDirection roadDirection}}</td>
+        <td class="linkman"  title="{{contactName}}"><span class="limitLen">{{contactName}}</span></td>
+        <td class="tel">{{contactPhone}}</td>
+        <td class="companyName"  title="{{managerUnitName}}"><span class="limitLen">{{managerUnitName}}</span></td>
+        <td class="pointState">{{pointstatus status}}</td>
+        <td class="opera-btn">
+            <i class="icon-edit  permission permission-point-new point-edit" title="编辑" data-id="{{id}}" data-event="click" data-handler="EditTask"></i> 
+            <i class="icon-delete  permission permission-point-cancel" title="注销" data-id="{{id}}" data-event="click" data-handler="LogoutTask"></i>
+            <i class="icon-showDetail permission permission-point-view" title="显示点位监控" data-id="{{id}}" data-event="click" data-handler="ShowDetailTb"></i>
+        </td>
+    </tr>
+    {{/each}}
+    {{else}}
+        <tr>
+            <td class="noData" colspan="14">暂无数据</td>
+        </tr>
+    {{/if}}
+{{/if}}
+
+{{#if editPoint}}
+
+    <div class="pointDialog">
+        <div class="pointDialogTitle">
+            <h2>编辑点位</h2>
+            <div class="cancleDialog" data-event="click" data-handler="CancleEdit"></div>
+        </div>
+        <div class="formEditOutter ui input">
+            <form class="formEdit" action="" method="" onsubmit="return false;">
+                 <fieldset  class="importantFieldset">
+                    <label for=""><i class="important">*</i>点位名称：</label>
+                    <input name="pointName" value="{{data.pointName}}" type="text" class="" placeholder="请输入点位名称"><br/>
+
+                    <label for=""><i class="important">*</i>点位位置：</label>
+                    <input name="pointAddress"  value="{{data.pointPosition}}" type="text" class="" placeholder="请输入点位位置"><br/>
+
+                    <label for=""><i class="important">*</i>点位经度：</label>
+                    <input name="longitude" value="{{data.pointLongitude}}" type="text" class="noEdit" placeholder="请输入点位精度"  disabled="true"　readOnly="true">
+                   <!--  <i class="inputLatitude" title="经度" data-event="click" data-handler = "getPosition" ></i> -->
+                    <br/>
+                    <label for=""><i class="important">*</i>点位维度：</label>
+                    <input type="text" name="latitude" value="{{data.pointLatitude}}" class="noEdit" placeholder="请输入点位纬度"  disabled="true"　readOnly="true">
+                    <br/>
+                    <label for=""><i class="important">*</i>点位海拔：</label>
+                    <input type="text" name="pointHeight" value="{{data.pointHeight}}" class="height" placeholder="请输入点位海拔">
+                    <br/>
+                    
+                </fieldset>
+
+                <fieldset>
+                    <label for="">所属部位：</label>
+                    <span class="select_wrapper select select_container searchPointSite" data-event="click" data-handler="SearchPointSite">
+                        <span class="text" data-value="{{data.pointSiteCode}}">{{data.pointSite}}</span>
+                        <span class="arrow arrow-down" ></span>
+                    </span>
+                    <br/>
+                    <label for="">路段走向：</label>
+                    <span class="select_wrapper select select_container searchRoadDirection" data-event="click" data-handler="SearchRoadDirection">
+                        <span class="text" data-code="{{data.roadDirectionCode}}">{{data.roadDirection}}</span>
+                        <span class="arrow arrow-down" ></span>
+                    </span>
+                    <br/>
+        
+                    <label for="">联系人：</label>
+                    <input class="" type="text" name="linkman" value="{{data.contactName}}" placeholder="请输入联系人"><br/>
+
+                    <label for="">联系电话：</label>
+                    <input class="tel" type="text" name="tel" value="{{data.contactPhone}}" placeholder="请输入联系电话"><br/>
+
+                  <!--   <label for="">管辖单位代码：</label>
+                    <input class="" type="text" name="companycode" value="{{data.managerUnitCode}}" placeholder="请输入管辖单位代码"><br/>
+
+                    <label for="">管辖单位名称：</label>
+                    <input class="" type="text" name="companyName" value="{{data.managerUnitName}}" placeholder="请输入管辖单位名称"> -->
+                </fieldset>
+                <fieldset class="">
+                    <button class="primaryBtn" data-event="click" data-handler="SavePointMsg">保存</button>
+                    <button class="primaryBtn cancleBtn"  data-event="click" data-handler="CancleEdit">取消</button>
+                </fieldset>
+            </form>
+        </div>
+          <!--   <div class="pointmapPos">
+             <span class="cancalMap" data-event="click"  data-handler="closeMapPanel"></span>
+             <div  id="mapSetPanel"></div>
+        </div> -->
+
+    </div>
+
+{{/if}}
+
+
+{{#if createPoint}}
+
+    <div class="pointDialog">
+        <div class="pointDialogTitle">
+            <h2>新建点位</h2>
+            <div class="cancleDialog" data-event="click" data-handler="CancleCreate"></div>
+        </div>
+        <div class="formEditOutter ui input">
+            <form class="formEdit" action="" method="" onsubmit="return false;">
+                <fieldset class="importantFieldset">
+              
+                    <label for=""><i class="important">*</i>点位名称：</label>
+                    <input name="pointName" value="" type="text" class="" placeholder="请输入点位名称"><br/>
+
+                    <label for=""><i class="important">*</i>点位位置：</label>
+                    <input name="pointAddress"  value="" type="text" class="" placeholder="请输入点位位置"><br/>
+
+
+
+                    <label for=""><i class="important">*</i>点位经度：</label>
+                    <input name="longitude" value="" type="text" placeholder="请输入点位精度">
+                    <i class="inputLatitude" title="点击拖动到地图选择经纬度" data-event="click" data-handler = "getPosition" ></i>
+                    <br/>
+
+                    <label for=""><i class="important">*</i>点位维度：</label>
+                    <input type="text" name="latitude" value="" class="" placeholder="请输入点位纬度">
+            
+                    <br/>
+                    <label for=""><i class="important">*</i>点位海拔：</label>
+                    <input type="text" name="pointHeight" value="" class="height" placeholder="请输入点位海拔">
+                    <br/>
+                </fieldset>
+
+                <fieldset>
+                        <label for="">所属部位：</label>
+                        <span class="select_wrapper select select_container searchPointSite" data-event="click" data-handler="SearchPointSite">
+                            <span class="text" data-value="">请选择所属部位</span>
+                            <span class="arrow arrow-down" ></span>
+                        </span>
+                        <br/>
+            
+                    <label for="">路段走向：</label>
+                    <span class="select_wrapper select select_container searchRoadDirection" data-event="click" data-handler="SearchRoadDirection">
+                        <span class="text" data-code="">请选择路段走向</span>
+                        <span class="arrow arrow-down" ></span>
+                    </span>
+                    <br/>
+        
+
+                    <label for="">联系人：</label>
+                    <input class="" type="text" name="linkman" value="" placeholder="请输入联系人"><br/>
+
+                    <label for="">联系电话：</label>
+                    <input class="tel" type="text" name="tel" value="" placeholder="请输入联系电话"><br/>
+
+                   <!--  <label for="">管辖单位代码：</label>
+                    <input class="" type="text" name="companycode" value="" placeholder="请输入管辖单位代码"><br/>
+
+                    <label for="">管辖单位名称：</label>
+                    <input class="" type="text" name="companyName" value="" placeholder="请输入管辖单位名称"> -->
+                </fieldset>
+                <fieldset class="">
+                    <button class="primaryBtn" data-event="click" data-handler="SavePointMsg">保存</button>
+                    <button class="primaryBtn cancleBtn"  data-event="click" data-handler="CancleCreate">取消</button>
+                </fieldset>
+            </form>
+        </div>
+        <div class="pointmapPos">
+             <span class="cancalMap" data-event="click"  data-handler="closeMapPanel"></span>
+             <div  id="mapSetPanel"></div>
+        </div>
+    </div>
+
+{{/if}}
+
+
+
+{{#if showPointDetails}}
+<tr class="showdetails-table">
+    <td class="trtotd" colspan="13">
+        <table class="showdetails-tb">
+             <tr>
+                <th>设备类型</th>
+                <th>设备编号</th>
+                <th>监控系统名称</th>
+                <th>设备类型</th>
+                <th>设备厂家</th>
+                <th>监控类型</th>
+                <th>管理单位</th>
+                <th>操作</th>
+            </tr>
+        </table>   
+    </td>
+</tr>
+{{/if}}
+
+
+{{#if showdetails-tr}}
+    {{#if data}}
+    {{#each data}}
+    <tr>
+        <td class="equipType"><i class="icon-equipType typeImg{{deviceType}}"></i></td>
+        <td class="equipNum">{{deviceId}}</td>
+        <td class="sysName">{{monitorSystemName}}</td>
+        <td class="equipType">{{deviceTypeJudge deviceType}}</td>
+        <td class="equipFactory">{{deviceManufacturer deviceManufacturer}}</td>
+        <td class="monitorType">{{monitorType monitorType}}</td>
+        <td class="manageUnit">{{managerUnitName}}</td>
+        <td class="cameraOptBtn"><i data-id="{{id}}" class="icon-cameraDetail"  data-event="click"  data-handler="SeeCameraDetail" title="显示监控详情" ></i></td>
+    </tr>
+    {{/each}}
+    {{else}}
+        <tr>
+            <td class="noData" colspan="14">暂无数据</td>
+        </tr>
+    {{/if}}
+{{/if}}

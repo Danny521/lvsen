@@ -1,0 +1,100 @@
+<script id="user-base-info" type="text/x-handlebars-template">
+	<form method="post" autocomplete="off" id="signForm" onsubmit="return false;">
+			<div class="myBox form-item">
+				<span class="item-label">
+					<label for="loginName">
+						登录名：
+					</label>
+				</span>
+				<div class="item-box ui input">
+				<input class="input-text disable " id="loginName" type="text" data-id="{{id}}" name="loginName" disabled="disable" value="{{loginName}}">
+				</div>
+			</div>
+			
+			<div class="form-item">
+				<span class="item-label">
+					<span class="spark">*</span>
+					<label for="realname">
+						真实姓名：
+					</label>
+				</span>
+				<div class="item-box ui input">
+				<input class="input-text" id="realname" type="text" name="realname" value="{{name}}" {{ifAdmin loginName}}>
+				</div>
+			</div>
+
+			<div class="form-item">
+				<span class="item-label">
+					<label for="room">
+						办公室座机号：
+					</label>
+				</span>
+				<div class="item-box ui input">
+				<input class="input-text" id="officeNo"type="text" name="room" value="{{officeNo}}" {{ifAdmin loginName}}>
+				</div>
+			</div>
+
+			<div class="form-item">
+				<span class="item-label">
+					<span class="spark">*</span>
+					<label for="userid">
+						身份证号：
+					</label>
+				</span>
+				<div class="item-box ui input">
+				<input class="input-text" id="idCardNumber" type="text" name="userid" value="{{idCardNumber}}" {{ifAdmin loginName}}>
+				</div>
+			</div>
+
+			<div class="form-item">
+				<span class="item-label">
+					<label for="phone">
+						手机号码：
+					</label>
+				</span>
+				<div class="item-box ui input">
+				<input class="input-text" id="phoneNo" type="text" name="phone" value="{{phoneNo}}" {{ifAdmin loginName}}>
+				</div>
+			</div>
+
+			<div class="form-item">
+				<span class="item-label">
+					<label for="email">
+						公安网邮箱：
+					</label>
+				</span>
+				<div class="item-box ui input">
+				<input class="input-text" id="email" type="text" name="email" value="{{email}}" {{ifAdmin loginName}}>
+				</div>
+			</div>
+			{{#isAdmin loginName}}{{else}}
+			<div class="form-item">
+				<span class="item-label">
+					<label for="password">
+						新密码：
+					</label>
+				</span>
+				<div class="item-box ui input">
+					<!-- <span id="newPassFst"></span> -->
+				<input class="input-text" id="password" type="password" name="password" id="password">
+				</div>
+			</div>
+
+			<div class="form-item">
+				<span class="item-label">
+					<label for="confirm_password">
+						重复密码：
+					</label>
+				</span>
+				<div class="item-box ui input">
+				<input class="input-text" type="password" name="confirm_password">
+				</div>
+			</div>
+
+		<div class="sumitBox">
+			<button type="submit" class="ui button blue" id="saveUser">确定</button>
+			<button type="reset" class="ui button" id="cancelUser">重置</button>
+		</div>
+	{{/isAdmin}}
+	</form>
+</script> 

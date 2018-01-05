@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8" />
+	<title>视云实战平台</title>
+	<!--[if lt IE 9]>
+	<script src="/assets/js/lib/html5.js"></script>
+	<![endif]-->
+	<link type="image/x-icon" rel="shortcut icon" href="/assets/favicon.ico" />
+	<link type="text/css" rel="stylesheet" href="/assets/css/base.css" />
+	<link type="text/css" rel="stylesheet" href="/assets/css/semantic.css" />
+	<link type="text/css" rel="stylesheet" href="/assets/css/module/jquery-ui.css">
+	<link type="text/css" rel="stylesheet" href="/assets/css/module/jquery.datetimepicker.css">
+	<link type="text/css" rel="stylesheet" href="/assets/css/module/pagination.css"/>
+	<link type="text/css" rel="stylesheet" href="/assets/css/apps/inspect.css" />
+	<link type="text/css" rel="stylesheet" href="/assets/css/apps/inspect/frame-mark.css">
+	<link type="text/css" rel="stylesheet" href="/assets/css/apps/inspect/timeline.css">
+	<script type="text/javascript" src="/libs/requirejs/require.js"></script>
+
+	<script type="text/javascript">
+		require(['/require-conf.js'],function(){
+			require(['/module/inspect/surveillance/js/frametagmain.js']);
+		});
+	</script>
+
+</head>
+<body>
+	<script type="text/javascript" src="/assets/js/apps/menu.js"></script>
+	<div id="content">
+		<div class="wrapper">
+			<aside id="sidebar">
+				<div class="header">
+					<ul class="menus ui tabular">
+						<li class="camera active" data-tab="cameras">
+							<a class="nav frame">帧标记</a>
+						</li>
+					</ul>
+				</div>
+					<!--
+					<input type="text" name="q" placeholder="全局搜索..."  id="framesearchText"/>
+					<span class='framespan'><span class="head">标记名：</span><span class='text'>打架</span><span class="close">X</span></span>
+					<div id="inputText" class="allowSelect" contentEditable="true"></div>
+					-->
+				<div id="tree_Panel">
+					<div class="ui tab active">
+						<div class="form-panel">
+							<div class="ui tab active filter" data-tab="cameras">
+								<form onsubmit="return false;" autoComplete="off">
+									<div class="ui input action search">
+										<input type="text" name="q" placeholder="全局搜索..."  id="framesearchText"/>
+										<button class="search action">搜索</button>
+									</div>
+									&nbsp;&nbsp;<label for="expandSearch">高级</label><span id="expandSearch" class="expand expand2"></span>
+								</form>
+							</div>
+						</div>
+						<div id="framePanel">
+							<ul>
+								<li>
+									<span class="titleText">开始时间：</span>
+									<span class="content">
+										<input id="beginTime" class="time input-time"/>
+										<span class="color"></span>
+									</span>
+								</li>
+								<li>
+									<span class="titleText">结束时间：</span>
+									<span class="content">
+										<input id="endTime"  class="time  input-time"/>
+										<span class="color"></span>
+									</span>
+								</li>
+								<li>
+									<span class="titleText">标记名：</span>
+									<span class="content">
+									   <input id="name" class="text"/>
+									</span>
+								</li>
+								<li>
+									<span class="titleText">标记级别：</span>
+									<span class="levels"><span class="checkbox color1" level="0"></span>
+									<span class="checkbox color2" level="1"></span>
+									<span class="checkbox color3" level="2"></span>
+									<span class="checkbox color4" level="3"></span>
+									<span class="checkbox color5" level="4"></span></span>
+									<!--<input
+									id="level"
+									class="text simpleColor"
+									colorConfig='[
+									{"color":"red","value":0},
+									{"color":"orange",value:1},
+									{"color":"yellow","value":2},
+									{"color":"#00ccff","value":3},
+									{"color":"#e1e1e1","value":4}
+									]'/>
+									<span class="content simpercolorpicker"></span>-->
+								</li>
+								<li>
+									<span class="titleText">摄像机名称：</span>
+									<span class="content">
+										<input id="cameraName" class="text"/>
+									</span>
+								</li>
+								<li>
+									<span class="titleText">摄像机编号：</span>
+									<span class="content">
+										<input id="cameraCode" class="text"/>
+									</span>
+								</li>
+								<li>
+									<span class="titleText">创建人：</span>
+									<span class="content">
+										<input id="userName" class="text"/>
+									</span>
+								</li>
+								<li>
+									<span class="titleText">标记描述：</span>
+									<span class="content">
+										<input id="description" class="text"/>
+									</span>
+								</li>
+							</ul>
+							<div class="searchok">
+								<button class="ui button blue" id="searchdo" type="button">搜索</button>
+								<button class="ui  button" id="searchcancel" type="button">重置</button>
+							</div>
+						</div>
+
+						<div class="ShowframeName">
+							<div class="mark-checkbox">
+								<input id="onlySelf" type="checkbox"/><label for="onlySelf">仅显示自己创建的帧标记</label>
+							</div>
+							<div class="frame-mark-names">
+								<!--
+								<div class="mark">
+									<span class="name">打架骂人(3302)</span>
+									<span class="arrow"><img src="/assets/images/inspect/mark-arrow.png"></span>
+								</div>
+								-->
+							</div>
+						</div>
+					</div>
+				</div>
+			</aside>
+
+
+	<div id="major">
+		<div class="markHeader">
+			<div class="mark-model">帧标记</div>
+			<div class="change-mode">
+				<span id="listMode">
+					<span class="list" id="list"></span>
+					<label for="list">列表模式</label>
+				</span>
+
+				<span id="imageMode">
+					<span class="icon" id="icon"></span>
+					<label for="icon">图片模式</label>
+				</span>
+			</div>
+		</div>
+		<div id="rightContent">
+			<div id="frameMarkList" class="modelcontent">
+				<table id="frameMarkResult" cellspacing="0" cellpadding="0">
+					<tr class="thead">
+						<th class="cell0">序号</th>
+						<th class="cell1">标记名称</th>
+						<th class="cell2">标记时间</th>
+						<th class="cell3">摄像机编号</th>
+						<th class="cell4">摄像机名称</th>
+						<th class="cell5">所属组织</th>
+						<th class="cell6">创建人</th>
+						<th class="cell7">操作</th>
+					</tr>
+			   </table>
+			</div>
+
+			<div id="frameImageList">
+				<div class="markImage" markid="0">
+					<span class="title">闯红灯</span>
+					<div class="image">
+						<!--<img class="thumbnail"  src="http://127.0.0.1:9092/service/frame/frameTag/image/17"/>-->
+						<div class="buttons">
+							<span class="imgbtn edit"></span>
+							<span class="imgbtn play"></span>
+							<span class="imgbtn saveto"></span>
+							<span class="imgbtn delete"></span>
+						</div>
+					</div>
+					<div class="cameraName">大华高清测试</div>
+					<div class="time">2014-12-20 22:30:25</div>
+				</div>
+			</div>
+
+			<div id="Pagination" class="pagination">
+			</div>
+
+			<div id="timeline">
+				<div id="frameList">
+					<span class="framepoint level0"></span>
+					<span class="framepoint level1"></span>
+					<span class="framepoint level2"></span>
+					<span class="framepoint level3"></span>
+				</div>
+				<span class="arrow toLeft"></span>
+				<div id="canvas" class="canvas"></div>
+				<span class="arrow toRight"></span>
+			</div>
+	   </div>
+	</div>
+</div>
+</div>
+
+</body>
+</html>

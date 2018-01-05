@@ -1,0 +1,238 @@
+<div class="download-record">
+	<iframe src="about:blank"></iframe>
+</div>
+<div class="dialog-history postform">
+	<div class="dialog-title">
+		<span class="head">入库信息填写</span>
+		<span class="close"></span>
+	</div>
+	<div class="dialog-body unselect">
+		<div class="blockline"><span>必填参数</span></div>
+		<div class="content-main">
+			<div class="formlist must">
+				<div><span class="header">关联案事件：</span><span class="form"><input type="radio" name="createIncident" checked="checked"  class="radio" id="unIncident"/><label for="unIncident">不关联案事件</label></span></div>
+				<div><span class="header"></span><span class="form"><input type="radio" name="createIncident" class="createIncident" id="createIncident"/><label for="createIncident">创建案事件</label></span></div>
+				<div><span class="header"></span><span class="form"><input type="radio" name="createIncident" class="radio" id="existingIncident"/><label for="existingIncident">添加至已有案件</label></span></div>
+				<div><span class="header"></span><span class="form">
+				<input type="text" id="incidentname" class="input"  disabled="true" class="radio" placeholder="输入案事件名称"/></span></div>
+				<div><span class="header"><span class="vip">*</span>文件格式：</span>
+					<span class="form">
+						<select class="input-select" id="file_format" name="fileFormat" >
+							<option value="">--请选择--</option>
+							<option value="01">MPG</option>
+							<option value="02">MOV</option>
+							<option value="03">AVI</option>
+							<option value="04">RM</option>
+							<option value="05">RMVB</option>
+							<option value="06">XVID</option>
+							<option value="07">VOB</option>
+							<option value="08">M2TS</option>
+							<option value="09">MP4</option>
+							<option value="99">其他</option>
+						</select>
+					</span>
+				</div>
+
+				<div><span class="header"><span class="vip">*</span>拍摄时间：</span><span class="form date">
+					<input type="text" class="input input-time" id="shootTime" maxlength="50" name="shootTime" value="" /><i class="date-icon"></i>
+				</span></div>
+				<div><span class="header"><span class="vip">*</span>分类：</span><span class="form">
+						<select class="input-select" id="category" name="category">
+							<option value="">--请选择--</option>
+							<option value="F1">底片</option>
+							<option value="F2">正片</option>
+							<option value="F2.1">建设面貌</option>
+							<option value="F2.2">人物类</option>
+							<option value="F2.3">会议类</option>
+							<option value="F2.4">参观视察类</option>
+							<option value="F2.5">业务活动类</option>
+							<option value="F2.6">荣誉类</option>
+							<option value="F2.7">文体活动类</option>
+							<option value="F3">录音带</option>
+							<option value="F4">录像带</option>
+							<option value="F5">磁盘</option>
+							<option value="F6">光盘</option>
+						</select>
+				</span></div>
+				<div><span class="header"><span class="vip">*</span>题名：</span><span class="form">
+					<input  id="name" class="input" maxlength="30" name="name" value="" type="text"/>
+				</span></div>
+				<div><span class="header"><span class="vip">*</span>内容描述：</span><span class="form">
+					<textarea class="input-area" id="description" maxlength="200" name="description"></textarea>
+				</span></div>
+			</div>
+			<div class="formlist must">
+				<div class="form-item"><span class="header"><span class="vip">*</span>拍摄地点：</span><span class="form">
+					<select id="province" name="province" class="input-select  notNull input-select-second" data-default="">
+						<option value="">--请选择--</option>
+					</select>
+				</span></div>
+				<div class="form-item"><span class="header"></span><span class="form">
+					<select id="city" name="city" class="input-select  notNull input-select-second" data-default="">
+						<option value="">--请选择--</option>
+					</select>
+				</span></div>
+
+				<div class="form-item"><span class="header"></span><span class="form">
+					<select id="country" name="country" class="input-select notNull input-select-second" data-default="">
+						<option value="">--请选择--</option>
+					</select>
+				</span></div>
+
+				<div class="form-item"><span class="header"></span><span class="form">&nbsp;<input name="streets" id="streets" class="input-text" placeholder="请输入街道详细地址" value="" maxlength="200" type="text"></span></div>
+
+				<div class="form-item"><span class="header"><span class="vip">*</span>拍摄地点经度：</span><span class="form"> <input class="input-text" id="longitude" maxlength="50" name="longitude" value="0.000000" type="text"></span></div>
+
+				<div><span class="header"><span class="vip">*</span>拍摄地点纬度：</span><span class="form"> <input class="input-text" id="latitude" maxlength="50" name="latitude" value="0.000000" type="text"></span></div>
+
+				<div class="form-item">
+					<span class="header">
+						<label for="duration"><span class="vip">*</span>视频长度(秒)：</label>
+					</span>
+					<span>
+						<input class="input-text" id="duration" maxlength="50" name="duration" value="" type="text">
+					</span>
+				</div>
+
+				<div class="form-item">
+					<span class="header">
+						<label for="enterTime"><span class="vip">*</span>视频入点：</label>
+					</span>
+					<span>
+						<input class="input-text input-time" id="enterTime" maxlength="50" name="enterTime" value="" type="text">
+					</span>
+				</div>
+
+				<div class="form-item">
+					<span class="header">
+						<label for="startTime"><span class="vip">*</span>开始绝对时间：</label>
+					</span>
+					<span>
+						<input class="input-text input-time" id="startTime" maxlength="50" name="startTime" value="" type="text">
+						<label></label>
+					</span>
+				</div>
+				
+				<div class="form-item">
+					<span class="header">
+						<label for="endTime"><span class="vip">*</span>结束绝对时间：</label>
+					</span>
+					<span>
+						<input class="input-text input-time" id="endTime" maxlength="50" name="endTime" value="" type="text">
+						<label></label>
+					</span>
+				</div>
+
+				<div><span class="header"><span class="vip">*</span>宽度：</span><span class="form"> <input class="input-text" id="width" maxlength="50" name="width" value="" type="text"></span></div>
+				<div><span class="header"><span class="vip">*</span>高度：</span><span class="form"> <input class="input-text" id="height" maxlength="50" name="height" value="" type="text"></span></div>
+			</div>			
+		</div>
+
+		<div class="blockline"><span>选填参数</span></div>
+		<div class="content-other">
+			<div class="formlist option">
+				<div><span class="header">来源：</span>
+					<span class="form">
+							<select class="input-select" id="source_id" name="sourceId">
+								<option value="">--请选择--</option>
+								<option value="01">政府机关监控</option>
+								<option value="02">社会治安监控</option>
+								<option value="03">交通监控</option>
+								<option value="04">出入境监控</option>
+								<option value="05">港口监控</option>
+								<option value="06">金融系统监控</option>
+								<option value="07">旅馆监控</option>
+								<option value="08">互联网营业场所监控</option>
+								<option value="09">娱乐服务场所监控</option>
+								<option value="10">其它企业/事业单位监控</option>
+								<option value="11">居民自建监控</option>
+								<option value="12">移动拍摄</option>
+								<option value="13">网络获取</option>
+								<option value="99">其他</option>
+							</select>
+					</span>
+				</div>
+
+				<div><span class="header">来源地点/设备编码：</span>
+					<span class="form">
+						<input class="input-text" id="device" maxlength="20" name="device" value="" type="text">
+					</span>
+				</div>
+
+				<div><span class="header">编码格式：</span>
+					<span class="form">
+							<select class="input-select" id="code_format" name="codeFormat">
+								<option value="">--请选择--</option>
+								<option value="01">SVAC</option>
+								<option value="02">H.264</option>
+								<option value="03">MPEG-4</option>
+								<option value="04">MPEG-2</option>
+								<option value="99">其他</option>
+							</select>
+					</span>
+				</div>
+
+				<div><span class="header">提名补充：</span><span class="form date">
+					<input class="input-text" id="supplement" maxlength="30" name="supplement" value="" type="text"/>
+				</span></div>
+				<div><span class="header">专项名：</span><span class="form">
+					<input class="input-text" id="earmark" maxlength="30" name="earmark" value="" type="text"/>
+				</span></div>
+				<div><span class="header">主题词：</span><span class="form">
+					<input class="input-text" id="subject" maxlength="30" name="subject" value="" type="text"/>
+				</span></div>
+
+				<div><span class="header">关键词：</span><span class="form">
+					<input class="input-text" id="keywords" maxlength="30" name="keywords" value="" type="text"/>
+				</span></div>
+
+			</div>
+
+			<div class="formlist option">
+				<div><span class="header">主要人物：</span><span class="form">
+					<input class="input-text" id="keyman" maxlength="30" name="keyman" value="" type="text"/>
+				</span></div>
+				<div><span class="header">密级：</span><span class="form">
+						<select class="input-select" id="secrecy" name="secrecy">
+							<option value="">--请选择--</option>
+							<option value="01">公开</option>
+							<option value="02">秘密</option>
+							<option value="03">机密</option>
+							<option value="04">绝密</option>
+						</select>
+				</span></div>
+
+				<div><span class="header">语言：</span><span class="form">
+					<input class="input-text" id="language" maxlength="100" name="language" value="" type="text"/>
+				</span></div>
+
+				<div><span class="header">采集人：</span><span class="form">
+					<input class="input-text" id="picker" maxlength="100" name="picker" value="" type="text"/>
+				</span></div>
+
+				<div><span class="header">采集单位名称：</span><span class="form">
+					<input class="input-text" id="picker_company" maxlength="100" name="pickerCompany" value="" type="text"/>
+				</span></div>
+
+				<div><span class="header">质量等级：</span><span class="form">
+						<select class="input-select" id="quality" name="quality">
+							<option value="">--请选择--</option>
+							<option value="1">极差</option>
+							<option value="2">较差</option>
+							<option value="3">一般</option>
+							<option value="4">较好</option>
+							<option value="5">很好</option>
+						</select>
+				</span></div>
+
+			</div>			
+		</div>
+
+	</div>
+	<div class="dialog-foot">
+		<span class="okcancel">
+			<span class="ok ui button blue">保存信息</span>
+			<span class="cancel ui button">取消</span>						
+		</span>
+	</div>
+</div>

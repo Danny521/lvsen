@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=10,chrome=1"/>
+    <meta http-equiv="Access-Control-Allow-Origin" content="*"/>
+	<title>视频实战应用平台</title>
+	<!--[if lt IE 9]>
+	<script src="/libs/html5/html5.js"></script>
+	<![endif]-->
+	<link type="image/x-icon" rel="shortcut icon" href="/favicon.ico" />
+    <link type="text/css" rel="stylesheet" href="../../../libs/semantic/semantic.css" />
+    <link type="text/css" rel="stylesheet" href="../../../libs/jquery/jquery-ui.css">
+    <link type="text/css" rel="stylesheet" href="../../common/css/base.css" />
+    <link type="text/css" rel="stylesheet" href="../common/css/tree.css" />
+    <link type="text/css" rel="stylesheet" href="../common/css/pub.css">
+    <link type="text/css" rel="stylesheet" href="css/alarmmgr.css">
+    <link type="text/css" rel="stylesheet" href="css/screen.css">
+    <link type="text/css" rel="stylesheet" href="/module/protection-monitor/defencesetting/css/defence.css">
+    <link type="text/css" rel="stylesheet" href="/module/protection-monitor/common/css/simple-camera-tree.css">
+    <link type="text/css" rel="stylesheet" href="/module/protection-monitor/defencesetting/css/control.css">
+    <link type="text/css" rel="stylesheet" href="/module/common/popLayer/css/details.css">
+    <link type="text/css" rel="stylesheet" href="/module/common/checkLinkage/css/index.css">
+</head>
+<body>
+	<div id="content">
+        <!--下拉列表等浮动层-->
+        <div class="alarmmgr pubdiv" data-type="">
+            <ul>
+            </ul>
+        </div>
+        <!--视频播放窗口框架-->
+        <div class="video-play-frame-new">
+        </div>
+		<div class="wrapper">
+			<aside id="sidebar">
+                <!--页面左右调整块
+				<a id="sideResize">
+					<iframe src="about:blank"></iframe>
+                    <span class="resize"></span>
+				</a>
+                <!--左侧头-->
+                 <ul class="header">
+
+                    <li class="inline-list-item-nav active" data-handler="defenceTsakSet" data-focus="true">
+                        <a>布防任务</a>
+                        <span class="line"></span>
+                    </li>
+                    <li class="inline-list-item-nav" data-handler="controlTsakSet">
+                        <a>布控任务</a>
+                    </li>
+                </ul>
+                <!--左侧内容区-->
+                <div id="aside">
+                    <div class="defence-add-panel">
+                        <p class="addPart">
+                            <span class="addInfo">任务列表</span>
+                            <span class="addTask ui button blue">新增布防</span>
+
+                            <span class="controllAllTask">
+                                <i class="Carrow"></i>批量
+                                <span class="ctrStyle">
+                                    <i class="icon_pause" data-type="pause" title="暂停所有任务"></i>
+                                    <i class="icon-run" data-type="run" title="运行所有任务"></i>
+
+                                </span>
+                            </span>
+                        </p>
+                    </div>
+                    <div class="defence-container">
+                        <ul id="defenceTaskList" onselectstart="return false;">
+                        </ul>
+                    </div>
+                </div>
+                 <div id="setPanel">
+                    <div class="arrow"></div>
+                    <ul class="TasklistPanel">
+
+                    </ul>
+
+                </div>
+
+			</aside>
+            <aside id="rightside">
+                <!--右侧头-->
+                <ul class="header">
+                     <li class="manaul-list active" data-handler="alarmInfoALL" data-focus="true">
+                        <a>全部报警</a>
+                    </li><li class="manaul-list" data-handler="alarmCurrent">
+                        <a>我的关注</a>
+                    </li>
+
+                </ul>
+                <!--左侧内容区-->
+                <div id="rightMainSide">
+                    <div class="condition-panel">
+                        <div class="select_container" data-init="true" data-type="rule-list">
+                            <span class="text" data-value="">报警类型</span>
+                            <span class="arrow-down"></span>
+                        </div>
+                        <div class="select_container" data-init="true" data-type="status-list">
+                            <span class="text" data-value="">全部状态</span>
+                            <span class="arrow-down"></span>
+                        </div>
+                    </div>
+                    <div class="operator-panel">
+                        <span class="left-operator"><i class="icons-select-all checkbox_ctrl"></i><em>全选</em></span>
+                        <span class="right-operator">
+                            <div class="select_container" data-init="true" data-type="fast-deal-list">
+                                <span class="text" data-value="0">快速处理为</span>
+                                <span class="arrow-down"></span>
+                            </div>
+                        </span>
+                        <!--<span class="refresh-operator"><i class="icons-alarm-refresh" title="刷新报警列表"></i></span>-->
+                    </div>
+                    <div class="scrollbar-panel">
+                        <ul class="content-alarms-list">
+                           <p class="style-text-info ">暂无报警数据！</p> 
+                        </ul>
+                    </div>
+                </div>
+            </aside>
+		</div>
+		<div id="mainwrapper">
+			<div id="major">
+                <div id="mapId" class="gismap olMap">
+                    <div class="header">
+                        <h3 class="title"></h3>
+                        <div class="centerChange">
+                            
+                            <a class="item center active">
+                                <span class="changeStyle ui button active" title="地图模式" data-handler="mapStyle"><i class="icon_map active"></i>地图模式</span>
+                                <span class="line"></span>
+                            </a>
+                            <a class="item center">
+                                <span class="changeStyle ui button" title="实时监控" data-handler="sceenStyle">
+                                    <i class="icon_video"></i>实时监控
+                                </span>
+                               
+                            </a>
+                        </div>
+                    </div>
+                    <div class="alarm-scroll-info">
+                        <div class="scroll-data">
+                        </div>
+                    </div>
+                   <!--新添布防布控摄像机资源筛选-->
+                    <div class="cameraSelect">
+                        <p class="cSelectTitle">任务摄像机:</p>
+                        <ul>
+                            <li class="cSelectList" data-mode="deploy">
+                               <i class="icons-select-all checkbox_ctrl checkbox_ctrl_active"></i>
+                               <span class="c-title">布防摄像机：</span>
+                               <img src ="./images/map-marker-alarm-defence.png" />
+                            </li>
+                            <li class="cSelectList" data-mode="deployctl">
+                               <i class="icons-select-all checkbox_ctrl checkbox_ctrl_active"></i>
+                               <span class="c-title">布控摄像机：</span>
+                               <img src ="./images/map-marker-alarm-ctr.png" />
+                            </li>
+                            <li class="cSelectList" data-mode="both">
+                               <i class="icons-select-all checkbox_ctrl checkbox_ctrl_active"></i>
+                               <span class="c-title">防控摄像机：</span>
+                               <img src ="./images/map-marker-alarm-all.png" />
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="ocxPanel" class="panel indetify">
+                    <div class="header">
+                        <!-- <h3 class="title">监控画面</h3> -->
+                        <div class="ui atached menu">
+                            <a class="item">
+                                <span class="fullScreenSet fullscreen"><i class="Pre_icon" title="全屏"></i><em>全屏</em></span>
+                            </a>
+                           <!-- <a class="item last-child">
+                                <i class="icon split" title="4分屏"></i>
+                            </a>-->
+                            <a class="item left20">
+                               <span class="closedPanel close"><i class="close_icon" title="关闭全部"></i><em>关闭</em></span>
+                            </a>
+                        </div>
+                        <div class="centerChange">
+                                <a class="item center">
+                                    <span class="changeStyle ui button" title="地图模式" data-handler="mapStyle"><i class="icon_map"></i>地图模式</span>
+                                    <span class="line"></span>
+                                </a>
+                                <a class="item center active">
+                                    <span class="changeStyle ui button active" title="实时监控" data-handler="sceenStyle">
+                                        <i class="icon_video active"></i>实时监控
+                                    </span>
+                                    
+                                </a>
+                        </div>
+
+                        <div class="select-panel">
+                            <iframe class="bed" src="about:blank"></iframe>
+                            <div class='split-panel'>
+                                <i class='layout split1' data-layout='1' title='1分屏'></i>
+                                <i class='layout split4' data-layout='4' title='4分屏'></i>
+                                <i class='layout split9' data-layout='9' title='9分屏'></i>
+                                <i class='layout split16' data-layout='16' title='16分屏'></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="body">
+                        <div class="screen" data-isMaximize='0'>
+                            <!--新增鼠标滑过按钮-->
+                            <div id="videoControl" class="video-control">
+                                <iframe id="upBlock" class="up-block" src="about:blank" scrolling="no" border=0 frameborder=0 height='40'></iframe>
+                                <div id="upBlockContent">
+                                    <span class='video-title'></span>
+                                    <span id='streamMonitor'></span>
+                                    <span class='tools-up'>
+                                        <i class='close' title="关闭"></i>
+                                    </span>
+                                    <span id="taskSelect">查看任务</span>
+                                </div>
+                                <iframe id="taskPart" class="task-down-block" src="about:blank" scrolling="no" border=0 frameborder=0 ></iframe>
+                                <div id="taskContent">
+
+                                </div>
+                            </div>
+                            <div id="layoutscreen">
+                                <iframe id="layoutscreenFrame" class="up-block" src="javascript:;" scrolling="no" border=0 frameborder=0 height='' width=""></iframe>
+                            </div>
+                            <object id="UIOCX" class="UIOCX" type="applicatin/x-firebreath" width = "" height = "">
+                                <param name="onload" value="pluginLoaded"/>
+                            </object>
+                        </div>
+                    </div>
+                </div>
+			</div>
+		</div>
+	</div>
+
+
+     <!-- 遮罩层 -->
+    <iframe class="checkAlarm_layout_ifr hidden" scroll="none" src="about:blank"></iframe>
+    <div class="checkAlarm_layout hidden"></div>
+    <div class="alarm-list-dialog hidden show_event_pic"></div>
+    <div class="icon_close"></div>
+
+    <div class="toolbar">
+        <div title="原始大小" data-tool="realsize" class="viewer-tool">
+            <span class="image-viewer-tool-realsize"></span>
+        </div>
+        <div title="旋转" data-tool="rotate" class="viewer-tool">
+            <span class="image-viewer-tool-rotate"></span>
+        </div>
+        <div title="水平翻转" data-tool="horizontalturn" class="viewer-tool">
+            <span class="image-viewer-tool-horizontalturn"></span>
+        </div>
+        <div title="垂直翻转" data-tool="verticalturn" class="viewer-tool">
+            <span class="image-viewer-tool-verticalturn"></span>
+        </div>
+    </div>
+    <script type="text/javascript" src="/libs/requirejs/require.js" data-main="/require-conf"></script>
+    <script type="text/javascript">
+        require(['/module/protection-monitor/newStructAlarmmgr/js/superMain.js']);
+    </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<table class="ui nines column table inverted segment content">
+    {{#each records}}
+    <tr data-id="{{cameraId}}" task-id="{{taskId}}" data-inspectDate="{{inspectDate}}" class="list {{badstatus status}}">
+        <td class="checkboxth" style="width:50px;"><input type="checkbox" class="checkbox" data-ids="{{id}}" data-id="{{cameraId}}" task-id="{{taskId}}" data-inspectDate="{{inspectDate}}"></td>
+        <!--<td class="number">{{orderIndex @index ../curPage}}</td>-->
+        <td class="cameraName">{{cameraName}}{{ cameraNo}}</td>
+        <td class="manufacturerName">{{manufacturerName manufacturerName}}</td>
+        <td class="userName">{{userName}}</td>
+        <td class="inspectDate">{{newDate inspectDate}}</td>
+        <td class="status">{{checkedStatus status}}</td>
+        <td class="mode">{{isAuto autoStatus}}</td>
+        <td class="exceptionInfos">{{exception exceptionInfos}}</td>
+        <td class="remark">{{remark}}</td>
+        <td>
+            <a href="#" data-id="{{cameraId}}" class="checkedinfo">操作</a>
+            {{#if exceptUrl}}
+            <a data-exceptUrl="{{exceptUrl}}" class="image" data-id="{{id}}">图片</a>
+            {{else}}
+            <!--<a class="image" style="visibility:hidden;">图片</a>-->
+            {{/if}}
+        </td>
+    </tr>
+    {{/each}}
+</table>

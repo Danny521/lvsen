@@ -1,0 +1,72 @@
+<div id="header">
+	<form onsubmit="return false;" autoComplete="off" class="newinsertheader">
+		<div class="serchbox simple">
+			<div class="ui input action search">
+				<input type="text" name="taskName" id="taskSearchSimple" placeholder="全局搜索..." />
+				<button class="search action searchMyTask">搜索</button>
+			</div>
+		</div>
+
+		<div class="serchbox advance">
+			<div class="ui input">
+				<label>
+					任务名称：
+					<input type="text" name="taskName" id="taskSearchAdvance" placeholder="请输入任务名称..." />
+				</label>
+			</div>
+
+			<div class="ui input">
+				<label>
+					任务状态：
+					<select id="status" name='taskStatus'>
+						<option data-value="option1" value='1'>未巡检</option>
+						<option data-value="option2" value='2'>已巡检</option>
+						<!--<option data-value="option2" value='3'>待审核</option>
+						<option data-value="option2" value='4'>已审核</option>-->
+					</select>
+				</label>
+			</div>
+			<!--<div class="ui input">
+				<label>
+					提交时间：
+					<input type="text" name="taskDate" class='datepicker' placeholder="请输入提交时间..." />
+				</label>
+			</div>-->
+		</div>
+
+		<input type="submit" class="submit right ui button blue highSearchMyTaskTrigger" value="搜索">
+		<a class="changemodel left" href="javascript:;">高级>></a>
+	</form>
+</div>
+<div id="body">
+{{#each tasks.list}}
+<div class="groups">
+	<div class="group-item">
+		<div class="item-header">
+			<span class="name moredetail mytask" title="{{taskName}}"  task-id="{{taskId}}">{{taskName}}</span>
+            <i class="loading"></i>
+		</div>
+		<div class="item-body">
+			<span class="time">
+				<q>提交时间：</q>
+				{{mills2str taskDate}}
+			</span>
+			<span class="status">
+				<q>状态：</q>
+				{{status taskStatus}}
+			</span>
+			<!--<span class="status" task-id="{{taskId}}">
+			<q>审核意见：</q> <ins>查看</ins>
+		</span>
+		-->
+	</div>
+	<div class="item-footer">
+		<!--{{taskStatus taskStatus taskId}}-->
+		<a class="delete" href="#" task-id="{{taskId}}" task-name="{{taskName}}">删除</a>
+		<a class="set" href="#" task-id="{{taskId}}">设置</a>
+	</div>
+</div>
+</div>
+{{/each}}
+</div>
+

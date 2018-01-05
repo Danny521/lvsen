@@ -1,0 +1,28 @@
+<ul id="cameraTreeList" onselectstart="return false;">
+	{{#if init}}
+		{{#each cameras}}
+				<li class="tree root" data-type="tree" data-id="{{id}}"  data-name="{{name}}" >
+                    <i class="fold"></i>
+                    <i class="root"></i>
+                    <span class="name" title="{{name}}">{{name}}</span>
+                </li>
+		{{/each}}
+	{{else}}
+		{{#each cameras}}
+            {{#isGroup type}}
+            <li class="tree" data-id="{{../id}}" data-name="{{../name}}" data-type="tree">
+                <i class="fold"></i>
+                <i class="tree camera-style"></i>
+                <span class="name" title="{{../name}}">{{../name}}</span>
+            </li>
+            {{else}}
+			<li id="camera-{{../id}}" class="leaf {{hasNoRight ../score}}" data-id="{{../id}}"  data-name="{{../name}}"  data-lat="{{../latitude}}" data-lon="{{../longitude}}" data-type="leaf" data-cameratype="{{../camera_type}}" data-sdchannel="{{translate ../sd_channel}}" data-hdchannel="{{translate ../hd_channel}}" data-cstatus="{{../camera_status}}" data-cameracode="{{../cameraCode}}" data-camerascore="{{../score}}">
+                <i title="更多..." class="more-operator"></i>
+                <i class="radio-leaf"></i>
+                <i class="leaf camera-style {{#eq ../camera_type 2}}dom{{/eq}} {{status ../camera_type camera_status hd_channel}} "></i>
+                <span class="name" title="{{../name}}{{isCode ../cameraCode}}">{{../name}}{{isCode ../cameraCode}}</span>
+            </li>
+            {{/isGroup}}
+		{{/each}}
+	{{/if}}
+</ul>	

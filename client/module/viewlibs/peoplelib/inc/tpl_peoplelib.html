@@ -1,0 +1,42 @@
+<div class="items-panel">
+	
+	<ul class="items-list auto-adapt clearfix">
+		{{#list}}	
+		<li data-id="{{personId}}">
+				<!-- 缩略图显示 start-->
+				<div class="thumb-figure ease">
+					<a class="thumb-anchor">
+						<span class="vbox"><img src="{{showImage personCtmThumbnail}}" alt="" /></span>
+					</a>
+				</div>
+				<!-- 缩略图显示 end-->
+
+			<!-- 文案信息显示 start-->
+			<!-- 结构化信息 start-->
+				<div class="synopsis isTrack">
+					<span title="{{showTrueNameln 'person' personName genderCodeName jacketColorCodeName trousersColorCodeName}}">
+						<a class="name">{{{caseperson personName genderCodeName jacketColorCodeName trousersColorCodeName}}}</a>
+					</span>
+					{{#showIncident incidentName}}
+					<span title="">
+						<a class="casename" data-incidentname="{{showTrueName incidentName}}" data-incidentid="{{incidentId}}">{{{showname incidentName}}}</a>
+					</span>
+					{{/showIncident}}
+					<span class="related" title="{{location imageStdLocation videoStdLocation}}">
+						{{{location imageStdLocation videoStdLocation}}}
+					</span>
+					<span class="time">
+						{{{ personStdAppearTime }}}
+					</span>
+				</div>
+
+			<!-- 结构化信息 end-->
+			<!-- 文案信息显示 end-->
+		</li>
+	{{else}}
+	<h2 style="padding:10px; text-align:center;">暂无数据</h2>
+	{{/list}}
+
+
+	</ul>
+</div>

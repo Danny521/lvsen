@@ -1,0 +1,349 @@
+{{!-- start 保存布局名称 --}}
+{{#if addLyt}} <i class="addicon"></i>
+<div class="lytAdd">
+	<div class="lyth">
+		<label for="lytname">布局名称:</label>
+		<input type="text" name="lytname" value="" class="lytname" id="lytname" maxlength="10"/>
+	</div>
+
+	<div class="opaBtn">
+		<a class="lytconfirm btn">确定</a>
+		<a class="lytcancel btn">取消</a>
+	</div>
+</div>
+{{/if}}
+{{!-- end 保存布局名称 --}}
+
+{{!-- start 添加设备 --}}
+{{#if initLyt}}
+	{{#each initLyt.layouts}}
+<li data-name="{{name}}" data-id="{{id}}" data-defaultValue="{{sw status}}" class="lytcurr" title="{{name}}">
+	<div class="lyt">
+		<div class="oplyt permission permission-delete-tvwall-layout">
+			<a class="close" title="删除"></a>
+
+		</div>
+		<div class="lytcamerasp"></div>
+		<div class="lyt-name nowrap">{{name}}</div> <i class="actvicon"></i>
+	</div>
+</li>
+{{/each}}
+{{/if}}
+{{!-- end 添加设备 --}}
+
+{{!-- start 电视墙布局下设备 --}}
+{{#if loadLyt}}
+{{#each loadLyt.monitorLayout}}
+<li data-monitorid="{{screenId}}" data-id="{{id}}" data-pvgid="{{serverId}}" data-monIssd="{{sdCode}}" data-type="{{type}}" data-universaId="{{universaId}}" data-x="{{x}}" data-y="{{y}}" data-width="{{width}}" data-height="{{height}}">
+	<div class="tv">
+		<div class="channel">
+			<span> 
+			<i data-serverName="{{serverName}}" title="{{serverName}}" class="server_name" style="float:left;">{{serverName}}</i>
+			<i class="sdcode_sh">{{isCd screenId}}</i>
+				<!-- <span class="nowrap catorname" title="{{monitorname}}">{{monitorname}}</span> -->
+			</span>
+			<div class="offwall" title="全部下墙"></div>
+			<div  class="tv-channel clearfix">
+				
+				<div class="screen-sp">
+					<a class="cel-screen" style="background:url('/module/common/images/bg/clyt-{{../screenno}}.png') no-repeat scroll 0 0" title="选择布局"></a>
+					<a class="dropdown" title="选择布局"></a>
+					<div class='split-panel'>
+						<a class='layout split1' data-layout='1' title='1分屏'></a>
+						<a class='layout split4' data-layout='4' title='4分屏'></a>
+						<a class='layout split9' data-layout='9' title='9分屏'></a>
+						<a class='layout split16' data-layout='16' title='16分屏'></a>
+					</div>
+				</div>
+				
+				<div class="hover_class_cort" style="display:none">
+					{{#isShow}}
+					<a class="issd-select" title="设置高/标清"></a>
+					{{/isShow}}
+				{{#universaISSD this.isType 0}}
+					<div class="issdContain">
+						<a class="issd1 issdflag" data-monIssd="0"> <i class="heck"></i>
+							<span>标清</span>
+						</a>
+					</div>
+					{{/universaISSD}}
+				{{#universaISSD this.isType 1}}
+					<div class="issdContain">
+						<a class="issd2 issdflag" data-monIssd="1">
+							<i class=""></i>
+							<span>高清</span>
+						</a>
+					</div>
+					{{/universaISSD}}
+				{{#universaISSD this.isType 2}}
+					<div class="issdContain">
+						<a class="issd1 issdflag" data-monIssd="0">
+							<i class="heck"></i>
+							<span>标清</span>
+						</a>
+						<a class="issd2 issdflag" data-monIssd="1">
+							<i class=""></i>
+							<span>高清</span>
+						</a>
+					</div>
+					{{/universaISSD}}
+				
+				{{#universaClose this.type}}
+					<a class="close" title="关闭"></a>
+					{{/universaClose}}
+				</div>
+			</div>
+			<!-- <div class="real-stream" title="播放实时视频"></div> -->
+		</div>
+		<div class="dis-screen1">
+			{{#if layoutDetail}}
+			{{#each layoutDetail}}
+			<div class="tvinner{{../screenno}}  tvinner-split" data-scrnon="{{@index}}">
+				<div data-cameraId="{{cameraId}}" data-channelStatus="{{channelStatus}}"
+						 data-id="{{id}}" data-monitorLayoutId="{{monitorLayoutId}}"
+						 data-scrnon="{{scrnon}}" data-status="{{status}}" data-cameraName="{{cameraName}}">
+					{{#ifOnWall}}
+					<div class="onwalled" >
+						<a class="close" title="下墙"></a>
+						<div>
+							{{cameraName}}{{#isShowCode cameraCode}}({{cameraCode}}){{/isShowCode}}
+						</div>
+					</div>
+					{{else}}
+					<div class="downwalled"></div>
+					{{/ifOnWall}}
+				</div>
+			</div>
+			{{/each}}
+			{{else}}
+			<div class="tvinner1"><div></div></div>
+			{{/if}}
+		</div>
+	</div>
+</li>
+{{/each}}
+{{/if}}
+{{!-- end 电视墙布局下设备 --}}
+
+
+{{!-- start 电视墙设备分屏 --}}
+{{#if splitWall}}
+	{{#each splitWall.layoutDetail}}
+<div class="tvinner{{../splitWall.screenno}} tvinner-split" data-scrnon="{{@index}}">
+	<div data-cameraId="{{cameraId}}" data-channelStatus="{{channelStatus}}"
+			 data-id="{{id}}" data-monitorLayoutId="{{monitorLayoutId}}"
+			 data-scrnon="{{scrnon}}" data-status="{{status}}">
+		{{#ifOnWall}}
+		<div class="onwalled">
+			<a class="close" title="下墙"></a>
+			<div>
+				{{cameraName}}{{#isShowCode cameraCode}}({{cameraCode}}){{/isShowCode}}
+			</div>
+		</div>
+		{{else}}
+		<div class="downwalled" ></div>
+		{{/ifOnWall}}
+	</div>
+</div>
+{{/each}}
+{{/if}}
+{{!-- end 电视墙设备分屏 --}}
+
+{{!-- start 电视墙上墙 --}}
+{{#if onWall}}
+<div data-cameraId="{{onWall.cameraId}}" data-channelStatus="{{onWall.channelStatus}}"
+ data-id="{{onWall.id}}" data-monitorLayoutId="{{onWall.monitorLayoutId}}"
+ data-scrnon="{{onWall.scrnon}}" data-status="{{onWall.status}}" data-cameraName="{{onWall.cameraName}}">
+	<div class="onwalled" >
+		<a class="close" title="下墙"></a>
+		<div>{{onWall.cameraName}}</div>
+	</div>
+</div>
+{{/if}}
+{{!-- end 电视墙上墙 --}}
+
+{{!-- start 电视墙下墙 --}}
+{{#if downWall}}
+<div  data-cameraId="" data-channelStatus="{{downWall.channelStatus}}"
+ data-id="{{downWall.id}}" data-monitorLayoutId="{{downWall.monitorLayoutId}}"
+ data-scrnon="{{downWall.scrnon}}" data-status="{{downWall.status}}">
+	<div class="downwalled"></div>
+</div>
+{{/if}}
+{{!-- end 电视墙下墙 --}}
+
+{{!-- start 电视墙卍解多屏显示 --}}
+{{#if splitScreen}}
+{{#times splitScreen.screenNo}}
+<div class="tvinner{{this}}"></div>
+{{/times}}
+{{/if}}
+{{!-- end 电视墙卍解多屏显示 --}}
+
+{{!-- start 设备树加载子设备 --}}
+{{#if loadchilLyt}}
+<li data-monitorid="{{loadchilLyt.screenId}}" data-screenNo="{{screenNo}}" data-type="{{loadchilLyt.type}}" data-ip="{{loadchilLyt.ip}}" data-id="{{loadchilLyt.id}}" data-pvgid="{{loadchilLyt.serverId}}" data-universaId="{{loadchilLyt.universaId}}" data-x="{{loadchilLyt.x}}" data-y="{{loadchilLyt.y}}" data-width="{{loadchilLyt.width}}" data-height="{{loadchilLyt.height}}" data-layout="{{loadchilLyt.screenno}}">
+	<div class="tv">
+		<div class="channel">
+			{{#displayName loadchilLyt}}
+			<span class="nowrap catorname" title="{{this}}">{{this}}</span>
+			{{/displayName}}
+			<div  class="tv-channel">
+				{{#pvg loadchilLyt.type}}
+				<a class="cel-screen" title="选择布局"></a>
+				<a class="dropdown" title="选择布局"></a>
+				<a class='split-panel'>
+					<i class='layout split1' data-layout='1' title='1分屏'></i>
+					<i class='layout split4' data-layout='4' title='4分屏'></i>
+					<i class='layout split9' data-layout='9' title='9分屏'></i>
+					<i class='layout split16' data-layout='16' title='16分屏'></i>
+				</a>
+				{{/pvg}}
+				<a class="close" title="关闭"></a>
+			</div>
+		</div>
+		<div class="dis-screen1">
+			{{#times loadchilLyt.screenno}}
+			<div class="tvinner{{this}} tvinner-split">
+				<div class="downwalled" ></div>
+			</div>
+			{{/times}}
+		</div>
+	</div>
+</li>
+{{/if}}
+{{!-- end 设备树加载子设备 --}}
+
+{{!-- start 新增布局 --}}
+{{#if lytst}}
+<li data-newlyt="newlyt" class="lytcurr" data-name="{{name}}" data-id="{{id}}">
+	<div class="lyt tempa">
+
+		<div class="oplyt">
+			<a class="close" title="删除"></a>
+
+		</div>
+		<div class="lytcamerasp"></div>
+		<div class="lyt-name"></div>
+		<i class="actvicon"></i>
+	</div>
+</li>
+{{/if}}
+{{!-- end 新增布局 --}}
+
+{{!-- start PVG树与卍解树加载 --}}
+{{#if info}}
+<ul class="tree">
+	{{#each info.pvgs}}
+	<li class="devices node" data-ip="{{ip}}" data-pvgId="{{pvgId}}" data-type="{{type}}" >
+		<a class="deslist"> <i class="pvgbg"></i>
+			<span class="text-over nowrap" title="{{ip}}">{{orgName}}({{ip}})</span>
+		</a>
+	</li>
+	{{/each}}
+{{#each info.universals}}
+	<li class="devices" data-name="{{name}}" data-wjId="{{universaId}}" data-type="{{type}}">
+		<a class="deslist"> <i class="wjbg"></i>
+			<span class="text-over nowrap" title="{{name}}">{{name}}</span>
+		</a>
+	</li>
+	{{/each}}
+</ul>
+{{/if}}
+{{!-- end PVG树与卍解树加载 --}}
+
+
+
+{{!-- start PVG树与卍解树加载 --}}
+{{#if treeinfo}}
+<ul class="tree">
+	{{#each treeinfo.mdecoders}}
+	<li class="devices node" data-ip="{{ip}}" data-id="{{id}}" data-num="{{channelNum}}" data-index="{{index}}" data-name="{{serverName}}">
+		<a class="deslist"> <i class="pvgbg"></i>
+			<span class="text-over nowrap" title="{{ip}}">{{serverName}}({{ip}})</span>
+		</a>
+	</li>
+	{{/each}}
+{{#each info.universals}}
+	<li class="devices" data-name="{{name}}" data-wjId="{{universaId}}" data-type="{{type}}">
+		<a class="deslist"> <i class="wjbg"></i>
+			<span class="text-over nowrap" title="{{name}}">{{name}}</span>
+		</a>
+	</li>
+	{{/each}}
+</ul>
+{{/if}}
+{{!-- end PVG树与卍解树加载 --}}
+
+
+
+{{!-- start PVG子树 --}}
+{{#if dstep}}
+<ul>
+	{{#each dstep.data}}
+	<li class="addItem" data-type="leaf" data-num="">
+		<a class="childeslist" data-monitorId="{{monitorId}}" title="{{name}}" data-pvgid="{{pvgid}}" data-sid="{{serverId}}" data-servername="{{serverName}}"> <i class="chipvgbg"></i>
+			<span class="text-over nowrap" data-type="leaf">{{name}}</span>
+		</a>
+	</li>
+	{{/each}}
+</ul>
+{{/if}}
+{{!-- end PVG子树 --}}
+
+{{!-- start 卍解子树 --}}
+{{#if sjdst}}
+<ul>
+	{{#each sjdst.data}}
+	<li class="addItem" data-type="leaf" data-num="">
+		<a class="childeslist" data-monitorId="{{monitorId}}" data-universaId="{{universaId}}" data-monitorNo="{{monitorNo}}" data-screenno="{{screenno}}"> <i class="chiwjbg"></i>
+			<span class="text-over nowrap" title="{{monitorNo}}">{{monitorNo}}</span>
+		</a>
+	</li>
+	{{/each}}
+</ul>
+{{/if}}
+{{!-- end 卍解子树 --}}
+
+{{!-- start 布局加载 --}}
+{{#if showLyt}}
+{{#each showLyt.layouts}}
+<option data-name="{{name}}" data-id="{{id}}" class="lytname" title="{{name}}">
+	<a class="tv-screen">
+		<div class="ty">
+			<div class="innerty"></div>
+		</div>
+		<span class="tyic nowrap">{{name}}</span>
+	</a>
+</option>
+{{/each}}
+{{/if}}
+{{!-- end 布局加载 --}}
+
+{{!-- start 分屏 --}}
+{{#if innersty}}
+	{{#each innersty.innerNum}}
+<div class="ty-dis"></div>
+{{/each}}
+{{/if}}
+{{!-- end 分屏 --}}
+
+{{#if copyMonit}}
+<div id="copytemp">
+	<a class="leaf ">
+
+		<i class="camera  active"></i>
+		<span title="{{name}}" class="text-over">{{name}}</span>
+
+		<i title="更多" class="more"></i>
+
+	</a>
+</div>
+{{/if}}
+
+{{#if upWall}}
+<div class="upwallstatus">
+	<a class="close">下墙</a>
+	<div class="satus">{{message}}</div>
+</div>
+{{/if}}

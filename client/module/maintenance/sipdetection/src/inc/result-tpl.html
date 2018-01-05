@@ -1,0 +1,15 @@
+<div class="result-items">
+	{{#each this}}
+		{{#if send}}
+		<div class="sendresult-item">
+			<span>发送消息：</span><br/>
+			<div>{{{get-sendresult send}}}</div>
+		</div>
+		{{else}}
+		<div class="reciveresult-item">
+			<span>接受消息：</span><br/>
+			<div>{{{get-receiveresult receive}}}</div>
+		</div>
+		{{/if}}
+	{{/each}}
+</div>

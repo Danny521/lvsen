@@ -1,0 +1,2056 @@
+#gismap .esriPopup .actionsPane {
+		display: none;
+}
+#gismap .esriPopup .sizer{
+	width: auto;
+}
+#gismap .esriPopup .sizer .titlePane{
+	height: 30px;
+	line-height: 30px;
+	color: #333333;
+	border: 1px solid #999;
+	background-color: #F9F9F9;
+	border-bottom: 1px solid #ECECEC;
+}
+#gismap .esriPopup .titleButton.close{
+	height: 10px;
+	width: 10px;
+	background: url("/module/common/images/map/close.png") no-repeat;
+	margin: 10px 10px 0px 0px;
+}
+#gismap .text {
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+#gismap .esriOverviewMap .ovwHighlight{
+	border: 1px dashed #000000 !important;
+}
+#gismap .esriPopup .titleButton.maximize{
+	display: none;
+}
+#gismap .esriPopup .contentPane{
+	padding: 0px;
+	position: relative; 
+}
+#gismap #UIOCXMAP{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+#gismap #mapMeasure{
+	display: none;
+}
+#gismap .body{
+	top: 0px;
+}
+#gismap #closeStreetmapBtn{
+	float: right;
+	margin: 5px 20px;
+}
+#gismap .map-tool {
+	position: absolute;
+	width: 100%;
+	height: 36px;
+	border-left: none !important;
+	background: url("/module/common/images/map/map-tool-bg.png") repeat-x;
+	z-index: 100;
+}
+
+#gismap .map-tool a {
+	cursor: pointer;
+}
+
+#gismap .map-region {
+	width: 150px;
+	margin-top: 9px;
+	float: left;
+}
+
+#gismap .map-operator {
+	margin: 6px 10px 0 0;
+	float: right;
+}
+
+#gismap .map-operator a,.map-region a {
+	color: #333333;
+	display: inline-block;
+	margin: 0px 0px 0px 16px;
+}
+
+#gismap .map-region a span {
+	width: 57px;
+	display: inline-block;
+}
+
+#gismap .map-region-info {
+	display: none;
+	position: absolute;
+	width: 380px;
+	height: 225px;
+	border: 1px solid #999999;
+	top: 22px;
+	left: 15px;
+	z-index: 1000;
+	background-color: #fff;
+}
+
+#gismap .map-region-info ul {
+	height: 200px;
+	width: 380px;
+}
+
+#gismap .map-region-info ul li {
+	float: left;
+	margin: 5px;
+}
+
+#gismap .map-operator a span {
+	display: inline-block;
+	background: url('/module/common/images/map/map-tools.png') no-repeat;
+}
+
+#gismap .map-operator a span i,.map-region a span i {
+	display: inline-block;
+	background: url('/module/common/images/map/map-tools.png') no-repeat;
+}
+
+#gismap .map-operator a:hover span i {
+	background: url('/module/common/images/map/map-tools.png') no-repeat;
+}
+
+#gismap .map-operator a:hover,.map-region a:hover {
+	color: #2B75C9;
+}
+
+#gismap .map-operator a:active,.map-regiona a:active {
+	color: #009FDA;
+}
+
+#gismap .map-region a span i.map-arrowdown,.map-operator a span i.map-arrowdown {
+	width: 16px;
+	height: 16px;
+	background-position: 0px 3px;
+	float: right;
+}
+
+#gismap .map-region a span b.map-text,.map-operator a span b.map-text {
+	font-weight: normal;
+	float: left;
+}
+
+#gismap .map-region-info a.map-arrowup ,.map-operator a.map-arrowup {
+	width: 16px;
+	height: 16px;
+	position: absolute;
+	right: 3px;
+	top: 3px;
+	padding: 0px;
+	display: inline-block;
+}
+
+#gismap .map-region-info a.map-arrowup i,.map-operator a.map-arrowup i {
+	display: block;
+	width: 16px;
+	height: 5px;
+	margin: 6px 0px 3px 0px;
+	background: url('/module/common/images/map/map-tools.png') no-repeat;
+	background-position: 0px -263px;
+}
+
+#gismap .map-region-info a.map-arrowup:hover i, .map-operator a.map-arrowup:hover i {
+	background-position: 0px -283px;
+}
+/**
+* 操作工具条
+**/
+#gismap .map-tool-item,.map-tools-a{
+	position: relative;
+	float: left;
+}
+#gismap .map-tool-item a.map-func {
+	width: 80px;
+	height: 25px;
+	background: url('/module/common/images/map/map-tools-func.png') no-repeat;
+	background-position: 0 0;
+}
+
+#gismap .map-tool-item a.map-func:hover {
+	background-position: -90px 0;
+}
+
+#gismap .map-tool-item a.map-func.active {
+	background-position: -180px 0;
+}
+
+#gismap .map-tool-item a.map-select {
+	width: 56px;
+	height: 25px;
+	background: url('/module/common/images/map/map-tools-func.png') no-repeat;
+	background-position: 0 -25px;
+}
+
+#gismap .map-tool-item a.map-select:hover {
+	background-position: -90px -25px;
+}
+
+#gismap .map-tool-item a.map-select.active {
+	background-position: -180px -25px;
+}
+
+#gismap .map-tool-item a.map-groups {
+	width: 88px;
+	height: 25px;
+	background: url('/module/common/images/map/map-tools-func.png') no-repeat;
+	background-position: 0 -50px;
+}
+
+#gismap .map-tool-item a.map-groups:hover {
+	background-position: -90px -50px;
+}
+
+#gismap .map-tool-item a.map-groups.active {
+	background-position: -180px -50px;
+}
+
+#gismap .map-tools-a:hover ul{
+	display: block
+}
+#gismap .map-tools-a a.map-tools {
+	width: 62px;
+	height: 25px;
+	background: url('/module/common/images/map/map-tools-func.png') no-repeat;
+	background-position: 0 -125px;
+}
+
+#gismap .map-tool-item a.map-fullscreen {
+	width: 60px;
+	height: 25px;
+	background: url('/module/common/images/map/map-tools-func.png') no-repeat;
+	background-position: 0 -75px;
+}
+
+#gismap .map-tool-item a.map-fullscreen:hover {
+	background-position: -90px -75px;
+}
+
+#gismap .map-tool-item a.map-fullscreen.active {
+	background-position: -180px -75px;
+}
+
+#gismap .map-tool-item a.map-exitfullscreen {
+	width: 88px;
+	height: 25px;
+	background: url('/module/common/images/map/map-tools-func.png') no-repeat;
+	background-position: 0 -100px;
+}
+
+#gismap .map-tool-item a.map-exitfullscreen:hover {
+	background-position: -90px -100px;
+}
+
+#gismap .map-tool-item a.map-exitfullscreen.active {
+	background-position: -180px -100px;
+}
+
+#gismap .ui.button.npplay {
+	margin: 0px 0 0 10px;
+}
+/**
+* map select
+**/
+#gismap .map-select-list {
+	display: none;
+	position: absolute;
+	left: 16px;
+	top: 26px;
+	z-index: 100;
+	border: 1px solid #dfdfdf;
+	background-color: #FFFFFF;
+}
+
+#gismap .map-select-list li {
+	padding: 2px 4px;
+}
+
+#gismap .map-select-list li a {
+	padding: 0px 0px 0px 20px;
+	margin: 0px;
+	background: url('/module/common/images/map/map-tools.png') no-repeat;
+}
+
+#gismap .map-select-list li:hover {
+	background-color: #EBF4F9;
+}
+
+#gismap .map-select-list li a.map-rectangle-select {
+	background-position: 0px -220px;
+}
+
+#gismap .map-select-list li a.map-circle-select {
+	background-position: 0px -240px;
+}
+#gismap .map-select-list li a.map-police-scheduling{
+	width: 50px;
+	background-position: 0px -324px;
+}
+#gismap .map-select-list li a.map-guard-route{
+	width: 50px;
+	background-position: 0px -344px;
+}
+#gismap .map-select-list li a.map-my-attention{
+	width: 50px;
+	background-position: 0px -420px;
+}
+	/**
+	* tool list
+	**/
+#gismap .map-tools-a:hover .map-tools-list {
+	top: 23px;
+}
+#gismap .map-tools-list {
+	position: absolute;
+	left: 18px;
+	top: -2000px;
+	z-index: 100;
+	border: 1px solid #dfdfdf;
+	background-color: #FFFFFF;
+}
+
+#gismap .map-tools-list li {
+	padding: 2px 10px;
+}
+
+#gismap .map-tools-list li a {
+	padding: 0px 0px 0px 16px;
+	margin: 0px;
+	background: url('/module/common/images/map/map-tools.png') no-repeat;
+}
+
+#gismap .map-tools-list li:hover{
+	background-color: #EBF4F9;
+}
+
+#gismap .map-tools-list li a.map-measure {
+	background-position: 0px -140px;
+}
+
+#gismap .map-tools-list li a.map-screenshot {
+	background-position: 0px -160px;
+}
+
+#gismap .map-tools-list li a.map-mark {
+	background-position: 0px -180px;
+}
+
+#gismap .map-tools-list li a.map-print {
+	background-position: 0px -200px;
+}
+	/**
+	* search around
+	**/
+#gismap .map-searcharound-content {
+	display: none;
+	width: 270px;
+	position: absolute;
+	right: -8px;
+	top: 26px;
+	z-index: 101;
+	border: 1px solid #dfdfdf;
+	background-color: #FFFFFF;
+}
+
+#gismap h3.map-title {
+	color: #000000;
+	background-color: #F9F9F9;
+	height: 24px;
+	line-height: 24px;
+	padding: 0px 7px;
+	border-bottom: 1px solid #E2E2E2;
+}
+
+#gismap .map-searcharound-content ul.map-around-search-container {
+	padding: 5px 15px 5px 0px;
+}
+
+#gismap .map-searcharound-content ul li {
+	float: left;
+	padding: 2px 5px 10px 10px;
+}
+#gismap .map-searcharound-content ul li span.label{
+	display: inline-block;
+	float: left;
+}
+#gismap .map-searcharound-content ul li span.content{
+	display: inline-block;
+	width: 175px;
+	float: left;
+}
+#gismap .map-searcharound-content ul li a {
+	color: #2B75C9;
+}
+
+#gismap .map-searcharound-content ul li a:hover {
+	color: #00BAFF;
+}
+
+#gismap .map-searcharound-content ul li a:active {
+	color: #009FDA;
+}
+
+#gismap .map-layer-normal {
+	display: block;
+	height: 51px;
+	width: 49px;
+	position: absolute;
+	top: 55px;
+	right: 20px;
+	background: url('/module/common/images/map/map-layer.gif') no-repeat;
+	background-position: 0px -51px !important;
+	z-index: 100;
+	cursor: pointer;
+}
+
+#gismap .map-layer-normal:hover {
+	background-position: -49px -51px !important;
+}
+
+#gismap .map-layer-satellite {
+	display: block;
+	height: 51px;
+	width: 49px;
+	position: absolute;
+	top: 55px;
+	right: 20px;
+	background: url('/module/common/images/map/map-layer.gif') no-repeat;
+	background-position: 0px 0px;
+	z-index: 100;
+	cursor: pointer;
+}
+
+#gismap .map-layer-satellite:hover {
+	background-position: -49px 0px;
+}
+
+#gismap .map-street {
+	height: 52px;
+	width: 49px;
+	position: absolute;
+	top: 115px;
+	right: 20px;
+	z-index: 100;
+	background: url('/module/common/images/map/map-street.png') no-repeat;
+	cursor: pointer;
+}
+
+#gismap .map-street:hover {
+	background-position: -50px 0px;
+}
+
+#gismap .map-video-start {
+	height: 29px;
+	width: 29px;
+	background: url("/module/common/images/map/map-player.png") no-repeat;
+	background-position: 0px 0px;
+	position: absolute;
+	bottom: 15px;
+	left: 15px;
+	cursor: pointer;
+}
+
+#gismap .map-video-start:hover{
+	background-position: -29px 0px;
+}
+
+#gismap .map-video-opera {
+	height: 20px;
+	line-height: 20px;
+	border-top: 1px solid #DADADA;
+	border-bottom: 1px solid #E7E7E7;
+	bottom: 1px;
+	left: 1px;
+}
+
+#gismap .map-video-opera a {
+	display: inline-block;
+	padding: 0px 15px;
+	color: #666666;
+	cursor: pointer;
+}
+
+#gismap .map-video-opera a:hover {
+	color: #00BAFF;
+}
+
+#gismap .map-video-opera a:active {
+	color: #009FDA;
+}
+
+#gismap .map-video-inspect {
+	display: inline-block;
+	height: 14px;
+	width: 16px;
+	position: absolute;
+	top: 8px;
+	right: 58px;
+	background: url('/module/common/images/map/map-video-icos.png');
+	background-position: 0px 0px;
+	cursor: pointer;
+}
+
+#gismap .map-video-expand {
+	display: inline-block;
+	height: 12px;
+	width: 16px;
+	position: absolute;
+	top: 9px;
+	right: 32px;
+	background: url('/module/common/images/map/map-video-icos.png');
+	background-position: 0px -15px;
+	cursor: pointer;
+}
+	
+/**
+* 全景地图
+**/
+#gismap .street-map-ifr{
+	position: absolute;
+	width: 244px;
+	height: 184px;
+	bottom: 0px;
+	right: 0px;
+	z-index:90;
+}
+#gismap .street-map-cameras-ifr{
+	position: absolute;
+	width: 120px;
+	height: 125px;
+	bottom: 195px;
+	right: 122px;
+	z-index:90;
+}
+#gismap .street-map {
+	position: absolute;
+	width: 244px;
+	height: 184px;
+	bottom: 0px;
+	right: 0px;
+	border-top: 1px solid #dfdfdf;
+	border-left: 1px solid #dfdfdf;
+	z-index:90;
+}
+#gismap .street-map-camera-list{
+	width: 120px;
+	height: 125px;
+	border: 1px solid #E0E0E0;
+	position: absolute;
+	bottom: 195px;
+	right: 122px;
+	z-index: 90;
+}
+#gismap .street-map-camera-list div.title{
+	height: 26px;
+	line-height: 26px;
+	background-color: #E6FAFF;
+}
+#gismap .street-map-camera-list div.title span.text{
+	display: inline-block;
+	padding-left: 10px;
+}
+#gismap .street-map-camera-list ul.list{
+	height: 100px;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+#gismap .street-map-camera-list ul.list li{
+	height: 24px;
+	line-height: 24px;
+	cursor: pointer;
+}
+#gismap .street-map-camera-list ul.list li span{
+	display: inline-block;
+	width: 70px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	margin-left: 5px;
+}
+#gismap .street-map-camera-list ul.list li i{
+	float: left;
+}
+#gismap .street-map-camera-list ul.list li i.camera-ball-online{
+	width: 13px;
+	height: 14px;
+	margin-top: 5px;
+	background: url(/module/common/images/sprites/tree_bg.png) no-repeat -352px 0;
+	display: inline-block;
+	margin-left: 5px; 
+}
+#gismap .street-map-camera-list ul.list li i.camera-ball-offline{
+	width: 13px;
+	height: 14px;
+	margin-top: 5px;
+	background: url(/module/common/images/sprites/tree_bg.png) no-repeat -156px 0;
+	display: inline-block;
+	margin-left: 5px;
+}
+#gismap .street-map-camera-list ul.list li i.camera-gun-online{
+	background: url(/module/common/images/sprites/tree_bg.png) no-repeat -85px 0;
+	width: 15px;
+	height: 10px;
+	margin-right: 4px;
+	margin-top: 6px;
+	display: inline-block;
+	margin-left: 5px; 
+}
+#gismap .street-map-camera-list ul.list li i.camera-gun-offline{
+	background: url(/module/common/images/sprites/tree_bg.png) no-repeat 0 0;
+	width: 15px;
+	height: 10px;
+	margin-right: 4px;
+	margin-top: 6px;
+	display: inline-block;
+	margin-left: 5px; 
+}
+#gismap #streetMapId{
+	width: 240px;
+	height: 180px;
+	margin-top: 4px;
+	margin-left: 4px;
+	border-top: 1px solid #dfdfdf;
+	border-left: 1px solid #dfdfdf;
+}
+
+#gismap .map-fullview-img {
+	width: 24px;
+	height: 41px;
+	background: url('/module/common/images/map/map-fullview-marker.png') no-repeat;
+	position: absolute;
+	top: -2000px;
+	left: -2000px;
+	z-index: 10001;
+}
+
+#gismap .map-fullview {
+	position: absolute;
+	top: 36px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+}
+
+#gismap #map-close-fullview {
+	display: none;
+}
+#gismap .street-map .esriLargeSliderTL{
+	display: none;
+}
+	/**
+	* map marker
+	**/
+#gismap .map-marker-img {
+	width: 13px;
+	height: 21px;
+	background: url('/module/common/images/map/map-markers.gif') no-repeat;
+	background-position: -46px 0px;
+	position: absolute;
+	top: -2000px;
+	left: -2000px;
+	z-index: 10001;
+}	
+	/**
+	* map navigation
+	**/
+#gismap .esriLargeSliderVertical {
+	height: 48px;
+	/*IE:zoom*6*/
+	-moz-height: 95px;
+	/*firfox:zoom slider高度：17*2+zoom*6+8+5*/
+	-webkit-height: 95px;
+	/*webkit:zoom slider高度：17*2+zoom*6+8+5*/
+}
+
+#gismap .dijitSliderBarContainerV {
+	height: 48px;
+	margin-top: -1px;
+}
+
+#gismap .esriLargeSliderTL {
+	top: 100px;
+}
+
+#gismap .dijitSliderBarContainerV {
+	background: url('/module/common/images/map/slidebar.png') no-repeat;
+	background-position: 5px -7px;
+}
+
+#gismap .dijitSliderBarV {
+	border: none;
+}
+
+#gismap .dijitSliderImageHandleV {
+	left: 55%;
+}
+
+#gismap .dijitSliderProgressBar {
+	background: url('/module/common/images/map/navigator.png') no-repeat;
+	background-position: -34px -224px;
+}
+
+#gismap .esriLargeSliderVertical .esriLargeSliderTicks {
+	display: none;
+}
+
+#gismap .dj_a11y div.dijitSliderImageHandle, .dijitSliderImageHandle {
+	background: url('/module/common/images/map/navigator.png') no-repeat;
+	background-position: 0 -309px;
+	border: none;
+	width: 19px;
+	height: 11px;
+}
+
+#gismap .dijitSliderBar {
+	border-color: #8E8E8E;
+}
+
+#gismap .dijitSliderTopBumper, .dijitSliderRightBumper {
+	background: url('/module/common/images/map/slidebar.png') no-repeat;
+	background-position: -3px -5px;
+	height: 8px;
+}
+
+#gismap .dijitSliderBottomBumper, .dijitSliderLeftBumper {
+	background-color: #99BBFF;
+	height: 5px;
+}
+
+#gismap .dijitSliderIncrementIconV {
+	width: 20px;
+	height: 18px;
+	background: url('/module/common/images/map/navigator.png') no-repeat;
+	background-position: 0px -243px;
+}
+
+#gismap .dijitSliderDecrementIconV {
+	width: 20px;
+	height: 18px;
+	background: url('/module/common/images/map/navigator.png') no-repeat;
+	background-position: 0px -265px;
+}
+
+#gismap .dijitSliderButtonInner {
+	display: none;
+}
+
+#gismap .npmap-navigation {
+	position: absolute;
+	top: 50px;
+	left: 16px;
+	z-index: 80;
+	cursor: pointer;
+}
+
+#gismap .npmap-navigation .npmap-nav-top {
+	width: 44px;
+	height: 44px;
+	background: url('/module/common/images/map/navigator.png') no-repeat;
+	background-position: 2px 2px;
+	position: relative;
+}
+
+#gismap .npmap-navigation .npmap-nav-top .npmap-nav-movetocenter {
+	position: absolute;
+	width: 15px;
+	height: 15px;
+	display: block;
+	margin-top: 15px;
+	margin-left: 15px;
+}
+
+#gismap .npmap-navigation .npmap-nav-top .npmap-nav-movetonorth {
+	position: absolute;
+	width: 15px;
+	height: 15px;
+	display: block;
+	margin-top: 0px;
+	margin-left: 15px;
+}
+
+#gismap .npmap-navigation .npmap-nav-top .npmap-nav-movetoeast {
+	position: absolute;
+	width: 15px;
+	height: 15px;
+	display: block;
+	margin-top: 15px;
+	margin-left: 30px;
+}
+
+#gismap .npmap-navigation .npmap-nav-top .npmap-nav-movetosouth {
+	position: absolute;
+	width: 15px;
+	height: 15px;
+	display: block;
+	margin-top: 30px;
+	margin-left: 15px;
+}
+
+#gismap .npmap-navigation .npmap-nav-top .npmap-nav-movetowest {
+	position: absolute;
+	width: 15px;
+	height: 15px;
+	display: block;
+	margin-top: 15px;
+	margin-left: 0px;
+}
+	/**
+	* 鹰眼样式修改
+	**/
+#gismap .esriOverviewMap.ovwBR .ovwContainer {
+	border-top: 1px solid #999999;
+	border-left: 1px solid #999999;
+	padding-top: 3px;
+	padding-left: 3px;
+}
+
+#gismap .esriOverviewMap .map {
+	border-top: 1px solid #999999;
+	border-left: 1px solid #999999;
+}
+
+#gismap .esriOverviewMap .ovwContainer {
+	background-color: #FFFFFF;
+}
+	/**
+	* 打印按钮样式修改
+	**/
+#gismap .esriPrint {
+	padding: 0px;
+	margin-top: -2px;
+}
+
+#gismap .dijitToggleButton, .dijitButton, .dijitDropDownButton, .dijitComboButton {
+	margin: 0px;
+}
+
+#gismap .map-operator a span.esriPrintButton {
+	background: none;
+}
+
+#gismap .map-operator a span.dijitButtonNode {
+	background: none;
+	border: none;
+}
+
+#gismap .map-operator a span.dijitButtonNode span {
+	background: none;
+}
+
+	/**
+	* 遮层
+	**/
+#gismap .map-mask {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	line-height: 600px;
+	top: 0px;
+	left: 0px;
+	background-color: #000000;
+	opacity: 0.7;
+	z-index: 10001;
+	text-align: center;
+	font-size: 16px;
+	color: #fff;
+	display: none;
+}
+
+#gismap .map-operator a.esriPrintout {
+	display: none;
+}
+/**
+* 测量tooltip
+**/
+#gismap .map-measure-tooltip{
+	position: absolute;
+	top: -2000px;
+	border: 1px solid #FF0103;
+	padding: 2px 5px;
+	background-color: #fff;
+	z-index: 100;
+}
+
+/*警力调度*/
+#gismap .map-police-schuduling{
+	padding: 5px 10px;
+	width: 250px;
+}
+#gismap .titlePane .title .my-attention-ico{
+	top: 9px;
+	right: 30px;
+	display: inline-block;
+	position: absolute;
+	width: 16px;
+	height: 16px;
+	background: url('/module/common/images/map/map-tools.png') no-repeat;
+	background-position: 0 -440px;
+	cursor: pointer;
+}
+#gismap .titlePane .title .my-attention-ico-cancel{
+	top: 9px;
+	right: 30px;
+	display: inline-block;
+	position: absolute;
+	width: 16px;
+	height: 16px;
+	background: url('/module/common/images/map/map-tools.png') no-repeat;
+	background-position: 0 -459px;
+	cursor: pointer;
+}
+#gismap .ui.form{
+	margin-top: 5px;
+}
+#gismap .ui.form textarea{
+	margin-left: 4px;
+	width: 209px;
+	height: 50px;
+	font-size: 12px;
+	padding: 6px; 
+}
+#gismap .ui.form label{
+	float: left; 
+	font-size: 12px;
+}
+#gismap .buttons{
+	margin-left: 135px;
+	padding-bottom: 10px;
+}
+#gismap .buttons .button{
+	width: 30px;
+	margin-right: 10px;
+}
+
+#gismap .map-marker-business{
+	padding-bottom: 15px;
+	width: 250px;
+}
+#gismap .map-marker-business .marker-remark{
+	line-height: 20px;
+	padding: 5px 10px 10px 5px;
+	border-bottom: 1px dashed #dfdfdf;
+}
+#gismap .map-marker-business .marker-remark span{
+	display: inline-block;
+	line-height: 20px;
+}
+#gismap .map-marker-business .marker-remark span:first-child{
+	width: 185px;
+	padding-left: 10px;
+}			
+#gismap .map-marker-business .marker-remark span.marker-edit{
+	float: right;
+	cursor: pointer;
+	width: 20px;
+	height: 20px;
+	background-image: url('/module/common/images/icons/alloperate.png');
+	background-position: -12px -97px;
+	background-repeat: no-repeat;
+}
+#gismap .map-marker-business .marker-remark span.marker-edit:hover{
+	background-position: -142px -97px;
+}
+#gismap .map-marker-business .marker-bussiness{
+	padding: 5px 10px 10px 5px;
+}
+#gismap .map-marker-business .marker-bussiness span:first-child{
+    margin-bottom: 5px;
+}
+#gismap .map-marker-business .marker-bussiness span{
+	display: block;
+	line-height: 20px;
+}
+#gismap .map-marker-business .marker-bussiness span a{
+	display: inline-block;
+	margin: 0px 8px;
+	cursor: pointer;
+	text-decoration: none;
+}
+/**
+* 地图上监控点基本信息表格
+**/
+#gismap .map-camera-info{
+	width: 240px;
+}
+#gismap .map-camera-info tr{
+	height: 26px;
+	line-height: 26px;
+}
+#gismap .map-camera-info tr.head{
+	background-color: #E7ECF2;
+}
+#gismap .map-camera-info tr.odd{
+	background-color: #FAFCFF;
+}
+#gismap .map-camera-info tr.even{
+	background-color: #FFFFFF;
+	border-top: 1px solid #EFF3F6;
+	border-bottom: 1px solid #EFF3F6;
+}
+#gismap .map-camera-info tr td.label{
+	width: 45px;
+	text-align: right; 
+}
+#gismap .map-camera-info tr td.camera-status{
+	text-align: right;
+	padding-right: 10px;
+}
+#gismap .map-camera-info tr td span.camera-status-online{
+	color: #1480FF;
+	cursor: pointer; 
+}
+#gismap .map-camera-info tr td span.camera-ball-online{
+	width: 13px;
+	height: 14px;
+	margin-top: 6px;
+	background: url(/module/common/images/sprites/tree_bg.png) no-repeat -352px 0;
+	display: inline-block;
+	margin-left: 10px; 
+}
+#gismap .map-camera-info tr td span.camera-ball-offline{
+	width: 13px;
+	height: 14px;
+	margin-top: 6px;
+	background: url(/module/common/images/sprites/tree_bg.png) no-repeat -156px 0;
+	display: inline-block;
+	margin-left: 10px;
+}
+#gismap .map-camera-info tr td span.camera-gun-online{
+	background: url(/module/common/images/sprites/tree_bg.png) no-repeat -85px 0;
+	width: 15px;
+	height: 10px;
+	margin-right: 4px;
+	margin-top: 9px;
+	display: inline-block;
+	margin-left: 10px; 
+}
+#gismap .map-camera-info tr td span.camera-gun-offline{
+	background: url(/module/common/images/sprites/tree_bg.png) no-repeat 0 0;
+	width: 15px;
+	height: 10px;
+	margin-right: 4px;
+	margin-top: 9px;
+	display: inline-block;
+	margin-left: 10px; 
+}
+/**
+* 资源分类选择
+**/
+#gismap .map-resource-layers{
+	width: 90px;
+	height: auto;
+	border: 1px solid #AAA79E;
+	position: absolute;
+	top: 175px;
+	right: 20px;
+	z-index: 100;
+	background-color: #fff;
+}
+#gismap .map-resource-layers h2.layers-head{
+	height: 26px;
+	line-height: 26px;
+}
+#gismap .map-resource-layers h2.layers-head span.title{
+	padding-left: 5px;
+	display: inline-block;
+}
+#gismap .map-resource-layers h2.layers-head span.contract-btn{
+	display: inline-block;
+	height: 12px;
+	width: 12px;
+	background: url('/module/common/images/map/map-tools.png') no-repeat;
+	background-position: 0px 3px;
+	cursor: pointer;
+	float: right;
+	margin: 5px 5px; 
+}
+#gismap .map-resource-layers h2.layers-head span.contract-btn:hover{
+	background-position: 0px -117px;
+}
+#gismap .map-resource-layers h2.layers-head span.contract-btn.down{
+	background-position: 0px -257px;
+}
+#gismap .map-resource-layers h2.layers-head span.contract-btn.down:hover{
+	background-position: 0px -277px;
+}
+#gismap .map-resource-layers ul{
+	border-top: 1px solid #AAA79E;
+}
+#gismap .map-resource-layers ul.hide{
+	display: none;
+}
+#gismap .map-resource-layers ul li{
+	cursor: pointer; 
+	height: 26px;
+}
+#gismap .map-resource-layers ul li i.checkbox{
+	float: left;
+	display: inline-block;
+    height: 15px;
+    margin: 6px 6px 0px 5px; 
+    margin-right: 6px;
+    margin-left: 5px;
+    padding: 0;
+    position: relative;
+    width: 15px;
+    cursor: pointer;
+ 	background: url("/module/common/images/sprites/tree_bg.png") no-repeat scroll -32px 0 transparent;
+}
+.#gismap .map-resource-layers ul li.active i.checkbox{
+	background: url("/module/common/images/sprites/tree_bg.png") no-repeat scroll -47px 0 transparent;
+}
+#gismap .map-resource-layers ul li i.ico{
+	height: 20px;
+	width: 18px;
+	display: inline-block;
+	background: url("/module/common/images/map/map-resource-ico.png") no-repeat;
+	margin: 5px 3px 0px 0px; 
+	float: left;
+}
+#gismap .map-resource-layers ul li i.ico.indoor{
+	background-position: 0 0;
+}
+#gismap .map-resource-layers ul li i.ico.hishpomt{
+	background-position: 0 -20px;
+}
+#gismap .map-resource-layers ul li i.ico.elevated{
+	background-position: 0 -40px;
+}
+#gismap .map-resource-layers ul li i.ico.water{
+	background-position: 0 -60px;
+}
+#gismap .map-resource-layers ul li i.ico.ground{
+	background-position: 0 -80px;
+}
+#gismap .map-resource-layers ul li span.name{
+	margin: 5px 0px 0px 2px; 
+	float: left;
+	display: inline-block;
+}
+#gismap .map-video-container{
+	height: 180px;
+	width: 240px;
+}
+
+
+
+/* above 是引用的公共样式 ====================================================================== */
+.loading{
+	display: inline-block;
+	float: left;
+	width: 16px;
+	height: 16px;
+	margin-right: 5px;
+	background: url(/module/common/images/animate/mini-loading.gif) no-repeat scroll 0 0 transparent;
+}
+
+
+#major{
+    border-bottom: 1px solid #DFDFDF;
+    /*border-top: 1px solid #DFDFDF;*/
+}
+
+
+#gismap{
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+}
+#gismap .map-operator a span{
+	background:none;
+}
+
+#gismap .map-tool{
+	height: 36px;
+	padding:1px 0;
+	background-image:none;
+	background-color: #fff;
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+
+}
+
+#gismap .map-operator .map-tool-item a>i{
+	display: inline-block;
+	width: 18px;
+	height: 20px;
+	background:url("/module/common/images/map/map-tools.png") no-repeat scroll 0 0 transparent;
+}
+
+#gismap .map-operator .map-tool-item a>i.icon-tools{
+	background-position: 0 -76px;
+}
+#gismap .map-operator .map-tool-item a>i.icon-fullscreen{
+	background-position: 0 -96px;
+}
+#gismap .map-operator .map-tool-item a.map-tool-exitfullscreen{
+	display: none;
+}
+#gismap .map-operator .map-tool-item a>i.icon-exitfullscreen{
+	background-position: 0 -299px;
+}
+
+#gismap .map-region a.region .map-region-info{
+	display: none;
+}
+#gismap .map-region a.region:hover .map-region-info{
+	display: block;
+}
+
+
+
+
+/* 地图样式 (业务功能)*/
+#gismap .map-operator .business-funcs{
+	width: 100px;
+}
+#gismap .map-operator .business-funcs a span,
+#gismap .map-operator .business-funcs a{
+	width: 70px;
+	background-image:  url("/module/common/images/map/map-tools.png");
+	background-color: :transparent;
+    display: inline-block;
+    height:20px;
+    line-height: 20px;
+    padding-left: 20px;
+    background-repeat: no-repeat;
+}
+#gismap .map-operator .business-funcs li:hover{
+	background-color: #ebf4f9;
+}
+
+
+#gismap .map-operator .business-funcs .map-select-list{
+	left: 0;
+	display: none;
+}
+
+#gismap .map-operator .business-funcs a.map-business-funcs{
+	background: no-repeat;
+	padding: 0 2px 2px 11px;
+	height: 25px;
+}
+#gismap .map-operator div.business-funcs:hover .map-select-list{
+	display: block;
+} 
+#gismap .map-operator .business-funcs a.map-business-funcs span{
+	background-position: 0 -375px;
+}
+#gismap .map-operator .business-funcs a.map-police-dispatch{
+	background-position: 0 -322px;
+}
+#gismap .map-operator .business-funcs a.map-guard-route{
+	background-position:-1px -340px;
+}
+#gismap .map-operator .business-funcs a.map-route-analysis{
+	background-position: 0 -359px;
+}
+#gismap .map-operator .business-funcs .map-select-list{
+	top:22px;
+}
+
+
+/* 地图样式 (工具)*/
+
+#gismap .map-operator .map-tools-special{
+	width: 100px;
+	display: none;
+}
+
+#gismap .map-operator .map-tools-special ul a{
+	width: 70px;
+	background-image:  url("/module/common/images/map/map-tools.png");
+	background-color: :transparent;
+    display: inline-block;
+    height:20px;
+    line-height: 20px;
+    padding-left: 20px;
+    background-repeat: no-repeat;
+}
+
+#gismap .map-operator .map-tools-special li:hover{
+	background-color: #ebf4f9;
+}
+
+#gismap .map-operator .map-tools-special .map-tools-special-list{
+	display: none;
+	background-color: #FFFFFF;
+    border: 1px solid #DFDFDF;
+    left: 6px;
+    position: absolute;
+    z-index: 100;
+}
+#gismap .map-operator .map-tools-special:hover .map-tools-special-list{
+	display: block;
+}
+#gismap .map-operator .map-tools-special .map-tools-special-list li{
+	padding:2px 0 2px 0;
+}
+
+#gismap .map-operator .map-tools-special-list a.map-drawline{
+	background-position: 0 -361px;
+}
+#gismap .map-operator .map-tools-special-list a.map-drawcover{
+	background-position:-1px -378px;
+}
+#gismap .map-operator .map-tools-special-list a.map-drawtext{
+	background-position: 0 -395px;
+}
+
+/* 经纬度输入面板 */
+#gismap .location-box{
+	width: 452px;
+	height: auto;
+	font-size: 12px;
+}
+#gismap .location-box .item{
+	padding-top: 10px;
+}
+
+#gismap .location-box .item span.name{
+	display: inline-block;
+	text-align: right;
+}
+#gismap .location-box .item div input.map-input{
+	width: 140px;
+	height: 15px;
+	line-height: 12px;
+	margin-left: -5px;
+}
+
+#gismap .location-box .operation{
+	margin-top: 10px;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	text-align: center;
+}
+
+
+
+/* 地图上的跟随文字提示 */
+#mapTextTip{
+	position: absolute;
+	width: 160px;
+	height:20px;
+	line-height: 20px;
+	padding: 0 3px;
+	border: 1px solid #120;
+	z-index: 200;
+	background-color: #fff;
+	font-size: 12px;
+}
+
+#mapImageTip{
+	position: absolute;
+	width: 10px;
+	height: 10px;
+	background: url("/module/common/images/map/circle.png") no-repeat scroll 0 0 transparent;
+	z-index: 200px;
+}
+
+#mapInputBox{
+	position: absolute;
+	width: 150px;
+	height:80px;
+	padding: 2px;
+	border: 1px solid #120;
+	z-index: 200;
+	background-color: #fff;
+}
+#mapInputBox textarea{
+	width: 150px;
+	height: 50px;
+}
+#mapInputBox .operate{
+	width: 40px;
+	height: 20px;
+	background: url("/module/common/images/map/map_select.png") no-repeat scroll 0 0 transparent;
+}
+#mapInputBox .operate a{
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	background: url("/module/common/images/map/map_select.png") no-repeat scroll 0 0px transparent;
+}
+#mapInputBox .operate a.yes{
+	background-position: 0 -33px;
+}
+#mapInputBox .operate a.no{
+	background-position: -23px -33px;
+}
+
+/* 树 拖动helper样式 */
+.drag-helper-icon-alt{
+	position: absolute;
+	width: 14px;
+	height: 14px;
+	z-index: 1000;
+	background: url("/module/common/images/sprites/tree_bg.png") no-repeat scroll -351px 0 transparent;
+}
+.drag-helper-icon{
+	position: absolute;
+	width: 14px;
+	height: 14px;
+	z-index: 1000;
+	background: url("/module/common/images/sprites/tree_bg.png") no-repeat scroll -85px 0 transparent;
+}
+
+/*	左侧样式 */
+/*.tab-content  .tab-panel div[data-view='defense'] .scrollbarPanel{
+    position: absolute;
+	bottom: 0;
+    left: 11px;
+    right: 0;
+    top: 40px;
+}*/
+
+
+
+#defenseScrollBar{
+	position: absolute;
+	left: 0;
+	top:0px;
+	bottom:0;
+	right: 0;
+	/*margin-top: 32px;*/
+}
+
+#defenseScrollBar .overview{
+	right: 9px;
+	/*height: 100%;*/
+}
+
+
+#defenseList{
+	height: 100%;
+	/*width: 190px;*/
+	/*padding-bottom:15px;*/
+}
+
+
+.tab-panel div[data-view='defense'] .header{
+	padding: 5px 0 5px 0; 
+	border-bottom: 1px solid #dadbdc;
+	height: 22px;
+}
+
+.operation button{
+    border: medium none;
+    min-width: 0;
+    padding: 0 15px;
+}
+.ui.button.white.small{
+    border: medium none;
+    height: 22px;
+    line-height: 20px;
+    min-width: 0;
+    padding: 0 4px;
+}
+button.small.right{
+	margin-right: 12px;
+}
+button.small.left{
+	margin-left: 12px;
+}
+
+/*	布防列表  */
+.tab-panel div[data-view='defense'] .list{
+	/*width: 100%;*/
+	margin: 5px;
+	/*max-height: 550px;*/
+	overflow: hidden;
+	width: 100%;
+	
+}
+.tab-panel div[data-view='defense'] .list .item{
+	margin: 5px;
+	padding:0;
+	background-color: #f4f4f4;
+	border:1px solid #DADBDC; 
+	/*border-top-color:#c4d0d9; */
+}
+.tab-panel div[data-view='defense'] .list>.item.selected,
+.tab-panel div[data-view='defense'] .list>div.item:hover{
+	border-color: #9ba9c2;
+}
+
+.tab-panel div[data-view='defense'] .list .item>div{
+	margin-bottom:5px;
+}
+
+.tab-panel div[data-view='defense'] .list>div.item a.del-defense{
+	display: inline-block;
+	float: right;
+	width: 14px;
+	height: 14px;
+	margin: 5px 7px 0 0;
+	background: url("/module/settings/mapconfig/images/back.png") no-repeat scroll 0 -20px transparent;
+
+}
+
+
+.tab-panel div[data-view='defense'] .list .item>div.name{
+	height: 25px;
+	line-height: 25px;
+	padding-left: 5px;
+	background-color: #e9eef2;
+	margin-top:0;
+}
+
+.tab-panel div[data-view='defense'] .list .item a.showline{
+	display: inline-block;
+	width: 150px;
+	height: 25px;
+	overflow: hidden;
+	text-overflow: ellipsis; 
+}
+
+.tab-panel div[data-view='defense'] .list .item span.name{
+	display: inline-block;
+	width: 40px;
+	text-align: right;
+}
+
+
+.tab-panel div[data-view='defense'] .list .item .description{
+	position: relative;
+	word-break: keep-all;
+	word-wrap: break-word;
+	padding-bottom: 0;
+	margin-bottom: 0;
+	min-height: 20px;
+}
+.tab-panel div[data-view='defense'] .list .item .description .name{
+	display: inline-block;
+	position: absolute;
+	width: 39px;
+	height:20px;
+}
+.tab-panel div[data-view='defense'] .list .item .description p{
+	position: relative;
+	margin-left: 36px;
+	padding: 0 4px 4px 0;
+	margin-bottom: 0;
+
+}
+
+/*	创建防线表单	*/
+#defenseForm .content{
+	border:1px solid #e8e8e8; 
+	padding:0;
+	margin: 5px;
+	background-color: #f4f4f4;
+}
+
+#defenseForm table{
+	padding: 0;
+	margin: 0 0 5px 0;
+	width: 217px;
+}
+
+#defenseForm tr td{
+	padding: 2px 2px 2px 0 ;
+}
+
+#defenseForm td.header{
+	background-color: #e9eef2;
+	height: 24px;
+	line-height: 24px;
+	padding-left: 15px;
+	font-size:13px;
+}
+#defenseForm td.name{
+	width: 50px;
+	text-align: right;
+}
+#defenseForm td.name-special{
+	padding-top: 15px;
+}
+
+#defenseForm input,
+#defenseForm textarea{
+	margin: 0;
+	display: inline-block;
+}
+
+#defenseForm tr span.line-desc{
+	display: inline-block;
+	position: relative;
+	top:-65px;
+}
+sup{
+	font-size: 9px;
+	position: relative;
+	top: -2px;
+}
+
+#defenseForm tr textarea{
+	display: inline-block;
+	width: 152px;
+	/*margin-top: -20px;*/
+	height: 80px;
+	font-size: 12px;
+}
+#defenseForm tr:first-child{
+	padding-top: 3px;
+}
+#defenseForm tr input{
+	width: 152px;
+	line-height: 22px;
+	border: 1px solid #D9D9D9;
+	border-radius: 2px;
+}
+
+
+#defenseForm td.draw a.tool-line{
+    display: inline-block;
+    position: relative;
+    top:3px;
+	width: 17px;
+    height:17px;
+	background-image:url("/module/common/images/map/map-tools.png");
+	background-repeat: no-repeat;
+	background-position: 0 -363px ;
+	background-color: transparent;
+	background-attachment: scroll;
+	margin-right: 5px;
+}
+
+#defenseForm td.draw  a.tool-cover{
+	display: inline-block;
+    position: relative;
+    top:3px;
+	width: 20px;
+    height:20px;
+	background-image:url("/module/common/images/map/map-tools.png");
+	background-repeat: no-repeat;
+	background-position: 2px -378px;
+	background-color: #fff;
+	background-attachment: scroll;
+	border:1px solid #D9D9D9;
+}
+
+#defenseForm li.td a.active{
+	
+	/*background-color: #fff;*/
+}
+
+#defenseForm{
+	display: none;
+}
+
+button#back{
+	position: relative;
+	top:-3px;
+	left: 8px;
+	cursor: pointer;
+	border: none;
+	height: 20px;
+	width: 22px;
+	background: url("/module/settings/mapconfig/images/back.png") no-repeat scroll 0px 0 transparent;
+}
+
+#defenseList .pagination{
+	height: 20px;
+	width: 100%;
+	margin-bottom: 10px;
+	/*position: absolute;
+	bottom:10px;
+	left:0;*/
+}
+
+#defenseForm input#name:focus{
+	border-color: #78A8D5;
+}
+
+
+/*	覆写treesearch的样式	*/
+.tree-search input{
+	padding: 0 25px 0 72px;
+	/*padding: 0 23px 0 10px;*/
+	width: 100px;
+	height: 28px;
+	line-height: 28px;
+    background-color: #FFFFFF;
+    border: 1px solid #D9D9D9;
+    /*border-radius: 3px;*/
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    color: #999;
+    font-size: 12px;
+    margin: 0 0 0 0;
+    transition: background-color 0.2s ease-out 0s, box-shadow 0.2s ease 0s, border-color 0.2s ease 0s;
+    vertical-align: middle;
+    width: 61%;
+}
+.tree-search input:focus {
+    border-color: #78A8D5;
+    color: #444444;
+}
+.tree-search #searchBtn{
+    font-size: 0;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+	top:5px;
+	right: 4px;
+    background: url("/module/common/images/search_small.png") no-repeat scroll center center transparent;
+    border: medium none;
+    cursor: pointer;
+    font-size: 0;
+   
+}
+.tree-search #advanceSearch{
+	display: inline-block;
+	position: relative;
+	top: 1px;
+}
+
+
+.advance-search-panel{
+	display: none;
+	padding-left: 10px;
+	height: 120px;
+}
+
+.advance-search-panel p{
+	margin: 5px 0;
+	line-height: 25px;
+}
+
+.advance-search-panel #cameraName{
+	margin-left: 0px;
+	border-radius: 0;
+	width: 140px;
+	padding: 0 5px;
+}
+.advance-search-panel #markStatus{
+	margin-left: -4px;
+	height: 25px;
+	width: 152px;
+	line-height: 23px;
+	/*border:1px solid #D9D9D9;*/
+}
+.advance-search-panel .action #advCancel{
+	float: right;
+	width: 60px;
+	height: 26px;
+	line-height: 24px;
+	padding: 0;
+	margin-left: 8px;
+	margin-top: 5px;
+}
+.advance-search-panel .action #advSearch{
+	float: right;
+	width: 60px;
+	height: 26px;
+	line-height: 24px;
+	padding: 0;
+	margin-left: 8px;
+	margin-top: 5px;
+}
+.advance-search-panel:after{
+	content: "";
+	display: block;
+	position: relative;
+	top:40px;
+	left: -10px;
+	width: 230px;
+	border-bottom:1px solid #D9D9D9;
+}
+
+#leftTree  li.leaf:hover{
+	/*width: 175px;*/
+	background-color: #DCE3ED;
+} 
+
+
+
+
+/*新结构的地图样式*/
+#major .body {
+position: absolute;
+top: 36px;
+left: 0px;
+bottom: 0px;
+right: 0px;
+/*background-color: #F9F9F9;*/
+}
+
+
+#gismap .map-tool {
+position: absolute;
+width: 100%;
+height: 36px;
+border-left: none !important;
+/*background: url("/module/common/images/map/map-tool-bg.png") repeat-x;*/
+z-index: 100;
+}
+
+#major {
+	display:block;
+}
+
+/*npmap 窗口样式*/
+.infowindow-title{
+	height: 35px;
+	line-height: 35px;
+	border-bottom: 1px solid #ECECEC;
+	background-color: #F9F9F9;
+	font-size: 14px;
+	color: #333333;
+	width: 452px;
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+	background-color: #F3F3F3;
+}
+.infowindow-title span.mark-name{
+	margin-left: 10px;
+	display: inline-block;
+	width: 150px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+.infowindow-title span.btns{
+	float: right;
+	margin-top: 3px;
+}
+
+.infowindow-title span.delespan{
+	margin-right: 25px;
+}
+.infowindow-title span.closespan{
+	margin-right: -50px;
+}
+
+.infowindow-title span.btns .btn{
+	height: 16px;
+	width: 16px;
+	margin: 0px 10px 0px 0px;
+	top: 10px;
+	right: 5px;
+	display: inline-block;
+	cursor: pointer;
+}
+
+.infowindow-title span.btns i.closeBtn{
+	background: url("../images/dialog-close.png") no-repeat;
+
+}
+.infowindow-title span.btns i.closeBtn:hover{
+	background: url("../images/dialog-close-hover.png") no-repeat;
+}
+
+.infowindow-title span.btns i.deleteBtn{
+	background: url("../images/trash-can-delete.png") no-repeat;
+}
+.infowindow-title span.btns i.deleteBtn:hover{
+	background: url("../images/trash-can-delete.png") no-repeat -21px;
+}
+
+.all-contro{
+	padding: 0 20px;
+	height: 100%;
+	border-bottom-left-radius: 3px;
+	border-bottom-right-radius: 3px;
+	background-color: #FFF;
+}
+
+.lon-lat{
+	width: 100%;
+}
+
+.lon-lat .long{
+	/*float: left;*/
+}
+
+.lon-lat .lat{
+	/*float: right;*/
+	margin-left: 22px;
+}
+
+
+.lon-lat-container {
+	width: 100% !important;
+	height: 50px;
+	line-height: 50px;
+	border-bottom: 1px dashed #DFDFDF;
+}
+.lon-lat-container input {
+	width: 146px !important;
+}
+.lon-lat-container label{
+	display: inline-block;
+	width: 44px;
+	text-align: center;
+	text-indent: 13px;
+}
+.lon-lat-container label:first-child {
+	width: 36px;
+	text-indent: 0;
+}
+
+.angle-container{
+	height: 50px;
+	line-height: 50px;
+}
+
+.angle-container label,
+.angle-container input,
+.angle-container div{
+	float: left;
+}
+
+.angle-container input#angle{
+	width: 50px;
+	margin-top: 10px;
+	border-top-right-radius: 0px;
+	border-bottom-right-radius: 0px;
+}
+
+.angle-container .up-down{
+	width: 12px;
+	height: 28px;
+	line-height: 28px;
+	margin-top: 10px;
+	border: 1px solid #DFDFDF;
+	border-left: none;
+	border-top-right-radius: 3px;
+	border-bottom-right-radius: 3px;
+}
+
+.angle-container .up-down .up{
+	width: 12px;
+	height: 15px;
+	border-bottom: 1px solid #DFDFDF;
+	background: transparent url(../images/up.png) no-repeat 0px;
+}
+.angle-container .up-down .up:hover{
+	background: transparent url(../images/up-hover.png) no-repeat 0px;
+}
+
+.angle-container .up-down .down{
+	width: 12px;
+	height: 15px;
+	background: transparent url(../images/down.png) no-repeat 0px;
+}
+.angle-container .up-down .down:hover{
+	background: transparent url(../images/down-hover.png) no-repeat 0px;
+}
+
+.range-cont{
+	background: url(../images/angle-se.png) no-repeat 0 9px;
+	height: 27px;
+	background-size: 100%;
+}
+
+.range-cont .range-div{
+	position: relative;
+	background: #ccc;
+	height: 5px;
+	border-radius: 5px;
+	width: 100%;
+}
+
+.range-cont .range-div .range-color{
+	position: absolute;
+	height: 5px;
+	border-radius: 3px;
+	left: 0;
+	z-index: 1;
+	background: #ff8d33;
+}
+
+.range-cont .range-div .range-btn{
+	position: absolute;
+	top: -6px;
+	width: 15px;
+	height: 15px;
+	border-radius: 50%;
+	border: none;
+	background: #fff;
+	box-shadow: 0px 0px 10px #000;
+	cursor: pointer;
+	outline: none;
+}
+
+.all-contro .tip{
+	background: url(../images/tips.png) no-repeat 0 9px;
+	height: 40px;
+	background-size: 100%;
+}
+
+#saveMark{
+	display: inline-block;
+}
+
+#cancelMark{
+	display: inline-block;
+}
+
+.olFramedCloudPopupContent {
+    overflow: visible;
+    background-color: white;
+    border-width: 1px;
+    border-style: solid;
+    border-color: gray;
+    cursor: default;
+    border-radius: 4px;
+    border: solid 1px #c9c9c9 !important;
+    moz-box-shadow: 0px 1px 8px #C2C2C2;
+    /*firefox*/
+    -webkit-box-shadow: 0px 1px 8px #C2C2C2;
+    /*safari或chrome*/
+    box-shadow: 0px 1px 8px #C2C2C2;
+    /*opera或ie9*/
+}
+
+
+/*信息窗标题*/
+
+.infowindow-title {
+    height: 35px;
+    line-height: 35px;
+    border-bottom: 1px solid #ddd;
+    background-color: #F9F9F9;
+    color: #333333;
+    border-radius: 4px 4px 0 0;
+}
+
+.tab-panel .tabs {
+	display: none !important;
+}
+.tab-panel .tab-content{
+	left: 0 !important;
+}
+
+.tab-panel .tab-content > .active{
+	left: 0 !important;
+	background-color: #F6FBFF !important;
+	padding: 13px !important;
+	padding-top: 0 !important;
+}
+
+.tree-search {
+	width: 100%;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #DFDFDF;
+}
+
+.tree-container {
+	position: absolute;
+	top: 125px;
+	left: 0;
+	padding-left: 13px; 
+}

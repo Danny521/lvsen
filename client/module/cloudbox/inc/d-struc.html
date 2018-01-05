@@ -1,0 +1,110 @@
+<div class="bg-content s-content">
+	<div class="left-bar"></div>
+	<div class="right-bar"></div>
+	<div class="tab-title main-title">
+		<span class="tab-title-outer">
+			<a href="javascript:void(0)" class="tab-title-item tab-pic tab-structed-pic active" data-anchor='0'>特征图片</a>
+			<a href="javascript:void(0)" class="tab-title-item tab-structed-video" data-anchor='1'>视频片段</a>
+		</span>
+	</div>
+	<div class="tab-content main-content pic-and-video">
+
+		
+		<div class="tab-content-item content-pic active" data-target='0'>
+			<div class="pic-wrap">
+				<img class="big-pic" src="" alt="">
+			</div>
+		</div>
+		<div class="tab-content-item content-video" data-target='1'>
+			<div class="video-wrap">
+				<div class="ocx-box">
+					<object id="UIOCX" class="UIOCX"  type="applicatin/x-firebreath" align="center" width="100%" style="width:100%">
+						<param name="onload" value="pluginLoaded"/>
+					</object>
+				</div>
+				<div class="video-block">
+					<div class="progress-bg">
+					</div>
+					<div class="progress-bar">
+						<div class="bullet">
+							<i class="play-point"></i>
+						</div>
+						<i class='start-mark'></i>
+						<i class='end-mark'></i>
+					</div>
+					<div class="panel" onselectstart="return false">
+						<div class="vbar-right">
+							<span class="grab pic-video-grab player-btn pb-grab" title='抓图' data-id="{{video.id}}" data-type="1" data-name="{{video.fileName}}" data-shootTime="{{video.shootTime}}"></span>
+							<span class="fullwin player-btn pb-fullwin" title='全屏'></span>
+						</div>
+						<div class="time vbar-left">
+							<span class="nowtime" nowtime-ms="0">00:00:00</span>&nbsp;/
+							<span class="alltime" alltime-ms="0">00:00:00</span>
+							<span class="speed">倍速：<em></em></span>
+						</div>
+						<div class="vbar-mid">
+							<span class="rewind player-btn pb-rewind" title='慢放'></span>
+							<span class="switch player-btn pb-play" title='播放'></span>
+							<span class="forward player-btn pb-forward" title='快进'></span>
+							<span class="stop player-btn pb-stop" title='停止'></span>
+							<span style="display:none;" class="loop player-btn pb-loop" title="循环"></span>
+							<span class="sequence player-btn pb-sequence" title="顺序"></span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+	</div>
+	<div class="eyes">
+		{{#if markPath}}
+		<img src="{{markPath}}" alt="">
+		{{else}}
+		<img src="{{picture}}" alt="">
+		{{/if}}
+		<button class="close-eyes pointer"></button>
+		<div class="outline">
+			<div class="outInner"></div>
+		</div>
+	</div>
+	<div class="iframe-and-control">
+		<div class="content-controll-bar">
+			<a href="javascript:void(0)" class='elel'><i class="elel-icon"></i></a>
+			<a href="javascript:void(0)" class='save-to-repository  save-to-viewlibs permission permission-tobaselib'  data-action="medialib"><i class="repository-icon"></i>入库</a>
+			<a href="javascript:void(0)" class='del permission permission-create'><i class="del-icon"></i>删除</a>
+		</div>
+	</div>
+</div>
+<div class="bg-sider">
+	<div class="s-bar"></div>
+	<div class="inner-sider info">
+		<div class="saved-info active">
+			<div class="saved-info-title">
+				<i class="edit-icon"></i><h4 class="title too-long"></h4>
+			</div>
+			<p class="first-title">
+				<span class='saved-label'>出现时刻 :</span><span class='saved-content shoot-time appear-time'>{{mills2ISODate appearTime}}</span>
+			</p>
+			<p>
+				<span class='saved-label'>所属视图 :</span><span class='saved-content father-video'>{{fileExtName}}</span>
+			</p>
+			<p>
+				<span class='saved-label'>备注信息 :</span><span class='saved-content none-edit-remark struc-remark'>{{{noValue remark}}}</span>
+			</p>
+		</div>
+
+		<div class="editing-info">
+			<p>
+				<span class='editing-label'>出现时刻 :</span><input type="text" class='editing-text-input datepicker pic-appear-time struct-input-time' value='{{mills2ISODate appearTime}}'>
+			</p>
+			<p>
+				<span class='editing-label'>备注信息 :</span><textarea class='editing-text-textarea struct-input-remark'>{{remark}}</textarea>
+			</p>
+			<p class="p-btn">
+				<a href="javascript:void(0)" class="a-btn save-btn"><i class="save-icon"></i>保存</a>
+				<a href="javascript:void(0)" class="a-btn cancel-btn"><i class="cancel-icon"></i>取消</a>
+			</p>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,69 @@
+<!-- 布防设置第一步 选择摄像机页面 -->
+<div id="defence-first-step" class="defence-setting-content">
+	<!-- 左侧摄像机列表 -->
+	<div class="wrapper">
+		<aside id="defence-setting-sidebar">
+            <!--页面左右调整块 暂时屏蔽-->
+			<!-- <a id="sideResize">
+				<iframe src="about:blank"></iframe>
+                <span class="resize"></span>
+			</a> -->
+            <!--左侧内容区 存放摄像机树-->
+            <div id="defence-setting-aside">
+                <p class="step-left-title">请选择摄像机：</p>
+            	<!-- 摄像机树搜索区 -->
+            	<div class="camera-search-container">
+				    <div class="ui input action search">
+				        <input type="text" name="q" placeholder="全局搜索..." />
+				        <button class="search action">搜索</button>
+				    </div>
+				</div>
+				<!-- 摄像机树展示区 -->
+				<div class="rule-camera-tree"><!-- class="ztree"-->
+				    <div id="cameraTree" class="treePanel">
+
+				    </div>
+				</div>
+            </div>
+		</aside>
+	</div>
+	<!-- 右侧内容区 -->
+	<div id="defence-setting-major">
+		<!-- 地图容器 -->
+		<div id="defence-setting-gismap">
+            <div class="map-tool clearfix">
+                <!--工具条左侧内容 -->
+                <div class="map-region"></div>
+                <!-- 工具条右侧内容-->
+                <div class="map-operator" id="map-tool-right"></div>
+            </div>
+            <div id="defence-setting-mapId" class="gismap olMap">
+                <div class="opera-container"></div>
+               <!--  <div class="alarm-scroll-info">
+                    <div class="scroll-data">
+                    </div>
+                </div> -->
+                <div class="defence-map-resource-layers">
+                    <h2 class="layers-head"><span class="title">资源</span><span class="contract-btn up"></span></h2>
+                    <ul class="resource-layers">
+                        <li class="clearfix active" id="ResourceIndoor">
+                            <i class="checkbox"></i><i class="ico indoor"></i><span class="name">室内</span>
+                        </li>
+                        <li class="clearfix active" id="ResourceHiShpomt">
+                            <i class="checkbox"></i><i class="ico hishpomt"></i><span class="name">制高点</span>
+                        </li>
+                        <li class="clearfix active" id="ResourceElevated">
+                            <i class="checkbox"></i><i class="ico elevated"></i><span class="name">高架</span>
+                        </li>
+                        <li class="clearfix active" id="ResourceWater">
+                            <i class="checkbox"></i><i class="ico water"></i><span class="name">水面</span>
+                        </li>
+                        <li class="clearfix active" id="ResourceGround">
+                            <i class="checkbox"></i><i class="ico ground"></i><span class="name">路面</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+		</div>
+	</div>
+</div>

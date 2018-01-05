@@ -1,0 +1,133 @@
+<div id="gismap" >
+	<div class="map-tool clearfix">
+		<!--工具条左侧内容 -->
+		<div class="map-region">
+		</div>
+		<!-- 工具条右侧内容-->
+		<div class="map-operator" id="map-tool-right"></div>
+	</div>
+	<!-- 工具条遮罩-->
+	<div class="map-toolbar-mask"></div>
+	<!-- 地图容器-->
+	<div id="mapId" class="body gismap loading_1">
+		<div class="map-tips">正在加载地图，请稍后...</div>
+		<div class="opera-container"></div>
+	</div>
+	<div id="streetMap1" class="body infinity street-map-container">
+		<div class="map-tool clearfix">
+			<button class="ui button tiny" id="closeStreetmapBtn1">关闭</button>
+		</div>
+	</div>
+	<div id="streetMap" class="body infinity street-map-container">
+		<div class="map-tool clearfix">
+			<div class="map-region"></div>
+			<button class="ui button tiny" id="closeStreetmapBtn">关闭</button>
+		</div>
+		<iframe id="streetMapCamerasIfr" class="street-map-cameras-ifr" scroll="none" src="about:blank"></iframe>
+		<div class="street-map-camera-list">
+			<div class="title"><span class="text">附近摄像机资源：</span><span class="camera-list-contract-btn" title="展开"></span></div>
+			<!-- <div id="streetMapCameraUl">
+				<ul class="list">
+					<li class="grey-text">暂无摄像机</li>
+				</ul>
+			</div> -->
+			<!--songxj-->
+			<div class="tree-container cameraPositionTree">
+				<div class="treePanel">
+					<ul onselectstart="return false;">
+						<li class="tree root active">
+							<ul class="cameraList" onselectstart="return false;">
+								<li class="tree up" data-position="up">
+									<div class="positionLine">
+										<i class="fold"></i><span class="name position-name">正北</span><span class="camera-count">[<span class="online">在线:<span class="online-count"></span></span>/总数:<span class="total-count"></span>]</span>
+										<span class="play"></span>
+									</div>
+									<ul class="camera-list" onselectstart="return false;">
+									</ul>
+								</li>
+								<li class="tree right-up" data-position="right-up">
+									<div class="positionLine">
+										<i class="fold"></i><span class="name position-name">东北</span><span class="camera-count">[<span class="online-count"></span>/<span class="total-count"></span>]</span>
+										<span class="play"></span>
+									</div>
+									<ul class="camera-list" onselectstart="return false;">
+									</ul>
+								</li>
+								<li class="tree right" data-position="right">
+									<div class="positionLine">
+										<i class="fold"></i><span class="name position-name">正东</span><span class="camera-count">[<span class="online-count"></span>/<span class="total-count"></span>]</span>
+										<span class="play"></span>
+									</div>
+									<ul class="camera-list" onselectstart="return false;">
+									</ul>
+								</li>
+								<li class="tree right-down" data-position="right-down">
+									<div class="positionLine">
+										<i class="fold"></i><span class="name position-name">东南</span><span class="camera-count">[<span class="online-count"></span>/<span class="total-count"></span>]</span>
+										<span class="play"></span>
+									</div>
+									<ul class="camera-list" onselectstart="return false;">
+									</ul>
+								</li>
+								<li class="tree down" data-position="down">
+									<div class="positionLine">
+										<i class="fold"></i><span class="name position-name">正南</span><span class="camera-count">[<span class="online-count"></span>/<span class="total-count"></span>]</span>
+										<span class="play"></span>
+									</div>
+									<ul class="camera-list" onselectstart="return false;">
+									</ul>
+								</li>
+								<li class="tree left-down" data-position="left-down">
+									<div class="positionLine">
+										<i class="fold"></i><span class="name position-name">西南</span><span class="camera-count">[<span class="online-count"></span>/<span class="total-count"></span>]</span>
+										<span class="play"></span>
+									</div>
+									<ul class="camera-list" onselectstart="return false;">
+									</ul>
+								</li>
+								<li class="tree left" data-position="left">
+									<div class="positionLine">
+										<i class="fold"></i><span class="name position-name">正西</span><span class="camera-count">[<span class="online-count"></span>/<span class="total-count"></span>]</span>
+										<span class="play"></span>
+									</div>
+									<ul class="camera-list" onselectstart="return false;">
+									</ul>
+								</li>
+
+								<li class="tree left-up" data-position="left-up">
+									<div class="positionLine">
+										<i class="fold"></i><span class="name position-name">西北</span><span class="camera-count">[<span class="online-count"></span>/<span class="total-count"></span>]</span>
+										<span class="play"></span>
+									</div>
+									<ul class="camera-list" onselectstart="return false;">
+									</ul>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<!--end of songxj-->
+		</div>
+		<div class="street-map" id="streetMapContainer">
+			<div class="map" id="streetMapId"></div>
+		</div>
+		<div class="map-fullview screen">
+			<!--新增鼠标滑过按钮-->
+			<div id="videoControl" class="video-control">
+				<iframe id="upBlock" class="up-block" src="javascript:;" scrolling="no" border=0 frameborder=0 height='40'></iframe>
+				<div id="upBlockContent">
+					<span class='video-title'></span>
+					<span class='tools-up'>
+						<i class='center-icon'>中心画面</i>
+						<i class='fullscreen-icon' title="全屏"></i>
+					</span>
+				</div>
+			</div>
+			<object id="UIOCXSTREETMAP" type="applicatin/x-firebreath">
+				<param name="onload" value="pluginLoaded"/>
+			</object>
+		</div>
+	</div>
+
+</div>

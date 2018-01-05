@@ -1,0 +1,30 @@
+<div class="download-record">
+	<iframe src="about:blank"></iframe>	
+</div>
+<div class="dialog-history filedir">
+	<div class="dialog-title">
+		<span>下载历史录像</span>
+		<span class="tab">
+			<i class="list active"></i><i class="thumb"></i>
+		</span>
+		<span class="close"></span>
+	</div>
+	<div class="dialog-body unselect">
+		<div class="filedir-path"></div>
+		<div class="content-list small-list" showfiledirid="0">
+				{{#each data}}
+					<div class="file" title="{{this.name}}"  filedirid="{{this.id}}"  type="{{this.type}}"  userId="{{this.userId}}"  parentId="{{this.parentId}}"  storageTime="{{this.storageTime}}">
+						<span class="icon"></span>
+						<span class="title unselect">{{this.name}}</span>
+						<input class="input" maxlength="40" />
+					</div>
+				{{/each}}
+		</div>
+	</div>
+	<div class="dialog-foot">
+		<input class="newdir ui button blue" value="新建文件夹" />
+		<span class="okcancel">
+			<input class="okk ui button blue" value="确定" />
+		</span>
+	</div>
+</div>

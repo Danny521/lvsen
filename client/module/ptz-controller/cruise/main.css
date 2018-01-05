@@ -1,0 +1,427 @@
+*{
+	margin:0;
+	padding:0;
+}
+.outer{
+	height: 316px;
+	width: 300px;
+	border:1px solid #e5e5e5;
+}
+.header{
+	height: 35px;
+	border-bottom: 1px solid #e5e5e5;
+}
+.blue-btn{
+	color: #fff;
+	background: #6BB7FF;
+}
+.gray-btn{
+	background: #E9E9E9;
+}
+.go-left{
+	float: left;
+}
+.go-right{
+	float: right;
+}
+
+/* 当文字太长需要显示'...'的时候 */
+.too-long{
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+/* 通用icon样式 */
+.new-cruise .common-icon{
+	display: inline-block;
+	cursor: pointer;
+	vertical-align: middle;
+	width: 18px;
+	height: 18px;
+}
+
+/* 列表通用样式 */
+.new-cruise .common-title{
+	height:30px;
+	border-bottom: 1px solid #e5e5e5;
+	line-height: 30px;
+}
+.new-cruise .common-list{
+	height:30px;
+	line-height: 30px;
+	border-bottom: 1px solid #e5e5e5;
+}
+.new-cruise .common-list span{
+	color: #666;
+	text-align: center;
+}
+.new-cruise .common-title span{
+	/*float: left;*/
+	color: #C1BDBD;
+	text-align: center;
+}
+
+.new-cruise .l-index{
+	display: inline-block;
+	width: 34px;
+	vertical-align: middle;
+	/*float: left;*/
+}
+.new-cruise .l-name{
+	display: inline-block;
+	width: 80px;
+	vertical-align: middle;
+	/*float: left;*/
+}
+.new-cruise .l-controller{
+	display: inline-block;
+	width: 100px;
+	vertical-align: middle;
+	/*float: left;*/
+}
+.new-cruise{
+	background:#f3f3f3;
+}
+.cruise-inner{
+	padding: 0 0 10px 10px;
+}
+.new-cruise ul{
+	overflow-y: auto;
+	margin-top:0;
+	border:solid 0px red;
+}
+
+.new-cruise ul li{
+	padding-left: 0;
+}
+.cruise-list ul{
+	height: 188px;
+}
+.add-auto ul{
+	height: 90px;
+	padding:0px 0;
+}
+.add-time ul{
+	height:90px;
+	padding:0px 0;
+}
+
+.new-cruise .c-header{
+	border-bottom: 1px solid #e5e5e5; 
+	height: 50px;
+	line-height: 50px;
+	font-size: 12px;
+	color: #666;
+}
+
+.c-header span{
+	display: inline-block;
+	text-align: center;
+	width: 68px;
+	height: 24px;
+	line-height: 24px;
+	color: #666;
+	border-radius: 4px;
+	vertical-align: middle;
+	font-size: 12px;
+}
+
+.c-header .by-auto{
+	margin:0 10px 0 10px;
+}
+.c-header span.c-add{
+	text-align: right;
+	width: 78px;
+}
+.c-header .c-add .setting{
+	background: url('/module/ptz-controller/cruise_/img/add.png') no-repeat scroll 0 0;
+}
+.c-header .c-add .setting:hover{
+	background: url('/module/ptz-controller/cruise/img/add.png') no-repeat scroll -21px 0;
+}
+.c-header .tab-title{
+	cursor: pointer;
+}
+.c-header .tab-title.active{
+	background: #399BF6;
+	color: #fff;
+}
+.new-cruise .c-content{
+	font-size: 12px;
+	height: 200px;
+	overflow: hidden;
+
+}
+.c-content .auto-content,.c-content .time-content{
+	display: none;
+}
+.c-content .auto-content.active,.c-content .time-content.active{
+	display: block;
+}
+
+.c-content .cruise-list{
+	border-top: 0px solid #fff;
+}
+
+
+.c-content .auto-list .common-icon{
+	margin-left: 6px;
+}
+.c-content .auto-list .switch{
+	width: 42px;
+	height: 24px;
+	background: url('/module/ptz-controller/cruise/img/switch.png') no-repeat scroll 0 center;
+}
+.auto-list .switch.active{
+	background-position: -46px;
+}
+.auto-list .edit{
+	background: url('/module/ptz-controller/cruise/img/edit.png') no-repeat scroll 0 center;
+}
+.auto-list .del{
+	background: url('/module/ptz-controller/cruise/img/del.png') no-repeat scroll 0 center;
+}
+.auto-list .up{
+	width: 14px;
+	background: url('/module/ptz-controller/cruise/img/up.png') no-repeat scroll 0 center;
+}
+.auto-list .down{
+	width: 14px;
+	background: url('/module/ptz-controller/cruise/img/down.png') no-repeat scroll 0 center;
+}
+
+.auto-list .edit:hover{
+	background: url('/module/ptz-controller/cruise/img/edit.png') no-repeat scroll -24px center;
+}
+.auto-list .del:hover{
+	background: url('/module/ptz-controller/cruise/img/del.png') no-repeat scroll -22px center;
+}
+.auto-list .up:hover{
+	background: url('/module/ptz-controller/cruise/img/up.png') no-repeat scroll -14px center;
+}
+.auto-list .down:hover{
+	background: url('/module/ptz-controller/cruise/img/down.png') no-repeat scroll -14px center;
+}
+.add-content{
+	display: none;
+}
+.add-content input,.add-content select{
+	padding:1px 2px;
+	border-radius: 2px;
+}
+.add-content .n-title{
+	/* height: 35px;
+	line-height: 35px; */
+	height: 30px;
+	line-height: 30px;
+	border-bottom: 1px solid #e5e5e5;
+	padding:0 12px;
+}
+.add-content .n-content{
+	padding: 0 12px;
+	border-top: 1px solid #fff;
+}
+.add-content .n-content .auto-list{
+	border-bottom: none;
+	height: 30px;
+	line-height: 30px;
+}
+.add-content .go-back{
+	cursor: pointer;
+	color: #188dfb;
+	font-weight: bold;
+	background-image: url("/module/ptz-controller/cruise/img/back.png");
+	background-repeat: no-repeat;
+	background-position: 0px 9px;
+	padding-left: 15px;
+	*float: left;
+	*margin-top: -30px;
+	*width: 50px;
+}
+
+.add-content .add-new{
+	background: url('/module/ptz-controller/cruise/img/add.png') no-repeat scroll 0 center;
+	height: 35px;
+	vertical-align: middle;
+	*float: left;
+	*margin-left: 230px;
+}
+.add-content .add-new:hover{
+	background: url('/module/ptz-controller/cruise/img/add.png') no-repeat scroll -21px center;
+}
+.add-auto .auto-title .l-index{
+	width: 92px;
+}
+.add-auto .auto-title .l-name{
+	width: 70px;
+}
+.add-auto .auto-title .l-controller{
+	width: 70px;
+}
+.add-content .pre-item{
+	vertical-align: middle;
+	display: inline-block;
+	margin-right: 10px;
+	border-radius: 2px;
+	width: 48px;
+}
+.add-auto .auto-list select{
+	border:1px solid #E9E9E9;
+	padding:1px;
+	width: 90px;
+}
+.add-auto .auto-list input{
+	border:none;
+	width: 30px;
+}
+.add-content .auto-list .s-input{
+	background: #fff;
+	border:1px solid #E9E9E9;
+	height: 21px;
+	line-height: 20px;
+	*display: inline-block;
+	*display: inline;
+	zoom: 1;
+}
+.add-auto .auto-list .pre-controller{
+	display: inline-block;
+	text-align: right;
+	width: 68px;
+}
+.pre-controller .common-icon{
+	margin-left: 4px;
+}
+
+.add-time .auto-title .l-index{
+	width: 80px;
+}
+.add-time .auto-title .l-begintime{
+	width: 66px;
+}
+.add-time .auto-title .l-endtime{
+	width: 56px;
+}
+.add-time .auto-title .l-controller{
+	width: 30px;
+	margin-left: 6px;
+}
+.add-time .auto-list select{
+	border:1px solid #E9E9E9;
+	margin-right: 0;
+	width: 80px;
+}
+.add-time .auto-list input{
+	height: 20px;
+	border: 1px solid #E9E9E9;
+	width: 54px;
+	vertical-align: middle;
+}
+.add-time .auto-list .pre-controller{
+	display: inline-block;
+	text-align: right;
+	width: 26px;
+}
+
+.new-cruise-info{
+	border-top: 1px solid #e5e5e5;
+}
+.new-cruise-info p{
+	margin-top:10px;
+}
+.new-cruise-info label{
+	display: inline-block;
+	width: 40px;
+	text-align: center;
+}
+.new-cruise-info .begin-end-time{
+	border:1px solid #E9E9E9;
+	display: inline-block;
+	background: #fff;
+}
+.new-cruise-info .begin-end-time span{
+	display: inline-block;
+	width: 20px;
+	height: 22px;
+	border-left:1px solid #E9E9E9;
+	border-right:1px solid #E9E9E9;
+	text-align: center;
+	font-size: 14px;
+}
+.new-cruise-info .after-down{
+	border:1px solid #E9E9E9;    
+	display: inline-block;
+	padding-left:2px;
+	width: 202px;
+	height: 23px;
+	background: #fff;
+	*float:left;
+	*margin-top: -25px;
+	*margin-left: 46px;
+}
+.new-cruise-info .after-down select{
+	border:none;
+	width: 134px;
+}
+.new-cruise-info  .cruise-title {
+	display: inline-block;
+	*display: inline;
+	zoom: 1;
+	*width: 50px;
+}
+.new-cruise-info .cruise-after {
+	display: inline-block;
+	*display: inline;
+	zoom: 1;
+	*width: 50px;
+}
+.new-cruise-info .long-input{
+	border:1px solid #E9E9E9;
+	height: 20px;
+	width: 200px;
+}
+.new-cruise-info .short-input{
+	width:83px;
+	height: 20px;
+	border:none;
+		*float: left;
+	*margin-left: 46px;
+	*margin-top: -25px;
+}
+.new-cruise-info .save-or-cancel{
+	text-align: right;
+	margin-top: 12px;
+}
+.new-cruise-info .save-or-cancel input{
+	border:none;
+	padding: 2px 12px;
+	cursor: pointer;
+}
+.new-cruise-info .save-or-cancel input:hover{
+	background: #188DFB;
+	color: #fff;
+}
+.new-cruise-info .gray-btn {
+	*float: left;
+	*margin-left: 100px;
+	*margin-top: -30px;
+}
+
+.cruise-btn{
+	text-align: right;
+	padding-left: 20px;
+	padding-right: 20px;
+	margin-top: 10px;
+}
+
+.cruise-btn button{
+	padding-left: 10px !important;
+	padding-right: 10px !important;
+	height: 23px !important;
+	line-height: 23px !important;
+}
+
+ul.show-cruise-list{
+	height: 190px;
+	overflow: hidden;
+}

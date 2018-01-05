@@ -1,0 +1,122 @@
+{{#if mytask}}
+	{{#each mytask}}
+	<div class="groups">
+		<div class="group-item">
+			<div class="item-header">
+				<span class="name moredetail mytask" title="{{taskName}}"  task-id="{{taskId}}">{{taskName}}</span>
+			</div>
+			<div class="item-body">
+				<span class="time">
+					<q>提交时间：</q>
+						{{mills2str taskDate}}
+				</span>
+				<span class="status">
+					<q>状态：</q>{{status taskStatus}}
+				</span>
+				<!--<span class="status" task-id="{{taskId}}">
+					<q>审核意见：</q><ins>查看</ins>
+				</span>-->
+			</div>
+			<div class="item-footer">
+				<!--<a class="report" href="#" task-id="{{taskId}}">任务上报</a>-->
+				<a class="delete" href="#" task-id="{{taskId}}">删除</a>
+				<a class="set" href="#" task-id="{{taskId}}">设置</a>
+			</div>
+		</div>
+	</div>
+	{{/each}}
+{{/if}}
+{{#if checktask}}
+	{{#each checktask}}
+	<div class="groups">
+		<div class="group-item">
+			<div class="item-header">
+				<span class="name moredetail checktask" title="{{taskName}}" task-id = "{{taskId}}">{{taskName}}</span>
+			</div>
+			<div class="item-body">
+				<span class="time">
+					<q>提交时间：</q>
+					{{mills2str taskDate}}
+				</span>
+				<span class="status">
+					<q>责任人：</q>
+					{{userName}}
+				</span>
+			</div>
+			<div class="item-footer">
+				<a class="audit" href="#" task-id = "{{taskId}}">审核意见</a>
+				<a class="delete" href="#" task-id = "{{taskId}}">删除</a>
+			</div>
+			<form class="audit" task-id="{{taskId}}" action="" method="post">
+				<textarea></textarea>
+				<input type="reset" class="cancel ui blue button" value="取消">
+				<input type="submit" class="submit ui blue button" value="确定">
+			</form>
+		</div>
+	</div>
+	{{/each}}
+{{/if}}
+{{#if combine}}
+	{{#each combine}}
+	<div class="groups">
+		<div class="group-item">
+			<div class="item-header">
+				<span class="name" title="{{groupName}}"><input type="checkbox" class="checkbox" task-id="{{taskId}}">{{taskName}}</span>
+			</div>
+			<div class="item-body">
+				<span class="time">
+					<q>提交时间：</q>
+					{{mills2str taskDate}}
+				</span>
+				<span class="status">
+					<q>状态：</q>
+					{{status taskStatus}}
+				</span>
+				<!--<span class="status">
+					<q>审核意见：</q>
+					通过
+				</span>-->
+			</div>
+		</div>
+	</div>
+	{{/each}}
+{{/if}}
+
+{{#if plan}}
+	{{#each plan}}
+		<div class="groups">
+		<div class="group-item">
+			<div class="item-header">
+				<a href="#" task-id="{{id}}" class="configplanisopen {{isClosed status}}" task-status="{{isOpen status}}">
+					{{isOpen status}}
+				</a>
+				<span class="name" title="yu">{{taskName}}</span>
+			</div>
+
+			<div class="item-body">
+				<span class="time">
+					<q>提交时间：</q>
+					{{dateThen param frequency}}
+				</span>
+				{{#if frequency}}
+				<span class="status">
+					<q>频率：</q>
+					{{rate frequency}}
+				</span>
+				{{/if}}
+				{{#if param}}
+				<span class="status date">
+					<q>日期：</q>
+					{{dateNow param frequency}}
+				</span>
+				{{/if}}
+			</div>
+
+			<div class="item-footer">
+				<a class="layer delete" href="#" task-id="{{id}}">删除</a>
+				<a class="configplan" href="#" task-id="{{id}}">设置</a>
+			</div>
+		</div>
+	</div>
+	{{/each}}
+{{/if}}

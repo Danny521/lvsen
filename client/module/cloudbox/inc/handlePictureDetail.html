@@ -1,0 +1,86 @@
+<div class="details">
+    <div class="details_title">
+        <ul>
+            <li>
+                <h6>{{image.fileName}}</h6>
+                <a><em id="pictureHandleInfo" data-id="{{image.id}}">(已存{{handleNum}}条图像处理结果)</em></a>
+            </li>
+            <li>
+                <p>{{mills2str image.shootTime}}</p>
+            </li>
+        </ul>
+        <span>
+            <a href="javascript:void(0)" data-id="{{image.id}}" data-parentId="{{image.directoryId}}" data-fileType="{{image.fileType}}" data-name="{{image.fileName}}" data-action="imagesjude"  data-url="{{image.filePath}}" data-localPath="{{image.localPath}}" data-type="2" class="permission permission-process"> <i class="icon_target"></i>
+                图像处理
+            </a>
+            <a href="javascript:void(0)" data-id="{{image.id}}" data-action="sedit" data-type="2" {{isShow image.pvd}}> <i class="icon_edit"></i>
+                编辑
+            </a>
+            <a href="javascript:void(0)" data-id="{{image.id}}" data-action="download" data-type="2" class="permission permission-download">
+                <i class="icon_download"></i>
+                下载
+            </a>
+            <a href="javascript:void(0)" data-id="{{image.id}}" data-action="medialib" data-type="2" class="permission permission-tobaselib">
+                <i class="icon_storage"></i>
+                入库
+            </a>
+        </span>
+    </div>
+    <div class="details_body">
+        <div class="video_edit moreTop">
+            <img src="{{image.filePath}}"></div>
+        <div class="video_func video_list imageContent">
+            <ul class="showstructureinfo active">
+                <li>
+                    <label>图片名称：</label>
+                    <em title="{{image.fileName}}">{{image.fileName}}</em>
+                </li>
+                <li class="odd">
+                    <label>图片大小：</label>
+                    <em title="{{image.fileSize}}">{{filterFileSize image.fileSize}}</em>
+                </li>
+                <li>
+                    <label>图片格式：</label>
+                    <em title="{{image.fileFormat}}">{{image.fileFormat}}</em>
+                </li>
+                <li class="odd">
+                    <label>创建时间：</label>
+                    <em title="{{image.storageTime}}">{{mills2ISODate image.storageTime}}</em>
+                </li>
+                <li >
+                    <label>拍摄时刻：</label> <em class="appearTime" title="{{mills2ISODate image.shootTime}}">{{mills2ISODate image.shootTime}}</em>
+                </li>
+<!--                 
+                <li class="odd">
+                    <label>图像处理数量：</label>
+                    <em title="{{handleNum}}">{{handleNum}}</em>
+                </li> -->
+                {{#if image.remark}}
+                <li class="odd">
+                    <label>备注信息：</label>
+                    <em title="{{image.remark}}" class="contents">{{noValue image.remark}}</em>
+                </li>
+                {{/if}}
+            </ul>
+            <ul class="editstructureinfo">
+                
+                <li>
+                    <label>图片名称：</label>
+                    <em title="{{image.fileName}}"><input value="{{image.fileName}}" type="text" id='file_name' name="fileName"></em>
+                </li>
+                <li>
+                    <label>拍摄时间：</label>
+                    <em title="{{mills2ISODate image.shootTime}}"><input value="{{mills2ISODate image.shootTime}}" type="text"  class='datepicker' id="timeBegin" name="timeBegin"></em>
+                </li>
+                <li>
+                    <label>备注信息：</label>
+                    <em title="{{image.remark}}" class="contents"><textarea name="remark" id="remark">{{image.remark}}</textarea></em>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" class="btn btn_ok" id="jump_medialib" data-action="save" data-id="{{image.id}}">保存</a>
+                    <a href="javascript:void(0);" class="btn" id="save_cloud" data-action="cancel">取消</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

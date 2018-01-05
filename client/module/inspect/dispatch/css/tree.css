@@ -1,0 +1,239 @@
+.tree-container{
+	padding-top: 5px;
+	margin: 0 1px;
+	border-top: 1px solid #DEDFE3;
+}
+.treePanel{
+	position: absolute;
+	top: 35px !important;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	overflow-y: auto;
+	overflow-x: hidden;
+	padding: 0;
+}
+.treePanel .no-data{
+	font-size: 11px;
+	margin: 0;
+	height: 16px;
+	line-height: 16px;
+}
+.treePanel .no-data i.loading-img{
+	display: inline-block;
+	float: left;
+	width: 16px;
+	height: 16px;
+	margin-right: 5px;
+	background: url(../images/task-fullview/mini-loading.gif) no-repeat scroll 0 0 transparent;
+}
+.treePanel ul{
+	padding: 0;
+	list-style-type: none;
+}
+.treePanel>ul{
+	margin: 7px 0 0 0 !important;
+	padding: 0;
+	list-style-type: none;
+}
+.treePanel li{
+	white-space: nowrap;
+}
+.treePanel li span{
+	display: inline-block;
+	cursor: pointer;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow:ellipsis;
+	vertical-align: middle;
+	user-select: none;
+	-o-user-select: none;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+}
+.treePanel li span.name,
+.treePanel li .np-result-camera-icon,
+.treePanel li span.distance {
+	cursor: default;
+}
+.treePanel li.leaf span.name {
+	width: 173px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+.treePanel li.grey-text {
+	height: 26px;
+	padding-left: 33px;
+	line-height: 26px;
+}
+.treePanel li span.position-name {
+	margin-right: 5px;
+	font-weight: bold;
+	vertical-align: middle;
+}
+.treePanel li span.camera-count {
+	color: #999;
+}
+.treePanel li span.camera-count .online,
+.treePanel li span.camera-count .online-count {
+	color: #666;
+}
+.treePanel li span.distance {
+	color: #B5B6B8;
+	vertical-align: middle;
+}
+/* .treePanel li span.play-camera {
+	float: right;
+} */
+.treePanel li .play,
+.treePanel li .stop {
+	float: right;
+	width: 18px;
+	height: 18px;
+	margin-top: 5px;
+	margin-right: 10px;
+}
+.treePanel li.leaf:hover {
+	background-color: #D9EFFF;
+}
+.treePanel li.leaf.disabled:hover {
+	background: none;
+}
+.treePanel li.leaf:hover .play {
+	visibility: visible;
+	background: url("../images/task-fullview/play-rect.png") 0 0;
+	cursor: pointer;
+}
+.treePanel li.leaf.disabled .play {
+	visibility: hidden;
+}
+.treePanel li .positionLine.enabled:hover .play {
+	visibility: visible;
+	background: url("../images/task-fullview/play-rect.png") 0 0 no-repeat;
+	cursor: pointer;
+}
+.treePanel li .positionLine.disabled .play {
+	visibility: hidden;
+}
+.treePanel li .positionLine:hover .stop {
+	background: url("../images/task-fullview/play-rect.png") 0 -16px;
+	cursor: pointer;
+}
+.treePanel .cameraList li.tree {
+	/* position: relative;	padding-top: 28px; */
+}
+.treePanel li.tree .positionLine {
+	/* position: absolute;
+	top: 0;
+	right: 0;
+	left: -18px; */
+	height: 26px;
+	line-height: 26px;
+}
+.treePanel li.tree .positionLine:hover {
+	background-color: #D9EFFF;
+}
+.treePanel li .positionLine i.fold{
+	display: inline-block;
+	position: relative;
+	top:-1px;
+	*top:-4px;
+	height: 13px;
+    width: 11px;
+    margin-right: 6px;
+    margin-left: 17px;
+	cursor: pointer;
+	background: url("../images/task-fullview/close.png") no-repeat scroll 0 1px transparent;
+	vertical-align: middle;
+}
+.treePanel li.active .positionLine i.fold{
+	background: url("../images/task-fullview/open.png") no-repeat scroll 0 1px transparent;
+}
+.treePanel li i.checkbox{
+    display: inline-block;
+    height: 15px;
+    margin-right: 6px;
+    padding: 0;
+    position: relative;
+    top: 0;
+    width: 15px;
+    cursor: pointer;
+ 	background: url("../images/task-fullview/tree_bg.png") no-repeat scroll -32px 0 transparent;
+}
+.treePanel li i.selected{
+	background: url("../images/task-fullview/tree_bg.png") no-repeat scroll -47px 0 transparent;
+}
+
+.treePanel li.cur>span{
+	/*color: #188DFB;*/
+}
+.treePanel li.root>span{
+	/*color: #188DFB;*/
+}
+.treePanel .leaf{
+	position: relative;
+	padding-left: 33px;
+	height: 26px;
+	line-height: 26px;
+}
+.treePanel li i.root{
+	display: inline-block;
+	position: relative;
+	top:-1px;
+	*top:-3px;
+	width: 16px;
+	height: 13px;
+	margin-right: 3px;
+	padding: 0;
+	/*background: url("/module/common/images/icons/tree.png") no-repeat scroll -15px -13px transparent;*/
+	background: url("../images/task-fullview/tree.png") no-repeat scroll -148px -13px transparent;
+}
+.treePanel li i.tree{
+	display: inline-block;
+	position: relative;
+	top:-1px;
+	*top:-3px;
+	width: 16px;
+	height: 13px;
+	margin-right: 3px;
+	padding: 0;
+	background: url("../images/task-fullview/tree.png") no-repeat scroll -14px -551px transparent;
+}
+.treePanel li.cur>i.tree,
+.treePanel li:hover>i.tree{
+	background-position: -153px -551px;
+}
+.treePanel li i.leaf{
+	display: inline-block;
+	position: relative;
+	top: -2px;
+	*top: -4px;
+	width: 16px;
+	height: 15px;
+	padding: 0;
+	background: url("../images/task-fullview/tree.png") no-repeat scroll -14px -551px transparent;
+	vertical-align: middle;
+}
+.noSelect { user-select: none; -o-user-select: none; -moz-user-select: none; -khtml-user-select: none; -webkit-user-select: none; }
+/*设置为中心点*/
+.treePanel li span.setCenter {
+	visibility: hidden;
+	position: absolute;
+	right: 0;
+	top: 0;
+	display: inline-block;
+}
+.treePanel ul.camera-list {
+	 display: none;
+}
+#gismap .street-map-camera-list div.title span.text {
+	padding-left: 12px !important;
+}
+
+/*左侧树上方的样式修改*/
+#gismap .street-map-camera-list div.title {
+	border-bottom: none !important;
+}
+

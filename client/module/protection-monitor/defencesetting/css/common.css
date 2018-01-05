@@ -1,0 +1,9 @@
+.disnone {
+	display: none;
+}
+.text-ellipis: {
+	text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    word-wrap: normal;
+}

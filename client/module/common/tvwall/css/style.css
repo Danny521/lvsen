@@ -1,0 +1,90 @@
+.history-play-bar{
+	position: absolute;
+	width: 488px;
+	height: 38px;
+	background: url(../images/tv-bg.png) no-repeat;
+}
+.history-video-btn {
+	position: absolute;
+	width: 100px;
+	top: 6px;
+	left: 28px;
+}
+.history-video-btn i {
+	vertical-align: middle;
+	display: inline-block;
+	background: url(../images/tv-play.png) no-repeat;
+	width: 15px;
+	height: 15px;
+}
+.history-video-btn i.slow-play {
+    background-position: -77px 0px;
+}
+.history-video-btn i.slow-play:hover {
+    background-position: -92px 0px;
+}
+.history-video-btn i.toggle-pause {
+	margin-left: 10px;
+	margin-right: 10px;
+    background-position: 0px 0px;
+}
+.history-video-btn i.toggle-pause:hover {
+    background-position: -17px 0px;
+}
+.history-video-btn i.toggle-play {
+	margin-left: 10px;
+	margin-right: 10px;
+    background-position: -114px 0px;
+}
+.history-video-btn i.toggle-play:hover {
+    background-position: -128px 0px;
+}
+.history-video-btn i.quick-play {
+	width: 16px;  /*特殊处理*/
+    background-position: -38px 0px;
+}
+.history-video-btn i.quick-play:hover {
+  background-position: -53px 0px;
+}
+#historySlider{
+	position: absolute;
+	width: 310px;
+	display: inline-block;
+	top: 15px;
+	height: 8px;
+	left: 137px;
+	box-shadow: 0.5px 0.866px 0px 0px rgb( 255, 255, 255 );
+	/*未播放颜色*/
+	background: #E2E2E2;
+}
+.playbar-close{
+    position: absolute;
+	width: 8px;
+	height: 8px;
+	background: url(../images/tv-close.png) no-repeat;
+	background-position: 0px 0px;
+	top: 14px;
+    right: 13px;
+}
+.historySpeed{
+	color: #B0B0B0;
+	position: absolute;
+	top: 7px;
+	left: 105px;
+	margin-left: 3px;
+	text-align: center;
+}
+.playbar-close:hover{
+	background-position: -8px 0px;
+}
+/*已播放颜色*/
+#historySlider .ui-widget-header {
+	background: #00A1F2;
+}
+/*bar样式*/
+#historySlider .ui-state-default,#historySlider .ui-widget-content .ui-state-default,#historySlider .ui-widget-header .ui-state-default {
+    background: url(../images/tv-slidebar.png) no-repeat;
+	background-position: -1px -2px;
+	text-align: center;
+	border: 0px; 
+}

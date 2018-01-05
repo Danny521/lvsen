@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=10,chrome=1"/>
+    <title>视云实战平台-扩展屏</title>
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="/libs/html5/html5.js"></script>
+    <![endif]-->
+    <!-- 全局样式Global -->
+    <link type="text/css" rel="stylesheet" href="/module/common/css/base.css" />
+    <link type="text/css" rel="stylesheet" href="/libs/semantic/semantic.css" />
+    <link type="text/css" rel="stylesheet" href="/module/viewlibs/caselib/css/entity.css"/>
+
+    <!-- 公共样式public -->
+    <link rel="stylesheet" type="text/css" href="/module/imagejudge/resource-process/css/public.css"/>
+    <!-- 图像处理image -->
+    <link rel="stylesheet" type="text/css" href="../css/image.css"/>
+    <!-- 图标、背景icon -->
+    <link rel="stylesheet" type="text/css" href="../css/icon.css" />
+    <!-- 图像处理image 工具插件样式 -->
+    <link rel="stylesheet" type="text/css" href="../css/image_tool.css"/>
+    <!-- jquery-ui -->
+    <link rel="stylesheet" type="text/css" href="/libs/jquery/jquery-ui.css" />
+    <!-- 裁剪插件 -->
+    <link rel="stylesheet" type="text/css" href="/libs/jquery/jquery.Jcrop.css"/>
+
+    <!-- 资源导入 -->
+    <link rel="stylesheet" type="text/css" href="../css/tree.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/image_import.css"  />
+
+
+    <!-- 视图分析部分样式 -->
+
+    <link type="text/css" rel="stylesheet" href="/libs/jquery/jquery.datetimepicker.css"/>
+    <!-- 视图分析video -->
+    <link rel="stylesheet" type="text/css" href="../css/video.css"/>
+    <!-- 图标、背景icon -->
+    <link rel="stylesheet" type="text/css" href="/libs/thickbox/thickbox.css"/>
+    <link rel="stylesheet" type="text/css" href="/module/viewlibs/caselib/css/video.css"/>
+    <!-- 视频下播放条 -->
+    <link rel="stylesheet" type="text/css" href="../css/videobar.css"  />
+    <link rel="stylesheet" type="text/css" href="../css/localhost.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/dialog_video.css"/>
+
+    <!-- 导入 -->
+    <link rel="stylesheet" type="text/css" href="/component/panel/main.css"/>
+    <link rel="stylesheet" type="text/css" href="/module/common/resource-import/resource_import.css"/>
+
+    <!-- 智能标注结果查看 -->
+    <link rel="stylesheet" type="text/css" href="/libs/jquery/jquery.pagination.css"/>
+    <link rel="stylesheet" type="text/css" href="/module/imagejudge/resource-process/css/smartmark-look.css"/>
+    <link rel="stylesheet" type="text/css" href="/module/imagejudge/resource-process/css/player1.css"/>
+
+    <!--弹出层样式-->
+    <link rel="stylesheet" type="text/css" href="/module/common/viewPic/viewPic.css"/>
+</head>
+<body>
+<div class="smarkresult-container">
+<div class="smarkresult-header">
+</div>
+<div class="smarkresult-content clearfix">
+
+<!-- 原始视频 -->
+<div class="smarkresult-content-item smarkresult-content-video">
+    <div class="origPlayerTitle"></div>
+    <div class="origPlayerTitleRight"></div>
+    <div class="player-panel" id="common-player-orig">
+        <div class="player-container">
+            <!--type="applicatin/x-firebreath"    classid="clsid:294EEBEC-7677-4EBA-B2D7-3FD669FBF2A2"-->
+            <object class="player-obj" type="applicatin/x-firebreath" width="100%" height="100%" align="center">
+                <param name="_version" value="65536">
+                <param name="_extentx" value="21166">
+                <param name="_extenty" value="13758">
+                <param name="_stockprops" value="0">
+            </object>
+            <div class="player-controls">
+                <div class="control-progress">
+                    <div class="progress-bar-left"></div>
+                    <div class="progress-bar-box">
+                        <div class="progress-bar-inner">
+                            <div class="progress-bullet">
+                                <i class="progress-play-point"></i>
+                            </div>
+                            <!-- <div class="progress-mark-section"></div> -->
+                            <i class="progress-mark-start"></i>
+                            <i class="progress-mark-end"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="control-panel clearfix">
+                    <div class="play-times">
+                        <span class="time-nowtime">00:00:00</span>&nbsp;/
+                        <span class="time-alltime">00:00:00</span>
+                        <span class="time-speed">倍速：<span></span></span>
+                    </div>
+                    <div class="play-buttons">
+                        <i class="btn-slow player-btn pb-rewind" title="慢放"></i>
+                        <i class="btn-play player-btn pb-play" title="播放"></i>
+                        <i class="btn-forward player-btn pb-forward" title="快进"></i>
+                        <i class="btn-stop player-btn pb-stop" title="停止"></i>
+                    </div>
+                    <div class="others-buttons">
+                        <i class="btn-screenshot player-btn pb-grab" title="抓图"></i>
+                        <i class="btn-fullwin player-btn pb-fullwin" title="全屏"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 快照搜索工具 -->
+<div class="smarkresult-content-item smarkresult-content-query">
+    <dl>
+        <dt class="targetTypeBkColor">
+            <span>目标类型</span>
+        </dt>
+        <dd class="targetTypeDD">
+            <ul class="targettype">
+                <li>
+                    <div class="sq-item">
+                        <input id="sq-move" type="checkbox" value="5" />
+                        <label id="sq-move-label" for="sq-move">运动目标</label><!--物体  3-->
+                    </div>
+                </li>
+                <li>
+                    <div class="sq-item">
+                        <input id="sq-face" type="checkbox" value="1" />
+                        <label id="sq-face-label" for="sq-face">人脸(人员)</label><!--人体-->
+                    </div>
+                </li>
+                <li>
+                    <div class="sq-item">
+                        <input id="sq-car" type="checkbox" value="2" />
+                        <label for="sq-car">车辆</label>
+                    </div>
+                </li>
+            </ul>
+        </dd>
+        <dt class="targetColorBkColor">
+            <span>目标颜色</span>
+        </dt>
+        <dd class="targetColorDD">
+            <ul class="targetcolor clearfix">
+                <li class="color-item">
+                    <i class="color blue" data-value="蓝色"><i class="flag"></i></i>
+                </li>
+                <li class="color-item">
+                    <i class="color red" data-value="红色"><i class="flag"></i></i>
+                </li>
+                <li class="color-item">
+                    <i class="color green" data-value="绿色"><i class="flag"></i></i>
+                </li>
+                <li class="color-item">
+                    <i class="color yellow" data-value="黄色"><i class="flag"></i></i>
+                </li>
+                <li class="color-item">
+                    <i class="color black" data-value="黑色"><i class="flag"></i></i>
+                </li>
+                <li class="color-item">
+                    <i class="color white" data-value="白色"><i class="flag"></i></i>
+                </li>
+                <li class="color-item">
+                    <i class="color silver" data-value="灰（银）色"><i class="flag"></i></i>
+                </li>
+                <li class="color-item">
+                    <i class="color pink" data-value="粉色"><i class="flag"></i></i>
+                </li>
+                <li class="color-item">
+                    <i class="color brown" data-value="棕色"><i class="flag"></i></i>
+                </li>
+                <li class="color-item">
+                    <i class="color purple" data-value="紫色"><i class="flag"></i></i>
+                </li>
+            </ul>
+        </dd>
+        <dd class="last">
+            <div class="buttons">
+                <button id = "smartMark_resetBtn" class="button ok" type="button">重置</button>
+                <button id = "smartMark_okBtn" class="button ok" type="button">确定</button>
+            </div>
+        </dd>
+    </dl>
+</div>
+
+<!-- 剪切型视频设置工具 -->
+<div class="smarkresult-content-item smarkresult-content-cutsetting hidden">
+    <dl>
+        <dt>
+            <span>播放速度</span>
+        </dt>
+        <dd class="last">
+            <div class="set-item">
+                <lavel>无目标：</lavel>
+                <select class="speed-nomark">
+                    <option value="8" selected>8x</option>
+                    <option value="4">4x</option>
+                    <option value="2">2x</option>
+                    <option value="1">1x</option>
+                    <option value="1/2">1/2x</option>
+                    <option value="1/4">1/4x</option>
+                    <option value="1/8">1/8x</option>
+                </select>
+            </div>
+            <div class="set-item">
+                <lavel>有目标：</lavel>
+                <select class="speed-mark">
+                    <option value="8">8x</option>
+                    <option value="4">4x</option>
+                    <option value="2">2x</option>
+                    <option value="1" selected>1x</option>
+                    <option value="1/2">1/2x</option>
+                    <option value="1/4">1/4x</option>
+                    <option value="1/8">1/8x</option>
+                </select>
+            </div>
+        </dd>
+    </dl>
+</div>
+
+<!-- 结果列表 -->
+<div class="smarkresult-content-item smarkresult-content-result">
+    <div class="tabs">
+        <ul class="ui tabular clearfix">
+            <li class="active" data-tab="snapshoot">目标快照</li>
+            <li data-tab="overlay" class="permission permission-additive">叠加型视频</li>
+            <li data-tab="cut">剪切型视频</li>
+        </ul>
+        <div class="content">
+            <!-- 目标快照 -->
+            <div class="ui playerTab" id="tab-snapshoot-window"  data-tab="snapshoot">
+                <div class="snapshoot-content clearfix">
+                    <div class="snapshoot-tools">
+                        <span class="snapshootNumText">快照总数：</span><label id="snapshootNum"></label>
+                        <div class="tool-search">
+                            <input title="搜索" placeholder="请输入关键字" class="tool-search-input" type="text"/>
+                            <input title="搜索" class="tool-search-btn" type="button"/>
+                        </div>
+                    </div>
+                    <div class="snapshoot-view">
+                        <div class="loading hidden"></div>
+                    </div>
+                    <div class="snapshoot-page">
+                        <div class="pagination"></div>
+                    </div>
+                    <!--<div class="snapshoot-detail hidden">-->
+                        <!--<div class="loading hidden"></div>-->
+                    <!--</div>-->
+                </div>
+            </div>
+
+            <!-- 叠加型视频 -->
+            <div class="ui playerTab" id="common-player-overlay" data-tab="overlay">
+                <div class="loading hidden"></div>
+                <p class="noresult hidden">没有查询到数据</p>
+            </div>
+
+            <!-- 剪切型视频 -->
+            <div class="ui playerTab" id="common-player-cut" data-tab="cut">
+                <div class="loading hidden"></div>
+                <p class="noresult hidden">没有查询到数据</p>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<div class="checkMarkVideo">
+    <span class="checkMarkVideoIcon">查看其它已标注视频 <a class="checkVideoUnderIcon" href="#">&nbsp&nbsp&nbsp&nbsp</a></span>
+</div>
+<div class="markedVideoThumbnail hidden">
+    <div class="thumbnail_Left"></div>
+    <div class="thumbnail_content"></div>
+    <div class="thumbnail_right"></div>
+</div>
+<div id="smart_bottom"></div>
+</div>
+<div id="np-preview-picture" class="preview-picture">
+    <div class="preview-close pointer" id="np-preview-close"></div>
+
+    <div class="preview-main" id="np-preview-main">
+        <div class="preview-prev pointer" id="np-preview-prev"></div>
+        <div class="preview-next pointer" id="np-preview-next"></div>
+        <div class="preview-content">
+            <img class="preview-img" src="" id="np-preview-img" style="cursor: move">
+        </div>
+        <div class="preview-tools">
+            <div class="preview-tools-bar" id="np-tools-bar">
+                <a class="pointer np-elel"><i class="elel-icon"></i></a>
+                <a class="pointer np-addClues"><i class="addClues-icon"></i>生成线索</a>
+                <a class="pointer np-download permission permission-download"><i class="download-icon"></i>下载</a>
+                <a class="pointer np-marked"><i class="marked-icon"></i>人工标注</a>
+                <a class="pointer np-handle"><i class="handle-icon"></i>图像处理</a>
+                <a class="pointer np-store permission permission-tobaselib"><i class="store-icon"></i>入库</a>
+                <a class="pointer np-delete"><i class="delete-icon"></i>删除</a>
+            </div>
+        </div>
+        <div class="thumb-picture" id="np-thumb-picture">
+            <button class="thumb-close pointer" id="np-thumb-close"></button>
+            <img src="" id="np-preview-thumb-img">
+            <div class="outline" id="np-thumb-outline"></div>
+        </div>
+    </div>
+    <div class="preview-sidebar" id="np-sidebar">
+        <div class="preview-sidebar-control pointer" id="np-sidebar-control"></div>
+        <div class="preview-sidebar-content">
+            <div class="preview-sidebar-content-title">
+                <button class="preview-sidebar-content-title-editor pointer" id="np-editor-infomation"></button>
+                <h4 class="preview-sidebar-content-title-h4" id="np-sidebar-title"></h4>
+            </div>
+            <div id="np-sidebar-detail">
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" data-main="../js/smartMain.js" src="/libs/requirejs/require.js"></script>
+<body>

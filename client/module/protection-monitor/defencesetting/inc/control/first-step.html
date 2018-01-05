@@ -1,0 +1,58 @@
+<!-- 布控设置第一步 选择摄像机页面 -->
+<div id="control-first-step" class="control-setting-content">
+	<!-- 任务设置表单 -->
+	<div class="wrapper">
+		<aside id="control-setting-sidebar">
+            <!--页面左右调整块 暂时屏蔽-->
+			<!-- <a id="sideResize">
+				<iframe src="about:blank"></iframe>
+                <span class="resize"></span>
+			</a> -->
+            <!--左侧内容区-->
+            <div id="control-setting-aside">
+                <p class="step-left-title">请创建布控任务：</p>
+                <div class="people-control-edit-form"></div>
+            </div>
+		</aside>
+	</div>
+	<!-- 右侧内容区 -->
+	<div id="control-setting-major">
+		<!-- 地图容器 -->
+		<div id="control-setting-gismap">
+            <div class="map-tool clearfix">
+                <!--工具条左侧内容 -->
+                <div class="map-region"></div>
+                <!-- 工具条右侧内容-->
+                <div class="map-operator" id="map-tool-right"></div>
+            </div>
+            <div id="control-setting-mapId" class="gismap olMap">
+                <div class="opera-container"></div>
+                <!-- <div class="alarm-scroll-info">
+                    <div class="scroll-data">
+                    </div>
+                </div> -->
+                <div class="control-map-resource-layers">
+                    <h2 class="layers-head"><span class="title">资源</span><span class="contract-btn up"></span></h2>
+                    <ul class="resource-layers">
+                        <li class="clearfix active" id="ResourceIndoor">
+                            <i class="checkbox"></i><i class="ico indoor"></i><span class="name">室内</span>
+                        </li>
+                        <li class="clearfix active" id="ResourceHiShpomt">
+                            <i class="checkbox"></i><i class="ico hishpomt"></i><span class="name">制高点</span>
+                        </li>
+                        <li class="clearfix active" id="ResourceElevated">
+                            <i class="checkbox"></i><i class="ico elevated"></i><span class="name">高架</span>
+                        </li>
+                        <li class="clearfix active" id="ResourceWater">
+                            <i class="checkbox"></i><i class="ico water"></i><span class="name">水面</span>
+                        </li>
+                        <li class="clearfix active" id="ResourceGround">
+                            <i class="checkbox"></i><i class="ico ground"></i><span class="name">路面</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="control-video"></div>
+		</div>
+	</div>
+</div>

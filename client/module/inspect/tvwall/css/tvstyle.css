@@ -1,0 +1,312 @@
+.tabular {
+
+	width: 100%;
+	display: block;
+}
+
+.tabular .item {
+	position: relative;
+	float: left;
+	width: 50%;
+	line-height: 36px;
+	text-align: center;
+	cursor: pointer;
+}
+
+.tabular .item:first-child:before {
+	position: absolute;
+	content: "|";
+	left: 100%;
+	top: 0;
+	color: #999!important;
+	font-weight: 100!important;
+}
+
+.tabular .item.active {
+	color: #188dfb;
+	font-weight: bold;
+}
+
+.tabular .item.active:after {
+	content: "";
+	position: absolute;
+	width: 70px;
+	height: 4px;
+	background: #188dfb;
+	bottom: 0;
+	left: 50%;
+	margin-left: -35px
+}
+
+
+.leaf .tv-history {
+	display: none;
+	width: 20px;
+	height: 18px;
+	background: url(/module/common/images/sprites/operate-bg-new.png) no-repeat;
+	background-position: 2px -19px;
+	margin-top: 2px;
+}
+
+.group .tv-inspection {
+	float: right;
+	margin-right: 10px;
+	display: none;
+	width: 20px;
+	height: 18px;
+	background: url(/module/common/images/inspect/my-gruops-icos-2.png)  no-repeat;
+
+}
+.group .group-on-tv-up, .group .group-on-tv-down{
+	float: right;
+	display: none;
+	width: 20px;
+	height: 18px;
+	background: url(/module/common/images/inspect/my-gruops-icos-2.png)  no-repeat;
+}
+.group:hover .tv-inspection {
+	display: block;
+	background-position: 0 -76px;
+}
+
+.group:hover .tv-inspection:hover {
+	display: block;
+	background-position: -21px -76px;
+}
+.group:hover .group-on-tv-up {
+	display: block;
+	background-position: 0 -115px;
+}
+.group:hover .group-on-tv-up:hover {
+	display: block;
+	background-position: -21 -115px;
+}
+.group:hover .group-on-tv-down {
+	display: block;
+	background-position: 0 -96px;
+}
+.group:hover .group-on-tv-down:hover {
+	display: block;
+	background-position: -21 -96px;
+}
+.smscreen:hover {
+	/*outline: 1px solid #188dfb;
+	outline-offset: -1px;*/
+}
+
+/***********弹出轮询设置面板样式**************/
+
+
+.postform{
+	/*width:450px;
+	height:446px;*/
+	left:850px;
+}
+.dialog-title {
+	height:36px;
+	border:solid 1px #CCCCCC;
+	border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+.head {
+	font-weight:normal;
+	font-size:15px;
+	padding-top:1px;
+	margin-top:-1px;
+	margin-left:-15px;
+}
+.close {
+	margin-top:-1px;
+}
+.dialog-body {
+	background-color:white;
+	height:360px;
+	float: left;
+	width: 465px;
+}
+.dialog-body-thead {
+	margin:5px 5px 5px 5px;
+	height:25px;
+}
+
+.dialog-body-thead span:first-child {
+	font-weight:normal;
+	padding:1px;
+	margin-top:0px;
+	float:left;
+}
+.checkAll {
+	float:left;
+	margin-top:5px;
+}
+.dialog-body-tcontent {
+	clear:both;
+	height:320px;
+	margin:5px 5px 5px 5px;
+}
+.dialog-foot-content {
+	text-align:center;
+	line-height:25px;
+	background-color:white;
+}
+
+.dialog-foot-content span:first-child {
+	font-weight:normal;
+	margin-left:11px;
+	float:left;
+}
+
+.dialog-foot-content div {
+	border:1px solid #DDDDDD;float:left;height:25px;width:110px;
+}
+.inspect-interval-time {
+	border:0px;
+	width:90px;
+}
+.tree-inspect {
+	padding:0px 0px 2px 0px;
+	height:23px;
+	line-heigth:27px;
+	width:50px;
+	margin-top:-3px;
+	margin-left:140px;
+}
+.cancel-inspect {
+	padding:0px 1px 2px 3px;
+	height:23px;
+	width:40px;
+	margin-top:-4px;
+}
+
+.left-tab {
+	float: left;
+	width: 180px;
+	/*width: 154px;*/
+	margin-right: 15px;
+	height:360px;
+	background: #eee;
+	overflow-y: auto;
+}
+.left-tab p {
+	padding: 10px 15px;
+	font-size: 16px;
+}
+
+.duct li {
+	cursor: pointer;
+	padding: 5px 30px;
+	background: url(/module/common/images/bg/pvgact-1.png) no-repeat 10px 10px, url(/module/common/tvwall-view/img/select-5.png) no-repeat 150px 5px;
+}
+.duct li.active {
+	background-color: #fff;
+}
+.duct .sel {
+	background: url(/module/common/images/bg/pvgact-1.png) no-repeat 10px 10px, url(/module/common/tvwall-view/img/select-4.png) no-repeat 150px 5px;
+}
+.polling-dialog.common-dialog .wrapper section {
+	padding: 10px 10px 0;
+}
+.polling-dialog .polling-dialog-content {
+	height: 440px;
+	padding: 10px;
+	border: 1px dotted #d6d6d6;
+}
+.polling-dialog .wrapper footer {
+	text-align: left;
+}
+.ins-time {
+	display: inline-block;
+	position: relative;
+}
+.ins-time input {
+	width: 100px;
+	border: 1px solid #ddd;
+	padding: 2px 20px 2px 10px;
+}
+.ins-time:after {
+	position: absolute;
+	content: "秒";
+	right: 5px;
+	top: 6px;
+}
+.polling-dialog .button {
+	display: inline-block;
+}
+.polling-dialog .button.blue {
+	margin-left: 190px;
+}
+.poll-layer {
+	display: none;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background-color: black;
+    z-index: 1000;
+    opacity: 0.1;
+}
+.history-play-bar-panel{
+	display: none;
+	zoom: 1;
+	position: absolute;
+	z-index: 10000;
+	width: 500px;
+	height: 38px;
+	line-height: 25px;
+/* 	text-align: right;
+color: #188dfb; */
+}
+.treeMenu .node .group-operator.inspect-poll{
+	background: url(/module/common/images/inspect/my-gruops-icos.png) no-repeat;
+	background-position: 0 -19px;
+}
+.treeMenu .node .group-operator.inspect-poll:hover{
+	background: url(/module/common/images/inspect/my-gruops-icos.png) no-repeat;
+	background-position: -21px -19px;
+}
+
+.poll-tips {
+	display: none;
+	zoom: 1;
+	position: absolute;
+	z-index: 10000;
+	width: 250px;
+	height: 25px;
+	line-height: 25px;
+	text-align: right;
+	color: #188dfb;
+}
+
+.stop-poll {
+	zoom: 1;
+	width: 16px;
+	height: 16px;
+	background: url(/module/common/images/inspect/inspect-btns.png) no-repeat;
+	background-position: 0px -21px;
+	z-index: 10000;
+	margin: 5px 5px 0 5px;
+	float: right;
+}
+
+.stop-poll:hover{
+	background-position: -20px -21px;
+}
+/*轮巡弹出框*/
+.polling-dialog .polling-screens {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+.polling-screens .screen-box {
+	position: absolute;
+	display: inline-block;
+	background: url('../images/polling-camera.png') no-repeat scroll center center, url('../images/polling-unselected.png') no-repeat 95% 8% , #F5F5F5;
+	border: 1px solid #E3E3E3;
+}
+.polling-screens .screen-box.selected {
+	background: url('../images/polling-camera.png') no-repeat scroll center center, url('../images/polling-selected.png') no-repeat 95% 8% , #F5F5F5;
+}
+.polling-screens .screen-box.occupied {
+	background: url('../images/polling-camera-using.png') no-repeat scroll center center;
+}

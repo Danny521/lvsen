@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=10,chrome=1">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<title>视云实战平台</title>
+	<!--[if lt IE 9]>
+	<script src="/libs/html5/html5.js"></script>
+	<![endif]-->
+
+	<link type="text/css" rel="stylesheet" href="/module/common/css/base.css" />
+	<link type="text/css" rel="stylesheet" href="/libs/semantic/semantic.css" />
+	<link type="text/css" rel="stylesheet"  href="/libs/jquery/jquery-ui.css">
+	<link type="text/css" rel="stylesheet" href="/libs/jquery/jquery.datetimepicker.css"/>
+	<link type="text/css" rel="stylesheet" href="/module/viewlibs/doubtlib/css/entity.css"/>
+	<link type="text/css" rel="stylesheet" href="/module/viewlibs/details/struct/css/entity.css"/>
+</head>
+<body>
+	<div id="content">
+		<div class="wrapper clearfix">
+			<div class="loading"></div>
+
+			<script id="view-template" type="text/x-handlebars-template">
+			{{#person}}
+				<ul class="breadcrumb">
+				<li>
+					<a href="/module/viewlibs/workbench/index.html" target="media">我的工作台</a>
+					<span class="divider">&gt;</span>
+				</li>
+				<li>
+					<a href=""></a>
+					<span class="divider">&gt;</span>
+				</li>
+				<li>
+					<a href="">线索列表</a>
+					<span class="divider">&gt;</span>
+				</li>
+				<li class="active">编辑人员信息</li>
+			</ul>
+
+			<div class="main modify">
+				<div class="resources tabview">
+					<form autocomplete="off" method="post" id="form" class="entity-form">
+						<div class="fieldset">
+							<div class="module active">
+								<div class="module-head">
+									<h3>基本属性</h3> <i class="fix-png"></i>
+								</div>
+								<div class="module-body">
+									<div class="scrollbar disable">
+										<div class="track">
+											<div class="thumb"></div>
+										</div>
+									</div>
+									<div class="viewport person-view">
+										<div class="overview">
+											<div class="group">
+												<div class="form-item">
+													<span class="item-label">
+														<label for="appearTime">来源视频绝对时间：</label>
+													</span>
+													<div class="item-box">
+														<input type="text" class="input-text input-time" maxlength="50" name="appearTime" value="{{datetransfer appearTime}}"/>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="sourceId">来源：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="source_id" name="sourceId" data-default="{{sourceId}}">
+															<option value="">--请选择--</option>
+															<option value="01" {{selected sourceId "01"}}>政府机关监控</option>
+															<option value="02" {{selected sourceId "02"}}>社会治安监控</option>
+															<option value="03" {{selected sourceId "03"}}>交通监控</option>
+															<option value="04" {{selected sourceId "04"}}>出入境监控</option>
+															<option value="05" {{selected sourceId "05"}}>港口监控</option>
+															<option value="06" {{selected sourceId "06"}}>金融系统监控</option>
+															<option value="07" {{selected sourceId "07"}}>旅馆监控</option>
+															<option value="08" {{selected sourceId "08"}}>互联网营业场所监控</option>
+															<option value="09" {{selected sourceId "09"}}>娱乐服务场所监控</option>
+															<option value="10" {{selected sourceId "10"}}>其它企业/事业单位监控</option>
+															<option value="11" {{selected sourceId "11"}}>居民自建监控</option>
+															<option value="12" {{selected sourceId "12"}}>移动拍摄</option>
+															<option value="13" {{selected sourceId "13"}}>网络获取</option>
+															<option value="99" {{selected sourceId "99"}}>其他</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="cardtype">证件类型：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="cardtype" name="cardtype" value="{{cardtype}}">
+															<option value="">--请选择--</option>
+															<option value="01" {{selected cardtype "01"}}>身份证</option>
+															<option value="02" {{selected cardtype "02"}}>临时身份证</option>
+															<option value="03" {{selected cardtype "03"}}>军官证</option>
+															<option value="04" {{selected cardtype "04"}}>驾驶证</option>
+															<option value="05" {{selected cardtype "05"}}>护照</option>
+															<option value="06" {{selected cardtype "06"}}>其他</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="cardnumb">证件号码：</label>
+													</span>
+													<div class="item-box">
+														<input type="text" class="input-text" maxlength="50" name="cardnumb" value="{{cardnumb}}"/>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="name">姓名：</label>
+													</span>
+													<div class="item-box">
+														<input type="text" class="input-text" maxlength="20" name="name" value="{{name}}"/>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="formerName">曾用名：</label>
+													</span>
+													<div class="item-box">
+														<input type="text" class="input-text" maxlength="20" name="formerName" value="{{formerName}}"/>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="nickname">绰号：</label>
+													</span>
+													<div class="item-box">
+														<input type="text" class="input-text" maxlength="20" name="nickname" value="{{nickname}}"/>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="ageUpper">年龄上限：</label>
+													</span>
+													<div class="item-box">
+														<input type="text" class="input-text" maxlength="10" name="ageUpper" value="{{ageUpper}}"/>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="ageLower">年龄下限：</label>
+													</span>
+													<div class="item-box">
+														<input type="text" class="input-text" maxlength="10" name="ageLower" value="{{ageLower}}"/>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="nation">民族：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="nation" name="nation" data-default="{{nation}}"></select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="native">籍贯：</label>
+													</span>
+													<div class="item-box">
+														<select id="nativeProvince" name="nativeMain" class="input-select input-select-second" data-default="{{nativeMain}}"></select>
+														<select id="nativeCity"  name="nativeSub" class="input-select" data-default="{{nativeSub}}"></select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="residence">居住地：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select input-select-second" id="province" name="residenceProvince" data-default="{{residenceProvince}}"></select>
+														<select class="input-select input-select-second" id="city" name="residenceCity" data-default="{{residenceCity}}"></select>
+														<select class="input-select input-select-second" id="country" name="residenceCountry" data-default="{{residenceCountry}}"></select>
+														<input class="input-text" maxlength="200" name="residenceStreets" value="{{residenceStreets}}"/>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="voice">口音：</label>
+													</span>
+													<div class="item-box">
+														<input class="input-text" maxlength="50" name="voice" value="{{voice}}"/>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="profession">职业：</label>
+													</span>
+													<div class="item-box">
+														<select id="profession" name="professionMain" class="input-select profession input-select-second" data-default="{{professionMain}}"></select>
+														<select id="professionDetail" name="professionSub" class="input-select profession" data-default="{{professionSub}}"></select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="industryCount">同行人数：</label>
+													</span>
+													<div class="item-box">
+														<input class="input-text" maxlength="10" name="industryCount" value="{{industryCount}}"/>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="gender">性别：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="gender" name="gender" data-default="gender">
+															<option value="">--请选择--</option>
+															<option value="0" {{selected gender "0"}}>未知的性别</option>
+															<option value="1" {{selected gender "1"}}>男</option>
+															<option value="2" {{selected gender "2"}}>女</option>
+															<option value="9" {{selected gender "9"}}>未说明的性别</option>
+														</select>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="module">
+								<div class="module-head">
+									<h3>身体</h3> <i class="fix-png"></i>
+								</div>
+								<div class="module-body">
+									<div class="scrollbar disable">
+										<div class="track">
+											<div class="thumb"></div>
+										</div>
+									</div>
+									<div class="viewport person-view">
+										<div class="overview">
+											<div class="group">
+												<div class="form-item">
+													<span class="item-label">
+														<label for="heightUpper">身高上限(cm)：</label>
+													</span>
+													<div class="item-box">
+														<input type="text" class="input-text" maxlength="10" name="heightUpper" value="{{heightUpper}}"/>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="heightLower">身高下限(cm)：</label>
+													</span>
+													<div class="item-box">
+														<input type="text" class="input-text" maxlength="10" name="heightLower" value="{{heightLower}}"/>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="physique">体型：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="physique" name="physique" data-default="{{physique}}">
+															<option value="">--请选择--</option>
+															<option value="0111" {{selected physique "0111"}}>特胖</option>
+															<option value="0112" {{selected physique "0112"}}>较胖</option>
+															<option value="0113" {{selected physique "0113"}}>中等</option>
+															<option value="0114" {{selected physique "0114"}}>较瘦</option>
+															<option value="0115" {{selected physique "0115"}}>特瘦</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="complexion">肤色：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="complexion" name="complexion" data-default="{{complexion}}">
+															<option value="">--请选择--</option>
+															<option value="2011" {{selected complexion "2011"}}>白肤</option>
+															<option value="2012" {{selected complexion "2012"}}>黑肤</option>
+															<option value="2013" {{selected complexion "2013"}}>黄肤</option>
+															<option value="2014" {{selected complexion "2014"}}>棕肤</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="hairstyle">发型：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="hairstyle" name="hairstyle" data-default="{{hairstyle}}">
+															<option value="">--请选择--</option>
+															<option value="01" {{selected hairstyle "01"}}>平头</option>
+															<option value="02" {{selected hairstyle "02"}}>中分</option>
+															<option value="03" {{selected hairstyle "03"}}>偏分</option>
+															<option value="04" {{selected hairstyle "04"}}>额秃</option>
+															<option value="05" {{selected hairstyle "05"}}>项秃</option>
+															<option value="06" {{selected hairstyle "06"}}>全秃</option>
+															<option value="07" {{selected hairstyle "07"}}>卷发</option>
+															<option value="08" {{selected hairstyle "08"}}>波浪发</option>
+															<option value="09" {{selected hairstyle "09"}}>麻花辫</option>
+															<option value="10" {{selected hairstyle "10"}}>盘发</option>
+															<option value="11" {{selected hairstyle "11"}}>披肩</option>
+															<option value="12" {{selected hairstyle "12"}}>其它</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="haircolor">发色：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="haircolor" name="haircolor" data-default="{{haircolor}}">
+															<option value="">--请选择--</option>
+															<option value="01" {{selected haircolor  "01"}}>黑</option>
+															<option value="02" {{selected haircolor  "02"}}>白</option>
+															<option value="03" {{selected haircolor  "03"}}>灰</option>
+															<option value="04" {{selected haircolor  "04"}}>红</option>
+															<option value="05" {{selected haircolor  "05"}}>蓝</option>
+															<option value="06" {{selected haircolor  "06"}}>黄</option>
+															<option value="07" {{selected haircolor  "07"}}>橙</option>
+															<option value="08" {{selected haircolor  "08"}}>棕</option>
+															<option value="09" {{selected haircolor  "09"}}>绿</option>
+															<option value="10" {{selected haircolor  "10"}}>多种</option>
+															<option value="11" {{selected haircolor  "11"}}>其它</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="posture">姿势：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="posture" name="posture" data-default="{{posture}}">
+															<option value="">--请选择--</option>
+															<option value="01" {{selected posture "01"}}>站</option>
+															<option value="02" {{selected posture "02"}}>蹲</option>
+															<option value="03" {{selected posture "03"}}>其它</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="mindstate">状态：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="mindstate" name="mindstate" data-default="{{mindstate}}">
+															<option value="">--请选择--</option>
+															<option value="01" {{selected mindstate "01"}}>醉酒</option>
+															<option value="02" {{selected mindstate "02"}}>亢奋</option>
+															<option value="03" {{selected mindstate "03"}}>正常</option>
+															<option value="04" {{selected mindstate "04"}}>其他</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="face">脸型：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="face" name="face" data-default="{{face}}">
+															<option value="">--请选择--</option>
+															<option value="0311" {{selected face "0311"}}>椭圆脸</option>
+															<option value="0312" {{selected face "0312"}}>圆脸</option>
+															<option value="0313" {{selected face "0313"}}>长方脸</option>
+															<option value="0314" {{selected face "0314"}}>方脸</option>
+															<option value="0315" {{selected face "0315"}}>倒大脸</option>
+															<option value="0316" {{selected face "0316"}}>三角脸</option>
+															<option value="0317" {{selected face "0317"}}>狭长脸</option>
+															<option value="0318" {{selected face "0318"}}>菱形脸</option>
+															<option value="0319" {{selected face "0319"}}>畸形脸</option>
+															<option value="0331" {{selected face "0331"}}>平形脸</option>
+															<option value="0332" {{selected face "0332"}}>凹形脸</option>
+															<option value="0333" {{selected face "0333"}}>凸形脸</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="faceFeature">脸部特征：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="face_feature" name="faceFeature" data-default="{{faceFeature}}">
+															<option value="">--请选择--</option>
+															<option value="10" {{selected faceFeature "10" }}>头</option>
+															<option value="11" {{selected faceFeature "11" }}>前额</option>
+															<option value="12" {{selected faceFeature "12" }}>眉间</option>
+															<option value="13" {{selected faceFeature "13" }}>左眉</option>
+															<option value="14" {{selected faceFeature "14" }}>右眉</option>
+															<option value="15" {{selected faceFeature "15" }}>左太阳穴</option>
+															<option value="16" {{selected faceFeature "16" }}>右太阳穴</option>
+															<option value="17" {{selected faceFeature "17" }}>左眼</option>
+															<option value="18" {{selected faceFeature "18" }}>右眼</option>
+															<option value="19" {{selected faceFeature "19" }}>鼻</option>
+															<option value="20" {{selected faceFeature "20" }}>唇</option>
+															<option value="21" {{selected faceFeature "21" }}>左脸</option>
+															<option value="22" {{selected faceFeature "22" }}>右脸</option>
+															<option value="23" {{selected faceFeature "23" }}>下巴</option>
+															<option value="25" {{selected faceFeature "25" }}>左耳</option>
+															<option value="26" {{selected faceFeature "26" }}>右耳</option>
+															<option value="27" {{selected faceFeature "27" }}>颈</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="bodyFeature">体貌特征：</label>
+													</span>
+													<div class="item-box">
+														<input type="text" class="input-text" maxlength="20" name="bodyFeature" value="{{bodyFeature}}"/>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="surfaceFeature">体表特征：</label>
+													</span>
+													<div class="item-box">
+														<input type="text" class="input-text" maxlength="7" name="surfaceFeature" value="{{surfaceFeature}}"/>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="habitAction">习惯动作：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="habit_action" name="habitAction" value="{{habitAction}}">
+															<option value="">--请选择--</option>
+															<option value="01" {{selected habitAction "01" }}>翻眼</option>
+															<option value="02" {{selected habitAction "02" }}>眨眼</option>
+															<option value="03" {{selected habitAction "03" }}>皱眉</option>
+															<option value="04" {{selected habitAction "04" }}>挑眉</option>
+															<option value="05" {{selected habitAction "05" }}>推镜</option>
+															<option value="06" {{selected habitAction "06" }}>抓头</option>
+															<option value="07" {{selected habitAction "07" }}>挖鼻</option>
+															<option value="08" {{selected habitAction "08" }}>摸下巴</option>
+															<option value="09" {{selected habitAction "09" }}>打手势</option>
+															<option value="10" {{selected habitAction "10" }}>左撇子</option>
+															<option value="11" {{selected habitAction "11" }}>缩颈</option>
+															<option value="12" {{selected habitAction "12" }}>走路摇摆</option>
+															<option value="13" {{selected habitAction "13" }}>外八字</option>
+															<option value="14" {{selected habitAction "14" }}>内八字</option>
+															<option value="15" {{selected habitAction "15" }}>面肌抽搐</option>
+															<option value="16" {{selected habitAction "16" }}>说话歪嘴</option>
+															<option value="17" {{selected habitAction "17" }}>摆头</option>
+															<option value="18" {{selected habitAction "18" }}>手抖</option>
+														</select>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="module">
+								<div class="module-head">
+									<h3>着装</h3>
+									<i class="fix-png"></i>
+								</div>
+								<div class="module-body">
+									<div class="scrollbar disable">
+										<div class="track">
+											<div class="thumb"></div>
+										</div>
+									</div>
+									<div class="viewport person-view">
+										<div class="overview">
+											<div class="group">
+												<div class="form-item">
+													<span class="item-label">
+														<label for="jacketStyle">上衣款式：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="jacket_style" name="jacketStyle" data-default="{{jacketStyle}}">
+															<option value="">--请选择--</option>
+															<option value="01" {{selected jacketStyle "01"}}>西装</option>
+															<option value="02" {{selected jacketStyle "02"}}>民族服</option>
+															<option value="03" {{selected jacketStyle "03"}}>T恤</option>
+															<option value="04" {{selected jacketStyle "04"}}>衬衫</option>
+															<option value="05" {{selected jacketStyle "05"}}>卫衣</option>
+															<option value="06" {{selected jacketStyle "06"}}>夹克</option>
+															<option value="07" {{selected jacketStyle "07"}}>皮夹克</option>
+															<option value="08" {{selected jacketStyle "08"}}>大衣</option>
+															<option value="09" {{selected jacketStyle "09"}}>风衣</option>
+															<option value="10" {{selected jacketStyle "10"}}>毛衣</option>
+															<option value="11" {{selected jacketStyle "11"}}>棉衣</option>
+															<option value="12" {{selected jacketStyle "12"}}>羽绒服</option>
+															<option value="13" {{selected jacketStyle "13"}}>运动服</option>
+															<option value="14" {{selected jacketStyle "14"}}>工作服</option>
+															<option value="15" {{selected jacketStyle "15"}}>牛仔服</option>
+															<option value="16" {{selected jacketStyle "16"}}>睡衣</option>
+															<option value="17" {{selected jacketStyle "17"}}>连衣裙</option>
+															<option value="18" {{selected jacketStyle "18"}}>其他</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="jacketColor">上衣颜色：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="jacket_color" name="jacketColor" data-default="{{jacketColor}}">
+															<option value="">--请选择--</option>
+															<option value="01" {{selected jacketColor "01"}}>黑</option>
+															<option value="02" {{selected jacketColor "02"}}>白</option>
+															<option value="03" {{selected jacketColor "03"}}>灰</option>
+															<option value="04" {{selected jacketColor "04"}}>红</option>
+															<option value="05" {{selected jacketColor "05"}}>蓝</option>
+															<option value="06" {{selected jacketColor "06"}}>黄</option>
+															<option value="07" {{selected jacketColor "07"}}>橙</option>
+															<option value="08" {{selected jacketColor "08"}}>棕</option>
+															<option value="09" {{selected jacketColor "09"}}>绿</option>
+															<option value="10" {{selected jacketColor "10"}}>多种</option>
+															<option value="11" {{selected jacketColor "11"}}>其它</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="trousersStyle">裤子款式：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="trousers_style" name="trousersStyle" data-default="{{trousersStyle}}">
+															<option value="">--请选择--</option>
+															<option value="01" {{selected trousersStyle "01" }}>牛仔裤</option>
+															<option value="02" {{selected trousersStyle "02" }}>西裤</option>
+															<option value="03" {{selected trousersStyle "03" }}>工装裤</option>
+															<option value="04" {{selected trousersStyle "04" }}>皮裤</option>
+															<option value="05" {{selected trousersStyle "05" }}>短裤</option>
+															<option value="06" {{selected trousersStyle "06" }}>沙滩裤</option>
+															<option value="07" {{selected trousersStyle "07" }}>运动裤</option>
+															<option value="08" {{selected trousersStyle "08" }}>睡裤</option>
+															<option value="09" {{selected trousersStyle "09" }}>其它</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="trousersColor">裤子颜色：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="trousers_color" name="trousersColor" data-default="{{trousersColor}}">
+															<option value="">--请选择--</option>
+															<option value="01" {{selected trousersColor "01"}}>黑</option>
+															<option value="02" {{selected trousersColor "02"}}>白</option>
+															<option value="03" {{selected trousersColor "03"}}>灰</option>
+															<option value="04" {{selected trousersColor "04"}}>红</option>
+															<option value="05" {{selected trousersColor "05"}}>蓝</option>
+															<option value="06" {{selected trousersColor "06"}}>黄</option>
+															<option value="07" {{selected trousersColor "07"}}>橙</option>
+															<option value="08" {{selected trousersColor "08"}}>棕</option>
+															<option value="09" {{selected trousersColor "09"}}>绿</option>
+															<option value="10" {{selected trousersColor "10"}}>多种</option>
+															<option value="11" {{selected trousersColor "11"}}>其它</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="shoesStyle">鞋子款式：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="shoes_style" name="shoesStyle" data-default="{{shoesStyle}}">
+															<option value="">--请选择--</option>
+															<option value="01" {{selected shoesStyle "01"}}>板鞋</option>
+															<option value="02" {{selected shoesStyle "02"}}>皮鞋</option>
+															<option value="03" {{selected shoesStyle "03"}}>运动鞋</option>
+															<option value="04" {{selected shoesStyle "04"}}>拖鞋</option>
+															<option value="05" {{selected shoesStyle "05"}}>凉鞋</option>
+															<option value="06" {{selected shoesStyle "06"}}>休闲鞋</option>
+															<option value="07" {{selected shoesStyle "07"}}>高筒靴</option>
+															<option value="08" {{selected shoesStyle "08"}}>中筒靴</option>
+															<option value="09" {{selected shoesStyle "09"}}>低筒靴</option>
+															<option value="10" {{selected shoesStyle "10"}}>登山靴</option>
+															<option value="11" {{selected shoesStyle "11"}}>军装靴</option>
+															<option value="12" {{selected shoesStyle "12"}}>其它</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="shoeColor">鞋子颜色：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="shoes_color" name="shoesColor" data-default="{{shoesColor}}">
+															<option value="">--请选择--</option>
+															<option value="01" {{selected shoesColor "01"}}>黑</option>
+															<option value="02" {{selected shoesColor "02"}}>白</option>
+															<option value="03" {{selected shoesColor "03"}}>灰</option>
+															<option value="04" {{selected shoesColor "04"}}>红</option>
+															<option value="05" {{selected shoesColor "05"}}>蓝</option>
+															<option value="06" {{selected shoesColor "06"}}>黄</option>
+															<option value="07" {{selected shoesColor "07"}}>橙</option>
+															<option value="08" {{selected shoesColor "08"}}>棕</option>
+															<option value="09" {{selected shoesColor "09"}}>绿</option>
+															<option value="10" {{selected shoesColor "10"}}>多种</option>
+															<option value="11" {{selected shoesColor "11"}}>其它</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="hatStyle">帽子款式：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="hat_style" name="hatStyle" data-default="{{hatStyle}}">
+															<option value="">--请选择--</option>
+															<option value="01" {{selected hatStyle "01"}}>毛线帽</option>
+															<option value="02" {{selected hatStyle "02"}}>贝雷帽</option>
+															<option value="03" {{selected hatStyle "03"}}>棒球帽</option>
+															<option value="04" {{selected hatStyle "04"}}>平项帽</option>
+															<option value="05" {{selected hatStyle "05"}}>渔夫帽</option>
+															<option value="06" {{selected hatStyle "06"}}>套头帽</option>
+															<option value="07" {{selected hatStyle "07"}}>鸭舌帽</option>
+															<option value="08" {{selected hatStyle "08"}}>头巾</option>
+															<option value="09" {{selected hatStyle "09"}}>围脖</option>
+															<option value="10" {{selected hatStyle "10"}}>围巾</option>
+															<option value="11" {{selected hatStyle "11"}}>披肩</option>
+															<option value="12" {{selected hatStyle "12"}}>其它</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="hatColor">帽子颜色：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="hat_color" name="hatColor" data-default="{{hatColor}}">
+															<option value="">--请选择--</option>
+															<option value="01" {{selected hatColor "01"}}>黑</option>
+															<option value="02" {{selected hatColor "02"}}>白</option>
+															<option value="03" {{selected hatColor "03"}}>灰</option>
+															<option value="04" {{selected hatColor "04"}}>红</option>
+															<option value="05" {{selected hatColor "05"}}>蓝</option>
+															<option value="06" {{selected hatColor "06"}}>黄</option>
+															<option value="07" {{selected hatColor "07"}}>橙</option>
+															<option value="08" {{selected hatColor "08"}}>棕</option>
+															<option value="09" {{selected hatColor "09"}}>绿</option>
+															<option value="10" {{selected hatColor "10"}}>多种</option>
+															<option value="11" {{selected hatColor "11"}}>其它</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="glassesStyle">眼镜款式：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="glasses_style" name="glassesStyle" data-default="{{glassesStyle}}">
+															<option value="">--请选择--</option>
+															<option value="01" {{selected glassesStyle "01"}}>全框</option>
+															<option value="02" {{selected glassesStyle "02"}}>半框</option>
+															<option value="03" {{selected glassesStyle "03"}}>无框</option>
+															<option value="04" {{selected glassesStyle "04"}}>眉线框</option>
+															<option value="05" {{selected glassesStyle "05"}}>多功能框</option>
+															<option value="06" {{selected glassesStyle "06"}}>变色镜</option>
+															<option value="07" {{selected glassesStyle "07"}}>太阳镜</option>
+															<option value="08" {{selected glassesStyle "08"}}>其他</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="glassesColor">眼镜颜色：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="glasses_color" name="glassesColor" data-default="{{glassesColor}}">
+															<option value="">--请选择--</option>
+															<option value="01" {{selected glassesColor "01" }}>黑</option>
+															<option value="02" {{selected glassesColor "02" }}>白</option>
+															<option value="03" {{selected glassesColor "03" }}>灰</option>
+															<option value="04" {{selected glassesColor "04" }}>红</option>
+															<option value="05" {{selected glassesColor "05" }}>蓝</option>
+															<option value="06" {{selected glassesColor "06" }}>黄</option>
+															<option value="07" {{selected glassesColor "07" }}>橙</option>
+															<option value="08" {{selected glassesColor "08" }}>棕</option>
+															<option value="09" {{selected glassesColor "09" }}>绿</option>
+															<option value="10" {{selected glassesColor "10" }}>多种</option>
+															<option value="11" {{selected glassesColor "11" }}>其它</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="scarfColor">围巾颜色：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="scarf_color" name="scarfColor" data-default="{{scarfColor}}">
+															<option value="">--请选择--</option>
+															<option value="01" {{selected scarfColor "01"}}>黑</option>
+															<option value="02" {{selected scarfColor "02"}}>白</option>
+															<option value="03" {{selected scarfColor "03"}}>灰</option>
+															<option value="04" {{selected scarfColor "04"}}>红</option>
+															<option value="05" {{selected scarfColor "05"}}>蓝</option>
+															<option value="06" {{selected scarfColor "06"}}>黄</option>
+															<option value="07" {{selected scarfColor "07"}}>橙</option>
+															<option value="08" {{selected scarfColor "08"}}>棕</option>
+															<option value="09" {{selected scarfColor "09"}}>绿</option>
+															<option value="10" {{selected scarfColor "10"}}>多种</option>
+															<option value="11" {{selected scarfColor "11"}}>其它</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="bagStyle">包款式：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="bag_style" name="bagStyle" data-default="{{bagStyle}}">
+															<option value="">--请选择--</option>
+															<option value="01" {{selected bagStyle "01"}}>单肩包</option>
+															<option value="02" {{selected bagStyle "02"}}>手提包</option>
+															<option value="03" {{selected bagStyle "03"}}>双肩包</option>
+															<option value="04" {{selected bagStyle "04"}}>钱包</option>
+															<option value="05" {{selected bagStyle "05"}}>手拿包</option>
+															<option value="06" {{selected bagStyle "06"}}>腰包</option>
+															<option value="07" {{selected bagStyle "07"}}>钥匙包</option>
+															<option value="08" {{selected bagStyle "08"}}>卡包</option>
+															<option value="09" {{selected bagStyle "09"}}>手拉箱</option>
+															<option value="10" {{selected bagStyle "10"}}>旅行包</option>
+															<option value="11" {{selected bagStyle "11"}}>牛仔包</option>
+															<option value="12" {{selected bagStyle "12"}}>斜挎包</option>
+															<option value="13" {{selected bagStyle "13"}}>其它</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="bagColor">包颜色：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="bag_color" name="bagColor" data-default="{{bagColor}}">
+															<option value="">--请选择--</option>
+															<option value="01" {{selected bagColor "01"}}>黑</option>
+															<option value="02" {{selected bagColor "02"}}>白</option>
+															<option value="03" {{selected bagColor "03"}}>灰</option>
+															<option value="04" {{selected bagColor "04"}}>红</option>
+															<option value="05" {{selected bagColor "05"}}>蓝</option>
+															<option value="06" {{selected bagColor "06"}}>黄</option>
+															<option value="07" {{selected bagColor "07"}}>橙</option>
+															<option value="08" {{selected bagColor "08"}}>棕</option>
+															<option value="09" {{selected bagColor "09"}}>绿</option>
+															<option value="10" {{selected bagColor "10"}}>多种</option>
+															<option value="11" {{selected bagColor "11"}}>其它</option>
+														</select>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="module">
+								<div class="module-head">
+									<h3>人员类型</h3>
+									<i class="fix-png"></i>
+								</div>
+								<div class="module-body">
+									<div class="scrollbar disable">
+										<div class="track">
+											<div class="thumb"></div>
+										</div>
+									</div>
+									<div class="viewport person-view">
+										<div class="overview">
+											<div class="group">
+												<div class="form-item">
+													<span class="item-label">
+														<label for="isDriver">是否驾驶员：</label>
+													</span>
+													<div class="item-box ">
+														<input type="checkbox" class="input-check" maxlength="50" name="isDriver" value="{{isDriver}}" {{checked isDriver}}/>
+													</div>
+												</div>
+												<div class="enablewrap">
+													<div class="form-item ">
+														<span class="item-label">
+															<label for="driverLicense">驾驶证种类：</label>
+														</span>
+														<div class="item-box">
+															<input type="text" class="input-text" maxlength="10" name="driverLicense" {{isDisabled isDriver}} value="{{driverLicense}}"/>
+														</div>
+													</div>
+													<div class="form-item">
+														<span class="item-label">
+															<label for="driverStatus">驾驶员状态：</label>
+														</span>
+														<div class="item-box">
+															<input type="text" class="input-text" maxlength="20" name="driverStatus" {{isDisabled isDriver}} value="{{driverStatus}}"/>
+														</div>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="isForeigner">是否涉外：</label>
+													</span>
+													<div class="item-box">
+														<input type="checkbox"  class="input-check" maxlength="50" name="isForeigner" value="{{isForeigner}}" {{checked isForeigner}}/>
+													</div>
+												</div>
+												<div class="enablewrap">
+													<div class="form-item">
+														<span class="item-label">
+															<label for="passportCategory">护照证件种类：</label>
+														</span>
+														<div class="item-box">
+															<select class="input-select" id="passport_category" name="passportCategory" {{isDisabled isForeigner}} data-default="{{passportCategory}}">
+															</select>
+														</div>
+													</div>
+													<div class="form-item">
+														<span class="item-label">
+															<label for="foreignerCategory">入出境人员类别：</label>
+														</span>
+														<div class="item-box">
+															<input type="text" class="input-text" maxlength="20" name="foreignerCategory" {{isDisabled isForeigner}} value="{{foreignerCategory}}"/>
+														</div>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="isTerrorist">是否涉恐：</label>
+													</span>
+													<div class="item-box">
+														<input type="checkbox" class="input-check" name="isTerrorist" value="{{isTerrorist}}"  {{checked isTerrorist}}/>
+													</div>
+												</div>
+												<div class="enablewrap">
+													<div class="form-item">
+														<span class="item-label">
+															<label for="terroristNumber">涉恐人员编号：</label>
+														</span>
+														<div class="item-box">
+															<input type="text" class="input-text" maxlength="50" name="terroristNumber" {{isDisabled isTerrorist}} value="{{terroristNumber}}"/>
+														</div>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="isWorker">是否工作人员：</label>
+													</span>
+													<div class="item-box">
+														<input type="checkbox" class="input-check" name="isWorker" value="{{isWorker}}" {{checked isWorker}}/>
+													</div>
+												</div>
+												<div class="enablewrap">
+													<div class="form-item">
+														<span class="item-label">
+															<label for="workCategory">职务类别：</label>
+														</span>
+														<div class="item-box">
+															<select class="input-select" id="work_category" name="workCategory" {{isDisabled isWorker}} data-default="{{workCategory}}"></select>
+														</div>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="isCriminal">是否犯罪人员：</label>
+													</span>
+													<div class="item-box">
+														<input type="checkbox" class="input-check" name="isCriminal" value="{{isCriminal}}" {{checked isCriminal}}/>
+													</div>
+												</div>
+												<div class="enablewrap">
+													<div class="form-item">
+														<span class="item-label">
+															<label for="criminalSkilled">犯罪专长：</label>
+														</span>
+														<div class="item-box">
+															<select class="input-select" id="criminal_skilled" name="criminalSkilled" {{isDisabled isCriminal}} data-default="{{criminalSkilled}}"></select>
+														</div>
+													</div>
+													<div class="form-item">
+														<span class="item-label">
+															<label for="criminalMark">体表特殊标记：</label>
+														</span>
+														<div class="item-box">
+															<select class="input-select" id="criminal_mark" name="criminalMark" {{isDisabled isCriminal}} data-default="{{criminalMark}}"></select>
+														</div>
+													</div>
+													<div class="form-item">
+														<span class="item-label">
+															<label for="criminalMethod">作案手段：</label>
+														</span>
+														<div class="item-box">
+															<select class="input-select" name="criminalMethod" id="criminal_method" {{isDisabled isCriminal}} data-default="{{criminalMethod}}"></select>
+														</div>
+													</div>
+													<div class="form-item">
+														<span class="item-label">
+															<label for="criminalFeature">作案特点：</label>
+														</span>
+														<div class="item-box">
+															<select class="input-select" name="criminalFeature" id="criminal_feature" {{isDisabled isCriminal}} data-default="{{criminalFeature}}"></select>
+														</div>
+													</div>
+													<div class="form-item">
+														<span class="item-label">
+															<label for="criminalNumber">在逃人员编码：</label>
+														</span>
+														<div class="item-box">
+															<input type="text" class="input-text" maxlength="50" name="criminalNumber" {{isDisabled isCriminal}} value="{{criminalNumber}}"/>
+														</div>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="isDetain">是否在押人员：</label>
+													</span>
+													<div class="item-box">
+														<input type="checkbox" class="input-check" maxlength="50" name="isDetain" value="{{isDetain}}" {{checked isDetain}}/>
+													</div>
+												</div>
+												<div class="enablewrap">
+													<div class="form-item">
+														<span class="item-label">
+															<label for="detainPrison">看守所编码：</label>
+														</span>
+														<div class="item-box">
+															<input type="text" class="input-text" maxlength="50" name="detainPrison" {{isDisabled isDetain}} value="{{detainPrison}}"/>
+														</div>
+													</div>
+													<div class="form-item">
+														<span class="item-label">
+															<label for="detainIdentity">在押人员身份：</label>
+														</span>
+														<div class="item-box">
+															<select class="input-select" id="detain_identity" name="detainIdentity" {{isDisabled isDetain}} data-default="{{detainIdentity}}">
+																<option value="">--请选择--</option>
+																<option value="01" {{selected detainIdentity "01" }}>国家公务员</option>
+																<option value="02" {{selected detainIdentity "02" }}>企事业管理人员</option>
+																<option value="03" {{selected detainIdentity "03" }}>企事业职员</option>
+																<option value="04" {{selected detainIdentity "04" }}>工人</option>
+																<option value="05" {{selected detainIdentity "05" }}>农民</option>
+																<option value="06" {{selected detainIdentity "06" }}>个体工商业者</option>
+																<option value="07" {{selected detainIdentity "07" }}>在校学生</option>
+																<option value="08" {{selected detainIdentity "08" }}>离退休人员</option>
+																<option value="09" {{selected detainIdentity "09" }}>无业人员</option>
+																<option value="10" {{selected detainIdentity "10" }}>军人</option>
+																<option value="11" {{selected detainIdentity "11" }}>其他</option>
+															</select>
+														</div>
+													</div>
+													<div class="form-item">
+														<span class="item-label">
+															<label for="detainSpecial">在押人员特殊身份：</label>
+														</span>
+														<div class="item-box">
+															<select class="input-select" id="detain_special" name="detainSpecial" {{isDisabled isDetain}} data-default="{{detainSpecial}}">
+																<option value="">--请选择--</option>
+																<option value="01" {{selected detainSpecial "01"}}>人大代表</option>
+																<option value="02" {{selected detainSpecial "02"}}>政协委员</option>
+																<option value="03" {{selected detainSpecial "03"}}>民主党首</option>
+																<option value="04" {{selected detainSpecial "04"}}>中高干部</option>
+																<option value="05" {{selected detainSpecial "05"}}>高知高工</option>
+																<option value="06" {{selected detainSpecial "06"}}>公安民警</option>
+																<option value="07" {{selected detainSpecial "07"}}>其他民警</option>
+																<option value="08" {{selected detainSpecial "08"}}>检法干部</option>
+																<option value="09" {{selected detainSpecial "09"}}>工商税务</option>
+																<option value="10" {{selected detainSpecial "10"}}>海关稽查</option>
+																<option value="11" {{selected detainSpecial "11"}}>保安警卫</option>
+																<option value="12" {{selected detainSpecial "12"}}>外交官员</option>
+																<option value="13" {{selected detainSpecial "13"}}>外交家属</option>
+																<option value="14" {{selected detainSpecial "14"}}>外商职员</option>
+																<option value="15" {{selected detainSpecial "15"}}>华侨人士</option>
+																<option value="16" {{selected detainSpecial "16"}}>侨眷侨属</option>
+																<option value="17" {{selected detainSpecial "17"}}>留学人员</option>
+																<option value="18" {{selected detainSpecial "18"}}>外籍人员</option>
+																<option value="19" {{selected detainSpecial "19"}}>港澳台人员</option>
+																<option value="20" {{selected detainSpecial "20"}}>宗教界人士</option>
+																<option value="21" {{selected detainSpecial "21"}}>邪教人员</option>
+																<option value="22" {{selected detainSpecial "22"}}>民族分裂分子</option>
+																<option value="23" {{selected detainSpecial "23"}}>民运人员</option>
+																<option value="24" {{selected detainSpecial "24"}}>未成年人</option>
+															</select>
+														</div>
+													</div>
+													<div class="form-item">
+														<span class="item-label">
+															<label for="detainCategory">成员类型：</label>
+														</span>
+														<div class="item-box">
+															<select class="input-select" id="detain_category" name="detainCategory" {{isDisabled isDetain}} data-default="{{detainCategory}}">
+																<option value="">--请选择--</option>
+																<option value="10" {{selected detainCategory "10"}}>首犯</option>
+																<option value="11" {{selected detainCategory "11"}}>主犯</option>
+																<option value="12" {{selected detainCategory "12"}}>从犯</option>
+																<option value="13" {{selected detainCategory "13"}}>胁从犯</option>
+																<option value="20" {{selected detainCategory "20"}}>集团头目</option>
+																<option value="21" {{selected detainCategory "21"}}>集团成员</option>
+																<option value="31" {{selected detainCategory "31"}}>团伙头目</option>
+																<option value="32" {{selected detainCategory "32"}}>团伙骨干</option>
+																<option value="33" {{selected detainCategory "33"}}>团伙成员</option>
+																<option value="99" {{selected detainCategory "99"}}>其他</option>
+															</select>
+														</div>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="isVictim">是否被害人：</label>
+													</span>
+													<div class="item-box">
+														<input type="checkbox" class="input-check" maxlength="50" name="isVictim" value="{{isVictim}}" {{checked isVictim}}/>
+													</div>
+												</div>
+												<div class="enablewrap">
+													<div class="form-item">
+														<span class="item-label">
+															<label for="victim_category">被害人种类：</label>
+														</span>
+														<div class="item-box">
+															<select id="victimCategory" name="victimCategoryMain" class="input-select  input-select-second" {{isDisabled isVictim}} data-default="{{victimCategoryMain}}"></select>
+															<select id="victimDetail" name="victimCategorySub" class="input-select " {{isDisabled isVictim}} data-default="{{victimCategorySub}}"></select>
+														</div>
+													</div>
+													<div class="form-item">
+														<span class="item-label">
+															<label for="victimHarmful">受伤害程度：</label>
+														</span>
+														<div class="item-box">
+															<select class="input-select" id="victim_harmful" name="victimHarmful" {{isDisabled isVictim}} data-default="{{victimHarmful}}">
+																<option value="">--请选择--</option>
+																<option value="1" {{selected victimHarmful "1"}}>死亡</option>
+																<option value="2" {{selected victimHarmful "2"}}>重伤</option>
+																<option value="3" {{selected victimHarmful "3"}}>轻伤</option>
+																<option value="4" {{selected victimHarmful "4"}}>轻微伤</option>
+																<option value="9" {{selected victimHarmful "9"}}>其他</option>
+															</select>
+														</div>
+													</div>
+													<div class="form-item">
+														<span class="item-label">
+															<label for="victimCorpse">尸体状况：</label>
+														</span>
+														<div class="item-box">
+															<input type="text" class="input-text" maxlength="20" name="victimCorpse" {{isDisabled isVictim}} value="{{victimCorpse}}"/>
+														</div>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="infomationSource">信息来源：</label>
+													</span>
+													<div class="item-box">
+														<input type="text" class="input-text" maxlength="50" name="infomationSource" value="{{infomationSource}}"/>
+													</div>
+												</div>
+                                                <div class="form-item" style="display: none">
+													<span class="item-label">
+														<label for="points">标记坐标 ：</label>
+													</span>
+                                                    <div class="item-box">
+                                                        <span maxlength="50" name="points"  id="points" value="{{points}}"></span>
+                                                    </div>
+                                                </div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="form-item submit-area">
+							<div class="item-box submit-wrapper">
+								<input class="input-submit next-step permission permission-create" type="submit" value="保存信息"/>
+								<input type="button" value="取消" class="ui button input-cancel permission permission-create" />
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="entity-preview" data-id="{{id}}">
+					<div class="markwrap clearfix">
+						<div class="display-format tab-title">
+							<ul class="menus">
+								<li data-tab="picture" data-anchor="picture" class="tab-title-item active">
+									<a class="btn">图片</a>
+								</li>
+								{{#tabular videoId}}
+								<li data-tab="ocxbody" data-anchor="ocxbody" class=" tab-title-item">
+									<a class="btn">视频</a>
+								</li>
+								{{/tabular}}
+							</ul>
+
+						</div>
+					</div>
+
+					<div class="entity-box tab-content">
+						{{#tabular videoId}}
+                        <div class="video tab-content-item" data-target="ocxbody" data-tab="ocxbody"  data-videopath="{{videoPath}}">
+                            <object id="UIOCX" type="applicatin/x-firebreath" width = "800" height = "450">
+                            	<param name="onload" value="pluginLoaded"/>
+                            </object>
+                            <div class="video-block">
+                           		 <div class="progress-bg">
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="bullet">
+                                    	<i class="play-point"></i>
+                                    </div>
+                                    <i class='start-mark'></i>
+                                    <i class='end-mark'></i>
+                                </div>
+                                <div class="panel" onselectstart="return false">
+                                <span class="time">
+											<span class="nowtime" nowtime-ms="0">00:00:00</span>&nbsp;/
+											<span class="alltime" alltime-ms="14859247">00:00:00</span>
+										</span>
+										<span class="speed">倍速：<em></em></span>
+										<span class="fullwin" title="全屏"></span>
+										<span class="grab" title="抓图"></span>
+										<span class="editing" title="人工标注"></span>
+										<span class="loop" title="循环"></span>
+										<span class="sequence" title="顺序"></span>
+										<span class="stop" title="停止"></span>
+										<span class="forward" title="快进"></span>
+										<span class="switch" title="播放"></span>
+										<span class="rewind" title="慢放"></span>
+                                </div>
+
+                            </div>
+                        </div>
+						{{/tabular}}
+						<div class="picture tab-content-item active" data-target="picture" data-tab="picture">
+							<span class="hook"></span>
+							<img src="{{picture}}" alt="" class="entity-img">
+						</div>
+					</div>
+				</div>
+			</div>
+			{{/person}}
+			</script>
+
+		</div>
+	</div>
+	<script type="text/javascript" src="/libs/requirejs/require.js" data-main="/module/viewlibs/details/struct/js/update_person.js"></script>
+
+</body>
+</html>

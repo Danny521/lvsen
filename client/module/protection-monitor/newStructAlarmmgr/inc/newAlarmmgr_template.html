@@ -1,0 +1,451 @@
+{{#if alarmDefenceframe}}
+ <div class="defence-add-panel">
+    <p class="addPart">
+        <span class="addInfo">任务列表</span>
+        <span class="addTask ui button blue permission permission-set-defence-task">新增布防</span>
+
+        <span class="controllAllTask">
+            <i class="Carrow"></i>批量
+            <span class="ctrStyle">
+                <i class="icon_pause" data-type="pause" title="暂停所有任务"></i>
+                <i class="icon-run" data-type="run" title="运行所有任务"></i>
+
+            </span>
+        </span>
+    </p>
+</div>
+<div class="defence-container">
+    <ul id="defenceTaskList" onselectstart="return false;">
+        {{#if alarmDefenceList}}
+            {{#each alarmDefenceList}}
+                <li class="defence-list-item"  data-taskId={{id}}  data-evtype={{ev_type}} data-cameraStatus={{cameraStatus}} data-cameraId = {{camera_id}} data-taskName={{rule_name}} data-param="{{front_param}}" data-task-type="defenceTask">
+                    <span class="camera-img {{isOnlineActive cameraType isOnline}} {{changeCameraIcon camera_id 'defenceTask'}}" data-online="{{isOnlineActive1 isOnline}}"></span>
+                    <span class="text" title="{{cameraName}}">{{cameraName}}</span>
+                    <span class="defenceTool">
+
+                        <i class="icon-delete permission permission-delete-defence-task" data-type = "delete" title="删除"></i>  
+                        <i class="icon-edit permission permission-edit-defence-task" data-type = "edit" title="修改"></i>  
+                        <i class="icon-playThis" data-type = "playThis" title="播放"></i>  
+                        <i class="icon-set" data-type = "set" title="操作"></i> 
+                    </span>
+                </li>
+             {{/each}}
+        {{else}}
+            <li class="style-text-info">当前暂无任务信息！</li>
+        {{/if}}
+    </ul>
+</div>
+{{/if}}
+
+{{#if alarmControlframe}}
+<div class="control-add-panel">
+    <p class="addPart">
+        <span class="addInfo">任务列表</span>
+        <span class="addTask ui button blue permission permission-new-surveillance-task">新增布控</span>
+    </p>
+</div>
+<div class="control-container">
+    <ul id="controlTaskList" onselectstart="return false;">
+        {{#if alarmControlList}}
+            {{#each alarmControlList}}
+                 <li class="control-list-item {{controlTaskStatusClass status}}" data-taskId = {{id}}  data-status = "{{this.status}}">
+                    <i class="fold"></i>
+                    <i class="tree camera-style"></i>
+                    <span class="text" title="{{name}}">{{name}}</span>
+                    {{#controlTaskStatusText status}}{{/controlTaskStatusText}} 
+                    <span class="ctrTool">
+                        <i class="icon-delete permission permission-delete-surveillance-task" data-type = "delete" title="删除"></i>  
+                        <i class="icon-edit permission permission-edit-surveillance-task" data-type = "edit" title="修改"></i> 
+                        {{#restoreSurveillanceTask status}}{{/restoreSurveillanceTask}} 
+                    </span>
+                    
+                    <ul class="cameraList">
+                    
+                    </ul>
+                </li>
+            {{/each}}
+        {{else}}
+            <li class="style-text-info">当前暂无任务信息！</li>
+        {{/if}}
+    </ul>
+</div>
+{{/if}}
+{{#if alarmCtrInerList}}
+    {{#each alarmCtrInerList}}
+    <li class="camerList-item" data-cameraId ={{id}} data-left={{left}} data-right={{right}} data-top={{top}} data-bottom="{{bottom}}" data-task-type="contrlTask">
+        <span class="camera-img {{isOnlineActive camera_type camera_status}} {{changeCameraIcon id 'contrlTask'}}" data-online="{{isOnlineActive1 camera_status}}"></span>
+        <span class="text normal" title="{{name}}">{{name}}</span> 
+        <i class="icon-playThis" title="播放"></i>
+    </li>
+    {{/each}}
+{{/if}}
+{{#if alarmframe}}
+<div class="condition-panel"></div>
+<div class="operator-panel">
+    <span class="left-operator"><i class="icons-select-all checkbox_ctrl"></i><em>全选</em></span>
+    <span class="right-operator"></span>
+    <!--<span class="refresh-operator"><i class="icons-alarm-refresh" title="刷新报警列表"></i></span>-->
+</div>
+<div class="scrollbar-panel">
+    <ul class="content-alarms-list" id="rightAlarmList">
+       <p class="style-text-info ">暂无报警数据！</p> 
+    </ul>
+</div>
+{{/if}}
+{{#if selectctrl}}
+<div class="select_container" data-init="true" data-type="{{type}}">
+    <span class="text" data-value="{{defaultValue}}">{{value}}</span>
+    <span class="arrow-down"></span>
+</div>
+{{/if}}
+{{#if rulelist}}
+    {{#each data}}
+    <li data-value="{{evType}}">
+        <i class="icons-select-rule checkbox_ctrl {{#FilterRuleListCheck ../selectInfo evType}}{{/FilterRuleListCheck}}"></i><em title="{{name}}">{{name}}</em>
+    </li>
+    {{/each}}
+{{/if}}
+{{#if timelist}}
+    <li data-value="10">10分钟内</li>
+    <li data-value="30">半小时内</li>
+    <li data-value="60">1小时内</li>
+{{/if}}
+{{#if statuslist}}
+    <li data-value>全部状态</li>
+    <li data-value="1">有效</li>
+    <li data-value="2">无效</li>
+    <li data-value="3">未知</li>
+    <li data-value="0">未处理</li>
+{{/if}}
+{{#if fastdeallist}}
+    <li data-value="1">有效</li>
+    <li data-value="2">无效</li>
+    {{#if showUnknow}}
+    <li data-value="3">未知</li>
+    {{/if}}
+{{/if}}
+{{#if levellist}}
+    <li data-value="1">一般</li>
+    <li data-value="2">重要</li>
+    <li data-value="3">严重</li>
+{{/if}}
+
+
+{{#if alarmevent}}
+{{#if alarms}}
+    <li class="alarm-info-content" data-id="{{alarms.id}}" data-rulename="{{#FilterAlarmDetails alarms.eventType 'eventType'}}{{/FilterAlarmDetails}}" data-alarmtype="{{#FilterAlarmType alarms.eventType 'value'}}{{/FilterAlarmType}}" data-cameraid="{{alarms.cameraId}}" data-time="{{alarms.absTime}}"  data-name="{{alarms.cameraName}}" data-taskname="{{alarms.taskName}}" data-lat="{{alarms.latitude}}" data-lon="{{alarms.longitude}}">
+        <div class="alarm-top-area">
+            <span class="title-text" title="{{alarms.cameraName}}">
+                <i class="icons-select-alarm checkbox_ctrl"></i><em>{{alarms.cameraName}}</em>
+            </span>
+            <span class="img">
+                <a title="历史调阅" name="{{alarms.id}}" class="icon_video_play alarm-video-play" target="historyProxy"></a>
+                <a title="报警处理" class="icon_mark_deal alarm-mark-deal"></a>
+            </span>
+        </div>
+        <div class="alarm-down-area">
+            <div class="alarm-image">
+                <img src="{{list1 alarms.imgInfo}}" />
+            </div>
+            <div class="alarm-details">
+                {{#if alarms.taskName}}
+                <span><em class="alarm-label">任务名称：</em><em class="itemText" title="{{alarms.taskName}}">{{alarms.taskName}}</em></span>
+                {{/if}}
+                <span><em class="alarm-label">时间：</em><em>{{#FilterAlarmDetails alarms.absTime 'absTime'}}{{/FilterAlarmDetails}}</em></span>
+                {{#fliterPlace alarms.eventType}}
+                <span><em class="alarm-label">地点：</em><em class="itemText" title="{{alarms.isPlace alarms.reportPlace}}">{{alarms.isPlace alarms.reportPlace}}</em></span>
+                {{/fliterPlace}}
+                <span><em class="alarm-label">类型：</em><em>{{#FilterAlarmDetails alarms.eventType 'eventType'}}{{/FilterAlarmDetails}}</em></span>
+                {{#if alarms.lprValue}}
+                <span><em class="alarm-label">车牌号码：</em><em>{{alarms.lprValue}}</em></span>
+                {{/if}}
+                {{#if alarms.reportPerson}}
+                <span><em class="alarm-label">报警原因：</em><em class="itemText" title="{{alarms.reportReason}}">{{alarms.reportReason}}</em></span>
+                {{/if}}
+                {{#if alarms.count}}
+                <span><em class="alarm-label">当前计数：</em><em class="itemText car-people-num" title="{{alarms.count}}">{{alarms.count}}</em></span>
+                {{/if}}
+                <span><em class="alarm-label">处理状态：</em><em class="status {{#FilterAlarmDetails alarms.dealStatus 'status' 'class'}}{{/FilterAlarmDetails}}">{{#FilterAlarmDetails alarms.dealStatus 'status' 'text'}}{{/FilterAlarmDetails}}</em>
+                </span>
+                <span><em class="alarm-label">{{#FilterAlarmType alarms.eventType 'text'}}{{/FilterAlarmType}}：</em><em class="level {{#FilterAlarmDetails alarms.level 'level' 'class'}}{{/FilterAlarmDetails}}">{{#FilterAlarmDetails alarms.level 'level' 'text'}}{{/FilterAlarmDetails}}</em></span>
+            </div>
+        </div>
+    </li> 
+{{/if}}
+{{/if}}
+<!---摄像机任务列表-->
+{{#if isTaskList}}
+<ul class="taskContentList">
+    {{#if taskList}}
+        {{#each taskList}}
+            <li data-taskData ="{{front_param}}" data-cameraId={{camera_id}}>{{rule_name}}</li>
+        {{/each}}
+    {{else}}
+        <li class="style-text-info nomgt">暂无任务！</li> 
+    {{/if}}
+</ul>
+{{/if}}
+<!---地图摄像机任务列表-->
+{{#if isTaskMapList}}
+<ul class="taskMapContentList">
+    {{#if taskLists}}
+        {{#each taskLists}}
+            <li data-taskData = {{front_param}} data-cameraId={{camera_id}}>{{rule_name}}</li>
+        {{/each}}
+    {{else}}
+        <li class="style-text-info nomgt">暂无任务！</li> 
+    {{/if}}
+</ul>
+{{/if}}
+{{#if infowindow}}
+    <div class="infowindow-alarm-mgr" data-id="{{infowindow.deployEvent.id}}" data-cameraid="{{infowindow.deployEvent.cameraId}}" data-name="{{infowindow.deployEvent.cameraName}}" data-time="{{infowindow.deployEvent.absTime}}" data-cameracode="{{infowindow.deployEvent.cameraCode}}" data-rulename="{{#FilterAlarmDetails infowindow.deployEvent.eventType 'eventType'}}{{/FilterAlarmDetails}}" data-alarmtype="{{#FilterAlarmType infowindow.deployEvent.eventType 'value'}}{{/FilterAlarmType}}" data-taskname="{{infowindow.deployEvent.taskName}}">
+
+        <div class="infowindow-top">
+            <span class="infowindow-title" title="{{infowindow.deployEvent.cameraName}}">{{infowindow.deployEvent.cameraName}}</span>
+            <span class="infowindow-operator">
+                <a title="关闭" class="icon_mark_close alarm-info-close"></a>
+                {{#if isDeal}}{{else}}
+                <a title="报警处理" class="icon_mark_deal alarm-mark-deal"></a>
+                {{/if}}
+                <a title="历史调阅" class="icon_video_play alarm-video-play permission permission-view-history" target="historyProxy"></a>
+            </span>
+        </div>
+        <div class="infowindow-down {{#if isDefence}}{{else}}protect{{/if}}">
+            {{#if isMap}}
+            <div class="pre-next-alarm"><i class="pre-alarm alarm-hidden"></i></div>
+            {{/if}}
+            {{#if isDefence}}
+            <!--布防的信息窗模板-->
+            <div class="alarm-image">
+                <img src="{{list1 infowindow.deployEvent.imgInfo}}" />
+            </div>
+            <div class="alarm-details">
+            
+                <span><em class="alarm-label">时间：</em><em>{{TimeFilter infowindow.deployEvent.absTime}}</em></span>
+                {{#fliterPlace infowindow.deployEvent.eventType}}
+                <span><em class="alarm-label">地点：</em><em class="itemText" title="{{isPlace  infowindow.deployEvent.reportPlace}}">{{isPlace infowindow.deployEvent.reportPlace}}</em></span>
+                {{/fliterPlace}}
+                <span><em class="alarm-label">类型：</em><em>{{#FilterAlarmDetails infowindow.deployEvent.eventType 'eventType'}}{{/FilterAlarmDetails}}</em></span>
+                {{#if infowindow.deployEvent.lprValue}}
+                <span><em class="alarm-label">车牌号码：</em><em>{{infowindow.deployEvent.lprValue}}</em></span>
+                {{/if}}
+                {{#if infowindow.deployEvent.count}}
+                <span><em class="alarm-label">当前计数：</em><em class="itemText car-people-num" title="{{infowindow.deployEvent.count}}">{{infowindow.deployEvent.count}}</em></span>
+                {{/if}}
+                {{#if infowindow.deployEvent.reportReason}}{{else}}
+                <span><em class="alarm-label">处理状态：</em><em class="status {{#FilterAlarmDetails infowindow.deployEvent.dealStatus 'status' 'class'}}{{/FilterAlarmDetails}}">{{#FilterAlarmDetails infowindow.deployEvent.dealStatus 'status' 'text'}}{{/FilterAlarmDetails}}</em></span>
+                {{/if}}
+                {{#if infowindow.deployEvent.reportReason}}
+                <span><em class="alarm-label">报警原因：</em><em class="itemText" title="{{infowindow.deployEvent.reportReason}}">{{infowindow.deployEvent.reportReason}}</em></span>
+                {{/if}}
+                <span><em class="alarm-label">报警级别：</em><em class="level {{#FilterAlarmDetails infowindow.deployEvent.level 'level' 'class'}}{{/FilterAlarmDetails}}">{{#FilterAlarmDetails infowindow.deployEvent.level 'level' 'text'}}{{/FilterAlarmDetails}}</em></span>
+                {{#if infowindow.deployEvent.reportPerson}}
+                <span><em class="alarm-label">报警人：</em><em class="itemText" title="{{infowindow.deployEvent.reportPerson}}">{{infowindow.deployEvent.reportPerson}}</em></span>
+                {{/if}}
+                
+            </div>
+            <div class="alarm-deal {{#if isDeal}}{{else}}alarm-hidden{{/if}}">
+                <div class="alarm-level alarm-deal-div">
+                    <em class="alarm-label">报警级别：</em>
+                    <div class="select_container alarm-level-container" data-init="true" data-type="level-list">
+                        <span class="text" data-value="1">一般</span>
+                        <span class="arrow-down"></span>
+                    </div>
+                </div>
+                <div class="alarm-comment alarm-deal-div">
+                    <span><em class="alarm-label">备注信息：</em></span>
+                    <span><textarea placeholder="请输入备注...">{{infowindow.deployEvent.comment}}</textarea></span>
+                </div>
+                <div class="alarm-deal-operator alarm-deal-div">
+                    <a class="alarm-btn cancel do" title="处理为无效" data-status="2">无效</a>
+                    <a class="alarm-btn do" title="处理为有效" data-status="1">有效</a>
+                </div>
+            </div>
+            {{else}}
+            <!--布控的信息窗模板-->
+            <div class="alarm-image protect">
+                <em class="alarm-label">目标人</em>
+                    <img src="{{list1 infowindow.deployEvent.imgInfo}}" />
+            </div>
+            {{#if isDeal}}{{else}}
+            <div class="alarm-details protect">
+                <span><em class="alarm-label">任务名称：</em><em class="itemText" title="{{infowindow.deployEvent.taskName}}">{{infowindow.deployEvent.taskName}}</em></span>
+                <span><em class="alarm-label">时间：</em><em>{{TimeFilter infowindow.deployEvent.absTime}}</em></span>
+                <span><em class="alarm-label">类型：</em><em>{{#FilterAlarmDetails infowindow.deployEvent.eventType 'eventType'}}{{/FilterAlarmDetails}}</em></span>
+                <span><em class="alarm-label">处理状态：</em><em class="status {{#FilterAlarmDetails infowindow.deployEvent.dealStatus 'status' 'class'}}{{/FilterAlarmDetails}}">{{#FilterAlarmDetails infowindow.deployEvent.dealStatus 'status' 'text'}}{{/FilterAlarmDetails}}</em></span>
+                <span><em class="alarm-label">布控级别：</em><em class="level {{#FilterAlarmDetails infowindow.deployEvent.level 'level' 'class'}}{{/FilterAlarmDetails}}">{{#FilterAlarmDetails infowindow.deployEvent.level 'level' 'text'}}{{/FilterAlarmDetails}}</em></span>
+            </div>
+            {{/if}}
+            <div class="alarm-deal {{#if isDeal}}{{else}}alarm-hidden{{/if}} protect">
+                <div class="select-person-image">
+                    <em class="alarm-label">候选人</em>
+                        <img src="" />
+                    <span class="image-tools">
+                        <i class="right" title="有效"></i>
+                        <i class="wrong" title="无效"></i>
+                        <i class="unknow" title="未知"></i>
+                    </span>
+                </div>
+                <div class="select-person-info">
+                <div class="litter-info">
+                    <span class="person-details">
+                        <em class="alarm-label">姓&nbsp;&nbsp;名：</em><em class="name">无</em>
+                    </span>
+                    <span class="person-details">
+                        <em class="alarm-label">比&nbsp;&nbsp;分：</em><em class="score">无</em>
+                    </span>
+                    <span class="person-details">
+                        <em class="alarm-label">所在库：</em><em class="lib">无</em>
+                    </span>
+                    <span class="person-details protect">
+                        <span><em class="alarm-label">备&nbsp;&nbsp;注：</em></span>
+                        <span><textarea placeholder="请输入备注..."></textarea></span>
+                    </span>
+                </div>
+                    <span class="person-details">
+                        <a class="alarm-btn save-select-person" title="保存当前候选人的处理结果">保存</a>
+                    </span>
+                </div>
+            </div>
+            {{/if}}
+            {{#if isMap}}
+            <div class="pre-next-alarm"><i class="next-alarm  alarm-hidden"></i></div>
+            {{/if}}
+        </div>
+        {{#if isDefence}}
+        {{else}}
+        <div class="protect-person-info">
+            <div class="info-item">
+                <span class="alarm-label people">候选人</span>
+                <span class="alarm-label rate">比&nbsp;&nbsp;&nbsp;分</span>
+            </div>
+            <div class="person-images">
+            {{#each infowindow.targetPersons}}
+                <span class="image-detail">
+                    <img src="{{list1 featureImagePath}}" data-personid="{{id}}" data-handlestatus="{{handleStatus}}" data-targetpersonname="{{targetPersonName}}" data-comparescore="{{score}}" data-libname="{{libName}}" data-description="{{description}}" data-index="{{@index}}"/>
+                    <i class="{{rightORwrong handleStatus}}"></i>
+                    <em class="{{#ScoreColor @index}}{{/ScoreColor}}">{{score}}</em>
+                </span>
+            {{/each}}
+       
+            </div>
+        </div>
+        {{/if}}
+    </div>
+{{/if}}
+
+{{#if videoplay}}
+    <div class="video-top" data-alarmid="{{data.alarmid}}" data-cameraid="{{data.cameraid}}">
+        <span class="video-camera-info">
+            {{data.playtype}}-<em class="alarm-label">{{data.name}}{{data.cameracode}}</em>
+        </span>
+        <a class="video-win-close" title="关闭视频播放窗口">关闭</a>
+    </div>
+    <div class="video-down">
+      <!--  <object id="UIOCX_HIS" classid="clsid:294EEBEC-7677-4EBA-B2D7-3FD669FBF2A2" width="400" height="300" align="center"></object> -->
+        <object id="UIOCX_HIS" type="applicatin/x-firebreath" width ="400" height ="300" align="center">
+            <param name="onload" value="pluginLoaded"/>
+        </object>
+    </div>
+{{/if}}
+<!-- 左侧栏报警信息图片查看 -->
+{{#if checkAlarmImage}}
+<div class="pic_content"></div>
+{{#CheckCalculateNum carPeopleNum}}
+<span class="car-people-num">当前计数：{{carPeopleNum}}</span>
+{{/CheckCalculateNum}}
+<!--<div class="pic_tool">
+    <a>关闭</a>
+</div>-->
+{{/if}}
+<!-- 地图上点击目标人时弹出层 -->
+{{#if checkAimPerson}}
+    {{#if turnPage}}{{else}}
+       <div class="pop_top">
+           <span class="top_text">目标人</span>
+           <span class="top_text">候选人</span>
+       </div>
+       <div class="pop_pic">
+            <div class="imgItem">
+                <img src="{{data.targetSrc}}">
+            </div>
+            <div class="imgItem">
+                <i class="turnPrev" title="上一张"></i>
+                <img class="cadidate" src="{{data.src}}">
+                <i class="turnNex" title="下一张"></i>
+            </div>
+        </div>
+    {{/if}}
+
+    <div class="pop_bottom">
+        <div class="pop_bottom_all">
+            <span class="infor_item">所属库：{{data.libname}}</span>
+            <span class="infor_item">比分阈值：{{data.comparescore}}</span>
+            <div class="toolsBar">
+                <span>报警处理状态：</span>
+                <i class="right"></i>
+                <i class="wrong"></i>
+                <i class="unknow"></i>
+            </div>
+        </div>
+        <!--<a class="pop_close">关闭</a>-->
+    </div>
+
+{{/if}}
+
+{{#if ocx}}
+<div class="infowindow-top video-play" data-cameraId={{ocx.id}}>
+    <span class="infowindow-title" title="{{ocx.name}}{{#cameraCodeShow ocx.cameraCode}}{{/cameraCodeShow}}">{{ocx.name}}{{#cameraCodeShow ocx.cameraCode}}{{/cameraCodeShow}}</span>
+    <span class="infowindow-operator">
+        <a title="关闭" class="icon_mark_close video-play-close"></a>
+        
+        <button id="selectMode">选择任务</button>
+        <iframe id="selcetPart" class="task-down-block" src="about:blank" scrolling="no" border=0 frameborder=0 ></iframe>
+        <div id="selectContent">
+            
+        </div>
+        <span class="taskSelectMode">
+           <a title="布防" class="defence-set">布防</a>
+            <a title="布控" class="control-set active">布控</a> 
+        </span>
+    </span>
+</div>
+<div class="map-video-container">
+</div>
+{{/if}}
+
+
+{{#if candidate}}
+{{#with candidate}}
+<span class="person-details">
+    <em class="alarm-label">姓&nbsp;&nbsp;名：</em><em class="name">{{targetpersonname}}</em>
+</span>
+<span class="person-details">
+    <em class="alarm-label">比&nbsp;&nbsp;分：</em><em class="score">{{comparescore}}</em>
+</span>
+<span class="person-details">
+    <em class="alarm-label">所在库：</em><em class="lib" title="{{libname}}">{{libname}}</em>
+</span>
+<span class="person-details protect">
+    <span><em class="alarm-label">备&nbsp;&nbsp;&nbsp;注：</em></span>
+    <span><textarea placeholder="请输入备注...">{{description}}</textarea></span>
+</span>
+{{/with}}
+{{/if}}
+
+
+{{#if tasklistPanel}}
+  {{#each tasklistData}}                     
+    <li data-taskid="{{id}}" data-cameraId="{{cameraId}}" data-enable="{{enableTask}}">
+        <em class="paneltitle {{isgrey enableTask}}" title="{{ruleName}}">{{ruleName}}</em>
+        <span class="icon_part">{{isRun enableTask}}<i class="icon-remove permission permission-delete-defence-task" data-type ="remove" title="删除任务"></i></span>
+    </li>
+  
+    {{/each}}
+{{/if}}
+
+{{#if scrolldata}}
+    {{#each data}}
+        <a data-id="{{id}}" href="#{{id}}">{{cameraName}} {{#FilterAlarmDetails eventType 'eventType'}}{{/FilterAlarmDetails}} {{TimeFilter absTime}}</a>
+    {{/each}}
+{{/if}}

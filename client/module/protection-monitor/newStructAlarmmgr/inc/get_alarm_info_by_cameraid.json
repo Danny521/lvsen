@@ -1,0 +1,40 @@
+{
+    "code": 200, 
+    "data": {
+        "message": "成功",
+	    "count": 10,
+        "alarm": [
+            {
+                "id": 5, 
+                "absTime": 1406865600000,
+	            "cameraId": 1002,
+                "cameraName": "科技路西口",
+                "comment": "test", 
+                "handleAuthor": null, 
+                "handleTime": null, 
+                "level": 2,
+                "cameraChannelId": null, 
+                "eventTypeName": "人员布控",
+                "dealStatus": 2,
+                "imgUrls": null,
+	            "alarmType": 2,
+	            "isLinkToMap": true
+            },            {
+                "id": 1, 
+                "absTime": 1406865600000,
+                "cameraId": 1002,
+                "cameraName": "科技路西口",
+                "comment": "sssss", 
+                "handleAuthor": null, 
+                "handleTime": null, 
+                "level": 2,
+                "cameraChannelId": null, 
+                "eventTypeName": "人员布控",
+                "dealStatus": 2,
+                "imgUrls": null,
+                "alarmType": 2,
+                "isLinkToMap": true
+            }
+        ]
+    }
+}

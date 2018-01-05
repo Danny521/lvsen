@@ -1,0 +1,235 @@
+@charset "utf-8";
+/*
+ * CSS Library 2.0.0
+ */
+/*========================================== 样式开始@Start ==========================================*/
+html, body {
+	height: 100%;
+}
+body {
+	min-height:640px;
+	background:url(../images/login_bg.jpg);
+}
+.top {
+	height:9px;
+	background:url(../images/top_bg.png) repeat-x;
+}
+.login {
+	position: relative;
+	top: 50%;
+	width:1000px;
+	height:560px;
+	/*background:url(../images/login_bg.png) center -94px no-repeat;*/
+	margin: -280px auto 0;
+}
+
+.login span.logo {
+	height:90px;
+	display:block;
+	/*background:url(../images/login_icon03.png) center center no-repeat;*/
+}
+.login h6 {
+	height:196px;
+	/*padding:2% 0;*/
+	display:block;
+	background:url(../images/login_text.png) center center no-repeat;
+}
+.login .index_pic{
+	text-align: center;
+	margin: 10px 0px 15px 0px;
+}
+.login .index_pic .picbox{
+
+	/* background:url(../images/picback.png) center center no-repeat; */
+}
+.login .index_pic img{
+	width: 144px;
+	height: 144px;
+	border-radius: 72px;
+	background: url(../images/nopicture.png) center center no-repeat;
+}
+.login .index_welcome, .login .index_welcome a {
+	color: #E0E0E0;
+	font-weight: bold;
+	font-size: 14px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	margin: 0px 0px 70px 0px;
+}
+.login .index_welcome i.welcome {
+	display: inline-block;
+	margin-right: 25px;
+}
+.login .index_welcome i.welcome a {
+	color: #3699FF;
+	/*box-shadow: 1px 1px 0 #000;*/
+}
+.login .index_welcome  a.logout {
+	color: #E0E0E0;
+	display: inline-block;
+}
+.login .index_welcome  a.logout:hover, .login .index_welcome  i.welcome a:hover{
+	color: #F4A31F;
+}
+.index {
+	width:1030px;
+	/*height:90px;*/
+	position:relative;
+	margin: 90px auto 0;
+}
+
+.three-item{
+	width: 480px;
+}
+
+.index li{
+	display: inline-block;
+	position: relative;
+	width: 114px;
+	height: 90px;
+}
+.index li span{
+	position: absolute;
+	text-align: center;
+	width: 78px;
+	top: 66px;
+	left: 7px;
+	color: #FFFFFF;
+	font-weight: bold;
+	font-size: 14px;
+}
+.index li a {
+	width: 54px;
+	height: 70px;
+	margin-left: -20px;
+	display:inline-block;
+}
+.index ul{
+	text-align: center;
+}
+.icon_inspect {
+	background:url(../images/inspect.png) no-repeat;
+}
+.icon_inspect:hover{
+	background:url(../images/inspect-hover.png) no-repeat;
+}
+ul.firstList li:hover span{
+	color: #2892FF;
+}
+ul.firstList {
+	position: relative;
+}
+.leve-line {
+	position: absolute;
+	top: 47px;
+	left: 0;
+	right: 0;
+	height: 1px;
+	background: url(../images/level-line.png) no-repeat
+}
+.icon_deploy {
+	background:url(../images/deploy.png) no-repeat;
+}
+.icon_deploy:hover{
+	background:url(../images/deploy-hover.png) no-repeat;
+}
+.icon_gate {
+	background:url(../images/gate.png) no-repeat;
+}
+.icon_gate:hover{
+	background:url(../images/gate-hover.png) no-repeat;
+}
+.icon_media,
+.icon_pvb {
+	background:url(../images/media.png) no-repeat;
+}
+.icon_media:hover {
+	background:url(../images/media-hover.png) no-repeat;
+}
+.icon_imageanalysis {
+	background:url(../images/imageanalysis.png) no-repeat;
+}
+.icon_imageanalysis:hover {
+	background:url(../images/imageanalysis-hover.png) no-repeat;
+}
+/*.icon_imageprocess {
+	background:url(../images/index.png) -360px 0 no-repeat;
+}
+.icon_imageprocess:hover{
+	background-position: -360px -126px;
+}*/
+.icon_cloud {
+	background:url(../images/cloud.png) no-repeat;
+}
+.icon_cloud:hover{
+	background:url(../images/cloud-hover.png) no-repeat;
+}
+.icon_maintenance {
+	background:url(../images/maintenance.png) no-repeat;
+}
+.icon_maintenance:hover {
+	background:url(../images/maintenance-hover.png) no-repeat;
+}
+.icon_config {
+	background:url(../images/system-config.png) no-repeat;
+}
+.icon_config:hover{
+	background:url(../images/system-config-hover.png) no-repeat;
+}
+.icon_application{
+	background:url(../images/apply1.png) no-repeat;
+}
+.icon_application:hover{
+	background:url(../images/apply2.png) no-repeat;
+}
+/*首页icon添加布防布控样式 刘钊 end*/
+.footer {
+	height:46px;
+	padding:15px;
+	background:#212121;
+	border-top:2px solid #132341;
+	position:fixed;
+    _position: absolute;/*only work in IE6, 解决在此版本下提示显示位置异常的问题*/
+	left:0px;
+	bottom:0px;
+	right: 0px;
+}
+.footer_cont {
+	width: 620px;
+	height: 46px;
+	margin: 0 auto;
+	text-align: center;
+}
+.footer_cont em {
+	width:170px;
+	height:44px;
+	float:left;
+	background:url(../images/footer_icon.png) center center no-repeat;
+}
+.footer_cont span {
+	float:left;
+	padding-left:10px;
+	border-left:1px solid #3059a6;
+	height:44px;
+}
+.footer_cont p {
+	height:22px;
+	line-height:22px;
+	color:#3059a6;
+	text-shadow: 0 1px #000;
+}
+/*========================================== 样式开始@End ==========================================*/
+.aboutDialogLayer{
+	position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 70;
+    display: none;
+}
+.commonLayer {
+ 	opacity: 0.5 !important;
+    filter: alpha(opacity=50) !important;
+}

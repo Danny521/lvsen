@@ -1,0 +1,223 @@
+html
+{
+  padding:0px;
+  margin:0px;
+  cursor: default;
+}
+
+body{
+	cursor: default;
+}
+
+.canvas
+{
+	overflow:hidden;
+	position:relative;
+	width:800px;
+	height:30px;
+	border:solid 1px #cccccc;
+   -moz-user-select: none; /*火狐*/
+   -webkit-user-select: none;  /*webkit浏览器*/
+   -ms-user-select: none;   /*IE10*/
+   -khtml-user-select: none; /*早期浏览器*/
+   user-select: none;
+}
+
+
+.Time_line
+{
+	border-bottom:solid 0px #cccccc;
+	width:100%;
+	position: absolute;
+	top:0px;
+	height:30px;
+	left:0px;
+	top:0px;
+}
+
+.scale
+{
+	border-left:solid 1px #cccccc;
+	position: absolute;
+	top:0px;
+	font-size:10px;
+	height:20px;
+	cursor: default;
+	padding-left: 2px;
+	white-space: nowrap;
+}
+
+.subscale
+{
+   white-space: nowrap;
+   position:absolute;
+   left:3px;
+   top:10px;
+   color:#808080;
+}
+
+.baseline
+{
+	border:0;
+	background-color:#cccccc;
+	height:1px;
+	z-index:-1;
+	position:absolute;
+	top:15px;
+	width:100%;
+	color:#cccccc;
+	color:red;
+	display:none;
+	cursor: default;
+}
+
+.showTime
+{
+	position: absolute;
+	left:0px;
+	top:30px;
+	width:120px;
+	border:solid 0px red;
+	font-size:11px;
+	white-space: nowrap;
+	color:#808080;
+	padding-left: 10px;
+}
+
+.Time_line_Data
+{
+	position: absolute;;
+	left:0px;
+	top:0px;
+	width:100%;
+	background-color: red;
+	z-index: 20;
+}
+
+.Time_line_Range
+{
+	position: absolute;;
+	border:solid 1px #cccccc;
+	left:0px;
+	top:0px;
+    width:100%;
+    height:100%;
+    display: block;
+}
+
+.Range{
+  width:4px;
+  height: 100%;
+  background-color:red;
+  cursor:w-resize;
+  filter:alpha(opacity=50);
+  -moz-opacity:0.5;
+  -khtml-opacity: 0.5;
+  opacity: 0.5;
+  position: absolute;
+  left:0px;
+  top:0px;
+  display: none;
+}
+
+.RangeBegin
+{
+
+}
+.RangeEnd
+{
+ 
+}
+
+.RangeProgress
+{
+	width:0px;
+	height:100%;
+    background-color:#999fff;
+	filter:alpha(opacity=30);
+	-moz-opacity:0.3;
+	-khtml-opacity: 0.3;
+	opacity: 0.3;
+	position: absolute;
+	left:0px;
+	top:0px;
+	display: none;
+	border-left:solid 1px yellow;
+	border-right:solid 1px yellow;
+}
+
+.pointer
+{
+	width:9px;
+	height: 27px;
+	position: absolute;
+	left:0px;
+	top:2px;
+}
+
+#timeline
+{
+	width:1100px;
+	height: 43px;
+	background-color: white;
+	margin-top: 5px;
+	white-space: nowrap;
+	display: none;
+}
+
+.toLeft{
+	background-image: url(/module/framemark/images/toleft.png);
+}
+.toRight{
+	background-image: url(/module/framemark/images/toright.png);
+}
+
+#timeline .arrow
+{
+	width: 20px;
+	height: 43px;
+	float: left;
+	border:solid 0px red;
+	background-repeat: no-repeat;
+	background-position: 5px 15px;
+}
+
+#canvas{
+	height: 43px;
+	display: inline-block;
+	float: left;
+	border-top: solid 0px #dbdbdb;
+	border-bottom:none;
+	border-left: solid 1px #dbdbdb;
+	border-right: solid 1px #dbdbdb;
+	width:1000px;
+}
+
+#frameList
+{
+	width: 1002px;
+	height: 7px;
+	background-color: #dbdbdb;
+	position: absolute;
+	left:20px;
+	z-index: 1;
+}
+
+.framepoint{
+	display: inline-block;
+	width: 9px;
+	height: 9px;
+	border-radius: 4px;
+	position: absolute;
+	top:-2px;
+}
+
+.framepoint:hover{
+	display: inline-block;
+	width: 12px;
+	height: 12px;
+	border-radius: 6px;
+	top:-3px;
+}
+
+

@@ -1,0 +1,118 @@
+<div id="ptz-control" class="win-dialog ptz-control">
+	<iframe src="about:blank"></iframe>
+	<div class="win-dialog-title">
+		<span data-type="ptz"  class="ptztab active">云台控制</span>
+		<span class="vline"></span>
+		<span data-type="preset"  class="ptztab">预置位</span>
+		<span class="vline"></span>
+		<span data-type="cruise"  class="ptztab">巡航</span>
+		<span class="vline"></span>
+		<span class="close"></span>
+	</div>
+	<div class="win-dialog-neck"></div>
+	<div class="win-dialog-body unselect">
+		<div class="view ptz" data-tab="ptz">
+			<div class="dir-control">
+				<span class="cmd vertical dir right" data-cmd="0">
+				</span>
+				<span class="cmd dir rightup" data-cmd="1">
+				</span>
+				<span class="cmd dir up" data-cmd="2">
+				</span>
+				<span class="cmd dir leftup" data-cmd="3">
+				</span>
+				<span class="cmd vertical dir left" data-cmd="4">
+				</span>
+				<span class="cmd dir leftdown" data-cmd="5">
+				</span>
+				<span class="cmd dir down" data-cmd="6">
+				</span>
+				<span class="cmd dir rightdown" data-cmd="7">
+				</span>
+
+				<span class="cmd zoom up adjust" data-cmd="11" title="焦距增大">
+				</span>
+				<span class="cmd zoom down adjust" data-cmd="11" title="焦距减小">
+				</span>
+				<span class="cmd focus up adjust" data-cmd="12" title="焦点增大">
+				</span>
+				<span class="cmd focus down adjust" data-cmd="12" title="焦点减小">
+				</span>
+				<span class="cmd iris up adjust" data-cmd="10" title="光圈增大">
+				</span>
+				<span class="cmd iris down adjust" data-cmd="10" title="光圈减小">
+				</span>
+			</div>
+			<div class="ptz-speed">
+				<div class="control-speed">
+					<span class="item">
+						控制速度：
+					</span>
+					<div class="speedSlider"></div>
+					<img class="ruler" src="/module/ptz-controller/images/ruler.png"/>
+				</div>
+				<div class="equipment">
+					<span class="choose">
+						<select>
+							<option class="wipe" id="wipe">雨刷</option>
+							<option class="light" id="light">灯光</option>
+						</select>
+					</span>
+					<span class="switch off">
+						<span>ON</span>
+						<span class="active">OFF</span>
+					</span>
+				</div>
+			</div>
+		</div>
+
+		<div class="view preset" data-tab="preset">
+			<div class="head">
+				<span class="preset-index">编号</span>
+				<span class="preset-img">图片</span>
+				<span class="preset-name">标题</span>
+				<span>操作</span>
+			</div>
+			<div class="preset-content">
+				<ul class="preset-list">
+					<li data-id="1" data-name="" data-imageUrl="" data-sortNo="0" data-cameraId="cameraId" data-stopTime="2" data-presetNo="2">
+						<span class="preset-index num">1</span>
+						<span class="preset-img"><img src="images/demo.png"/></span>
+						<span class="preset-name">1111111</span>
+						<span class="preset-use"></span>
+						<span class="preset-delete"></span>
+					</li>
+				</ul>
+			</div>
+			<div class="hline"></div>
+		</div>
+
+		<div class="view cruise" data-tab="cruise">
+			<div class="new-cruise">
+				<div class="cruise-inner">
+					<div class="c-header">
+						<span class="by-auto tab-title active" data-tab="auto">自动巡航</span>
+						<!--<span class="by-time tab-title" data-tab="time">时间段巡航</span>-->
+						<span class="c-add">
+							<i class="common-icon setting" title="新增自动巡航"></i>
+						</span>
+					</div>
+					<div class="c-content">
+						<div class="auto-content common-content active tab-content" data-tab="auto">
+						</div>
+						<div class="time-content common-content tab-content" data-tab="time">
+						</div>
+					</div>
+				</div>
+				<div class="add-content add-auto">
+				</div>
+				<div class="add-content add-time">
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="win-dialog-foot">
+		<span class="okcancel"></span>
+	</div>
+</div>

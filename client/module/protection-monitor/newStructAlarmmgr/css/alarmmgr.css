@@ -1,0 +1,2334 @@
+html, body {
+    overflow: hidden;
+}
+
+/*
+默认进入地图模式，此时隐藏左侧拖拽按钮背后的支撑iframe，以显示地图上播放视频时的title
+add by zhangyu, 2014-11-20
+*/
+#sideResize iframe {
+    display: none;
+}
+.unvisible {
+    visibility: hidden;
+}
+/*
+*   左侧样式
+*/
+.alarmmgr.pubdiv li em {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#sidebar:after {
+    content: ' ';
+    width: 0;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    border-right: 1px solid #DFDFDF
+}
+#sidebar > .header {
+background: #F6FBFF;
+border: 1px solid #CACACA;
+border-left: none;
+border-right: none;
+height: 34px;
+text-align: center;
+line-height: 35px;
+display: none;
+}
+
+#sidebar > .header li.inline-list-item-nav {
+width: 48%;
+position: relative;
+font-size: 14px;
+color: #6F7070;
+cursor: pointer;
+display: inline-block;
+}
+
+#sidebar > .header .inline-list-item-nav:hover a, #sidebar > .header .inline-list-item-nav.active a {
+font-weight: bold;
+color: #188dfb;
+}
+.inline-list-item-nav:hover:after, .inline-list-item-nav.active:after {
+width: 70px;
+height: 3px;
+background: #188dfb;
+margin: 0 auto;
+content: "";
+position: relative;
+top: -3px;
+display: block;
+}
+#sidebar > .header li span.line {
+position: absolute;
+right: 0px;
+top: 10px;
+background: #CACACA;
+width: 1px;
+height: 16px;
+}
+
+/**右侧列表样式**/
+#rightside {
+    background-color: #F6FBFF;
+    bottom: 0;
+    position: absolute;
+    right:0;
+    top: 10px;
+    width: 280px;
+}
+#rightside:after {
+    content: ' ';
+    width: 0;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    border-left: 1px solid #DFDFDF
+}
+
+#rightside .header{
+    height:40px;
+    margin:0px 10px;
+    border-bottom:1px solid #ddd;
+}
+#rightside .header li:first-child{
+    border-radius: 3px 0 0 3px;
+    border-left:1px solid #b2d2e9;
+}
+#rightside .header li:last-child{
+    border-radius: 0 3px 3px 0px
+}
+
+#rightside .header li.active {
+    background: #d9e9f4;
+
+}
+#rightside .header li.active a{
+   color:#333; 
+   font-weight: bold
+}
+#rightside .header li{
+    height:28px;
+    line-height: 28px; 
+    width:49%;
+    border-top:1px solid #b2d2e9;
+    border-bottom:1px solid #b2d2e9;
+    border-right:1px solid #b2d2e9;
+    display: inline-block;
+    text-align: center;
+}
+li.style-text-info{
+list-style-type:none;
+text-align: center;
+margin-top:50px;
+}
+/**主页面样式**/
+#mainwrapper{
+    bottom: 0;
+    left: 280px;
+    position: absolute;
+    right: 280px;
+    top: 10px;
+    overflow: hidden;
+    min-width:200px;
+    
+}
+
+/*左侧报警列表部分的样式*/
+#aside {
+    position: absolute;
+    top: -9px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+#aside .defence-add-panel,#aside .control-add-panel{
+    padding: 7px 0;
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+}
+#aside .defence-add-panel .addPart,#aside .control-add-panel .addPart{
+height:25px;
+line-height: 25px;
+
+}
+#aside .defence-add-panel .addPart span.addInfo,#aside .control-add-panel .addPart span.addInfo{
+float: left;
+color: #333;
+font-weight: bold;
+margin-left:10px;
+}
+#aside .defence-add-panel .addPart span.addTask,#aside .control-add-panel .addPart span.addTask{
+float: right;
+margin-right:10px;
+height:20px;
+line-height: 20px;
+padding:0 10px;
+}
+#defenceTaskList,#controlTaskList{
+  margin-top:10px;  
+}
+#aside .defence-container .defence-list-item{
+    height:30px;
+    line-height: 30px;
+    cursor:pointer;
+}
+#aside .defence-container .defence-list-item:hover{
+    background: #e5f4ff
+
+}
+#aside .defence-container .defence-list-item:hover .defenceTool{
+
+}
+#aside .defence-container .defence-list-item .camera-img,#aside .control-container .control-list-item .camera-img{
+
+float: left;
+margin: 8px 5px 0 10px;
+width: 15px;
+height: 15px;
+
+background: url('../../../common/images/sprites/tree_bg.png') no-repeat;
+}
+#aside .defence-container .defence-list-item .camera-img.camera-gun-online,#aside .control-container .control-list-item ul.cameraList li .camera-gun-online{
+background-position: -85px 0;
+}
+#aside .defence-container .defence-list-item .camera-img.camera-ball-online ,#aside .control-container .control-list-item ul.cameraList li .camera-ball-online{
+background-position: -353px 0;
+}
+#aside .defence-container .defence-list-item .camera-img.camera-ball-offline,#aside .control-container .control-list-item ul.cameraList li .camera-ball-offline{
+background-position: -155px 0;
+}
+#aside .defence-container .defence-list-item .text {
+float: left;
+width: 47%;
+overflow: hidden;
+white-space: nowrap;
+text-overflow: ellipsis;
+}
+#aside .defence-container .defence-list-item .defenceTool {
+width: 35%;
+overflow: hidden;
+display:none;
+vertical-align: middle;
+float:right;
+margin-top:7px;
+margin-right:5px;
+}
+#aside .defence-container .defence-list-item .defenceTool.active{
+    display: inline-block;
+}
+#aside .defence-container .defence-list-item:hover .defenceTool {
+display: block
+}
+#aside .defence-container .defence-list-item .defenceTool i, #aside .control-container .control-list-item .ctrTool i{
+width:16px;
+height:16px;
+display: inline-block;
+zoom: 1;
+background: url(../images/my-gruops-icos.png) no-repeat;
+float: right;
+}
+#aside .defence-container .defence-list-item .defenceTool i.icon-edit{
+    margin:0 5px;
+}
+#aside .control-container .control-list-item .ctrTool .icon-edit,
+#aside .control-container .control-list-item .ctrTool .icon-cancle,
+#aside .control-container .control-list-item .ctrTool .icon-restore{
+    margin-right: 5px
+} 
+#aside .defence-container .defence-list-item .defenceTool .icon-playThis{
+    background-position: 0px -19px
+}
+#aside .defence-container .defence-list-item .defenceTool .icon-edit,#aside .control-container .control-list-item .ctrTool .icon-edit{
+    background-position: 0px -38px
+}
+#aside .defence-container .defence-list-item .defenceTool .icon-delete,#aside .control-container .control-list-item .ctrTool .icon-delete{ 
+    background-position: 0px -57px
+}
+#aside .control-container .control-list-item .icon-unUsed {
+    border-radius: 3px;
+    padding: 0px 2px;
+    color: #fff;
+    background-color: #bcbcbc;
+}
+#aside .control-container .control-list-item .ctrTool .icon-cancle {
+    background: url("../images/icon-new.png") no-repeat -22px -21px;
+}
+#aside .control-container .control-list-item .ctrTool .icon-restore {
+    background: url("../images/icon-new.png") no-repeat -22px -2px;
+}
+#aside .control-container .control-list-item{
+    line-height: 18px;
+    cursor:pointer;
+    margin-top:5px;
+    position: relative; 
+    padding:4px 0;
+}
+#aside .control-container .control-list-item:hover,#aside .control-container .control-list-item.active{
+    background: #e5f4ff;
+
+}
+
+#aside .control-container .control-list-item.active .text{
+    font-weight: bold;
+}
+#aside .control-container .control-list-item.unUsed {
+    color: #bcbcbc;
+}
+#aside .control-container .control-list-item .ctrTool {
+overflow: hidden;
+display:none;
+vertical-align: middle;
+margin-right:10px;
+float: right;
+}
+#aside .control-container .control-list-item:hover .ctrTool{
+display: inline-block;
+}
+.text.normal{
+    font-weight: normal!important
+} 
+#aside .control-container .control-list-item>.text {
+overflow: hidden;
+max-width:140px;
+margin-right: 10px;
+white-space: nowrap;
+text-overflow: ellipsis;
+display: inline-block;
+vertical-align: middle;
+
+}
+#aside .control-container .control-list-item.active .camerList-item>.text{
+    max-width:155px!important;
+    max-width: 160px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+}
+#controlTaskList li>i.fold {
+display: inline-block;
+position: relative;
+top: 2px;
+height: 13px;
+width: 11px;
+margin:0 6px 0 10px;
+cursor: pointer;
+background: url("/module/common/images/close.png") no-repeat scroll 0 1px transparent;
+}
+#controlTaskList li.active>i.fold{
+display: inline-block;
+position: relative;
+top: 2px;
+height: 13px;
+width: 11px;
+margin:0 6px 0 10px;
+cursor: pointer;
+background: url("/module/common/images/open.png") no-repeat scroll 0 1px transparent;
+}
+#controlTaskList li>i.tree {
+display: inline-block;
+position: relative;
+top: 3px;
+width: 16px;
+height: 13px;
+margin-right:0px;
+padding: 0;
+background: url("/module/common/images/icons/tree.png") no-repeat scroll -14px -551px transparent;
+}
+#controlTaskList li:hover>i.tree {
+background-position: -153px -551px;
+}
+#aside .control-container .control-list-item ul.cameraList{
+    position: relative;
+    margin-top:0px;
+    margin-left:41px;
+    display: none
+
+}
+#aside .control-container,#aside .defence-container{
+    position: absolute;
+    top:40px;
+    right:0;
+    bottom: 0;
+    left:0;
+    overflow-x:hidden;
+    overflow-y:auto;
+}
+#aside .control-container .control-list-item ul.cameraList li{
+    height:25px;
+    line-height: 25px
+}
+#aside .control-container .control-list-item ul.cameraList li:hover .icon-playThis{
+    display: inline-block;
+} 
+#aside .control-container .control-list-item ul.cameraList li .icon-playThis {
+width: 16px;
+height: 16px;
+float: right;
+display: none;
+zoom: 1;
+background: url(../images/my-gruops-icos.png) 0px -19px no-repeat;
+vertical-align: middle;
+margin: 8px 10px 0 0;
+}
+/**布防布控删选层**/
+.cameraSelect .icons-select-all,.operator-panel .icons-select-all{
+margin: 10px 5px 1px 2px;
+display: inline-block;
+float: left;
+}
+
+.cameraSelect{
+    position:absolute;
+    width:130px;
+    height:130px;
+    right:0;
+    bottom:0;
+    z-index: 999;
+    background:#fff;
+    padding: 10px
+
+}
+.cameraSelect .cSelectTitle{
+    font-weight: bold;
+    height:30px;
+    line-height: 30px;
+
+}
+.cameraSelect .cSelectList{
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.cameraSelect span.c-title{
+    display: inline-block;
+    float: left;
+    margin: 9px 0;
+}
+.cameraSelect li img{
+    width:30px;
+    height:30px;
+    margin-top:1px;
+}
+/*******************************************************/
+.screen{
+position: absolute;
+top: 0;
+left: 0;
+bottom: 0;
+right: 0;
+}
+.gismap{
+position: absolute;
+top: 0;
+left: 0;
+bottom: 0;
+right: 0;  
+}
+.panel{
+position: absolute;
+top: 0;
+left:0px;
+bottom: 0;
+right: 0;   
+}
+.nomgt{margin-top:10px!important;}
+#mainwrapper .changeStyle:first-child{
+padding: 0px 16px;
+display: inline-block;
+height: 34px;
+line-height: 34px;
+background: none!important;
+border-radius: 0!important;
+border:0
+}
+#major .header .ui.menu .item:nth-child(2n+1) .changeStyle{
+border-left:1px solid #ccc;
+}
+#major .header .ui.menu .item:nth-child(2n){
+margin-right:10px;
+}
+#mainwrapper .changeStyle.active{
+color:#1d90f4;
+box-shadow: none;
+}
+#major .header .ui.menu .item:nth-child(2n) .changeStyle{
+border-left:1px solid #ccc;
+
+}
+#mapId .header{
+padding:0!important;
+display: none
+}
+#mapId .header .title{
+margin-left:16px!important;
+}
+.icon_video{
+width:16px;
+height:16px;
+display: inline-block;
+vertical-align: middle;
+padding-right: 3px;
+margin-top: 3px;
+background: url("../images/videoNew.png") no-repeat;  
+}
+
+.icon_video.active{
+background: url("../images/videoNewActive.png") no-repeat;  
+}
+
+.icon_map{
+width:11px;
+height:16px;
+display: inline-block;
+vertical-align: middle;
+padding-right:5px;
+margin-top: -1px;
+background: url("../images/maps.png") no-repeat;  
+}
+.icon_map.active{
+background: url("../images/mapsActive.png") no-repeat;  
+}
+#ocxPanel .header .ui.menu,#mapId .header .ui.menu{
+   height:40px!important;
+   margin-top:0!important; 
+}
+#ocxPanel  .header .ui.menu .item,#mapId  .header .ui.menu .item {
+height:100%; 
+padding: 0;
+}
+#ocxPanel  .header .ui.menu.atached .item .icon,#mapId  .header .ui.menu.atached .item .icon{
+margin:5px 0 0 10px!important;
+
+}
+
+.alarmmgr.pubdiv {
+
+    /*max-height: 180px;
+    overflow-y: auto;*/
+}
+
+.alarmmgr.pubdiv .icons-select-rule {
+    display: inline-block;
+    float: left;
+    margin: 5px 3px 0 0;
+}
+.indetify{
+visibility: hidden
+}
+#rightMainSide .condition-panel{
+  padding: 7px 0;
+  text-align: center;  
+}
+.condition-panel .select_container {
+width:45%;
+margin-left: 0;
+}
+#rightMainSide .operator-panel {
+height: 34px;
+line-height: 34px;
+background-color: #eaf2f9;
+}
+#rightMainSide .select_container .arrow-down{
+  background: url('../../common/images/icon.png') -2px -65px no-repeat !important;
+    height: 13px;
+    width: 10px;
+    cursor: pointer;  
+    float: right;
+    margin-right: 5px;
+    margin-top: 5px;
+}
+#mapId .select_container .arrow-down {
+background: url('../../common/images/icon.png') -2px -65px no-repeat !important;
+height: 13px;
+width: 10px;
+cursor: pointer; 
+float: right;
+margin-right: 5px;
+margin-top: 5px;
+display: inline-block;
+}
+.operator-panel .left-operator {
+display: inline-block;
+margin-left: 8px;
+float: left;
+width:60px;
+}
+.operator-panel .right-operator {
+display: inline-block;
+width:auto;
+}
+.operator-panel .refresh-operator{
+display: inline-block;
+width:40px;
+vertical-align: middle;
+float:right;
+margin-right:10px;
+}
+.operator-panel .icons-alarm-refresh {
+width: 20px;
+height: 18px;
+margin: 7px 10px;
+display: inline-block;
+background: url(../../common/images/icon.png) -22px -5px no-repeat;
+float: right;
+cursor: pointer;
+}
+#rightMainSide{
+position: absolute;
+left: 0;
+right: 0;
+top: 44px;
+bottom: 0; 
+}
+#rightMainSide .scrollbar-panel {
+position: absolute;
+overflow-y: auto;
+overflow-x: hidden;
+top: 80px;
+left: 0;
+right: 0;
+bottom: 0;
+}
+
+.checkbox_ctrl_active {
+background: url("../../../common/images/sprites/tree_bg.png") no-repeat scroll -47px 0 transparent;
+}
+.operator-panel .right-operator .select_container {
+width: 84px;
+margin-left: 0;
+}
+#rightMainSide .scrollbar-panel.loading {
+    background: transparent url('../../../common/images/animate/horizontal-loading.gif') center center no-repeat;
+}
+#major .screen .video-control {
+position: absolute;
+left: 0px;
+top: 0px;
+left: 10000px;
+top: 10000px;
+}
+#major .screen .video-control #upBlockContent, #major .screen .video-control #upBlock {
+left: 0px;
+top: 0px;
+width: 100%;
+line-height: 26px;
+border-bottom: 2px solid #303030;
+}
+#major .screen .video-control #upBlockContent, #major .screen .video-control #downBlockContent, #major .screen .video-control #upBlock, #major .screen .video-control #downBlock {
+background-color: #1e1e1e;
+position: absolute;
+width: 100%;
+height: 26px;
+z-index:0;
+}
+.video-title {
+float: left;
+margin-left: 12px;
+line-height: 26px;
+font-family: "Microsoft Yahei";
+font-size: 14px;
+color: #fff;
+width: 165px;
+max-width: 90px;
+overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
+}
+.video-control span {
+display: inline-block;
+}
+#streamMonitor {
+float: left;
+margin-left: 12px;
+line-height: 26px;
+font-family: "Microsoft Yahei";
+font-size: 14px;
+color: #fff;
+}
+#taskSelect{
+float: right;
+height:20px;
+padding:0px 5px;
+margin-right:5px;
+line-height: 20px;
+margin-top:3px;
+font-family: "Microsoft Yahei";
+font-size: 14px;
+color: #333;
+border-radius:3px;
+background: #ff8d33;
+cursor: pointer;
+}
+#taskCtrSelect{
+float: right;
+height:20px;
+padding:0px 5px;
+margin-right:5px;
+line-height: 20px;
+margin-top:3px;
+font-family: "Microsoft Yahei";
+font-size: 14px;
+color: #333;
+border-radius:3px;
+background: #ff8d33;
+cursor: pointer;
+display:none;
+}
+.tools-up {
+float: right;
+margin-right: 12px;
+margin-top: -2px;
+line-height: 26px;
+}
+.tools-dwon i, .tools-up i {
+width: 24px;
+height: 23px;
+vertical-align: middle;
+margin-left: 3px;
+display: inline-block;
+border-radius: 2px;
+background: transparent url(/module/common/images/icons/tools.png) no-repeat scroll 0 0;
+}
+.tools-up .close {
+background-position: -295px -3px;
+}
+.video-control .task-down-block{
+position: absolute;
+width: 90px;
+right: 34px;
+top:25px;
+padding-bottom:5px;
+display: none;
+max-height:150px;
+overflow-y: scroll;
+overflow-x:hidden;
+background:#333;
+}
+#taskContent{
+position: absolute;
+width: 90px;
+right: 34px;
+top:20px;
+display: none;
+padding-bottom: 5px;
+}
+#taskContent .taskContentList{
+    padding: 0 2px;
+    margin-top:10px;
+    max-height:150px;
+    overflow-y: auto;
+    overflow-x:hidden;
+}
+#taskContent .taskContentList li:hover{
+   color:#ff8d33; 
+}
+#taskContent .taskContentList li{
+    border-bottom:1px dotted #ccc;
+    height:25px;
+    line-height: 25px;
+    text-align: center;
+    color:#fff;
+    cursor:pointer;
+}
+.infowindow-top .infowindow-operator a.defence-set {
+width: 25px;
+height: 20px;
+display: inline-block;
+line-height: 20px
+}
+.infowindow-top .infowindow-operator a.control-set {
+width: 25px;
+height: 20px;
+display: inline-block;
+line-height: 20px
+}
+.infowindow-top .infowindow-operator .taskSelectMode{
+    display: none
+}
+.infowindow-top .infowindow-operator a.control-set.active {
+color:#fb8319;
+}
+#selectMode,#selcetPart,#selectContent{
+    display: none
+}
+#selectMode{
+margin-top: 5px;
+float: right;
+margin-right: 5px;
+line-height: 20px;
+width: 90px;
+}
+
+#selcetPart{
+    position: absolute;
+    width: 90px;
+    right: 29px;
+    top: 31px;
+    padding-bottom: 5px;
+    display: none;
+    max-height: 150px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    background: rgba(0,0,0,.7);
+}
+#selectContent{
+    position: absolute;
+    width: 90px;
+    right: 29px;
+    top: 31px;
+    display: none;
+    padding-bottom: 5px;
+}
+#selectContent .taskMapContentList{
+    padding: 0 2px;
+    max-height:150px;
+    overflow-y: auto;
+    overflow-x:hidden;
+}
+#selectContent .taskMapContentList li:hover{
+   color:#ff8d33; 
+}
+#selectContent .taskMapContentList li{
+    border-bottom:1px dotted #ccc;
+    height:25px;
+    line-height: 25px;
+    text-align: center;
+    color:#fff;
+    cursor:pointer;
+}
+/***************************************************/
+/*
+*   报警列表样式
+*/
+#aside .content-alarms-list {
+    height: auto;
+}
+
+.content-alarms-list .style-text-info {
+    height: 40px;
+    line-height: 40px;
+    text-indent: 10px;
+    text-align: center;
+}
+
+.content-alarms-list .alarm-info-content {
+    border: solid 1px #DFDFDF;
+    border-top: none;
+    float: left;
+    cursor: default;
+}
+
+.alarm-info-active {
+    background-color: #eaf2f9;
+}
+
+.alarm-info-content .alarm-top-area {
+    height: 30px;
+    line-height: 30px;
+}
+
+.alarm-info-content .alarm-top-area .icons-select-alarm {
+    margin: 7px 5px 1px 6px;
+    display: inline-block;
+    float: left;
+}
+
+.alarm-top-area .title-text {
+    float: left;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 80%;
+}
+
+.alarm-top-area .img {
+    height: 100%;
+    display: inline-block;
+    width: 50px;
+    float: right;
+}
+
+.alarm-top-area .img a {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    margin: 5px 0 0 0;
+}
+
+.icon_video_play {
+    background: url('../../../common/images/icon.png') -149px -62px no-repeat;
+}
+
+.icon_mark_deal {
+    background: url('../../../common/images/icon.png') -174px -62px no-repeat;
+}
+
+.alarm-info-content .alarm-down-area .alarm-image {
+    height: 120px;
+    width: 30%;
+    float: left;
+    overflow: hidden;
+    padding-left: 10px
+}
+
+.alarm-down-area .alarm-image img {
+    width: 98%;
+    height: 82px;
+    margin-top: 8px;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.alarm-info-content .alarm-down-area .alarm-details {
+    /*height: 120px;*/
+    float: left;
+    width: 65%;
+    margin-bottom: 10px;
+}
+
+.alarm-details span {
+    display: inline-block;
+    padding: 6px 0 0 8px;
+    width: 100%;
+}
+
+.alarm-details .level-one, .alarm-details .status-undone {
+    color: #2472c8;
+}
+
+.alarm-details .level-two {
+    color: #ff9000;
+}
+
+.alarm-details .level-thr {
+    color: #ff0000;
+}
+
+.alarm-details .status-done {
+    color: #000000;
+}
+
+/*
+*   信息窗样式
+*/
+.infowindow-alarm-mgr {
+    background-color: #f6f6f6;
+    height: 100%;
+    overflow: hidden;
+}
+
+.infowindow-top {
+    height: 38px;
+    line-height: 38px;
+    border-bottom: solid 1px #DFDFDF;
+}
+
+.infowindow-top.video-play {
+    height: 30px;
+    line-height: 30px;
+}
+
+.infowindow-top .infowindow-title, .infowindow-top.infowindow-title .text {
+    display: inline-block;
+    text-indent: 10px;
+    width: 62%;
+    float: left;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.infowindow-top .infowindow-operator, .infowindow-top.infowindow-title .infowindow-operator {
+    display: inline-block;
+    width: 38%;
+    height: 100%;
+    float: right;
+}
+
+.icon_mark_close {
+    background: url('../../common/images/icon.png') -15px -62px no-repeat;
+}
+
+
+.infowindow-top .infowindow-operator a {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    margin: 9px 4px 0 0;
+    float: right;
+}
+
+.infowindow-down {
+    padding: 10px;
+    width: 520px;
+    height: 115px;
+    float: left;
+}
+
+.infowindow-down .alarm-image {
+    float: left;
+    width: 120px;
+    cursor: pointer;
+}
+
+.infowindow-down .alarm-image img {
+    width: 98%;
+    height: 110px;
+    margin-top: 8px;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.infowindow-down .alarm-details {
+    float: left;
+    width: 162px;
+}
+
+.infowindow-down .alarm-deal {
+    float: left;
+    width: 186px;
+    margin-left: 5px;
+    padding-left: 5px;
+    border-left: solid 1px #DFDFDF;
+    height: 109px;
+}
+
+.pre-next-alarm {
+    float: left;
+    height: 100%;
+    position: relative;
+    width: 20px;
+    display: none;
+}
+
+.alarm-deal-div {
+    width: 100%;
+    padding: 3px 0;
+    float: left;
+    font-size: 0;/*解决ie8下谷歌插件字体不兼容问题*/
+}
+
+.infowindow-down .alarm-deal .alarm-level-container {
+    width: 124px !important;
+    margin-left: 0 !important;
+}
+
+.infowindow-down .alarm-deal .alarm-comment textarea {
+    width: 124px;
+    height: 50px;
+    margin-left: 0;
+}
+
+.infowindow-down .select-person-info em.lib {
+    width: 75px;
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    vertical-align: bottom;
+}
+
+.infowindow-down .alarm-deal .alarm-comment span {
+    height: 100%;
+    float: left;
+}
+
+.infowindow-down .alarm-deal .alarm-deal-operator a {
+    float: right;
+    font-size: 12px;/*解决ie8下谷歌插件字体不兼容问题*/
+}
+
+.alarm-deal .alarm-deal-operator a:first-child {
+    margin-right: 0;
+}
+
+.infowindow-down .pre-alarm, .infowindow-down .next-alarm {
+    width: 20px;
+    height: 30px;
+    position: absolute;
+    top: 50%;
+    margin-top: -15px;
+    display: inline-block;
+    background: url("../../../common/images/map/prenext.png") -20px no-repeat;
+    cursor: pointer;
+}
+
+.infowindow-down .pre-alarm {
+    background: url("../../../common/images/map/prenext.png") 0 -4px no-repeat;
+}
+
+.alarm-label {
+    color: /*#8a949c*/ #000000;
+    font-size: 12px;/*解决ie8下谷歌插件字体不兼容问题*/
+}
+
+.alarm-hidden {
+    display: none !important;
+}
+
+.alarm-loading {
+    display: none;
+    height: 30px;
+    background: url('../../../common/images/loading.gif') center no-repeat;
+}
+
+/*
+*   左侧摄像机树的样式
+*/
+#aside .camera-search-container {
+    padding: 8px 27px 8px 0;
+    border-bottom: 1px solid #D7DFE8;
+    text-align: center;
+    z-index: 1;
+}
+
+#aside .treePanel.loading, #aside .scrollbar-panel.loading {
+    background: transparent url('../../../common/images/animate/horizontal-loading.gif') center center no-repeat;
+}
+
+#aside .rule-camera-tree {
+    position: absolute;
+    overflow-y: auto;
+    overflow-x: hidden;
+    top: 46px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 10px 0 0 20px;
+}
+
+#cameraTree .leaf-hover {
+    background-color: #DCE3ED;
+}
+
+#cameraTree .leaf .more-operator {
+    position: relative;
+    width: 16px;
+    height: 16px;
+    background: transparent url(../../common/images/icon.png) -66px -5px no-repeat;
+    top: 2px;
+    right: 4px;
+    float: right;
+    display: none;
+}
+
+#cameraTree .leaf .more-operator:hover {
+    background-position: -49px -5px;
+}
+
+#cameraTree .leaf.expand {
+    height: 48px;
+}
+
+#cameraTree .leaf .name {
+}
+
+#cameraTree .leaf .operator-tools {
+    display: none;
+    padding-top: 3px;
+}
+
+#cameraTree .leaf .operator-tools a {
+    float: right;
+    background: transparent url(../../common/images/icon.png) no-repeat;
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    margin-right: 3px;
+}
+
+#cameraTree .leaf .operator-tools .real-play {
+    background-position: -67px -35px;
+}
+
+#cameraTree .leaf .operator-tools .real-play:hover {
+    background-position: -86px -35px;
+}
+
+#cameraTree .leaf .operator-tools .real-play:active {
+    background-position: -106px -35px;
+}
+
+#cameraTree .leaf .operator-tools .defence-setting {
+    background-position: -2px -35px;
+}
+
+#cameraTree .leaf .operator-tools .defence-setting:hover {
+    background-position: -22px -35px;
+}
+
+#cameraTree .leaf .operator-tools .defence-setting:active {
+    background-position: -42px -35px;
+}
+
+/*
+*   右侧样式
+*/
+#gismap {
+    position: absolute;
+    top: 34px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+}
+
+/*地图工具栏*/
+#gismap .map-tool a {
+    cursor: pointer
+}
+
+#gismap .map-region {
+    width: 150px;
+    margin-top: 9px;
+    float: left;
+    display: none;
+}
+
+#gismap .map-tool-item, #gismap .map-tools-a {
+    position: relative;
+    float: left
+}
+
+#gismap .map-operator a, #gismap .map-region a {
+    color: #333333;
+    display: inline-block;
+    margin: 0 0 0 16px
+}
+
+#gismap .map-region a span b.map-text, #gismap .map-operator a span b.map-text {
+    font-weight: normal;
+    float: left
+}
+
+#gismap .map-operator {
+    margin: 6px 10px 0 0;
+    float: right
+}
+
+#gismap .map-tool, #content .video-play-frame-new .video-top {
+    position: relative!important;
+    width: 100%;
+    height: 36px;
+    border-left: none !important;
+    background-image: url("../../../common/images/map/map-tool-bg.png");
+    z-index: 100
+}
+
+#gismap .map-tools-a a.map-tools {
+    width: 62px;
+    height: 25px;
+    background: url('../../../common/images/map/map-tools-func.png') 0 -125px no-repeat;
+}
+
+#gismap .map-tools-a:hover .map-tools-list {
+    top: 23px;
+}
+
+#gismap .map-tools-list {
+    position: absolute;
+    left: 18px;
+    top: -2000px;
+    z-index: 100;
+    border: 1px solid #dfdfdf;
+    background-color: #FFFFFF
+}
+
+#gismap .map-tools-list li {
+    padding: 2px 8px
+}
+
+#gismap .map-tools-list li a {
+    padding: 0 0 0 16px;
+    margin: 0;
+    background: url('../../../common/images/map/map-tools.png') no-repeat
+}
+
+#gismap .map-tools-list li:hover {
+    background-color: #EBF4F9
+}
+
+#gismap .map-tools-list li a.map-max {
+    padding: 0 0 0 16px;
+    margin: 0;
+    background: url('../../../common/images/map/max-min.png') no-repeat -2px 1px;
+}
+
+#gismap .map-tools-list li a.map-min {
+    padding: 0 0 0 16px;
+    margin: 0;
+    background: url('../../../common/images/map/max-min.png') no-repeat -2px -18px;
+}
+
+#gismap .map-tools-list li a.map-measure {
+    background-position: 0 -140px
+}
+
+#gismap .map-tools-list li a.map-screenshot {
+    background-position: 0 -160px
+}
+
+#gismap .map-tools-list li a.map-mark {
+    background-position: 0 -180px
+}
+
+#gismap .map-tools-list li a.map-print {
+    background-position: 0 -200px
+}
+
+#gismap .map-tools-list li a.map-clear {
+    background-position: 0 -480px
+}
+
+#gismap .map-tool-item a.map-fullscreen {
+    width: 60px;
+    height: 25px;
+    background: url('../../../common/images/map/map-tools-func.png') 0 -75px no-repeat;
+}
+
+#gismap .map-tool-item a.map-exitfullscreen {
+    width: 88px;
+    height: 25px;
+    background: url('../../../common/images/map/map-tools-func.png') 0 -100px no-repeat;
+}
+/*地图上方的滚动层*/
+.alarm-scroll-info {
+    position: absolute;
+    top: 37px;
+    z-index: 800;
+    height: 30px;
+    width: 100%;
+    overflow: hidden;
+    background-color: #e9e9e9;
+    opacity: 0.90;
+    filter: alpha(opacity=90);
+    display: none;
+}
+
+.scroll-data {
+    height: 30px;
+    line-height: 30px;
+    width: auto;
+    position: absolute;
+    white-space: nowrap;
+    display: none;
+}
+
+.scroll-data a {
+    /*font-weight: bold;*/
+    font-size: 14px;
+    display: inline-block;
+    margin: 0 20px;
+    color: #d50000;
+}
+
+.scroll-data a:link {
+    color: #d50000;
+}
+
+.scroll-data a:hover {
+    color: #ff7800;
+}
+
+.scroll-data a:active {
+    color: #d50000;
+}
+
+.scroll-data a:visited {
+    color: #d50000;
+}
+
+/*卫星图层*/
+#gismap .map-layer-normal {
+    display: block;
+    height: 51px;
+    width: 49px;
+    position: absolute;
+    top: 36px;
+    right: 20px;
+    background: url('../../../common/images/map/map-layer.gif') no-repeat;
+    background-position: 0 -51px !important;
+    z-index: 1000;
+    cursor: pointer
+}
+
+#gismap .map-layer-normal:hover {
+    background-position: -49px -51px !important
+}
+
+#gismap .map-layer-satellite {
+    display: block;
+    height: 51px;
+    width: 49px;
+    position: absolute;
+    top: 36px;
+    right: 20px;
+    background: url('../../../common/images/map/map-layer.gif') 0 0 no-repeat;
+    z-index: 1000;
+    cursor: pointer
+}
+
+#gismap .map-layer-satellite:hover {
+    background-position: -49px 0
+}
+
+/*
+*   右侧视频播放层的样式
+*/
+.video-play-frame-new {
+    position: absolute;
+    z-index: 6000;
+    display: none;
+    background-color: #000000;
+    /*opacity:0.80;
+    filter:alpha(opacity=80);*/
+}
+
+.video-play-frame-new .video-top {
+    z-index: 6000;
+    background-color: white;
+    line-height: 36px;
+}
+
+.video-play-frame-new .fullscreen-videotop {
+    height: 74px;
+    line-height: 74px;
+    background: white;
+    border-bottom: 1px solid #B7B7B7;
+}
+
+.video-play-frame-new .fullscreen-video-down {
+    top: 75px;
+}
+
+.video-top .video-win-close {
+    display: inline-block;
+    padding-right: 20px;
+    float: right;
+}
+
+.video-top .video-camera-info {
+    display: inline-block;
+    padding-left: 20px;
+    float: left;
+}
+
+#UIOCX_HIS {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+/*右侧地图上显示视频视频的样式*/
+#gismap .video-play-close {
+    float: right;
+    margin-right: 5px;
+    margin-top: 6px;
+}
+
+#gismap .map-video-container {
+    height: 300px;
+    width: 400px
+}
+
+/*布控信息窗的样式*/
+.infowindow-down.protect {
+    padding: 10px 10px 0 10px;
+    float: left;
+    width: 522px;
+    height: 169px;
+}
+
+.alarm-image.protect {
+    float: left;
+    width: 140px;
+    cursor: pointer;
+}
+
+.alarm-image.protect img {
+    width: 98%;
+    height: 110px;
+    margin-top: 8px;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.alarm-details.protect {
+    float: left;
+    width: 162px;
+    margin-top: 17px;
+}
+
+.alarm-deal.protect {
+    float: left;
+    width: 330px;
+    margin-left: 5px;
+    padding-left: 8px;
+    border-left: solid 1px #DFDFDF;
+    height: 160px;
+}
+
+.protect .select-person-image {
+    width: 140px;
+    float: left;
+}
+
+.select-person-image img {
+    width: 98%;
+    height: 110px;
+    margin-top: 8px;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.select-person-image .image-tools {
+    width: 100%;
+    display: inline-block;
+    margin-top: 2px;
+    text-align: center;
+}
+
+.select-person-image .image-tools i {
+    width: 22px;
+    height: 22px;
+    display: inline-block;
+    cursor: pointer;
+    margin: 0 3px;
+    background: url("../../common/images/icon.png") no-repeat;
+}
+
+.image-tools i.right {
+    background-position: -4px -112px;
+}
+
+.image-tools i.right.active {
+    background-position: -4px -85px;
+}
+
+.image-tools i.wrong {
+    background-position: -28px -112px;
+}
+
+.image-tools i.wrong.active {
+    background-position: -28px -85px;
+}
+
+.image-tools i.unknow {
+    background-position: -52px -112px;
+}
+
+.image-tools i.unknow.active {
+    background-position: -52px -85px;
+}
+
+.protect .select-person-info {
+    width: 180px;
+    float: left;
+    margin-left: 5px;
+    margin-top: 20px;
+    padding-left: 5px;
+}
+
+.select-person-info .person-details {
+    display: block;
+    padding: 2px 0;
+    float: left;
+    width: 100%;
+}
+
+.person-details.protect textarea {
+    width: 130px;
+    height: 40px;
+    /*overflow-x: hidden;
+    overflow-y: auto;*/
+}
+
+.person-details.protect span {
+    height: 100%;
+    float: left;
+}
+
+.person-details .save-select-person {
+    float: right;
+    margin-top: 0;
+}
+
+/*候选人图片列表样式*/
+.protect-person-info {
+    float: left;
+    width: 100%;
+    height: 90px;
+    background-color: #eaeaea;
+}
+
+.protect-person-info .info-item, .protect-person-info .person-images {
+    float: left;
+    height: 90px;
+}
+
+.protect-person-info .info-item {
+    width: 50px;
+}
+
+.info-item span {
+    display: block;
+    text-align: center;
+}
+
+.info-item span.people {
+    height: 65px;
+    line-height: 65px;
+}
+
+.info-item span.rate {
+    height: 25px;
+}
+
+.protect-person-info .person-images {
+    position: absolute;
+    left: 50px;
+    right: 0;
+}
+
+.person-images .image-detail {
+    padding: 5px 5px 0 0;
+    display: inline-block;
+    height: 85px;
+    width: 56px;
+    text-align: center;
+    float: left;
+    position: relative;
+}
+
+.person-images .image-detail img {
+    width: 54px;
+    height: 54px;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.person-images .image-detail img.active {
+    width: 50px;
+    height: 50px;
+    border: solid 2px #0088cc;
+}
+
+.person-images .image-detail em {
+    display: inline-block;
+    background-color: #d8d7d7;
+    margin-top: 2px;
+    text-align: center;
+    width: 27px;
+    border-radius: 4px;
+}
+
+.person-images .image-detail i {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    display: inline-block;
+    position: absolute;
+    top: 34px;
+    right: 4px;
+    background: url("../../common/images/icon.png") 28px 0 no-repeat;
+}
+
+.person-images .image-detail i.right {
+    background-position: -6px -140px;
+}
+
+.person-images .image-detail i.wrong {
+    background-position: -35px -140px;
+}
+
+.person-images .image-detail i.unknow {
+    background-position: -63px -139px;
+}
+
+.person-images .image-detail em.first {
+    color: #d80303;
+}
+
+.person-images .image-detail em.second {
+    color: #ff6c00;
+}
+
+/**
+ * 查看图片弹出层
+ */
+.checkAlarm_layout_ifr {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 8000;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+.hidden {
+    display: none !important;
+}
+
+.checkAlarm_layout {
+    background: #000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 8001;
+    opacity: 0.75;
+    filter: alpha(opacity=75);
+}
+
+.alarm-list-dialog {
+    border: 4px solid #525252;
+    background: #fff;
+    position: absolute;
+    z-index: 9999;
+    width: auto;
+    height: auto;
+}
+
+.alarm-list-dialog.pic_content {
+    width: auto;
+    height: auto;
+}
+
+.alarm-list-dialog .car-people-num {
+    display: block;
+    height: 20px;
+    line-height: 20px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    text-align: right;
+    color: #ff0000;
+    font-size: 18px;
+}
+
+.alarm-list-dialog .pic_tool {
+    width: auto;
+    height: 25px;
+    line-height: 25px;
+}
+
+.alarm-list-dialog .pic_tool a, .alarm-list-dialog .pop_bottom .pop_close {
+    display: inline-block;
+    float: right;
+    margin-right: 5px;
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+}
+
+.alarm-list-dialog .pic_tool a {
+    bottom: 5px;
+    right: 5px;
+}
+
+
+.alarm-list-dialog .imgItem {
+   width: 360px;
+    height:480px;
+    float: left;
+    position: relative;
+    background: url("../images/bg.png") center no-repeat;
+    margin-left: 50px;
+    background-size: 100%;
+}
+.alarm-list-dialog .imgItem:first-child {
+    width: 360px;
+    height: 480px;
+    float: left;
+    position: relative;
+    background: url("../images/bg.png") center no-repeat;
+    margin-left: 25px;
+    background-size: 100%;
+}
+.alarm-list-dialog .imgItem i.turnPrev {
+    position: absolute;
+    top: 48%;
+    display: inline-block;
+    width: 22px;
+    height: 55px;
+    border-radius: 2px;
+    background: url("../../common/images/left-icon.png") no-repeat;
+    z-index: 1000
+}
+.alarm-list-dialog .imgItem i.turnNex {
+    position: absolute;
+    top: 48%;
+    display: inline-block;
+    width: 22px;
+    height: 55px;
+    border-radius: 2px;
+    background: url("../../common/images/right-icon.png") no-repeat;
+    z-index: 1000
+}
+.alarm-list-dialog .imgItem i.turnPrev:hover {
+    background: url("../../common/images/left-hover.png") no-repeat;
+}
+.alarm-list-dialog .imgItem i.turnNex:hover {
+    background: url("../../common/images/right-hover.png") no-repeat;
+}
+
+.alarm-list-dialog .imgItem i.turnPrev {
+    cursor: pointer;
+    margin-left: 8 px\0;
+    left:-25px;
+}
+
+.alarm-list-dialog .imgItem i.turnNex {
+    right: -30px;
+    cursor: pointer;
+}
+.alarm-list-dialog .imgItem img {
+    width: auto;
+    height: auto;
+    border-radius: 5px;
+    position: relative;
+    top: 50%;
+}
+
+.alarm-list-dialog .pop_top {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 39px;
+    border-bottom: solid 1px #DEDEDE;
+}
+
+.alarm-list-dialog .pop_pic {
+    position: absolute;
+    top: 40px;
+    bottom: 60px;
+    width: 100%;
+    padding-top: 10px;
+    text-align: center;
+}
+
+.alarm-list-dialog .pop_bottom {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 48px;
+}
+
+.alarm-list-dialog .pop_top .top_text {
+    display: inline-block;
+    width: 48%;
+    line-height: 39px;
+    text-align: center;
+}
+
+.alarm-list-dialog .pop_bottom .infor_item {
+    display: inline-block;
+    width: 22%;
+    line-height: 30px;
+    margin-left: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    vertical-align: middle;
+}
+.alarm-list-dialog .pop_bottom_all{
+    width: 53%;
+    display: inline-block;
+    position: relative;
+    line-height: 50px;
+    margin-left: 50%;
+}
+.alarm-list-dialog .pop_bottom .toolsBar i {
+    width: 22px;
+    height: 22px;
+    display: inline-block;
+    margin: 0 3px;
+    background: url("../../common/images/icon.png") no-repeat;
+}
+
+.alarm-list-dialog .pop_bottom .toolsBar span {
+    vertical-align: super;
+}
+
+.alarm-list-dialog .pop_bottom .toolsBar i.right {
+    background-position: -4px -112px;
+}
+
+.alarm-list-dialog .pop_bottom .toolsBar i.right.active {
+    background-position: -4px -85px;
+}
+
+.alarm-list-dialog .pop_bottom .toolsBar i.wrong {
+    background-position: -28px -112px;
+}
+
+.alarm-list-dialog .pop_bottom .toolsBar i.wrong.active {
+    background-position: -28px -85px;
+}
+
+.alarm-list-dialog .pop_bottom .toolsBar i.unknow {
+    background-position: -52px -112px;
+}
+
+.alarm-list-dialog .pop_bottom .toolsBar i.unknow.active {
+    background-position: -52px -85px;
+}
+
+.alarm-list-dialog .pop_bottom .toolsBar {
+    display: inline-block;
+    margin-left: 0%;
+    vertical-align: middle
+}
+/**
+ * 面板中报警原因 和 布控任务名的样式 by wangxiaojun
+ */
+.alarm-details .itemText {
+    width: 102px;
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    vertical-align: bottom;
+}
+
+/*资源图层控制样式*/
+#mapId {
+    background-color: #fff;
+}
+
+#mapId .map-resource-layers {
+    width: 48px;
+    height: auto;
+    border: 1px solid #AAA79E;
+    position: absolute;
+    top: 40px;
+    right: 20px;
+    z-index: 1000;
+    background-color: #fff;
+    display: none;
+}
+
+#mapId .map-resource-layers h2.layers-head {
+    height: 26px;
+    line-height: 26px;
+}
+
+#mapId .map-resource-layers h2.layers-head span.title {
+    padding-left: 7px;
+    display: inline-block;
+}
+
+#mapId .map-resource-layers h2.layers-head span.contract-btn {
+    display: inline-block;
+    height: 12px;
+    width: 12px;
+    background: url('../../../common/images/map/map-tools.png') 0 3px no-repeat;
+    cursor: pointer;
+    float: right;
+    margin: 5px 3px 5px 0;
+}
+
+#mapId .map-resource-layers h2.layers-head span.contract-btn:hover {
+    background-position: 0 -117px;
+}
+
+#mapId .map-resource-layers h2.layers-head span.contract-btn.down {
+    background-position: 0 -257px;
+}
+
+#mapId .map-resource-layers h2.layers-head span.contract-btn.down:hover {
+    background-position: 0 -277px;
+}
+
+#mapId .map-resource-layers ul {
+    display: none;
+    border-top: 1px solid #AAA79E;
+}
+
+#mapId .map-resource-layers ul.hide {
+    display: none;
+}
+
+#mapId .map-resource-layers ul li {
+    cursor: pointer;
+    height: 26px;
+    line-height: 26px;
+}
+
+#mapId .map-resource-layers ul li i.checkbox {
+    float: left;
+    display: inline-block;
+    height: 15px;
+    margin: 6px 6px 0 5px;
+    padding: 0;
+    position: relative;
+    width: 15px;
+    cursor: pointer;
+    background: url("../../../common/images/sprites/tree_bg.png") no-repeat scroll -32px 0 transparent;
+}
+
+#mapId .map-resource-layers ul li.active i.checkbox {
+    background: url("../../../common/images/sprites/tree_bg.png") no-repeat scroll -47px 0 transparent;
+}
+
+#mapId .map-resource-layers ul li i.ico {
+    height: 20px;
+    width: 18px;
+    display: inline-block;
+    background: url("../../../common/images/map/map-resource-ico.png") no-repeat;
+    margin: 5px 3px 0 0;
+    float: left;
+}
+
+#mapId .map-resource-layers ul li i.ico.indoor {
+    background-position: 0 0;
+}
+
+#mapId .map-resource-layers ul li i.ico.hishpomt {
+    background-position: 0 -20px;
+}
+
+#mapId .map-resource-layers ul li i.ico.elevated {
+    background-position: 0 -40px;
+}
+
+#mapId .map-resource-layers ul li i.ico.water {
+    background-position: 0 -60px;
+}
+
+#mapId .map-resource-layers ul li i.ico.ground {
+    background-position: 0 -80px;
+}
+
+/*信息窗样式*/
+/*npmap 窗口样式*/
+.map-camera-info {
+    width: 258px
+}
+
+.map-camera-info tr {
+    height: 26px;
+    line-height: 26px
+}
+
+.map-camera-info tr.head {
+    background-color: #E7ECF2
+}
+
+.map-camera-info tr.odd {
+    background-color: #FAFCFF
+}
+
+.map-camera-info tr.even {
+    background-color: #FFFFFF;
+    border-top: 1px solid #EFF3F6;
+    border-bottom: 1px solid #EFF3F6
+}
+
+.map-camera-info tr td.label {
+    width: 45px;
+    text-align: right
+}
+
+.map-camera-info tr td.camera-status {
+    text-align: right;
+    padding-right: 10px
+}
+
+.map-camera-info tr td span.camera-status-online {
+    color: #1480FF;
+    cursor: pointer
+}
+
+.map-camera-info tr td span.camera-ball-online {
+    width: 13px;
+    height: 14px;
+    margin-top: 6px;
+    background: url('../../../common/images/sprites/tree_bg.png') no-repeat -352px 0;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.map-camera-info tr td span.camera-ball-offline {
+    width: 13px;
+    height: 14px;
+    margin-top: 6px;
+    background: url('../../../common/images/sprites/tree_bg.png') no-repeat -156px 0;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.map-camera-info tr td span.camera-gun-online {
+    background: url('../../../common/images/sprites/tree_bg.png') no-repeat -85px 0;
+    width: 15px;
+    height: 14px;
+    margin-right: 4px;
+    margin-top: 9px;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.map-camera-info tr td span.camera-gun-offline {
+    background: url('../../../common/images/sprites/tree_bg.png') no-repeat 0 0;
+    width: 15px;
+    height: 14px;
+    margin-right: 4px;
+    margin-top: 9px;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.icon_close{
+    width: 62px;
+    height: 62px;
+    position: absolute;
+    right: 0px;
+    top:0;
+    z-index: 1000000;
+    background: url('../images/close-bg.png') no-repeat center center;
+    cursor: pointer;
+    display: none;
+
+
+}
+.icon_close:hover{
+    background: url('../images/close-bg-hover.png') no-repeat center center;
+}
+.toolbar{
+    display: none;
+    height: 35px;
+    line-height: 30px;
+    font-weight: bolder;
+    position: absolute;
+    left: 50%;
+    z-index: 20;
+    bottom: 0px;
+    z-index: 100000000;
+    background-color: #7F7F7F;
+    border-radius: 5px 5px 0px 0px;
+    overflow: hidden;
+    cursor: pointer;
+}
+.toolbar>div{
+    width: 45px;
+    height: 35px;
+    float: left;
+    text-align: center;
+    transition: background-color 0.2s ease;
+    -moz-transition: background-color 0.2s ease;
+    -o-transition: background-color 0.2s ease;
+    -webkit-transition: background-color 0.2s ease;
+}
+.toolbar>div:hover{
+    background-color:#46A6DB;
+}
+.toolbar>div.active{
+    background-color:#46A6DB;
+}
+.toolbar span{
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.toolbar .image-viewer-tool-realsize{
+    background: url('../images/realSize.png') no-repeat;
+
+}
+.toolbar .image-viewer-tool-rotate{
+  background: url('../images/rotateRight.png') no-repeat;
+
+}
+.toolbar .image-viewer-tool-horizontalturn{
+    background: url('../images/horizontalTurn.png') no-repeat;
+
+}
+.toolbar .image-viewer-tool-verticalturn{
+    background: url('../images/verticalTurn.png') no-repeat;
+
+}
+/**x新添布防布控优化**/
+
+#aside .defence-add-panel .addPart span.controllAllTask{
+    float: right;
+    color: #7dbaf7;
+    font-weight: bold;
+    margin-left:20px;  
+    position: relative;
+    cursor: pointer;
+}
+#aside .defence-add-panel .addPart span.controllAllTask.active i.Carrow{
+    background: url('../images/icon-new.png') -39px -23px no-repeat;
+    -moz-transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+#aside .defence-add-panel .addPart span.controllAllTask i.Carrow{
+    background: url('../images/icon-new.png') no-repeat;
+    height: 12px;
+    width: 20px;
+    background-position: -39px -4px;
+    cursor: pointer;
+    float: right;
+    margin-right: 10px;
+    margin-top: 8px;
+    margin-left: 0px;
+    -moz-transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+#aside .defence-add-panel .addPart .ctrStyle{
+position: absolute;
+right: 10px;
+top: 25px;
+width: 44px;
+border: 1px solid #7ec0fe;
+display: inline-block;
+height: 19px;
+padding: 1px 2px 2px 0 ;
+border-radius: 3px;
+z-index: 30;
+background: #fff;
+display: none;
+}
+
+#aside .defence-add-panel .addPart .ctrStyle i{
+    cursor:pointer;
+}
+
+#aside .defence-add-panel .addPart .ctrStyle i.icon_pause{
+background: url("../images/icon-new.png") 0px 19px;
+width: 18px;
+height: 19px;
+display: inline-block;
+
+}
+#aside .defence-add-panel .addPart .ctrStyle i.icon-run{
+background: url("../images/icon-new.png");
+background-position: 0px 0px;
+width: 18px;
+height: 19px;
+display: inline-block;
+ 
+}
+#aside .defence-container .defence-list-item .defenceTool .icon-set{
+background: url("../images/icon-new.png") no-repeat;
+background-position: -60px 0px;
+margin-right: 5px;
+width: 18px;
+height: 19px;
+display: inline-block;
+margin-top: -2px;
+}
+
+#aside .defence-container .defence-list-item .Expired {
+float: left;
+width: 37px;
+overflow: hidden;
+white-space: nowrap;
+text-overflow: ellipsis;
+background: #bcbcbc;
+height: 18px;
+line-height: 20px;
+padding: 0px 1px;
+display: inline-block;
+border-radius: 3px;
+margin-top: 8px;
+color: #fbfbfb;
+}
+#aside .defence-container .defence-list-item .camera-img.camera-gun-online.active,
+#aside .control-container .control-list-item .camera-img.camera-gun-online.active,
+#aside .defence-container .defence-list-item .camera-img.camera-ball-online.active,
+#aside .control-container .control-list-item .camera-img.camera-ball-online.active{
+    background: url("../images/cameraActive.gif") no-repeat
+}
+#setPanel{
+    border:1px solid #ccc;
+   -webkit-box-shadow: 0px 1px 3px #C2C2C2;
+    box-shadow: 0px 1px 3px #C2C2C2;
+    max-width:200px;
+    position: absolute;
+    top:70px;
+    left:0;
+    background: #fff;
+    border-radius: 3px;
+    display: none
+}
+#setPanel li{
+    height:20px;
+    width:95px;
+    line-height: 20px;
+    border-bottom: 1px solid #cbcbcb;
+    padding: 2px 5px
+}
+#setPanel li:last-child{
+  border-bottom:0;
+}
+#setPanel li .icon_part .icon-run{
+background: url("../images/icon-new.png") no-repeat;
+background-position: 0px 0px;
+margin-right: 5px;
+width: 18px;
+height: 19px;
+display: inline-block;
+cursor: pointer;
+}
+#setPanel li .icon_part .icon-pause{
+background: url("../images/icon-new.png") no-repeat;
+margin-right: 5px;
+width: 18px;
+height: 19px;
+display: inline-block;
+background-position: 0px -19px;
+cursor: pointer;
+}
+#setPanel li .icon_part .icon-remove{
+background: url("../images/my-gruops-icos.png") no-repeat;
+width: 17px;
+height: 17px;
+display: inline-block;
+background-position: 0px -57px;
+cursor: pointer;
+}
+#setPanel em.paneltitle{
+color: #333;
+width: 50px;
+display: inline-block;
+overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
+}
+#setPanel .icon_part{
+width:auto
+}
+#setPanel em.paneltitle.grey{
+    color:#cbcbcb
+}
+
+#sidebar .arrow {
+position: absolute;
+right: 45px;
+top: -7px;
+width: 13px;
+height: 7px;
+z-index: 10;
+background: url(../images/arrow-up-guide.png) no-repeat;
+}

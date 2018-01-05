@@ -1,0 +1,43 @@
+<dl class="team_list list-content">
+    {{#each records}}
+    <dd data-index="{{@index}}" data-fileType="{{fileType}}" data-currentId="{{id}}">
+        <label class='check-label'>
+            <input type="checkbox" class="checkbox" data-id="{{id}}" data-fileType="{{fileType}}"/>
+        </label>
+        {{#if pvdId}}
+        <h6 class='l-name'>
+            <a data-fileName="{{fileName}}">
+                {{{fileType2Class fileType}}}{{fileName}}
+              <!--  <i {{isIncidentIcon fileType}}>-->
+
+                </i>
+            </a>
+        </h6>
+        {{else}}
+        <h6 class='l-name'>
+            <a data-fileName="{{fileName}}">{{{fileType2Class fileType}}}{{fileName}}</a>
+        </h6>
+        {{/if}}
+        {{#if pvdId}}
+        <span class='l-controller'>
+            <a title="下载" {{{hidePvdDownload fileType}}} class="download permission permission-download"></a>
+        <!--    <a href="javascript:void(0)" style="visibility:hidden;"></a>  可重复入库 2014.4.12 zhangming-->
+            <a href="javascript:void(0)" {{{isShowFileType fileType}}} title="入库"  data-action="medialib" class="storage permission permission-tobaselib"></a>
+            <a href="javascript:void(0)" title="删除"  class="delete"></a>
+        </span>
+        {{else}}
+        <span class='l-controller'>
+            <a title="下载" {{{hideDownload fileType}}} class="download permission permission-download"></a>
+            <a href="javascript:void(0)" {{{isShowFileType fileType}}} title="入库"  data-action="medialib" class="storage save-to-viewlibs permission permission-tobaselib"></a>
+            <a href="javascript:void(0)" title="删除"  class="delete"></a>
+        </span>
+        {{/if}}
+        <em class='l-size'>{{filterFileSize fileSize}}</em>
+        <p class='l-time'>{{mills2str storageTime}}</p>
+        <a  class="blocktype"> <i class='cover {{{witchCover fileType}}}'>{{{hasThumbnail thumbnail}}}</i><em class="foldertitle" title="{{fileName}}">{{fileName}}</em>
+        </a>
+    </dd>
+    {{else}}
+    <span style='color:#999;display:block;text-align:center;line-height:80px;'>暂无记录!</span>
+    {{/each}}
+</dl>

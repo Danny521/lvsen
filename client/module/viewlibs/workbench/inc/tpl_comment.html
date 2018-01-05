@@ -1,0 +1,20 @@
+{{#each comments}}
+<li data-commentid={{id}}>
+	<div class='core'>
+		<span class='user' title='{{userName}}'>{{userName}}</span>
+		<span>{{content}}</span>
+		<div class='clearfix wrap'>
+			<span class='reply'>回复(<i>{{replys}}</i>)</span>
+			<span class='time'>{{mills2str storageTime}}</span>
+		</div>
+	</div>
+	<div class='core-reply'>
+		<div class="div-comdcover"><span class="comdcover"></span></div>
+		<div class='wrap-send clearfix'>
+			<textarea></textarea><br/>
+			<input type='button' value='发表' class='send'/>
+		</div>
+		<ul></ul>
+	</div>
+</li>
+{{/each}}

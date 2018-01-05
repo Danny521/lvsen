@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns="http://www.w3.org/1999/html">
+
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=10,chrome=1">
+	<title>公安视频实战应用平台</title>
+	<!--[if lt IE 9]><script src="/libs/html5/html5.js"></script><![endif]-->
+	<link type="image/x-icon" rel="shortcut icon" href="/favicon.ico" />
+	<link type="text/css" rel="stylesheet" href="/module/common/css/base.css" />
+	<link type="text/css" rel="stylesheet" href="/libs/semantic/semantic.css" />
+	<link rel="stylesheet" type="text/css" href="/libs/jquery/jquery-ui.css" />
+	<link type="text/css" rel="stylesheet" href="/libs/jquery/jquery.datetimepicker.css" />
+	<link type="text/css" rel="stylesheet" href="/module/common/css/tree.css" />
+	<link type="text/css" rel="stylesheet" href="css/pagination.css" />
+	<link type="text/css" rel="stylesheet" href="css/inspectPlan.css" />
+	<link type="text/css" rel="stylesheet" href="/libs/jquery/jquery.pagination.css"/>
+
+	<link type="text/css" rel="stylesheet" href="../common/css/table.css"/>
+	<link type="text/css" rel="stylesheet" href="../common/css/structure.css"/>
+	<link type="text/css" rel="stylesheet" href="css/tree.css"/>
+	<link type="text/css" rel="stylesheet" href="/module/common/popLayer/css/details.css" />
+</head>
+
+<body>
+
+	
+<div id="content">
+	<div class="wrapper">
+		<aside id="sidebar">
+			<!-- <a id="sideResize">
+				<iframe src="about:blank"></iframe>
+				<span>调整宽度</span>
+			</a> -->
+			<div class="tsk-lst">
+				<ul class="header">
+					<li class="panName"><i class="icon_set"></i>计划巡航</li>
+					<li>
+						<div class="ui button blue newtask permission permission-plan-cruise-new-task" title="新建任务">新建任务</div>
+					</li>
+				</ul>
+
+				<div id="aside">
+					<div id="listPanel">
+						<div class="searchbox">
+							<input class="tasksearch" type="text" id="taskSearchSimple" name="taskName" placeholder="请输入关键字查询..." />
+							<button></button>
+						</div>
+						<div id="onlineBox">
+
+						</div>
+						<div class="pagepart"></div>
+					</div>
+				</div>
+			</div>
+		</aside>
+
+		<div id="major">
+			<!-- <div class="header">
+				<h3>任务列表</h3>
+			</div> -->
+			<div class="subHeader">
+				<span>任务名称：<em class="subtitle"></em></span>
+				<span>执行时段：<em class="subtime"></em></span>
+				<span>摄像机总数：<em class="subnums"></em></span>
+			</div>
+			<div id="notask"><img src="images/notask.png"></div>
+			<div class="mainPlanList">
+
+			</div>
+		</div>
+		<div id="popLayer"></div>
+		<div id="popContainer">
+			<div class="popHeader">
+				<span>任务设置</span>
+				<span class="rightIcon"><i class="icon_close"></i></span>
+			</div>
+			<div class="popContent">
+				<div class="pop_c_t">
+					<span class="part">
+						<label><i class="required">*</i>任务名称：</label>
+						<span class="taskNamePanel">
+							<input type="text" name="task_Name" maxlength="30" placeholder="请输入任务名称">
+						</span>
+					</span>
+					<span class="part">
+						<label><i class="required">*</i>执行周期：</label>
+						<span class="taskTimePanel">
+							<span class="text">一天</span>
+							<span class="arrow-down"></span>
+						</span>
+
+						<div id="slectDetail">
+							<ul>
+								<li>一天</li>
+								<li>一周</li>
+								<li>一月</li>
+							</ul>
+						</div>
+					</span>
+					<span class="p1 myset">
+						<em>自定义</em><i class="icon_arrow"></i>
+					</span>
+
+					<div class="mineSetPanel">
+						<label>执行日期：</label>
+						<span class="minePanel">
+							<input type="text" name="name" maxlength="20"  class="input-time startDay" /><i class="iconB">-</i><input type="text" name="name" maxlength="20" class="input-time endDay" />
+						</span>
+						<i class="iconArrow"></i>
+					</div>
+				</div>
+				<div class="pop_c_sub">
+					<span class="part">
+						<label><i class="required">*</i>运行时段：</label>
+						<span class="taskNamePanel1">
+							<input type="text" name="name" maxlength="20" class="input-times startTime" /><i class="iconB">-</i><input type="text" name="name" maxlength="20" class="input-times endTime" />
+						</span>
+					</span>
+
+				</div>
+				<div class="pop_c_b">
+					<span class="part">
+						<label><i class="required">*</i>摄像机预置位选择：</label>
+						<span class="taskSupport">
+							请在视频监控模块设置预置位和归位点
+						</span>
+					</span>
+
+				</div>
+				<div class="middlePanel">
+					<div class="midLeft">
+						<div class="searchbox">
+							<input class="cameraSearch" type="text" name="taskName" placeholder="请输入关键字查询...">
+							<button></button>
+						</div>
+
+						<!-- 摄像机树展示区 -->
+						<div class="rule-camera-tree"><!-- class="ztree"-->
+						    <div id="cameraTree" class="treePanel">
+
+						    </div>
+						</div>
+					</div>				
+					<div class="midCenter">
+						<div class="header">
+							预置位选择：
+						</div>
+						<div class="inspectList">
+							
+						</div>
+
+					</div>
+					<div class="linked"></div>
+					<div class="midRight">
+						<div class="header">
+							已选择：<em>4</em>
+							<a class="ui button deleteAll">删除全部</a>
+						</div>
+						<div class="cameraList">
+							<ul>
+								
+							</ul>
+
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+			<div class="popfootor">
+				<span class="userDefined"><input type="checkbox"  name="defined"  checked />将所选摄像机创建自定义分组</span>
+				<span class="setBtn"><a class="ui button blue saveForm">确定</a><a class="ui button cancleForm">取消</a></span>
+			</div>
+
+
+		</div>
+
+			
+
+		
+	</div>
+</div>
+<script type="text/javascript" src="/libs/requirejs/require.js"></script>
+<script type="text/javascript" src="/require-conf.js"></script>
+<script type="text/javascript">
+	require(["js/main"])
+</script>
+</body>
+
+</html>

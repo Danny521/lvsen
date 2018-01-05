@@ -1,0 +1,12 @@
+<ul onselectstart="return false;">
+	{{#if init}}
+		{{#each orgs}}   
+				<li class="{{isChild}} {{#isTree isChild}}root{{/isTree}}" data-tree-level="{{../level}}" data-type="{{isChild}}" data-id="{{id}}" data-parentid="{{parentId}}" data-name="{{name}}" data-des="{{description}}" data-exp="{{mills2str dueDate}}" data-sync="{{isSynced}}" data-ip="{{ip}}" data-departid="{{orgCode}}"  data-level="{{level}}">{{#if ../selectable}}<i class="checkbox {{#if ../../selected }}selected{{else}}{{#if auth}}selected{{/if}}{{/if}}"></i>{{/if}}{{#isTree isChild}}<i class="fold"></i>{{/isTree}}<i class="root"></i><span class="name" title="{{name}}">{{name}} {{#if cameraCode}}({{cameraCode}}){{/if}}</span></li>
+		{{/each}}
+	{{else}}
+		{{#each orgs}}
+			<li class="{{isChild}}" data-id="{{id}}"  data-name="{{name}}"  data-tree-level="{{../level}}" data-des="{{description}}" data-parentid="{{parentId}}" data-exp="{{mills2str dueDate}}" data-departid="{{orgCode}}" data-level="{{level}}" data-sync="{{isSynced}}" data-ip="{{ip}}" data-level="{{level}}" data-type="{{isChild}}">{{#if ../selectable}}<i class="checkbox {{#if ../../selected }}selected{{else}}{{#if auth}}selected{{/if}}{{/if}}"></i>{{/if}}{{#isTree isChild}}<i class="fold"></i>{{/isTree}}<i class="{{isChild}}"></i><span class="name" title="{{name}}">{{name}} {{#if cameraCode}}({{cameraCode}}){{/if}}</span></li>
+		{{/each}}
+	{{/if}}
+
+</ul>	

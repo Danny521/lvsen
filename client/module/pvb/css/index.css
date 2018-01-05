@@ -1,0 +1,12 @@
+.pvb-container {
+    position: absolute;
+    top: 36px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+}
+.pvb-container iframe {
+    width: 100%;
+    height: 100%;
+}

@@ -1,0 +1,16 @@
+{{#isType1}}
+<span class="status_change do_ing" data-taskstatus="{{taskStatus}}">等待...</span>
+<a href="javascript:void(0);" title="停止" class="stop-do" data-taskstatus="{{taskStatus}}">停止任务</a>
+{{/isType1}}
+{{#isType2}}
+<span class="status_change do_ing" data-taskstatus="{{taskStatus}}">处理中</span>
+<a href="javascript:void(0);" title="停止" class="stop-do" data-taskstatus="{{taskStatus}}">停止任务</a>
+{{/isType2}}
+{{#isType4}}
+<span class="status_change do_comp" data-taskstatus="{{taskStatus}}">完成处理</span>
+<a href="javascript:void(0);" title="查看结果" class="forlook" data-taskstatus="{{taskStatus}}">查看结果</a>
+{{/isType4}}
+{{#isType8}}
+<span class="status_change do_fail" data-taskstatus="{{taskStatus}}">处理失败</span>
+<a href="javascript:void(0);" title="重新分析" class="redo" data-taskstatus="{{taskStatus}}">重新分析</a>
+{{/isType8}}

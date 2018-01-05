@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset='utf-8'/>
+	<meta http-equiv="X-UA-Compatible" content="IE=10,chrome=1">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<title>视云实战平台</title>
+	<!--[if lt IE 9]>
+	<script src="/libs/html5/html5.js"></script>
+	<![endif]-->
+
+	<link type="text/css" rel="stylesheet" href="/module/common/css/base.css" />
+	<link type="text/css" rel="stylesheet" href="/libs/semantic/semantic.css" />
+	<link type="text/css" rel="stylesheet"  href="/libs/jquery/jquery-ui.css">
+	<link type="text/css" rel="stylesheet" href="/libs/jquery/jquery.datetimepicker.css"/>
+	<link type="text/css" rel="stylesheet" href="/module/viewlibs/doubtlib/css/entity.css"/>
+	<link type="text/css" rel="stylesheet" href="/module/viewlibs/details/media/css/video.css"/>
+</head>
+<body>
+	<div id="content">
+		<div class="wrapper clearfix">
+			<div class="loading"></div>
+			<script id="view-template" type="text/x-handlebars-template">
+				<div class="header">
+					<div class='crumbs'>
+						<a class='first' href="/module/viewlibs/workbench/index.html" target="media">我的工作台</a>
+						<span>&gt;</span>
+						<a class='second' data-caseid="{{incidentId}}">{{incidentName}}</a>
+						<span>&gt;</span>
+						<a class='third'>视频信息</a>
+					</div>
+					<div class='title'>
+						<span>{{name}}</span>
+					</div>
+				</div>
+			<div class="main modify">
+				<div class="resources tabview">
+					<form autocomplete="off" method="post" id="form" onclick="return false;">
+						<div class="fieldset">
+							<div class="module active">
+								<div class="module-head">
+									<h3>必填信息</h3> <i class="fix-png"></i>
+								</div>
+								<div class="module-body">
+									<div class="scrollbar disable">
+										<div class="track">
+											<div class="thumb"></div>
+										</div>
+									</div>
+									<div class="viewport">
+										<div class="overview">
+											<div class="group">
+												<div class="form-item">
+													<span class="item-label">
+														<label for="fileFormat">
+															<span class="required">*</span>
+															文件格式：
+														</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="file_format" name="fileFormat" data-default="{{fileFormat}}" >
+															<option value="">--请选择--</option>
+															<option value="01" {{selected "01" fileFormat}}>MPG</option>
+															<option value="02" {{selected "02" fileFormat}}>MOV</option>
+															<option value="03" {{selected "03" fileFormat}}>AVI</option>
+															<option value="04" {{selected "04" fileFormat}}>RM</option>
+															<option value="05" {{selected "05" fileFormat}}>RMVB</option>
+															<option value="06" {{selected "06" fileFormat}}>XVID</option>
+															<option value="07" {{selected "07" fileFormat}}>VOB</option>
+															<option value="08" {{selected "08" fileFormat}}>M2TS</option>
+															<option value="09" {{selected "09" fileFormat}}>MP4</option>
+															<option value="99" {{selected "99" fileFormat}}>其他</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="shootTime">
+															<span class="required">*</span>
+															拍摄日期：
+														</label>
+													</span>
+													<div class="item-box">
+														<input class="input-text input-time" id="shoot_time" maxlength="50" name="shootTime" value="{{shootTime}}" type="text"></div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="category">
+															<span class="required">*</span>
+															分类：
+														</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="category" name="category" data-default="{{category}}">
+															<option value="">--请选择--</option>
+															<option value="F1" {{selected "F1" category}}>底片</option>
+															<option value="F2" {{selected "F2" category}}>正片</option>
+															<option value="F2.1" {{selected "F2.1" category}}>建设面貌</option>
+															<option value="F2.2" {{selected "F2.2" category}}>人物类</option>
+															<option value="F2.3" {{selected "F2.3" category}}>会议类</option>
+															<option value="F2.4" {{selected "F2.4" category}}>参观视察类</option>
+															<option value="F2.5" {{selected "F2.5" category}}>业务活动类</option>
+															<option value="F2.6" {{selected "F2.6" category}}>荣誉类</option>
+															<option value="F2.7" {{selected "F2.7" category}}>文体活动类</option>
+															<option value="F3" {{selected "F3" category}}>录音带</option>
+															<option value="F4" {{selected "F4" category}}>录像带</option>
+															<option value="F5" {{selected "F5" category}}>磁盘</option>
+															<option value="F6" {{selected "F6" category}}>光盘</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="name">
+															<span class="required">*</span>
+															题名：
+														</label>
+													</span>
+													<div class="item-box">
+														<input class="input-text" id="name" maxlength="30" name="name" value="{{name}}" type="text"></div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="description">
+															<span class="required">*</span>
+															内容描述：
+														</label>
+													</span>
+													<div class="item-box">
+														<textarea class="input-area" id="description" maxlength="200" name="description" value="{{description}}">{{description}}</textarea>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="location">
+															<span class="required">*</span>
+															拍摄地点：
+														</label>
+													</span>
+													<div class="item-box">
+														<select id="province" name="province" class="input-select  notNull input-select-second" data-default="{{province}}">
+															<option value="">--请选择--</option>
+														</select>
+														<select id="city" name="city" class="input-select  notNull input-select-second" data-default="{{city}}">
+															<option value="">--请选择--</option>
+														</select>
+														<select id="country" name="country" class="input-select notNull input-select-second" data-default="{{country}}">
+															<option value="">--请选择--</option>
+
+														</select>
+														<input id ="streets" name="streets" class="input-text" placeholder="请输入街道详细地址" value="{{streets}}" maxlength="200" type="text"/></div>
+												</div>
+
+												<div class="form-item">
+													<span class="item-label">
+														<label for="longitude">
+															<span class="required">*</span>
+															拍摄地点经度：
+														</label>
+													</span>
+													<div class="item-box">
+														<input class="input-text" id="longitude" maxlength="50" name="longitude" value="{{longitude}}" type="text"></div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="latitude">
+															<span class="required">*</span>
+															拍摄地点纬度：
+														</label>
+													</span>
+													<div class="item-box">
+														<input class="input-text" id="latitude" maxlength="50" name="latitude" value="{{latitude}}" type="text"></div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="duration">
+															<span class="required">*</span>
+															视频长度 <i class="graycolor">（秒）</i>
+															：
+														</label>
+													</span>
+													<div class="item-box">
+														<input class="input-text" id="duration" maxlength="50" name="duration" value="{{duration}}" type="text"></div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="enterTime">
+															<span class="required">*</span>
+															视频入点：
+														</label>
+													</span>
+													<div class="item-box">
+														<input class="input-text input-time" id="enter_time" maxlength="50" name="enterTime" value="{{enterTime}}" type="text"></div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="startTime">
+															<span class="required">*</span>
+															开始绝对时间：
+														</label>
+													</span>
+													<div class="item-box">
+														<input class="input-text input-time" id="start_time" maxlength="50" name="startTime" value="{{startTime}}" type="text">
+														<label></label>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="endTime">
+															<span class="required">*</span>
+															结束绝对时间：
+														</label>
+													</span>
+													<div class="item-box">
+														<input class="input-text input-time" id="end_time" maxlength="50" name="endTime" value="{{endTime}}" type="text">
+														<label></label>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="width">
+															<span class="required">*</span>
+															宽度：
+														</label>
+													</span>
+													<div class="item-box">
+														<input class="input-text" id="width" maxlength="50" name="width" value="{{width}}" type="text"></div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="height">
+															<span class="required">*</span>
+															高度：
+														</label>
+													</span>
+													<div class="item-box">
+														<input class="input-text" id="height" maxlength="50" name="height" value="{{height}}" type="text"></div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="module">
+								<div class="module-head">
+									<h3>选填信息</h3>
+									<i class="fix-png"></i>
+								</div>
+								<div class="module-body">
+									<div class="scrollbar disable">
+										<div class="track">
+											<div class="thumb"></div>
+										</div>
+									</div>
+									<div class="viewport">
+										<div class="overview">
+											<div class="group">
+
+												<div class="form-item">
+													<span class="item-label">
+														<label for="sourceId">来源：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="source_id" name="sourceId" data-default="{{sourceId}}">
+															<option value="">--请选择--</option>
+															<option value="01" {{selected "01" sourceId}}>政府机关监控</option>
+															<option value="02" {{selected "02" sourceId}}>社会治安监控</option>
+															<option value="03" {{selected "03" sourceId}}>交通监控</option>
+															<option value="04" {{selected "04" sourceId}}>出入境监控</option>
+															<option value="05" {{selected "05" sourceId}}>港口监控</option>
+															<option value="06" {{selected "06" sourceId}}>金融系统监控</option>
+															<option value="07" {{selected "07" sourceId}}>旅馆监控</option>
+															<option value="08" {{selected "08" sourceId}}>互联网营业场所监控</option>
+															<option value="09" {{selected "09" sourceId}}>娱乐服务场所监控</option>
+															<option value="10" {{selected "10" sourceId}}>其它企业/事业单位监控</option>
+															<option value="11" {{selected "11" sourceId}}>居民自建监控</option>
+															<option value="12" {{selected "12" sourceId}}>移动拍摄</option>
+															<option value="13" {{selected "13" sourceId}}>网络获取</option>
+															<option value="99" {{selected "99" sourceId}}>其他</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="device">来源地点/设备编码：</label>
+													</span>
+													<div class="item-box">
+														<input class="input-text" id="device" maxlength="20" name="device" value="{{device}}" type="text"></div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="codeFormat">编码格式：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="code_format" name="codeFormat" data-default="{{codeFormat}}">
+															<option value="">--请选择--</option>
+															<option value="01" {{selected "01" codeFormat}}>SVAC</option>
+															<option value="02" {{selected "02" codeFormat}}>H.264</option>
+															<option value="03" {{selected "03" codeFormat}}>MPEG-4</option>
+															<option value="04" {{selected "04" codeFormat}}>MPEG-2</option>
+															<option value="99" {{selected "99" codeFormat}}>其他</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="supplement">题名补充：</label>
+													</span>
+													<div class="item-box">
+														<input class="input-text" id="supplement" maxlength="30" name="supplement" value="{{supplement}}" type="text"></div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="earmark">专项名：</label>
+													</span>
+													<div class="item-box">
+														<input class="input-text" id="earmark" maxlength="30" name="earmark" value="{{earmark}}" type="text"></div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="subject">主题词：</label>
+													</span>
+													<div class="item-box">
+														<input class="input-text" id="subject" maxlength="30" name="subject" value="{{subject}}" type="text"></div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="keywords">关键词：</label>
+													</span>
+													<div class="item-box">
+														<input class="input-text" id="keywords" maxlength="30" name="keywords" value="{{keywords}}" type="text"></div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="keyman">主题人物：</label>
+													</span>
+													<div class="item-box">
+														<input class="input-text" id="keyman" maxlength="30" name="keyman" value="{{keyman}}" type="text"></div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="secrecy">密级：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="secrecy" name="secrecy" data-default="{{secrecy}}">
+															<option value="">--请选择--</option>
+															<option value="01"  {{selected "01" secrecy}}>公开</option>
+															<option value="02"  {{selected "02" secrecy}}>秘密</option>
+															<option value="03"  {{selected "03" secrecy}}>机密</option>
+															<option value="04"  {{selected "04" secrecy}}>绝密</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="language">语言：</label>
+													</span>
+													<div class="item-box">
+														<input class="input-text" id="language" maxlength="100" name="language" value="{{language}}" type="text"></div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="picker">采集人：</label>
+													</span>
+													<div class="item-box">
+														<input class="input-text" id="picker" maxlength="100" name="picker" value="{{picker}}" type="text"></div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="pickerCompany">采集单位名称：</label>
+													</span>
+													<div class="item-box">
+														<input class="input-text" id="picker_company" maxlength="100" name="pickerCompany" value="{{pickerCompany}}" type="text"></div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="quality">质量等级：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="quality" name="quality" data-default="{{quality}}">
+															<option value="">--请选择--</option>
+															<option value="1" {{selected 1 quality}}>极差</option>
+															<option value="2" {{selected 2 quality}}>较差</option>
+															<option value="3" {{selected 3 quality}}>一般</option>
+															<option value="4" {{selected 4 quality}}>较好</option>
+															<option value="5" {{selected 5 quality}}>很好</option>
+														</select>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="form-item submit-area">
+							<div class="item-box submit-wrapper permission permission-create">
+								<input class="input-submit" type="submit" value="保存信息" />
+								<input class="input-cancel ui button" type="button" value="取消" />
+							</div>
+						</div>
+					</form>
+				</div>
+				<iframe src="/module/viewlibs/toMediaLib/inc/medialibIframe.html" style="display: none" name="videoiframe" id="videoiframe"></iframe>
+				<div class="media entity-preview" data-id="{{id}}">
+					<div class="entity-box">
+						<div class="video ui tab active" data-tab="ocxbody" data-path="{{path}}" data-videoid="{{videoId}}" data-videoname="{{name}}" data-fileid="{{id}}">
+							<object id="UIOCX" type="applicatin/x-firebreath" align="center" width="800" height="520">
+								<param name="onload" value="pluginLoaded"/>
+							</object>
+							<div class="video-block video-detail">
+								<div class="progress-bg"></div>
+								<div class="progress-bar">
+									<div class="bullet">
+										<i class="play-point"></i>
+									</div>
+									<i class='start-mark'></i>
+									<i class='end-mark'></i>
+								</div>
+								<div class="panel" onselectstart="return false">
+									<span class="time">
+										<span class="nowtime" nowtime-ms="0">00:00:00</span>&nbsp;/
+										<span class="alltime" alltime-ms="14859247">00:00:00</span>
+									</span>
+									<span class="speed" >倍速：<em></em></span>
+									<span class="fullwin" title="全屏"></span>
+									<span class="grab" title="抓图"></span>
+									<span class="stop" title="停止"></span>
+									<span class="forward" title="快进"></span>
+									<span class="switch" title="播放"></span>
+									<span class="rewind" title="慢放"></span>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			</script>
+		</div>
+	</div>
+
+
+	<!--<script type="text/javascript" src="/assets/js/lib/base.self.js"></script>
+	<script type="text/javascript" src="/assets/js/lib/jquery-ui-1.10.1.custom.min.js"></script>
+	<script type="text/javascript" src="/assets/js/lib/jquery-ui-timepicker-addon.js"></script>
+	<script type="text/javascript" src="/assets/js/lib/scrollbar.js"></script>
+	<script type="text/javascript" src="/assets/js/modules/jquery.validate.js"></script>
+	<script type="text/javascript" src="/assets/js/modules/nativePlayer.js"></script>
+	<script type="text/javascript" src="/assets/js/apps/viewlibs/caselib/player.js"></script>
+	<script type="text/javascript" src="/assets/js/modules/common.cascade.js"></script>
+	<script type="text/javascript" src="/assets/js/apps/viewlibs/media/video.js"></script>
+	<script type="text/javascript" src="/assets/js/modules/permission/permission.js"></script>-->
+
+	<script type="text/javascript" src="/libs/requirejs/require.js" data-main="/module/viewlibs/details/media/js/update_video.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,15 @@
+{{#each this}}
+<ul class="inline-list inline-content {{get-color @index}} pvgUl-{{pvgId}}" data-pvgId={{pvgId}} data-orgId={{orgId}}>
+	<li>{{orgName}}</li>
+	<li>{{ip}}</li>
+	<li>{{pvgCode}}</li>
+	<li>{{pvgType}}</li>
+	<li>{{domain}}</li>
+	<li class="pvg-status">{{pvgstatus}}</li>
+	<li class="last">
+		<span class="device-change-num">{{devicechangenum}}</span>
+		<span>/</span>
+		<span class="channel-change-num">{{channelchangenum}}</span>
+	</li>
+</ul>
+{{/each}}

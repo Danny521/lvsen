@@ -1,0 +1,536 @@
+/**
+ * add by leon.z 2016.3.25
+ */
+
+/***主页展示************************************/
+.camera-control input[type="text"] {
+	margin: 0;
+	padding: 4px;
+	color: #333333;
+	font-size: 12px;
+	width: 166px;
+	height: 16px;
+	line-height: 16px;
+	vertical-align: middle;
+	border-radius: 3px;
+	border: 1px solid #D9D9D9;
+	background-color: #FFFFFF;
+	-webkit-transition: background-color .2s ease-out,box-shadow .2s ease,border-color .2s ease;
+	-os-transition: background-color .2s ease-out,box-shadow .2s ease,border-color .2s ease;
+	-moz-transition: background-color .2s ease-out,box-shadow .2s ease,border-color .2s ease;
+	-mstransition: background-color .2s ease-out,box-shadow .2s ease,border-color .2s ease;
+	transition: background-color .2s ease-out,box-shadow .2s ease,border-color .2s ease;
+}
+.camera-control .searchKey{
+	width:90px!important;
+	border-radius: 0 3px 3px 0!important
+}
+.camera-control label{
+	width: 70px;
+	text-align: right;
+	display: inline-block;
+	vertical-align: middle;
+}
+.camera-control label.large{
+	width:90px!important;
+}
+.camera-control label.larger{
+	width:120px!important;
+}
+.camera-control .selectPanel{
+	min-width: 1390px;
+	height:96px;
+	display: block;
+	background: #f7f7f7
+}
+.camera-control .selectPanel .searchp1:first-child{
+	padding-left:15px;
+}
+.camera-control .selectPanel .searchp1{
+	height: 86px;
+	display: inline-block;
+	padding: 10px 0 0 0;
+	position: relative;
+	float: left;
+	padding-left:15px;
+}
+
+.camera-control .searchp1 .commonSearch{
+	height: 24px;
+	padding: 10px 0 0px 0px;
+	text-indent: 5px;
+	line-height: 24px;
+	position: relative;
+} 
+.camera-control .searchPart{
+	width: 100px;
+	display: inline-block;
+	border: 1px solid #D9D9D9;
+	height: 100%;
+	padding: 0;
+	margin-right: -6px;
+	border-radius: 3px 0 0 3px;
+	vertical-align: middle;
+	margin-left: -5px;
+	background: #fff
+}
+.camera-control .commonPart{
+	width: 140px;
+	display: inline-block;
+	border: 1px solid #D9D9D9;
+	height: 100%;
+	padding: 0;
+	border-radius: 3px;
+	vertical-align: middle;
+	margin-left: -5px;
+	background: #fff
+}
+.camera-control .commonPart span:first-child{
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	display: inherit;
+}
+.camera-control .commonPart.big span{
+	width:125px;
+}
+.camera-control .commonPart.last span{
+	width:110px;
+}
+.camera-control .commonPart.small span{
+	width:80px;
+}
+.camera-control .commonPart span{
+	width:120px;
+}
+.big{
+	width:150px!important;
+}
+.small{
+	width:105px!important;
+}
+.last{
+	width:130px!important;
+}
+.allW{
+	width: 100%
+}
+.camera-control .icon-arrow{ 
+	height: 13px;
+	width: 10px;
+	cursor: pointer;
+	float: right;
+	margin-right: 5px;
+	margin-top: 7px;
+	background: url('../images/icon.png') -2px -65px no-repeat;
+}
+.camera-control .icon-arrow.active{
+	background-position: -34px -65px;
+}
+.camera-control .icon-radio{
+	display: inline-block;
+	width: 14px;
+	height: 14px;
+	vertical-align:middle;
+	margin-right: 5px;
+	cursor: pointer;
+	margin-top:-4px;
+	background: url("../images/radio.png") no-repeat;
+}
+.ml10{
+	margin-left: 10px
+}
+.ml5{
+	margin-left: 15px
+}
+.camera-control .icon-radio.active{
+	background: url("../images/radio-active.png") no-repeat;
+	cursor: pointer;
+}
+.camera-control .searchBtn{
+	height:26px!important;
+	line-height: 24px!important;
+	float: right;
+	margin-left:30px;
+}
+.camera-control .midleCtrPart{
+	height: 26px;
+	line-height: 26px;
+	display: inline-block;
+	width: 98.7%;
+	position: relative;
+	padding: 14px 0px 12px 0;
+}
+
+.camera-control .midleCtrPart .tabPanel,.camera-control .midleCtrPart .btnPanel{
+	display: inline-block;
+	vertical-align: middle
+}
+.camera-control .midleCtrPart .tabPanel{
+	margin-left: 25px
+}
+.camera-control .midleCtrPart .btnPanel{
+	position: absolute;
+	right: 0;
+}
+.camera-control .midleCtrPart .tabPanel .tabinner{
+	width:102px;
+	padding:5px 10px;
+	border-radius: 15px;
+	cursor: pointer;
+}
+
+.camera-control .midleCtrPart .tabPanel .tabinner.active{
+	background: #ff8d33;
+	color:#fff;
+}
+.camera-control .midleCtrPart .btnPanel .totalShow{
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.camera-control .newCameraData,.camera-control .bulkImport{
+	height:22px!important;
+	line-height: 22px!important;
+	padding: 0px 8px;
+}
+.camera-control .enterPlatform{
+	display: inline-block;
+	padding: 2px 10px
+}
+.totalNum{
+	margin:0 5px;
+}
+.hidden{
+	display: none!important
+}
+.camera-control .tablePart{
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 185px;
+	bottom: 0;
+	overflow-y: auto;
+} 
+.tablePart table{
+	overflow: auto;
+	text-align: center;
+	display: table;
+	width: 97%;
+	margin: 0 0 0 25px;
+}
+.tablePart th{
+	background-color: #f3f3f3!important;
+	border-top: 0!important;
+	font-weight: bold
+}
+.tablePart th, .tablePart td {
+	border-top: solid #ddd 1px;
+	border-bottom: solid #ddd 1px;
+	height: 40px;
+	vertical-align: middle;
+}
+.tablePart  span.deviceName,.tablePart  span.monitorSystemName,.tablePart  span.deviceManufacturer,.tablePart  span.managerUnitName {
+	max-width:200px;
+	display: inline-block;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}
+.tablePart  span.manageType,.tablePart  span.monitorType{
+	max-width:100px;
+	display: inline-block;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}
+.tablePart  span.iconSet{
+	display: inline-block;
+}
+
+.tablePart .loading{
+	width: 58px;
+	height: 100px;
+	background: transparent url('../../../common/images/animate/horizontal-loading.gif') center no-repeat;
+	margin: 0 auto;
+}
+.tablePart .pagepart{
+	margin-top:10px;
+}
+.camera-control .dataInsert tr.logoutGrey{
+	color:#878787;
+}
+.tablePart .icon-edit{
+	display: inline-block;
+	line-height: 25px;
+	width: 14px;
+	height: 14px;
+	margin-right: 10px;
+	cursor: pointer;
+	background: url("/module/common/images/inspect/operate-ico.png") no-repeat scroll 0 0;
+}
+.tablePart .icon-edit:hover{
+	background-position: -17px 0;
+}
+.tablePart .icon-showDetail {
+	display: inline-block;
+	line-height: 25px;
+	width: 16px;
+	height: 15px;
+	margin-right: 10px;
+	cursor: pointer;
+	background: url("../images/icon1.png") no-repeat scroll -352px 0;
+}
+.tablePart .icon-showDetail:hover{
+	background-position: -188px 0;
+}
+.tablePart .icon-edit.disabled{
+	background: url("../images/editDisable.png") no-repeat scroll 0 0!important;
+}
+.tablePart .icon-logout{
+	display: inline-block;
+	line-height: 25px;
+	width: 13px;
+	height: 13px;
+	margin-right: 10px;
+	cursor: pointer;
+	background: url("../images/logout.png") no-repeat scroll 0 0;
+}
+.tablePart .icon-logout:hover{
+	background-position: -13px 0;
+}
+.tablePart .icon-logout.disabled{
+	background-position: -26px 0;
+}
+.tablePart .icon-checkbox{
+	height: 16px;
+	position: relative;
+	width: 16px;
+	cursor: pointer;
+	background:url("../images/checkbox.png") no-repeat;
+	margin: 0 auto;
+	display: table;
+}
+.tablePart .icon-checkbox.disabled{
+	background:url("../images/discheck.png") no-repeat ;
+}
+.tablePart .icon-checkbox.active{
+	background: url("../images/checked.png") no-repeat ;
+	margin: 0 auto;
+}
+.tablePart .icon-checkbox.active.disabled{
+	background: url("../images/dischecked.png") no-repeat ;
+}
+/*********************************************end*********************************************/
+/*********************************************新增编辑*********************************************/
+.camera-control .importBread{
+	padding: 20px 
+}
+.camera-control .importBread span:first-child{
+	color:#666;
+	cursor: pointer;
+}
+.camera-control .icon-right{
+	width:10px;
+	height:10px;
+	display: inline-block;
+	background: url("../images/arrow-right.png") no-repeat;
+	vertical-align: middle;
+	margin-left:10px;
+}
+.camera-control .importBread .currCamera{
+	color:#999;
+}
+.camera-control .detailPanel{
+	position: relative;
+	display: inline-block;
+	height: 370px;
+}
+.camera-control .detailPanel .detailLeftPanel{
+	/*左边距加大 适应额外添加的‘其他‘文本框 haoyong*/
+	width:420px;
+	margin-left:20px;
+	float: left;
+}
+.camera-control .normalPart{
+	display: inline-block;
+	height:25px;
+	line-height: 25px;
+	padding-top:15px
+}
+.camera-control .normalPart span{
+	position: relative;
+}
+.camera-control .commonPanelPart span:first-child{
+	width: 140px;
+	display: inherit;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.camera-control .commonPanelPart{
+	width: 160px;
+	display: inline-block;
+	border: 1px solid #D9D9D9;
+	height: 100%;
+	padding: 0;
+	border-radius: 3px;
+	vertical-align: middle;
+	padding-left: 5px
+}
+.camera-control .detailPanel input[type="text"]{
+	width:157px!important;
+}
+.camera-control .detailPanel .radiohPart{
+	display: inline-block;
+	vertical-align: middle
+}
+.camera-control .detailPanel .detailRightPanel{
+	width:320px;
+	/*左边加宽了这里的左边距减小 haoyong*/
+	margin-left:70px;
+	float: left;
+}
+.camera-control .subBtnGroup{
+	display: inline-block;
+	position: absolute;
+	bottom: 0;
+	right: 18px;
+}
+.camera-control .savePanel,.camera-control .cancel,.camera-control .logout{
+	height:24px!important;
+	line-height: 24px!important;
+}
+.camera-control .icon-position{
+	position: absolute;
+	width: 16px;
+	height: 16px;
+	background: url("../images/positionSet.png") no-repeat;
+	display: inline-block;
+	right: 5px;
+	top: 2px;
+	cursor: pointer;
+}
+.camera-control .icon-date{
+	position: absolute;
+	width: 16px;
+	height: 16px;
+	background: url('/module/common/images/icon_calendar.png') 0 0 no-repeat;
+	display: inline-block;
+	right: 5px;
+	top: 2px;
+	cursor: pointer;
+}
+.camera-control .commontext{
+	line-height: inherit;
+	vertical-align: middle;
+	display: inherit;
+	margin-top: 3px;
+	width: 175px;
+	white-space: nowrap;
+	display: inherit;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.camera-control .enterEditBtn{
+	height:24px!important;
+	line-height: 24px!important;
+	margin-left: 400px
+}
+.camera-control .mapPos{
+	width: 309px;
+	height: 309px;
+	position: absolute;
+	left: 715px;
+	top: 16px;
+	border-radius: 5px;
+	border:1px solid #e1e1e1;
+	display: none
+}
+.camera-control .mapPos .cancalMap{
+	width: 14px;
+	height: 14px;
+	background: url("../images/icon_close.png") no-repeat;
+	display: inline-block;
+	cursor: pointer;
+	position: absolute;
+	right: 5px;
+	top: 5px;
+	z-index:20;
+}
+.camera-control .mapPos .cancalMap:hover{
+	background-position: -14px 0
+}
+
+#mapSetPanel{
+	position: absolute;
+	left:0;
+	bottom: 0;
+	top:0;
+	right: 0
+}
+
+.tree-search {
+	position: relative;
+	margin-top: 8px;
+	margin-bottom: 5px;
+	width: 210px;
+}
+.tree-container {
+	position: absolute;
+	top: 40px;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+.tree-search input {
+	padding: 0 25px 0 11px;
+	width: 160px;
+	height: 25px;
+	line-height: 25px;
+	background-color: #FFFFFF;
+	border: 1px solid #D9D9D9;
+	border-radius: 15px;
+	color: #999;
+	font-size: 12px;
+	margin: 0 0 0 0;
+	transition: background-color 0.2s ease-out 0s, box-shadow 0.2s ease 0s, border-color 0.2s ease 0s;
+	vertical-align: middle;
+}
+.tree-search .searchBtn {
+	font-size: 0;
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	top: 4px;
+	right: 22px;
+	background: url("../../../common/images/search_small.png") no-repeat scroll center center transparent;
+	border: medium none;
+	cursor: pointer;
+}
+.treePanel {
+	position: absolute;
+	left: 20px;
+	width: 100%;
+	overflow: hidden;
+	padding: 0;
+}
+@media screen and (max-width:1380px){
+
+.camera-control .selectPanel .searchp1{
+	padding-left:0;
+}
+.camera-control .selectPanel .searchp1:first-child{
+	padding-left:0;
+}
+.camera-control .midleCtrPart .tabPanel {
+	margin-left: 16px;
+}
+.tablePart table {
+	margin:0 0 0 15px;
+}
+}

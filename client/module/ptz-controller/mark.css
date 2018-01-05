@@ -1,0 +1,208 @@
+
+div.dialog-history.postform {
+position: absolute;
+width: 684px;
+height: 475px;
+left: 50%;
+top: 50%;
+margin-left: -225px;
+margin-top: -238px;
+}
+.markPanel{
+width: 480px!important;
+height:380px!important;
+}
+div.dialog-history.postform .dialog-title {
+padding-left: 0px;
+height: 40px;
+font-family: "Microsoft YaHei" !important;
+padding: 3px;
+height: 43px;
+background-color: #f3f3f3;
+line-height: 43px;
+padding-left: 10px;
+font-size: 13px;
+border-radius: 10px;
+cursor: default;
+}
+.video_info {
+	position: relative!important;
+	top:1px;
+}
+
+.markBody{
+	height: 280px!important;
+	padding:0 5px!important;
+}
+.noborder{
+	border:0!important;
+	background: #fff!important;
+	height:51px!important;
+}
+.borb{
+	border-radius:10px 10px 0 0!important; 
+	border-bottom: 1px solid #ccc
+}
+.dialog-history.postform .dialog-body {
+color: #444444;
+}
+
+.dialog-history.postform .dialog-foot {
+text-align: center;
+}
+.dialog-history .close {
+width: 16px;
+height: 16px;
+display: inline-block;
+background-image: url("./images/close.png");
+vertical-align: middle;
+position: absolute;
+right: 10px;
+top: 18px;
+}
+.dialog-history .close:hover {
+background-image: url("./images/close-hover.png");
+cursor: pointer;
+}
+.download-record {
+position: absolute;
+left: 0px;
+top: 0px;
+width: 100%;
+height: 100%;
+cursor: default;
+z-index: 1000;
+background-color: #000;
+filter: alpha(opacity=20);
+-moz-opacity: 0.20;
+opacity: 0.20;
+}
+
+.download-record iframe {
+position: absolute;
+left: 0px;
+top: 0px;
+width: 100%;
+height: 100%;
+border: none;
+}
+/*
+*智能标注相关
+*/
+#smartMarkform .video_form dd {
+	padding: 0 0 15px;
+}
+#smartMarkform .video_form dd:last-child {
+	padding: 0;
+}
+#smartMarkform .video_form dd.last {
+	padding: 5px 0;
+}
+#smartMarkform .stMli li {
+	margin-top: 15px;
+	padding: 0 20px;
+	text-align:left;
+}
+#smartMarkform .stMli li.type > label {
+	vertical-align: middle;
+	cursor: pointer;
+}
+#smartMarkform .stMli li.type input {
+	vertical-align: middle;
+	margin-right: 3px;
+}
+#smartMarkform .stMli li.type a {
+	float: right;
+}
+.ml10{
+	margin-left: 10px!important
+}
+#smartMarkform .stMli li.type-params {
+border: 1px solid #ccc;
+position: relative;
+display: none;
+padding: 0 36px;
+width: 75%;
+margin-left: 19px;
+margin-top:10px;
+}
+#smartMarkform .stMli li.type-params .type-params-item {
+	margin: 5px 0;
+}
+#smartMarkform .stMli li.type-params .type-params-item label {
+	display: inline-block;
+	height: 24px;
+	line-height: 24px;
+	width: 74px;
+}
+#smartMarkform .stMli li.type-params .type-params-item label input {
+	vertical-align: sub;
+}
+#smartMarkform .stMli li.type-params .type-params-item input.text {
+	display: inline-block;
+	width: 128px;
+	height: 22px;
+	line-height: 22px;
+	border: 1px solid #ededed;
+}
+#smartMarkform .stMli li.type-params .type-params-item span.ui-spinner {
+	display: inline-block;
+	width: auto;
+	height: auto;
+}
+#smartMarkform .stMli li.type-params .type-params-item a.ui-spinner-button {
+}
+#smartMarkform .stMli li.type-params .type-params-item select {
+	display: inline-block;
+	width: 65px;
+	height: 22px;
+	line-height: 22px;
+	border: 1px solid #ededed;
+	vertical-align: middle;
+}
+#smartMarkform .stMli li.type-params .type-params-item button {
+	height: 20px;
+	line-height: 18px;
+	padding: 0 5px;
+}
+#look-mark-result {
+	display: inline-block;
+	float: right;
+	width: 60px;
+	height: 28px;
+	line-height: 28px;
+	text-align: center;
+	background: url(/module/imagejudge/resource-process/images/icon.png) -67px -70px no-repeat;
+	color: #fff;
+	margin-right: 0;
+}
+#smartMarkform .stMli li .ui-button {
+	width: 20px;
+	height: auto;
+}
+#smartMarkform .type-region .ui-button {
+	width: 20px!important;
+	height: 20px!important;
+}
+#smartMarkform .stMli li .ui-icon {
+	width: 20px;
+	height: 20px;
+	left: 2px;
+}
+#smartMarkform .stMli li .ui-button .ui-button-text {
+	width: auto;
+	height: auto;
+}
+input[type="checkbox"]{
+	vertical-align: middle
+}
+#smartMarkform .stMli li.type-params .arrow {
+position: absolute;
+right: 18px;
+top: -7px;
+width: 12px;
+height: 7px;
+z-index: 10;
+margin-left: 83px;
+background: url(/module/ptz-controller/images/arrow-up-guide.png) no-repeat;
+}

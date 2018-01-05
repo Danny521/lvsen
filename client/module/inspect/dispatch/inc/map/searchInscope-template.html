@@ -1,0 +1,42 @@
+{{#if viewCameras}}
+<h3 class="map-title">在屏幕范围内搜索</h3>
+<div id="viewSearch" >
+    <div class="scrollbar disable">
+        <div class="track">
+            <div class="thumb"></div>
+        </div>
+    </div>
+    <div class="viewport">
+        <div class="overview">
+            <ul class="map-around-search-container clearfix">
+                <li class="clearfix">
+                    <span class="label">资&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;源：</span>
+                    <span class="data-content">
+                        <a  class="others np-map-schedule-fullview" data-type="camera">摄像机</a>
+                        <a  class="others np-map-schedule-fullview" data-type="bayonet">卡口</a>
+                        <a  class="others np-map-schedule-fullview" data-type="lightbar">灯杆</a>
+                        <a  class="others np-map-schedule-fullview" data-type="gps">警力</a>
+                        <!--<a  class="others np-map-schedule-fullview" data-type="350M">警员</a>-->
+                    </span>
+                </li>
+                {{#if viewCameras.customGroups}}
+                <li class="clearfix">
+                    <span class="label">我的分组：</span>
+                    <span class="data-content">
+                    {{#each viewCameras.customGroups}}
+                        <a groupType="custom" class="groups np-map-schedule-fullview" groupId={{id}}>{{groupName}}</a>
+                    {{/each}}
+                    </span>
+                </li>
+                {{/if}}
+            </ul>
+        </div>
+    </div>
+    <div class="view-search-footer">
+        <form onsubmit="return false;">
+            <span class="ui input"><input type="text" maxlength="30" class="search-value" placeholder="查找其他关键词" /></span>
+            <input class="ui button search-view-btn np-map-schedule-fullview" type="submit" value="搜索" />
+        </form>
+    </div>
+</div>
+{{/if}}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=10,chrome=1"/>
+
+	<link type="text/css" rel="stylesheet" href="/module/common/css/base.css" />
+	<link type="text/css" rel="stylesheet" href="/libs/semantic/semantic.css" />
+	<link type="text/css" rel="stylesheet" href="/libs/jquery/jquery.datetimepicker.css">
+	<link rel="stylesheet" href="main.css">
+	<script type="text/javascript" src="/libs/requirejs/require.js"></script>
+	<script type="text/javascript" src="/require-conf.js"></script>
+</head>
+<body>
+<div class="outer">
+	<div class="header"></div>
+	<div class="content">
+		<div class="new-cruise">
+			<div class="cruise-inner">
+				<div class="c-header">
+					<span class="by-auto tab-title active" data-tab="0">自动巡航1</span>
+					<!--<span class="by-time tab-title" data-tab="1">时间段巡航</span>-->
+					<span class="c-add">
+						<i class="common-icon setting" title="新增自动巡航"></i>
+					</span>
+				</div>
+				<div class="c-content">
+					<div class="auto-content common-content active tab-content" data-tab="0">
+					</div>
+					<div class="time-content common-content tab-content" data-tab="1">
+					</div>
+				</div>
+			</div>
+			<div class="add-content add-auto">
+			</div>
+			<div class="add-content add-time">
+			</div>
+		</div>
+	</div>
+</div>
+<script>require(['main.js'])</script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=10,chrome=1"/>
+		<title>视云实战平台</title>
+		<!--[if lt IE 9]><script src="/libs/html5/html5.js"></script><![endif]-->
+		<!--[if IE]><script src="/libs/canvas/excanvas.js"></script><![endif]-->
+		<script src="/libs/jquery/jquery-1.10.2.min.js"></script>
+		<script src="/libs/jquery/jquery.pagination.js"></script>
+
+		<link type="text/css" rel="stylesheet" href="/module/common/css/base.css" />
+		<link type="text/css" rel="stylesheet" href="/libs/semantic/semantic.css" />
+		<link type="text/css" rel="stylesheet" href="/libs/jquery/jquery-ui.css">
+		<link type="text/css" rel="stylesheet" href="/libs/spectrum/spectrum.css">
+		<link type="text/css" rel="stylesheet" href="/libs/jquery/jquery.pagination.css"/>
+		<link type="text/css" rel="stylesheet" href="/module/settings/common/css/struct.css"/>
+		<link type="text/css" rel="stylesheet" href="/module/settings/common/tool/tree.css"/>
+
+		<!-- <link type="text/css" rel="stylesheet" href="/module/inspect/surveillance/css/map.css" /> -->
+		<link type="text/css" rel="stylesheet" href="/module/settings/mapconfig/css/map.css" />
+		<link type="text/css" rel="stylesheet" href="/module/settings/mapconfig/css/angle.css" />
+		<!--时间插件样式-->
+		<link type="text/css" rel="stylesheet" href="/libs/jquery/jquery.datetimepicker.css"/>
+
+	</head>
+
+	<body>
+		<div id="content">
+			<div class="wrapper">
+				<aside id="sidebar">
+					<a id="sideResize">
+						<iframe src="about:blank"></iframe>
+						<span class="resize"></span>
+					</a>
+					<!--#include file="/module/settings/mapconfig/inc/map-aside.html" -->
+				</aside>
+				<!--这里不能display：none style="left:-2000px;right:2000px;position: absolute;"-->
+
+				<div id="major" class="noscroll" style="">
+
+						<!-- 角色详情 -->
+						<div id="pointMark" class="main">
+							<div id="gismap" >
+								<!--#include file="/module/settings/mapconfig/inc/map-toolbar.html" -->
+								<!-- 地图容器-->
+								<div id="mapId" class="body gismap">
+									<div class="opera-container"></div>
+								</div>
+							</div>
+						</div>
+
+						<!-- 组织关系图 -->
+						<div id="defensiveLine" class="main"></div>
+
+				</div>
+				<!--可以 style="display: none" 是标记记录右侧列表-->
+				<div id="major2" class="noscroll" style="width: 85%;display: none">
+					<div style="margin-left: 10px;margin-top: 10px;width: 100%">
+					<h3>标注记录</h3>
+						<div class="tableP" style="width: 100%">
+							<table border="1" id="contentTable" style="width: 100%">
+								<tr class="trTitle" style="width: 100%">
+									<th width="20%">记录时间</th>
+									<th width="10%">IP地址</th>
+									<th width="10%">操作人</th>
+									<th width="20%">操作人所属组织</th>
+									<th width="10%">操作类型</th>
+									<th width="30%">操作详情</th>
+								</tr>
+							</table>
+							<div id="dataPager" class="pagination" style="margin-top: 20px;"></div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<script type="text/javascript" src="/libs/requirejs/require.js" data-main="/require-conf"></script>
+		<script type="text/javascript">
+			require(['/module/settings/mapconfig/js/main.js']);
+		</script>
+
+		<div class="upload-status">
+		</div>
+
+	</body>
+
+</html>

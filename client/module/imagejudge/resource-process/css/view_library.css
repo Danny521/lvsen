@@ -1,0 +1,102 @@
+@charset "utf-8";
+/* CSS Document */
+/*
+ * 东方网力 CSS Library 2.0.0
+ * Copyright(c)  2014, 东方网力 CSS
+ * @url http://www.netposa.com
+ */
+/*========================================== 样式开始@Start ==========================================*/
+.view_library {
+	margin:0 10px;
+	overflow:hidden;
+	border: 1px solid #EDEDED;
+}
+.view_library dt {
+	background:#F9F9F9;
+    border-bottom: 1px solid #EDEDED;
+    display: block;
+    height: 28px;
+    padding:5px 10px;
+}
+.view_library dt h6 {
+	height: 28px;
+	line-height:28px;
+	color:#1f73c2;
+	font-size:14px;
+	float:left;
+}
+.view_library dt a {
+	color: #fff;
+	float:right;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    width: 60px;
+}
+.view_library dd {
+	height:28px;
+	overflow:hidden;
+	padding:5px 10px;
+	margin:10px;
+	background:#f1f3f4;
+}
+.view_library dd h6 {
+	max-width:400px;
+	height:28px;
+	line-height:28px;
+	text-overflow:ellipsis;
+	overflow:hidden;
+	white-space:nowrap;
+	float:left;
+}
+.view_library dd span {
+	width:330px;
+	height:28px;
+	padding:0 60px;
+	text-align:center;
+	float:left;
+}
+.view_library dd span input[type='text'] {
+	width:150px;
+	height:26px;
+	line-height:26px;
+	padding:0 5px;
+	font-size:12px;
+	border:1px solid #EDEDED;
+}
+.view_library dd span b {
+	width:50px;
+	height:28px;
+	line-height:28px;
+	float:right;
+}
+
+.view_library dd em {
+	width:100px;
+	height:28px;
+	line-height:28px;
+	text-align:center;
+	float:left;
+}
+.view_library dd p {
+	width:200px;
+	height:28px;
+	overflow:hidden;
+	float:right;
+}
+.view_library dd p a {
+	color: #666666;
+    display: inline-block;
+    height: 28px;
+    line-height: 28px;
+    margin: 0 5px;
+    text-align: center;
+    width: 60px;
+}
+
+
+
+/*
+ * 视频内容_video_content_@End
+ */
+/*========================================== 样式开始@End ==========================================*/

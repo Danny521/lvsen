@@ -1,0 +1,118 @@
+{{#if newFram}}
+<div class="mask">
+    <div class="monitorDialog">
+        <div class="monitorDialogTitle">
+            {{#if editOrCreate}}
+            <h2>{{editOrCreateHelper editOrCreate}}系统</h2>
+            {{/if}}
+            <div class="cancleDialog" data-event="click" data-handler="cancleCreateOrEdit"></div>
+        </div>
+        <div class="formEditOutter formEditOuter">
+            <form class="formEdit editMonitor" onsubmit="return false">
+                <fieldset>
+
+                    <label><i class="important">*</i>监控系统名称：</label>
+                    <input type="text"  name="monitorSystemName" data-name="monitorSystemName" placeholder="输入监控系统名称"  data-value="{{#if data}}{{data.monitorSystemName}}{{/if}}" value="{{#if data}}{{data.monitorSystemName}}{{/if}}"><br/>
+
+
+                    <label for="managerUnitName"><i class="important">*</i>组织结构：</label>
+                    {{#isDataNotNull data}}
+                    <!--编辑 禁止编辑 -->
+                    <input id="managerUnitName" type="text" disabled name="managerUnitName" data-name="managerUnitName" data-text="{{#if data}}{{data.managerUnitName}}{{/if}}" value="{{#if data}}{{data.managerUnitName}}{{/if}}" data-value="{{#if data}}{{data.monitorSystemId}}{{/if}}">
+                    {{else}}
+                    <!--新建-->
+                    <!--添加tabindex属性 让文本域有聚焦事件-->
+                    <span class="select_container" tabindex="100" data-type="managerUnitName" data-event="click" data-handler="showSelectOptions">
+				            <span class="text" data-name="managerUnitName" data-text="{{#if data}}{{data.managerUnitName}}{{/if}}" data-value="{{#if data}}{{data.monitorSystemId}}{{/if}}">{{#if data}}{{data.managerUnitName}}{{else}}选择组织结构{{/if}}</span>
+				            <span class="arrow-down"></span>
+                    </span>
+                    {{/isDataNotNull}}
+                    <br/>
+
+                    <label for="monitorSystemLocation">系统所在地：</label>
+                    <input id="monitorSystemLocation" type="text" name="monitorSystemLocation" data-name="monitorSystemLocation" class=""
+                           placeholder="请输入系统所在地" value="{{#if data}}{{data.monitorSystemLocation}}{{/if}}"  data-value="{{#if data}}{{data.monitorSystemLocation}}{{/if}}"> <br/>
+
+
+                    <label><i class="important">*</i>承载网络：</label>
+                    <span class="select_container" tabindex="101" data-type="networkType" data-event="click"
+                          data-handler="showSelectOptions">
+				            <span class="text" data-name="networkType" data-value="{{#if data}}{{data.networkType}}{{/if}}" >{{#if data}}{{data.networkType-text}}{{else}}选择网络类型{{/if}}</span>
+				            <span class="arrow-down"></span>
+                    </span>
+
+                    <br/>
+
+
+                    <label><i class="important">*</i>是否联网：</label>
+                    <span class="radioBox">
+                        {{#isDataNotNull data}}
+                        <!--编辑-->
+                        <i class="radioIcon {{#isCheckedOrSeleceted '1' data.isNetwork}} active {{else}}{{/isCheckedOrSeleceted}}"
+                           data-event="click" data-handler="checkRadio" data-value="1" data-name="isNetwork"></i>&nbsp;是&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <i class="radioIcon {{#isCheckedOrSeleceted '0' data.isNetwork}} active {{else}}  {{/isCheckedOrSeleceted}}"
+                           data-event="click" data-handler="checkRadio" data-value="0" data-name="isNetwork"></i>&nbsp;否
+
+                        {{else}}
+                        <!--新建-->
+                        <i class="radioIcon active"
+                           data-event="click" data-handler="checkRadio" data-value="1" data-name="isNetwork"></i>&nbsp;是&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <i class="radioIcon"
+                           data-event="click" data-handler="checkRadio" data-value="0" data-name="isNetwork"></i>&nbsp;否
+                        {{/isDataNotNull}}
+                    </span>
+                    <br/>
+                </fieldset>
+
+                <fieldset>
+
+
+                    <label><i class="important">*</i>是否符合国标：</label>
+                    <span class="radioBox">
+                        {{#isDataNotNull data}}
+                        <!--编辑-->
+                        <i class="radioIcon {{#isCheckedOrSeleceted '1' data.isNationalStandard}} active {{else}}  {{/isCheckedOrSeleceted}}"
+                           data-event="click" data-handler="checkRadio" data-value="1" data-name="isNationalStandard"></i>&nbsp;是&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <i class="radioIcon {{#isCheckedOrSeleceted '0' data.isNationalStandard}} active {{else}}  {{/isCheckedOrSeleceted}}"
+                           data-event="click" data-handler="checkRadio" data-value="0" data-name="isNationalStandard"></i>&nbsp;否
+
+                        {{else}}
+                        <!--新建-->
+                         <i class="radioIcon active"
+                            data-event="click" data-handler="checkRadio" data-value="1" data-name="isNationalStandard"></i>&nbsp;是&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <i class="radioIcon"
+                           data-event="click" data-handler="checkRadio" data-value="0" data-name="isNationalStandard"></i>&nbsp;否
+                         {{/isDataNotNull}}
+                    </span>
+
+                    <br/>
+
+                    <label title="单位：天">录像存储周期：</label>
+                    <input class="" type="text" maxlength="4"  title="单位：天" pattern="/d{+}" name="videoStoragePeriod" data-name="videoStoragePeriod" placeholder="天"
+                           style="/*text-indent: 130px*/" required data-value="{{#if data}}{{data.videoStoragePeriod}}{{/if}}"  value="{{#if data}}{{data.videoStoragePeriod}}{{/if}}"><br/>
+                    <!--onfocus="$(this).removeAttr('placeholder');$(this).css({'text-indent':'3px'})"-->
+
+                    <label>联系人：</label>
+                    <input class="" type="text" name="contactName" data-name="contactName" placeholder="请输入联系人姓名" required data-value="{{#if data}}{{data.contactName}}{{/if}}"
+                           value="{{#if data}}{{data.contactName}}{{/if}}"><br/>
+
+                    <label>联系电话：</label>
+                    <input class="" type="text" name="contactPhone"  data-name="contactPhone" placeholder="请输入联系电话" required data-value="{{#if data}}{{data.contactPhone}}{{/if}}"
+                           value="{{#if data}}{{data.contactPhone}}{{/if}}"><br/>
+
+                    <label>单位地址：</label>
+                    <input class="" type="text" name="managerUnitAddress" data-name="managerUnitAddress" placeholder="单位地址" required
+                           value="{{#if data}}{{data.managerUnitAddress}}{{/if}}" data-value="{{#if data}}{{data.managerUnitAddress}}{{/if}}"><br/>
+                </fieldset>
+                <fieldset class="">
+                    <button class="ui button blue" onsubmit="return false" data-event="click"
+                            data-handler="saveOneMonitorSystem">保存
+                    </button><!--primaryBtn-->
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <button class="cancleBtn ui button" data-event="click" data-handler="cancleCreateOrEdit">取消</button>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+{{/if}}

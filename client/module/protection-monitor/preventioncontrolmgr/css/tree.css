@@ -1,0 +1,818 @@
+#camerasPanel.loading {
+	background: transparent url(../../../common/images/animate/horizontal-loading.gif) center center no-repeat;
+}
+#camerasPanel{
+	overflow-y: auto;
+	overflow-x:hidden;
+	max-height: 780px;
+	/*margin-left: 15px;*/
+	padding-top: 2px;
+}
+#treePanel .viewport {
+	margin-right: 20px;
+}
+
+#treePanel .overview {
+	position: absolute;
+	left: 15px;
+	top: 0;
+	right: 0;
+	
+}
+
+#treePanel .scrollbar {
+	position: relative;
+	float: right;
+	width: 12px;
+	margin-right: 4px;
+}
+
+#treePanel .track {
+	height: 100%;
+	width: 12px;
+	position: relative;
+	cursor: pointer;
+	background: transparent url(../../../common/images/bg/track_line.png) center 0 repeat-y;
+}
+
+#treePanel .thumb {
+	height: 72px;
+	width: 12px;
+	background: transparent url(../../../common/images/bg/scrollbar.png) 0 0 no-repeat;
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+}
+
+#treePanel .disable {
+	display: none;
+}
+
+.display-area {
+	margin-left: 280px;
+}
+
+#sidebar .ui.tab {
+	bottom: auto;
+}
+
+#sidebar .title {
+	position: relative;
+	width: 100px;
+	height: 30px;
+	line-height: 30px;
+	padding-top: 5px;
+}
+#sidebar .groups .camera-list .camera-name{
+	/*overflow: hidden;
+	white-space: nowrap;
+	text-overflow:ellipsis;
+	display: inline-block;
+	width: 150px;
+	padding-top: 0px;
+	float: left;
+	line-height: 25px;
+	height: 25px;*/
+}
+
+.treeMenu {
+	padding-bottom: 55px;
+	font-size: 12px;
+	margin-left: 15px;
+}
+.treeMenu a {
+	color: #333333;
+	cursor: pointer;
+}
+.treeMenu .no-data{
+	padding-left: 35px;
+	margin:0;
+	height:16px;
+	color:#999;
+}
+.treeMenu .checktree .no-data{
+	padding-left: 56px;
+	color:#999;
+}
+.treeMenu i {
+	display: block;
+	float: left;
+}
+
+.treeMenu .tree {
+	padding-left: 20px;
+}
+
+.treeMenu > .tree {
+	padding-left: 0;
+	padding-top: 10px;
+}
+
+.treeMenu .node .tree,.treeMenu .node h2 {
+	display: none;
+}
+
+.treeMenu .node.active > .tree ,.treeMenu .node.active > h2 {
+	display: block;
+}
+
+.treeMenu .node a.active {
+	color: #188dfb;
+}
+.treeMenu .leaf {
+	position: relative;
+	display: block;
+	padding: 0 10px 0 12px;
+	height:24px;
+	line-height:24px;/*
+	border-radius: 3px;*/
+}
+.treeMenu .checktree .leaf{
+	padding-right: 0px;
+	/*display: inline-block;*/
+	overflow: hidden;
+}
+.treeMenu .leaf > span{
+	height: 24px;
+	min-width: 80px;
+	width: 82%;
+	display: inline-block;
+	color: #000000;
+}
+.treeMenu .checktree .leaf > span{
+	height: 24px;
+	width: auto;
+	display: block;
+	color: #000000;
+	white-space: nowrap;
+}
+.treeMenu .leaf > span > b{
+	color: #188dfb;
+	height: 24px;
+	line-height: 24px;
+	float: left; 
+}
+.treeMenu .checktree .leaf > span > b{
+	color: #188dfb;
+	height: 24px;
+	line-height: 24px;
+	float: none; 
+	width: auto;
+}
+.treeMenu .leaf > span > em{
+	/*min-width: 80px;*/
+	width: 86%;
+	height: 24px;
+	line-height: 24px;
+	float: left;
+	white-space: nowrap;
+	color: #000;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	width: 83%\0;
+}
+.treeMenu .offline .leaf > span > em{
+	 color: #A0ABB7; 
+}
+.treeMenu .checktree .leaf > span > em{
+	display: block;
+	width: auto;
+	float: none;
+	/*white-space: normal;*/
+}
+/*.treeMenu .leaf > span > em.isSD{
+    width: 130px;
+}*/
+.treeMenu .node.search .leaf{
+	margin-left: 6px;
+} 
+.treeMenu .leaf:hover,
+.treeMenu .node.opened ,
+.treeMenu .node.activated {
+	background-color: #DCE3ED;
+}
+.treeMenu .checktree .leaf:hover {
+	background-color: transparent;
+}
+.treeMenu .leaf:hover,.treeMenu .leaf.active,.treeMenu .group span:hover {
+	color: #1B6BBC;
+}
+
+.treeMenu .leaf .more {
+	position: absolute;
+	width: 16px;
+	height: 16px;
+	background: transparent url(../../../common/images/sprites/operate-bg.png) -151px 0 no-repeat;
+	top: 4px;
+	right: 5px;
+	display: none;
+}
+
+.treeMenu .leaf:hover .more {
+	display: block;
+}
+
+.treeMenu .leaf .more:hover {
+	background-position: -134px 0;
+}
+
+.treeMenu .checkbox {
+	background: url(../../../common/images/sprites/tree_bg.png) no-repeat -32px 0;
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+	margin: 3px 3px 0 3px;
+}
+.treeMenu .leaf .checkbox{
+	margin-top: 5px;
+	margin-left: 5px;
+}
+.small-checkbox {
+	background: url(../../../common/images/icons/groud-input.png) no-repeat 0 -27px;
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+	margin: 1px 3px 0 6px;
+}
+
+ .small-checkbox.checked {
+	background-position: 0 5px;
+}
+
+.treeMenu .checkbox.checked {
+	background: url(../../../common/images/sprites/tree_bg.png) no-repeat -47px 0;
+}
+/*
+.treeMenu .node {
+	min-height: 26px;
+	line-height: 26px;
+	display: block;
+}
+*/
+.treeMenu .node .loading {
+	height: 26px;
+	padding-left: 65px;
+	text-transform: capitalize;
+	background: transparent url(../../../common/images/animate/loader-mini.gif) 42px center no-repeat;
+}
+
+.treeMenu .node.edit {
+	background: #dbe2ec;
+}
+
+.treeMenu .node .group {
+	display: block;
+	margin: 0;
+	padding-left: 15px;
+	background: url(../../../common/images/close.png) no-repeat 0 6px;
+}
+
+.treeMenu .node .group.active {
+	color: #188dfb;
+}
+
+.treeMenu .node.active >.group {
+	background: url(../../../common/images/open.png) no-repeat 0 center;
+}
+
+.treeMenu .group span {
+	line-height: 20px;
+	height: 20px;
+	min-width: 90px;
+	width: 60%;
+	overflow: hidden;
+	display: inline-block;
+	text-overflow: ellipsis;
+	word-break: break-all;
+	white-space: nowrap;/*
+	margin-top: 4px;*/
+}
+.treeMenu .checktree .group span {
+	line-height: 20px;
+	height: 20px;
+	/*width: auto;*/
+	/*width: 150px;
+	overflow: hidden;
+	display: inline-block;
+	text-overflow: ellipsis;
+	word-break: break-all;
+	white-space: nowrap;
+	margin-top: 4px;*/
+}
+
+
+.treeMenu .group span input {
+	border: 1px solid #c3cad4;
+	background: #ffffff;
+	cursor: pointer;
+	/*font-size: 12px;*/
+	width: 100px;
+}
+
+.treeMenu .fold {
+	background: url("../../../common/images/icons/tree.png") no-repeat scroll -14px -551px transparent;
+	width: 16px;
+	height: 13px;
+	margin: 5px 2px 0 2px;
+}
+
+.treeMenu .group:hover .fold,
+.treeMenu .node.active > .group .fold {
+	background-position: -153px -551px;
+}
+
+.treeMenu .node .group .fold.home {
+	display: block;
+	float: left;
+	background: url(../../../common/images/icons/tree.png) no-repeat scroll -148px -13px transparent;
+	width: 16px;
+	height: 13px;
+	margin-right: 5px;
+}
+/*
+.treeMenu .group:hover .home,
+.treeMenu .node.active > .group .home {
+	background-position: -100px 0;
+}*/
+
+/* 默认枪击 */
+.treeMenu .camera {
+	background: url(../../../common/images/sprites/tree_bg.png) no-repeat -85px 0;
+	width: 15px;
+	height: 13px;
+	margin-right: 4px;
+	margin-top: 5px;
+}
+.treeMenu .node .camera.active {
+	/*background-position: -85px 0;*/
+}
+.treeMenu .node.offline .camera {
+	background-position: 0 0;
+}
+.treeMenu .camera.hasHD {
+	background: url(../../../common/images/sprites/gun_HD.png) no-repeat;
+	background-position: 0 0;
+	width: 21px;
+}
+.treeMenu .node .camera.selected {
+	background: url(../../../common/images/sprites/tree_bg.png) no-repeat -85px 0;
+	background-position: -426px;
+	width: 15px;
+	height: 15px;
+}
+.treeMenu .node .camera.dome.selected{
+	background: url(../../../common/images/sprites/tree_bg.png) no-repeat -333px 0;
+	width:15px;
+}
+.treeMenu .node .camera.active.hasHD.selected{
+	background: url(../../../common/images/sprites/camera-gun-HD-selected.png) no-repeat;
+	width:24px;
+}
+.treeMenu .node .camera.dome.active.hasHD.selected{
+	background: url(../../../common/images/sprites/camera-ball-HD-selected.png) no-repeat;
+	width:24px;
+}
+
+
+
+.treeMenu .node .camera.warn {
+	background-position: -485px 0;
+	height: 11px;
+}
+
+.treeMenu .node .camera.active.selected {
+	background-position: -447px 0;
+}
+
+.treeMenu .node .camera.active.warn {
+	background-position: -466px 0;
+}
+
+.treeMenu .node .leaf .dome {
+	/*width: 16px;*/
+	width: 20px;
+	height: 14px;
+	margin-top: 6px;
+	background: url(../../../common/images/sprites/tree_bg.png) no-repeat -156px 0;
+}
+
+.treeMenu .node .camera.dome.selected {
+	background-position: -333px 0;
+	height: 15px;
+}
+
+.treeMenu .node .camera.dome.active {
+	background-position: -353px 0;
+}
+
+.treeMenu .node .camera.dome.warn {
+	background-position: -390px 0;
+	height: 15px;
+}
+
+.treeMenu .node .camera.dome.active.selected {
+	background-position: -373px 0;
+}
+
+.treeMenu .node .camera.dome.active.warn {
+	background-position: -408px 0;
+}
+/* 高清球机 */
+/* .treeMenu .node .leaf .hasHD {
+	width:21px;
+	background: url(../../../common/images/sprites/ball_HD.png) no-repeat;
+} */
+.treeMenu .node .leaf .dome.hasHD {
+	width:21px;
+	background: url(../../../common/images/sprites/ball_HD.png) no-repeat;
+}
+
+.treeMenu .node.disabled > .leaf > .camera{
+	background: url("/module/common/images/sprites/camera-disabled.png") no-repeat 0 -126px;
+}
+.treeMenu .node.offline.disabled  > .leaf > .camera {
+	background: url("/module/common/images/sprites/camera-disabled.png") no-repeat 0 0;
+}
+.treeMenu .node.disabled > .leaf > .dome.camera {
+	background: url("/module/common/images/sprites/camera-disabled.png") no-repeat 0 -189px !important;
+}
+.treeMenu .node.offline.disabled > .leaf > .dome.camera {
+	background: url("/module/common/images/sprites/camera-disabled.png") no-repeat 0 -63px !important;
+}
+
+
+#sidebar .menus li {
+	cursor: pointer;
+}
+
+.treeMenu .node .operator {
+	background: #DCE3ED;
+	height: 22px;
+	display: none;
+}
+
+.treeMenu .node.opened .operator {
+	display: block;
+}
+
+.treeMenu .node .group-operator {
+	display: none;
+	margin-right: 10px;
+	margin-top: 3px;
+}
+
+.treeMenu .group:hover .group-operator {
+	display: inline-block;
+}
+
+.treeMenu .node .operator a,
+.treeMenu .group-operator {
+	display: inline-block;
+	*display: inline;
+	zoom: 1;
+	width: 16px;
+	height: 16px;
+	background: url(../../../common/images/sprites/operate-bg.png) no-repeat;
+	float: right;
+	margin-right: 5px;
+}
+
+.treeMenu .node .operator a {
+	position: relative;
+	left: 0;
+	top: 0;
+}
+
+.treeMenu .node .group-operator.remove {
+	background-position: -168px 0;
+}
+
+.treeMenu .node .group-operator.edit {
+	background-position: -186px 0;
+}
+
+.treeMenu .node .operator .inspect {
+	background-position: 0 0;
+}
+
+.treeMenu .node .operator .inspect:hover {
+	background-position: -287px 0;
+}
+
+.treeMenu .node .operator .inspect.active {
+	background-position: -384px 0;
+}
+/*.treeMenu .node.offline .operator .inspect {
+	background-position: -484px 0;
+}*/
+.treeMenu .node .operator .append {
+	background-position: -28px 0;
+}
+
+.treeMenu .node .operator .append:hover {
+	background-position: -268px 0;
+}
+
+.treeMenu .node .operator .append.active {
+	background-position: -364px 0;
+}
+/*.treeMenu .node.offline .operator .append {
+	background-position: -464px 0;
+}*/
+.treeMenu .node .operator .play {
+	background-position: -57px 0;
+}
+
+.treeMenu .node .operator .play:hover {
+	background-position: -248px 0;
+}
+
+.treeMenu .node .operator .play.active {
+	background-position: -344px 0;
+}
+
+.treeMenu .node.offline .operator .play {
+	background-position: -444px 0;
+}
+
+.treeMenu .node .operator .history {
+	background-position: -86px 0;
+	border: none;
+}
+
+.treeMenu .node .operator .history:hover {
+	background-position: -228px 0;
+}
+
+.treeMenu .node .operator .history.active {
+	background-position: -325px 0;
+}
+/*.treeMenu .node.offline .operator .history {
+	background-position: -424px 0;
+}*/
+.treeMenu .node .operator .tvwall {
+	background-position: -114px 0;
+}
+
+.treeMenu .node .operator .tvwall:hover {
+	background-position: -208px 0;
+}
+
+.treeMenu .node .operator .tvwall.active {
+	background-position: -306px 0;
+}
+/*.treeMenu .node.offline .operator .tvwall {
+	background-position: -404px 0;
+}*/
+.treeMenu .node .operator .remove {
+	background-position: -168px 0;
+}
+
+.treeMenu .node .operator .defend {
+	background-position: -504px 0;
+}
+
+.treeMenu .node .operator .defend:hover {
+	background-position: -524px 0;
+}
+
+.treeMenu .node .operator .defend.active {
+	background-position: -544px 0;
+}
+
+#groupwrap {
+	position: absolute;
+	top: 18px;
+	right: -146px;
+	width: 245px;
+	padding: 5px 0 10px;
+	margin: 0 auto;
+	z-index: 2;
+}
+
+.treeMenu .node .operator .inspect #groupwrap {
+	right: -168px;
+}
+
+#groupwrap .grouplist {
+	width: 100px;
+	overflow: hidden;
+	background: #fdfdfd;
+	border: 1px solid #8a9fba;
+	padding-bottom: 10px;
+}
+
+#groupwrap .viewport {
+	margin-right: 8px;
+	height: 168px;
+	overflow: hidden;
+	position: relative;
+}
+
+#groupwrap .overview {
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+}
+
+#groupwrap .scrollbar {
+	position: relative;
+	float: right;
+	width: 8px;
+	margin-right: 0;
+}
+
+#groupwrap .thumb {
+	height: 12px;
+	width: 6px;
+	background: transparent url(../../../common/images/small-scroll.png) 0 0 no-repeat;
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+	padding-top: 10px;
+}
+
+#groupwrap .thumb .end {
+	height: 2px;
+	width: 6px;
+	background: transparent url(../../../common/images/small-scroll.png) 0 0 no-repeat;
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+}
+
+#groupwrap .track {
+	height: 100%;
+	width: 12px;
+	position: relative;
+	cursor: pointer;
+	background: #ffffff;
+	padding: 1px 0;
+}
+
+#groupwrap .disable {
+	display: none;
+}
+
+#groupwrap .buttons {
+	text-align: center;
+}
+
+#groupwrap .grouplist li {
+	width: 100%;
+	display: block;
+	height: 20px;
+	line-height: 20px;	
+	padding: 0 10px 0 0;
+	margin-bottom: 1px;	
+}
+
+#groupwrap .grouplist li span{
+	width: 72%;
+	display: inline-block;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+#groupwrap .grouplist li:hover {
+	background-color: #f0f5f8;
+}
+
+.treeMenu .node .triangle {
+	display: block;
+	position: absolute;
+	width: 9px;
+	height: 6px;
+	background: url(../../../common/images/trangle.png) no-repeat 0 0;
+	left: 85px;
+	top: 0;
+}
+
+.treeMenu .node .inspect .triangle {
+	left: 63px;
+}
+
+ .ui.button.save-append, .ui.button.cancel-append {
+	padding: 0 6px;
+	height: 20px;
+	line-height: 20px;
+	margin: 5px 0 0 5px;
+}
+
+#sidebar .form-panel .ui.tab {
+	position: relative;
+	border-bottom: 1px solid #FFFFFF;
+	padding-left:  16px;
+	margin-right: 1px;
+	background: #F6FBFF;
+	z-index: 20;
+}
+
+#sidebar .form-panel .ui.tab:after {
+	border-bottom: 1px solid #D7DFE8;
+	bottom: 0;
+	content: " ";
+	left: 0;
+	position: absolute;
+	width: 100%;
+}
+
+#sidebar .form-panel .ui.tab.filter {
+	padding: 8px 27px 8px 0;
+	text-align: center;
+	z-index: 1;
+}
+
+#sidebar .form-panel .ui.tab .gray {
+	color: #a9a9a9;
+}
+
+#sidebar .form-panel .group {
+	margin-bottom: 5px;
+}
+#sidebar .form-panel .group:first-child{
+	padding-top: 10px;
+}
+#sidebar .form-panel .inspect .ui.input.tiny {
+	margin-bottom: 5px;
+}
+
+#sidebar .form-panel .buttons {
+	padding-right: 20px;
+}
+
+#sidebar .form-panel .button {
+	height: 30px;
+	line-height: 28px;
+	padding: 0 8px;
+	min-width: 66px;
+	margin-bottom: 10px;
+}
+
+#sidebar .buttons.left {
+	text-align: left;
+	margin-left: 106px;
+	margin-left: 71px\0;
+}
+
+:root #sidebar .buttons.left {
+	margin-left: 106px;
+}
+
+.header .loop-header {
+	display: none;
+	color: #333333;
+	font-family: "微软雅黑";
+	line-height: 34px;
+	padding-left: 18px;
+}
+
+.header .loop-header .loop-time {
+	color: #b2b2b2;
+	margin-left: 5px;
+}
+
+/*轮巡遮罩层*/
+#camerasPanel .masklayer {
+	position: absolute;
+	top: 157px;
+	left: 0;
+	right: 0;
+	bottom: 55px;
+	opacity: 0.5;
+	z-index: 1000;
+	display: none;
+	background-color: #ffffff;
+	filter: alpha(opacity=50);
+	_position: absolute;
+	_width: 100%;
+	_height: expression(function(){return Math.max(document.documentElement.clientHeight,document.documentElement.scrollHeight);
+}());
+}
+
+#camerasPanel  .masklayer iframe {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	opacity: 0;
+	filter: alpha(opacity=0);
+}
+/*时间插件*/
+.ui-datepicker{
+	font-size: 11px;
+	z-index: 7000;
+}
+.ui_tpicker_hour_slider, .ui_tpicker_minute_slider, .ui_tpicker_second_slider{
+	width: 175px;
+	margin-left: 5px;
+}
+.node .leaf b.isHD{
+    color: #E24332;
+    font-weight: bold;
+}

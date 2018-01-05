@@ -1,0 +1,17 @@
+
+	
+	{{#if cameraList}}
+	{{#each cameraList}}
+		<li class='leaf' data-id='{{id}}'data-camera-type='{{cameraType}}'>
+			<i class='leaf camera-style marked' data-camera-type='{{cameraType}}' ></i>
+			<span class='name text-elips'  title='{{name}}'>{{name}}</span>		
+			<i class='remove-ipc'></i>
+			<span class="mupDown">
+				<i class='ico move-up'></i>
+				<i class='ico move-down'></i>
+			</span>			
+		</li>
+	{{/each}}
+	{{/if}}
+
+	

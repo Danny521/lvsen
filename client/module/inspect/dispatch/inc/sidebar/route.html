@@ -1,0 +1,29 @@
+<div class="route np-guard-route">
+    <div class="route-header">
+        <div class="route-header-title">
+            <i class="sidebar-home-icon np-map-overlay home-enable-click" data-event="click" data-handler="GuardRouteGroupHome" data-mark="business"></i>
+            <b> > </b><span>警卫路线</span>
+            <a href="javascript:void(0)" class="blue-button route-group" data-event="click" data-handler="BuildNewRouteGroup">新建分组</a>
+        </div>
+        <div class="new-team">
+            <span class="arrow"></span>
+            <form onsubmit="return false;">
+                <input class="new-team-name np-new-group-name" maxlength="30" placeholder="请输入分组名称">
+                <div class="pull-right">
+                    <button type="submit" data-event="click" data-handler="SaveNewRouteGroup" class="blue-button save-button">保存</button>
+                    <button type="button" class="white-button cancle-button" data-event="click" data-handler="CancelNewRouteGroup">取消</button>
+                </div>
+            </form>
+        </div>
+        <div class="guard-route-playing"><i class="running"></i>警卫路线播放中...</div>
+    </div>
+    <div class="sidebar-search-div">
+        <form onsubmit="return false;">
+            <input class="sidebar-search np-search-route" maxlength="30" placeholder="搜索警卫路线...">
+            <button class="sidebar-search-submit" data-event="click" data-handler="SearchRoutes" type="submit"></button>
+        </form>
+    </div>
+
+    <div class="route-group-container np-route-group-container"></div>
+    <!--警卫路线分组，警卫路线搜索显示-->
+</div>

@@ -1,0 +1,52 @@
+{{#if showDialog }}
+<div id="exportPanel">
+	<div class="inner clearfix">
+		<div class="inner-left">
+			<ul>
+				<li class="input-title font-solid">请在下方选择需要导出的组织机构或摄像机:</li>
+				<li class="ui input inputli">
+					<input id="searchCameraInpt" class="left-camera-search" placeholder="请输入关键字"></input>
+					<button id="searchCameraBtn" class="searchbox button"></button>
+				</li>
+				<li>
+					<div class="org-tree">
+						<div id="exportTreePanel" class="treePanel export_win_p" data-loaded="1">
+						
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div class="inner-right">
+			<p class="font-solid">说明:</p>
+			<p>1、选择要标定点位、可视区域的摄像机（或</p>
+			<p>组织机构）进行导出；</p>
+			<p>2、在导出的表格中补充每个摄像机的点位信</p>
+			<p>息、可视角度（见表格中说明）；</p>
+			<p>3、将补充好信息的表格导入，即可完成摄像</p>
+			<p>机点位信息标定。</p>
+		</div>
+
+	</div>
+
+	<div class="buttons">
+		<button id="winExportBtn" class="ui button blue">导出</button>
+		<button id="winCacel" class="ui button winCacel">取消</button>
+	</div>
+	<iframe id="myexport" width="0" height="0" style="display: none"></iframe>
+</div>
+{{/if}}
+
+{{#if loading}}
+<div class="upload-loading"></div>
+{{/if}}
+{{#if success}}
+<div class="upload-success"></div>
+{{/if}}
+{{#if faliure}}
+<div class="faliurePos">
+	<div class="upload-faliure">
+		<button class="reloadBtn ui button blue" title="重新上传">重新上传</button>
+	</div>
+</div>
+{{/if}}

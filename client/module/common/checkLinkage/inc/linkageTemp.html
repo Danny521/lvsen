@@ -1,0 +1,82 @@
+{{#if middlePosition}}
+<ul>
+{{#if dataList}}
+{{#each dataList}}
+	<li data-cameraId="{{cameraId}}" data-id="{{id}}" data-event="click" data-handler="selectPresets">
+		<span class="js-left"><i class="radio"></i><em class="inspectName" title="{{name}}">{{name}}</em></span>
+		<span class="js-right"><img src="/service/pfsstorage/image?filePath={{imageUrl}}" /></span>
+	</li>
+{{/each}}
+{{/if}}
+</ul>
+{{/if}}
+
+{{#if tvwall}}
+    {{#each dataList}}
+	<li>
+		<span class="name" title="{{cameraName}}">
+			<i class="camera-ball-online"></i>{{cameraName}}
+		</span>
+		<div class="layout-select">
+		布局:
+		<span class="select_container" data-type="layout">
+			<span class="text" data-value="1">选择布局</span>
+			<span class="arrow-down" data-type="layout" data-event="click" data-handler="showOption"></span>
+		</span>
+		通道:
+		<span class="select_container" data-type="channel">
+			<span class="text" data-value="1">选择通道</span>
+			<span class="arrow-down" data-type="channel" data-event="click" data-handler="showOption"></span>
+		</span>
+
+		<span class="js-close">
+			<i class="icon-close" data-event="click" data-handler="removeLi"></i>
+		</span>
+		</div>
+	</li>
+	{{/each}}
+{{/if}}
+
+
+{{#if layout}}
+    {{#each layoutData}}
+    <li data-id="{{id}}" data-name="{{name}}">{{name}}</li>
+    {{/each}}
+{{/if}}
+
+{{#if channel}}
+    {{#each channelData}}
+    <li data-id="{{id}}" data-layoutid="{{layoutId}}" data-screenId="{{screenId}}">{{screenId}}</li>
+    {{/each}}
+{{/if}}
+
+{{#if linkage}}
+    {{#each linkageData}}
+        <li data-channel="{{this.channel}}" data-event="click" data-handler="clickLi">
+        	<span title="{{this.name}}">
+        		<i class="{{cameraType this.c_type}}"></i>{{this.name}}
+        	</span>
+        </li>
+    {{/each}}
+{{/if}}
+
+{{#if alarm}}
+    <table>
+		<tr>
+			<td class="table-left">报警摄像机</td>
+			<td  colspan="3" class="table-right">{{alarm.alarmCamera}}</td>
+		</tr>
+		<tr>
+			<td class="table-left">{{alarm.deployTask}}</td>
+			<td class="table-right task">{{name alarm.eventType}}</td>
+			<td class="table-left">{{alarm.deployTime}}</td>
+			<td class="table-right">{{mills2str alarm.time}}</td>
+		</tr>
+		<tr>
+			<td class="table-left">报警级别</td>
+			<td class="table-right sign">{{levels alarm.level}}</td>
+			<td class="table-left">{{alarm.deployPeople}}</td>
+			<td class="table-right">{{alarm.user}}</td>
+		</tr>
+	</table>
+{{/if}}

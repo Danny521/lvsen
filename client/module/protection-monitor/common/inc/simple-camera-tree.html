@@ -1,0 +1,14 @@
+<!-- 摄像机树 start -->
+<ul onselectstart="return false;">
+    {{#if init}}
+        {{#each cameras}}   
+            <li class="{{typeNameTransform type}} {{#isTree1 type}}root{{/isTree1}} {{hasNoRight score}}" data-camerascore="{{score}}"  data-tree-level="{{../level}}" data-type="{{typeNameTransform type}}" data-camera-type="{{camera_type}}" data-cameracode="{{cameraCode}}" data-lat="{{latitude}}" data-lon="{{longitude}}" data-id="{{id}}"  data-name="{{name}}" data-camera-status="{{camera_status}}" data-hd-channel="{{translate hd_channel}}" data-sd-channel="{{translate sd_channel}}" data-camera-info=>{{#isTree1 type}}<i class="fold"></i>{{/isTree1}}
+            {{showCheckBox ../selectable ../treeNeedSelectBox type ../../selected id buildTypeId}}<i class="root"></i><span class="name" title="{{name}}">{{name}}</span></li>
+        {{/each}}
+    {{else}}
+        {{#each cameras}}
+            <li class="{{typeNameTransform type}} {{hasNoRight score}}" data-camerascore="{{score}}"  data-camera="{{camera_type}}" data-id="{{id}}"  data-name="{{name}}"  data-tree-level="{{../level}}" data-cameracode="{{cameraCode}}"  data-lat="{{latitude}}" data-lon="{{longitude}}" data-type="{{typeNameTransform type}}" data-camera-type="{{camera_type}}" data-camera-status="{{camera_status}}" data-hd-channel="{{translate hd_channel}}" data-sd-channel="{{translate sd_channel}}">{{#isTree1 type}}<i class="fold"></i>{{/isTree1}}{{showCheckBox ../selectable ../treeNeedSelectBox type ../../selected id buildTypeId}}<i class="{{typeNameTransform type}} camera-style {{#eq camera_type 2}}dom{{/eq}} {{status  camera_type  camera_status hd_channel}} {{ipcCamera}}"></i><span class="name" title="{{name}}{{isCode cameraCode}}">{{name}}{{isCode cameraCode}}</span></li>
+        {{/each}}
+    {{/if}}
+</ul>   
+<!-- 摄像机树 end -->

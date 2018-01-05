@@ -1,0 +1,81 @@
+#sidebar>.header .title.cameraStat {
+	border-bottom: 1px solid #DFDFDF;
+	height: 39px;
+	padding-left: 51px;
+	line-height: 39px;
+	color: #333;
+	font-size: 14px;
+    background: #FFF url("../images/report_icons.png") no-repeat -3px -130px;
+}
+
+#stat.menus li.cameraStat {
+	background-position:-1px -6px;
+}
+/*#stat.menus li.cameraStat.active {
+	background-position: -50px -100px;
+}*/
+
+/* 摄像机类型统计表格 */
+#sumCamera{
+	height: 40px; 
+	background: #e9e9e9;
+	font-weight: bold;
+	position: fixed;
+	bottom: 0;
+	display:none; /* 2014.11.15 于秋要求去掉 By LiangChuang */
+}
+#tablecameraStat .tips {
+	border:none;
+}
+/* #tablechartcameraStat .orgName{
+	text-align: left;
+	padding-left: 65px;
+} */
+#tablechartcameraStat .bRight{
+	border-right: 1px solid #ccc;
+	width: auto;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+.ui.inverted.table tbody tr.check td{
+	background: #d3e3f0 !important;
+}
+
+.ui.inverted.segment.sum{
+	background-color: #e9e9e9;
+}
+
+#searchcameraStat{
+	width:100px;
+	overflow:hidden;
+	height:37px;
+	line-height:37px;
+	position: absolute;
+	top:-37px;
+	right: 0;
+	display: none;
+}
+
+/* 摄像机类型统计导出 */
+#exportcameraStat{
+	/*background: #00a3f5;
+	color: #fff;
+	border:none;*/
+    margin: 8px 15px 0 0;
+    width: 42px;
+    height: 19px;
+    line-height: 19px;
+    padding: 0;
+    border: 1px solid #cfd2d4;
+    box-shadow: 0px -1px 1px #cfd2d4;
+    background: #dce1e6;
+    filter: none;
+    border-top: 1px solid #f5fbff;
+    border-radius: 0;
+    color: #333;
+}
+
+#major {
+	left:50px;
+}

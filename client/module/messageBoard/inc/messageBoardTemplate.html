@@ -1,0 +1,60 @@
+{{#if message}}
+{{#if messageList}}
+	{{#each messageList}}
+		<div class="messageItem" data-userid="{{userId}}" data-id="{{id}}" data-handler="getReplyList" data-event="click">
+			<div class="itemLeft">
+				<span class="leftnormal"><label><i class="icon-points"></i>关注：</label><em class="count" title="{{attentionCount}}">{{attentionCount}}</em></span>
+				<span class="leftnormal"><label><i class="icon-user"></i>用户：</label><em class="user" title="{{userName}}">{{userName}}</em></span>
+			</div>
+			<div class="itemContent">
+				<div class="centerTitle">
+					<span class="left_t"><em>主题：</em>{{title}}</span>
+					<span class="right_t">{{toStingsData createTime}}</span>
+				</div>
+				<div class="centerCon">
+					<span class="right_con"><em>内容：</em>{{content}}</span>
+					<div class="replyPanels"></div>
+					<div class="right_tools">
+						<p class="rightTool">
+							<span class="messageReply" data-handler="replyMessage" data-event="click"><i class="icon_message"></i>回复</span>
+							<span class="line"></span>
+							<span class="point {{isPointActive attention}}" data-handler="addPoint" data-event="click"><i class="icon_point"></i>关注</span>
+						</p>
+					</div>
+					
+				</div>
+				<div class="replyPanel">
+					<i class="icon_arrow"></i>
+					<div class="replyCont">
+						<label>回复：</label>
+						<textarea class="replyTextarea"  maxlength="180" data-handler="stopPro" data-event="click"></textarea>
+					</div>
+					<div class="replyFooter">
+						<span class="ui blue button small mySendBtn"  data-handler="sendReply" data-event="click">确定</span>
+						<span class="ui button small cancelSend" data-handler="cancelReply" data-event="click">取消</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	{{/each}}
+	{{else}}
+		<p class="nodata">暂无消息</p>
+	{{/if}}
+{{/if}}
+
+{{#if pagebar}}
+<div class="pagination"></div>
+{{/if}} 
+
+{{#if replyPanel}}
+	{{#each replyList}}
+	<div class="replayCon">
+		<p class="repTitle"><em>回复：</em>{{content}}</p>
+		<p class="repMsg">
+			<span class="repUser"><em>回复人：</em>{{userName}}</span>
+			<span class="repDeate">{{toStingsData updateTime}}</span>
+		</p>
+	</div>
+	{{/each}}
+{{/if}}

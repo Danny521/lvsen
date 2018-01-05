@@ -1,0 +1,83 @@
+<div id="header">
+	<div class="newinsertheader planlist">
+		<div class="setting-head ">
+			<a class="ui button blue float-right" id="newplan">新建计划</a>
+			<a class="back back-home"> <i></i></a>
+		</div>
+		<form onsubmit="return false;" autoComplete="off" class="newinsertheader">
+			<div class="serchbox simple">
+				<div class="ui input action search">
+					<input type="text" name="planName" id="searchPlan" placeholder="请输入计划名称..." />
+					<button class="search action searchPlan">搜索</button>
+				</div>
+			</div>
+
+			<!-- <div class="serchbox advance">
+				<div class="ui input">
+					<label>
+						计划名称：
+						<input type="text" name="taskName" placeholder="请输入计划名称..." />
+					</label>
+				</div>
+				<div class="ui input">
+					<label>
+						任务状态：
+						<select id="status" name='taskStatus'>
+							<option data-value="option1" value='1'>未巡检</option>
+							<option data-value="option2" value='2'>已巡检</option>
+				<option data-value="option2" value='3'>待审核</option>
+							<option data-value="option2" value='4'>已审核</option>
+						</select>
+					</label>
+				</div>
+				<div class="ui input">
+					<label>
+						提交时间：
+						<input type="text" name="taskDate" class='datepicker' placeholder="请输入提交时间..." />
+					</label>
+				</div>
+			</div> 
+
+			<input type="submit" class="submit right ui button blue" value="搜索">
+			<a class="changemodel left" href="javascript:;">高级>></a>-->
+		</form>
+	</div>
+</div>
+<div id="body">
+	<div class="groups">
+		{{#each taskPlans.list}}
+		<div class="group-item">
+			<div class="item-header">
+				<a href="#" task-id="{{id}}" class="configplanisopen {{isClosed status}}" task-status="{{isOpen status}}" task-name="{{taskName}}">
+					{{isOpen status}}
+				</a>
+				<span class="name" title="{{taskName}}">{{taskName}}</span>
+			</div>
+
+			<div class="item-body">
+				<span class="time">
+					<q>提交时间：</q>
+					{{dateThen param frequency}}
+				</span>
+				{{#if frequency}}
+				<span class="status">
+					<q>频率：</q>
+					{{rate frequency}}
+				</span>
+				{{/if}}
+				{{#if param}}
+				<span class="status date">
+					<q>日期：</q>
+					{{dateNow param frequency}}
+				</span>
+				{{/if}}
+			</div>
+
+			<div class="item-footer">
+				<a class="layer delete" href="#" task-id="{{id}}" task-name="{{taskName}}">删除</a>
+				<a class="configplan" href="#" task-id="{{id}}">设置</a>
+			</div>
+		</div>
+		{{/each}}
+	</div>
+</div>

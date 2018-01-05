@@ -1,0 +1,20 @@
+<table class="ui sixs column table inverted segment content">
+    {{#each records}}
+    <tr data-sortorgid="{{orgId}}" data-sortdate="{{inspectDate}}" class="{{badstatus status}}">
+        <td class="checkboxth"><input type="checkbox" class="checkbox" data-id="{{id}}" data-id="{{cameraId}}" task-id="{{taskId}}" data-inspectDate="{{inspectDate}}"></td>
+        <!--<td class="number">{{orderIndex @index 0}}</td>-->
+        <td class="orgName">{{orgName}}</td>
+        <td class="userName">{{userName}}</td>
+        <td class="inspectDate">{{newDate inspectDate}}</td>
+        <td class="status">{{checkedStatus status}}</td>
+        <td class="mode">{{isAuto autoStatus}}</td>
+        <td class="exceptionInfos">{{exception exceptionInfos}}</td>
+        <td class="remark">{{remark}}</td>
+        <td>
+            {{#if exceptUrl}}
+            <a data-exceptUrl="{{exceptUrl}}" class="image" data-id="{{id}}">图片</a>
+            {{/if}}
+        </td>
+    </tr>
+    {{/each}}
+</table>

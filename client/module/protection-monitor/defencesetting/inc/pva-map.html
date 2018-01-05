@@ -1,0 +1,91 @@
+{{#if mapRegion}}
+<div class="map-tool-item">
+    <a>
+		<span>
+			<!-- <b class="map-text">上海市</b> -->
+			<i class="map-arrowdown"></i>
+		</span>
+    </a>
+</div>
+{{/if}}
+{{#if tools}}
+<div class="map-tools-a">
+    <a title="工具" class="map-tools"></a>
+    <ul class="map-tools-list">
+        {{#if tools.max}}
+        <li><a class="map-max" title="放大">放大</a></li>
+        {{/if}}
+        {{#if tools.min}}
+        <li><a class="map-min" title="缩小">缩小</a></li>
+        {{/if}}
+        {{#if tools.measureLength}}
+        <li><a class="map-measure" title="测距">测距</a></li>
+        {{/if}}
+        {{!--{{#if tools.mapclear}}
+        <li><a class="map-clear" id="mapClear" title="清除">清除</a></li>
+        {{/if}}--}}
+    </ul>
+</div>
+{{/if}}
+{{#if switchLayer}}
+<a class="map-layer-satellite" title="显示卫星图层" layer="normal"></a>
+{{/if}}
+{{#if switchLayer}}
+<a class="map-layer-satellite" title="显示卫星图层" layer="normal"></a>
+{{/if}}
+{{#if fullScreen}}
+<div class="map-tool-item">
+    <a title="全屏" class="map-fullscreen"></a>
+</div>
+{{/if}}
+{{#if fullscreen}}
+<a title="全屏" class="map-fullscreen"></a>
+{{/if}}
+
+{{#if exitfullscreen}}
+<a title="退出全屏" class="map-exitfullscreen"></a>
+{{/if}}
+{{#if cameraInfo}}
+    <div class="infowindow-top infowindow-title">
+        <span class="text" title="{{cameraInfo.name}}{{#cameraCodeShow cameraInfo.cameraCode}}{{/cameraCodeShow}}">{{cameraInfo.name}}{{#cameraCodeShow cameraInfo.cameraCode}}{{/cameraCodeShow}}</span>
+        <span class="infowindow-operator">
+           <a title="关闭" class="icon_mark_close video-play-close"></a>
+        </span>
+    </div>
+    <table class="map-camera-info" data-id="{{cameraInfo.id}}" data-name="{{cameraInfo.name}}" data-status="{{cameraInfo.camera_status}}"  data-cameratype="{{cameraInfo.camera_type}}" data-code="{{#cameraCodeShow cameraInfo.cameraCode}}{{/cameraCodeShow}}" data-longitude="{{cameraInfo.longitude}}" data-latitude="{{cameraInfo.latitude}}" data-hdchannel="{{translate cameraInfo.hd_channel}}" data-sdchannel="{{translate cameraInfo.sd_channel}}">
+        <tr class="head">
+            <td><span class="{{#cameraStatusAndType cameraInfo.camera_type cameraInfo.isOnline}}{{/cameraStatusAndType}}"></span></td>
+            <td class="camera-status">
+                {{#isOnline cameraInfo.isOnline}}
+                    {{#if data}}
+                        <span class="camera-status-online" title="点击播放视频">实时视频</span>
+                    {{else}}
+                        离线
+                    {{/if}}
+                {{/isOnline}}
+            </td>
+        </tr>
+        <tr class="even">
+            <td class="label">分类：</td><td>{{#cameraInstallType cameraInfo.installType}}{{/cameraInstallType}}</td>
+        </tr>
+        <tr class="odd">
+            <td class="label">地址：</td><td style="overflow: hidden;  white-space: nowrap;  text-overflow: ellipsis;max-width: 200px;" title="{{cameraInfo.installAddress}}">{{cameraInfo.installAddress}}</td>
+        </tr>
+        <tr class="even">
+            <td class="label">坐标：</td><td>{{cameraInfo.longitude}}</td>
+        </tr>
+        <tr class="even">
+            <td class="label"></td><td>{{cameraInfo.latitude}}</td>
+        </tr>
+    </table>
+{{/if}}
+{{#if ocx}}
+<div class="infowindow-top video-play">
+    <span class="infowindow-title" title="{{ocx.name}}{{#cameraCodeShow ocx.cameraCode}}{{/cameraCodeShow}}">{{ocx.name}}{{#cameraCodeShow ocx.cameraCode}}{{/cameraCodeShow}}</span>
+    <span class="infowindow-operator">
+        <a title="关闭" class="icon_mark_close video-play-close"></a>
+    </span>
+</div>
+<div class="map-video-container">
+</div>
+{{/if}}

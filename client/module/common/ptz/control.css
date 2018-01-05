@@ -1,0 +1,3325 @@
+/*定义ptz模块的slider样式*/
+#ptzCamera .ui-slider{
+	display: inline-block;
+	height: 8px;
+	width: 170px;
+	border: none;
+	background: url(/module/common/images/icons/progessbar-bg.png) no-repeat;
+}
+.hidden{
+	display: none !important;
+}
+
+#ptzCamera .ui-slider .ui-slider-range {
+	border: none;
+	background: url(/module/common/images/icons/progressbar.png) no-repeat;
+}
+
+#ptzCamera .ui-slider .ui-slider-handle {
+	width: 17px;
+	height: 19px;
+	border: none;
+	cursor: pointer;
+	background: url(/module/common/images/icons/circle.png) no-repeat;
+}
+
+.manual_alarm_ifr{
+	position: fixed;
+	top:0px;
+	left:0px;
+	right:0px;
+	bottom:0px;
+	width: 100%;
+	height: 100%;
+	z-index: 90;
+	opacity: 0;
+	filter: alpha(opacity=0);
+}
+#ptzCamera {
+	position: absolute;
+	bottom: 0px;
+	width: 280px;
+	z-index:900;
+	/* 该值不能大于2000，因为2000是弹窗的z-index 发现1999也不行 后来换成了1998
+	发现不能被截图预览的对话框遮住，改为900
+	*/
+	background: transparent url('/module/common/images/bg/controlheader.png') no-repeat scroll 0 0;
+}
+
+#sidebar #ptzCamera > .header {
+	height: 55px;
+	cursor: pointer;
+	background: transparent url('/module/common/images/sprites/up.png') no-repeat scroll center 10%;
+}
+
+#sidebar #ptzCamera.active > .header {
+	background: transparent url('/module/common/images/sprites/down.png') no-repeat scroll center 10%;
+}
+
+#ptzCamera > .header ul {
+	position: relative;
+	height: 40px;
+	line-height: 45px;
+	margin-top: 15px;
+	display: inline-block;
+	padding: 0 4px;
+}
+
+#ptzCamera > .header li {
+	float: left;
+	cursor: pointer;
+	width: 48px;
+	height: 25px;
+	margin: 7px 2px;
+	padding: 0 8px;
+	line-height: 25px;
+	border-radius: 3px;
+	text-align: center;
+}
+
+#ptzCamera > .header li:hover,
+#ptzCamera > .header li.active {
+	background-color: #1A77DE;
+}
+
+#ptzCamera > .header li a {
+	color: #333333;
+}
+
+#ptzCamera > .header li:hover a {
+	color: #FFFFFF;
+}
+
+#ptzCamera > .header li.active a {
+	color: #FFFFFF;
+}
+
+#ptzCamera > .content {
+	position: relative;
+	display: none;
+	height: 200px;
+	background-color: #EBF0F4;
+	border-top: 1px solid #C3C8CC;
+}
+
+#ptzCamera > .header ul:after,
+#ptzCamera > .content:after {
+	content: ' ';
+	width: 0px;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0px;
+	border-right: 1px solid #DFDFDF;
+}
+
+#ptzCamera > .content .ui.tab {
+	position: static;
+}
+
+#ptzCamera.active > .content {
+	display: block;
+}
+
+#ptzCamera > .content {
+	height: 200px;
+}
+
+#ptzCamera > .content li span {
+	display: inline-block;
+}
+
+#ptzCamera > .content .effect ul {
+	padding: 6px 0;
+}
+
+#ptzCamera > .content .effect li {
+	margin: 10px 0;
+	height: 24px;
+	line-height: 24px;
+	vertical-align: center;
+	position: relative;
+}
+
+#ptzCamera > .content .effect li span {
+	color: #333;
+}
+
+#ptzCamera > .content .effect .item {
+	margin-right: 15px;
+	width: 45px;
+	text-align: right;
+	float: left;
+}
+
+#ptzCamera > .content .effect .count {
+	padding-left: 4px;
+	width: 38px;
+	text-align: left;
+}
+
+#ptzCamera .buttons {
+	width: 260px;
+	position: absolute;
+	bottom: 8px;
+	text-align: right;
+	top: 159px;
+}
+
+#ptzCamera .buttons .button {
+	margin-right: 5px;
+}
+
+#ptzCamera .ui.button {
+	height: 24px;
+	line-height: 24px;
+}
+
+#ptzCamera input.ui.button,
+#ptzCamera button.ui.button {
+	height: 26px;
+	line-height: 26px;
+}
+
+#ptzCamera .box-head {
+	position: relative;
+	line-height: 30px;
+	height: 30px;
+	padding-left: 10px;
+	border-bottom: 1px solid #FFFFFF;
+}
+
+#ptzCamera .box-head:after {
+	border-bottom: 1px solid #D7DFE8;
+	bottom: 0;
+	content: " ";
+	position: absolute;
+	width: 100%;
+	left: 0;
+}
+
+#ptzCamera .box-head h3 {
+	height: 30px;
+	display: inline-block;
+	float: left;
+}
+
+#ptzCamera .box-head i {
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	background: url('/module/common/images/icons/setting.png') no-repeat scroll 0 0;
+	float: right;
+	margin: 6px 15px 0 0;
+	cursor: pointer;
+}
+
+#ptzCamera .box-head select.order {
+	width: 68px;
+	margin: 3px 0 0 0;
+}
+
+#ptzCamera > .content .preset .box-body ul {
+	height: 122px;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+
+#ptzCamera > .content .preset .box-body li {
+	height: 50px;
+	padding: 5px 0;
+}
+
+#ptzCamera > .content .preset .box-body li,
+#ptzCamera > .content .cruise .box-body li {
+	border-bottom: 1px solid #FFFFFF;
+	position: relative;
+}
+
+#ptzCamera > .content .preset .box-body li:after,
+#ptzCamera > .content .cruise .box-body li:after {
+	border-bottom: 1px solid #D7DFE8;
+	content: " ";
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+}
+
+#ptzCamera > .content .preset .box-body li.active,
+#ptzCamera > .content .cruise .box-body li.active {
+	background-color: #A9D3F5;
+}
+#ptzCamera > .content .preset span{
+	display: inline-block;
+	text-align: center;
+}
+#ptzCamera > .content .preset .pre-num{
+	width: 50px;
+}
+#ptzCamera > .content .preset .pre-img{
+	width: 100px;
+}
+
+#ptzCamera > .content .preset .pre-name{
+	width: 80px;
+}
+
+#ptzCamera > .content .preset .presetting-info span.presetting-num {
+	height: 50px;
+	width: 60px;
+	float: left;
+	line-height: 50px;
+}
+
+#ptzCamera > .content .preset .presetting-info span.presetting-img {
+	line-height: 24px;
+	float: left;
+	width: 100px;
+	height: 50px;
+	line-height: 50px;
+}
+#ptzCamera > .content .preset .presetting-info span.presetting-img img{
+	width: 64px;
+	height: 50px;
+	cursor: pointer;
+}
+
+#ptzCamera > .content .preset .presetting-info span.presetting-place {
+	height: 50px;
+	float: left;
+	line-height: 50px;
+	width: 84px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+#ptzCamera > .content .preset .presetting-info span.presetting-place input {
+	width: 72px;
+	text-align: center;
+}
+
+#ptzCamera > .content .cruise .box-body ul {
+	height: 93px;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+
+#ptzCamera > .content .cruise .box-body li {
+	height: 30px;
+	line-height: 30px;
+}
+
+#ptzCamera > .content .cruise .box-head.auto-head,
+#ptzCamera > .content .cruise .box-head.period-head {
+	display: none;
+}
+
+#ptzCamera > .content .cruise .box-head .time-interval {
+	display: none;
+	float: left;
+	height: 30px;
+	line-height: 30px;
+	margin-left: 10px;
+	width: 135px;
+}
+
+#ptzCamera > .content .cruise .auto-head,
+#ptzCamera > .content .cruise .period-head {
+	padding-left: 0;
+}
+
+#ptzCamera > .content .cruise .presetting-info span,
+#ptzCamera > .content .cruise .box-head span {
+	float: left;
+	text-align: center;
+}
+
+#ptzCamera > .content .cruise .box-head span.head-num {
+	width: 40px;
+}
+
+#ptzCamera > .content .cruise .box-head span.head-title {
+	width: 74px;
+}
+
+#ptzCamera > .content .cruise .box-head span.head-time,
+#ptzCamera > .content .cruise .presetting-info span.time {
+	width: 80px;
+}
+
+#ptzCamera > .content .cruise .auto-head span.head-title,
+#ptzCamera > .content .cruise .auto-head span.head-time,
+#ptzCamera > .content .cruise .auto-li span.presetting-place,
+#ptzCamera > .content .cruise .presetting-info span.time {
+	margin-left: 10px;
+}
+
+#ptzCamera > .content .cruise .presetting-info span.presetting-place {
+	width: 72px;
+	height: 30px;
+	line-height: 30px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+#ptzCamera > .content .cruise .presetting-info span.presetting-num {
+	width: 40px;
+}
+
+#ptzCamera > .content .cruise .box-head span.head-pstart,
+#ptzCamera > .content .cruise .box-head span.head-pend,
+#ptzCamera > .content .cruise .presetting-info span.pstart,
+#ptzCamera > .content .cruise .presetting-info span.pend {
+	width: 70px;
+}
+
+#ptzCamera > .content .ui.tab.ptz {
+	position: absolute;
+}
+
+#ptzCamera .ptz, #ptzCamera > .header li.ptz {
+	display: block;
+	float: none;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#ptzCamera > .content .ptz .ptz-adjust {
+	position: absolute;
+	left: 20px;
+	top: 43px;
+	width: 241px;
+	height: 48px;
+	background: url('/module/common/images/bg/adjustbg.png') no-repeat 0 0;
+}
+
+#ptzCamera > .content .ptz .ptz-adjust .adjust-wrap {
+	width: 100%;
+	height: 38px;
+	position: absolute;
+	left: 8px;
+	top: 5px;
+}
+
+#ptzCamera > .content .ptz .ptz-adjust .adjust-wrap > span {
+	background: url('/module/common/images/bg/adjust01.png') no-repeat 0 0;
+	display: inline-block;
+	width: 24px;
+	height: 20px;
+	cursor: pointer;
+	position: absolute;
+}
+#ptzCamera > .content .ptz .adjust-wrap > span.hover{
+	background: url('/module/common/images/bg/adjust02.png') no-repeat 0 0;
+}
+#ptzCamera > .content .ptz .adjust-wrap > span.clicked{
+	background: url('/module/common/images/bg/adjust03.png') no-repeat 0 0;
+}
+
+#ptzCamera > .content .ptz .ptz-adjust .adjust-wrap .zoom.up {
+	left: 136px;
+	top: -4px;
+	background-position: 8px 4px;
+}
+
+#ptzCamera > .content .ptz .ptz-adjust .adjust-wrap .zoom.down {
+	left: 136px;
+	top: 19px;
+	background-position: 8px -19px;
+}
+
+#ptzCamera > .content .ptz .ptz-adjust .adjust-wrap .focus.up {
+	left: 170px;
+	top: -4px;
+	background-position: -23px 3px;
+}
+
+#ptzCamera > .content .ptz .ptz-adjust .adjust-wrap .focus.down {
+	left: 170px;
+	top: 19px;
+	background-position: -23px -20px;
+}
+
+#ptzCamera > .content .ptz .ptz-adjust .adjust-wrap .iris.up {
+	left: 202px;
+	top: -5px;
+	background-position: -57px 4px;
+}
+
+#ptzCamera > .content .ptz .ptz-adjust .adjust-wrap .iris.down {
+	left: 202px;
+	top: 20px;
+	background-position: -57px -19px;
+}
+
+#ptzCamera > .content .ptz .dir-control {
+	background: url('/module/common/images/bg/dir01.png') no-repeat 0 0;
+	height: 102px;
+	width: 102px;
+	position: absolute;
+	left: 47px;
+	top: 12px;
+}
+
+#ptzCamera > .content .ptz .dir-control > div {
+	background: url('/module/common/images/bg/dir01.png') no-repeat 0 0;
+	width: 23px;
+	height: 20px;
+	cursor: pointer;
+	position: absolute;
+}
+#ptzCamera > .content .ptz .dir-control > div.hover{
+	background: url('/module/common/images/bg/dir02.png') no-repeat 0 0;
+}
+#ptzCamera > .content .ptz .dir-control > div.clicked{
+	background: url('/module/common/images/bg/dir03.png') no-repeat 0 0;
+}
+
+#ptzCamera > .content .ptz .dir-control div.vertical {
+	height: 22px;
+	width: 24px;
+}
+
+#ptzCamera > .content .ptz .dir-control .dir.right {
+	left: 73px;
+	top: 40px;
+	background-position: -73px -40px;
+}
+
+#ptzCamera > .content .ptz .dir-control .dir.rightup {
+	left: 66px;
+	top: 15px;
+	background-position: -66px -15px;
+}
+
+#ptzCamera > .content .ptz .dir-control .dir.up {
+	left: 40px;
+	top: 4px;
+	background-position: -40px -4px;
+}
+
+#ptzCamera > .content .ptz .dir-control .dir.leftup {
+	left: 14px;
+	top: 15px;
+	background-position: -14px -15px;
+}
+
+#ptzCamera > .content .ptz .dir-control .dir.left {
+	left: 3px;
+	top: 40px;
+	background-position: -3px -40px;
+}
+
+#ptzCamera > .content .ptz .dir-control .dir.leftdown {
+	left: 13px;
+	top: 65px;
+	background-position: -13px -65px;
+}
+
+#ptzCamera > .content .ptz .dir-control .dir.down {
+	left: 39px;
+	top: 78px;
+	background-position: -39px -78px;
+}
+
+#ptzCamera > .content .ptz .dir-control .dir.rightdown {
+	left: 65px;
+	top: 65px;
+	background-position: -65px -65px;
+}
+
+#ptzCamera > .content .ptz .dir-control .scan {
+	left: 30px;
+	top: 32px;
+	width: 41px;
+	height: 43px;
+	background-position: -30px -32px;
+}
+#ptzCamera > .content .ptz .dir-control .scan.clicked{
+	background-position: -30px -30px;
+}
+
+#ptzCamera > .content .ptz .control-speed {
+	position: relative;
+	left: 20px;
+	top: 120px;
+	width: 100%;
+	height: 24px;
+	line-height: 24px;
+	/*top: 150px\9;*/
+}
+
+#ptzCamera > .content .ptz .item{
+	line-height: 24px;
+	margin-right: 10px;
+}
+
+#ptzCamera > .content .ptz .equipment{
+	display: block;
+	position: relative;
+	top: 127px;
+	left: 20px;
+	height: 30px;
+	line-height: 30px;
+	width: 230px;
+}
+#ptzCamera > .content .ptz .equipment .choose{
+	float: left;
+}
+
+#ptzCamera > .content .ptz .equipment select{
+	width: 165px;
+	display: inline-block;
+	height: 22px;
+}
+#ptzCamera > .content .ptz .equipment .switch{
+	display: inline-block;
+	background: url('/module/common/images/icons/equipment-switch.png') no-repeat 0 -23px;
+	width: 48px;
+	height: 22px;
+	margin-left: 15px;
+	float: right;
+	cursor: pointer;
+	margin-top: 3px;
+	margin-top: 6px\9;
+}
+
+#ptzCamera > .content .ptz .equipment .switch.off{
+	background-position: 0 -23px;
+}
+#ptzCamera > .content .ptz .equipment .switch.on{
+	background-position: 0 0;
+}
+
+#ptzCamera > .camera-data {
+	height: 0;
+}
+
+/*巡航设置*/
+#setCruise {
+	height: 255px;
+	width: 280px;
+	position: absolute;
+	bottom: 0px;
+	display: none;
+	z-index:995;
+}
+
+#setCruise:after {
+	content: ' ';
+	width: 0px;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0px;
+	border-right: 1px solid #DFDFDF;
+}
+
+#setCruise .header {
+	position: relative;
+	height: 38px;
+	line-height: 38px;
+	width: 100%;
+	background: url('/module/common/images/bg/cruiseheader.png') no-repeat scroll 0 0;
+	left: 0;
+	top: 0;
+}
+
+#setCruise li a {
+	color: #333;
+}
+
+#setCruise .header ul {
+	display: inline-block;
+	width: 144px;
+	height: 24px;
+	overflow: hidden;
+	line-height: 24px;
+	background-color: #F6FBFF;
+	border: 1px solid #c3c8cc;
+	border-radius: 3px;
+	margin-left: 15px;
+	margin-top: 6px;
+}
+
+#setCruise .header li {
+	float: left;
+	cursor: pointer;
+	width: 60px;
+	height: 25px;
+	padding: 0 6px;
+	line-height: 25px;
+	text-align: center;
+}
+
+#setCruise .header li.active {
+	background-color: #1A77DE;
+}
+
+#setCruise .header li.active a {
+	color: #FFFFFF;
+}
+
+#setCruise .header .back {
+	position: absolute;
+	top: 0;
+	left: 236px;
+	cursor: pointer;
+}
+
+#setCruise > .content .ui.tab {
+	position: static;
+}
+
+#setCruise .content {
+	width: 100%;
+	height: 217px;
+	background-color: #F6FBFF;
+}
+
+#setCruise .box .box-head {
+	height: 22px;
+	line-height: 22px;
+	position: relative;
+	padding: 0 6px;
+	border-bottom: 1px solid #FFFFFF;
+}
+
+#setCruise .box .box-head:after {
+	border-bottom: 1px solid #D7DFE8;
+	bottom: 0;
+	content: " ";
+	position: absolute;
+	width: 100%;
+	left: 0;
+}
+
+#setCruise .box .box-head span {
+	display: inline-block;
+	text-align: center;
+	width: 66px;
+}
+#setCruise .box .box-head span.preset-num{
+	width: 45px;
+}
+
+#setCruise .box .box-head span.preset-title,
+#setCruise .box .box-head span.preset-interval{
+	width: 102px;
+}
+#setCruise .box .box-head .preset-interval {
+	width: 110px;
+}
+
+#setCruise .content .box .actions {
+	text-align: right;
+	line-height: 34px\9;
+}
+
+#setCruise .content .box .actions span {
+	cursor: pointer;
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	background: url('/module/common/images/bg/setcruise.png') no-repeat scroll 0 0;
+}
+
+#setCruise .content .box .actions .add {
+	background-position: 0 5px;
+}
+
+#setCruise .content .box .actions .up {
+	background-position: -40px 5px;
+}
+
+#setCruise .content .box .actions .down {
+	background-position: -20px 5px;
+}
+
+#setCruise .content .box .actions .delete {
+	background-position: -60px 5px;
+}
+
+#setCruise .content .box .box-body ul {
+	border-bottom: 1px solid #D7DFE8;
+	position: relative;
+	height: 64px;
+	overflow-y: scroll;
+}
+
+#setCruise .content .box .box-div.after {
+	border-top: 1px solid #FFFFFF;
+	content: " ";
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+}
+
+#setCruise .content .box .box-body li {
+	height: 31px;
+	line-height: 31px;
+	display: block;
+	position: relative;
+	padding-left: 10px;
+	margin-top: 1px;
+    font-size: 0;/*解决ie8及以下版本谷歌插件下因inline-block样式错位的问题*/
+}
+
+#setCruise .content .box .box-body li:hover,
+#setCruise .content .box .box-body li.active {
+	background-color: #a9d3f5;
+}
+
+#setCruise .content .box .box-body li .num {
+	width: 38px;
+	text-align: center;
+    font-size: 12px;/*解决ie8及以下版本谷歌插件下因inline-block样式错位的问题*/
+}
+
+#setCruise .content .box .box-body .box-div {
+	border-bottom: 1px solid #FFFFFF;
+	position: relative;
+	padding-left: 15px;
+	height: 31px;
+	line-height: 31px;
+}
+
+#setCruise .content .box .box-body .box-div:after {
+	border-bottom: 1px solid #D7DFE8;
+	content: " ";
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%
+}
+
+#setCruise .content .box .box-body span {
+	display: inline-block;
+	text-align: center;
+	width: 103px;
+    font-size: 12px;/*解决ie8及以下版本谷歌插件下因inline-block样式错位的问题*/
+}
+
+#setCruise .content .box .box-body select {
+	width: 73px;
+}
+
+#setCruise .content .box .box-body .buttons {
+	text-align: right;
+	margin-right: 15px;
+	height: 28px;
+	line-height: 28px;
+}
+
+#setCruise .content .box .box-body .buttons a {
+	height: 24px;
+	line-height: 24px;
+}
+
+#setCruise .content .box .box-body .box-div span {
+	width: 77px;
+}
+
+#setCruise .content .box .box-body .box-div span.back-to {
+	width: 70px;
+}
+
+#setCruise .content .box .box-body .box-div .even-span.start-span {
+	width: 45px;
+
+}
+#setCruise .content .box .box-body .box-div .even-span.end-span {
+	width: 25px;
+	text-align: right;
+}
+
+#setCruise .content .box .box-div input {
+	width: 67px;
+}
+
+#setCruise .box .box-head .head-num {
+	width: 30px;
+}
+
+#setCruise .box .box-head .head-title {
+	width: 72px;
+}
+
+#setCruise .view[data-tab=period] .box .box-body .preset-ul {
+	height: 96px;
+}
+
+#setCruise .view[data-tab=period] .preset-ul li input {
+	width: 60px;
+	margin-left: 5px;
+}
+
+#setCruise .view[data-tab=auto] .preset-ul .interval input {
+	width: 67px;
+}
+
+#setCruise .content .box .box-body li .body-num {
+	margin-left: 5px;
+	width: 7px;
+}
+
+#setCruise .box .box-body .preset-ul .body-title {
+	margin-left: 8px;
+}
+
+#masklayer {
+	position: absolute;
+	top: 55px;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	opacity: 0.5;
+	z-index: 1000;
+	display: none;
+	background-color: #FFFFFF;
+	filter: alpha(opacity=50);
+	_position: absolute;
+	_width: 100%;
+	_height: expression(function(){return Math.max(document.documentElement.clientHeight,document.documentElement.scrollHeight);
+}());
+}
+
+#masklayer iframe {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	opacity: 0;
+	filter: alpha(opacity=0);
+}
+
+/*---------------ocx遮挡层-------------*/
+
+/*所有遮挡层容器，里面包含了所有遮挡层*/
+#major .screen .video-control {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	/*width: 800px;
+	height: 300px;
+	background-color: #228b22;*/
+	left: 10000px;
+	top: 10000px;
+}
+
+#major .screen .video-control #upBlockContent,#major .screen .video-control #downBlockContent,#major .screen .video-control #upBlock,#major .screen .video-control #downBlock {
+	background-color: #1e1e1e;
+	/*background-color: red;*/
+	position: absolute;
+	width: 100%;
+	height: 26px;
+}
+#major .screen .video-control #upBlock,#major .screen .video-control #downBlock{
+	height: 26px;
+}
+#major .screen .video-control #downBlock.printscreen{
+	height: 84px;
+}
+#major .screen .video-control #upBlock,#major .screen .video-control #downBlock,#major .screen .video-control #selectBlock {
+	filter: alpha(opacity=0);
+   /*ie低版本 透明iframe*/
+	opacity: 0;
+   /*标准w3透明iframe*/
+
+}
+
+#major .screen .video-control #upBlockContent,#major .screen .video-control #upBlock {
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	line-height: 26px;
+	/*border-bottom: 2px solid #303030;*/
+}
+
+#major .screen .video-control #downBlockContent,#major .screen .video-control #downBlock {
+	left: 0px;
+	bottom: 0px;
+	width: 100%;
+	/*border-top: 2px solid #303030;*/
+}
+/*连拍---start*/
+#major .screen .video-control .screenshot-preview{
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
+	height: 84px;
+	background-color: greenyellow;
+	overflow: hidden;
+}
+#major .screen .video-control .screenshot-preview iframe{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+#major .screen .video-control .screenshot-preview .preview-panel{
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	background-color: #171717;
+}
+/*#major .screen .video-control .screenshot-preview .preview-panel .visual-area{
+	float: left;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}*/
+/*截图预览图容器----start*/
+#major .screen .video-control .screenshot-preview .preview-panel .visual-area{
+	display: inline-block;
+	position: absolute;
+	float: left;
+	height: 100%;
+	overflow: hidden;
+	white-space:nowrap;
+	padding-left:1px;
+	margin-left: 24px;
+	left: -2px;
+	margin: 0 auto;
+}
+#major .screen .video-control .screenshot-preview .preview-panel .visual-area .pic-box{
+	height: 100%;
+	display: inline-block;
+	position: relative;
+	left: 0;
+	top: 0;
+	width: auto;
+}
+#major .screen .video-control .screenshot-preview .preview-panel .visual-area .pic-box li{
+	float: left;
+	width: 82px;
+}
+#major .screen .video-control .screenshot-preview .preview-panel img{
+	height:74px;
+	width: 81px;
+	margin: 5px 1px;
+}
+
+#major .screen .video-control .screenshot-preview .preview-panel img:hover{
+	height:70px;
+	width: 77px;
+	margin: 5px 1px;
+	border:2px solid #1473cd;
+}
+/*截图预览图容器----end*/
+/*截图翻页按钮----start*/
+#major .screen .video-control .screenshot-preview .preview-panel .forward{
+	display: inline-block;
+	float: left;
+	width: 16px;
+	height: 42px;
+	margin: 20px 4px 4px 0;
+	padding-left: 6px;
+	background-color: #242424;
+	cursor: pointer;
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 999;
+}
+#major .screen .video-control .screenshot-preview .preview-panel .forward i{
+	display: inline-block;
+	width: 15px;
+	height: 29px;
+	margin-top: 6px;
+	margin-left: 0px;
+	background: transparent url(/module/common/images/buttons/pagebtn.png) no-repeat scroll -1px 0;
+}
+#major .screen .video-control .screenshot-preview .preview-panel .forward i:hover,#major .screen .video-control .screenshot-preview .preview-panel .forward.disable i{
+	background: transparent url(/module/common/images/buttons/pagebtn.png) no-repeat scroll -19px 0;
+}
+#major .screen .video-control .screenshot-preview .preview-panel .afterward{
+	display: inline-block;
+	/*float: right;*/
+	position: absolute;
+	right: 18px;
+	padding-right: 5px;
+	width: 16px;
+	height: 42px;
+	margin: 20px 2px 4px 0px;
+	background-color: #242424;
+	cursor: pointer;
+}
+#major .screen .video-control .screenshot-preview .preview-panel .afterward i{
+	display: inline-block;
+	width: 15px;
+	height: 29px;
+	margin-top: 6px;
+	margin-left: 0px;
+	background: transparent url(/module/common/images/buttons/pagebtn.png) no-repeat scroll -1px -33px;
+}
+#major .screen .video-control .screenshot-preview .preview-panel .afterward i:hover,#major .screen .video-control .screenshot-preview .preview-panel .afterward.disable i{
+	background: transparent url(/module/common/images/buttons/pagebtn.png) no-repeat scroll -19px -33px;
+}
+/*截图翻页按钮----end*/
+/*退出截图按钮----start*/
+#major .screen .video-control .screenshot-preview .preview-panel .exit{
+	display: inline-block;
+	float: right;
+	width: 16px;
+	height: 42px;
+	margin: 20px 4px 4px 4px;
+	cursor: pointer;
+	background-color: #242424;
+	position: absolute;
+	right: -3px;
+}
+#major .screen .video-control .screenshot-preview .preview-panel .exit i{
+	display: inline-block;
+	width: 14px;
+	height: 14px;
+	margin-left: 1px;
+	margin-top:15px;
+	background: transparent url(/module/common/images/buttons/exit.png) no-repeat scroll 0 0;
+}
+/*退出截图按钮----end*/
+
+/*大图预览 ---start*/
+#preview_img_big{
+	/*position: absolute;
+	z-index: 99999;
+	top: 100px;
+	left: 200px;*/
+}
+.preview-big{
+	position: relative;
+	width: 580px;
+	height: 340px;
+	overflow: hidden;
+}
+.preview-big .left,.preview-big .right{
+	width: 16px;
+	height: 32px;
+	position: absolute;
+	top: 153px;
+	color: red;
+	background: transparent url(/module/common/images/buttons/pagebtn.png) no-repeat scroll 0 0;
+	cursor: pointer;
+}
+.preview-big .left{
+	left: 3px;
+	background-position: -1px -2px;
+}
+.preview-big .left:hover{
+	background-position: -19px -2px;
+}
+.preview-big .right{
+	right: 3px;
+	background-position: -1px -33px;
+}
+.preview-big .right:hover{
+	background-position: -19px -33px;
+}
+.preview-big img{
+	width: 580px;
+	height: 340px;
+}
+.picture-dialog {
+	width: 580px;
+	height: 380px;
+	border: 3px solid #171717;
+	background-color: #171717;
+}
+.picture-dialog .wrapper header{
+	background: none;
+	height: 0;
+	border: none;
+}
+.picture-dialog .wrapper header .close,.picture-dialog .wrapper header .close:hover{
+	right: -14px;
+	top: -15px;
+	height: 27px;
+	width: 27px;
+	background: url(/module/common/images/bg/close.png) no-repeat;
+	z-index: 1000;
+}
+.picture-dialog .wrapper section{
+	padding: 0;
+	background-color: #171717;
+}
+.picture-dialog .wrapper footer{
+	background-color: #171717;
+	border: none;
+}
+.picture-dialog .button.ui.blue{
+	position: absolute;
+	bottom: 4px;
+	left: 243px;
+	border: 1px solid #25518a;
+	background: #3a7fda;
+}
+
+/*
+cycle的上一页、下一页
+.preview-big .prev,.preview-big .next{
+	position: absolute;
+	top: 160px;
+	z-index: 9999999;
+	display: block;
+	width: 15px;
+	height: 29px;
+	background: transparent url(/assets/images/buttons/pagebtn.png) no-repeat scroll -1px 0;
+	cursor: pointer;
+}
+.preview-big .prev{
+	background-position: -19px 0;
+}
+.preview-big .next{
+	background-position: -19px -33px;
+	right: 12px;
+}*/
+.jcarousel-skin-default  .jcarousel-prev,.jcarousel-skin-default .jcarousel-next{
+	position: absolute;
+	top: 160px;
+	z-index: 9999999;
+	display: block;
+	width: 16px;
+	height: 30px;
+	background: transparent url(/module/common/images/buttons/pagebtn.png) no-repeat scroll -1px 0;
+	cursor: pointer;
+}
+.jcarousel-skin-default  .jcarousel-prev{
+	background-position: -1px -2px;
+}
+.jcarousel-skin-default .jcarousel-next{
+	background-position: -1px -33px;
+	right: 12px;
+}
+.jcarousel-skin-default  .jcarousel-prev[disabled]{
+	background-position: -19px -2px;
+}
+.jcarousel-skin-default .jcarousel-next[disabled]{
+	background-position: -19px -33px;
+}
+.jcarousel-skin-default .jcarousel-clip.jcarousel-clip-horizontal{
+	margin: 0;
+	width: 100%;
+}
+.jcarousel-item{
+	width: 580px;
+}
+.jcarousel-skin-default .jcarousel-container.jcarousel-container-horizontal{
+	height: auto;
+}
+
+/*大图预览 ---end*/
+#major .screen .video-control .select-wrap {
+	position: absolute;
+	top: 26px;
+	display: none;
+	width: 0px;
+	height: 0px;
+}
+
+#major .screen .video-control #selectBlock {
+	width: 100%;
+	height: 100%;
+}
+
+#major .screen .video-control .select-wrap.active {
+	display: block;
+}
+
+#major .screen .video-control #selectBlockContent {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+}
+
+.video-control span {
+	 /*优先级不能写的太高，不然下面#downBlockContent .video-btn覆盖不了*/
+	display: inline-block;
+}
+/*------------------------------下遮挡层start------------------------------*/
+#downBlockContent {
+	/*text-align: center;*/
+	text-align: left;
+}
+
+#downBlockContent .video-btn {
+	display: none;
+	line-height: 26px;
+	width:80px;
+	float: left;
+}
+
+#downBlockContent .video-type {
+	cursor: pointer;
+	margin: 4px 0 5px 0;
+	height: 16px;
+	width: 90px;
+	border: 1px solid #596166;
+	border-radius: 2px;
+	float: left;
+}
+#downBlockContent .alarm{
+	cursor: pointer;
+	margin: 4px 0 5px 12px;
+	height: 16px;
+	width: 57px;
+	border: 1px solid #ff2a43;
+	border-radius: 2px;
+	float: left;
+}
+#downBlockContent .manual-alarm{
+	height: 16px;
+	line-height: 16px;
+	vertical-align: middle;
+	width: 57px;
+	float: left;
+	background-color: #FF0036;
+	border-radius: 1px 1px 1px 1px;
+	color: #1E1E1E;
+}
+
+.video-type .real,.video-type .record {
+	line-height: 16px;
+	width: 45px;
+	float: left;
+	text-align: center;
+	background-color: #202222;
+	color: #e4e5e5;
+}
+
+.video-type .real {
+	border-radius: 1px 0 0 1px;
+}
+
+.video-type .record {
+	border-radius: 0 1px 1px 0;
+}
+
+.video-type .active {
+	background-color: #00c8ff;
+	color: #000;
+}
+
+.video-btn
+{
+  margin-left: 20px;
+}
+
+.video-btn i {
+	vertical-align: middle;
+	/*margin-left: 17px;transparent */
+	margin-left:  2px;
+	margin-right: 2px;
+	margin-top: -2px;
+	display: inline-block;
+	background: url(/module/common/images/icons/sh-video.png) no-repeat;
+	width:13px;
+	height: 12px;
+}
+
+i.back-play {
+	margin-left: 0;
+	background-position: -2px -100px;
+	display: none;
+}
+
+i.back-play:hover,i.back-play:active {
+	background-position: -25px -100px;
+}
+
+i.slow-play {
+	/*background-position: -2px -68px;
+	background-position: -4px -85px;*/
+	background-position: 0px 0px;
+}
+
+i.slow-play:hover,i.slow-play:active {
+	/*background-position: -24px -68px;
+	background-position: -26px -85px;*/
+	background-position: 0px -21px;
+}
+
+i.toggle-pause {
+	/*background-position: -4px -2px;*/
+	background-position: -21px 0px;
+}
+
+i.toggle-pause:hover,i.toggle-pause:active {
+	/*background-position: -27px -2px;*/
+	background-position: -21px -21px;
+}
+
+i.toggle-play {
+	/*background-position: -4px -8px;
+	background-position: -4px -31px;*/
+	background-position: -64px 0px;
+}
+
+i.toggle-play:hover,i.toggle-play:active {
+	/*background-position: -27px -31px;*/
+		background-position: -64px -21px;
+}
+
+i.quick-play {
+	/*background-position: -7px -58px;*/
+	background-position: -42px 0px;
+
+}
+
+i.quick-play:hover,i.quick-play:active {
+	/*background-position: -26px -50px;
+	background-position: -29px -58px;*/
+	background-position: -42px -21px;
+}
+
+i.stop-play {
+	/*background-position: -6px -84px;*/
+	margin-right: 0px;
+	background-position: -5px -166px;
+}
+
+i.stop-play:hover,i.stop-play:active {
+	background-position: -27px -84px;
+	margin-right: 0px;background-position: -28px -167px;
+}
+
+i.single-frame
+{
+	background-position: -86px 0px;
+}
+
+i.single-frame:hover,i.single-frame:active{
+	background-position: -86px -21px;
+}
+
+#downBlockContent>.times-play
+{
+  color:white;
+  display: none;
+  position: relative;
+  top:4px;
+  margin-left: 2px;
+  margin-right: 2px;
+  text-align: center;
+}
+
+.tools-dwon {
+	float: right;
+	line-height: 26px;
+	margin-right: 6px;
+	margin-top: -1.5px;
+}
+
+.tools-dwon i,.tools-up i {
+	width: 24px;
+	height: 23px;
+	vertical-align: middle;
+	/*margin-left: 3px;*/
+	display: inline-block;
+	border-radius: 2px;
+	background: transparent url(/module/common/images/icons/tools.png) no-repeat scroll 0 0;
+}
+
+.tools-dwon i:hover,.tools-up i:hover {
+	background-color: #323232;
+}
+
+.tools-dwon i:active,.tools-up i:active {
+	background-color: transparent;
+}
+
+.tools-dwon i.history-record{
+	width: 24px;
+	height: 23px;
+	background: transparent url(/module/ptz-controller/images/his-normal.png) no-repeat scroll 5px 5px;
+}
+
+.tools-dwon i.history-record:hover{
+	background: transparent url(/module/ptz-controller/images/his-hover.png) no-repeat scroll 5px 5px;
+}
+
+/*通道锁定*/
+i.download{
+	margin-left: 0;
+	background-position: -470px -5px;
+}
+i.download:active,i.download:hover{
+	background-position: -470px -35px;
+}
+
+/*通道锁定*/
+i.lock-channel{
+	margin-left: 0;
+	background-position: -324px -5px;
+}
+i.lock-channel:active,i.lock-channel:hover{
+	background-position: -324px -35px;
+}
+/*通道解锁*/
+i.unlock-channel{
+	margin-left: 0;
+	background-position: -357px -5px;
+}
+i.unlock-channel:active,i.unlock-channel:hover{
+	background-position: -357px -35px;
+}
+i.frame-mark {
+	background-position: -55px -3px;
+}
+
+i.frame-mark:active,i.frame-mark:hover {
+	background-position: -55px -33px;
+}
+.tools-up i.gpu {
+	width: 24px;
+	height: 25px;
+}
+.tools-up i.gpu.startGPU {
+	background: url(/module/common/images/icons/tools.png) -140px -54px no-repeat;
+}
+.tools-up i.gpu.startGPU:hover {
+	background-position: -140px -80px;
+	cursor: pointer;
+}
+.tools-up i.gpu.closeGPU {
+	background: url(/module/common/images/icons/tools.png) -110px -54px no-repeat;
+}
+.tools-up i.gpu.closeGPU:hover {
+	background-position: -110px -80px;
+	cursor: pointer;
+}
+
+i.location-play {
+	background-position: -497px -3px;
+}
+
+i.location-play:active,i.location-play:hover {
+	background-position: -497px -33px;
+}
+i.ptz-control {
+	background-position: -530px -3px;
+}
+
+i.ptz-control:active,i.ptz-control:hover {
+	background-position: -530px -33px;
+}
+i.preset-cruise {
+	background-position: -529px -3px;
+}
+
+i.preset-cruise:active,i.preset-cruise:hover {
+	background-position: -529px -33px;
+}
+i.color-adjust {
+	background-position: -560px -3px;
+}
+
+i.color-adjust:active,i.color-adjust:hover {
+	background-position: -560px -33px;
+}
+i.full-screen {
+	background-position: -232px -3px;
+}
+
+i.full-screen:active,i.full-screen:hover {
+	background-position: -232px -33px;
+}
+
+i.grab {
+	background-position: -386px -3px;
+}
+
+i.grab:active,i.grab:hover {
+	background-position: -386px -33px;
+}
+
+i.local-video {
+	background-position: -444px -3px;
+}
+
+i.local-video:active ,i.local-video:hover {
+	background-position: -444px -33px;
+}
+
+i.local-video.active {
+	background-position: -418px -3px;
+}
+
+i.local-video.active:active ,i.local-video.active:hover {
+	background-position: -418px -33px;
+}
+
+/*i.local-video.active{
+	background-position: -28px 7px;
+}*/
+
+i.real-sound {
+	background-position: -28px -55px;
+}
+
+i.real-sound:active,i.real-sound:hover,i.real-sound.clicked {
+	background-position: -28px -81px;
+}
+
+i.real-sound-off {
+	background-position: 2px -55px;
+}
+
+i.real-sound-off:active,i.real-sound-off:hover,i.real-sound-off.clicked {
+	background-position: 2px -82px;
+}
+
+i.real-talk {
+	background-position: -84px -55px;
+}
+
+i.real-talk:active,i.real-talk:hover,i.real-talk.clicked {
+	background-position: -84px -81px;
+}
+
+i.real-talk-off {
+	background-position: -55px -55px;
+}
+
+i.real-talk-off:active,i.real-talk-off:hover,i.real-talk-off.clicked {
+	background-position: -55px -81px;
+}
+
+i.add-preset-point {
+	background-position: -143px -3px;
+}
+
+i.add-preset-point:active,i.add-preset-point:hover,i.add-preset-point.clicked {
+	background-position: -142px -34px;
+}
+
+#printScreen2{
+	display: inline-block;
+	background-image: url(/module/common/images/inspect/5print.png);
+	width:16px !important;
+	height: 23px !important;
+	background-position: 0px 5px;
+	background-repeat: no-repeat;
+}
+
+#printScreen2:hover{
+	background-position: -16px 5px;
+}
+
+/*------------------------------下遮挡层end------------------------------*/
+
+
+
+/*
+ * shoot连拍弹出层
+ */
+#shoot {
+	width:320px;
+	height:180px;
+	position:absolute;
+	left:50%;
+	top:50px;
+	margin:0px 0 0 -160px;
+	z-index:99;
+	display:none;
+
+}
+#shootContent {
+	width:320px;
+	height:180px;
+	position:absolute;
+	left:50%;
+	top:50px;
+	margin:0px 0 0 -160px;
+	z-index:999;
+	background:#333;
+	display:none;
+}
+#shootContent span {
+	height:24px;
+	color:#fff;
+	display:block;
+	font-weight:bold;
+	border-bottom:1px solid #010101;
+	background:#1a1a1a;
+	padding:0 10px;
+}
+#shootContent span h2 {
+	height:24px;
+	line-height:24px;
+	float:left;
+}
+#shootContent span a.close {
+	height:24px;
+	line-height:24px;
+	color:#3a3a3a;
+	float:right;
+}
+#shootContent span a.close:hover {
+	color:#fff;
+}
+#shootContent ul {
+	margin:10px 10px 0;
+	height:73px;
+	border-bottom:1px solid #1a1a1a;
+}
+#shootContent ul li {
+	height:24px;
+}
+#shootContent ul li label {
+	width:60px;
+	color:#cccccc;
+	text-align:right;
+	height:24px;
+	line-height:24px;
+	float:left;
+}
+#shootContent ul li a {
+	width:240px;
+	height:24px;
+	line-height:24px;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	color:#999;
+	float:left;
+}
+#shootContent ul li a:hover {
+	text-decoration:underline;
+}
+#shootContent p {
+	height:24px;
+	padding:5px 10px;
+}
+
+#shootContent p em {
+	color:#ccc;
+	height:24px;
+	line-height:24px;
+	float:left;
+}
+#shootContent p a {
+	width:60px;
+	height:24px;
+	line-height:24px;
+	text-align:center;
+	color:#ccc;
+	background:#4d4d4d;
+	float:right;
+}
+.shoot_bottom {
+	height:30px;
+	background:#1a1a1a;
+	padding:5px 10px;
+}
+.shoot_bottom a {
+	background:#1473cd;
+	border-top:1px solid #408dd6;
+	width:60px;
+	height:24px;
+	line-height:24px;
+	text-align:center;
+	float:right;
+	color:#fff;
+}
+
+/*------------------------------上遮挡层start------------------------------*/
+.video-title {
+	float: left;
+	margin-left: 12px;
+	line-height: 26px;
+	font-family: "Microsoft Yahei";
+	font-size: 14px;
+	color: #fff;
+	/*width: 165px;*/
+	max-width: 90px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+#streamMonitor{
+	float: left;
+	margin-left: 12px;
+	line-height: 26px;
+	font-family: "Microsoft Yahei";
+	font-size: 14px;
+	color: #fff;
+}
+
+.tools-up {
+	float: right;
+	margin-right: 12px;
+	margin-top: -2px;
+	line-height: 26px;
+}
+
+.tools-up .ratio {
+	background-position: -264px -2px;
+}
+
+.tools-up .close {
+	background-position: -295px -3px;
+}
+
+.tools-up .multi {
+	background-position: -28px -3px;
+}
+
+.tools-up .share {
+	background-position: -204px -3px;
+}
+#share span a{
+	color:#000000;
+}
+.tools-up .zoom {
+	background-position: -176px -3px;
+}
+
+.tools-up .ratio:hover, .tools-up .ratio:active, .tools-up .ratio.clicked {
+	background-position: -264px -32px;
+}
+
+.tools-up .close:hover, .tools-up .close:active, .tools-up .close.clicked {
+	background-position: -295px -33px;
+}
+
+.tools-up .multi:hover, .tools-up .multi:active ,.tools-up .multi.clicked {
+	background-position: -28px -33px;
+}
+
+.tools-up .share:hover, .tools-up .share:active ,.tools-up .share.clicked {
+	background-position: -204px -33px;
+}
+
+.tools-up .zoom:hover, .tools-up .zoom:active ,.tools-up .zoom.clicked {
+	background-position: -176px -33px;
+}
+
+#major .screen .video-control #selectBlockContent #ratio p.line{
+	/*display: inline-block;*/
+	height: 1px;
+	background-color: #b3b3b3;
+}
+
+#upBlockContent i.flag {
+	display: none;
+}
+
+#upBlockContent i.flag.active {
+	width: 8px;
+	height: 6px;
+	position: absolute;
+	background: url(/module/common/images/icons/flag.png) no-repeat scroll 0 0;
+	display: block;
+}
+
+/*------------------------------上遮挡层end------------------------------*/
+
+/*下拉选择的iframe------start*/
+#major .screen .video-control .select-wrap #selectBlockContent div {
+	display: none;
+}
+
+#major .screen .video-control .select-wrap #selectBlockContent div.show {
+	display: block;
+}
+
+#major .screen .video-control #selectBlockContent .set p {
+	display: block;
+	height: 20px;
+}
+
+#major .screen .video-control #selectBlockContent .set p i {
+	position: absolute;
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	vertical-align: middle;
+	background-color: #E6E6E6;
+}
+
+#major .screen .video-control #selectBlockContent .set p span {
+	display: inline-block;
+	margin-left: 20px;
+	width: 65px;
+	height: 20px;
+	line-height: 20px;
+	padding-left: 5px;
+}
+
+#major .screen .video-control #selectBlockContent .set p:hover i {
+	background-color: #C8D2DE;
+	cursor: pointer;
+}
+
+#major .screen .video-control #selectBlockContent .set p:hover span {
+	cursor: pointer;
+	background-color: #D1DBE7;
+}
+
+#major .screen .video-control #selectBlockContent .set p.checked i {
+	background: url(/module/common/images/icons/active.png) no-repeat scroll 0 0;
+}
+
+#major .screen .video-control #selectBlockContent .set p.checked span {
+	background-color: #D1DBE7;
+}
+.set p.disabled{
+	color: #bdbdbd;
+}
+/*end*/
+
+/*header功能区下拉选择------start----------*/
+
+#major .header .ui.menu.atached a {
+	margin-left: 10px;
+}
+
+#major .header .ui.menu.atached a.dropdown {
+	margin-left: 4px;
+	margin-top: -5px;
+	display: inline-block;
+	width: 43px;
+	height: 26px;
+	overflow: hidden;
+}
+
+#major .header .ui.menu.atached .ui.button.gismap {
+	margin-top: -5px;
+}
+
+#major .header .ui.menu.atached .item i.icon {
+	display: inline-block;
+	width: 24px;
+	height: 26px;
+	margin: 0px;
+}
+
+#major .header .ui.menu.atached .item i.icon:hover {
+	background-image: url(/module/common/images/icons/function_btn_hover.png);
+}
+
+#major .header .ui.menu.atached .item i.icon:active {
+	background-image: url(/module/common/images/icons/function_btn_hover.png);
+}
+
+#major .header .ui.menu.atached .item i.icon.split {
+	background: url(/module/common/images/icons/split-normal.png) no-repeat scroll 0px -34px;
+	margin-top: 2px;
+	margin-left: 5px;
+	width: 43px;
+	height: 26px;
+}
+
+#major .header .ui.menu.atached .item i.icon.split.active {
+	margin-left: 0px;
+	margin-top: 0px;
+	height: 26px;
+	background: url(/module/common/images/icons/split-hover.png) no-repeat scroll 0px -34px;
+}
+
+#major .header .ui.menu.atached .item i.icon.split:hover {
+	margin-left: 0px;
+	margin-top: 0px;
+	height: 26px;
+	background: url(/module/common/images/icons/split-hover.png) no-repeat scroll 0px -34px;
+}
+
+#major .header .ui.menu.atached .item i.icon.split:active {
+	background: url(/module/common/images/icons/split-hover.png) no-repeat scroll 0px -34px;
+}
+
+#major .header .function-container {
+	position: absolute;
+	top: 31px;
+	left: 9999px;
+	z-index: 10;
+	/*overflow: hidden;*/
+	display: none;
+	/*background-color: #ff0000;*/
+}
+
+#major .header .function-container.active {
+	display: block;
+}
+
+#major .header .function-container .function-panel {
+	display: block;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	height: 100%;
+	width: 100%;
+}
+/*#major .header .function-container .function-panel.active{
+	display: block;
+}
+*/
+#major .header .function-container #selectPanel {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+}
+
+#selectPanel .split-panel {
+	display: none;
+}
+
+#selectPanel .split-panel.active {
+	border: 1px solid #C4C4C4;
+	display: block;
+}
+
+#selectPanel .split-panel i {
+	display: block;
+	width: 22px;
+	height: 22px;
+	padding: 2px 9.5px;
+	cursor: pointer;
+	background: url(/module/common/images/icons/layout.png) no-repeat scroll 8px 2px #ffffff;
+}
+
+#selectPanel .split-panel i:hover {
+	background: url(/module/common/images/icons/layout-hover.png) no-repeat scroll 8px 2px #ffffff;
+}
+
+#selectPanel .split-panel i.split1 {
+	background-position: 8px 2px;
+}
+
+#selectPanel .split-panel i.split4 {
+	background-position: 8px -30px;
+}
+
+#selectPanel .split-panel i.split9 {
+	background-position: 8px -62px;
+}
+
+#selectPanel .split-panel i.split16 {
+	background-position: 8px -94px;
+}
+
+#selectPanel .add-inspect {
+	display: none;
+	/*width: 240px;*/
+	/*height: 190px;*/
+	/*background-color: #00ffff;*/
+}
+
+#selectPanel .add-inspect.active {
+	display: block;
+}
+
+#selectPanel .add-inspect form {
+	/*border-right: 2px solid #515151;
+	border-left: 2px solid #515151;
+	border-bottom: 2px solid #515151;*/
+	font-family: "Microsoft Yahei";
+	font-size: 12px;
+	color: #555555;
+	border-right: 2px solid #b5b4b4;
+	border-left: 2px solid #b5b4b4;
+	border-bottom: 2px solid #b5b4b4;
+	margin-top: 4px;
+	padding: 1px 10px 8px 10px;
+	background-color: #ffffff;
+	text-align: center;
+}
+
+#selectPanel .add-inspect form p {
+	margin-top: 4px;
+	width: 220px;
+}
+
+#selectPanel .add-inspect form p input {
+	font-size: 12px;
+	margin: 0;
+	padding:0 3px;
+	color: #333333;
+	font-size: 12px;
+	height: 28px;
+	line-height: 30px;
+	vertical-align: middle;
+	border-radius: 3px;
+	border: 1px solid #D9D9D9;
+	background-color: #FFFFFF;
+	-webkit-transition: background-color .2s ease-out,box-shadow .2s ease,border-color .2s ease;
+	-os-transition: background-color .2s ease-out,box-shadow .2s ease,border-color .2s ease;
+	-moz-transition: background-color .2s ease-out,box-shadow .2s ease,border-color .2s ease;
+	-mstransition: background-color .2s ease-out,box-shadow .2s ease,border-color .2s ease;
+	transition: background-color .2s ease-out,box-shadow .2s ease,border-color .2s ease;
+}
+#selectPanel .add-inspect form p input:focus {
+	border: 1px solid #78A8D5;
+	color: #444;
+}
+#addinspectsubmitbtn p label{
+	float: left;
+	display: inline-block;
+	width: 80px;
+}
+#selectPanel .add-inspect form p select {
+	width: 134px;
+	font-size: 12px;
+	margin: 0;
+	padding:0;
+	color: #333333;
+	font-size: 12px;
+	height: 30px;
+	border-radius: 3px;
+	border: 1px solid #D9D9D9;
+	background-color: #FFFFFF;
+	-webkit-transition: background-color .2s ease-out,box-shadow .2s ease,border-color .2s ease;
+	-os-transition: background-color .2s ease-out,box-shadow .2s ease,border-color .2s ease;
+	-moz-transition: background-color .2s ease-out,box-shadow .2s ease,border-color .2s ease;
+	-mstransition: background-color .2s ease-out,box-shadow .2s ease,border-color .2s ease;
+	transition: background-color .2s ease-out,box-shadow .2s ease,border-color .2s ease;
+	margin-left: -1px\0;
+	width: 139px\0;
+}
+
+:root #selectPanel .add-inspect form p select{
+	width: 139px;
+	width: 134px\0;
+}
+
+#selectPanel .add-inspect form p span {
+	display: inline-block;
+	float: right;
+	margin: 5px 6px;
+	margin: 5px 3px\0;
+}
+
+:root #selectPanel .add-inspect form p span {
+	margin: 5px 6px;
+}
+
+#selectPanel .add-inspect form p span a {
+	/*display: inline-block;
+	width: 36px;
+	height: 22px;
+	line-height: 22px;
+	color: #ffffff;
+	background-color: #297EE5;*/
+	height: 30px;
+	line-height: 28px;
+	padding: 0px;
+	min-width: 66px;
+	margin-bottom: 10px;
+	cursor: pointer;
+	display: inline-block;
+	height: 28px;
+	line-height: 28px;
+	color: #333333;
+	font-style: normal;
+	font-size: 12px;
+	outline: none;
+	margin: 0;
+	overflow: visible;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+	vertical-align: middle;
+	border-radius: 3px;
+	color: #333;
+	border: 1px solid #dfdfdf;
+	box-shadow: 0 1px #fff inset;
+	background-color: #f7f7f7;
+	background-image: -webkit-linear-gradient(#f7f7f7, #ebecec);
+	background-image: -moz-linear-gradient(#f7f7f7, #ebecec);
+	background-image: linear-gradient(#f7f7f7, #ebecec);
+	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#f7f7f7, endColorstr=#ebecec);
+	-webkit-transition: opacity .25s ease,background-color .25s ease,background-image .25s ease,color .25s ease,background .25s ease,box-shadow .25s ease;
+	-moz-transition: opacity .25s ease,background-color .25s ease,background-image .25s ease,color .25s ease,background .25s ease,box-shadow .25s ease;
+	-o-transition: opacity .25s ease,background-color .25s ease,background-image .25s ease,color .25s ease,background .25s ease,box-shadow .25s ease;
+	-ms-transition: opacity .25s ease,background-color .25s ease,background-image .25s ease,color .25s ease,background .25s ease,box-shadow .25s ease;
+	transition: opacity .25s ease,background-color .25s ease,background-image .25s ease,color .25s ease,background .25s ease,box-shadow .25s ease;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+#selectPanel .add-inspect form p span #addsubmitbtn {
+	border: 1px solid #44adef;
+	background:#44adef;
+	color:#FFF;
+	box-shadow: 0 1px #44adef inset;
+	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#69b4ff, endColorstr=#3499ff);
+}
+#selectPanel .add-inspect form p span #addsubmitbtn:hover {
+	border: 1px solid #39afed;
+	background:#39afed;
+	box-shadow: 0 1px #39afed inset;
+}
+
+
+#selectPanel .add-inspect form p span a:hover {
+	cursor: pointer;
+}
+
+/*header功能区下拉选择------end----------*/
+#videoControl .input-pannel {
+	position: absolute;
+	left: 0px;
+	width: auto;
+	background-color: #131313;
+	display: none;
+	color: #fff
+}
+
+#videoControl .input-pannel.active {
+	display: block;
+}
+
+#videoControl .input-pannel iframe {
+	filter: alpha(opacity=0);
+	opacity: 0;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+}
+
+#videoControl .input-pannel .add-presets {
+	width:240px;
+	position: absolute;
+	display: inherit;
+	height:100px;
+	top:30px;
+}
+#videoControl .input-pannel .preHeader{
+	height:30px;
+	padding:0 10px;
+	line-height: 30px;
+	position: absolute;
+	display: inline-block;
+	background:#1a1a1a;
+	left:0;
+	right:0;
+	top:0;
+	bottom: 0
+}
+#videoControl .input-pannel .preHeader .close{
+	width: 13px;
+	height: 13px;
+	background: url("/module/common/images/buttons/deleteNew.png") no-repeat;
+	display: inline-block;
+	float: right;
+	margin-top: 9px;
+	cursor: pointer;
+}
+#videoControl .input-pannel .preHeader .close:hover{
+	background-position: -12px 0
+}
+#videoControl .input-pannel .add-presets .wrap {
+padding: 10px 10px 0px 10px;
+}
+#videoControl .input-pannel .add-presets .wrap .radio{
+	width:14px;
+	cursor: pointer;
+	height:14px;
+	display: inline-block;
+	vertical-align: top;
+	margin: 2px 5px;
+	background: url("/module/common/images/buttons/nochecked.png") no-repeat
+}
+#videoControl .input-pannel .add-presets .wrap .radio.active{
+background: url("/module/common/images/buttons/checkActive.png") no-repeat
+}
+#videoControl .input-pannel .add-presets .wrap span{
+display: inline-block;
+width: 45px;
+margin-left:5px;
+margin-right: 10px;
+text-align: center;
+vertical-align: middle
+}
+#videoControl .input-pannel .add-presets .wrap span:last-child{
+margin-right:0;
+}
+#videoControl .input-pannel .preFotter{
+position: absolute;
+display: inline-block;
+left: 0;
+bottom:10px;
+width: 100%;
+text-align: center;
+height: 30px;
+line-height: 30px;
+}
+#videoControl .input-pannel .preFotter .saveBtn,#videoControl .input-pannel .preFotter .cancleBtn{
+height: 22px;
+line-height: 22px;
+padding: 0 10px;
+margin-left: 10px;
+background: #343434;
+cursor: pointer;
+color:#a5a5a5;
+}
+#videoControl .input-pannel .preFotter .saveBtn:hover{
+	color:#2875c4;
+}
+#videoControl .input-pannel .preFotter .cancleBtn:hover{
+	color:#fc5050
+}
+#videoControl .input-pannel .preFotter .saveBtn i.icon_save{
+	width:14px;
+	height:14px;
+	display: inline-block;
+	margin: -3px 3px;
+	background: url("/module/common/images/buttons/save.png") no-repeat
+
+}
+#videoControl .input-pannel .preFotter .cancleBtn i.icon_cancle{
+	width:14px;
+	height:14px;
+	display: inline-block;
+	margin: -3px 3px;
+	background: url("/module/common/images/buttons/deleteMini.png") no-repeat
+
+}
+#videoControl .input-pannel .preFotter .saveBtn:hover i.icon_save{
+	background: url("/module/common/images/buttons/saveActive.png") no-repeat
+}
+#videoControl .input-pannel .preFotter .cancleBtn:hover i.icon_cancle{
+	background: url("/module/common/images/buttons/deleteActive.png") no-repeat
+}
+#videoControl .input-pannel .add-presets .wrap input {
+	border: 0;
+	display: inline-block;
+	vertical-align: middle;
+	height:25px;
+	background: #2a2a2a;
+	color:#fff
+}
+#videoControl .input-pannel .add-presets .wrap span input{
+	display: inline-block;
+	vertical-align: middle;
+	margin-bottom: 5px
+}
+#videoControl .input-pannel .add-presets input:focus {
+	border-color: #B7D5EA;
+}
+
+#videoControl .input-pannel .add-presets a {
+	display: inline-block;
+	width: 36px;
+	height: 22px;
+	line-height: 22px;
+	color: #ffffff;
+	text-align: center;
+	/*margin-top: 5px;*/
+	background-color: #297EE5;
+}
+/*
+#videoControl .marker-pannel {
+	position: absolute;
+	bottom: 28px;
+	width: 300px;
+	height: 225px;
+	background-color: #1a1a1a;
+	display: none;
+	vertical-align: middle;
+	text-align: center;
+}*/
+
+#videoControl .marker-pannel {
+	position: absolute;
+	width: 300px;
+	height: 225px;
+	left:0px;
+	top:0px;
+	background-color: #1a1a1a;
+	display: none;
+	vertical-align: middle;
+	text-align: center;
+}
+
+
+
+#videoControl .marker-pannel.active {
+	display: block;
+}
+
+ .marker-pannel {
+	position: absolute;
+	bottom: 28px;
+	width: 300px;
+	height: 225px;
+	background-color: #1a1a1a;
+	display: none;
+	vertical-align: middle;
+	text-align: center;
+	z-index: 100;
+}
+
+ .marker-pannel.active {
+	display: block;
+}
+
+.marker-pannel iframe {
+	filter: alpha(opacity=0);
+	opacity: 0;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	background-color: #1a1a1a;
+}
+
+.frame-marker {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+
+}
+.marker-pannel .frame-marker.active{
+	display: block;
+}
+
+.frame-marker .header {
+	height: 25px;
+	line-height: 25px;
+	color: #FFFFFF;
+	padding: 0 10px;
+	border: none;
+}
+
+.frame-marker #markerLevel{
+	width: 50px;
+	height: 23px;
+	color: #FFFFFF;
+	padding: 0px;
+	margin:0px;
+	border: none;
+}
+/*
+.frame-marker .markerLevelcolor {
+	z-index: 1000;
+	width:30px;
+	position: absolute;
+	left:0px;
+	top:0px;
+	display: none;
+	height: 80px;
+	border: solid 1px rgb(77,77,78);
+}
+
+.frame-marker .markerLevelcolor iframe{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	opacity: 0;
+}
+
+.frame-marker .markerLevelcolor div
+{
+	border:solid 1px black;
+	height: 16px;
+}
+
+.frame-marker .markerLevelcolor div:hover
+{
+	border:solid 1px #ffffff;
+}
+
+.frame-marker .markerLevelcolor .red{
+	background: red;
+}
+.frame-marker .markerLevelcolor .orange{
+	background: orange;
+}
+.frame-marker .markerLevelcolor .yellow{
+	background: yellow;
+}
+.frame-marker .markerLevelcolor .blue{
+	background: blue;
+}
+.frame-marker .markerLevelcolor .black{
+	background: black;
+}
+*/
+
+
+ .markerLevelcolor {
+	z-index: 99999;
+	width:30px;
+	position: absolute;
+	left:0px;
+	top:0px;
+	display: none;
+	height: 80px;
+	border: solid 1px rgb(77,77,78);
+}
+
+ .markerLevelcolor>iframe{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	opacity: 0;
+}
+
+ .markerLevelcolor> div
+{
+	border:solid 1px black;
+	height: 16px;
+}
+
+.markerLevelcolor> div:hover
+{
+	border:solid 1px #ffffff;
+}
+
+ .markerLevelcolor >.red{
+	background-color: red;
+}
+ .markerLevelcolor >.orange{
+	background-color: orange;
+}
+ .markerLevelcolor> .yellow{
+	background-color: yellow;
+}
+ .markerLevelcolor> .blue{
+	background-color: #00ccff;
+}
+ .markerLevelcolor >.gray{
+	background-color: #e1e1e1;
+}
+
+.frame-marker .header .close-frame{
+	width: 12px;
+	height: 11px;
+	display: inline-block;
+	background: url('/module/common/images/buttons/close.png') 0 0 no-repeat scroll;
+	position: absolute;
+	right: 10px;
+	top: 13px;
+	cursor: pointer;
+}
+.frame-marker .header .close-frame:hover{
+	background-image: url('/module/common/images/buttons/close-hover.png');
+}
+.frame-marker .content{
+	background-color: #333333;
+	padding: 10px 15px 5px;
+	height: 140px;
+}
+.frame-marker p{
+	margin: 0 0 15px 0 ;
+	display: block;
+}
+
+.frame-marker p.frametitle{
+	height: 20px;
+	line-height: 20px;
+}
+
+.frame-marker p.level{
+	height: 20px;
+	line-height: 20px;
+}
+.frame-marker p.descripe{
+	height: 50px;
+	line-height: 50px;
+}
+.frame-marker p.descripe label{
+	vertical-align: top;
+	/*line-height: 50px;*/
+}
+.frame-marker label{
+	width: 65px;
+	color: #FFFFFF;
+}
+.frame-marker select,.frame-marker textarea{
+	color: #FFFFFF;
+	background-color: #4d4d4d;
+	padding: 5px;
+	border: none;
+}
+.frame-marker select{
+	width: 205px;
+}
+
+.frame-marker input{
+	width: 100px;
+	background-color: rgb(77, 77, 77);
+	border: none;
+	padding: 2px;
+	color: white;
+	border-radius: 2px;
+}
+
+.frame-marker textarea{
+	width: 195px;
+	height: 90px;
+	overflow: hidden;
+	border-radius: 2px;
+}
+
+.frame-marker .footer{
+	height: 30px;
+	line-height: 30px;
+	text-align: right;
+}
+.frame-marker .footer .save-frame{
+	height: 20px;
+	line-height: 20px;
+	margin-right: 20px;
+}
+
+#select-frame-mark-title
+{
+	padding:4px;
+	position: absolute;
+	border-radius: 3px;
+	cursor:default;
+	border:solid 1px #cccccc;
+	height:110px;
+	background-color: rgb(77, 77, 77);
+	padding:4px;
+	text-align: left;
+	color:#999999;
+	z-index: 99999;
+	background-color: red;
+	overflow-y: scroll; 
+}
+
+#select-frame-mark-title span.tagName
+{
+	padding:3px;
+	color:#999999;
+	border:solid 1px #999999;
+	margin:2px;
+	cursor: default;
+	display:inline-block;
+}
+
+#select-frame-mark-title span.tagName:hover
+{
+	padding:3px;
+	color:#ccc;
+}
+
+#select-frame-mark-title iframe
+{
+  position:absolute;
+  left:0px;
+  top:0px;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+#winPopup-showframe
+{
+	position: absolute;
+	left:0px;
+	top:0px;
+	width:125px;
+	height: 20px;
+	display: none;
+	z-index: 9999999;
+	border-radius: 3px;
+}
+
+#winPopup-showframe iframe{
+	position: absolute;
+	left: 0px;
+	top:0px;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+}
+
+#showframe-title-img
+{
+	cursor:default;
+	margin:0px;
+	padding:0px;
+	width:140px;
+	height:120px;
+	background-color:#454545;
+	color:white;
+	border:solid 2px #191919;
+	z-index: 999999;
+	display: none;
+	position: absolute;
+	left: 0px;
+	top:0px;
+	overflow: hidden;
+}
+#showframe-title-img iframe
+{
+	position: absolute;
+	left: 0px;
+	top:0px;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+}
+
+#showframe-title-img .showframe-name{
+	border-radius: 3px;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+#showframe-title-img .frametitle-time{
+	text-align:right;
+	height:5px;
+	line-height:5px;
+	padding-right:2px;
+}
+
+#showframe-title-img  .frametitle{
+	padding:2px;
+	border:solid 1px #333;
+	z-index:1;
+	color:#333;
+	position:relative;
+	left:2px;
+	top:15px;
+}
+
+#showframe-title-img #smallimage{
+	width:100%;
+	height:95px;
+}
+
+.init {
+/*placeholder初始化样式*/
+	color: #acacac;
+}
+
+.write {
+	color: #565656;
+}
+
+.dialog-messsage {
+	max-height: 185px;
+	overflow-y: auto;
+	color: #666666;
+	z-index: 100;
+}
+
+.dialog-messsage h4 {
+	font-size: 14px;
+	font-weight: normal;
+	margin-bottom: 10px;
+}
+
+.dialog-messsage li {
+	list-style: disc inside;
+	line-height: 20px;
+}
+
+.time-error{
+	border: 1px solid #F9263E;
+}
+
+
+.xdsoft_datetimepicker iframe {
+	height: 150px;
+}
+.startTime.xdsoft_inline, .endTime.xdsoft_inline {
+	margin-top:44px;
+	margin-left:95px;
+}
+
+.endTime.xdsoft_inline {
+	margin-top:77px;
+}
+
+
+.xdsoft_datetimepicker .xdsoft_timepicker .xdsoft_time_box {
+	height: 100px;
+}
+
+.xdsoft_datetimepicker .xdsoft_timepicker .xdsoft_next {
+float: none;
+background-position: -40px -15px;
+height: 11px;
+width: 30px;
+display: block;
+margin-left: 14px;
+margin-top: 2px;
+}
+
+
+
+/*手动报警样式*/
+#manual{
+	width:370px;
+	/*height:240px;*/
+	border:1px solid #c2cdd7;
+	background:#FFFFFF;
+	position:fixed;
+	top:30%;
+	left:50%;
+	margin:-120px 0 0 -230px;
+	z-index:100000;
+	display: none;
+}
+
+#manual .title{
+	margin-top: 10px;
+	width: 370px;
+	height: 40px;
+}
+
+#manual .title p{
+	float: left;
+	height: 40px;
+	width: 100px;
+	font-size: 13px;
+	font-weight: bold;
+	line-height: 40px;
+	margin-left: 20px;
+}
+
+#manual .title i{
+	display: block;
+	float: right;
+	width: 40px;
+	height: 40px;
+	margin-right: 0px;
+	background: url("/module/common/images/icons/closed.png") no-repeat;
+	cursor:pointer;
+}
+
+#manual .pic{
+	height: 245px;
+	border-bottom: 2px solid #F6F6F6;
+}
+
+#manual .pic .alarm-pic{
+	height: 220px;
+	width: 270px;
+	margin-top: 5px;
+	margin-left: 50px;
+	margin-bottom: 20px;
+	/*border: 2px solid #E6EBF0;*/
+	/*padding: 3px 3px;*/
+}
+
+#manual .alarm-info{
+	margin-top: 10px;
+}
+#manual .form-item{
+	width: 305px;
+	height: 25px;
+	margin-left: 35px;
+	margin-top: 8px;
+}
+#manual .form-item label{
+	font-size: 12px;
+	height: 25px;
+}
+
+#manual .form-item .ui.input .input-text{
+	width: 191px;
+	height: 17px;
+	line-height: 15px;
+	border: 1px solid #e3e2e2;
+	margin-left: 15px;
+	padding: 3px 5px 3px 11px;
+	margin-left: 12px\0;
+}
+
+:root #manual .form-item .ui.input .input-text{
+	margin-left: 15px;
+}
+
+#manual .form-item .selectinput{
+	float: right;
+	width: 207px;
+	height: 23px;
+	line-height: 23px;
+	border: 1px solid #e3e2e2;
+	margin-right:29px;
+	cursor:pointer;
+	margin-right:32px\0;
+}
+
+:root #manual .form-item .selectinput{
+	margin-right: 29px;
+}
+#manual .form-item .selectinput span{
+	font-size: 12px;
+	margin-left: 12px;
+}
+#manual .level {
+	position: relative;
+}
+#manual .alarm-cause{
+	position: relative;
+}
+#manual .alarm-cause ul{
+	width: 207px;
+	height: 168px;
+	margin-top: 5px;
+	font-size: 12px;
+	position: absolute;
+	border:1px solid #E3E2E2;
+	margin-left: 69px;
+	background-color: #FFFFFF;
+	z-index: 999;
+	display: none;
+}
+#manual .level ul{
+	width: 207px;
+	height: 75px;
+	margin-top: 5px;
+	font-size: 12px;
+	position: absolute;
+	border:1px solid #E3E2E2;
+	margin-left: 69px;
+	background-color: #FFFFFF;
+	display: none;
+}
+
+#manual .level ul li,#manual .alarm-cause ul li{
+	width: 197px;
+	height: 20px;
+	line-height: 20px;
+	margin:  3px 5px;
+	text-align: left;
+	cursor: pointer;
+}
+#manual .level ul li span,#manual .alarm-cause ul li span{
+	margin-left: 5px;
+}
+#manual .level ul li:hover,#manual .alarm-cause ul li:hover{
+	background-color: #1DA2FB;
+}
+#manual .level ul li.active,#manual .alarm-cause ul li.active{
+	background-color: #D3E3F0;
+}
+#manual .form-item .selectinput i.down{
+	float: right;
+	width: 15px;
+	height: 15px;
+	margin-top: 5px;
+	margin-right: 5px;
+	display: inline-block;
+	background: url('/module/common/images/icons/arrow-down.png') no-repeat 0 0;
+	cursor:pointer;
+}
+
+#manual  a.other{
+	position: absolute;
+    display: inline-block;
+	font-size: 12px;
+	color: #1da2fb;
+    right: 0px;
+    top: 4px;
+	cursor:pointer;
+}
+#manual .foot a{
+	margin-top: 15px;
+	font-size: 12px;
+	display: block;
+	width: 55px;
+	height: 25px;
+	line-height: 25px;
+	text-align: center;
+	color: #FFFFFF;
+	background-color: #1da2fb;
+	margin-left: 257px;
+	margin-bottom: 8px;
+}
+
+#ptzCamera >.content>.view.hisplay .box .box-body .beginTime
+{
+	margin-top:5px;
+	margin-bottom: 2px;
+	border:solid 1px #cccccc;
+	width:211px;
+	height: 22px;
+	background-color:white;
+	margin-left: 11px;
+	padding-left:5px;
+	display:inline-block;
+	color: #646464;
+}
+
+
+#ptzCamera >.content>.view.hisplay .box .box-body .endTime
+{
+	margin-top:2px;
+	margin-bottom: 2px;
+	border:solid 1px #cccccc;
+	width:211px;
+	height: 22px;
+	background-color:white;
+	margin-left: 11px;
+	padding-left:5px;
+	display:inline-block;
+	color: #646464;
+}
+
+#ptzCamera >.content>.view.hisplay .box .box-body .asearch
+{
+	color:white;
+	background-color:#1A77DE;
+	width:40px;
+	text-align: center;
+	vertical-align: middle;
+	display:inline-block;
+	height: 18px;
+	margin-left:10px;
+	padding-top: 4px;
+}
+
+#ptzCamera >.content>.view.hisplay .box .box-body .beginTime .his_beginTime
+{
+  width:190px;
+  border: none;
+  height: 22px;
+  font-size: 12px;
+  color:black;
+}
+
+#ptzCamera >.content>.view.hisplay .box .box-body .endTime .his_endTime
+{
+  width:190px;
+  border: none;
+  height: 22px;
+  font-size: 12px;
+  color:black;
+}
+
+#ptzCamera >.content>.view.hisplay .box .box-body .resultList
+{
+	height: 150px;
+	overflow: auto;
+	border-top:solid 1px #cccccc;
+	display: block;
+	float:inherit;
+	padding: 5px;
+}
+
+#ptzCamera >.content>.view.hisplay .box .box-body .icon-timepicker
+{
+  width: 12px;
+  height: 12px;
+  background: url('/module/common/images/icons/datepicker.png') 0 0 no-repeat;
+  display: inline-block;
+  cursor: pointer;
+  position: relative;
+  top:4px;
+}
+
+#ptzCamera >.content>.view.hisplay>.box>.box-body>.resultList
+{
+   height: 125px;
+   overflow: auto;
+}
+
+#ptzCamera >.content>.view.hisplay>.box>.box-body>.resultList>ul>li
+{
+   border-bottom: solid 1px #e0e0e0;
+   height: 23px;
+   line-height: 22px;
+   text-align: center;
+   cursor: default;
+   color:#646464;
+   white-space: nowrap;
+}
+
+#ptzCamera >.content>.view.hisplay>.box>.box-body>.resultList>ul>li .litime:hover{
+   color:#1a77de;
+}
+
+
+#ptzCamera >.content>.view.hisplay>.box>.box-body>.resultList>ul>li.active{
+	background:#d8ecfc;
+}
+
+#ptzCamera >.content>.view.hisplay>.box>.box-body>.resultList>ul>li.active .litime{
+	color:black;
+	/*border-left: solid 1px #cccccc;*/
+}
+
+#ptzCamera >.content>.view.hisplay>.box>.box-body>.resultList>ul>li.active .litime:hover{
+	color:black;
+}
+
+
+#ptzCamera >.content>.view.hisplay>.box>.box-body>.resultList>ul>li>.litime
+{
+	cursor:default;
+	vertical-align: middle;
+}
+
+#ptzCamera >.content>.view.hisplay>.box>.box-body>.resultList>ul>li>.btn
+{
+   width:  16px;
+   height: 18px;
+   background-repeat: no-repeat;
+   display: inline-block;
+   vertical-align: middle;
+   cursor: default;
+}
+
+#ptzCamera >.content>.view.hisplay>.box>.box-body>.resultList>ul>li>.bgimg
+{
+   background-image: url("/module/common/images/sprites/operate-bg.png");
+}
+
+#ptzCamera >.content>.view.hisplay>.box>.box-body>.resultList>ul>li>.download-local{
+   background-image: url("/module/inspect/download-cloud/images/down.png");
+   background-position: -190px 0px;
+}
+
+#ptzCamera >.content>.view.hisplay>.box>.box-body>.resultList>ul>li>.download-local:hover{
+   background-position: -190px 0px;
+}
+
+#ptzCamera >.content>.view.hisplay>.box>.box-body>.resultList>ul>li>.download-local:active{
+   background-position: -210px 0px;
+}
+
+#ptzCamera >.content>.view.hisplay>.box>.box-body>.resultList>ul>li>.into-viewlibs{
+   background-image: url("/module/inspect/download-cloud/images/down.png");
+   background-position: 0px 0px;
+}
+
+#ptzCamera >.content>.view.hisplay>.box>.box-body>.resultList>ul>li>.into-viewlibs:hover{
+   background-position: -20px 0px;
+}
+
+#ptzCamera >.content>.view.hisplay>.box>.box-body>.resultList>ul>li>.into-viewlibs:active{
+   background-position: -40px 0px;
+}
+
+#ptzCamera >.content>.view.hisplay>.box>.box-body>.resultList>ul>li>.btn1
+{
+	background-position: -57px 0;
+	vertical-align: middle;
+	margin-left: 5px;
+}
+
+#ptzCamera >.content>.view.hisplay>.box>.box-body>.resultList>ul>li>.btn1:hover
+{
+	background-position: -248px 0;
+	cursor: pointer;
+	background-image: url("/module/common/images/sprites/operate-bg.png");
+	background-repeat: no-repeat;
+	background-position: -57px 0;
+}
+
+#download-showList{
+	position: absolute;
+	left:0px;
+	top:0px;
+	width:90px;
+	height: 50px;
+	display: none;
+	border:solid 1px #cccccc;
+	border-radius: 3px;
+	z-index: 10000;
+	background-color: white;
+	cursor: default;
+}
+
+#download-showList iframe{
+	position: absolute;
+	left:0px;
+	top:0px;
+	z-index: -1;
+	width: 100%;
+	height: 100%;
+}
+
+#download-showList div.item{
+	height: 25px;
+	line-height: 25px;
+	color: #666666;
+	padding-left: 5px;
+}
+
+#download-showList div.item:hover{
+	background-color: #D8ECFC;
+}
+
+
+/*
+#ptzCamera >.content>.view.hisplay>.box>.box-body>.resultList>ul>li>.btn2
+{
+	background-position: -565px 0;
+	vertical-align: middle;
+}
+
+#ptzCamera >.content>.view.hisplay>.box>.box-body>.resultList>ul>li>.btn2:hover
+{
+	background-position: -585px 0;
+	cursor: pointer;
+}
+*/
+#downBlockContent .videoProgress
+{
+	display: inline-block;
+	width: 20px;
+	margin-left: 5px;
+	margin-right: 5px;
+	height: 8px;
+	background-color: #6e6e6e;
+	line-height: 8px;
+	text-align: left;
+	font-size: 0px;
+	padding:0px;
+	position: relative;
+	left:0px;
+	top:4px;
+	border-radius: 2px;
+}
+
+#downBlockContent .videoProgress .played
+{
+	background-color: #0197e4;
+	width:0px;
+	height: 8px;
+	line-height: 8px;
+	font-size: 0px;
+	display: inline-block;
+	position: absolute;
+	top:0px;
+	border: none;
+	margin: 0px;
+	border-radius: 2px;
+}
+
+#downBlockContent .videoProgress .ctrlbar
+{
+	/*background-image: url(/assets/images/icons/sh-video.png);*/
+	background-repeat: no-repeat;
+	background-position: 0 -42px;
+	position: absolute;
+	left:0px;
+	top:-2px;
+	width: 13px;
+	height: 13px;
+	display: inline-block;
+	border: none;
+	margin: 0px;
+	cursor: pointer;
+	z-index: 0;
+	border: solid 0px #ffffff;
+	-moz-user-select: none; /*火狐*/
+	-webkit-user-select: none;  /*webkit浏览器*/
+	-ms-user-select: none;   /*IE10*/
+	-khtml-user-select: none; /*早期浏览器*/
+	user-select: none;
+}
+
+#downBlockContent .videoProgress .frameMarkcontent
+{
+	position: absolute;
+	left:0px;
+	top:0px;
+	width:100%;
+	height: 100%;
+	z-index: 0;
+	border: solid 0px blue;
+}
+
+#downBlockContent .videoProgress .framelevel
+{
+	width:  4px;
+	height: 4px;
+	position:absolute;
+	z-index:-1;
+}
+
+#downBlockContent .videoProgress .framelevel:hover
+{
+	width:8px;
+	height: 8px;
+	border-radius:4px;
+	top:-2px;
+}
+
+#downBlockContent .videoProgress .framelevel.level1
+{
+	background-color: red;
+}
+
+#downBlockContent .videoProgress .framelevel.level2
+{
+	background-color: orange;
+}
+
+#downBlockContent .videoProgress .framelevel.level3
+{
+	background-color: yellow;
+}
+
+#downBlockContent .videoProgress .framelevel.level4
+{
+	background-color: blue;
+}
+
+#downBlockContent .videoProgress .framelevel.level5
+{
+	background-color: black;
+}
+
+#ShowBox
+{
+    position: absolute;
+    left: 0px;
+    top:200px;
+    width:200px;
+    height:200px;
+    display: none;
+    z-index: 99999999;
+    border:solid 1px red;
+    border-radius: 5px;
+}
+
+#ShowBigPic
+{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 500px;
+    height: 500px;
+    z-index: 9000000;
+    display: none;
+    border: solid 1px #cccccc;
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+#ShowBigPic>img
+{
+    position: absolute;
+    left: 0px;
+    top:0px;
+    width:0px;
+    height: 0px;
+    display: block;
+}
+/*新增放大镜以及解决录像进度条拖动的bug --end*/
+
+
+

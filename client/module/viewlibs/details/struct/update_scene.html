@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=10,chrome=1">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<title>视云实战平台</title>
+	<!--[if lt IE 9]>
+	<script src="/libs/html5/html5.js"></script>
+	<![endif]-->
+
+	<link type="text/css" rel="stylesheet" href="/module/common/css/base.css" />
+	<link type="text/css" rel="stylesheet" href="/libs/semantic/semantic.css" />
+	<link type="text/css" rel="stylesheet"  href="/libs/jquery/jquery-ui.css">
+	<link type="text/css" rel="stylesheet" href="/libs/jquery/jquery.datetimepicker.css"/>
+	<link type="text/css" rel="stylesheet" href="/module/viewlibs/doubtlib/css/entity.css"/>
+	<link type="text/css" rel="stylesheet" href="/module/viewlibs/details/struct/css/entity.css"/>
+</head>
+<body>
+	<div id="content">
+		<div class="wrapper clearfix">
+			<div class="loading"></div>
+			<script id="view-template" type="text/x-handlebars-template">
+				{{#scene}}
+				<ul class="breadcrumb">
+				<li>
+					<a href="/module/viewlibs/workbench/index.html" target="media">我的工作台</a>
+					<span class="divider">&gt;</span>
+				</li>
+				<li>
+					<a href=""></a>
+					<span class="divider">&gt;</span>
+				</li>
+				<li>
+					<a href="">线索列表</a>
+					<span class="divider">&gt;</span>
+				</li>
+				<li class="active">编辑场景信息</li>
+			</ul>
+
+			<div class="main modify">
+
+				<div class="resources tabview">
+					<form autocomplete="off" method="post" id="scene-form" class="entity-form">
+						<div class="fieldset">
+							<div class="module active">
+								<div class="module-head">
+									<h3>基本信息</h3> <i class="fix-png"></i>
+								</div>
+								<div class="module-body">
+									<div class="scrollbar disable">
+										<div class="track">
+											<div class="thumb"></div>
+										</div>
+									</div>
+									<div class="viewport scene-view">
+										<div class="overview">
+											<div class="group">
+												<div class="form-item">
+													<span class="item-label">
+														<label for="appearTime">来源视频时间：</label>
+													</span>
+													<div class="item-box">
+														<input type="text" class="input-text input-time" maxlength="50" name="appearTime" value="{{datetransfer appearTime}}"/>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="category">处所分类：</label>
+													</span>
+													<div class="item-box">
+														<select id="scenetype_title" name="categoryMain" class='input-select input-select-second' data-default="{{categoryMain}}"></select>
+														<select id="scene_title" name="categorySub" class='input-select ' data-default="{{categorySub}}"></select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="weather">天气情况分类：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="weather" maxlength="1" name="weather" data-default="{{weather}}">
+															<option value="">--请选择天气情况--</option>
+															<option value="1" {{selected weather "1"}}>晴</option>
+															<option value="2" {{selected weather "2"}}>阴</option>
+															<option value="3" {{selected weather "3"}}>雨</option>
+															<option value="4" {{selected weather "4"}}>雪</option>
+															<option value="5" {{selected weather "5"}}>雾</option>
+															<option value="6" {{selected weather "6"}}>大风</option>
+															<option value="7" {{selected weather "7"}}>沙尘</option>
+															<option value="8" {{selected weather "8"}}>冰雹</option>
+															<option value="9" {{selected weather "9"}}>其他</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="description">描述：</label>
+													</span>
+													<div class="item-box">
+													<textarea class="input-area" id="description" maxlength="200" name="description" value="{{material}}">{{description}}</textarea>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="roadType">道路类型分类：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="road_type" maxlength="2" name="roadType" data-default="{{roadType}}">
+															<option value="">--请选择道路类型--</option>
+															<option value="1" {{selected roadType "1"}}>公路</option>
+															<option value="10" {{selected roadType "10"}}>高速</option>
+															<option value="11" {{selected roadType "11"}}>一级</option>
+															<option value="12" {{selected roadType "12"}}>二级</option>
+															<option value="13" {{selected roadType "13"}}>三级</option>
+															<option value="14" {{selected roadType "14"}}>四级</option>
+															<option value="19" {{selected roadType "19"}}>等外</option>
+															<option value="2" {{selected roadType "2"}}>城市道路</option>
+															<option value="21" {{selected roadType "21"}}>快速路</option>
+															<option value="22" {{selected roadType "22"}}>主干路</option>
+															<option value="23" {{selected roadType "23"}}>次千路</option>
+															<option value="24" {{selected roadType "24"}}>支路</option>
+															<option value="29" {{selected roadType "29"}}>其他路</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="roadLine">道路线形分类：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="road_line" maxlength="1" name="roadLine" data-default="{{roadLine}}">
+															<option value="">--请选择道路线形--</option>
+															<option value="1" {{selected roadLine "1"}}>一般弯</option>
+															<option value="2" {{selected roadLine "2"}}>一般坡</option>
+															<option value="3" {{selected roadLine "3"}}>急弯</option>
+															<option value="4" {{selected roadLine "4"}}>陡坡</option>
+															<option value="5" {{selected roadLine "5"}}>一般弯坡</option>
+															<option value="6" {{selected roadLine "6"}}>急弯陡坡</option>
+															<option value="7" {{selected roadLine "7"}}>一般坡急弯</option>
+															<option value="8" {{selected roadLine "8"}}>一般弯陡坡</option>
+															<option value="9" {{selected roadLine "9"}}>平直</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="roadLandform">道路地形分类：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="road_landform" maxlength="1" name="roadLandform" data-default="{{roadLandform}}">
+															<option value="">--请选择道路地形--</option>
+															<option value="1" {{selected roadLandform "1"}}>平原</option>
+															<option value="2" {{selected roadLandform "2"}}>丘陵</option>
+															<option value="3" {{selected roadLandform "3"}}>山区</option>
+															<option value="9" {{selected roadLandform "9"}}>其他</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="roadSurface">道路路面分类：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="road_surface" maxlength="1" name="roadSurface" data-default="{{roadSurface}}">
+															<option value="">--请选择道路路面--</option>
+															<option value="1" {{selected roadSurface "1"}}>沥青</option>
+															<option value="2" {{selected roadSurface "2"}}>水泥</option>
+															<option value="3" {{selected roadSurface "3"}}>沙石</option>
+															<option value="4" {{selected roadSurface "4"}}>土路</option>
+															<option value="5" {{selected roadSurface "5"}}>其他</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="roadSituation">道路情况分类：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="road_situation" maxlength="2" name="roadSituation" data-default="{{roadSituation}}">
+															<option value="">--请选择道路情况--</option>
+															<option value="01" {{selected roadSituation "01" }}>潮湿</option>
+															<option value="02" {{selected roadSituation "02" }}>积水</option>
+															<option value="03" {{selected roadSituation "03" }}>漫水</option>
+															<option value="04" {{selected roadSituation "04" }}>冰雪</option>
+															<option value="05" {{selected roadSituation "05" }}>泥泞</option>
+															<option value="06" {{selected roadSituation "06" }}>翻浆</option>
+															<option value="07" {{selected roadSituation "07" }}>泛油</option>
+															<option value="08" {{selected roadSituation "08" }}>坑槽</option>
+															<option value="09" {{selected roadSituation "09" }}>塌陷</option>
+															<option value="10" {{selected roadSituation "10" }}>路障</option>
+															<option value="11" {{selected roadSituation "11" }}>平坦</option>
+															<option value="99" {{selected roadSituation "99" }}>其他</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="roadSection">路口路段分类：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="road_section" maxlength="2" name="roadSection" data-default="{{roadSection}}">
+															<option value="">--请选择路口路段--</option>
+															<option value="1" {{selected roadSection "1"}}>路口</option>
+															<option value="11" {{selected roadSection "11"}}>三枝分叉口</option>
+															<option value="12" {{selected roadSection "12"}}>四枝分叉口</option>
+															<option value="13" {{selected roadSection "13"}}>多枝分叉口</option>
+															<option value="14" {{selected roadSection "14"}}>环行交叉</option>
+															<option value="15" {{selected roadSection "15"}}>立体交叉</option>
+															<option value="16" {{selected roadSection "16"}}>铁路道口指</option>
+															<option value="17" {{selected roadSection "17"}}>非规划路口</option>
+															<option value="19" {{selected roadSection "19"}}>其他路口</option>
+															<option value="2" {{selected roadSection "2"}}>路段</option>
+															<option value="21" {{selected roadSection "21"}}>隧道</option>
+															<option value="22" {{selected roadSection "22"}}>桥梁</option>
+															<option value="23" {{selected roadSection "23"}}>窄路段</option>
+															<option value="24" {{selected roadSection "24"}}>高架路段</option>
+															<option value="25" {{selected roadSection "25"}}>变窄路段</option>
+															<option value="26" {{selected roadSection "26"}}>正常</option>
+															<option value="27" {{selected roadSection "27"}}>人行横道</option>
+															<option value="29" {{selected roadSection "29"}}>其他路段</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="lightType">照明情况分类：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="light_type" maxlength="1" name="lightType" data-default="{{lightType}}">
+															<option value="">--请选择照明情况--</option>
+															<option value="1" {{selected lightType "1"}}>白天</option>
+															<option value="2" {{selected lightType "2"}}>夜间有路灯照明</option>
+															<option value="3" {{selected lightType "3"}}>夜间无路灯照明</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="sceneChart">现场图示：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="csene_chart" maxlength="2" name="sceneChart" data-default="{{sceneChart}}">
+															<option value="">--请选择现场图示--</option>
+															<option value="01" {{selected sceneChart "01"}}>平面图</option>
+															<option value="02" {{selected sceneChart "02"}}>立体图</option>
+															<option value="03" {{selected sceneChart "03"}}>侧面图</option>
+															<option value="04" {{selected sceneChart "04"}}>鸟瞰图</option>
+															<option value="99" {{selected sceneChart "99"}}>其他</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="sceneWind">现场风向：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="scene_wind" maxlength="1" name="sceneWind" data-default="{{sceneWind}}">
+															<option value="">--请选择现场风向--</option>
+															<option value="1" {{selected sceneChart "1"}}>东</option>
+															<option value="2" {{selected sceneChart "2"}}>南</option>
+															<option value="3" {{selected sceneChart "3"}}>西</option>
+															<option value="4" {{selected sceneChart "4"}}>北</option>
+															<option value="5" {{selected sceneChart "5"}}>东北</option>
+															<option value="6" {{selected sceneChart "6"}}>东南</option>
+															<option value="7" {{selected sceneChart "7"}}>西南</option>
+															<option value="8" {{selected sceneChart "8"}}>西北</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="sceneLight">现场光线：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select"  maxlength="2" name="sceneLight" data-default="{{sceneLight}}">
+															<option value="">--请选择现场光线--</option>
+															<option value="01" {{selected sceneLight "01"}}>自然光</option>
+															<option value="02" {{selected sceneLight "02"}}>灯光</option>
+															<option value="03" {{selected sceneLight "03"}}>火光</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="sceneCondition">现场条件：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select"  maxlength="2" name="sceneCondition" data-default="{{sceneCondition}}">
+															<option value="">--请选择现场条件--</option>
+															<option value="01" {{selected sceneCondition "01"}}>原始现场</option>
+															<option value="02" {{selected sceneCondition "02"}}>变动现场</option>
+															<option value="03" {{selected sceneCondition "03"}}>伪造现场</option>
+															<option value="04" {{selected sceneCondition "04"}}>未知现场</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="sceneTemperature">现场温度：</label>
+													</span>
+													<div class="item-box">
+														<input type="text" class="input-text" maxlength="5" name="sceneTemperature" id="scene_temperature" value="{{sceneTemperature}}"/>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="sceneHumidity">现场湿度：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select"  id="scene_humidity" maxlength="2" name="sceneHumidity" data-default="{{sceneHumidity}}">
+															<option value="">--请选择现场湿度--</option>
+															<option value="01" {{selected sceneHumidity "01"}}>潮湿</option>
+															<option value="02" {{selected sceneHumidity "02"}}>干燥</option>
+															<option value="03" {{selected sceneHumidity "03"}}>适宜</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="crowdDensity">人群聚集程度：</label>
+													</span>
+													<div class="item-box">
+													<select class="input-select"  id="crowd_density" maxlength="1" name="crowdDensity" data-default="{{crowdDensity}}">
+															<option value="">--请选择人群聚集程度--</option>
+															<option value="1" {{selected crowdDensity "1"}}>很稀疏</option>
+															<option value="2" {{selected crowdDensity "2"}}>稀疏</option>
+															<option value="3" {{selected crowdDensity "3"}}>密集</option>
+															<option value="4" {{selected crowdDensity "4"}}>很密集</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="stuffDensity">物品密度：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select"  id="stuff_density" maxlength="1" name="stuffDensity" data-default="{{stuffDensity}}">
+															<option value="">--请选择物品密度--</option>
+															<option value="1" {{selected stuffDensity "1"}}>很稀疏</option>
+															<option value="2" {{selected stuffDensity "2"}}>稀疏</option>
+															<option value="3" {{selected stuffDensity "3"}}>密集</option>
+															<option value="4" {{selected stuffDensity "4"}}>很密集</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="sceneImportant">场景重要程度：</label>
+													</span>
+													<div class="item-box">
+														<input type="text" class="input-text" maxlength="1" name="sceneImportant" id="scene_important" value="{{sceneImportant}}"/>
+													</div>
+												</div>
+                                                <div class="form-item" style="display: none">
+													<span class="item-label">
+														<label for="points">标记坐标 ：</label>
+													</span>
+                                                    <div class="item-box">
+                                                        <span name="points"  id="points" value="{{points}}"></span>
+                                                    </div>
+                                                </div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="form-item ">
+							<div class="item-box submit-wrapper">
+								<input type="submit" value="保存信息" class="input-submit next-step permission permission-create" />
+								<input type="button" value="取消" class="ui button input-cancel permission permission-create" />
+
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="entity-preview" data-id="{{id}}">
+					<div class="markwrap clearfix">
+						<div class="display-format tab-title">
+							<ul class="menus">
+								<li data-tab="picture" data-anchor="picture" class="tab-title-item active">
+									<a class="btn">图片</a>
+								</li>
+								{{#tabular videoId}}
+								<li data-tab="ocxbody" data-anchor="ocxbody" class=" tab-title-item">
+									<a class="btn">视频</a>
+								</li>
+								{{/tabular}}
+							</ul>
+
+						</div>
+					</div>
+
+					<div class="entity-box tab-content">
+						{{#tabular videoId}}
+                        <div class="video tab-content-item" data-target="ocxbody" data-tab="ocxbody"  data-videopath="{{videoPath}}">
+                            <object id="UIOCX" type="applicatin/x-firebreath" width = "800" height = "450">
+                            	<param name="onload" value="pluginLoaded"/>
+                            </object>
+                            <div class="video-block">
+                           		 <div class="progress-bg"></div>
+                                <div class="progress-bar">
+                                    <div class="bullet"> <i class="play-point"></i>
+                                    </div>
+                                    <i class='start-mark'></i>
+                                    <i class='end-mark'></i>
+                                </div>
+                                <div class="panel" onselectstart="return false">
+                                <span class="time">
+											<span class="nowtime" nowtime-ms="0">00:00:00</span>&nbsp;/
+											<span class="alltime" alltime-ms="14859247">00:00:00</span>
+										</span>
+										<span class="speed">倍速：<em></em></span>
+										<span class="fullwin" title="全屏"></span>
+										<span class="grab" title="抓图"></span>
+										<span class="editing" title="人工标注"></span>
+										<span class="loop" title="循环"></span>
+										<span class="sequence" title="顺序"></span>
+										<span class="stop" title="停止"></span>
+										<span class="forward" title="快进"></span>
+										<span class="switch" title="播放"></span>
+										<span class="rewind" title="慢放"></span>
+                                </div>
+
+                            </div>
+                        </div>
+						{{/tabular}}
+						<div class="picture tab-content-item active" data-target="picture" data-tab="picture">
+							<span class="hook"></span>
+							<img src="{{picture}}" alt="" class="entity-img"></div>
+					</div>
+				</div>
+
+			</div>
+			{{/scene}}
+			</script>
+		</div>
+	</div>
+	<script type="text/javascript" src="/libs/requirejs/require.js" data-main="/module/viewlibs/details/struct/js/update_scene.js"></script>
+
+</body>
+</html>

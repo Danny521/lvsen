@@ -1,0 +1,177 @@
+	{{#list}}
+	{{#isIncident showType}}
+	<!-- 案事件 start -->
+	<div class="item clearfix" data-id="{{id}}" data-auditflag="{{auditFlag}}" data-type="{{showType}}">
+		<div class="maininfo">
+			<div class="head">
+				<span class='hleft'>
+					<span>案事件名称</span>
+					：
+					<a class='incidentname' title="{{showTrueName incidentName}}" data-inciedntName="{{showTrueName incidentName}}">{{{incidentName}}}</a>
+
+				</span>
+				<span class='hright'>
+					<span>案事件编号</span>
+					：
+					<a class='incidentno' title="{{showTrueName associatedId}}">{{{associatedId}}}</a>
+				</span>
+
+			</div>
+			<div class="body clearfix">
+				<div class="thumb-figure ease img">
+					<a class="thumb-anchor">
+						<span class="vbox">
+							<img src="{{showImage path}}" alt=""></span>
+					</a>
+				</div>
+				<div class="wordinfo">
+					<p>
+						<span>案件类型</span>
+						：
+						<span>{{{incidentType category}}}</span>
+					</p>
+					<p>
+						<span>案发地点</span>
+						：
+						<span class='location' title=''>{{{location}}}</span>
+					</p>
+					<p>
+						<span>案发时间</span>
+						：
+						<span>{{timeUpper}}</span>
+						<span class='gray'>(上限)</span>
+					</p>
+					<p>
+						<span class='lowertime'>{{timeLower}}</span>
+						<span class='gray'>(下限)</span>
+					</p>
+					<p>
+						<span>创建时间</span>
+						：
+						<span>{{storageTime}}</span>
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="more">
+			<div>描述信息</div>
+			<div class='desc'>
+				{{{showDes description}}}
+			</div>
+		</div>
+	</div>
+	<!-- 案事件 end -->
+	{{/isIncident}}
+	<!-- 结构化信息 start-->
+	{{#isStruct showType}}
+	<div class="item clearfix {{showType}}" data-id="{{id}}" data-auditflag="{{auditFlag}}" data-structstatus="{{auditFlag}}" data-type="{{showStructType showType incidentId}}">
+		<div class="maininfo">
+			<div class="head">
+				<span class='hleft'>
+					<span>结构化信息名称</span>
+					：
+					{{#eq showType 'car'}}
+					<a class='structname' title="{{showTrueNameln 'car' licenseNumber licenseTypeCodeName carColorCodeName}}">{{{casecar licenseNumber licenseTypeCodeName carColorCodeName}}}</a>
+					{{/eq}}
+					{{#eq showType 'person'}}
+					<a class='structname' title="{{showTrueNameln 'person' personName genderCodeName jacketColorCodeName trousersColorCodeName}}">{{{caseperson personName genderCodeName jacketColorCodeName trousersColorCodeName}}}</a>
+					{{/eq}}
+					{{#eq showType 'scene'}}
+					<a class='structname' title="{{showTrueNameln 'scene' categoryMain subcategoryMain weatherCodeName}}">{{{casesence categoryMain subcategoryMain weatherCodeName}}}</a>
+					{{/eq}}
+					{{#eq showType 'exhibit'}}
+					<a class='structname' title="{{showTrueNameln 'exhibit' exhibitName exhibitShape exhibitColorCodeName}}">{{{caseexhibit exhibitName exhibitShape exhibitColorCodeName}}}</a>
+					{{/eq}}
+					{{#eq showType 'moving'}}
+					<a class='structname' title="{{showTrueNameln 'moving' movingObjectTypeCodeName movingObjectColorCodeName movingObjectHeight movingObjectGrayCodeName}}">{{{casemove movingObjectTypeCodeName movingObjectColorCodeName movingObjectHeight movingObjectGrayCodeName}}}</a>
+					{{/eq}}
+					{{#eq showType 'rest'}}
+					<a class='structname' title="{{showTrueNameln 'rest' restName}}">{{{caseothers restName}}}</a>
+					{{/eq}}
+				</span>
+			</div>
+			<div class="body clearfix">
+				<div class="thumb-figure ease img">
+					<a class="thumb-anchor">
+						<span class="vbox">
+							<img src="{{showImage path}}" alt=""></span>
+					</a>
+				</div>
+				<div class="wordinfo">
+					<p>
+						<span>拍摄地点</span>
+						：
+						<span class='location' title='{{showTrueName location}}'>{{{location}}}</span>
+					</p>
+					<p>
+						<span>出现时间</span>
+						：
+						<span>{{shootTime}}</span>
+					</p>
+					<p>
+						<span>创建时间</span>
+						：
+						<span>{{storageTime}}</span>
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="more">
+			<div>描述信息</div>
+			<div class='desc'>
+				{{{showDes description}}}
+			</div>
+		</div>
+	</div>
+	{{/isStruct}}
+	<!-- 结构化信息 end-->
+
+	{{#isMedia showType}}
+	<!-- 视频图片 start -->
+	<div class="item clearfix" data-type="{{showType}}" data-id="{{id}}" data-auditflag="{{auditFlag}}">
+		<div class="maininfo">
+			<div class="head">
+				<span class='hleft'>
+					<span>{{showMeaidType showType}}名称</span>
+					：
+					<a class='medianame' title="{{showTrueName originalName}}">{{{originalName}}}</a>
+				</span>
+			</div>
+			<div class="body clearfix">
+				<div class="thumb-figure ease img">
+					<a class="thumb-anchor">
+						<span class="vbox">
+							<img src="{{showImage path}}" alt=""></span>
+					</a>
+				</div>
+				<div class="wordinfo">
+					<p>
+						<span>拍摄地点</span>
+						：
+						<span class='location' title='{{showTrueName location}}'>{{{location}}}</span>
+					</p>
+					<p>
+						<span>出现时间</span>
+						：
+						<span>{{shootTime}}</span>
+					</p>
+					<p>
+						<span>创建时间</span>
+						：
+						<span>{{{storageTime}}}</span>
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="more">
+			<div>描述信息</div>
+			<div class='desc'>
+				{{{showDes description}}}
+			</div>
+		</div>
+	</div>
+	<!-- 视频图片 end -->
+	{{/isMedia}}
+{{else}}
+	<h2 style="padding:10px; text-align:center;">暂无数据</h2>
+{{/list}}

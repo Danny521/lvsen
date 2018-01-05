@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>公安视频实战应用平台</title>
+    <!--[if lt IE 9]>
+    <script src="/libs/html5/html5.js"></script>
+    <![endif]-->
+    <link type="image/x-icon" rel="shortcut icon" href="/favicon.ico" />
+    <link type="text/css" rel="stylesheet" href="/module/common/css/base.css" />
+    <link type="text/css" rel="stylesheet" href="/libs/semantic/semantic.css" />
+    <link rel="stylesheet" type="text/css" href="/libs/jquery/jquery-ui.css"/>
+    <link rel="stylesheet" type="text/css" href="/libs/thickbox/thickbox.css">
+    <link type="text/css" rel="stylesheet" href="/libs/jquery/jquery.datetimepicker.css"/>
+    <link type="text/css" rel="stylesheet" href="/module/inspect/common/css/inspect.css" />
+    <link type="text/css" rel="stylesheet" href="/module/settings/common/tool/tree.css"/>
+    <!--<link type="text/css" rel="stylesheet" href="/module/inspect/common/css/control.css"/>-->
+    <link type="text/css" rel="stylesheet" href="/libs/jquery/jquery.pagination.css">
+    <link type="text/css" rel="stylesheet" href="css/stat.css" />
+    <link type="text/css" rel="stylesheet" href="css/cameraStat.css" />
+    <link type="text/css" rel="stylesheet" href="css/examine.css" />
+</head>
+<body> 
+    <script type="text/javascript" src="/libs/requirejs/require.js"></script>
+    <script type="text/javascript" src="/require-conf.js"></script>
+    <script type="text/javascript">require(["js/main"])</script>
+    <div id="content">
+        <div class="wrapper">
+            <aside id="sidebar" class="ishide">
+                <!--
+                <a id="sideExpand">
+                <iframe src="about:blank"></iframe>
+                <span>边栏显隐</span>
+            </a>
+            -->
+            <a id="sideResize">
+                <iframe src="about:blank"></iframe>
+                <span>调整宽度</span>
+            </a>
+
+            <div class="header">
+                <div class="title examine">视频考核</div>
+            </div>
+
+            <ul class="menus ui tabular" id="stat">
+                <li class="examine active" data-tab="examine" title="视频考核"></li>
+                <!--<li class="camera  result" data-tab="result" title="巡检结果查询"></li>-->
+                <li class="patrol breakdown breakdownrate " data-tab="breakdown" title="故障率统计"></li>
+                <li class="cameraStat camerastat" data-tab="cameraStat" title="摄像机类别统计"></li>
+               
+            </ul>
+
+            <div id="treePanel">
+                <div class="ui tab active">
+                    <div class="form-panel">
+                        <div class="scrollbar disable">
+                            <div class="track">
+                                <div class="thumb"></div>
+                            </div>
+                        </div>
+                        <div class="viewport">
+                            <div class="overview">
+                                <div class="ui tab active filter result" data-tab="result" id="result">
+                                    <div class="tree-search">
+                                        <input id="searchInput" type="text" placeholder="全局搜索..." name="q" autocomplete="off">
+                                        <button id="searchBtn" title="搜索"></button>
+                                    </div>
+                                    <div class="treePanel"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </aside>
+
+        <div id="major">
+            <div id="npplay">
+                <div class="header hidden breadcrumb">
+                    <h3 class="title fl">组织结构</h3>
+                </div>
+                <div class="body">
+                    <div class="camera-area">
+                        <div id="tableresult" data-tab="result" >
+                            <form id="searchbox">
+                                <div id="search">
+                                    <div class="fl">
+                                        <span>开始时间：<input type="text" id="startTime" name="startTime" class="datepicker" placeholder="请输入开始时间"></span>
+                                        <span>结束时间：<input type="text" id="endTime" name="endTime" class="datepicker" placeholder="请输入结束时间"></span>
+                                        <span class="cameraName">摄像机名称：<input type="text" id="cameraName" name="cameraName" placeholder="请输入摄像机名称"></span>
+                                        <span id="statusselect">巡检状态：
+                                            <select id="status" name="status">
+                                                <option value="">全部</option>
+                                                <option value="1">正常</option>
+                                                <option value="2">异常</option>
+                                            </select>
+                                        </span>
+                                        <span id="mfs"></span>
+                                        <span>
+                                        <input type="hidden" id="resultorgid" name="orgId" value="">
+                                        <input type="hidden" id="resultcameraid" name="resultcameraid" value="">
+                                        <input type="submit" value="查询" id="submitsearch" class="ui button blue">
+                                        </span>
+                                    </div>
+                                    <div class="fr">
+                                        <span><a class="fr export ui button blue" id="exportresult">导出</a></span>
+                                    </div>
+                                </div>
+                                <!--
+                                <table class="ui eight column table segment" id="search">
+                                    <tr>
+                                        <td>开始时间：<input type="text" id="startTime" name="startTime" class="datepicker" placeholder="请输入开始时间"></td>
+                                        <td>结束时间：<input type="text" id="endTime" name="endTime" class="datepicker" placeholder="请输入结束时间"></td>
+                                        <td>摄像机名称：<input type="text" id="cameraName" name="cameraName" placeholder="请输入摄像机名称"></td>
+                                        <td id="mfs"></td>
+                                        <td class="fixedwidthtd"><input type="hidden" id="resultorgid" name="orgId" value=""><input type="submit" value="查询" id="submitsearch" class="ui button blue"></td>
+                                        <td class="fixedwidthtd"><a class="fr export ui button blue" id="exportresult">导出</a></td>
+                                    </tr>
+                                </table>
+                                -->
+                            </form>
+                            <div class="tips" id="tablechart">
+                                <div class="tableheader">
+                                    <table class="ui nines column table inverted segment inspectresult head" data-orgid="">
+                                        <tr class="head">
+                                            <th class="checkboxth" style="width:50px;"><input type="checkbox" class="checkall"></th>
+                                            <!--<th class="number">序号</th>-->
+                                            <th>摄像机名称</th>
+                                            <th>厂商</th>
+                                            <th>巡检人</th>
+                                            <th>巡检时间</th>
+                                            <th>巡检结果</th>
+                                            <th>巡检方式</th>
+                                            <th>状态类型</th>
+                                            <th>备注</th>
+                                            <th>操作</th>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="scrollbar disable">
+                                    <div class="track">
+                                        <div class="thumb"></div>
+                                    </div>
+                                </div>
+                                <div class="viewport">
+                                    <div class="overview">
+                                        <div class="result">
+                                            <span>请选择左侧树形中的机构以展示巡检结果</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="pagepart">
+                                    <div id ="pagination" class="pagination"></div>
+                                </div>
+                            </div>
+
+                            <div class="tips" id="resultdetail">
+                                <table class="ui sixs column table inverted segment resultdetail head" data-orgid="">
+                                    <tr class="head">
+                                        <th class="checkboxth"><input type="checkbox" class="checkall"></th>
+                                        <!--<th class="number">序号</th>-->
+                                        <th><!--<a href="#" class="order byorg asc" data-order="asc">-->巡检单位<!--<i class="asc"></i>--></a></th>
+                                        <th>巡检人</th>
+                                        <th><a href="#" class="order bydate desc" data-order="desc">巡检时间<i class="desc"></i></a></th>
+                                        <th>巡检结果</th>
+                                        <th>巡检方式</th>
+                                        <th>状态类型</th>
+                                        <th>备注</th>
+                                        <th>查看</th>
+                                    </tr>
+                                </table>
+                                <div class="scrollbar disable">
+                                    <div class="track">
+                                        <div class="thumb"></div>
+                                    </div>
+                                </div>
+                                <div class="viewport">
+                                    <div class="overview">
+                                        <div class="result">
+                                            <!--<span>请选择左侧树形中的机构以展示巡检结果统计</span>-->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="chart"></div>
+                            </div>
+                            <div class="back ui button blue"><a href="##">返回</a></div>
+
+                            <!--<div id="tableresult1" data-tab="tableresult1" class="active ui tab "></div>
+                            <div id="tableresult2" data-tab="tableresult2" class="ui tab "></div>
+                            <ul class="menus ui tab tabular" id="tab">
+                                <li class="tabs active first tableresult1" data-tab="tableresult1" title="巡检结果统计报表"></li>
+                                <li class="tabs tableresult2" data-tab="tableresult2" title="摄像机巡检结果年统计报表"></li>
+                            </ul>-->
+                        </div>
+						
+
+	
+                        <div id="tablebreakdown" data-tab="breakdown" class="">
+                            <form id="searchboxbreakdown">
+                                <div id="searchbreakdown">
+                                    <div class="fl">
+                                        <span>开始时间：<input type="text" id="startTimebreakdown" name="startTime" class="datepicker" placeholder="请输入开始时间"></span>
+                                        <span>结束时间：<input type="text" id="endTimebreakdown" name="endTime" class="datepicker" placeholder="请输入结束时间"></span>
+                                        <span><input type="hidden" id="orgidbreakdown" name="orgId"><input type="submit" value="查询" id="submitsearchbreakdown" class="ui button blue"></span>
+                                    </div>
+                                    <div class="fr">
+                                        <span><a class="fr export ui button blue permission permission-export-inspect-table" id="exportbreakdown">导出</a></span>
+                                    </div>
+                                </div>
+                                <!--
+                                <table class="ui four column table segment" id="searchbreakdown">
+                                    <tr>
+                                        <td>开始时间：<input type="text" id="startTimebreakdown" name="startTime" class="datepicker" placeholder="请输入开始时间"></td>
+                                        <td>结束时间：<input type="text" id="endTimebreakdown" name="endTime" class="datepicker" placeholder="请输入结束时间"></td>
+                                        <td style="margin-right:15px;"><input type="hidden" id="orgidbreakdown" name="orgId"><input type="submit" value="查询" id="submitsearchbreakdown" class="ui button blue"></td>
+                                        <td class="fixedwidthtd"><a class="fr export ui button blue" id="exportbreakdown">导出</a></td>
+                                    </tr>
+                                </table>
+                                -->
+                            </form>
+                            <div class="tips" id="tablechartbreakdown">
+                                <div class="tableheader">
+                                    <table class="ui seven column table inverted segment inspectresult head" data-orgid="">
+                                        <tr class="head">
+                                            <th class="checkboxth"><input type="checkbox" class="checkall"></th>
+                                            <!-- <th>序号</th>
+                                            <th>机构名称</th>
+                                            <th>巡检次数</th>
+                                            <th>故障次数</th>
+                                            <th>故障频次</th>
+                                            <th>故障个数（故障数/总数）</th>
+                                            <th>故障率</th> -->
+
+                                            <th>单位</th>
+                                            <th>监控点总数</th>
+                                            <!-- <th>自建点数</th>
+                                            <th>应标点数</th> -->
+                                            <th>已标点数</th>
+                                            <!-- <th>DVR监控点绑定数</th> -->
+                                            <th>巡检摄像机数</th>
+                                            <th>故障数</th>
+                                            <th>故障率</th>
+                                            <th>标点率</th>
+                                            <!-- <th>DVR监控点绑定率</th> -->
+                                            <!-- <th>市局抽查完好率</th>
+                                            <th>市局抽查及时维修率</th> -->
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="scrollbar disable">
+                                    <div class="track">
+                                        <div class="thumb"></div>
+                                    </div>
+                                </div>
+                                <div class="viewport">
+                                    <div class="overview">
+                                        <div class="result">
+                                            <span>请选择左侧树形中的机构以展示故障率统计结果</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="tablebreakdown1" data-tab="tablebreakdown1" class="active ui tab"></div>
+                            <div id="tablebreakdown2" data-tab="tablebreakdown2" class="ui tab"></div>
+                            <ul class="menus ui tab tabular" id="tabs">
+                                <li class="tabs active first tableresult1" data-tab="tablebreakdown1" title="故障率统计报表"></li>
+                                <li class="tabs tableresult2" data-tab="tablebreakdown2" title="摄像机故障率年统计报表"></li>
+                            </ul>
+                        </div>
+                        <div id="tablecameraStat" data-tab="cameraStat" class="">
+                            <form id="searchboxcameraStat">
+                                <div id="searchcameraStat">
+                                    <div class="fl">
+
+                                    </div>
+                                    <div class="fr">
+                                        <span><a class="fr export ui button blue permission permission-export-camera-categories" id="exportcameraStat">导出</a></span>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="tips" id="tablechartcameraStat">
+                                <table class="ui eight column table inverted segment camerastat head" data-orgid="">
+                                    <tr class="head">
+                                        <th class="checkboxth"><input type="checkbox" class="checkall"></th>
+                                        <th class="orgName">机构名称</th>
+                                        <th class="">摄像机总数</th>
+                                        <th>云台不可控</th>
+                                        <th class="">云台可控</th>
+                                        <th>高清摄像机</th>
+                                        <th>标清摄像机</th>
+                                    </tr>
+                                </table>
+                                <div class="scrollbar disable">
+                                    <div class="track">
+                                        <div class="thumb"></div>
+                                    </div>
+                                </div>
+                                <div class="viewport">
+                                    <div class="overview">
+                                        <div class="result">
+                                            <span>请选择左侧树形中的机构以展示摄像机类别统计</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="sumCamera">
+
+                                </div>
+                            </div>
+                            <!--<div id="tablecameraStat1" data-tab="tablecameraStat1" class="active ui tab"></div>
+                            <div id="tablecameraStat2" data-tab="tablecameraStat2" class="ui tab"></div>-->
+                        </div>
+						
+						
+                        <div id="tabexamine" data-tab="examine" class="">
+                    
+					
+                        </div>	
+						
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    <iframe src="about:blank" id="download_frame" ></iframe>
+    <div class="map-mask" id="mapMask">正在生成打印文件，请稍后...</div>
+
+
+<!--    <script type="text/javascript" src="/component/base/base.self.js"></script>
+    <script type="text/javascript" src="/libs/scrollbar/scrollbar.js"></script>
+    <script type="text/javascript" src="/module/maintenance/common/js/scrollbar.js"></script>
+    <script type="text/javascript" src="/libs/jquery/jquery-ui.js"></script>
+    <script type="text/javascript" src="/libs/thickbox/thickbox.js"></script>
+    <script type="text/javascript" src="/libs/jquery/jquery-ui-timepicker-addon.js"></script>
+    <script type="text/javascript" src="/libs/jquery/jquery.watch.js"></script>
+    <script type="text/javascript" src="/libs/jquery/jquery.pagination.js"></script>
+    <script type="text/javascript" src="/libs/echart/echarts-plain.js"></script>
+
+    <script type="text/javascript" src="js/cameraStat.js"></script>
+    <script type="text/javascript" src="/module/maintenance/common/js/tree.js"></script>
+    <script type="text/javascript" src="js/reports.js"></script>-->
+
+
+</body>
+</html>

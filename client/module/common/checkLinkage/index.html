@@ -1,0 +1,201 @@
+
+<div id="popLayer"></div>
+<div id="popContainer">
+	<div class="popHeader">
+		<span>联动设置</span>
+		<span class="close">
+			<i class="icon-close" data-event="click" data-handler="clickClose"></i>
+		</span>
+	</div>
+	<div class="popContent">
+		<div class="popLeft">
+			<ul>
+				<li class="item-tab active" data-tab="pmessage" data-event="click" data-handler="clickLinkTabs">
+				    <span>短信通知</span>
+				</li>
+				<li class="item-tab" data-tab="email" data-event="click" data-handler="clickLinkTabs">
+				    <span>邮件通知</span>
+				</li>
+				<li class="item-tab" data-tab="message" data-event="click" data-handler="clickLinkTabs">
+				    <span>消息通知</span>
+				</li>
+				<li class="item-tab" data-tab="gis" data-event="click" data-handler="clickLinkTabs">
+				    <span>地图显示</span>
+				</li>
+				<li class="item-tab" data-tab="mobile" data-event="click" data-handler="clickLinkTabs">
+				    <span>联动移动端</span>
+				</li>
+				<!--<li class="item-tab" data-tab="tvwall" data-event="click" data-handler="clickLinkTabs">
+				    <span>电视墙显示</span>
+				</li>-->
+				<!--<li class="item-tab" data-tab="monitor" data-event="click" data-handler="clickLinkTabs">-->
+			        <!--<span>监控画面显示</span>-->
+			    <!--</li>-->
+				<li class="item-tab" data-tab="ptz" data-event="click" data-handler="clickLinkTabs">
+				    <span>切换云台预置位</span>
+				</li>
+			</ul>
+		</div>
+		<div class="popRight">
+			<div class="pmessage">
+				<div class="search">
+					<input class="add-input" type="text" placeholder="请输入您要接收通知的手机号码" data-type="pmessage" data-event="keyup" data-handler="enter"/>
+					<button data-type="telephone" class="button ui blue add-btn" data-event="click" data-handler="clickAdd">增加</button>
+					<i class="tips pmessage-tips disnone">输入有误</i>
+				</div>
+				<div class="add-result">
+					
+					<p class="no-result">您还没有增加手机号码！如报警发生，您所增加的手机号码将会在选择时间段内收到实时报警信息提醒！</p>
+					
+				</div>
+				<div class="add-footer">
+					短信通知时间：
+					<span class="whole-day time-type">
+						<i class="active" data-event="click" data-handler="clickChecked"></i>
+						<span>全天</span>
+					</span>
+					<span class="time-area time-type">
+						<i class="" data-event="click" data-handler="clickChecked"></i>
+						<span>时间段&nbsp;&nbsp;</span>
+					</span>
+					<span class="begintime time-group time-input-ctrl" style="border-color: rgb(221, 221, 221);">
+						<!-- <input type="text" class="text-select text1" value="00" disabled="">
+						<span class="dot">:</span>
+						<input type="text" class="text-select text2" value="00" disabled="">
+						<i class="ctrl ctrl1 disabled" style="border-color: rgb(221, 221, 221);"></i>
+						<i class="ctrl ctrl2 disabled" style="border-color: rgb(221, 221, 221);"></i> -->
+					</span>
+					<span class="endtime time-group time-input-ctrl" style="border-color: rgb(221, 221, 221);">
+						<!-- <input type="text" class="text-select text1" value="23" disabled="">
+						<span class="dot">:</span>
+						<input type="text" class="text-select text2" value="59" disabled="">
+						<i class="ctrl ctrl1 disabled" style="border-color: rgb(221, 221, 221);"></i>
+						<i class="ctrl ctrl2 disabled" style="border-color: rgb(221, 221, 221);"></i> -->
+					</span>
+				</div>
+			</div>
+			<div class="email disnone">
+				<div class="search">
+					<input class="add-input" type="text" placeholder="请输入您要接收通知的邮箱" data-type="email" data-event="keyup" data-handler="enter">
+					<button data-type="email" class="button ui blue add-btn" data-event="click" data-handler="clickAdd">增加</button>
+					<i class="tips email-tips disnone"></i>
+				</div>
+				<div class="add-result">
+					
+					<p class="no-result">您还没有增加邮箱！如报警发生，您所增加的邮箱将会收到实时报警信息提醒！</p>
+					
+				</div>
+				<div class="add-footer"></div>
+			</div>
+			<div class="message disnone">
+				<span class="header">
+				<i data-type="message" class="checkbox" data-event="click" data-handler="clickChecked"></i>
+				<span>有报警时发消息给我</span></span>
+				<p>注：如勾选，表示有报警信息时在系统页面右下角有消息框提示。</p>
+				<div class="add-footer"></div>
+			</div>
+			<div class="gis disnone">
+				<span class="header">
+				<i data-type="gis" class="checkbox" data-event="click" data-handler="clickChecked"></i>
+				<span>联动GIS地图显示</span></span>
+				<p>注：如勾选，表示有报警信息时在联动GIS地图中显示。</p>
+				<div class="add-footer"></div>
+			</div>
+			<div class="mobile disnone">
+				<span class="header">
+				<i data-type="mobile" class="checkbox" data-event="click" data-handler="clickChecked"></i>
+				<span>有报警时通知移动端</span></span>
+				<p>注：如勾选，表示有报警信息时，报警信息将会通知到移动端。</p>
+				<div class="add-footer"></div>
+			</div>
+			<div class="tvwall disnone">
+				<div class="top-title">
+				    <span class="explain">摄像机选择：</span>
+				    <span>有报警消息时，选定摄像机将会在电视墙上显示</span>
+			    </div>
+			    <div class="mid-left" id="js-tvwall">
+			    	<div class="searchbox">
+			    		<input class="camera-search" type="text" name="taskName" placeholder="请输入关键字查询" />
+			    		<button></button>
+			    	</div>
+			    	<div class="rule-camera-tree">
+			    		<div id="tvwall-cameraTree" class="treePanel"></div>
+			    	</div>
+			    </div>
+			    <div class="mid-right">
+			    	<div class="header">
+			    		已选择：
+			    		<em></em>
+			    		<a class="ui button delete-all" data-event="click" data-handler="removeAll">删除全部</a>
+			    	</div>
+			    	<div class="data-list">
+			    		<ul></ul>
+			    	</div>
+			    </div>
+			</div>
+			<div class="monitor disnone">
+			    <div class="top-title">
+				    <span class="explain">摄像机选择：</span>
+				    <span>有报警消息时，选定摄像机将会在监控画面上显示</span>
+			    </div>
+			    <div class="mid-left" id="js-monitor">
+					<div class="searchbox">
+						<input class="camera-search" type="text" name="taskName" placeholder="请输入关键字查询" />
+						<button></button>
+					</div>
+					<div class="rule-camera-tree">
+						<div id="monitor-cameraTree" class="treePanel"></div>
+					</div>
+				</div>
+				<div class="linked"></div>
+				<div class="mid-right">
+					<div class="header">
+						已选择：
+						<em></em>
+					    <a class="ui button delete-all disnone" data-event="click" data-handler="removeAll">删除全部</a>
+					</div>
+                    <div class="data-list">
+                    	<ul></ul>
+                    </div>
+				</div>
+			</div>
+			<div class="ptz disnone">
+			    <div class="top-title">
+				    <span>摄像机预置位选择：</span>
+				    <span>有报警消息时，选定摄像机将会切换到指定预置位</span>
+			    </div>
+				<div class="mid-left" id="js-ptz">
+					<div class="searchbox">
+						<input class="camera-search" type="text" name="taskName" placeholder="请输入关键字查询" />
+						<button></button>
+					</div>
+					<div class="rule-camera-tree">
+						<div id="ptz-cameraTree" class="treePanel"></div>
+					</div>
+				</div>
+				<div class="mid-center">
+					<div class="header">预置位选择：</div>
+					<div class="data-list">
+						<ul></ul>
+					</div>
+				</div>
+				<div class="linked"></div>
+				<div class="mid-right">
+					<div class="header">
+					    已选择：
+						<em></em>
+						<a class="ui button delete-all disnone" data-event="click" data-handler="removeAll">删除全部</a>
+					</div>
+					<div class="data-list">
+						<ul></ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="popFooter">
+			<a class="ui button blue js-submit" data-event="click" data-handler="clickSubmit">保存</a>
+			<a class="ui button js-cancel" data-event="click" data-handler="clickClose">取消</a>
+	</div>
+</div>
+

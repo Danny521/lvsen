@@ -1,0 +1,166 @@
+.module {
+	margin-bottom: 10px;
+	background-color: #FFFFFF;
+	border: 1px solid #dde4e8;
+}
+
+.op-module {
+	border: none;
+}
+
+.module .module-head {
+	height: 30px;
+	line-height: 30px;
+	border-bottom: 1px solid #E4E4E4;
+	background-color: #f5f5f7;
+}
+
+.module .module-head h3 {
+	float: left;
+	font-size: 14px;
+	/* color: #1f8bff; */
+	font-weight: normal;
+	margin-left: 15px;
+}
+
+.module .module-head .more {
+	float: right;
+	color: #4277AE;
+	margin-right: 13px;
+}
+
+#sidebar {
+	float: right;
+	width: 220px;
+}
+
+#sidebar .module .incidents .box-status {
+	padding: 10px;
+}
+
+#sidebar .module .incidents .box-status .name {
+	width: 170px;
+}
+
+#sidebar .module .incidents .box-status .name a {
+	color: #4277AE;
+}
+
+.module-body .incidents li.task-even {
+	background-color: #F7F7F7;
+}
+
+#sidebar .module .incidents .info {
+	display: block;
+	height: 15px;
+	padding-top: 5px;
+	margin-top: 0px;
+}
+
+
+#sidebar .module .incidents li div span:first-child {
+	display: inline-block;
+}
+
+#sidebar .module .statistics {
+	color: #666666;
+	padding: 10px 30px 10px 13px;
+	border-bottom: 1px solid #DDE4E8;
+}
+
+#sidebar .module .statistics.pie-legend{
+	border-bottom:none;
+}
+#sidebar .module .module-head span.location{
+	margin-left: 8px;
+}
+
+#sidebar .module .status-background {
+	background-color: #FCFCFC;
+	border-bottom: 1px solid #dde4e8;
+}
+
+#sidebar .module .status-background .mess-count {
+	color: #005EAB;
+}
+
+#sidebar .module .statistics li {
+	margin-bottom: 5px;
+}
+
+#sidebar .module .statistics li:last-child {
+	margin-bottom: 0;
+}
+
+#sidebar .module .statistics i {
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	margin-right: 2px;
+	*margin-right: 3px;
+}
+
+#sidebar .module .statistics .count {
+	float: right;
+}
+
+#sidebar .module .statistics .count-incident i {
+	background-color: #788BAF;
+	*margin-bottom: 3px;
+}
+
+#sidebar .module .statistics .count-media i {
+	background-color: #C891B5;
+	*margin-bottom: 3px;
+}
+
+#sidebar .module .statistics .count-track i {
+	background-color: #798cb0;
+	*margin-bottom: 3px;
+}
+
+#sidebar .module .pie-canvas {
+	padding: 20px;
+	text-align: center;
+}
+
+#sidebar .module .actions .import {
+	display: none;
+}
+
+#sidebar .module .actions .guide {
+	display: block;
+	height: 34px;
+	line-height: 34px;
+	margin-bottom: 8px;
+	font-size: 14px;
+	padding: 0 10px 0 14px;
+	background: #2277c5;
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+#sidebar .module .actions .media-import {
+	margin-bottom: 8px;
+}
+
+#sidebar .module .actions .guide i {
+	display: block;
+	width: 10px;
+	height: 12px;
+	background: url(/module/common/images/bg/loadin.png) center center no-repeat;
+	margin-top: 10px;
+	float: right;
+}
+
+#header .item .tasks-count {
+    color: #FA6A00;
+}
+
+/* 导航 我的工作台 显隐*/
+#header .ui.menu.nav a.item.permission.show {
+    display:inline-block;
+}
+.ui.menu .item.permission {
+    display:none;
+}

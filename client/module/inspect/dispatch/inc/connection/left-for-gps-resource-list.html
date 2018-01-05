@@ -1,0 +1,102 @@
+    {{#if resourceType}}
+    <div class="gps-control-track-resourceType">
+        <ul>
+            <li data-value="camera">摄像机</li>
+            <li data-value="bayonet">卡口</li>
+        </ul>
+    </div>
+    {{/if}}
+
+    {{#if CheckGPSLine}}
+    <div class="gps-monitor">
+        <div class="route-header">
+            <div class="route-header-title">
+<!--                 <i class="sidebar-home-icon np-map-overlay" data-mark="business"></i> -->
+                <b> > </b><span class="gps-to-resource" data-event="click" data-handler="gotoResource">资源</span>
+                <b> > </b><span >GPS监控</span>
+            </div>
+        </div>
+    </div>
+    <div class="gps-control-track">
+    <div class="gps-control-track-operation"> 
+        <form>
+            <ul>
+                <li>
+                    <span class="label"> GPS编号：</span>
+                    <span class="content"><input class="gps-control-track-text" id="GPSCode" placeholder="请输入GPS编号" type="text" name="GPSCode"></span>
+                </li>
+                <li>
+                    <span class="label"> 车牌号码：</span>
+                    <span class="content"><input class="gps-control-track-text" id="CarCode" type="text" name="CarCode"></span>
+                </li>
+                <li>
+                    <span class="label"> 起始时间：</span>
+                    <span class="content">
+                        <input id="beginTime" class="time input-time">
+                        <span class="color"></span>
+                    </span>
+                </li>
+                <li>
+                    <span class="label"> 终止时间：</span>
+                    <span class="content">
+                        <input id="endTime" class="time input-time">
+                        <span class="color"></span>
+                    </span>
+                </li>
+                <li>
+                    <span class="label"> 资源类型：</span>
+                    <span class="content">
+                        <div class="select_container" data-init="true" data-type="fast-deal-list">
+                            <span class="text" data-value="0">摄像机</span>
+                            <!-- <span class="arrow-down"></span> -->
+                        </div>
+                    </span>
+                </li>
+                <li>
+                    <span class="label"> 查询范围：</span>
+                    <span class="content"><input class="gps-control-track-text" id="bufferDistance" type="text" name="bufferDistance"></span>
+                </li>
+                <li>
+                    <!-- <span class="messageLable" id="messageLable"></span> -->
+                    <button class="ui button blue" id="queryGPS" type="button">查询</button>
+                </li>
+            </ul>
+        </form>
+        </div>
+        <div class="gps-control-track-line"></div>
+        <div class="gps-control-track-result" id="gps-control-track-result"></div>
+    </div>
+    {{/if}}
+
+    {{#if GPSPlayControl}}
+        <div class="GPSPlayControl">
+            <span class="GPSPlayControl-opt clearfix">
+                <span class="gps-play" id="gps-play" title="开始" data-event="click" data-handler="play"></span>
+                <span class="gps-stop" id="gps-stop" title="停止" data-event="click" data-handler="stop"></span>
+                <span class="speedmessage">播放速度</span>
+                <span >
+                    <div id="slider" ></div>
+                </span>
+            </span>
+            <span class="GPSPlayControl-speedMessage">
+                <div class="speedMessage"></div>
+            </span>
+        </div>
+    {{/if}}
+
+    {{#if data.cameras.length}}
+    <ul>
+        {{#each data.cameras}}
+            <li class="camera-item clearfix" data-id="{{id}}" data-latitude ="{{latitude}}" data-longitude="{{longitude}}" data-sdchannel="{{translate sd_channel}}" data-hdchannel="{{translate hd_channel}}" data-type="{{camera_type}}" data-name="{{name}}" data-code="{{cameraCode}}" data-cstatus="{{camera_status}}" data-score='{{score}}'>
+                <i class="ico {{#cameraStatusAndTypeByChannels hd_channel sd_channel  camera_type score}}{{/cameraStatusAndTypeByChannels}}"></i>
+                <span class="name" title="{{name}}">{{name}}</span>
+                <div class="camera-item-button">
+                    <i class="camera-play" title="实时播放" data-event="click" data-handler="PlayCamera"></i>
+                    <i class="camera-twtall" title="添加到电视墙" data-event="click" data-handler="SendToWall"></i>
+                </div>
+            </li>
+        {{/each}}
+        </ul>
+    {{else}}
+        {{!--暂无数据。--}}
+    {{/if}}

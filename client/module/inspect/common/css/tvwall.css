@@ -1,0 +1,854 @@
+
+#major .tvHeader {
+  -moz-border-bottom-colors: none;
+  -moz-border-left-colors: none;
+  -moz-border-right-colors: none;
+  -moz-border-top-colors: none;
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #E3E2E2;
+  border-image: none;
+  border-left: medium none !important;
+  border-right: 1px solid #E3E2E2;
+  border-top: 1px solid #E3E2E2;
+  height: 34px;
+  padding-left: 14px;
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 0;
+}
+
+.treeMenu .leaf:hover .more {
+  display: none;
+}
+
+
+#major .tvHeader .tv-model {
+  float: left;
+  margin: 1px auto;
+  font-weight: bold;
+  height: 34px;
+  line-height: 34px;
+}
+
+#major .model-content {
+  bottom: 0px;
+  right: 0px;
+  top: 20px;
+  border: 1px #E8E8E8 solid;
+}
+
+#major .tvContent {
+  border-bottom: 1px #E8E8E8 solid;
+  height: 76px;
+  line-height: 76px;
+  background-color: #F5F3F0;
+}
+
+#major .tvContent ul li {
+  float: left;
+  margin: 11px -6px auto;
+}
+
+#major .tvContent .ty:hover {
+  border: 1px solid #188DFB;
+}
+
+#major .tvContent ul .active {
+  border: 1px solid #188DFB;
+}
+
+#major .tvContent .tv-screen {
+  margin: 4px 19px auto;
+  position: relative;
+  display: block;
+}
+
+#major .tvContent .ty {
+  background-color: #FDFDFD;
+  border-radius: 5px;
+  width: 43px;
+  height: 43px;
+  border: 1px solid #E3E2E2;
+}
+
+#major .tvContent .active {
+  border: 1px solid #1F8BFF;
+}
+
+#major .tvContent .ty .innerty {
+  width: 32px;
+  height: 32px;
+  margin: 5px 6px auto;
+}
+
+
+#major .tvContent .ty .innerty .ty-dis {
+  background-color: #D6D6D8;
+}
+
+
+#major .tvContent .tv-screen .tyic {
+  margin: -33px -4px -4px -5px;
+  position: absolute;
+  width: 55px;
+  color: #616160;
+  text-align: center;
+  font-size: 10px;
+}
+
+#major .tvContent .fh {
+  background: url("../../../common/images/bg/tv-2.png") no-repeat scroll 0 0;
+  padding: 3px 43px 25px 9px;
+}
+
+#major .tvContent .tv-screen .fhic {
+  margin: 47px -65px auto;
+  position: absolute;
+  width: 73px;
+  color: #616160;
+}
+
+#major .tvContent .sh {
+  background: url("../../../common/images/bg/tv-3.png") no-repeat scroll 0 0;
+  padding: 3px 43px 25px 9px;
+}
+
+#major .tvContent .tv-screen .shic {
+  margin: 47px -65px auto;
+  position: absolute;
+  width: 73px;
+  color: #616160;
+}
+
+
+
+#major .tvList {
+  position: absolute;
+/*  padding: 8px;*/
+/*  height:540px;
+  width: 100%;*/
+  top:122px;
+  bottom: 0px;
+  right: 0px;
+  left: 0px;
+  background-color: #FFFDF9;
+  overflow: auto;
+}
+#major .hideLyt {
+  top: 36px;
+}
+
+#major .tvList ul li {
+  position: absolute;
+  margin-right: 8px;
+  width: 49%;
+  margin-bottom: 8px;
+  border: 1px solid #FFFFFF;
+}
+
+#major .tvList ul li.smscreen {
+  float: left;
+  position: static;
+  margin: 0;
+  border: solid #eee;
+  border-width: 0 1px 1px 0;
+}
+
+
+.smscreen {
+  background-repeat: no-repeat;
+  background-position: center center; 
+  background-color: #444444;
+  position: relative!important;  
+  color: #eee;
+  cursor: default;
+ 
+}
+
+
+#major .tvList .tv .channel {
+  background-color: #DEDEE0;
+  height: 15px;
+  line-height: 15px;
+  padding: 5px;
+}
+
+#major .tvList .tv .tv-channel {
+  float: right;
+  margin-top: 0px;
+  margin-right: 5px;
+}
+
+.offwall {
+  cursor: pointer;
+	width: 20px;
+	height: 20px;
+	float: right;
+	background:url("../../../common/images/bg/offwall.png") no-repeat scroll center 1px;
+}
+
+.offwall:hover {
+  background:url("../../../common/images/bg/offwall_hover.png") no-repeat scroll center 1px;
+}
+.real-stream {
+  cursor: pointer;
+  width: 19px;
+  height: 20px;
+  float: right;
+  background:url("/module/common/images/sprites/operate-bg-new.png") no-repeat;
+}
+.real-stream:hover{
+  background-position: -19px 0;
+}
+#major .tvList .tv .tv-channel .screen-sp {
+  border: 1px solid #C4C4C4;
+  display: inline-block;
+  padding: 3px 3px 1px;
+  position: relative;
+  z-index: 3;
+  margin-top: -3px;
+  width: 26px;
+}
+#major .tvList .cel-screen {
+  background: url("../../../common/images/bg/clyt-1.png") no-repeat scroll 0 0;
+  padding: 0px 8px;
+}
+
+#major .tvList .dropdown {
+  background: url("../../../common/images/bg/tvicon-2.png") no-repeat scroll center center;
+  padding: 2px 7px 1px 0;
+  position: relative;
+  border-left: 1px solid #C4C4C4;
+  margin-left: 2px;
+}
+
+#major .tvList .close {
+  background: url("../../../common/images/bg/tvicon-3.png") no-repeat scroll 0 0;
+  padding: 8px 7px;
+  margin-left: 4px;
+  float: right;
+}
+#major .tvList .onwalled .close {
+  background: url("../../../common/images/bg/tvicon-4.png") no-repeat scroll center center #5e5e5e;
+}
+#major .tvList .tv .dis-screen {
+  height: 225px;
+  background-color: #F0F0F2;  
+  text-align: center;
+  background: url("../../../common/images/bg/tvbg-2.png") no-repeat scroll center center #F0F0F2;
+}
+
+#major .tvList .tv .dis-screen1 {
+  height: 163px;
+  background-color: #F0F0F2;  
+  text-align: center;
+  border: 2px solid #5e5e5e;
+  /*padding-left: 2px;*/
+}
+
+#major .tvList .tv .dis-screen1:hover {
+  border: 2px solid #F9000F;
+}
+#major .tvList .tv div.selected{
+  border: 2px solid #F9000F;
+}
+
+#major .tvList .tv .dis-screen1 .tvinner1 {
+  width: 100%;
+  height: 100%;
+}
+
+#major .tvList .tv .dis-screen1 .tvinner1>div,
+#major .tvList .tv .dis-screen1 .tvinner4>div,
+#major .tvList .tv .dis-screen1 .tvinner9>div,
+#major .tvList .tv .dis-screen1 .tvinner16>div{
+  text-align: center;
+  height: 100%;
+  width: 100%;
+}
+
+
+#major .tvList .tv .dis-screen1 .tvinner4 {
+  width: 49.3%;
+  height: 49.2%;
+  float: left;
+  /*border: 1px solid #E5E5E6;*/
+  margin-top: 1px;
+  margin-right: 1px;
+}
+
+#major .tvList .tv .dis-screen1 .tvinner9 {
+  width: 32.5%;
+  height: 32.5%;
+  float: left;
+/*  border: 1px solid #E5E5E6;*/
+  margin-top: 1px;
+  margin-right: 1px;
+}
+
+#major .tvList .tv .dis-screen1 .tvinner16 {
+  width: 24.58%;
+  height: 24.5%;
+  float: left;
+/*  border: 1px solid #E5E5E6;*/
+  margin-top: 1px;
+  margin-right: 1px;
+}
+
+#major .tvList .tv .dis-screen1 .onwall {
+  /*border: 1px solid #188DFB;*/
+}
+#major .tvList .tv .onwalled>div {
+  color:#cccccc;
+  position:absolute; 
+  bottom:10%;
+  width:100%
+}
+#major .tvList .tv .tvinner1 .onwalled {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background: url(../../../common/images/bg/camera-4.png) no-repeat scroll center center #444444;
+}
+#major .tvList .tv .tvinner4 .onwalled {
+  position: relative;
+    height: 100%;
+  width: 100%;
+  background: url(../../../common/images/bg/camera-4.png) no-repeat scroll center center #444444;
+}
+#major .tvList .tv .tvinner9 .onwalled {
+  position: relative;
+    height: 100%;
+  width: 100%;
+  background: url(../../../common/images/bg/camera-9.png) no-repeat scroll center center #444444;
+}
+#major .tvList .tv .tvinner16 .onwalled {
+  position: relative;
+    height: 100%;
+  width: 100%;
+  background: url(../../../common/images/bg/camera-16.png) no-repeat scroll center center #444444;
+}
+#major .tvList .tv .tvinner1 .downwalled {
+  position: relative;
+    height: 100%;
+  width: 100%;
+  background: url(../../../common/images/bg/camera4.png) no-repeat scroll center center #444444;
+}
+#major .tvList .tv .tvinner4 .downwalled {
+  position: relative;
+    height: 100%;
+  width: 100%;
+  background: url(../../../common/images/bg/camera4.png) no-repeat scroll center center #444444;
+}
+#major .tvList .tv .tvinner9 .downwalled {
+  position: relative;
+    height: 100%;
+  width: 100%;
+  background: url(../../../common/images/bg/camera9.png) no-repeat scroll center center #444444;
+}
+#major .tvList .tv .tvinner16 .downwalled {
+  position: relative;
+    height: 100%;
+  width: 100%;
+  background: url(../../../common/images/bg/camera16.png) no-repeat scroll center center #444444;
+}
+.tvList .split-panel {
+  display: none;
+  margin-bottom: -5px;
+}
+
+.tvList .channel span {
+  display: inline-block;
+}
+
+.tvList .channel .catorname {
+  cursor: pointer;
+}
+
+.tvList .sdcode_sh {
+  float: left;
+}
+
+.tvList .sdcode_gl {
+  color: #5dacff;
+}
+
+
+.tvList .split-panel .layout {
+  position: absolute;
+  float: left;
+  height: 14px;
+  margin-left: -30px;
+  border: 1px solid #C4C4C4;
+}
+
+.tvList .split-panel .split1 {
+  background: url("../../../common/images/bg/clyt-1.png") no-repeat scroll center center #F0F0F2;
+  padding: 0px 28px 8px 4px;
+  margin-top: 0px;
+}
+
+.tvList .split-panel .split4 {
+  background: url("../../../common/images/bg/clyt-4.png") no-repeat scroll center center #F0F0F2;
+  padding: 0px 28px 8px 4px;
+  margin-top: 20px;
+}
+
+
+.tvList .split-panel .split9 {
+  background: url("../../../common/images/bg/clyt-9.png") no-repeat scroll center center #F0F0F2;
+  padding: 0px 28px 8px 4px;
+  margin-top: 40px;
+}
+
+
+
+.tvList .split-panel .split16 {
+  background: url("../../../common/images/bg/clyt-16.png") no-repeat scroll center center #F0F0F2;
+  padding: 0px 28px 8px 4px;
+  margin-top: 60px;
+}
+
+
+a:hover{cursor: pointer;}
+
+/* 系统配置设置布局 */
+
+#sidebar .header {
+  background-color: #FFFFFF;
+}
+
+#major .tvHeader .lytCon {
+  float: right;
+  height: 20px;
+  margin-right: 6px;
+  margin-left: 7px;
+  margin-top: 2px;
+}
+
+
+#major .tvHeader .lytCon .lytAdd {
+  width: 180px;
+  border: 1px solid #C2CDD7;
+  margin: -9px -56px auto;
+  background-color: #F9F9F9;
+  padding: 8px 8px 8px 14px;
+  z-index: 2;
+  position: absolute;
+  margin-top: 11px\9; 
+  margin-top: 9px\0;
+  margin-left: -61px\9;
+}
+
+#major .tvHeader .lytCon .lytAdd .lyth {
+  text-align: right;
+}
+
+#major .tvHeader .lytCon .addicon {
+  background: url("../../../common/images/bg/addicon-2.png") no-repeat scroll center center;
+  padding: 10px 5px 5px;
+  margin: 1px 2px 3px 104px;
+  margin-left: 12px\0;
+  position: relative;
+  z-index: 4;
+  padding-top: 7px\9\0;
+  margin-left: 93px;
+  padding-top: 7px\0;
+
+}
+
+#major .tvHeader .lytCon .lytAdd .lytname {
+  width: 119px;
+}
+
+#major .tvHeader .lytCon .lytAdd .opaBtn {
+  text-align: right;
+  margin-top: 8px;
+}
+
+.lytCon .opaBtn .btn {
+  padding: 0px 5px;
+  background-color: #1C80EF;
+  color: #FFFFFF;
+}
+
+
+#sidebar .header .syspz {
+  display: inline-block;
+  margin: 8px 10px auto;
+  font-weight: bold;
+}
+
+#sidebar .header .addChannel {
+  float: right;
+  margin: 8px 10px auto;
+  background-color: #1D86FB;
+  color: #FFFFFF;
+  width: 57px;
+  height: 18px;
+  line-height: 18px;
+  text-align: center;
+}
+
+#major .tvHeader .addLayout,#major .tvHeader .autoLayout,#major .tvHeader .initLayout,#major .tvHeader .down-monitors {
+    background-color: #DCE1E6;
+    border: 1px solid #CFD2D4;
+    cursor: pointer;
+    display: inline-block;
+    height: 20px;
+    line-height: 20px;
+    padding-left: 6px;
+    padding-right: 6px;
+    /*margin-top: 6px;*/
+}
+
+
+#major .tvLyt {
+  border-bottom: 1px #E8E8E8 solid;
+  height: 75px;
+  line-height: 75px;
+  background-color: #F5F3F0;
+}
+
+#major .tvLyt ul li {
+  float: left;
+  margin: 10px 7px auto;
+}
+
+
+
+#major .tvLyt .lyt {
+  cursor: pointer;
+  width: 42px;
+  height: 42px;
+  line-height: 42px;
+  border: 1px solid #E3E2E2;
+  background-color: #FFFFFF;
+  text-align: center;
+}
+
+#major .tvLyt .lyt:hover,#major .tvLyt .active .lyt {
+  border: 2px solid #1D6FBE;
+}
+
+
+
+#major .tvLyt .lyt .lyt-name {
+  color: #B1B1B1;
+  font-weight: bold;
+  text-align: center;
+  width: 42px;
+  height: 25px;
+  line-height: 25px;
+  margin-top: 5px;
+  font-size: 10px;
+}
+
+#major .tvLyt .lyt .lyt-name input {
+  width: 40px;
+  height: 13px;
+  text-align: center;
+} 
+
+#major .tvLyt .lyt .lytcamerasp {
+  margin: 5px 5px auto;
+  width: 31px;
+  height: 31px;
+}
+
+#major .tvLyt .lyt .lytst {
+  background: url("../../../common/images/bg/addlyt.png") no-repeat scroll center center;
+  padding: 8px 19px 9px 1px;
+}
+
+#major .tvLyt .active .close, #major .tvLyt .lyt:hover .close {
+  background: url("../../../common/images/bg/close11.png") no-repeat scroll center center #1D6FBE;
+  padding: 11px 11px 1px 1px;
+  float: right;
+  margin: -2px -12px auto;
+}
+
+/* 添加通道 */
+#lytfrom .chnl {
+  display: block;
+  width: 77px;
+  text-align: left;
+  margin: 10px 10px auto;
+}
+
+#lytfrom .chnl label {
+  width: 100px;
+  text-align: right;
+}
+
+#lytfrom .chnl input {
+  width: 200px;
+}
+
+#lytfrom .chnl a {
+  padding: 0px 5px;
+  background-color: #1C80EF;
+  color: #FFFFFF;
+}
+
+#lytfrom .opa {
+  width: 200px;
+  text-align: right;
+}
+
+.pvgbg {
+  background: url("../../../common/images/bg/pvg-1.png") no-repeat scroll center center;
+  padding: 17px 35px 3px 1px;
+  margin: 0px 3px 3px 6px;
+}
+
+.deviceMenu li.active .pvgbg {
+  background: url("../../../common/images/bg/pvgact-1.png") no-repeat scroll center center;
+  padding: 17px 35px 3px 1px;
+  margin: 0px 3px 3px 6px;
+}
+
+.deviceMenu .tree li {
+  margin: 8px 12px auto;
+}
+
+.wjbg {
+  background: url("../../../common/images/bg/wj-1.png") no-repeat scroll center center;
+  padding: 3px 39px 3px 1px;
+  margin: 0px 4px 2px 8px;
+}
+
+.deviceMenu li.active .wjbg {
+  background: url("../../../common/images/bg/wjact.png") no-repeat scroll center center;
+  padding: 3px 39px 3px 1px;
+  margin: 0px 4px 2px 8px;
+}
+.deviceMenu li.active ul {
+  margin-top: -5px;
+}
+
+.deslist {
+  background: url("../../../common/images/close.png") no-repeat scroll 0 0;
+  display: inline-block;
+  width: 100%;
+}
+
+.deviceMenu .deslist span {
+  margin: 0px -10px auto;
+  width: 80%;
+  margin-bottom: 2px;
+  display: inline-block;
+}
+
+.deviceMenu .tree .active .deslist {
+  background: url("../../../common/images/open.png") no-repeat scroll 0 0;
+  display: inline-block;
+  width: 80%;
+
+}
+
+.childeslist {
+  display: block;
+  width: 300px;
+  
+}
+.childeslist:hover {
+  background-color: #DCE3ED;
+}
+
+.childeslist .chipvgbg {
+  background: url("../../../common/images/bg/pvg-1.png") no-repeat scroll center center;
+  padding: 3px 39px 3px 1px;
+  margin: 0px 4px 2px 8px;
+}
+
+.childeslist .chiwjbg {
+  background: url("../../../common/images/bg/wj-1.png") no-repeat scroll center center;
+  padding: 3px 39px 3px 1px;
+  margin: 0px 4px 2px 8px;
+}
+
+.deviceMenu .devices .load .chipvgbg {
+  background: url("../../../common/images/bg/pvgact-1.png") no-repeat scroll center center;
+  padding: 3px 39px 3px 1px;
+  margin: 0px 4px 2px 8px;
+}
+
+.deviceMenu .devices .load .chiwjbg {
+  background: url("../../../common/images/bg/wjact.png") no-repeat scroll center center;
+  padding: 3px 39px 3px 1px;
+  margin: 0px 4px 2px 8px;
+}
+
+label.error{
+  color: #fc0a32;
+  font-size: 12px;
+}
+
+.devices .loading {
+  margin:2px 29px auto;
+  color: #B1A6AD;
+}
+
+.upwallstatus {
+   height: 263px;
+   background-color: #F0F0F2;  
+   text-align: center;
+}
+
+.upwallstatus .satus {
+  width: 100%;
+  height: 100%;
+}
+
+#major .tvList .upwallstatus .close {
+   background: none;
+  padding: 2px 9px 0px 4px;
+  margin-left: 4px;
+  float: right;
+}
+
+.treeMenu .leaf .more {
+  background: none;
+}
+
+#major .tvList .dis-screen1 .close {
+  position: relative;
+  float: right;
+  padding: 11px;
+
+}
+
+#lypan {  width: 100%;}
+#lypan .viewport {width: 100%; overflow: hidden; position: relative; }
+#lypan .overview { list-style: none; width: 40000px; padding: 0; margin: 0; position: absolute; left: 0; top: 0; padding-left: 6px; }
+#lypan .scrollbar{ position: relative; margin: 0 0 2px; clear: both; }
+#lypan .track { background:#F0F0F0; width: 100%; height:5px; position: relative; }
+#lypan .thumb { background: url("../../../common/images/bg/scroll1.png") no-repeat scroll center center #F0F0F0; height: 5px; cursor: pointer; overflow: hidden; position: absolute; left: 0; top: 0;}
+#lypan .disable { display: none; }
+.noSelect { user-select: none; -o-user-select: none; -moz-user-select: none; -khtml-user-select: none; -webkit-user-select: none; }
+
+/* #lyLishow { width: 100%;}
+#lyLishow .viewport { width: 97.3%; height: 100%; overflow: hidden;}
+#lyLishow .overview { list-style: none; position: absolute; left: 0; top: 0; padding: 0; margin: 0; }
+#lyLishow .scrollbar{ position: relative; background-position: 0 0; float: right; width: 15px; }
+#lyLishow .track { background-color: #F0F0F0; height: 100%; width:5px; position: relative;}
+#lyLishow .thumb { background:url("../../../common/images/bg/scroll2.png") no-repeat scroll center center #F0F0F0; height: 100%; width:5px; cursor: pointer; overflow: hidden; position: absolute; top: 0; left: 0; } */
+#preview{border:1px solid #cccccc; background:#808080;color:#fff; padding:5px; display:none; position:absolute;}
+.ui-icon {
+  width: 11px;
+}
+
+#major .tv-screen .innerty .inneryl,#major .lytcurr .lyt .lytcamerasp .inneryl {
+  float: left;
+  margin-right: 1px;
+  margin-bottom: 1px;
+  background-color: #C0C0C0;
+}
+
+.tvList .issd-select {
+  background: url("../../../common/images/bg/issd-tvwall.png") no-repeat scroll center center #E0DEDE;
+  padding: 3px 10px 3px 16px;
+  margin-left: 10px;
+  border-radius: 3px;
+  margin-right: 5px;
+  /*position: relative;*/
+
+}
+
+.tvList .issd-select_bak {
+  background-color: #FFFFFF;
+}
+.tvList .issdContain {
+  display: none;
+}
+
+.tvList .tv-channel .active {
+  display: block;
+  width: 80px;
+  z-index: 3;
+  position: relative;
+  background-color: #FFFFFF;
+  margin: 4px -43px auto;
+  /*margin: 24px -75px auto\9\0;*/
+}
+.tvList .tv-channel .active .issdflag {
+  width: 80px;
+  display: inline-block;
+  height: 21px;
+}
+
+.tvList .tv-channel .issdContain .issdflag:hover {
+  background-color: #dce7f2;
+}
+
+.tvList .tv-channel div.active i {
+  background-color:  #f1f1f1;
+  padding: 4px 10px 1px 16px;
+  width: 32px; 
+}
+
+.tvList .tv-channel div.active .heck {
+  background: url("../../../common/images/bg/issd-icon.png") no-repeat scroll center center #F1F1F1;
+  padding: 3.5px 10px 1px 16px;
+}
+
+.tvList .tv-channel div.active span {
+  margin-left: 9px;
+  margin-top: 4px;
+}
+
+#issdCode {
+  width: 80px;
+  /*margin: 7px -31px auto;*/
+}
+.changeLyt {
+  float: right;
+  margin-top: 4px;
+}
+.allOffWall{
+  float: right;
+  margin-top: 4px;
+  margin-left: 10px;
+}
+.major-reset .changeLyt {
+  float: right;
+  margin-top: 4px;
+}
+
+.tv-mask:before {
+	content: '';
+	position: absolute;
+	font-size: 20px;
+	text-align: center;
+	line-height: 300px;
+	top: 0;
+	left: 0;
+	z-index: 10;
+	width: 100%;
+	height: 100%;
+	background: rgba(189, 189, 189, .5)
+}
+
+.cls {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  right: 3px;
+  top: 3px;
+  background:url("../../../common/images/bg/small_offwall.png") no-repeat scroll center 1px;
+  /*background: url("../../../common/images/buttons/dialog-close-hover.png") no-repeat center center;*/
+}
+
+.cls:hover {
+  background:url("../../../common/images/bg/small_offwall_hover.png") no-repeat scroll center 1px;
+}
+.real-stream {
+  position: absolute;
+  width: 19px;
+  height: 20px;
+  right: 3px;
+  bottom: 3px;
+  background:url("/module/common/images/sprites/operate-bg-new.png") no-repeat;
+}

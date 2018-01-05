@@ -1,0 +1,336 @@
+@charset "utf-8";
+/* CSS Document */
+/*
+ * 东方网力 CSS Library 2.0.0
+ * Copyright(c)  2014, 东方网力 CSS
+ * @url http://www.netposa.com
+ */
+/*========================================== 样式开始@Start ==========================================*/
+/*
+ * 外层容器_Whole_@Start
+ */
+#faceSearch{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+}
+#faceSearch .faceSearchContent{
+    width: 100%;
+    height: 100%;
+}
+body {
+	overflow-y:hidden;
+}
+.wrapper1 {
+	min-width:1210px;
+}
+.whole {
+	min-width:1240px;
+}
+.main {
+	min-width:1240px;
+	position:absolute;
+	top:96px;
+	left:0px;
+	right:0px;
+	bottom:0px;
+	overflow:hidden;
+}
+/*
+ * 页面左侧_Main_left_@Start
+ */
+.main_left {
+	width:280px;
+	/*height:100%;*/
+	/*position:relative;*/
+	position: absolute;
+	bottom: 0;
+	top:0;
+}
+a.quick_nav {
+	width:12px;
+	height:42px;
+	display:block;
+	position:absolute;
+	right:-11px;
+	top:50%;
+	z-index:999;
+	margin-top:-21px;
+}
+/*
+ * 侧边栏_sidebar_@Start
+ */
+.sidebar {
+	height:100%;
+	overflow:hidden;
+	border-top:1px solid #e0e4e8;
+	border-right:1px solid #e0e4e8;
+	background:#f5f7fa;
+}
+/*
+ * 侧边栏标题_sidebar_title_@Start
+ */
+.sidebar_title {
+	height:40px;
+	padding:0 5px 0 15px;
+	background:#fff;
+}
+.sidebar_title h6 {
+	height:40px;
+	line-height:40px;
+	float:left;
+}
+.sidebar_title span {
+	height:20px;
+	padding:10px 0;
+	float:right;
+}
+.sidebar_title span a {
+	width:20px;
+	height:20px;
+	float:left;
+	margin:0 5px;
+}
+/*
+ * 侧边栏标题_sidebar_title_@End
+ */
+/*
+ * 资源列表标题_resource_title_@Start
+ */
+.resource_title {
+	height:32px;
+	background:#fff;
+	border-top:1px solid #e0e4e8;
+	border-bottom:1px solid #e0e4e8;
+}
+.picture_mode {
+	display: none;
+	height:20px;
+	padding:6px 0;
+	float:left;
+	margin-left:15px;
+}
+.picture_mode a {
+	width:20px;
+	height:20px;
+	float:left;
+}
+
+.select_type {
+	height:18px;
+	padding:6px 5px;
+	float:right;
+	cursor:pointer;
+	position:relative;
+}
+.select_type em {
+	float:right;
+	height: 20px;
+}
+.select_type em i {
+	float: left;
+    height: 20px;
+    width: 20px;
+}
+.select_type em h6 {
+	width:48px;
+	height:20px;
+	line-height:20px;
+	padding-left:5px;
+	float:left;
+}
+.select_type em b {
+	float: left;
+    height: 20px;
+    width: 18px;
+}
+.resource_title ul {
+	width:86px;
+	padding:0 10px;
+	overflow:hidden;
+	background:#fff;
+	position:absolute;
+	top:32px;
+	right:-1px;
+	z-index:9999;
+	border:1px solid #e0e4e8;
+	display:none;
+}
+.resource_title ul li {
+	border-bottom: 1px solid #F4F4F4;
+    height: 20px;
+    padding: 5px 0px;
+}
+.resource_title ul li i {
+	float: left;
+    height: 20px;
+    width: 20px;
+}
+.resource_title ul li p {
+	float: left;
+    height: 20px;
+    line-height: 20px;
+    padding: 0 5px;
+}
+/*
+ * 资源列表标题_resource_title_@End
+ */
+/*
+ * 资源列表_resource_list_@Start
+ */
+.resource_cont {
+	position:absolute;
+	top:75px;
+	left:0px;
+	right:0px;
+	bottom:0px;
+	overflow:hidden;
+	padding: 5px;
+}
+.resource_list {
+	height:100%;
+	overflow:auto;
+}
+.resource_list li {
+	height:20px;
+	padding:6px 15px;
+	border-bottom:1px solid #f4f4f4;
+	position:relative;
+}
+.resource_list li:hover {
+	background:#eee;
+}
+.resource_list li span {
+	display:none;
+}
+.resource_list li i {
+	width:20px;
+	height:20px;
+	float:left;
+}
+.resource_list li p {
+	height:20px;
+	line-height:20px;
+	padding: 0 5px;
+	float:left;
+}
+.resource_list li a {
+	width:12px;
+	height:12px;
+	display:block;
+	position:absolute;
+	top:10px;
+	right:10px;
+	display:none;
+}
+/*
+ * 资源列表_resource_list_@End
+ */
+.resource_pic {
+	height:100%;
+	overflow:auto;
+	display:none;
+}
+.resource_pic dl {
+	height:54px;
+	padding:10px;
+	overflow:hidden;
+	position:relative;
+}
+.resource_pic dl a {
+	width:20px;
+	height:20px;
+	display:block;
+	position:absolute;
+	top:5px;
+	right:5px;
+	display:none;
+}
+.resource_pic dl dt {
+	width:44px;
+	height:44px;
+	padding:5px;
+	border:1px solid #ccc;
+	float:left;
+	margin-right:10px;
+	overflow:hidden;
+}
+.resource_pic dl dt img {
+	max-width:44px;
+	max-height:44px;
+}
+.resource_pic dl dd {
+	height:54px;
+	border:1px solid #f5f7fa;
+	float:left;
+	overflow:hidden;
+}
+.resource_pic dl dd p {
+	height:18px;
+	line-height:18px;
+}
+/*
+ * 页面右侧_main_right_@Start
+ */
+.main_right {
+	position:absolute;
+	top:0px;
+	left:285px;
+	right:0px;
+	bottom:0px;
+	z-index: 0;
+}
+.main_right.only-one{
+	left: 0;
+}
+
+.line {
+	display: block;
+	width: 100%;
+	font-size: 0;
+	height: 0px;
+	line-height: 0px;
+	border-top: 1px solid #DDD;
+	border-bottom: 1px solid white;
+	margin:10px 0;
+}
+.cRed{color: #f60c0c;}
+.cGreen{color:#3ab211;}
+.cBlue{ color: #188dfb;}
+/*
+ * 页面右侧_main_right_@End
+ */
+
+
+.cape{
+	width: 60px;
+	height: 29px;
+	line-height: 29px;
+	text-align: center;
+	display: inline-block;
+	margin-left: 20px;
+}
+
+/*========================================== 样式开始@End ==========================================*/
+
+
+/*
+ *  备注
+ */
+
+/*  在终极页面中调用该通用样式时,应该注意显示效果的不同,因为后台上传信息时编辑器里面样式并没有调用本默认样式表.
+ *
+ *  所以在编辑器中标签会有默认的属性,用户在添加信息时,这些信息都是附带默认样式的.
+ *  如果用我们在终极页面也调用本默认CSS文件的话,许多标签如:p,td,li......标签默认样式都被取消,因此显示效不同.
+ *
+ *  解决办法:
+ *	在终极页面显示内容区域还原这些标签的默认属性.
+ *
+ */
+
+/*
+ *  Copyright：本文件最终解释权归东方网力科技股份有限公司 所有；
+ */

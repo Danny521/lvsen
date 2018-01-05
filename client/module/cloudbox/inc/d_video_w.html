@@ -1,0 +1,112 @@
+<div class="bg-content video-content">
+    <div class="left-bar" style="display: none"></div>
+    <div class="right-bar" style="display: none"></div>
+    <div class="tab-title main-title video-title" style="display: none">
+		<span class="tab-title-outer">
+			<a href="javascript:void(0)" class="video-original tab-title-item active" data-anchor='0'>原始视频</a>
+			<a href="javascript:void(0)"  class="video-abstract tab-title-item" data-anchor='1'>剪切视频</a>
+			<a href="javascript:void(0)"  class="video-multi tab-title-item" data-anchor='2'>叠加视频</a>
+		</span>
+        <!-- <div class="derive">
+            {{#if handleNum}}
+            <span>已生成 <span class="derive-nums">{{handleNum}}</span> 个图片结果集</span>
+            {{/if}}
+                    {{#if structuredNum}}
+                <span>已生成 <span class="derive-nums">{{structuredNum}}</span> 个结构化信息</span>
+                    {{/if}}
+        </div> -->
+    </div>
+    <div class="tab-content main-content video-content">
+
+        <div class="tab-content-item content-video content-video-original active" data-target='0'>
+            <div class="video-wrap">
+                <div class="ocx-box">
+                    <object id="UIOCX" class="UIOCX" type="applicatin/x-firebreath" align="center" width="100%" style="width:100%">
+                        <param name="onload" value="pluginLoaded"/>
+                    </object>
+                </div>
+                <div class="video-block">
+                    <div class="progress-bg"></div>
+                    <div class="progress-bar">
+                        <div class="bullet">
+                            <i class="play-point"></i>
+                        </div>
+                        <i class='start-mark'></i>
+                        <i class='end-mark'></i>
+                    </div>
+                    <div class="panel" onselectstart="return false">
+                        <div class="vbar-right">
+                            <span style="display: none" class="grab video-grab" title='抓图' data-id="{{video.id}}" data-type="1" data-name="{{video.fileName}}" data-shootTime="{{video.shootTime}}"></span>
+                            <span style="display: none" class="fullwin" title='全屏'></span>
+                            <a href="javascript:void(0)"><span class="download permission permission-download" title='下载'><i class="download-icon"></i>下载</span></a>
+                        </div>
+                        <div class="time vbar-left">
+                            <span class="nowtime" nowtime-ms="0">00:00:00</span>
+                            &nbsp;/
+                            <span class="alltime" alltime-ms="{{video.timeLag}}">{{time2Str video.timeLag}}</span>
+							<span class="speed" title='倍速'>
+								倍速：
+								<em></em>
+							</span>
+                        </div>
+                        <div class="vbar-mid">
+                            <span class="rewind" title='慢放'></span>
+                            <span class="switch" title='播放'></span>
+                            <span class="forward" title='快进'></span>
+                            <span class="stop" title='停止'></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-content-item content-video-abstract content-video" data-target='1'>
+            <div class="video-wrap"></div>
+        </div>
+        <div class="tab-content-item content-video-multi content-video" data-target='2'>
+            <div class="video-wrap"></div>
+        </div>
+
+    </div>
+
+</div>
+<div class="bg-sider">
+    <div class="s-bar"></div>
+    <div class="inner-sider info">
+        <div class="saved-info active">
+            <div class="saved-info-title">
+                <i class="edit-icon"></i><h4 class="title too-long">{{fileName}} </h4>
+            </div>
+            <p class="first-title">
+                <span class='saved-label'>视频格式 :</span><span class='saved-content video-format'>{{fileFormat}}</span>
+            </p>
+            <p>
+                <span class='saved-label'>视频大小 :</span><span class='saved-content video-size'>{{filterFileSize fileSize}}</span>
+            </p>
+            <p>
+                <span class='saved-label'>创建时刻 :</span><span class='saved-content video-create-time'>{{mills2ISODate storageTime}}</span>
+            </p>
+            <p>
+                <span class='saved-label'>拍摄时刻 :</span><span class='saved-content shoot-time video-shoot-time'>{{mills2ISODate adjustTime}}</span>
+            </p>
+            <p>
+                <span class='saved-label'>备注信息 :</span><span class='saved-content none-edit-remark video-remark'>{{noValue remark}}</span>
+            </p>
+        </div>
+
+        <div class="editing-info">
+            <p>
+                <span class='editing-label'>视频名称 :</span><input type="text" class='editing-text-input pic-source-name video-input-name' value='{{fileName}}'>
+            </p>
+            <p>
+                <span class='editing-label'>拍摄时刻 :</span><input type="text" class='editing-text-input datepicker pic-appear-time video-input-shootTime' value='{{mills2ISODate adjustTime}}'>
+            </p>
+            <p>
+                <span class='editing-label'>备注信息 :</span><textarea class='editing-text-textarea video-input-remark'>{{remark}}</textarea>
+            </p>
+            <p class="p-btn">
+                <a href="javascript:void(0)" class="a-btn save-btn"><i class="save-icon"></i>保存</a>
+                <a href="javascript:void(0)" class="a-btn cancel-btn"><i class="cancel-icon"></i>取消</a>
+            </p>
+        </div>
+    </div>
+</div>

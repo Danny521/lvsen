@@ -1,0 +1,531 @@
+html,body,#content,.content,.wrapper,#major,.approvalMsgDetail,#departDetail{
+	height:100%;
+}
+.approvalicon{
+	display: inline-block;
+	width: 13px;
+	height: 14px;
+	background-image: url("../images/operate-ico.png");
+	background-position: 0 0;
+	cursor: pointer;
+}
+.approvalicon:hover{
+	background-position: -17px 0;
+}
+.delect{
+	float: right;
+	position: relative;
+	right: 30px;
+	top: 10px;
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+	background-image: url("../images/operate-ico.png");
+	background-position: 0 -17px;
+	cursor: pointer;
+}
+/*table*/
+.approvalList table {
+    width: 100%;
+    table-layout: fixed;
+    margin-bottom: 20px;
+}
+
+.approvalList td, .approvalList tr th {
+    text-align: center;
+    line-height: 32px;
+    padding-left: 4px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 13px;
+}
+
+.approvalList tr th {
+    background: #e6ebf0;
+}
+
+.approvalList td {
+    border-bottom: 1px solid #f0f2f5;
+    font-size: 12px;
+}
+
+/*.approvalList table tr:hover {
+    background-color: #EBF0F4;
+}*/
+/*面包屑样式*/
+.breadcrumb{
+	display: block;
+	line-height: 38px;
+	border-top:1px solid #ccc;
+	border-bottom:1px solid #ccc;
+	padding-left: 15px;
+	font-size: 13px;
+}
+
+.breadcrumb a{
+	cursor: pointer;
+	color:#3A94FF;
+}
+.base-info {
+	font-size: 12px;
+}
+.base-info .header{
+	background-color: #F5F5F7;
+	height: 30px;
+	line-height: 30px;
+	border-bottom: 1px solid #E3E2E2;
+	border-top: 1px solid #E3E2E2;
+}
+
+.base-info .header span{
+	position: relative;
+	display: inline-block;
+	margin-left: 15px;
+	font-size: 13px;
+}
+.base-info .header>span i{
+	position:absolute;
+	display: inline-block;
+	height: 8px;
+	width: 16px;
+	left: 12px;
+	top: 23px;
+	background: url("/module/settings/usermgr/images/arrow.png") no-repeat scroll 0 0 transparent;
+}
+
+.base-info .header{
+	margin-top: -1px;
+}
+
+.base-info .content{
+	padding: 5px 0;
+
+}
+/*权限信息*/
+.loading{
+	display: inline-block;
+	float: left;
+	width: 16px;
+	height: 16px;
+	margin-right: 5px;
+	background: url(/module/common/images/animate/mini-loading.gif) no-repeat scroll 0 0 transparent;
+}
+
+#roleList{
+	display: block;
+}
+
+.base-info .content{
+	padding: 10px 0 10px 35px;
+}
+
+#roleForm table td.name.top{
+	text-align: right;
+	vertical-align: top;
+}
+#roleForm table .count{
+	padding:26px 10px 0 0;
+	color: #C4C4C4;
+}
+
+#roleForm #rolename{
+	width: 200px;
+}
+#roleForm #description{
+	padding: 5px;
+	width: 400px;
+	height: 65px;
+	font-size: 12px;
+}
+
+.auth-group{
+	float: left;
+    margin:17px 10px 0 0;
+    width: 280px;
+
+}
+.auth-group>div{
+	margin-top: 5px;
+	border: 1px solid #E3E2E2;
+	height: 350px;
+}
+#roleForm{
+	height: 95%;
+	overflow-y: scroll;
+}
+#roleForme .approvalList .oprate .set{
+	margin-left: 70px;
+}
+
+#roleForme .approvalList .authority{
+	min-width: 400px;
+}
+
+/* 功能权限 RoleTable */
+/*
+#roleTable{
+	margin-left: 80px;
+	width: 600px;
+	height:auto;
+	border-radius: 3px;
+}
+#roleTable #selectRole{
+	width: 150px;
+}*/
+/*
+#roleTable .content{
+	padding: 0
+}
+
+#roleTable input[type='checkbox']{
+	position: relative;
+	top:2px;
+	left: -2px;
+}
+
+#roleDetail input[type='checkbox']{
+	opacity: 0.7;
+}*/
+
+#roleForm .action{
+	margin-left: 30px;
+	margin-bottom: 30px;
+}
+
+#auth-func .action a.check:hover,
+#auth-func .action a.close:hover{
+	background-color: #39AFED;
+    background-image: linear-gradient(#5EC5FF, #39AFED);
+    border: 1px solid #2DA5EC;
+    box-shadow: 0 1px #94CAFF inset;
+    color: #FFFFFF
+}
+/* end 功能权限 */
+
+
+/*  -- rolePanel --  */
+#rolePanel .role-check{
+	/*position: absolute;*/
+	display: inline-block;
+	top:11px;
+	left: 4px;
+	width: 19px;
+	height: 17px;
+	z-index: 50;
+}
+#rolePanel  span.disable{
+	opacity: 0.6;
+}
+#rolePanel{
+	margin-top: 12px;
+	width: 920px;
+	font-size: 12px;
+}
+#rolePanel .header-select{
+	position: relative;
+}
+#rolePanel .header-select span{
+	font-weight: bold;
+	margin-left: 10px;
+}
+
+#rolePanel .header-select select{
+	position: absolute;
+	top:-6px;
+	right: 0;
+	color: #666666;
+    font-size: 12px;
+    padding: 3px;
+    width: 150px;
+}
+#rolePanel ul{
+
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+#rolePanel ul li{
+
+	display: block;
+}
+#rolePanel input{
+	position: relative;
+	top:1px;
+	left:-2px;
+}
+
+#rolePanel .module-item{
+	clear: both;
+	margin-top: 5px;
+}
+
+#rolePanel .module-nav-item{
+	position: relative;
+	padding-left: 10px;
+	background-color: #ebf0f4;
+	line-height: 30px;
+	cursor: pointer;
+}
+
+#rolePanel .module-item .module-nav-content{
+	display: none;
+	padding-top: 5px;
+}
+#rolePanel .module-item.active .module-nav-content{
+	display: inline-block;
+
+}
+
+#rolePanel .module-nav-item span{
+	font-weight: bold;
+}
+
+#rolePanel .module-nav-item .func-folder{
+	position: relative;
+	top:4px;
+	right: 10px;
+	float: right;
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	background: url(/module/settings/common/images/icons.png) -107px -226px no-repeat transparent;
+	cursor: pointer;
+}
+#rolePanel .module-nav-item .func-folder.up{
+	background-position: -107px -226px;
+}
+#rolePanel .module-nav-item .func-folder.up:hover{
+	background-position: -107px -273px;
+}
+
+#rolePanel .module-nav-item .func-folder.down{
+	background-position: -107px -251px;
+}
+#rolePanel .module-nav-item .func-folder.down:hover{
+	background-position: -107px -293px;
+}
+
+#rolePanel .sub-menu.module-funcs{
+	clear: both;
+}
+
+#rolePanel .sub-menu-item{
+	float:left;
+	width:100px;
+	padding-left: 30px;
+	text-align: top;
+}
+
+#rolePanel .sub-menu-content{
+	float: left;
+	width: 760px;
+	padding-left: 10px;
+	border-left: 2px solid #ebf0f4;
+}
+
+
+#rolePanel .func-item{
+	float: left;
+	width: 150px;
+	line-height: 25px;
+}
+
+#rolePanel label{
+	padding:1px 2px;
+}
+#rolePanel label.highlight{
+	/*background-color: #fff1a5;*/
+	position:relative;
+}
+#rolePanel label.highlight:after {
+	position: absolute;
+	top:-1px;
+	right: -10px;
+	content: "*";
+	font-size: 15px;
+	color:#4f9ff0;
+}
+#rolePanel label.highlight.before:after {
+    right: 75px;
+    display:none;/*取消掉此属性，指挥调度 视频监控 电视墙前面会有星星出现，标明这几个必须有设备通用权限才可以有这里面的权限*/
+}
+#rolePanel label.highlight.before.plvl2_13:after {
+    right: 63px;
+}
+
+#rolePanel .sub-funcs{
+	margin-left: 30px;
+}
+#rolePanel .sub-funcs .func-item{
+	width: 113px;
+}
+#rolePanel li.func-item.highlight{
+	clear:left;
+}
+
+#rolePanel .clearfix{
+	height: 0;
+	clear:both;
+	border:none;
+}
+
+#rolePanel .func-folder-bar{
+	display: inline-block;
+	display: none;
+	height: 20px;
+	border:1px solid #000;
+	width: 100%;
+}
+
+/* -- end of rolePanel -- */
+#roleDetail .action-section{
+	display: none;
+	padding: 12px 0 50px 0;
+}
+
+
+
+
+/* 用户详情 样式覆写 */
+
+/* 用户详情 */
+#userDetail #rolePanel input{
+	display: none;
+}
+
+
+#userDetail #rolePanel label.temp{
+	position: relative;
+	display: inline-block;
+	/*background-color: #0AD410;
+	border-radius: 5px;
+	padding: 0 5px;
+	color:#fff;*/
+}
+#userDetail #rolePanel label.temp:after{
+	position: absolute;
+	top:12px;
+	right: -13px;
+	display: inline-block;
+	content: '';
+	width: 6px;
+	height: 6px;
+	background-color: #7ECEF4;
+	border-radius: 3px;
+}
+
+#userDetail #rolePanel .module-nav-item .func-folder{
+	display: none;
+	background: none;
+}
+
+#userDetail #rolePanel{
+	margin-bottom: 20px;
+}
+
+/*查看角色页面样式*/
+
+/*.info span{
+    margin-left: 5px;
+    color: #929599;
+}*/
+
+.info div{
+	margin-bottom: 8px;
+}
+
+.info div .rolename{
+	padding-left: 12px;
+}
+.info .describe{
+	display: inline-block;
+    padding-bottom: 5px;
+    padding-right: 10px;
+	word-wrap:break-word;
+    word-break:break-all;
+}
+.info2 .titel {
+	width: 90px;
+	margin-top: 10px;
+}
+.info2 .authority{
+	margin-left: 90px;
+	margin-top: -24px;
+}
+
+.info2 td,.info2 td ul li{
+	float: left;
+}
+.info2 td.name{
+	width: 80px;
+	height: 30px;
+	line-height: 30px;
+	font-weight: bold;
+	text-align: right;
+}
+.info2 td ul {
+	display: block;
+	width: 600px;
+}
+.info2 td ul li{
+	margin-left: 30px;
+	/*color: #929599;*/
+	height: 30px;
+	line-height: 30px;
+	width: 160px;
+	text-align: left;
+}
+.info2 .item-box{
+	margin-top: 20px;
+	margin-left: 100px;
+}
+
+table.info{
+	margin-left: 0;
+}
+#editRole.ui.blue.disable{
+	background-color: #ccc;
+}
+#departTableAlt {
+    margin-top:0;
+}
+.list-container .list-title .sort{
+	float: right; 
+	margin-right: 15px; 
+	margin-top: 2px; 
+	height: 30px; 
+	line-height: 30px;
+}
+.list-container .list-title .sort-button{
+	padding: 0px 5px;
+}
+
+/*#saveRole{
+	cursor: pointer;
+	height: 28px;
+	line-height: 28px;
+	color: #fff;
+	font-size: 12px;
+	padding: 0 18px;
+	border-radius: 3px;
+	border: none;
+	background-color: #2da5ec;
+}
+#saveRole:hover{
+	background-color: #44adef;
+}
+#cancel{
+	cursor: pointer;
+	height: 28px;
+	line-height: 28px;
+	color: #fff;
+	font-size: 12px;
+	padding: 0 18px;
+	border-radius: 3px;
+	border: none;
+	background-color: #dfdfdf;
+}
+#cancel:hover{
+	background-color: #f7f7f7;
+}*/

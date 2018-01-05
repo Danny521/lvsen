@@ -1,0 +1,80 @@
+{
+	"code": 200,
+	"data": {
+		"libraries": [
+			{
+				"id": 107,
+				"libraryName": "001库",
+				"libFlag": "lib4d785f4ca577453a87cefc39ffb2dc11",
+				"threshold": 60,
+				"createTime": 1413278710000,
+				"creator": 1,
+				"lastUpdateTime": 1413350264000,
+				"lastUpdateBy": 1,
+				"status": 1,
+				"selected": null
+			},
+			{
+				"id": 112,
+				"libraryName": "zytest02",
+				"libFlag": "lib40090bbb93ee4214ac07f6f3a9f07ad4",
+				"threshold": 100,
+				"createTime": 1413348801000,
+				"creator": 1,
+				"lastUpdateTime": 1413348801000,
+				"lastUpdateBy": 1,
+				"status": 1,
+				"selected": null
+			},
+			{
+				"id": 113,
+				"libraryName": "zytest03",
+				"libFlag": "lib6d21ad3d83944f289701be36540d0e8a",
+				"threshold": 100,
+				"createTime": 1413348921000,
+				"creator": 1,
+				"lastUpdateTime": 1413348921000,
+				"lastUpdateBy": 1,
+				"status": 1,
+				"selected": null
+			},
+			{
+				"id": 114,
+				"libraryName": "zytest04",
+				"libFlag": "lib45ecc3a600f3450785731a141f96842e",
+				"threshold": 50,
+				"createTime": 1413349699000,
+				"creator": 1,
+				"lastUpdateTime": 1413349699000,
+				"lastUpdateBy": 1,
+				"status": 1,
+				"selected": null
+			},
+			{
+				"id": 115,
+				"libraryName": "zytest05",
+				"libFlag": "libd23cfcbc773f4cd18bea41583500d4dc",
+				"threshold": 50,
+				"createTime": 1413349819000,
+				"creator": 1,
+				"lastUpdateTime": 1413349819000,
+				"lastUpdateBy": 1,
+				"status": 1,
+				"selected": null
+			},
+			{
+				"id": 116,
+				"libraryName": "zytest06",
+				"libFlag": "lib733039123d144de69278c38a139b1dd2",
+				"threshold": 60,
+				"createTime": 1413349849000,
+				"creator": 1,
+				"lastUpdateTime": 1413349849000,
+				"lastUpdateBy": 1,
+				"status": 1,
+				"selected": null
+			}
+		],
+		"message": "成功"
+	}
+}

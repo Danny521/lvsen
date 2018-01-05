@@ -1,0 +1,35 @@
+{{#if cameras}}
+	<ul class="tree">
+		{{#each cameras}}
+			{{#parent}} {{!--非叶子节点 --}} 
+				<li class="node {{checktree ../../option.checkbox}}" data-id='{{id}}' data-name="{{name}}" data-type ="{{type}}">
+					<a class="group">
+						{{#../../option.checkbox}} {{!--是否显示checkbox--}}
+							<i class="checkbox cameraselect {{isChecked ../../../option.parentCheckStatus status}}"></i>
+						{{/../../option.checkbox}} 
+						<i class="fold {{homeicon ../../option.homeicon}}"></i>
+						<span class="text-over" title="{{name}}">{{ name }}</span>
+						{{#../../option.checkbox}} {{!--是否显示checkbox--}}
+							<i class="ptzctrl {{ptzIsChecked ../../../option.isParentNodeChecked ../../../option.action isControlled}}"></i>
+						{{/../../option.checkbox}} 
+					</a>
+				</li>
+			{{else}} {{!--叶子节点 --}}
+				<li class="node {{offline cameraStatus}} clearfix {{checktree ../../option.checkbox}}"  data-id='{{id}}' data-name="{{name}}" data-type="{{type}}" data-cameratype="{{cameraType}}" data-status="{{cameraStatus}}">
+					<a class="leaf {{isActive ../../../option.checked}} clearfix">
+						{{#../../option.checkbox}} {{!--是否显示checkbox--}}
+							<i class="checkbox cameraselect {{isChecked ../../../option.parentCheckStatus status}}"></i>
+						{{/../../option.checkbox}}
+						<i class="camera {{cameratype cameraType}} {{state cameraStatus}} hasSD"></i>
+						<span class="text-over" title="{{name}}"><em class="">{{name}}</em></span>
+						{{#../../option.checkbox}} {{!--是否显示checkbox--}}
+							<i class="ptzctrl {{ptzIsChecked ../../../option.isParentNodeChecked ../../../option.action isControlled}}"></i>
+						{{/../../option.checkbox}}
+					</a>
+				</li>
+			{{/parent}}
+		{{/each}}
+	</ul>
+{{else}}
+	<h2 class="no-data no-data-heleper">{{nodata}}</h2>
+{{/if}}

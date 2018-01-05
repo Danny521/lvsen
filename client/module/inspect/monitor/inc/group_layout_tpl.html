@@ -1,0 +1,35 @@
+
+	<div class="group-content">
+		<div class="group-item">
+			<div class="item-header">
+				<span class="name" title="{{groupName}}">{{groupName}}</span>
+				<i id="cameraadd" data-id="{{watchId}}" title="新增摄像头" tabor='inspect-add-camera'></i>
+				<input type="hidden" value="{{watchId}}" id="watchId">
+			</div>
+			<div>
+				<ul class="time-fregments">
+					{{#each times}}
+					<li>
+						时间：
+						<span class="time-fregment">{{startTime}}-{{endTime}}</span>
+						等级：
+						<span>{{level}}</span>
+					</li>
+					{{/each}}
+				</ul>
+
+				<div class="camera-list" data-layout="{{layout}}">
+					<ul>
+						{{#cameras}}
+						<li>
+							<a data-cameraid="{{cameraId}}" data-position="{{position}}" title="删除摄像头"></a>
+							<i class="{{isBall cameraType}} {{disabled cameraId}}"></i>
+							<span class="title camera-name" title={{cameraName}}>{{cameraName}}</span>
+						</li>
+						{{/cameras}}
+					</ul>
+				</div>
+			</div>
+
+		</div>
+	</div>

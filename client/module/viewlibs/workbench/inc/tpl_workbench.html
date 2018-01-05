@@ -1,0 +1,175 @@
+<div class="items-panel">
+	
+	<ul class="items-list auto-adapt clearfix">
+		{{#list}}	
+
+		<li data-id="{{id}}" data-showType ="{{isType showType incId}}">
+				<!-- 缩略图显示 start-->
+				<div class="thumb-figure ease">
+
+					<a class="thumb-anchor">
+						<span class="vbox"><img src="{{showImage path}}" alt="" /></span>
+					</a>
+				</div>
+				<!-- 缩略图显示 end-->
+			<!-- 文案信息显示 start-->
+			<!-- 案事件信息 start-->
+			{{#isIncident showType}}
+				<div class="synopsis isincident">
+					<span title="{{showTrueName name}}">
+						<em class="statue {{classstatue auditFlag}}">{{{statue auditFlag}}}</em>
+						<a class="casename" data-incidentname="{{showTrueName caseName}}" data-incidentid="{{incId}}">{{{caseName}}}</a>
+					</span>
+					<span class="related" title="{{showTrueName location}}">
+						{{{location}}}
+					</span>
+					<span class="time">
+						<span class='time-upper'>{{{timeUpper}}}<em class="timer-limit">(上限)</em></span>
+						<span class='time-lower'>{{{timeLower}}}<em class="timer-limit">(下限)</em></span>
+					</span>
+				</div>
+			{{/isIncident}}
+			<!-- 案事件信息 end-->
+			<!-- 线索信息 start-->
+			{{#isTrack showType incId}}
+				<div class="synopsis isTrack">
+					{{#eq showType 'car'}}
+					<span title="{{showTrueNameln 'car' licenseNumber licenseTypeCodeName carColorCodeName}}">
+						<a class="name">{{{casecar licenseNumber licenseTypeCodeName carColorCodeName}}}</a>
+					</span>
+					{{/eq}}
+					{{#eq showType 'person'}}
+					<span title="{{showTrueNameln 'person' personName genderCodeName jacketColorCodeName trousersColorCodeName}}">
+						<a class="name">{{{caseperson personName genderCodeName jacketColorCodeName trousersColorCodeName}}}</a>
+					</span>
+					{{/eq}}
+					{{#eq showType 'exhibit'}}
+					<span title="{{showTrueNameln 'exhibit' exhibitName exhibitShape exhibitColorCodeName}}">
+						<a class="name">{{{caseexhibit exhibitName exhibitShape exhibitColorCodeName}}}</a>
+					</span>
+					{{/eq}}
+					{{#eq showType 'scene'}}
+					<span title="{{showTrueNameln 'scene' categoryMain subcategoryMain weatherCodeName}}">
+						<a class="name">{{{casesence categoryMain subcategoryMain weatherCodeName}}}</a>
+					</span>
+					{{/eq}}
+					{{#eq showType 'moving'}}
+					<span title="{{showTrueNameln 'moving' movingObjectTypeCodeName movingObjectColorCodeName movingObjectHeight movingObjectGrayCodeName}}">
+						<a class="name">{{{casemove movingObjectTypeCodeName movingObjectColorCodeName movingObjectHeight movingObjectGrayCodeName}}}</a>
+					</span>
+					{{/eq}}
+					{{#eq showType 'rest'}}
+					<span title="{{showTrueNameln 'rest' restName}}">
+						<a class="name">{{{caseothers restName}}}</a>
+					</span>
+					{{/eq}}
+					
+					<span title="{{showTrueName caseName}}">
+						<a class="casename" data-incidentid="{{incId}}" data-incidentname="{{showTrueName caseName}}">({{{caseName}}})</a>
+					</span>
+					<span class="related" title="{{showTrueName location}}">
+						{{{location}}}
+					</span>
+					<span class="time">
+						{{{shootTime}}}
+					</span>
+				</div>
+			{{/isTrack}}
+			<!-- 线索信息 end-->
+			<!-- 结构化信息 start-->
+			{{#isStruct showType incId}}
+				<div class="synopsis isStruct">
+					{{#eq showType 'car'}}
+					<span title="{{showTrueNameln 'car' licenseNumber licenseTypeCodeName carColorCodeName}}">
+						<em class="statue {{classstatue auditFlag}}">{{{statue auditFlag}}}</em>
+						<a class="name">{{{casecar licenseNumber licenseTypeCodeName carColorCodeName}}}</a>
+					</span>
+					{{/eq}}
+					{{#eq showType 'person'}}
+					<span title="{{showTrueNameln 'person' personName genderCodeName jacketColorCodeName trousersColorCodeName}}">
+						<em class="statue {{classstatue auditFlag}}">{{{statue auditFlag}}}</em>
+						<a class="name">{{{caseperson personName genderCodeName jacketColorCodeName trousersColorCodeName}}}</a>
+					</span>
+					{{/eq}}
+					{{#eq showType 'exhibit'}}
+					<span title="{{showTrueNameln 'exhibit' exhibitName exhibitShape exhibitColorCodeName}}">
+						<em class="statue {{classstatue auditFlag}}">{{{statue auditFlag}}}</em>
+						<a class="name">{{{caseexhibit exhibitName exhibitShape exhibitColorCodeName}}}</a>
+					</span>
+					{{/eq}}
+					{{#eq showType 'scene'}}
+					<span title="{{showTrueNameln 'scene' categoryMain subcategoryMain weatherCodeName}}">
+						<em class="statue {{classstatue auditFlag}}">{{{statue auditFlag}}}</em>
+						<a class="name">{{{casesence categoryMain subcategoryMain weatherCodeName}}}</a>
+					</span>
+					{{/eq}}
+					{{#eq showType 'moving'}}
+					<span title="{{showTrueNameln 'moving' movingObjectTypeCodeName movingObjectColorCodeName movingObjectHeight movingObjectGrayCodeName}}">
+						<em class="statue {{classstatue auditFlag}}">{{{statue auditFlag}}}</em>
+						<a class="name">{{{casemove movingObjectTypeCodeName movingObjectColorCodeName movingObjectHeight movingObjectGrayCodeName}}}</a>
+					</span>
+					{{/eq}}
+					{{#eq showType 'rest'}}
+					<span title="{{showTrueNameln 'rest' restName}}">
+						<em class="statue {{classstatue auditFlag}}">{{{statue auditFlag}}}</em>
+						<a class="name">{{{caseothers restName}}}</a>
+					</span>
+					{{/eq}}
+					
+					<!-- <span title="{{caseName}}">
+						<a class="casename" data-incidentid="{{incId}}" data-incidentname="{{caseName}}"></a>
+					</span> -->
+					<span class="related" title="{{showTrueName location}}">
+						{{{location}}}
+					</span>
+					<span class="time">
+						{{{shootTime}}}
+					</span>
+				</div>
+			{{/isStruct}}
+			<!-- 结构化信息 end-->
+			<!-- 案事件关联的视频图片 start-->
+			{{#isIncidentPicVideo showType incId}}
+				<div class="synopsis isIncidentPicVideo">
+					<span title="{{showTrueName name}}">
+						<a class="name">{{{name}}}</a>
+					</span>
+					<span class="" title="{{showTrueName caseName}}">
+						<a class="casename" data-incidentid="{{incId}}" data-incidentname="{{showTrueName caseName}}">({{{caseName}}})</a>
+					</span>
+					<span class="related" title="{{showTrueName location}}">
+						{{{location}}}
+					</span>
+					<span class="time">
+						{{{shootTime}}}
+					</span>
+				</div>
+			{{/isIncidentPicVideo}}
+			<!-- 案事件关联的视频图片 end-->
+			<!-- 案事件无关联的视频图片 start-->
+			{{#isPicVideo showType incId}}
+				<div class="synopsis isPicVideo">
+					<span title="{{showTrueName name}}">
+						<a class="name">{{{name}}}</a>
+					</span>
+					<!-- <span class="" title="{{caseName}}">
+						<a class="casename" data-incidentid="{{incId}}" data-sea="{{caseName}}"></a>
+					</span> -->
+					<span class="related" title="{{showTrueName location}}">
+						{{{location}}}
+					</span>
+					<span class="time">
+						{{{shootTime}}}
+					</span>
+				</div>
+			{{/isPicVideo}}
+			<!-- 案事件无关联的视频图片 end-->
+			<!-- 文案信息显示 end-->
+			</li>
+	{{else}}
+	<h2 style="padding:10px; text-align:center;">暂无数据</h2>
+	{{/list}}
+
+
+	</ul>
+</div>

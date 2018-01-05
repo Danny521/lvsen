@@ -1,0 +1,18 @@
+{{#each cameras}}
+	<div class='group-item searchCameraslist'>
+		<div class="item-header">
+			<span class="name" title="{{cameraName}}">{{cameraName}}</span>
+		</div>
+		<div class="item-body">
+			<p class="status">
+				<span>巡检状态：{{checkStatus status}}</span>
+			</p>
+			<p class="type">
+				<span>巡检方式：{{polingType type}}</span>
+			</p>
+			<p class="type">
+				<span>巡检结果：{{pollingresult status}}</span>
+			</p>
+		</div>
+	</div>
+{{/each}}

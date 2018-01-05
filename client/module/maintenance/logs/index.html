@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>视云实战平台</title>
+    <!--[if lt IE 9]><script src="/libs/html5/html5.js"></script><![endif]-->
+
+    <link type="text/css" rel="stylesheet" href="/module/common/css/base.css" />
+    <link type="text/css" rel="stylesheet" href="/libs/semantic/semantic.css" />
+    <link rel="stylesheet" type="text/css" href="/libs/jquery/jquery-ui.css">
+    <link type="text/css" rel="stylesheet" href="/libs/jquery/jquery.pagination.css"/>
+    <link type="text/css" rel="stylesheet" href="/libs/jquery/jquery.datetimepicker.css">
+    <link type="text/css" rel="stylesheet" href="/module/maintenance/common/css/tree.css"/>
+    <link type="text/css" rel="stylesheet" href="/module/maintenance/logs/css/log.css"/>
+</head>
+<body>
+    <!--<script type="text/javascript" src="/module/common/js/menu.js"></script>-->
+    <script type="text/javascript" src="/libs/requirejs/require.js"></script>
+    <script type="text/javascript" src="/require-conf.js"></script>
+    <script type="text/javascript">require(["js/main"])</script>
+    <div id="content">
+        <div class="wrapper">
+            <div class="main">
+                <aside id="sidebar">
+                    <!--
+                <a id="sideExpand">
+                    <iframe src="about:blank"></iframe>
+                    <span>边栏显隐</span>
+                </a>
+                -->
+                <a id="sideResize">
+                    <iframe src="about:blank"></iframe>
+                    <span>调整宽度</span>
+                </a>
+
+                <div class="header">
+                    <div class="title result">应用日志</div>
+                </div>
+
+                <ul class="menus ui tabular" id="stat">
+                    <li class="active usinglog applylog" data-tab="applylog" title="应用日志"><i></i></li>
+                    <li class="patrol configlog" data-tab="settinglog" title="设置日志"><i></i></li>
+                    <!--<li class="safey" data-tab="settinglog" title="安全日志"><i></i></li>
+                    <li class="system" data-tab="settinglog" title="系统日志"><i></i></li>-->
+            </ul>
+
+            <div id="treePanel">
+                <div class="ui tab active">
+                    <div class="form-panel">
+                        <div class="scrollbar disable">
+                            <div class="track">
+                                <div class="thumb"></div>
+                            </div>
+                        </div>
+                        <div class="viewport">
+                            <div class="overview">
+                                <div class="ui tab active filter result" data-tab="result" id="result">
+                                    <div class="tree-search">
+                                        <input id="searchInput" type="text" placeholder="全局搜索..." name="q" autocomplete="off">
+                                        <button id="searchBtn" title="搜索"></button>
+                                    </div>
+                                    <div class="treePanel"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </aside>
+
+        <div class="main_right" id="major">
+            <div class="tools">
+                <!-- 当前位置   _location_@Start -->
+                <div class="location">
+                    <!-- <a href="javascript:void(0)">全部组织</a>
+                <span class="divider arrow">&gt;</span>
+                <span class="active section">市局科技处</span>
+                -->
+            </div>
+            <!-- 当前位置_location_@End --> </div>
+        <!-- 条件筛选   _screening_@Start -->
+        <div class="screening">
+            <div id="fornormal" class="active">
+                <form id="log-operate">
+                    <span class="p">
+                        <label>关键字</label>
+                        <input type="text" class="input-text" placeholder='操作人/摄像机' name="valueKey" id="valueKey"/>
+                        <label>开始时间</label>
+                        <input type="text" class="input-text input-time" placeholder='请选择起始时间' name="beginTime" id="beginTime"/>
+                        <label>结束时间</label>
+                        <input type="text" class="input-text input-time" placeholder='请选择截至时间' name="endTime" id="endTime"/>
+                        <label>行为过滤</label>
+                        <select id="actionClass" class="input-select">
+                            <option class="action-c" data-name="所有行为">所有行为</option>
+                            <option class="action-c" data-name="登录">登录</option>
+                            <option class="action-c" data-name="注销">注销</option>
+                            <option class="action-c" data-name="视频指挥">视频指挥</option>
+                            <option class="action-c" data-name="布防布控">布防布控</option>
+							<option class="action-c" data-name="交通管理">交通管理</option>
+                            <option class="action-c" data-name="视图库">视图库</option>
+                            <option class="action-c" data-name="图像研判">图像研判</option>
+                            <option class="action-c" data-name="运维管理">运维管理</option>
+                            <option class="action-c" data-name="系统配置">系统配置</option>
+                            <option class="action-c" data-name="云空间">云空间</option>
+                        </select>
+                    </span>
+                </form>
+
+                <a class="log-search input-blue" id="submitBtn" title="搜索"></a>
+                <span class="normal-right">
+                    <!-- <input type="button" value="设置" class="input-blue group-log-operate" id="deleBtn" title="设置"/> -->
+                    <input type="button" value="导出" class="input-blue group-log-operate permission permission-export-logs" id="exportBtn" title="导出"/>
+                    <div  class="deleteDiv">
+                        <div  class="deleteDiv-header">
+                            <div class="deleClose">
+                                <span class="left">删除日志</span>
+                                <span class="right">
+                                    <a class="close" title="关闭"></a>
+                                </span>
+                            </div>
+                            <div class="content-over">
+                                <span class="title">手动删除</span>
+                                <span class="handclear">
+                                    <label>
+                                        清空
+                                        <input type="text" class="deleDays"/>
+                                        天前的日志记录
+                                    </label>
+                                </span>
+                                <span class="deleCont">
+                                    <a class="btn">删除</a>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="deleteDiv-content">
+
+                            <div class="content-floor">
+                                <span class="title">自动删除</span>
+                                <span>
+                                    <!-- <span class="auto-dele-sys">
+                                        <input type="radio" name="floor-dele"/>
+                                        <label>系统升级自动删除</label>
+                                    </span> -->
+                                    <span class="auto-dele">
+                                        <!-- <input type="radio" name="floor-dele"/> -->
+                                        <label>
+                                            自动清空
+                                            <input type="text" class="deleDays"/>
+                                            天前的日志记录
+                                        </label>
+                                        <span class="saveCont">
+                                        <a class="btn">保存</a>
+                                    </span>
+                                    </span>
+
+                                </span>
+                            </div>
+                            <div></div>
+                        </div>
+                    </div>
+                </span>
+
+            </div>
+        </div>
+        <!-- 条件筛选title @Start-->
+        <div class="log-title">
+            <div class="title-left">应用日志</div>
+            <div class="title-right">
+                <label>总日志数:</label>
+                <label class="log-nums"></label>
+            </div>
+        </div>
+        <!-- 条件筛选title @End-->
+        <!-- 条件筛选_screening_@End -->
+        <div class="content">
+            <dl class="team_list">
+                <dt>
+                    <label>
+                        <input type="checkbox" class="checkall" data-type="0"/>
+                    </label>
+                    <p>日期和时间</p>
+                    <p>操作人</p>
+                    <!-- <p>所属组织</p> -->
+                    <p class="opra-detail">操作详情</p>
+                    <p>IP地址</p>
+                </dt>
+                <dfn>已选中本页内
+                    <em><b>0</b>
+                        条日志
+                    </em>
+                </dfn>
+
+        </dl>
+        <div class="viewport-logs" style="overflow-y:scroll"></div>
+        <div class="log-pagination">
+            <div class="pagination" id='pagination'></div>
+        </div>
+
+        <!-- 日志详情 @start-->
+        <div id="log-details">
+            <div class="detail_head">
+                <span class="detail_left">日志详情</span>
+                <span class="detail_right">
+                    <a class="forhead_log">上一条</a>
+                    <a class="next_log">下一条</a>
+                </span>
+            </div>
+            <div class="details-list"></div>
+        </div>
+        <!-- 日志详情 @End--> </div>
+</div>
+</div>
+</div>
+</div>
+    <iframe src="#" id="downloadFile"></iframe>
+    <!--
+    <script type="text/javascript" src="/component/base/base.self.js"></script>
+    <script type="text/javascript" src="/libs/jquery/jquery-ui-1.10.1.custom.min.js"></script>
+    <script type="text/javascript" src="/module/maintenance/common/js/scrollbar-without-amd.js"></script>
+    <script type="text/javascript" src="/libs/jquery/jquery-ui.js"></script>
+    <script type="text/javascript" src="/libs/jquery/jquery-ui-timepicker-addon.js"></script>
+    <script type="text/javascript" src="/libs/jquery/jquery.pagination.js"></script>
+
+    <script type="text/javascript" src="/module/maintenance/common/js/tree.js"></script>
+    <script type="text/javascript" src="/module/maintenance/logs/js/log.js"></script>
+    -->
+</body>
+</html>

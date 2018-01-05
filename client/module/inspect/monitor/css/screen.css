@@ -1,0 +1,293 @@
+html,body {
+	overflow: hidden;
+}
+
+#content {
+	position: absolute;
+	top: 0px;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+
+#content .wrapper {
+	width: 100%;
+	height: 100%;
+}
+
+#major {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+
+#major .header {
+	border-bottom: 1px solid #DFDFDF;
+	border-top: 1px solid #DFDFDF;
+	height: 34px;
+	padding: 0 15px;
+}
+
+#major .header .ui.menu.atached a.last-child {
+	margin-left: 4px;
+	margin-top: -3px;
+	display: inline-block;
+	width: 43px;
+	height: 26px;
+	overflow: hidden;
+}
+
+#major .header .ui.menu.atached .item i.icon.split {
+	background: url(/module/common/images/icons/split-normal.png) no-repeat scroll 0px -34px;
+	margin-top: 2px;
+	margin-left: 5px;
+	width: 43px;
+	height: 26px;
+}
+
+#major .header .title {
+	float: left;
+	font-size: 12px;
+	font-weight: normal;
+	line-height: 34px;
+}
+
+#major .header .ui.menu {
+	float: right;
+	margin-top: 6px;
+	position: relative;
+}
+
+#major .header .ui.menu .item {
+	padding: 0;
+}
+
+#major .header .ui.menu.atached .item .icon {
+	background: url("/module/common/images/icons/function_btn.png") no-repeat scroll 0 0;
+	display: inline-block;
+	height: 24px !important;
+	margin: 0 0 0 10px;
+	width: 24px;
+}
+
+#major .header .ui.menu.atached .item .icon:hover {
+	background: url("/module/common/images/icons/function_btn_hover.png") no-repeat scroll 0 0;
+	/*display: inline-block;
+	height: 24px;
+	margin: 0 0 0 10px;
+	width: 24px;*/
+}
+
+#major .header .ui.menu.atached .item i.icon.gpu {
+	width: 24px;
+	height: 25px;
+	background: url(/module/inspect/monitor/images/gpu.png) 0 0 no-repeat;
+}
+#major .header .ui.menu.atached .item i.icon.gpu:hover {
+	background: url(/module/inspect/monitor/images/gpu.png) 0 -32px no-repeat;
+}
+
+#major .header .ui.menu.atached .item .icon.goback {
+	width: 37px;
+	background-position: -121px 0;
+}
+
+#major .header .ui.menu.atached .item .icon.goback:hover {
+	width: 37px;
+	background-position: -121px 0;
+}
+
+#major .header .ui.menu.atached .item .icon.fullscreen {
+	background-position: -97px 0;
+}
+
+#major .header .ui.menu.atached .item .icon.close {
+	background-position: -50px 0;
+}
+
+#major .header .ui.menu.atached .item .icon.split {
+	background: url("/module/common/images/icons/split-normal.png") no-repeat scroll 0 -34px;
+	height: 26px;
+	margin-left: 5px;
+	margin-top: 2px;
+	width: 43px;
+}
+
+#major .body {
+	background-color: #F9F9F9;
+	bottom: 0;
+	left: 0;
+	position: absolute;
+	right: 0;
+	top: 36px;
+}
+
+#major .body .screen {
+	bottom: 0;
+	left: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+
+/*header功能区下拉选择------start----------*/
+
+
+
+#major .header .ui.menu.atached .item i.icon.split.active {
+	margin-left: 0px;
+	margin-top: 0px;
+	height: 26px;
+	background: url(/module/common/images/icons/split-hover.png) no-repeat scroll 0px -34px;
+}
+
+#major .header .ui.menu.atached .item i.icon.split:hover {
+	margin-left: 0px;
+	margin-top: 0px;
+	height: 26px;
+	background: url(/module/common/images/icons/split-hover.png) no-repeat scroll 0px -34px;
+}
+
+#major .header .ui.menu.atached .item i.icon.split:active {
+	background: url(/module/common/images/icons/split-hover.png) no-repeat scroll 0px -34px;
+}
+
+#major .header .select-panel {
+	position: absolute;
+	top: 31px;
+	right: 47px;
+	z-index: 10;
+	overflow: hidden;
+	display: none;
+	width: 43px;
+	height: 106px;
+	border: solid 1px #c4c4c4;
+}
+
+#major .header .select-panel.active {
+	display: block;
+}
+
+.select-panel .split-panel {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.select-panel .split-panel i {
+	display: block;
+	width: 22px;
+	height: 22px;
+	padding: 2px 9.5px;
+	cursor: pointer;
+	background: url(/module/common/images/icons/layout.png) no-repeat scroll 8px 2px #ffffff;
+}
+
+.select-panel .split-panel i:hover {
+	background: url(/module/common/images/icons/layout-hover.png) no-repeat scroll 8px 2px #ffffff;
+}
+
+.select-panel .split-panel i.split1 {
+	background-position: 8px 2px;
+}
+
+.select-panel .split-panel i.split4 {
+	background-position: 8px -30px;
+}
+
+.select-panel .split-panel i.split9 {
+	background-position: 8px -62px;
+}
+
+.select-panel .split-panel i.split16 {
+	background-position: 8px -94px;
+}
+
+.select-panel .split-panel.active {
+	border: 1px solid #C4C4C4;
+	display: block;
+}
+
+.select-panel .split-panel i {
+	display: block;
+	width: 22px;
+	height: 22px;
+	padding: 2px 9.5px;
+	cursor: pointer;
+	background: url(/module/common/images/icons/layout.png) no-repeat scroll 8px 2px #ffffff;
+}
+
+.select-panel .split-panel i:hover {
+	background: url(/module/common/images/icons/layout-hover.png) no-repeat scroll 8px 2px #ffffff;
+}
+
+.select-panel .split-panel i.split1 {
+	background-position: 8px 2px;
+}
+
+.select-panel .split-panel i.split4 {
+	background-position: 8px -30px;
+}
+
+.select-panel .split-panel i.split9 {
+	background-position: 8px -62px;
+}
+
+.select-panel .split-panel i.split16 {
+	background-position: 8px -94px;
+}
+.UIOCX{
+	height: 100%;
+	width: 100%;
+}
+.select-panel .bed{
+	width: 100%;
+	height: 100%;
+}
+
+/*******************扩展屏中为兼容谷歌再写一个iframe by wangxiaojun 2015.01.22********************************/
+
+
+#layoutscreen{
+	position: absolute;
+	top: 0px;
+	display: none;
+	height: 105px;
+	width: 45px;
+	top:-3px;
+	right: 47px;
+}
+
+#layoutscreenFrame{
+	background-color: #1e1e1e;
+	width: 100%;
+	height: 100%;
+	/*background-color: red;*/
+	position: absolute;
+	filter: alpha(opacity=0);
+   /*ie低版本 透明iframe*/
+	opacity: 0;
+   /*标准w3透明iframe*/
+}
+#layoutFrame, #inspectFrame {
+	background-color: #1e1e1e;
+	width: 100%;
+	height: 100%;
+	background-color: red;
+	position: absolute;
+	filter: alpha(opacity=0);
+	opacity: 0;
+}
+#layout, #inspectDiv {
+	position: absolute;
+	top: 0px;
+	display: none;
+}
+#layout {
+	top: -3px;
+}
+
+/***************************************end**********************************************/

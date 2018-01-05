@@ -1,0 +1,69 @@
+{{#if processing}}
+<li class="header">
+    <div class="floated name" >任务名称</div>
+    <!--<div class="floated date">时间</div>-->
+    <div class="floated processing">状态</div>
+    <div class="floated rate">进度</div>
+    <div class="floated operation">操作</div>
+</li>
+{{#each processing}}
+<li class="{{even @index}} {{first @index}}" data-id="{{id}}"  data-taskKey="{{taskKey}}" id="taskKey{{taskKey}}">
+    <div class="floated name {{type2Class moduleKey}}" title="{{name}}">{{type2ClassName moduleKey}}{{NoEmpty name}}{{hasTime beginTime endTime}}</div>
+    <!--<div class="floated date">{{mills2datetime beginTime}} - {{mills2datetime endTime}}</div>-->
+    {{#isTaskFail taskStatus progress}}
+    <div class="floated processing fail">
+        <div class="process-bar floated">
+            <span>任务失败</span>
+        </div>
+        <span class="floated"></span>
+    </div>
+    {{else}}
+    <div class="floated processing">
+        <div class="process-bar floated" style="margin-top:10px;border:1px solid #D4D0D0;height:11px;display:inline-block;">
+            <div class="percentage" style="width: {{progress}}%" title="{{progress}}%"></div>
+        </div>
+        <span class="floated"></span>
+    </div>
+    <div class="floated rate">
+        <div class="rateNum floated" style="margin-left:38px;">
+            <span class="rateN" title="{{progress}}%">{{progress}}%</span>
+        </div>
+        <span class="floated"></span>
+    </div>
+    {{/isTaskFail}}
+    <div class="floated operation">
+        <a href="##" class="pause operation-icon" data-id="{{id}}" data-taskKey="{{taskKey}}">暂停</a>
+        <a href="##" class="remove operation-icon" data-id="{{id}}" data-taskKey="{{taskKey}}" title="删除">删除</a>
+        <a href="##" class="direct operation-icon" data-id="{{id}}" data-taskKey="{{taskKey}}">访问</a>
+    </div>
+</li>
+{{/each}}
+{{/if}}
+
+{{#if processed}}
+<li class="header">
+    <div class="floated name" >任务名称</div>
+    <!--<div class="floated date">任务时间</div>-->
+    <div class="floated processed-time">完成时间</div>
+    <div class="floated processed">状态</div>
+    <div class="floated operation">清除全部记录</div>
+</li>
+{{#each processed}}
+<li class="{{even @index}} {{first @index}}" data-taskKey="{{taskKey}}" data-status="{{videoStatus}}">
+    <div class="floated name {{type2Class moduleKey}}" title="{{name}}"><p>{{type2ClassName moduleKey}}{{NoEmpty name}}{{hasTime beginTime endTime}}</p></div>
+    <!--<div class="floated date">{{mills2datetime beginTime}} - {{mills2datetime endTime}}</div>-->
+    <div class="floated processed-time">{{mills2datetime modifyTime}}</div>
+    <div class="floated {{processed description}} processed"><p>{{des description}}</p></div>
+    <div class="floated operation">
+        <a href="##" class="operation-icon open-video" data-id="{{id}}" data-taskKey="{{taskKey}}">暂停</a>
+        <a href="##" class="operation-icon open-folder" data-id="{{id}}" data-taskKey="{{taskKey}}" >访问</a>
+        <a href="/module/iframe/?windowOpen=1&iframeUrl={{url}}" target="usercenter" class="direct operation-icon" data-id="{{id}}" data-videoid="{{videoId}}" title="访问" data-taskKey="{{taskKey}}">访问</a>
+        <a href="##" class="operation-icon remove" data-id="{{id}}" title="删除" data-taskKey="{{taskKey}}">删除</a>
+    </div>
+</li>
+{{/each}}
+{{/if}}
+
+{{#if noData}}
+<li style='text-align:center;color:#888;background:#FFF!important;'>暂无数据！</li>
+{{/if}}

@@ -1,0 +1,92 @@
+﻿
+ <div class="detailPanel">
+   <ul class="detail clearfix">
+      <li>
+        <label>选择时间：</label>
+        <span class="ui input">
+          <input type="text" class="input-time time mydatePick datetime-picker-small" readonly="true" placeholder="请选择结束时间">
+        </span>
+      </li>
+      <li >
+        <label>选择考核：</label>
+        <div class="timesPanel">
+          
+           <ul class="timesSelect">
+         
+           </ul>
+        </div>
+        
+      </li>
+      <span class="morePanel"><i class="more left"></i><i class="more right"></i></span>
+      <div class="exportXls permission permission-export-inspect-result" data-page=".month">导出</div>
+    </ul>  
+ </div>
+   <div class="tabLayout">
+      <table id="examinetable" class="examinetable"> 
+          <tr>
+              <td rowspan="2"  class="minw">城市</td>
+              <td colspan="2">联网率</td>
+              <td colspan="2">在线率</td>
+              <td colspan="2">完好率</td>
+              <td colspan="2">GIS采集率</td>
+              <td colspan="6">图像平台质量</td>
+              <td colspan="2"  class="minw">坐标采集</td>
+              <td rowspan="2"  class="minw1">单次巡检得分</td>
+
+          </tr>
+          <tr>
+            <td class="f9"  class="minw">应上联监控数</td>
+            <td class="f9"  class="minw">实际上联监控数</td>
+           
+
+            <td class="f9">实测在线数</td>
+            <td class="f9" class="minw">实测巡检总数</td>
+           
+            <td class="f9">检测合格数</td>
+            <td class="f9">检测总数</td>
+
+            <td class="f9">GIS采集数</td>
+            <td class="f9" class="minw">实际上联监控数</td>
+
+            <td class="f9">实有县区数</td>
+            <td class="f9"  class="minw">符合要求县区数量</td>
+            <td class="f9">联网系数</td>
+            <td class="f9">联网指标</td>
+            <td class="f9">在线率</td>
+            <td class="f9">完好率</td>
+
+            <td class="f9">GIS采集率</td>
+            
+          </tr>
+          
+          {{#each data}}
+        
+          <tr>
+            <td>{{month_name}}</td>
+            <td class="canSet">{{actual_city_num}}</td>
+            <td>{{quality_city_num}}</td>
+            <td>{{actual_camera_num}}</td>
+
+            
+            <td>{{actual_online_num}}</td>
+            <td>{{actual_camera_num}}</td>    
+            <td>{{online_rate}}</td>
+            <td>{{inspect_counts}}</td>
+            
+            <td>{{intact_camera_num}}</td>
+            <td>{{actual_online_num}}</td>
+            <td>{{intact_rate}}</td>
+            <td>{{inspect_counts}}</td>
+            
+            <td>{{coor_collect_num}}</td>
+            <td>{{actual_camera_num}}</td>
+            <td>{{coor_rate}}</td>
+            <td>{{coor_rate}}</td>
+           
+            <td>{{coor_rate}}</td>
+            
+
+          </tr>
+        {{/each}}
+  </table>
+</div>

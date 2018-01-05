@@ -1,0 +1,1026 @@
+{{#if dectect}}
+	<div class="netdetection-steps">
+		<ul class="steps-ul">
+			<li><em class="step-num step-now" id="step-num-1">1</em><span>填写设备<br />基本信息</span><em class="step-line"></em></li>
+			{{!--<li><em class="step-num" id="step-num-2">2</em><span>填写设备<br />参数信息</span><em class="step-line"></em></li>
+			<li><em class="step-num" id="step-num-3">3</em><span>确认设备<br />注册状态</span><em class="step-line"></em></li>--}}
+			<li><em class="step-num" id="step-num-2">2</em><span>设备功能检测：<br />实时、历史、解码、键盘</span><em class="step-line"></em></li>
+			<li><em class="step-num" id="step-num-3">3</em><span>检测结果<br />保存、导出</span></li>
+		</ul>
+	</div>
+	<!--填写设备基本信息-->
+	<div class="netdetection-content" id="step-1">
+		<div class="content-title">
+			基本信息（带<i class="s-red"></i>为必填项）
+		</div>
+		<div class="content-info">
+			<div class="left-white"></div>
+			<form onsubmit="return false;">
+				<table class="input-table">
+					<tr>
+						<td class="table-title text-just"><i class="s-red pl"></i>设备类型</td>
+						<td id="DeviceType">
+						</td>
+					</tr>
+					<tr>
+						<td class="table-title text-just"><i class="s-red pl"></i>待检设备</td>
+						<td>
+							<input type="text" class="input-text" id="deviceName" disabled="" placeholder="--请选择待检设备--"/>
+							<input type="button" class="select-device but-grey" value="选择设备"/>
+							<div class="select-device-container">
+								<div class="select-device-search clearfix">
+									<span class="title">待检设备选择</span>
+									<!-- <span class="ui input action search">
+										<input id="searchInput" type="text" placeholder="请输入设备名称" name="q" autocomplete="off" value="" />
+										<button id="searchBtn" title="搜索" class= "search action"></button>
+									</span> -->
+								</div>
+								<div id="tableConment">
+									<div id="deviceTable">
+									</div>
+									<div class="pagepart">
+										<div class ="pagination"></div>
+									</div>
+								</div>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td class="table-title text-just">厂商</td>
+						<td class="select">
+							<div id="Manufactory"></div>
+							<input type="text" class="factory input-other" placeholder="请输入"/>
+						</td>
+						<td>
+							<a class="other">其他</a>
+						</td>
+					</tr>
+					<tr>
+						<td class="table-title text-just">型号</td>
+						<td class="select">
+							<div id="ModelNumber"></div>
+							<input type="text" class="model input-other" placeholder="请输入"/>
+						</td>
+						<td>
+							<a class="other">其他</a>
+						</td>
+					</tr>
+					<tr class="nvr-none">
+						<td class="table-title">操作系统</td>
+						<td class="select">
+							<div id="OperateSys"></div>
+							<input type="text" class="os input-other" placeholder="请输入"/>
+						</td>
+						<td>
+							<a class="other">其他</a>
+						</td>
+					</tr>
+					<tr>
+						<td class="table-title">接入协议</td>
+						<!--2014-8-8,现场确定接入协议采用自动识别，不再用选择的方式实现-->
+						<td class="select">
+							<!-- <div id="Protocol"></div> -->
+							<input type="text" class="acceptprotocol input-other" disabled="disabled" style="display:block;" placeholder="请输入"/>
+						</td>
+						<td>
+							<!-- <a class="other">其他</a> -->
+						</td>
+					</tr>
+					<tr>
+						<td class="table-title text-just">固件版本</td>
+						<td>
+							<input type="text" class=" handversion table-input" placeholder="请输入">
+						</td>
+					</tr>
+					<tr>
+						<td class="table-title text-just">软件版本</td>
+						<td>
+							<input type="text" class="softversion table-input" placeholder="请输入">
+						</td>
+					</tr>
+					<tr>
+						<td class="table-title"></td>
+						<td class="text-right but-step">
+							<button class="step-but but-next but-blue" to="step-2" num="1">开始检测</button>
+						</td>
+					</tr>
+				</table>
+			</form>
+		</div>
+	</div>
+	
+	<!--填写设备参数信息 部分合并到第一步，第二步其余的暂时可以不要-->
+	{{!--<div class="netdetection-content" id="step-2">
+		<div class="content-title">
+			参数信息
+		</div>
+		<div class="content-info">
+			<div class="left-white"></div>
+			<div class="no-select nvr"><div class="no-white"></div></div>
+			<div class="no-select ipc" id="ipc-1"><div class="no-white"></div></div>
+			<div class="no-select ipc" id="ipc-2"><div class="no-white"></div></div>
+			<div class="no-select decode"><div class="no-white"></div></div>
+			<form onsubmit="return false;">
+				<table class="input-table">
+					<tr class="nvr-none">
+						<td class="table-title">操作系统</td>
+						<td class="select">
+							<div id="OperateSys"></div>
+							<input type="text" class="os input-other" placeholder="请输入"/>
+						</td>
+						<td>
+							<a class="other">其他</a>
+						</td>
+					</tr>
+					<tr>
+						<td class="table-title">接入协议</td>
+						<!--2014-8-8,现场确定接入协议采用自动识别，不再用选择的方式实现-->
+						<td class="select">
+							<!-- <div id="Protocol"></div> -->
+							<input type="text" class="acceptprotocol input-other" disabled="disabled" style="display:block;" placeholder="请输入"/>
+						</td>
+						<td>
+							<!-- <a class="other">其他</a> -->
+						</td>
+					</tr>
+					<tr class="ipc-none">
+						<td class="table-title">是否多码流</td>
+						<td id="DualStreem">
+						</td>
+					</tr>
+					<tr class="ipc-none">
+						<td class="table-title">时钟同步功能</td>
+						<td id="ClockSync">
+						</td>
+					</tr>
+				 	<tr class="decode-none">
+						<td class="table-title">远程自动升级功能</td>
+						<td id="RemoteUpdate">
+						</td>
+					</tr>
+					<tr>
+						<td class="table-title"></td>
+						<td class="but-step text-right">
+							<button class="but-back but-grey" to="step-1" num="2">上一步</button>
+							<button class="but-next but-blue" to="step-3" num="2">下一步</button>
+						</td> 
+					</tr>
+				</table>
+			</form>
+		</div>
+	</div>--}}
+	
+	<!--注册状态，目前按照上海需求先不需要-->
+	{{!--<div class="netdetection-content" id="step-3">
+		<div class="content-title">
+			注册状态
+		</div>
+		<div class="content-info">
+			<div class="left-white"></div>
+			<table>
+				<tr>
+					<td class="regest-title">国标注册是否成功</td>
+					<td>
+						<div class="regest-state">
+							<div class="first regest-but-div"><em></em><button class="gb-regest">注册成功</button></div>
+							<div class="second regest-but-div"><em></em><button class="gb-regest">注册失败</button></div>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" class="text-right">
+						<div class="but-step">
+							<button class="but-back but-grey" to="step-2" num="3">上一步</button>
+							<button class="but-next but-blue" to="step-4" num="3">下一步</button>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>--}}
+	
+	<!--设备功能检测-->
+	<div class="netdetection-content detect cloud-control" id="step-2">
+		<div class="content-title">
+			设备功能检测【实时视频&云台操作】
+		</div>
+		<div class="content-info">
+			<p class="regest-title sel-cam">
+				<span class="text">选择摄像机：</span>
+				<span id="CamerasOfDevice">
+					
+				</span>
+			</p>
+			<p class="show-title">实时图像预览：</p>
+			<div class="show-box">
+				<div class="show-box-left">
+					<div class="show-video-info">
+						<div></div>
+						<div class="show-video-info-right">
+							<div class="info">帧率: <span class="fpsshow">0</span><input  type="hidden" class="fps" disabled="disabled" value=""/></div>
+							<div class="info resolution">码流分辨率: <span id="resolution">0X0</span><input type="hidden" class="resolution" disabled="disabled" value="0x0"/></div>
+							<div class="info codeRate">码率：<span id="codeRate">0KB/S</span><input type="hidden"  class="codeRate" disabled="disabled" value="0KB/S"/></div>
+							<div class="info sdresolution" style="display:none">码流分辨率: <span id="sdresolution">0X0</span><input type="hidden" class="resolution" disabled="disabled" value="0x0"/></div>
+							<div class="info sdcodeRate" style="display:none">码率：<span id="sdcodeRate">0KB/S</span><input type="hidden"  class="codeRate" disabled="disabled" value="0KB/S"/></div>
+						</div>
+					</div>
+					<div class="show-video">
+						<object id="UIOCX" classid="clsid:294EEBEC-7677-4EBA-B2D7-3FD669FBF2A2"  width="540px"   height="270px" align="center"></object>	
+					</div>
+					<div class="show-sh-info">
+						<span class="sd" data-type="1">标清</span>
+						<span class="hd active" data-type="2">高清</span>
+					</div>
+				</div>
+				<div class="show-box-right">
+					<div class="ptz-control-mask"></div>
+					<p class="ptz-title">云台控制面板</p>
+					<div class="ptz-adjust">
+						<div class="adjust-wrap">
+							<span class="zoom up adjust" data-cmd="11" title="焦距增大">
+							</span>
+							<span class="zoom down adjust" data-cmd="11" title="焦距减小">
+							</span>
+							<span class="focus up adjust" data-cmd="12" title="焦点增大">
+							</span>
+							<span class="focus down adjust" data-cmd="12" title="焦点减小">
+							</span>
+							<span class="iris up adjust" data-cmd="10" title="光圈增大">
+							</span>
+							<span class="iris down adjust" data-cmd="10" title="光圈减小">
+							</span>
+						</div>
+					</div>
+					<div class="dir-control">
+						<div class="vertical dir right" data-cmd="0">
+						</div>
+						<div class="dir rightup" data-cmd="1">
+						</div>
+						<div class="dir up" data-cmd="2">
+						</div>
+						<div class="dir leftup" data-cmd="3">
+						</div>
+						<div class="vertical dir left" data-cmd="4">
+						</div>
+						<div class="dir leftdown" data-cmd="5">
+						</div>
+						<div class="dir down" data-cmd="6">
+						</div>
+						<div class="dir rightdown" data-cmd="7">
+						</div>
+						<div class="scan" data-cmd="8">
+						</div>
+					</div>
+					<div class="control-bottom">
+						<div class="control-speed">
+							<span class="item">
+								控制速度
+							</span>
+							<div class="speedSlider"></div>
+						</div>
+						<!--  <div class="control-focus-distance">
+							<span class="item">
+								焦距
+							</span>
+							<input type="button" value="" class="control-btn plus"/>
+							<input type="button" value="" class="control-btn minus"/>
+						</div>
+						<div class="control-focus-point">
+							<span class="item">
+								焦点
+							</span>
+							<input type="button" value="" class="control-btn plus"/>
+							<input type="button" value="" class="control-btn minus"/>
+						</div>
+						<div class="control-aperture">
+							<span class="item">
+								光圈
+							</span>
+							<input type="button" value="" class="control-btn plus"/>
+							<input type="button" value="" class="control-btn minus"/>
+						</div>  -->
+					</div>
+				</div>
+			</div>
+			<div class="detection-result">
+				<table>
+					<tr>
+						<td class="table-title">检测结论：</td>
+						<td>
+							<i id="ptz-hide"></i>
+							<span class="checkboxs" data-type="video">
+								<!-- <input type="checkbox" class="video-play"/> -->
+								<i class="check-box"></i>
+								<em class="pro">视频播放正常</em>
+							</span>
+							<span class="checkboxs" data-type="ptz">
+								<!-- <input type="checkbox" class="ptz"/> -->
+								<i class="check-box"></i>
+								<em class="pro">云台控制正常</em>
+
+							</span>
+							<span class="checkboxs" data-type="encodeStd">
+								<!-- <input type="checkbox" class="ptz"/> -->
+								<i class="check-box"></i>
+								<em class="pro">标准H.264码流</em>
+							</span>
+						</td>
+					</tr>
+					<tr>
+						<td class="table-title text-top">备注信息：</td>
+						<td>
+							<textarea placeholder="请输入备注信息" class="comment"></textarea>
+						</td>
+						<td class="text-top">
+							<div class="warn">
+								<em class="warn-img"></em>
+								实时图像相关信息请根据实时播放、解码、色彩还原3个方面进行备注；<br />
+								云台控制相关信息请根据控制速度、控制连贯、控制延时3个方面进行备注。
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td class="text-right">
+							<div class="but-step">
+								<button class="but-back but-grey" to="step-1" num="4">上一步</button>
+								<button class="but-next but-blue" to="step-2-2" num="4">下一步</button>
+							</div>
+						</td>
+						<td></td>
+					</tr>
+				</table>
+			</div>
+			<div class="height-40"></div>
+		</div>
+	</div>
+	<!--历史检索-->
+	<div class="netdetection-content detect" id="step-2-2">
+		<div class="content-title">
+			设备功能检测【历史检索&调阅&下载】
+		</div>
+		<div class="content-info download">
+			<p class="sel-cam">
+				<span class="text">选择摄像机：</span>
+				<span id="HistoryCamerasOfDevice">
+					
+				</span>
+			</p>
+			<p class="show-title">历史图像预览：</p>
+			<div class="show-box">
+				<div class="show-box-left">
+					<div class="show-video-info">
+						<div></div>
+						<div class="show-video-info-right">
+							<div class="info">帧率: <span class="fpsshow">25</span>FPS<input  type="hidden" class="fps" disabled="disabled" value=""/></div>
+							<div class="info">码流分辨率: <span id="resolution">0X0</span><input type="hidden" class="resolution" disabled="disabled" value="0x0"/></div>
+							<div class="info">码率：<span id="codeRate">0KB/S</span><input type="hidden"  class="codeRate" disabled="disabled" value="0KB/S"/></div>
+						</div>
+					</div>
+					<div class="show-video">
+						<object id="UIOCX1" classid="clsid:294EEBEC-7677-4EBA-B2D7-3FD669FBF2A2"  width="540px"   height="270px" align="center"></object>	
+					</div>
+					<div class="show-video-info"><!-- style="display:none"-->
+						<em class="down">下载</em>
+						<em class="play"></em>
+						<div class="downbefore" style="display:none">
+							<div class="process"></div>
+						</div>
+						<!-- <div class="show-video-info-right">
+							<div class="info">帧率(帧/秒)：<input type="text" class="fps" disabled="disabled" value="25"/></div>
+							<div class="info">码流分辨率：<input type="text" id="resolution" disabled="disabled" value="0x0"/></div>
+							<div class="info">码率：<input type="text" id="codeRate" disabled="disabled" value="0KB/S"/></div>
+						</div> -->
+					</div>
+					
+				</div>
+				<div class="show-box-right right">
+					<p class="title">时间段检索</p>
+					<div class="time-box">
+						<span class="time">
+							<label for="">起始时间：</label>
+							<input type="text" class="begin-time input-time" placeholder="请选择起始时间"/>
+						</span>
+						<span class="time">
+							<label for="">结束时间：</label>
+							<input type="text" class="end-time input-time" placeholder="请选择结束时间"/>
+						</span>
+
+						<span id="search"></span>
+					</div>
+					
+					<div class="control-bottom voide-list">
+						<p class="voidetitle">录像列表</p>
+						<div class="video-list-1">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="detection-result">
+				<table>
+					<tr>
+						<td class="table-title">检测结论：</td>
+						<td>
+							<span class="checkboxs" data-type="video-search">
+								<!-- <input type="checkbox" id="videoSearchNormal" /> -->
+								<i class="check-box"style="left:4px;"></i>
+								<em class="pro">录像检索正常</em>
+							</span>
+							<span class="checkboxs" data-type="video-history">
+								<!-- <input type="checkbox" id="recordPlayNormal" /> -->
+								<i class="check-box"></i><em class="pro">录像播放正常</em>
+							</span>
+							<span class="checkboxs" data-type="video-download">
+								<input type="checkbox" id="recordDownNormal" />
+								<i class="check-box"></i><em class="pro">录像下载正常</em>
+							</span>
+						</td>
+					</tr>
+					<tr>
+						<td class="table-title text-top">备注信息：</td>
+						<td>
+							<textarea placeholder="请输入备注信息" class="comment"></textarea>
+						</td>
+						<td class="text-top">
+							<div class="warn">
+								<em class="warn-img"></em>
+								录像检索相关信息请根据响应时间进行备注；<br />
+								录像回放相关信息请根据图像连贯性进行备注；<br />
+								录像下载相关信息请根据下载功能、时间段选择进行备注；<br />
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td class="text-right">
+							<div class="but-step top10">
+								<button class="but-back but-grey" to="step-2" num="1">上一步</button>
+								<button class="but-next but-blue" to="step-2-4" num="1">下一步</button>
+							</div>
+						</td>
+						<td></td>
+					</tr>
+				</table>
+			</div>
+			<div class="height-40"></div>
+		</div>
+	</div>
+	<!--解码上墙-->
+	<div class="netdetection-content detect" id="step-2-3">
+		<div class="content-title">
+			设备功能检测【解码上墙】
+		</div>
+		<div class="content-info">
+			<div class="left-white"></div>
+			<table>
+				<tr>
+					<td class="regest-title">解码上墙是否成功</td>
+					<td>
+						<div class="regest-state">
+							<div class="first regest-but-div"><em></em><button class="decode">解码成功</button></div>
+							<div class="second regest-but-div"><em></em><button class="decode">解码失败</button></div>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" class="text-right">
+						<div class="no-definition"></div>
+						<div class="but-step">
+							<span class="radios" data-type="high-definition">
+								<i class="no-radio"></i><em class="pro">高清</em>
+							</span>
+							<span class="radios" data-type="standard-definition">
+								<i class="no-radio"></i><em class="pro">标清</em>
+							</span>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" class="text-right">
+						<div class="but-step">
+							<button class="but-back but-grey" to="step-1">上一步</button>
+							<button class="but-next but-blue" to="step-2-4">下一步</button>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<!--键盘控制-->
+	<div class="netdetection-content detect" id="step-2-4">
+		<div class="content-title">
+			设备功能检测【键盘控制】
+		</div>
+		<div class="content-info">
+			<div class="left-white"></div>
+			<table>
+				<tr>
+					<td class="regest-title">键盘控制是否成功</td>
+					<td>
+						<div class="regest-state keyborde">
+							<div class="regest-but-div first"><em></em><button class="key-control">键盘控制正常</button></div>
+							<div class="regest-but-div second"><em></em><button class="key-control">键盘控制异常</button></div>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" class="text-right">
+						<div class="but-step top10">
+							<button class="but-back but-grey" to="step-2-2">上一步</button>
+							<button class="but-next but-blue" to="step-3">下一步</button>
+						</div>
+					</td>
+				</tr>
+			</table>
+			<div class="height-40"></div>
+		</div>
+	</div>
+	<!--检测结果-->
+	<div class="netdetection-content" id="step-3">
+		<div class="content-title">
+			入网检测完成
+		</div>
+		<div class="content-info">
+			<div class="report-box">
+			<p class="regest-title">
+				检测报告：
+			</p>
+			<div class="detect-report ex-report"></div>
+			</div>
+				<div class="text-right but-step">
+					<button class="but-back but-grey" to="step-2-4">上一步</button>
+					<button class="submit-save but-blue" id="saveInfo">提交</button>
+					<button class="report-out but-blue btn-hidden">导出</button>
+				</div>
+			</div>
+			<div class="height-40"></div>
+	</div>
+{{/if}}
+{{#if dectectionMgr}}
+	<div class="dectectionMgr-top clearfix">
+		<!--<div class="search">
+			<span class="search-title">名称</span>
+			<input type="text" class="in-height" />-->
+			<!--<div id="DeviceName" class="deviceName"></div>-->
+		<!--</div>-->
+		<div class="search search-right">
+			<span class="search-title">时间段</span>
+			<input type="text" class="input-time input-datetime" placeholder="请输入起始时间"/>
+			<input type="text" class="input-time input-datetime" placeholder="请输入截止时间"/>
+			
+		</div>
+		<div class="search check-number">
+			<span>检测序号</span>
+			<input type="text" id="checkNumber" />
+		</div>
+
+		<div class="search check-name" style="display: none">
+			<span>设备名称</span>
+			<input type="text" id="checkName" />
+		</div>
+
+		<div class="search firm" style="display: none">
+			<span>厂商</span>
+			<div id="firm" ></div>
+		</div>
+		<div class="search version" style="display: none">
+			<span>型号</span>
+			<div id="version" ></div>
+		</div>
+
+		<div class="other-give" style="display: none">
+			<button class="check">查询</button>
+			<button class="cancel">取消</button>
+		</div>
+
+		<div class="give" >
+			<button>查询</button>
+			<span class="other-search">高级搜索</span>
+		</div>
+
+
+	</div>
+	<div class="content-title">
+		设备列表
+	</div>
+	<div class="dectectionMgr-info">
+		<div id="detectMgrTable"></div>
+	</div>
+	<div id="detectMgrPage">
+		
+	</div>
+	
+{{/if}}
+
+
+{{#if pagepart}}
+	{{#with pagepart}}
+	<div class="bottem-page clearfix">
+		<span>共有{{total}}条记录，</span>
+		<em>每页显示</em>
+		<select id="curTotal">
+			<option data-type="10" value="10">10</option>
+			<option data-type="50" value="50">50</option>
+			<option data-type="100" value="100">100</option>
+		</select>
+		<em>条</em>
+		<span class="cur">{{curpage}}</span>/<span class="total">{{pageCount}}</span>
+		<span class="first page"  title="首页" data-type="1">首页</span>
+		<span class="pre page" title="上页" data-type="2">上页</span>
+		<span class="next page" title="下页" data-type="3">下页</span>
+		<span class="end page" title="末页" data-type="4">末页</span>
+		<em class="to">跳转至</em><input class="goto" placeholder="1"/><em class="to">页</em>
+	</div>
+	{{/with}}
+{{/if}}
+
+
+{{#if deviceResult}}
+		<div id="deviceTable"></div>
+	{{#if pagebar}}
+		<div class="pagepart">
+			<div class ="pagination"></div>
+		</div>
+	{{/if}}
+{{/if}}
+{{#if deviceResultItems}}
+		<table id="common-table">
+			<tbody>
+				<tr class="title-name info">
+					<th class="" width="40">序号</th>
+					<th class="" width="300">设备名称</th>
+					<th class="" width="150">IP</th>
+				</tr>
+			{{#each deviceResultItems.device}}
+				<tr {{even @index}}  data-id="{{id}}" data-name="{{name}}" class="info" data-type="{{type}}">
+					<td class="" title="">{{list @index}}</td>
+					<td class="" title="">{{title}}</td>
+					<td class="" title="" >{{ip}}</td>
+				</tr>
+			{{/each}}
+			</tbody>
+		</table>
+{{/if}}
+
+{{#if camreaResultItems}}
+		<table id="common-table">
+			<tbody>
+				<tr class="title-name info">
+					<th class="" width="40">序号</th>
+					<th class="" width="300">设备名称</th>
+					<th class="" width="150">IP</th>
+				</tr>
+			{{#each camreaResultItems.device}}
+				<tr {{even @index}}  data-id="{{id}}" data-name="{{cameraName}}" class="info">
+					<td class="number" title="{{list @index}}">{{list @index}}</td>
+					<td class="name" title="{{codename cameraName cameraCode}}">{{codename cameraName cameraCode}}</td>
+					<td class="ip" title="{{ip}}" >{{ip}}</td>
+				</tr>
+			{{/each}}
+			</tbody>
+		</table>
+{{/if}}
+
+{{#if detectResult}}
+		<div id="detectMgrTable"></div>
+{{/if}}
+{{#if detectResultItems}}
+		<table>
+			<tbody>
+				<tr>
+					<th class="col-1 moveright">序号</th>
+					<th class="col-2">设备名称</th>
+					<th class="col-6">厂商</th>
+					<th class="col-6">型号</th>
+					<th class="col-3">IP</th>
+					<th class="col-4">检测时间</th>
+					<th class="col-5">操作</th>
+				</tr>
+				{{#each detectResultItems.detect}}
+					<tr {{even @index}} >
+						<!-- <td class="moveright">{{list @index}}</td> -->
+						<td class="moveright">{{id}}</td>
+						<td data-id="{{id}}" class="device-name">{{deviceName}}</td>
+						<td class="">{{manufacturerName}}</td>
+						<td class="">{{cameraVersionName}}</td>
+						<td>{{deviceIp}}</td>
+						<td>{{#date createDate}}{{/date}}</td>
+						<td>
+							<a href="/module/maintenance/netdetection/inc/detectionreport.html?id={{id}}&name={{deviceName}}" target="detectreport">查看</a>
+							<a class="report-export" data-id={{id}} data-name={{deviceName}}>导出</a>
+							<a class="report-del" data-id={{id}} data-name={{deviceName}}>删除</a>
+						</td>
+					</tr>
+				{{/each}}
+			</tbody>
+		</table>
+{{/if}}
+
+
+{{#if VideoList}}
+	<ul>
+		{{#each  VideoList.list}}
+		<li class="name" data-port="{{pvgPort}}" data-username="{{pvgUser}}" data-time="{{time}}" data-path="{{pvgPath}}" data-password = "{{pvgPass}}" data-ip = "{{pvgIp}}"  data-viodetime = "{{video}}">
+			<span> {{time2name video}} </span>
+		</li>
+		{{/each}}
+	</ul>
+
+{{/if}}
+<!-- NVR的渲染模板 -->
+{{#if detectreportNVR}}
+	<table class="majortable {{detectreportNVR.flag}}" summary='检测报告'>
+		<tr>
+			<th colspan='4'>设备入网检测报告</th>
+		</tr>
+		<tr id="numAndDate" style="display:none"><th colspan='4' class="info" >检测序号：<span class="info-number"></span> &nbsp&nbsp&nbsp 检测日期：<span class="info-date"></span></th></tr>
+		<tr class="darkline">
+			<td colspan='4' class='bold'>基本信息</td>
+		</tr>
+		<tr class="lightline odd">
+			<td class="one bold">设备类型</td>
+			<td class="two">{{#DeviceType detectreportNVR.deviceType}}{{/DeviceType}}</td>
+			<td class="three bold">待检设备</td>
+			<td class="four">{{detectreportNVR.deviceName}}</td>
+		</tr>
+		<tr class="lightline eve">
+			<td class='bold'>设备厂商</td>
+			<td>{{#empty detectreportNVR.manufacturerName}}{{/empty}}</td>
+			<td class='bold'>设备型号</td>
+			<td>{{#empty detectreportNVR.cameraVersionName}}{{/empty}}</td>
+		</tr>
+		<tr class="lightline odd">
+			<td class='bold'>固件版本</td>
+			<td>{{#empty detectreportNVR.hardVersion}}{{/empty}}</td>
+			<td class='bold'>软件版本</td>
+			<td>{{#empty detectreportNVR.softVersion}}{{/empty}}</td>
+		</tr>
+		<tr class="lightline eve">
+			<td class='bold'>操作系统</td>
+			<td>{{#empty detectreportNVR.os}}{{/empty}}</td>
+			<td class='bold'>接入协议</td>
+			<td>{{#empty detectreportNVR.acceptProtocol}}{{/empty}}</td>
+		</tr>
+		<!-- <tr class="lightline odd">
+			<td class='bold'>编码标准（是否H.264）</td>
+			<td>{{#IsOrNo detectreport.encodeStd}}{{/IsOrNo}}</td>
+			<td class='bold'>是否多码流</td>
+			<td>{{#IsOrNo detectreport.dualStream}}{{/IsOrNo}}</td>
+			
+		</tr>
+		<tr class="lightline eve">
+			<td class='bold'>是否具备时钟同步功能</td>
+			<td>{{#IsOrNoHave detectreport.autoSync}}{{/IsOrNoHave}}</td>
+			<td class='bold'>是否具备远程自动升级功能</td>
+			<td>{{#IsOrNoHave detectreport.autoUpdate}}{{/IsOrNoHave}}</td>
+		</tr> -->
+		<tr class="darkline">
+			<td  colspan='4' class='bold'>功能检测</td>
+		</tr>
+		<tr class="lightline odd">
+			<td class='bold'>实时视频播放</td>
+			<td>{{#IsOrNoNormal detectreportNVR.videoPlayNormal}}{{/IsOrNoNormal}}</td>
+			<td class='bold'>帧率/秒</td>
+			<td>{{#empty detectreportNVR.fps}}{{/empty}}</td>
+		</tr>
+		<tr class="lightline eve">
+			<td class='bold'>高清分辨率</td>
+			<td>{{#empty detectreportNVR.hdRateResolution}}{{/empty}}</td>
+			<td class='bold'>高清码率</td>
+			<td>{{#empty detectreportNVR.hdCodeRate}}{{/empty}}</td>
+		</tr>
+		<tr class="lightline odd">
+			<td class='bold'>编码标准（是否H.264）</td>
+			<td>{{#IsOrNo detectreportNVR.encodeStd}}{{/IsOrNo}}</td>
+			<td class='bold'>云台控制</td>
+			<td>{{#IsOrNoNormal detectreportNVR.ptzNormal}}{{/IsOrNoNormal}}</td>
+			
+		</tr>
+		<tr class="lightline eve">
+			<td class='bold'>录像检索</td>
+			<td>{{#IsOrNoNormal detectreportNVR.videoSearchNormal}}{{/IsOrNoNormal}}</td>
+			<td class='bold'>录像播放</td>
+			<td>{{#IsOrNoNormal detectreportNVR.recordPlayNormal}}{{/IsOrNoNormal}}</td>
+			
+		</tr>
+		<tr class="lightline eve">
+			<td class='bold'>录像下载</td>
+			<td>{{#IsOrNoNormal detectreportNVR.recordDownNormal}}{{/IsOrNoNormal}}</td>
+			<td class='bold'>键盘控制切换</td>
+			<td>{{#IsOrNoNormal detectreportNVR.keyboardCtrlNormal}}{{/IsOrNoNormal}}</td>
+		</tr>
+		<tr class="darkline">
+			<td colspan='4' class='bold'>备注</td>
+		</tr>
+		<tr class="lightline odd">
+			<td colspan='4' class='bold'>
+				<textarea id="last-summary" class="all-summary">{{#empty detectreportNVR.summary}}{{/empty}}</textarea>
+			</td>
+		</tr>
+
+		<tr class="darkline">
+			<td colspan='4' class='bold'>结论</td>
+		</tr>
+		<tr class="lightline odd" id="sult">
+			<td colspan='4' class='bold'>
+				<span id="pass" data-type="0"><i class="radio"></i>通过</span>
+				<span id="noPass" data-type="1"><i class="no-radio"></i>未通过</span>
+			</td>
+		</tr>
+	</table>
+{{/if}}
+
+<!-- IPC的渲染模板 -->
+{{#if detectreportIPC}}
+	<table class="majortable {{detectreportIPC.flag}}" summary='检测报告'>
+		<tr>
+			<th colspan='4'>设备入网检测报告</th>
+		</tr>
+		<tr id="numAndDate" style="display:none"><th colspan='4' class="info" >检测序号：<span class="info-number"></span> &nbsp&nbsp&nbsp 检测日期：<span class="info-date"></span></th></tr>
+		<tr class="darkline">
+			<td colspan='4' class='bold'>基本信息</td>
+		</tr>
+		<tr class="lightline odd">
+			<td class="one bold">设备类型</td>
+			<td class="two">{{#DeviceType detectreportIPC.deviceType}}{{/DeviceType}}</td>
+			<td class="three bold">待检设备</td>
+			<td class="four">{{detectreportIPC.deviceName}}</td>
+		</tr>
+		<tr class="lightline eve">
+			<td class='bold'>设备厂商</td>
+			<td>{{#empty detectreportIPC.manufacturerName}}{{/empty}}</td>
+			<td class='bold'>设备型号</td>
+			<td>{{#empty detectreportIPC.cameraVersionName}}{{/empty}}</td>
+		</tr>
+		<tr class="lightline odd">
+			<td class='bold'>固件版本</td>
+			<td>{{#empty detectreportIPC.hardVersion}}{{/empty}}</td>
+			<td class='bold'>软件版本</td>
+			<td>{{#empty detectreportIPC.softVersion}}{{/empty}}</td>
+		</tr>
+		<tr class="lightline eve">
+			<td class='bold'>操作系统</td>
+			<td>{{#empty detectreportIPC.os}}{{/empty}}</td>
+			<td class='bold'>接入协议</td>
+			<td>{{#empty detectreportIPC.acceptProtocol}}{{/empty}}</td>
+		</tr>
+		<!-- <tr class="lightline odd">
+			<td class='bold'>编码标准（是否H.264）</td>
+			<td>{{#IsOrNo detectreport.encodeStd}}{{/IsOrNo}}</td>
+			<td class='bold'>是否多码流</td>
+			<td>{{#IsOrNo detectreport.dualStream}}{{/IsOrNo}}</td>
+			
+		</tr>
+		<tr class="lightline eve">
+			<td class='bold'>是否具备时钟同步功能</td>
+			<td>{{#IsOrNoHave detectreport.autoSync}}{{/IsOrNoHave}}</td>
+			<td class='bold'>是否具备远程自动升级功能</td>
+			<td>{{#IsOrNoHave detectreport.autoUpdate}}{{/IsOrNoHave}}</td>
+		</tr> -->
+		<tr class="darkline">
+			<td  colspan='4' class='bold'>功能检测</td>
+		</tr>
+
+		<tr class="lightline odd">
+			<td class='bold'>实时视频播放</td>
+			<td>{{#IsOrNoNormal detectreportIPC.videoPlayNormal}}{{/IsOrNoNormal}}</td>
+			<td class='bold'>帧率/秒</td>
+			<td>{{#empty detectreportIPC.fps}}{{/empty}}</td>
+		</tr>
+		<tr class="lightline eve">
+			<td class='bold'>高清分辨率</td>
+			<td>{{#empty detectreportIPC.hdRateResolution}}{{/empty}}</td>
+			<td class='bold'>高清码率</td>
+			<td>{{#empty detectreportIPC.hdCodeRate}}{{/empty}}</td>
+		</tr>
+		<tr class="lightline odd">
+			<td class='bold'>标清分辨率</td>
+			<td>{{#empty detectreportIPC.sdRateResolution}}{{/empty}}</td>
+			<td class='bold'>标清码率</td>
+			<td>{{#empty detectreportIPC.sdCodeRate}}{{/empty}}</td>
+		</tr>
+		<tr class="lightline eve">
+			<td class='bold'>编码标准（是否H.264）</td>
+			<td>{{#IsOrNo detectreportIPC.encodeStd}}{{/IsOrNo}}</td>
+			<td class='bold'>云台控制</td>
+			<td>{{#IsOrNoNormal detectreportIPC.ptzNormal}}{{/IsOrNoNormal}}</td>
+			
+		</tr>
+		<tr class="lightline odd">
+			<td class='bold'>录像检索</td>
+			<td>{{#IsOrNoNormal detectreportIPC.videoSearchNormal}}{{/IsOrNoNormal}}</td>
+			<td class='bold'>录像播放</td>
+			<td>{{#IsOrNoNormal detectreportIPC.recordPlayNormal}}{{/IsOrNoNormal}}</td>
+		</tr>
+
+		<tr class="lightline eve">
+			<td class='bold'>录像下载</td>
+			<td>{{#IsOrNoNormal detectreportIPC.recordDownNormal}}{{/IsOrNoNormal}}</td>
+			<td class='bold'>键盘控制切换</td>
+			<td>{{#IsOrNoNormal detectreportIPC.keyboardCtrlNormal}}{{/IsOrNoNormal}}</td>
+		</tr>
+		<tr class="darkline">
+			<td colspan='4' class='bold'>备注</td>
+		</tr>
+		<tr class="lightline odd">
+			<td colspan='4' class='bold'>
+				<textarea id="last-summary" class="all-summary">{{#empty detectreportIPC.summary}}{{/empty}}</textarea>
+			</td>
+		</tr>
+		<!-- <tr class="lightline odd">
+			<td colspan='4' class='bold'></td>
+		</tr> -->
+		<tr class="darkline">
+			<td colspan='4' class='bold'>结论</td>
+		</tr>
+		<tr class="lightline odd" id="sult">
+			<td colspan='4' class='bold'>
+				<span id="pass" data-type="0"><i class="radio"></i>通过</span>
+				<span id="noPass" data-type="1"><i class="no-radio"></i>未通过</span>
+			</td>
+		</tr>
+	</table>
+{{/if}}
+<!-- 解码器的渲染模板 -->
+{{#if detectreportDecoder}}
+	<table class="majortable {{detectreportDecoder.flag}}" summary='检测报告'>
+		<tr>
+			<th colspan='4'>设备入网检测报告</th>
+		</tr>
+		<tr id="numAndDate" style="display:none"><th colspan='4' class="info" >检测序号：<span class="info-number"></span> &nbsp&nbsp&nbsp 检测日期：<span class="info-date"></span></th></tr>
+		<tr class="darkline">
+			<td colspan='4' class='bold'>基本信息</td>
+		</tr>
+		<tr class="lightline odd">
+			<td class="one bold">设备类型</td>
+			<td class="two">{{#DeviceType detectreportDecoder.deviceType}}{{/DeviceType}}</td>
+			<td class="three bold">待检设备</td>
+			<td class="four">{{detectreportDecoder.deviceName}}</td>
+		</tr>
+		<tr class="lightline eve">
+			<td class='bold'>设备厂商</td>
+			<td>{{#empty detectreportDecoder.manufacturerName}}{{/empty}}</td>
+			<td class='bold'>设备型号</td>
+			<td>{{#empty detectreportDecoder.cameraVersionName}}{{/empty}}</td>
+		</tr>
+		<tr class="lightline odd">
+			<td class='bold'>固件版本</td>
+			<td>{{#empty detectreportDecoder.hardVersion}}{{/empty}}</td>
+			<td class='bold'>软件版本</td>
+			<td>{{#empty detectreportDecoder.softVersion}}{{/empty}}</td>
+		</tr>
+		<tr class="lightline eve">
+			<td class='bold'>操作系统</td>
+			<td>{{#empty detectreportDecoder.os}}{{/empty}}</td>
+			<td class='bold'>接入协议</td>
+			<td>{{#empty detectreportDecoder.acceptProtocol}}{{/empty}}</td>
+		</tr>
+		<!-- <tr class="lightline odd">
+			<td class='bold'>编码标准（是否H.264）</td>
+			<td>{{#IsOrNo detectreport.encodeStd}}{{/IsOrNo}}</td>
+			<td class='bold'>是否多码流</td>
+			<td>{{#IsOrNo detectreport.dualStream}}{{/IsOrNo}}</td>
+			
+		</tr>
+		<tr class="lightline eve">
+			<td class='bold'>是否具备时钟同步功能</td>
+			<td>{{#IsOrNoHave detectreport.autoSync}}{{/IsOrNoHave}}</td>
+			<td class='bold'>是否具备远程自动升级功能</td>
+			<td>{{#IsOrNoHave detectreport.autoUpdate}}{{/IsOrNoHave}}</td>
+		</tr> -->
+		<tr class="darkline">
+			<td  colspan='4' class='bold'>功能检测</td>
+		</tr>
+		<tr class="lightline odd">
+			<td class='bold'>高清解码</td>
+			<td>{{#IsOrNoNormal detectreportDecoder.hdDecodeNormal}}{{/IsOrNoNormal}}</td>
+			<td class='bold'>标清解码</td>
+			<td>{{#IsOrNoNormal detectreportDecoder.sdDecodeNormal}}{{/IsOrNoNormal}}</td>
+		</tr>
+		<tr class="lightline eve">
+			<td class='bold'>键盘控制切换</td>
+			<td>{{#IsOrNoNormal detectreportDecoder.keyboardCtrlNormal}}{{/IsOrNoNormal}}</td>
+		</tr>
+		<tr class="darkline">
+			<td colspan='4' class='bold'>备注</td>
+		</tr>
+		<tr class="lightline odd">
+			<td colspan='4' class='bold'>
+				<textarea id="last-summary" class="all-summary">{{#empty detectreportDecoder.summary}}{{/empty}}</textarea>
+			</td>
+		</tr>
+		<!-- <tr class="lightline eve">
+			<td colspan='4' class='bold'></td>
+		</tr> -->
+
+		<tr class="darkline">
+			<td colspan='4' class='bold'>结论</td>
+		</tr>
+		<tr class="lightline odd" id="sult">
+			<td colspan='4' class='bold'>
+				<span id="pass" data-type="0"><i class="radio"></i>通过</span>
+				<span id="noPass" data-type="1"><i class="no-radio"></i>未通过</span>
+			</td>
+		</tr>
+	</table>
+{{/if}}

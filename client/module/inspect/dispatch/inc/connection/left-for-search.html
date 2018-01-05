@@ -1,0 +1,37 @@
+{{#if searchResult}}
+<div class="search-result-all np-search-all" data-from="{{searchFrom}}">
+    <div class="search-result-header np-for-search-header">
+        <i class="sidebar-home-icon" data-mark="{{homeBreadUrl}}"></i>
+        <span class="search-result-header-nearby"> <b> > </b> {{searchPlace}}“
+                        <strong title="{{searchValue}}">{{searchValue}}</strong>”
+                    </span>
+        <span class="search-result-number np-for-search-count">共<em class="count"></em>个</span>
+    </div>
+    <ul class="inline-list sidebar-body-resource-type search-result-type np-input-search-fliter">
+        <li data-event="click" data-handler="SearchCamera">
+            <i class="camera-icon"></i>
+            <span>摄像机</span>
+        </li>
+        <li data-event="click" data-handler="SearchBayonet">
+            <i class="cross-icon"></i>
+            <span>卡口</span>
+        </li>
+        <li class="row-last" data-event="click" data-handler="SearchPolice">
+            <i class="car-icon"></i>
+            <span>警力</span>
+        </li>
+        <!-- <li data-event="click" data-handler="SearchPoliceman">
+            <i class="police-icon"></i>
+            <span>警员</span>
+        </li> -->
+        <li data-event="click" data-handler="SearchLightbar">
+            <i class="pole-icon"></i>
+            <span>灯杆</span>
+        </li>
+        <li class="row-last" data-event="click" data-handler="SearchAlarm">
+            <i class="road-icon"></i>
+            <span>报警</span>
+        </li>
+    </ul>
+</div>
+{{/if}}

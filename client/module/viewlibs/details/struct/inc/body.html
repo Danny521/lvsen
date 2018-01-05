@@ -1,0 +1,226 @@
+<div id="content">
+	<div class="wrapper clearfix">
+		<ul class="breadcrumb">
+			<li>
+				<a href="/module/viewlibs/workbench/index.html">我的工作台</a>
+				<span class="divider">&gt;</span>
+			</li>
+			<li>
+				<a href="">实时视频标注</a>
+				<span class="divider">&gt;</span>
+			</li>
+			<li>
+				<a href=""></a>
+				<span class="divider">&gt;</span>
+			</li>
+			<li class="active">人体信息</li>
+		</ul>			
+		<div class="main">	
+			<div class="loading"></div>
+		<script id="view-template" type="text/x-handlebars-template">
+		{{#body}}
+		<div class="resources tabview">
+			<div data-type="video" data-id="{{uuid}}" class="actions">
+			 	<!--疑情信息关联案事件-->
+				{{#unless incidentId}}
+				{{#belongs this}}
+				{{#auditBar status 1 3}}
+				<a class="action ui button relate permission permission-create" data-rtype="2" id="chooseIncident" {{getMediaId ../videoId ../imageId}}>关联案事件</a>
+				{{/auditBar}}
+				{{/belongs}}
+				<!--疑情信息关联案事件结束-->
+				<!--未通过，未提交提交审核-->
+				{{#auditBar status 1 3}}
+				<a class="action ui button audit permission permission-create {{isLogUser ../userId }}" data-id="{{../id}}" data-type="2"  data-status="{{../status}}">提交审核</a>
+				{{/auditBar}}
+				<!--未通过，未提交提交审核结束-->
+				{{/unless}}
+				<!--案事件的结构化信息生成线索-->
+				{{#if incidentId}}
+				{{#isiStruct this}}
+				<a class="action ui button save save-to-thread permission permission-create" data-id="{{id}}">生成线索</a>
+				{{/isiStruct}}
+				{{/if}}
+				<!--案事件结构化信息生成线索结束-->
+				<!--已通过才有保存-->
+				
+				<a class="action ui button save save-to-clound permission permission-import" data-id="{{uuid}}" data-sign="realtime">保存</a>
+			
+				<!--
+				 {{#belongs1 this}}
+				 <a class="action ui button edit permission permission-create">编辑</a>
+				 {{/belongs1}}
+				-->
+				<!--只有待审核不显示删除-->
+				
+				<a class="action remove ui button">删除</a>
+				
+			</div>
+			{{#waitPass status}}
+			<div id="auditSection" class="actions permission permission-review" data-type="2" data-id="{{../id}}">
+				<a id="reject" class="reject {{isIncident ../incidentId}}" data-incidentid="{{../incidentId}}"><i></i>打回</a>
+				{{#unless ../incidentId}}
+				<a class='reject'><i></i>打回</a>
+				<a class='pass'><i></i>通过</a>
+				{{/unless}}
+			</div>
+			{{/waitPass}}
+			<div class="header">
+				<ul class="tabs menus ui tabular">
+					<li data-tab="info" class="active">
+						<a>基本信息</a>
+					</li>
+					{{#if incidentId}}
+					<li data-tab="incident" class="" data-incidentid="{{incidentId}}">
+						<a>所属案事件</a>
+					</li>
+					{{/if}}
+					<li data-tab="video" class="">
+						<a>所属视图信息</a>
+					</li>
+				</ul>
+			</div>
+			<div class="views ui tab active">
+				<div class="scrollbar disable">
+					<div class="track">
+						<div class="thumb"></div>
+					</div>
+				</div>
+				<div class="viewport">
+					<div class="overview">
+						<div data-tab="info" class="view active ui tab">
+						<table class="common-table">
+						    <tbody>
+						        <tr>
+						        	<td class="attr-name">所处分类：</td>
+						            <td class="attr-value">
+						                <span class="value">暂未填写</span>
+						            </td>
+						        </tr>
+						        <tr>
+						        	<td class="attr-name">类型：</td>
+						            <td class="attr-value">
+						                <span class="value">人体</span>
+						            </td>
+						        </tr>
+						        <tr>
+						        	<td class="attr-name">头部信息：</td>
+						            <td class="attr-value">
+						                <span class="value">暂未填写</span>
+						            </td>
+						        </tr>
+						        <tr>
+						        	<td class="attr-name">上半身颜色：</td>
+						            <td class="attr-value">
+										<span class="value">{{upperColor}}</span>
+						            </td>
+						        </tr>
+						        <tr>
+						        	<td class="attr-name">下半身颜色：</td>
+						            <td class="attr-value">
+						                <span class="value">{{lowerColor}}</span>
+						            </td>
+						        </tr>
+						        <tr>
+						        	<td class="attr-name">脚部颜色：</td>
+						            <td class="attr-value">
+						                <span class="value">{{footColor}}</span>
+						            </td>
+						        </tr>
+						      <!--  <tr>
+						        	<td class="attr-name">高度：</td>
+						            <td class="attr-value">
+						                <span class="value">{{height}}</span>
+						            </td>
+						        </tr>-->
+						        <tr>
+						        	<td class="attr-name">颜色：</td>
+						            <td class="attr-value">
+						                <span class="value">{{color}}</span>
+						            </td>
+						        </tr>
+						        <tr>
+						        	<td class="attr-name">灰度：</td>
+						            <td class="attr-value">
+						                <span class="value">{{gray}}</span>
+						            </td>
+						        </tr>
+						        <tr>
+						        	<td class="attr-name">描述：</td>
+						            <td class="attr-value">
+						                <span class="value">暂未填写</span>
+						            </td>
+						        </tr>
+						    </tbody>
+						</table>
+						</div>
+						<div data-tab="incident" class="view ui tab">							
+						</div>
+						<div data-tab="video" class="view ui tab">								
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="entity-preview" data-id="{{uuid}}" data-mediaId="{{uuid}}">
+			<div class="markwrap clearfix">
+				<div class="audit-status">
+					<span class="track-type">{{remark}}</span>
+					{{#belongs this}}
+					<span class="{{translateStatus status 'color'}} status">[{{translateStatus status 'name'}}]</span>
+					{{/belongs}}
+				</div>
+				<div class="display-format tab-title">
+			        <ul class="menus">
+			            <li data-tab="picture" data-anchor="picture" class="tab-title-item active"><a class="btn">特征图片</a></li>
+			            {{#tabular startTime}}<li data-tab="ocxbody" data-anchor="ocxbody" class=" tab-title-item"><a class="btn">视频片段</a></li>{{/tabular}}
+			        </ul>
+
+				</div>
+			</div>
+		    <div class="entity-box tab-content">
+		    	<div class="video tab-content-item" data-target="ocxbody" data-tab="ocxbody">
+                        <object id="UIOCX" type="applicatin/x-firebreath" width = "800" height = "450">
+                            	<param name="onload" value="pluginLoaded"/>                            
+                            </object>
+                        <div class="video-block">
+                       		 <div class="progress-bg">
+                            </div>
+                            <div class="progress-bar">
+                                <div class="bullet">
+                                	<i class="play-point"></i>
+                                </div>
+                                <i class='start-mark'></i>
+                                <i class='end-mark'></i>
+                            </div>
+                            <div class="panel" onselectstart="return false">
+                           <span class="time">
+										<span class="nowtime" nowtime-ms="0">00:00:00</span>&nbsp;/
+										<span class="alltime" alltime-ms="14859247">04:07:39</span>
+									</span>
+									<span class="speed">倍速：<em></em></span>
+									<span class="fullwin" title="全屏"></span>
+									<span class="grab" title="抓图"></span>
+									<span class="editing" title="人工标注"></span>
+									<span style="display:none;" class="loop" title="循环"></span>
+									<span class="sequence" title="顺序"></span>
+									<span class="stop" title="停止"></span>
+									<span class="forward" title="快进"></span>
+									<span class="switch" title="播放"></span>
+									<span class="rewind" title="慢放"></span>
+                            </div>
+
+                        </div>
+                </div>
+		        <div class="picture tab-content-item active" data-tab="picture" data-target="picture">
+		            <span class="hook"></span>
+		            <img src="{{sceneImg}}" alt="" class="entity-img">
+		            
+		        </div>
+		    </div>
+		</div>
+		{{/body}}
+		</script>			
+		</div>
+	</div>
+</div>

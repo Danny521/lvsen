@@ -1,0 +1,10 @@
+<div class="polling-dialog-content clearfix">
+	<div class="polling-screens">
+		{{#each this}}
+		{{#if isAvailable}}
+		<div class="screen-box selected" data-id="{{id}}" data-isfree="{{isFree}}" data-screenid="{{screenId}}" data-serverid="{{serverId}}" data-serverip = "{{serverIp}}" data-x="{{x}}" data-y="{{y}}" data-width="{{width}}" data-height="{{height}}" title="{{serverName}}"></div>
+		{{/if}}
+		{{/each}}
+	</div>
+</div>
+<link rel="stylesheet" href="select.css">

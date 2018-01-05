@@ -1,0 +1,108 @@
+
+<div class="thead ui tabular">
+	<span class='active' data-tab="car">机动车信息</span>
+	<!-- <span data-tab="driver">驾驶员信息</span> -->
+	<span data-tab="stealcar">被盗抢车信息</span>
+</div>
+<div class="tbody">
+	<div class="ui tab active clearfix" data-tab="car">
+		{{#car}}
+		<table>
+			<tbody>
+				<tr><td>联系方式：<span title='{{phoneNumber}}'>{{phoneNumber}}</span></td></tr>
+				<tr><td>车身颜色：<span title='{{colour}}'>{{colour}}</span></td></tr>
+				<tr><td>号牌种类：<span title='{{plateType}}'>{{plateType}}</span></td></tr>
+				<tr><td>机动车所有人：<span title='{{carOwner}}'>{{carOwner}}</span></td></tr>
+				<tr><td>功率：<span title='{{power}}'>{{power}}</span></td></tr>
+				<tr><td>登记住所详细地址：<span title='{{registerAddress}}'>{{registerAddress}}</span></td></tr>
+				<tr><td>总质量：<span title='{{weight}}'>{{weight}}</span></td></tr>
+				<tr><td>发动机型号：<span title='{{engineNumber}}'>{{engineNumber}}</span></td></tr>
+				<tr><td>排量：<span title='{{emissions}}'>{{emissions}}</span></td></tr>
+				<tr><td>号牌号码：<span title='{{plateNumber}}'>{{plateNumber}}</span></td></tr>
+				<tr><td>车辆品牌：<span title='{{carBrand}}'>{{carBrand}}</span></td></tr>
+				<tr><td>核定载质量：<span title='{{checkWeight}}'>{{checkWeight}}</span></td></tr>
+			</tbody>
+		</table>
+		<table>
+			<tbody>
+				<tr><td>暂住详细地址：<span title='{{address}}'>{{address}}</span></td></tr>
+				<tr><td>出厂日期：<span title='{{factoryDate}}'>{{factoryDate}}</span></td></tr>
+				<tr><td>发动机号：<span title='{{engineNumber}}'>{{engineNumber}}</span></td></tr>
+				<tr><td>燃料种类：<span title='{{fuelType}}'>{{fuelType}}</span></td></tr>
+				<tr><td>所有人证明号码：<span title='{{paperNumber}}'>{{paperNumber}}</span></td></tr>
+				<tr><td>初次登记日期：<span title='{{registerDate}}'>{{registerDate}}</span></td></tr>
+				<tr><td>准牵引总质量：<span title='{{towWight}}'>{{towWight}}</span></td></tr>
+				<tr><td>车辆型号：<span title='{{carType}}'>{{carType}}</span></td></tr>
+				<tr><td>机动车状态：<span title='{{carStatus}}'>{{carStatus}}</span></td></tr>
+				<tr><td>核定载客：<span title='{{checkPassenger}}'>{{checkPassenger}}</span></td></tr>
+				<tr><td>车驾号：<span title='{{frameNumber}}'>{{frameNumber}}</span></td></tr>
+				<tr><td>所有人证明种类：<span title='{{paperType}}'>{{paperType}}</span></td></tr>
+			</tbody>
+		</table>
+		{{else}}
+			<div class="unresult">未查询到数据</div>
+		{{/car}}
+	</div>
+
+	<!-- <div class="ui tab clearfix" data-tab="driver">
+		<table>
+			<tbody>
+				<tr><td>姓名：<span title='{{name}}'>{{name}}</span></td></tr>
+				<tr><td>性别：<span title='{{Sex}}'>{{Sex}}</span></td></tr>
+				<tr><td>出生日期：<span title='{{birthdate}}'>{{birthdate}}</span></td></tr>
+				<tr><td>驾驶证种类：<span title='{{driverLicenseType}}'>{{driverLicenseType}}</span></td></tr>
+				<tr><td>驾驶证号：<span title='{{driverLicenseNumber}}'>{{driverLicenseNumber}}</span></td></tr>
+				<tr><td>档案编号：<span title='{{archivesNumber}}'>{{archivesNumber}}</span></td></tr>
+				<tr><td>登记住址区划：<span title='{{registerAddress}}'>{{registerAddress}}</span></td></tr>
+				<tr><td>登记住址详址：<span title='{{detailedregisterAddress}}'>{{detailedregisterAddress}}</span></td></tr>
+				<tr><td>现住址区划：<span title='{{address}}'>{{address}}</span></td></tr>
+				<tr><td>现住址详址：<span title='{{detailedAddress}}'>{{detailedAddress}}</span></td></tr>
+				<tr><td>临时住址区划：<span title='{{tmpAddress}}'>{{tmpAddress}}</span></td></tr>
+			</tbody>
+		</table>
+		<table>
+			<tbody>
+				<tr><td>临时住址详址：<span title='{{detailedtmpAddress}}'>{{detailedtmpAddress}}</span></td></tr>
+				<tr><td>初次领证日期：<span title='{{receivedate}}'>{{receivedate}}</span></td></tr>
+				<tr><td>准驾车型：<span title='{{allowCarType}}'>{{allowCarType}}</span></td></tr>
+				<tr><td>驾驶证有效起始日期：<span title='{{effectBeforeDate}}'>{{effectBeforeDate}}</span></td></tr>
+				<tr><td>驾驶证有效终止日期：<span title='{{effectEndDate}}'>{{effectEndDate}}</span></td></tr>
+				<tr><td>发证机关：<span title='{{awardDept}}'>{{awardDept}}</span></td></tr>
+				<tr><td>驾驶证状态：<span title='{{driverLicenseStatus}}'>{{driverLicenseStatus}}</span></td></tr>
+				<tr><td>驾驶证发证日期：<span title='{{awardDate}}'>{{awardDate}}</span></td></tr>
+				<tr><td>身份证件种类：<span title='{{paperType}}'>{{paperType}}</span></td></tr>
+				<tr><td>证件编：<span title='{{paperNumber}}'>{{paperNumber}}</span></td></tr>
+			</tbody>
+		</table>
+	</div> -->
+
+	<div class="ui tab clearfix" data-tab="stealcar">
+		{{#pilferCar}}
+		<table>
+			<tbody>
+				<tr><td>案件性质：<span title='{{caseType}}'>{{caseType}}</span></td></tr>
+				<tr><td>案件编号：<span title='{{caseNumber}}'>{{caseNumber}}</span></td></tr>
+				<tr><td>车辆品牌：<span title='{{carBrand}}'>{{carBrand}}</span></td></tr>
+				<tr><td>车辆类型：<span title='{{carType}}'>{{carType}}</span></td></tr>
+				<tr><td>发动机号：<span title='{{engineNumber}}'>{{engineNumber}}</span></td></tr>
+				<tr><td>车架号：<span title='{{frameNumber}}'>{{frameNumber}}</span></td></tr>
+				<tr><td>车辆识别代号：<span title='{{carNumber}}'>{{carNumber}}</span></td></tr>
+				<tr><td>立案单位名称：<span title='{{detailedCaseDept}}'>{{detailedCaseDept}}</span></td></tr>
+			</tbody>
+		</table>
+		<table>
+			<tbody>
+				<tr><td>机动车所有人：<span title='{{carOwner}}'>{{carOwner}}</span></td></tr>
+				<tr><td>车身颜色：<span title='{{colour}}'>{{colour}}</span></td></tr>
+				<tr><td>号牌种类：<span title='{{plateType}}'>{{plateType}}</span></td></tr>
+				<tr><td>号牌号码：<span title='{{plateNumber}}'>{{plateNumber}}</span></td></tr>
+				<tr><td>序号：<span title='{{number}}'>{{number}}</span></td></tr>
+				<tr><td>报案人：<span title='{{reporter}}'>{{reporter}}</span></td></tr>
+				<tr><td>立案单位区划：<span title='{{caseDept}}'>{{caseDept}}</span></td></tr>
+			</tbody>
+		</table>
+		{{else}}
+			<div class="unresult">未查询到数据</div>
+		{{/pilferCar}}
+	</div>
+</div>

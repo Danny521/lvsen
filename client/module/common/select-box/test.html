@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=10,chrome=1"/>
+<title>select下拉框测试</title>
+<link type="text/css" rel="stylesheet" href="/module/common/css/base.css" />
+<link type="text/css" rel="stylesheet" href="/libs/semantic/semantic.css" />
+<link rel="stylesheet" href="select.css">
+<script type="text/javascript" src="/libs/jquery/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" data-main="/require-conf.js" src="/libs/requirejs/require.js"></script>
+
+<style>
+.select1 {
+    width: 220px;
+}
+</style>
+
+</head>
+
+<body>
+<span class="select_wrapper">
+    <span class="select1 select_container">
+        <span class="text" data-value="">报警类型</span>
+        <span class="arrow arrow-down"></span>
+    </span>
+</span>
+
+<span class="select_wrapper">
+    <span class="select2 select_container">
+        <span class="text" data-value="">全部</span>
+        <span class="arrow arrow-down"></span>
+    </span>
+</span>
+
+<span class="select_wrapper">
+    <span class="select3 select_container">
+        <span class="text" data-value="">全部</span>
+        <span class="arrow arrow-down"></span>
+    </span>
+</span>
+
+<script>
+var data1 = [
+    {"name": "全选","value":-1},
+    {"name": "非法停车","value":1},
+    {"name": "绊线检测","value":2},
+    {"name": "手动报警","value":3},
+    {"name": "人员布控","value":4}
+];
+
+var data2 = [{"name":"区域入侵","value":4},{"name":"非法停车","value":256},{"name":"绊线检测","value":2},{"name":"徘徊检测","value":32},{"name":"物品丢失","value":128},{"name":"出门检测","value":262144},{"name":"物品遗留","value":64},{"name":"离岗检测","value":65536},{"name":"人群聚集","value":2048},{"name":"打架检测","value":1048576},{"name":"拥堵检测","value":4194304},{"name":"非法尾随检测","value":8388608},{"name":"奔跑检测","value":1024},{"name":"烟火检测","value":16777216},{"name":"车流统计","value":131072},{"name":"人数统计","value":4096},{"name":"车牌识别","value":8192},{"name":"人脸检测","value":524288},{"name":"手动报警","value":33554432},{"name":"人员布控","value":134217728}];
+
+
+var data3 = [
+    {"name": "未处理","value":1},
+    {"name": "有效","value":2},
+    {"name": "无效","value":3},
+    {"name": "未知","value":4}
+];
+
+
+require(['select.js'], function(select) {
+    // 此处传递一个数组(其中包含多个对象)，或者一个对象
+    // 需要优化的几点：1.一个template（Handlebars.compile(result)）；2.传递一个标记(是否包含多选)，如布防布控-->报警管理:报警类型  若是多选，html模板得由一个改为两个，且不将选中的值写入文本框，且调用相应的3.回调函数（传参：{selector, data: {name:"", value:""}}） 注意：其实当有回调函数时，就应该不将选中的值写入文本框
+    // 看下拉框还存在哪些形式，如级联
+    select.selectBox([
+        {
+            selector: ".select1",
+            data: data1,
+            isMultiSelect: true, // 是否是多选
+            callback: function(data) { // 当关闭时执行的函数
+                console.log("---执行isOnClose---data:", data);
+            }
+        },
+        {
+            selector: ".select2",
+            data: data2,
+            callback: function(data) { // 当关闭时执行的函数
+                console.log("---执行isOnClose---data:",data);
+            }
+        },
+        {
+            selector: ".select3",
+            data: data3
+        }
+    ]);
+    /*select.selectBox(
+        {
+            selector: ".select3",
+            data: data3
+        }
+    );*/
+});
+</script>
+
+</body>
+
+</html>

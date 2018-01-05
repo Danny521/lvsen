@@ -1,0 +1,66 @@
+<div class="player-container">
+    <!--<object class="player-obj" id="OVERLAY"  type="application/x-vcplayer" width="100%" height="100%" align="center"></object>-->
+    <!--<param name="onload" value="pluginLoaded"/>-->
+    <object class="player-obj" id="OVERLAY" type="application/x-vcplayer" width="100%" height="100%" align="center">
+        <param name="_version" value="65536">
+        <param name="_extentx" value="21166">
+        <param name="_extenty" value="13758">
+        <param name="_stockprops" value="0">
+    </object>
+    <div class="player-controls">
+        <div class="control-progress">
+            <div class="progress-bar-left"></div>
+            <div class="progress-bar-box">
+                <div id="overlay_bar_inner" class="progress-bar-inner">
+                    <div id="overlay_progress_bullet" class="progress-bullet">
+                        <i id="overlay_play_point" class="progress-play-point"></i>
+                    </div>
+                    <!-- <div class="progress-mark-section"></div> -->
+                    <i class="progress-mark-start"></i>
+                    <i class="progress-mark-end"></i>
+                </div>
+            </div>
+        </div>
+        <div class="control-panel clearfix">
+            <div class="play-times">
+                <span id="overlay_time_nowtime" class="time-nowtime">00:00:00</span>&nbsp;/
+                <span id="overlay_time_alltime" class="time-alltime">00:00:00</span>
+                <span id="overlay_time_speed" class="time-speed">倍速：<span></span></span>
+                <!--<span class="overlay-density">
+                    密度：
+                <select id="overlay-select-density">
+                    <option>1</option>
+                    <option>2</option>
+                    <option selected="selected">3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+                </span>-->
+            </div>
+            <div class="play-buttons">
+                <i id="overlay_btn_slow" class="btn-slow player-btn pb-rewind" title="慢放"></i>
+                <i id="overlay_btn_play" class="btn-slow player-btn pb-play" title="播放"></i>
+                <i id="overlay_btn_forward" class="btn-slow player-btn pb-forward" title="快进"></i>
+                <i id="overlay_btn_stop" class="btn-slow player-btn pb-stop" title="停止"></i>
+            </div>
+            <div class="others-buttons">
+                <span class="overlay_density"><span>密度：</span>
+                    <select id="overlay-select-density">
+                        <option>1</option>
+                        <option>2</option>
+                        <option selected="selected">3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </span>
+                <i id="overlay_btn_screenshot" class="player-btn pb-grab" title="抓图"></i>
+                <i id="overlay_btn_fullwin" class="player-btn pb-fullwin" title="全屏"></i>
+                <div class="densityExplain hidden">
+                        <em></em>
+                        <span></span>
+                        <div>视频画面中最多叠加目标数,密度越大,视频播放时间越短</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

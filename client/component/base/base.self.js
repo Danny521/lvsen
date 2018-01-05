@@ -1,0 +1,48 @@
+/**
+ * 根据小文件，重写base.self,以明确各部分的功能，后续做到独立处理
+ * add by zhangyu, 2015.08.03
+ */
+define([
+	"/component/base/self/toolkit.js",
+	"/component/base/self/system.init.config.js",
+	"/component/base/self/dynamic.dom.js",
+	"/component/base/self/dialog.js",
+	"/component/base/self/notify.js",
+	"/component/base/self/thirdmenu.mgr.js",
+	"/component/base/self/log.js",
+	"/component/base/self/heart.js",
+	"/component/base/self/check.business.js",
+	"/component/base/self/mask.layer.js",
+	"/component/base/self/common.register.helper.js",
+	"/component/base/self/extend.jquery.js",
+	"/component/base/self/common.dom.business.js",
+	"/component/base/self/common.ajax.business.js",
+	"/component/base/self/common.business.js",
+	"/component/base/self/regexp.extend.js",
+	"/component/base/self/sidebar.js",
+	"/component/base/self/loginout.js",
+	"/component/base/self/console.js",
+	"/component/base/self/common.events.js",
+	"pvaConfig"
+], function(ToolFun, SystemConfig, DynamicDom, Dialog, Notify, ThirdMenu, Log, HeartBeat, CheckBusiness, MaskLayer) {
+	//初始化系统部署配置全局函数
+	SystemConfig.initGlobal();
+	//初始化系统公共全局函数集合对象
+	ToolFun.initGlobal();
+	//初始化公共动态dom文档逻辑
+	DynamicDom.initGlobal();
+	//初始化pva弹窗逻辑
+	Dialog.initGlobal();
+	//初始化pva系统消息提示相关逻辑
+	Notify.initGlobal();
+	//初始化pva第三层导航相关逻辑
+	ThirdMenu.initGlobal();
+	//初始化pva前端日志相关逻辑
+	Log.initGlobal();
+	//初始化前端心跳维持相关逻辑
+	HeartBeat.initGlobal();
+	//全局公共的判断逻辑
+	CheckBusiness.initGlobal();
+	//初始化公共遮罩层相关逻辑
+	MaskLayer.initGlobal();
+});

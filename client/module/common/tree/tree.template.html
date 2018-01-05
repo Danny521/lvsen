@@ -1,0 +1,53 @@
+{{#if cameras}}
+	<ul class="tree">
+		{{#each cameras}}
+			{{#parent}} {{!--非叶子节点 --}} 
+				<li class="node {{checktree ../../option.checkbox}}" data-id='{{id}}' data-name="{{name}}" data-type ="{{type}}">
+					<a class="group">
+						{{#../../option.checkbox}} {{!--是否显示checkbox--}}
+							<i class="checkbox {{isChecked ../../../option.checked}}"></i>
+						{{/../../option.checkbox}}
+						<i class="fold {{homeicon ../../option.homeicon}}"></i>
+						<span class="text-over" title="{{name}}">{{ name }}</span>
+						{{#showStatistic ../../../option.orgType}}
+						<span class='statistics'>[<span class='online-statistic'><span class='online-text'></span><span class='online-count'>0</span></span><span class='all-statistic'><span class='slash'>/</span><span class='all-text'></span><span class='all-count'>0</span></span><span class='offline-statistic'><span class='offline-text'></span><span class='offline-count'>0</span></span>]</span>
+						{{/showStatistic}}
+						{{#if ../../../option.showAllOrg}}
+						<i class="showPathIcon" title="查看组织全路径"></i>
+						{{/if}}
+						{{#if ../../option.customizeBtn}} {{!--是否自定义分组父节点后面的‘删除’‘重命名’按钮--}}
+							{{#if ../../../option.specialBtn}} {{!--是否只显示‘删除’‘重命名’按钮--}}
+								<i class=" group-operator remove" title="删除分组"></i>
+								<i class=" group-operator edit" title="编辑"></i>
+							{{/if}}
+						<i class=" group-operator circle-inspect" title="轮巡"></i>
+						<!-- <i class=" group-operator route-inspect" title="视频巡检"></i> -->
+						<i class=" group-operator stop-inspect inspect-operator" title="停止轮巡"></i>
+						<!-- <i class=" group-operator pause-inspect inspect-operator" title="暂停轮巡"></i> -->
+						{{/if}}
+					</a>
+				</li>
+			{{else}} {{!--叶子节点 --}}
+				<li class="node {{offline camera_status}} clearfix {{checktree ../../option.checkbox}} {{hasNoRight score}}" data-camerascore="{{score}}" data-id='{{id}}' data-hdchannel='{{translate hd_channel}}' data-cameracode='{{cameraCode}}' data-sdchannel='{{translate sd_channel}}' data-name="{{name}}" data-type="{{type}}" data-cameratype="{{camera_type}}" data-status="{{camera_status}}" data-cstatus="{{cstatus hd_channel sd_channel}}" data-latitude="{{latitude}}" data-longitude="{{longitude}}" data-installtype="{{installType}}" data-installAddress="{{installAddress}}">
+					<a class="leaf {{isActive ../../../option.checked}} clearfix">
+						{{#../../option.checkbox}} {{!--是否显示checkbox--}}
+							<i class="checkbox {{isChecked ../../../option.checked }}"></i>
+						{{/../../option.checkbox}}
+						<i class="camera {{cameratype camera_type}} {{state hd_channel sd_channel}} {{hasHD hd_channel}}"></i>
+						<span class="text-over" title="{{name}}{{cameraCodeShow cameraCode}}"><em class="{{isSD hd_channel}}"> {{isMygropup orgName ../../option.ismygroup}}{{ name }}{{cameraCodeShow cameraCode}}</em></span>
+						{{#../../option.checkbox}}
+							{{else}}
+							<i class="more" title="更多"></i>
+						{{/../../option.checkbox}}
+                        {{#if ../../../option.showAllOrg}}
+						    <i class="showPathIcon" style="position: absolute" title="查看组织全路径"></i>
+						{{/if}}
+					</a>
+				</li>
+			{{/parent}}
+		{{/each}}
+	</ul>
+{{else}}
+	<h2 class="no-data no-data-heleper">{{nodata}}</h2>
+{{/if}}
+

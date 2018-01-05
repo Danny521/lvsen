@@ -1,0 +1,22 @@
+.entity-preview .video .video-block .stop{
+    margin-right: 0px;
+}
+.entity-preview .video .video-block .loop{
+    background: url(/module/common/images/playerbtn/loop.png) no-repeat 0px;
+    width: 20px;
+    float: right;
+    margin-right: 230px;
+}
+.entity-preview .video .video-block .loop:hover{
+    background: url(/module/common/images/playerbtn/loop.png) no-repeat -28px;
+}
+.entity-preview .video .video-block .sequence{
+    background: url(/module/common/images/playerbtn/sequence.png) no-repeat 0px;
+    width: 20px;
+    float: right;
+    margin-right: 230px;
+}
+.entity-preview .video .video-block .sequence:hover{
+    background: url(/module/common/images/playerbtn/sequence.png) no-repeat -28px;
+}
+

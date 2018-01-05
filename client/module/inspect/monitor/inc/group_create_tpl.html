@@ -1,0 +1,12 @@
+
+{{#each times}}
+<li class="timeBlock">
+	<div class="item-body">
+		<span class="time">时间：<span class="star">{{startTime}}</span>-<span class="end">{{endTime}}</span></span>
+		<span class="level">等级：</span><span class="levele">{{level}}</span>
+		<i class="ico-editer" title="编辑"></i>
+		<i class="icon-del"title="删除"></i>
+	</div>
+	<input type="hidden" class="timegroupid" value="{{id}}"/>
+</li>
+{{/each}}

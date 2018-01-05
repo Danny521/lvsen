@@ -1,0 +1,134 @@
+/* 全局搜索页面 筛选条件上面的搜索框 ---start*/
+#content .wrapper{
+	margin-top:0px; 
+}
+#gsheader{
+	width: 1200px;
+	margin:8px auto;
+}
+#gsheader .wrapper{
+	padding-right:240px;
+}
+#gsheader .wrapper .content{
+	width: 630px;
+	margin: 0px auto;
+}
+#gsheader .content .search{
+	font-size: 14px;
+	width: 590px;
+	padding-left: 9px;
+	border-right: 0px;
+	margin-right: 0px;
+}
+#gsheader .content .confirm{
+	width: 25px;
+	border-left: 0px;
+	margin-left: 0px;
+	background: url(/module/common/images/search.png) 0px 8px no-repeat;
+}
+#gsheader .search,#gsheader .confirm{
+	/* float: left; */
+	border: 1px solid #E1E1E1;
+	height: 33px;
+}
+
+.content .item .maininfo{
+	margin-left: 22px;
+}
+.content .item .more{
+	margin-right: 16px;
+	padding-top: 28px;
+	padding-left: 20px;
+}
+.content .item .maininfo,.content .item .more{
+	float: left;
+	width: 450px;
+}
+
+.thumb-figure,.thumb-figure .thumb-anchor ,.thumb-figure .thumb-anchor .vbox{
+	width: 130px;
+	height: 100px;
+}
+.thumb-figure .thumb-anchor img{
+	width: 130px;
+}
+.maininfo .body .img,.maininfo .body .wordinfo{
+	float: left;
+} 
+.maininfo .body .wordinfo{
+	width: 271px;
+	margin-left: 15px;
+}
+.wordinfo p{
+	margin: 5px 0px;
+}
+.wordinfo .gray{
+	color: #A1A1A1;
+}
+.wordinfo .lowertime{
+	margin-left: 67px;
+}
+.maininfo .body{
+	margin-top: 12px;
+}
+.maininfo .head .hleft .incidentname{
+	width: 112px;
+	display: inline-block;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	margin-bottom: -3px;
+}
+.maininfo .head .hleft .incidentname{
+	width: 112px;
+	display: inline-block;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	margin-bottom: -3px;
+}
+.wordinfo .location{
+	width: 190px;
+	display: inline-block;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	margin-bottom: -4px;
+}
+.wordinfo p:first-child{
+	margin-top: 0px;
+}
+.main .box .content .item{
+	padding-top:21px;
+	padding-bottom:10px;
+	border-bottom: 1px solid #ccc;
+}
+.main .box .content .item:first-child{
+	padding-top:11px;
+	/* padding-bottom: 0px; */
+}
+.more .desc{
+	height: 90px;
+	overflow: hidden;
+}
+.filter-box .header h1 span{
+	color: #1C67BF;
+}
+.box .content .loading {
+	height: 140px;
+	background: transparent url(/module/common/images/animate/horizontal-loading.gif) center center no-repeat;
+}
+#content .wrapper .main .box{
+	padding-bottom: 20px;
+	overflow: auto;
+}
+.searchlist em.height-light{
+	color: #F23D00;
+}
+.searchlist em.height-light{
+	color: #F23D00;
+}
+/* 全局搜索页面 筛选条件上面的搜索框 ---start*/
+/* text-overflow: ellipsis;
+overflow: hidden;
+white-space: nowrap; */

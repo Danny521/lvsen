@@ -1,0 +1,45 @@
+{{#if c_body}}
+<div class="select_file cloud-panel">
+        <div class="select_file_title">
+            <h6>选择视图库资源</h6>
+            <a href="javascript:void(0)" title="关闭" class="icon_close close-select-panel"></a>
+        </div>
+        <div class="select_file_body">
+
+            <div id="cloudTree" class="scrollbarPanel">
+                <div class="scrollbar"><div class="track"><div class="thumb"><div class="end"></div></div></div></div>
+                <div class="viewport">
+                    <div class="overview">
+                        <div id="cloudTreePanel" class="treePanel"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="select_file_foot">
+            <input type="checkbox" id="checkAll"/><label for="checkAll" id="checkLabel">全选</label>
+            <a href="javascript:void(0)" title="确定" class="ui button small blue select">确定</a>
+            <a href="javascript:void(0)"  title="取消" class="ui button small cancel">取消</a>
+        </div>
+    </div>
+    <div class="layer cloud-panel-mask"></div>
+{{/if}}
+
+{{#if c_list}}
+<ul>
+	{{#if init}}
+
+		{{#each records}}   
+				<li data-tree-level="{{../level}}" class="{{isChild}}" data-type="{{isChild}}" data-parentid="{{directoryId}}"  data-id="{{id}}" data-cid="{{cid}}" data-name="{{fileName}}" data-filetype="{{fileType}}" data-filesize="{{fileSize}}" data-storagetime="{{storageTime}}" >{{#if ../selectable}}<i class="checkbox {{ ../../selected }}"></i>{{/if}}{{#isTree isChild}}<i class="fold"></i>{{/isTree}}<i class="{{isChild}} {{#eq isChild 'tree'}}file0{{else}}file{{../fileType}}{{/eq}}"></i><span class="name" title="{{fileName}} ">{{fileName}} <a href="javascript:void(0);" title="删除" class="icon_delete"></a></span></li>
+		{{/each}}
+
+	{{else}}
+		
+	{{#each records}}   
+			<li data-tree-level="{{../level}}" class="{{isChild}}" data-type="{{isChild}}" data-parentid="{{directoryId}}" data-id="{{id}}" data-cid="{{cid}}"  data-name="{{fileName}}" data-filetype="{{fileType}}" data-filesize="{{fileSize}}" data-storagetime="{{storageTime}}" >{{#if ../selectable}}<i class="checkbox {{ ../../selected }}"></i>{{/if}}{{#isTree isChild}}<i class="fold"></i>{{/isTree}}<i class="{{isChild}} {{#eq isChild 'tree'}}file0{{else}}file{{../fileType}}{{/eq}}"></i><span class="name" title="{{fileName}} ">{{fileName}} <a href="javascript:void(0);" title="删除" class="icon_delete"></a></span></li>
+	{{/each}}
+
+	{{/if}}
+
+</ul>
+
+{{/if}}

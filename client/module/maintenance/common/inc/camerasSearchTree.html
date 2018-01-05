@@ -1,0 +1,17 @@
+<ul>
+    <li class="tree root active" data-tree-level="1" data-loaded="1" >
+        <i class="fold unbind"></i>
+        <i class="{{isRoot isRoot}}"></i>
+        <span class="name" title="{{name}}">{{name}}</span>
+        <ul>
+        {{#each cameras}}
+            <li data-tree-level="2" class="leaf {{hasNoRight score}}" data-camerascore="{{score}}" data-type="leaf" data-res="camera" data-org="{{orgId}}" data-cameratype="{{cameraType}}" data-id="{{cameraId}}" data-name="{{cameraName}}" data-ip="{{pvgIp}}" data-path="{{cameraNo}}" data-port="{{pvgPort}}" data-status="{{status}}">
+				<span class="camearstatus" style="color:#{{statusToColor status}};" data-status="{{pollingresult status}}">{{pollingresult status}}</span>
+				<!--<i class="checkbox "></i>-->
+				<i class="camera0 {{isBall cameraType}} {{isHD hdsdType}}"></i>
+				<span class="name" title="{{cameraName}}">{{cameraName}}{{hasNo cameraCode}}</span>
+			</li>
+        {{/each}}
+        </ul>
+    </li>
+</ul>

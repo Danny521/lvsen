@@ -1,0 +1,155 @@
+{
+	"code":200,
+	"data":{
+        "count":1,
+		"message":"成功",
+		"tasks":[{
+			"id":1234,
+			"name":"人脸任务001",
+			"type":1,
+			"status": 1
+		}, {
+			"id":1235,
+			"name":"人脸任务002",
+			"type":1,
+			"status": 0
+		},{
+			"id":1236,
+			"name":"人脸任务003",
+			"type":1,
+			"status": 2
+		}],
+		"task":{
+			"id":1234,
+			"taskName" : "人脸任务001",
+			"taskType" : "人脸布控",
+			"taskStatus" : "布控中",
+			"libraries" : [
+				{"libId" : "35", "libraryName" : "逃犯人员库", "isChecked": true }, 
+				{"libId" : "36", "libraryName" : "涉恐人员库", "isChecked": false}
+				],
+			"camaras" : [1,2,3,4,5,6,7],
+			"startTime" : "2014.09.26 08:00",
+			"endTime" : "2014.09.27 10:00"
+		},
+		"cameras": [{
+                "id": 3,
+                "name": "市局高清测试17_174_1",
+                "type": "camera",
+                "camera_status": 0,
+                "cameraCode": null,
+                "camera_type": 0,
+                "longitude": 121.42397186,
+                "latitude": 31.21236006,
+                "installType": 1,
+                "installAddress": null,
+                "hd_channel": [],
+                "sd_channel": []
+            },{
+                "id": 4,
+                "name": "市局高清测试17_174_1",
+                "type": "camera",
+                "camera_status": 0,
+                "cameraCode": null,
+                "camera_type": 0,
+                "longitude": 121.42848163,
+                "latitude": 31.2160797,
+                "installType": 1,
+                "installAddress": null,
+                "hd_channel": [],
+                "sd_channel": [
+                    {
+                        "id": 1,
+                        "ip": "192.168.60.106",
+                        "port": 2100,
+                        "username": "admin",
+                        "password": "admin",
+                        "av_obj": "av/nvr/50101017",
+                        "channel_status": 0,
+                        "channel_type": 0,
+                        "pvg_group_id": 3
+                    }
+                ]
+            },{
+                "id": 5,
+                "name": "大华高清测试140_1",
+                "type": "camera",
+                "camera_status": 0,
+                "cameraCode": null,
+                "camera_type": 0,
+                "longitude": 121.43545476,
+                "latitude": 31.22113684,
+                "installType": 1,
+                "installAddress": null,
+                "hd_channel": [],
+                "sd_channel": [
+                    {
+                        "id": 2,
+                        "ip": "192.168.60.106",
+                        "port": 2100,
+                        "username": "admin",
+                        "password": "admin",
+                        "av_obj": "av/nvr/50101025",
+                        "channel_status": 0,
+                        "channel_type": 0,
+                        "pvg_group_id": 3
+                    }
+                ]
+            }],
+        "libraries":[{
+            "id":1234,
+            "name":"涉恐人员库",
+            "threshold ": 600
+        },{
+            "id":1235,
+            "name":"在逃人员库",
+            "threshold": 600
+        }],
+        "personnels":[{
+            "id":1234,
+            "name":"张三",
+            "gender":"男",
+            "certificateType": "身份证",
+            "certificateNum":"61022213558844",
+            "threshold":"600"
+        },{
+            "id":1235,
+            "name":"李梅",
+            "gender":"女",
+            "certificateType": "军官证",
+            "certificateNum":"885596",
+            "threshold":"600"
+        }],
+        "defenceCameras":[{
+            "id":1,
+            "cameraName":"摄像机1",
+            "cameraCode":"00000001",
+            "org":"组织机构",
+            "time":"2014-10-11 9:53:00",
+            "person":"张三"
+        },{
+            "id":2,
+            "cameraName":"摄像机2",
+            "cameraCode":"00000002",
+            "org":"组织机构",
+            "time":"2014-10-11 9:53:00",
+            "person":"张三"
+        },{
+            "id":3,
+            "cameraName":"摄像机3",
+            "cameraCode":"00000003",
+            "org":"组织机构",
+            "time":"2014-10-11 9:53:00",
+            "person":"张三"
+        },{
+            "id":4,
+            "cameraName":"摄像机4",
+            "cameraCode":"00000004",
+            "org":"组织机构",
+            "time":"2014-10-11 9:53:00",
+            "person":"张三"
+        }]
+
+	}
+}
+

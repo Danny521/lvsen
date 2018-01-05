@@ -1,0 +1,46 @@
+<div class="joint-setting head-setting">
+	<div class="setting-items">
+
+		<form action="" method="post" id="timegroupsetform">
+			<input type="hidden" value="{{watchid}}" id="watchid" name="watchid">
+			<div class="setting-item">
+				<div class="item-header">
+					<span class="name" title="{{groupName}}">{{groupName}}</span>
+					<span class="time-tip">停留时间(秒)：</span>
+					<input type="text" value="{{stopTime}}" name="stopTime"/>
+				</div>
+				<ul id="itemwrapper">
+					{{#each times}}
+					<li>
+						<div class="setting-content">
+							<div class="item-body">
+								<span class="item-title">启动时间：</span>
+								<input type="text" value="{{startTime}}"  class="input-filed" name="startTime"/>
+							</div>
+							<div class="item-body">
+								<span class="item-title">结束时间：</span>
+								<input type="text" value="{{endTime}}" class="input-filed" name="endTime"/>
+							</div>
+							<div class="item-body">
+								<span class="item-title">等&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;级：</span>
+								<select class="input-filed" name="level">
+									<option value="1">1(最高)</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
+								</select>
+								<input type="hidden" disabled value="{{level}}" class="level-value">
+							</div>
+							<div class="action">
+								<a href="#" data-id="{{id}}" title="删除监巡组">删除</a>
+							</div>
+						</div>
+						<input type="hidden" class="timegroupid" value="{{id}}">
+					</li>
+					{{/each}}
+				</ul>
+			</div>
+		</form>
+	</div>
+</div>

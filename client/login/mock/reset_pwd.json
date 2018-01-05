@@ -1,0 +1,16 @@
+{
+	"code": 200,
+	"data": {
+		"message": "成功",
+		"org": {
+			"id": 1,
+			"isChild": "tree",
+			"name": "淮安市公安局",
+			"parentId": 0
+		},
+		"password": "e59cf56e33f978124da804b7e12c0d53",
+		"url": "/",
+		"userId": 1,
+		"username": "admin"
+	}
+}

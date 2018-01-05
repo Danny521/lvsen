@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=10,chrome=1"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<title>视云实战平台</title>
+	<!--[if lt IE 9]>
+	<script src="/libs/html5/html5.js"></script>
+	<![endif]-->
+
+	<link type="text/css" rel="stylesheet" href="/module/common/css/base.css" />
+	<link type="text/css" rel="stylesheet" href="/libs/semantic/semantic.css" />
+	<link type="text/css" rel="stylesheet" href="/libs/jquery/jquery-ui.css">
+	<link type="text/css" rel="stylesheet" href="/libs/jquery/jquery.pagination.css"/>
+	<link type="text/css" rel="stylesheet" href="css/tree.css" />
+	<link type="text/css" rel="stylesheet" href="css/pub.css"/>
+	<link type="text/css" rel="stylesheet" href="css/registerMain.css"/>
+	<link type="text/css" rel="stylesheet" href="css/cameraCtr.css"/>
+	<link type="text/css" rel="stylesheet" href="css/monitor-monitorSystem.css"/>
+	<link type="text/css" rel="stylesheet" href="css/point.css"/>
+</head>
+<body>
+	<div id="content">
+		<!--下拉列表等浮动层-->
+		<div class="pubdiv" data-type="">
+			<ul></ul>
+		</div>
+		<div class="wrapper">
+			<aside id="sidebar">
+				<div id="aside">
+					<div class="tab-panel">
+						<div class="tab-header">
+							<div data-hview = "monitor-system" class="active"> <i class="icons-monitor-system"></i>
+							</div>
+							<div data-hview = "point-control" > <i class="icons-point-control"></i><span>点位</span>
+							</div>
+							<div data-hview = "camera-control" class="camera-control"><i class="icons-camera-control"></i><span>摄像机</span>
+							</div>
+						</div>
+						<div class="tabs">
+							<ul>
+								<li data-tab="monitor-system" class=" monitorSystem active"><i class="icon-monitor-system" title="监控系统"></i></li>
+								<li data-tab="point-control" class="pointControl"><i class="icon-point-control" title="点位"></i></li>
+								<li data-tab="camera-control" class="cameraControl "><i class="icon-camera-control" title="摄像机"></i></li>
+							</ul>
+						</div>
+						<div class="tab-content">
+							<!-- 组织树 -->
+                            <div data-view="camera-control">
+                                <div class="tree-search">
+                                    <input id="registSearchInput" class="searchInput" type="text" placeholder="全局搜索..." name="q" autocomplete="off">
+                                    <button id="registSearchInput" class="searchBtn" title="搜索"></button>
+                                </div>
+                                <div class="tree-container">
+                                    <div class="statScrollbarPanel">
+                                        <div class="viewport">
+                                            <div class="overview">
+                                                <div class="treePanel registree">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                             <!-- 点位组织树 -->
+                            <div data-view="point-control">
+                                 <div class="tree-search">
+                                    <input id="pointSearchInput" class="searchInput" type="text" placeholder="全局搜索..." name="q" autocomplete="off">
+                                    <button id="pointSearchInput" class="searchBtn" title="搜索"></button>
+                                </div>
+                                <div class="tree-container">
+                                    <div class="hisScrollbarPanel">
+                                        <div class="viewport">
+                                            <div class="overview">
+                                                <div class="treePanel regisPointree">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+						
+						
+						</div>
+					</div>
+				</div>
+			</aside>
+			<div class="commonLayer"></div>
+			<div class="monitorDialog logOffDialog">
+                <div class="monitorDialogTitle">
+                    <h2>注销<em class="logoutName"></em>系统</h2>
+                    <div class="cancleDialog" data-event="click" data-handler="cancleCreate"></div>
+                </div>
+                <div class="formEditOutter formEditOuter">
+                    <form class="formEdit editMonitor" action="" method="" onsubmit="return false">
+                        <fieldset>
+                            <label for="why">注销原因：</label>
+                        <textarea  name="why" class="reasonTextArea" type="text" placeholder="请输入注销原因" 
+                          value=""></textarea>
+                        </fieldset>
+                        <fieldset class="">
+                            <button class="primaryBtn ui button blue" onsubmit="return false" data-event="click"
+                                    data-handler="monitorSystemLogOffComfirm">确认注销
+                            </button>
+                            <button class="ui button cancleBtn" data-event="click" data-handler="cancleCreate">取消</button>
+                        </fieldset>
+                    </form>
+                </div>
+       		</div>
+			<div class="import-model">
+				<div class="import-model-title">
+					<span>批量导入</span><i class="icon-close-btn" data-event="click" data-handler="CancelImport"></i>
+				</div>
+				<div class="import-step">
+					<ul>
+						<li class="load-model">
+							<i class="icon-cloudload"></i><span>步骤一：请点击右侧按钮，下载模板<input type="button"  class="ui button blue loadUploadTemp" value="下载模板"  data-event="click" data-handler="loadExcelTemp" /></span>
+							<p>注：其中设备名称，基层接入单位编号，行业编码属必填项</p>
+						</li>
+						<li class="input-number ui input">
+							<i class="icon-import-number"></i><span>步骤二：</span>
+							<p><label>请输入区级编号：<input type="text" value="" maxlength = "2" class="orginCode" data-event="focus change" data-handler="resetForm" /></label></p>
+						</li>
+						<li class="import-excel">
+							<i class="icon-write-excel"></i><span>步骤<em class="step">三</em>：请导入填写完成的Excel文件</span>
+							<p><span class="ui input"><input type="text" id="aa" class="excel-name" value="" /></span><input type="button" class="ui button blue"  id="chooseLocalFile" value="浏览" /></p>
+						</li>
+					</ul>
+					<div class="import-cancel">
+						<input type="button" class="ui button blue"  value="上传"  data-event="click" data-handler="upLoadImport" />
+						<input type="button" class="ui button " id="d" value="取消"  data-event="click" data-handler="CancelImport" />
+					</div>
+				</div>
+			</div>
+			<iframe src="" class="loadExcelTemp" width="0" height="0"></iframe>
+			<div id="major">
+				<div class="uploading">
+					<div class="loadingPart"></div>
+				</div>
+				<div class="uploadSuccess">
+					<div class="successPart"></div>
+				</div>
+				<div class="uploadError">
+						<div class="errorPart"></div>
+						<span class="ui button blue refreshBtn" data-event="click" data-handler="refresh" >重新上传</span>
+				</div>
+				<div class="monitor-system active">
+					<div class="breadcrumb">
+						<span>监控系统</span>
+					</div>
+				</div>
+				<div class="point-control">
+				
+					<div class="breadcrumb">
+					</div>
+					<div class="point-view">
+
+						<div class="judge-enter-library" >
+							<ul>
+								<li class="enter-library enter-select current" data-loadtype ="entered" data-event="click" data-handler="LoadEnterList">进入平台数据</li>
+								<li class="icon-cut-off"></li>
+								<li class="no-enter-library enter-select"  data-loadtype ="unentered" data-event="click" data-handler="LoadNoEnterList">未进入平台数据</li>
+							</ul>
+						</div>
+
+						<div class="point-controlpart">
+							<div class="point-search-add">
+								<label class="searchPointstatus">状态:</label>
+								<span class="select_wrapper pointStatus" >
+								    <span class="select2 select_container" data-event="click" data-handler="SearchPointstatus">
+								        <span class="text " data-value="">全部</span>
+								        <span class="arrow arrow-down" ></span>
+								    </span>
+								</span>
+								<span class="left-search-panel ui input">
+									<label>查询点位:</label>
+									<span class="select_wrapper pointSelect" >
+									    <span class="select2 select_container" data-event="click" data-handler="SearchPointSelect">
+									        <span class="text sel" data-value="点位编号">点位编号</span>
+									        <span class="arrow arrow-down" ></span>
+									    </span>
+									</span>
+									<input type="text" id="search-key" maxlength="20" placeholder="请输入关键字" />
+									<span class="question-span">
+										<i class="icon-question" data-event="click" data-handler="Question"></i>
+										<!-- 问题解答 -->
+										<div class="question-answer" style="display:none">
+											<span class="editReminderSpan"></span>
+											<div class="questionTitle">命名规则</div>
+											<div class="answerContent">该功能是一种统计滤波方法，以当前像素点为中心指定一个窗口，然后以窗口内像素的统计中间值代替当前点的像素值。特别适用于处理含有椒盐噪声的图像</div>
+										</div>
+									</span>
+
+									<i class="icon-search" data-event="click" data-handler="Search"></i>
+								</span>
+								<span class="right-add">
+										<span>共<em class="totalRecords"></em>条记录</span>
+						                <input type="button" class="enter-library-btn ui button blue hidden permission permission-point-batch-enter" value="进入平台" id="EnterLibraryBtn" data-event="click" data-handler="EnterLibrary"/>
+									    <input type="button" class="create-point-btn ui button blue permission permission-point-new" value="新建点位" id="CreatePointBtn" data-event="click" data-handler="CreatePoint"/><!--   -->
+										<input type="button" class="import-btn ui button permission permission-point-excel-import" value="批量导入" id="BatchEnterBtn" data-event="click" data-handler="ImportPoint"/><!--   -->
+								</span>
+							</div>
+						</div>
+						<div class="tablePanel">
+							<table class="point-library">
+								<tr class="table-header">
+									<th class="checkbox-h"  width="2%" style="display:none;">
+										<i class="icon-nochecked" data-event="click" data-handler="CheckAll"></i>
+									</th>
+									<th class="pointNum-h" width="5%">点位编号</th>
+									<th class="pointName-h" width="10%">点位名称</th>
+									<th class="pointAddress-h" width="10%">点位位置</th>
+									<th class="department-h" width="10%">所属部位</th>
+									<th class="longitude-h" width="7%">点位经度</th>
+									<th class="latitude-h" width="7%">点位纬度</th>
+									<th class="pointHeight" width="5%">点位海拔</th>
+									<th class="roadTowards-h" width="8%">路段走向</th>
+									<th class="linkman-h" width="6%">联系人</th>
+									<th class="tel-h" width="8%">联系电话</th>
+									<th class="companyName-h" width="8%">管辖单位名称</th>
+									<th class="pointState" width="6%">状态</th>
+									<th class="opera-btn-h" width="10%">操作</th>
+								</tr>
+					
+							</table>
+							<!-- 显示分页栏 -->
+							<div class="pagination"></div>
+						</div>
+						
+					</div>
+					
+					<!-- 新建 -->
+					<div class="createPoint">
+						
+					</div>
+					<!-- 编辑 -->
+					<div class="editPoint">
+					</div>
+
+				</div>
+				<div class="camera-control">
+					<!--面包导航-->
+					<div class="breadcrumb">
+					
+					</div>
+					<!--end-->
+					<!--主页内容-->
+					<div id="mainContent">
+						<!-- 头部搜索业务-->
+						<div class="selectPanel">
+							<div class="searchp1">
+								
+								<div class="commonSearch">
+									<label>设备用途：</label>
+									<span class="commonPart big" data-event="click" data-pubtype="devicePurpose" data-handler="loadPubData"><span class="searchUseTitle" data-code="">请选择</span><i class="icon-arrow"></i></span>
+								</div>
+								<div class="commonSearch">
+									<label>设备类型：</label>
+									<span class="commonPart big" data-event="click" data-pubtype="deviceType" data-handler="loadPubData"><span class="deviceType" data-code="">请选择</span><i class="icon-arrow"></i></span>
+
+								</div>
+							</div>
+							<div class="searchp1">
+								<div class="commonSearch">
+									<label>设备分类：</label>
+									<span class="commonPart" data-event="click" data-pubtype="deviceClassify"  data-handler="loadPubData"><span class="searchManageType"  data-code="">请选择</span><i class="icon-arrow"></i></span>
+								</div>
+								<div class="commonSearch">
+									<label>设备厂家：</label>
+									<span class="commonPart" data-event="click" data-pubtype="deviceManufacturer" data-handler="loadPubData"><span class="searchManageFactory" data-code="">请选择</span><i class="icon-arrow"></i></span>
+								</div>
+							</div>
+							<div class="searchp1">
+								<div class="commonSearch">
+									<label>监控类型：</label>
+									<span class="commonPart" data-event="click" data-pubtype="monitorType" data-handler="loadPubData"><span class="monitorType" data-code="">请选择</span><i class="icon-arrow"></i></span>
+								</div>
+								<div class="commonSearch">
+									<label>安装位置：</label>
+									<span class="commonPart" data-event="click" data-pubtype="devicePurpose" data-handler="loadPubData"><span class="position" data-code="">请选择</span><i class="icon-arrow"></i></span>
+								</div>
+							</div>
+							<div class="searchp1">
+								<div class="commonSearch">
+									<label>是否可控：</label>
+									<span class="commonPart small" data-event="click" data-pubtype="isControl" data-handler="loadPubData"><span class="iscontroll" data-code="">请选择</span><i class="icon-arrow"></i></span>
+
+								</div>
+								<div class="commonSearch">
+									<label>所属警种：</label>
+									<span class="commonPart small" data-event="click" data-pubtype="policeDept" data-handler="loadPubData"><span class="orginDepartment" data-code="">请选择</span><i class="icon-arrow"></i></span>
+								</div>
+								
+							</div>
+							<div class="searchp1">
+								<div class="commonSearch hideStatusPart">
+									<label>状态：</label>
+									<span class="commonPart last" data-event="click" data-pubtype="status" data-handler="loadPubData"><span class="cameraStatus" data-code="">全部</span><i class="icon-arrow"></i></span>
+								</div>
+								<div class="commonSearch">
+									<button class="ui button blue searchBtn" data-event="click" data-handler="searchMachData">查询</button>
+								</div>
+							</div>
+						</div>
+						<!--end-->
+						<!-- 中间tab切换以及按钮业务-->
+						<div class="midleCtrPart">
+							<div class="tabPanel">
+								<span class="tabinner active" data-event="click" data-handler="loadPlatformData" data-loadtype="entered">进入平台数据</span>
+								<span class="tabinner" data-event="click" data-handler="loadPlatformData" data-loadtype="unentered">未进入平台数据</span>
+							</div>
+							<div class="btnPanel">
+								<span class="totalShow">共<em class="totalNum">0</em>条记录</span>
+								<span class="ui button blue newCameraData permission permission-camera-new" data-event="click" data-handler="newCameraData">新建</span>
+								<span class="ui button blue enterPlatform hidden permission permission-camera-batch-enter" data-event="click" data-handler="enterPlatform">进入平台</span>
+								<span class="ui button bulkImport permission permission-camera-excel-import" data-event="click" data-handler="bulkImport">批量导入</span>
+							</div>
+						</div>
+						<!--end-->
+						<!---table表-->
+						<div class="tablePart">
+							<div class="enterPlatTable">
+								<table id="enterTab">
+								  <thead>
+								  	<th width="15%">设备名称</th>
+								  	<th width="10%">设备编号</th>
+								  	<th width="15%">监控系统名称</th>
+								  	<th width="8%">设备类型</th>
+								  	<th width="8%">设备厂家</th>
+								  	<th width="15%">监控类型</th>
+								  	<th width="10%">设备管理单位名称</th>
+								  	<th width="5%">状态</th>
+								  	<th width="9%">操作</th>
+								  </thead>
+								  <tbody class="dataInsert">
+								  </tbody>
+								</table>	
+							</div>
+							<div class="unenterPlatTable hidden">
+								<table id="unenterTab">
+								<thead>
+								  	<th width="5%"><i class="icon-checkbox"  data-event="click" data-handler="checkedAllTr"></i></th>
+								  	<th width="13%">设备名称</th>
+								  	<th width="10%">设备编号</th>
+								  	<th width="13%">监控系统名称</th>
+								  	<th width="8%">设备类型</th>
+								  	<th width="8%">设备厂家</th>
+								  	<th width="10%">监控类型</th>
+								  	<th width="18%">设备管理单位名称</th>
+								  	<th width="5%">状态</th>
+								  	<th width="12%">操作</th>
+								</thead>
+							  	<tbody class="dataInsert">
+							   	</tbody>
+								</table>
+							</div>
+							<div class="pagepart"></div>
+						</div>
+					</div>
+					<!--end-->
+					<!--新建编辑内容-->
+					<div id="doNewEditPanel"  class="hidden">
+					</div>
+					<!--end-->
+					<!--查看详情页面-->
+					<div id="showDetail" class="hidden">
+					</div>
+					<!--end-->
+
+				</div>
+
+			</div>
+			
+		</div>
+	</div>
+<script type="text/javascript" src="/libs/requirejs/require.js" data-main="/require-conf"></script>
+<script type="text/javascript">
+ 	require(['./js/main.js']);
+</script>
+</body>
+</html>

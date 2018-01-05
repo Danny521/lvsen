@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title></title>
+    <!--[if lt IE 9]><script src="/libs/html5/html5.js"></script><![endif]-->
+
+    <link type="text/css" rel="stylesheet" href="/module/common/css/base.css" />
+    <link type="text/css" rel="stylesheet" href="css/login.css" />
+    <link type="text/css" rel="stylesheet" href="/login/notice/notice.css" />
+    <!--解决ie6下png背景图片透明, add by zhangyu, 2015.02.07-->
+    <!--[if IE 6]>
+    <script src="notice/ie6background.js"></script>
+    <script> DD_belatedPNG.fix('.pngfix'); </script>
+    <![endif]-->
+</head>
+<body>
+    <a href="../../product.html" target="_blank" class="help"></a>
+    <a href="javascript:void(0)" class="about"></a>
+    <!-- 页面登陆_Login_@Start-->
+    <!-- <div class="top pngfix"></div> -->
+    <div class="login-warn-bg" id="loginWarn">
+        <div class="login-warn-window animat-enlarge" id="loginWarnMsg">
+            <h3 class="login-warn-title">提示信息</h3>
+            <button class="login-btn" id="setPassBtn" >设置密码</button>
+            <button class="login-warn-close" id="loginWarnCls"></button>
+        </div>
+        <ul class="login-set-pass animat-enlarge" id="setPass">
+            <li><h3 class="login-warn-title">设置密码</h3></li>
+            <li class="login-set-li"><label for="oldPass">您的旧密码：</label><input type="password" name="" id="oldPass"><span id="oldPassChk"></span></li>
+            <li class="login-set-li"><label for="newPass">您的新密码：</label><input type="password" name="" id="newPass"><span id="newPassFst"></span></li>
+            <li class="login-set-li"><label for="repeatPass">重复新密码：</label><input type="password" name="" id="repeatPass"><span id="newPassRpt"></span></li>
+            <li><button class="login-btn" id="savePass">保　存</button></li>
+            <li><button class="login-warn-close" id="setPassCls"></button></li>
+        </ul>
+    </div>
+    <div class="login">
+        <!-- <span class="pngfix"></span> -->
+        <h6 class="pngfix"></h6>
+        <div class="login_cont">
+            <form id="login" method="post" onsubmit="return false;">
+                <div class="login_name" style="display: none">
+                    <ol>
+                        <li class="username-filed current">
+                            <label></label>
+                            <input type="text" class="login-input" name="username" id="username" maxlength="50" placeholder="请输入用户名"/>
+                        </li>
+                        <li class="password-filed">
+                            <label></label>
+                            <input type="password" class="login-input" id="password" name="password"  maxlength="20" placeholder="请输入密码"/>
+                        </li>
+                    </ol>
+                    <input type="submit" class="login-submit" value="登录"/>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footer_cont">
+            <img src="images/logo.png">
+        </div>
+    </div>
+    <script type="text/javascript" data-main="js/main" src="/libs/requirejs/require.js"></script>
+</body>
+</html>

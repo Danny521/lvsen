@@ -1,0 +1,90 @@
+{{#if groups}}
+    {{#if list.defenseCircleGroups.length}}
+        {{#each list.defenseCircleGroups}}
+        <div class="route-team np-circle-group-item" data-id="{{id}}" data-nam="{{name}}">
+            <div class="route-team-header" data-event="click" data-handler="ShowHideCircles">
+                <i class="route-team-status"></i>
+                <span class="route-team-name" title="{{name}}">{{name}}</span>
+                <span class="route-team-number">( <em>{{count}}</em> )</span>
+                <div class="route-team-button">
+                    <button class="route-team-add np-sidebar-click np-defence-circle-new np-first init" type="button" data-mark="defence-circle-new" data-dom="#sidebar-body" data-event="click" data-handler="AddNewCircle"></button>
+                    <button class="route-team-editor" type="button"></button>
+                    <button class="route-team-delete" data-event="click" data-handler="DeleteCircleGroup" type="button"></button>
+                </div>
+                <form class="route-team-form" onsubmit="return false;">
+                    <input class="route-team-form-name" maxlength="30" data-event="click" data-handler="ModifyGroupNameFocus" />
+                    <button class="blue-button save-button" data-event="click" data-handler="SaveEditGroupName" type="submit">保存</button>
+                    <button class="white-button cancle-button" type="button">取消</button>
+                </form>
+            </div>
+            <ul class="route-team-body">
+            </ul>
+        </div>
+        {{/each}}
+    {{else}}
+    <p class="no-result-style">暂没有分组数据。</p>
+    {{/if}}
+{{/if}}
+
+{{#if circles}}
+    {{#if list.defenseCircles.length}}
+        {{#each list.defenseCircles}}
+        <li class="clearfix circle-item" data-id="{{id}}" data-name="{{name}}" data-pointinfo="{{pointInfo}}" data-description="{{description}}" data-color="{{color}}" data-zoom="{{zoom}}" data-distance="{{distance}}" data-bufferpoint="{{bufferPoint}}">
+            <div class="route-team-info" data-event="click" data-handler="ShowHideCameras">
+                <span><b class="checkbox"></b></span>
+                <span class="route-team-text" title="{{name}}">{{name}}</span>
+                <div class="camera-operate-icon">
+                    <button class="camera-set np-defence-circle-new " data-event="click" data-id="{{id}}" data-groupid="{{groupId}}" data-handler="EditCircle" type="button" ></button>
+                    <button class="camera-delete" data-event="click" data-handler="DeleteCircle" type="button"></button>
+                </div>
+            </div>
+        </li>
+        {{/each}}
+    {{else}}
+    <p class="no-result-style">该分组下暂没有防控圈。</p>
+    {{/if}}
+{{/if}}
+
+{{#if cameraList}}
+    <div class="defence-camera-list">
+        <i class="arrow"></i>
+        <ul>
+            {{#if data.defenseCircle.cameras.length}}
+                {{#each data.defenseCircle.cameras}}
+                <li class="camera-item clearfix np-circle-camera-item"  data-latitude ="{{latitude}}" data-longitude="{{longitude}}" data-sdchannel="{{translate sd_channel}}" data-hdchannel="{{translate hd_channel}}" data-type="{{camera_type}}" data-name="{{name}}" data-code="{{cameraCode}}" data-cstatus="{{camera_status}}" data-id="{{id}}" data-installtype='{{installType}}' data-score='{{score}}'>
+                    <i class="ico {{#cameraStatusAndTypeByChannels hd_channel sd_channel  camera_type score}}{{/cameraStatusAndTypeByChannels}}"></i>
+                    <span class="name" title="{{name}}">{{name}}</span>
+                    <div class="camera-item-button clearfix">
+                        <i class="camera-play permission permission-real-time-view" title="播放实时视频" data-event="click" data-handler="PlayCamera"></i>
+                        <i class="camera-defence permission permission-set-defence-task" title="布防设置" data-event="click" data-handler="AddDefence"></i>
+                        <i class="camera-twtall permission permission-sendto-tvwall" title="发送到电视墙" data-event="click" data-handler="SendToWall"></i>
+                    </div>
+                </li>
+                {{/each}}
+            {{else}}
+            <p class="no-result-style">此防控圈暂没有摄像机。</p>
+            {{/if}}
+        </ul>
+    </div>
+{{/if}}
+
+{{#if showSearch}}
+<ul class="search-business-result">
+    {{#if list.defenseCircles.length}}
+        {{#each list.defenseCircles}}
+        <li class="clearfix circle-item business-result-item" data-id="{{id}}" data-name="{{name}}" data-pointinfo="{{pointInfo}}" data-description="{{description}}" data-color="{{color}}" data-zoom="{{zoom}}" data-distance="{{distance}}" data-bufferpoint="{{bufferPoint}}">
+            <div class="result-info" data-event="click" data-handler="ShowHideCameras">
+                <span><b class="checkbox"></b></span>
+                <span class="search-business-result-text" title="{{name}}">{{name}}</span>
+                <div class="camera-operate-icon">
+                    <button class="camera-set" data-event="click" data-id="{{id}}" data-groupid="{{groupId}}" data-handler="EditCircle" type="button"></button>
+                    <button class="camera-delete" data-event="click" data-handler="DeleteCircle" type="button"></button>
+                </div>
+            </div>
+        </li>
+        {{/each}}
+    {{else}}
+    <p class="no-result-style">没有查询到符合的防控圈。</p>
+    {{/if}}
+</ul>
+{{/if}}

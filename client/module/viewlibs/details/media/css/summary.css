@@ -1,0 +1,142 @@
+.common-dialog  .wrapper {
+    width:auto;
+    min-width:0;
+}
+
+.c-header{
+	padding: 10px;
+	background: #ddd;
+	font-size: 18px;
+	margin-bottom: 10px;
+}
+.c-content{
+	width: 700px;
+	margin:0 auto;
+	background: #ccc;
+}
+
+.video-block{
+    height: 60px;
+    margin-top: -3px;
+}
+.video-detail{
+	margin-top: -1px;
+}
+.video-block .progress-bg{
+	height:5px;
+	background-color:#222426;
+}
+.video-block .progress-bar{
+	position: relative;
+    height: 5px;
+    background: #9199A1;
+    cursor: pointer;
+}
+.video-block .progress-bar .bullet{
+	position: relative;
+    height: 5px;
+    background-color: #58636E;
+    width: 0px;
+    overflow: visible !important;/* 抵消动画时自动添加的overflow: hidden */
+}
+.video-block .progress-bar .bullet i.play-point{
+	position: absolute;
+	right: -10px;
+	height: 18px;
+	width: 19px;
+	background: url(/module/common/images/playerbtn/point.png) no-repeat;
+	top: -6px;
+}
+.video-block .progress-bar i.start-mark{
+	position: absolute;
+	height: 15px;
+	left: 38px;
+	width: 6px;
+	background: url(/module/common/images/playerbtn/play-before.png) no-repeat;
+	top: -4px;
+    display: none;
+}
+.video-block .progress-bar i.end-mark{
+	position: absolute;
+	height: 15px;
+	left: 50px;
+	width: 6px;
+	background: url(/module/common/images/playerbtn/play-after.png) no-repeat;
+	top: -4px;
+    display: none;
+}
+.video-block .panel{
+    height: 50px;
+    background: url(/module/common/images/playerbtn/bg.png) repeat-x;
+}
+.video-block .speed{
+	display: none;
+}
+.video-block .time,.video-block .speed{
+    line-height: 50px;
+    font-size: 13px;
+    color: #ffffff;
+    margin-left: 10px;
+}
+.video-block .panel span{
+    height: 50px;
+}
+.video-block .rewind{
+    background: url(/module/common/images/playerbtn/rewind.png);
+    width: 42px;
+    float: right;
+}
+.video-block .rewind:hover{
+    background: url(/module/common/images/playerbtn/rewind-hover.png);
+}
+.video-block .switch{
+    background: url(/module/common/images/playerbtn/play.png);
+    width: 44px;
+    float: right;
+}
+.video-block .switch.active{
+    background: url(/module/common/images/playerbtn/pause-hover.png);
+    width: 44px;
+    float: right;
+}
+.video-block .switch.active:hover{
+    background: url(/module/common/images/playerbtn/pause.png);
+    width: 44px;
+    float: right;
+}
+.video-block .switch:hover{
+    background: url(/module/common/images/playerbtn/play-hover.png);
+}
+.video-block .stop{
+    background: url(/module/common/images/playerbtn/stop.png);
+    width: 39px;
+    float: right;
+    margin-right: 200px;
+}
+.video-block .stop:hover{
+    background: url(/module/common/images/playerbtn/stop-hover.png);
+}
+.video-block .forward{
+    background: url(/module/common/images/playerbtn/forward.png);
+    width: 39px;
+    float: right;
+}
+.video-block .forward:hover{
+    background: url(/module/common/images/playerbtn/forward-hover.png);
+}
+.video-block .grab{
+    background: url(/module/common/images/playerbtn/grab.png);
+    width: 45px;
+    float: right;
+}
+.video-block .grab:hover{
+    background: url(/module/common/images/playerbtn/grab-hover.png);
+}
+.video-block .fullwin{
+    background: url(/module/common/images/playerbtn/fullwin.png);
+    width: 45px;
+    float: right;
+}
+.video-block .fullwin:hover{
+    background: url(/module/common/images/playerbtn/fullwin-hover.png);
+}

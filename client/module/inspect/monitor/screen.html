@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+	<meta charset="utf-8" />
+	<title>视云实战平台-扩展屏</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=10,chrome=1"/>
+	<meta http-equiv="cache-control" content="no-cache, must-revalidate">
+	<!--[if lt IE 9]><script src="/assets/js/lib/html5.js"></script><![endif]-->
+
+	<link type="text/css" rel="stylesheet" href="../../common/ptz/control.css" />
+	<link type="text/css" rel="stylesheet" href="../../common/css/base.css" />
+	<link type="text/css" rel="stylesheet" href="../../../libs/semantic/semantic.css" />
+	<link type="text/css" rel="stylesheet" href="css/screen.css" />
+</head>
+
+<body>
+	<div id="content">
+		<div class="wrapper user-select" onselectstart="return false;">
+			<div id="major">
+				<div id="ocxPanel" class="panel">
+					<div class="header">
+						<h3 class="title">监控画面</h3>
+						<div class="ui atached menu">
+							<a class="item">
+								<i class="icon gpu startGPU" title="开启GPU硬解"></i>
+							</a>
+							<a class="item">
+								<i class="icon fullscreen" title="全屏"></i>
+							</a>
+							<a class="item last-child">
+								<i class="icon split" title="4分屏"></i>
+							</a>
+							<a class="item">
+								<i class="icon close" title="关闭全部"></i>
+							</a>
+						</div>
+						<div class="function-container">
+							<iframe src="about:blank" class="function-panel" src="about:blank" scrolling="no" border=0 frameborder=0 height='0'></iframe>
+							<div id="selectPanel">
+								<div class='split-panel'>
+									<i class='layout split1' data-layout='1' title='1分屏'></i>
+									<i class='layout split4 permission permission-four-channel permission-nine-channel permission-sixteen-channel' data-layout='4' title='4分屏'></i>
+									<i class='layout split9 permission permission-nine-channel permission-sixteen-channel' data-layout='9' title='9分屏'></i>
+									<i class='layout split16 permission permission-sixteen-channel' data-layout='16' title='16分屏'></i>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="body">
+						<div class="screen" data-isMaximize='0'>
+							<!--新增鼠标滑过按钮-->
+							<div id="videoControl" class="video-control">
+								<iframe id="upBlock" class="up-block" src="javascript:;" scrolling="no" border=0 frameborder=0 height='40'></iframe>
+								<div id="upBlockContent">
+									<span class='video-title'></span>
+									<span id='streamMonitor'></span>
+									<span class='tools-up'>
+										<i class='gpu startGPU' title="开启GPU硬解"></i>
+										<i class='close' title="关闭"></i>
+									</span>
+								</div>
+								<iframe id="downBlock" class="down-block" src="javascript:;" scrolling="no" border=0 frameborder=0></iframe>
+								<div id="downBlockContent">
+									<span class='tools-dwon'>
+										<i class='full-screen' title="单屏"></i>
+									</span>
+								</div>
+							</div>
+							<!-- 为了解决在谷歌下弹出框被遮挡的问题，重新设置一个在ocx上的iframe -->
+							<div id="layout">
+								<iframe id="layoutFrame" class="up-block" src="about:blank" scrolling="no" border=0 frameborder=0 height='' width=""></iframe>
+							</div>
+							<div id="layoutscreen">
+								<iframe id="layoutscreenFrame" class="up-block" src="javascript:;" scrolling="no" border=0 frameborder=0 height='' width=""></iframe>
+							</div>
+							<object id="UIOCX" class="UIOCX" type="applicatin/x-firebreath" width = "" height = "">
+								<param name="onload" value="pluginLoaded"/>
+							</object>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+<script type="text/javascript" src="/libs/requirejs/require.js" data-main="/require-conf.js"></script>
+<script type="text/javascript">
+	require(["/module/inspect/monitor/js/screen.js"]);
+</script>

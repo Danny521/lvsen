@@ -1,0 +1,1260 @@
+#major .header .ui.menu.atached .item i.icon.gpu {
+	width: 24px;
+	height: 25px;
+	background: url(/module/inspect/monitor/images/gpu.png) 0 0 no-repeat;
+}
+#major .header .ui.menu.atached .item i.icon.gpu:hover {
+	background: url(/module/inspect/monitor/images/gpu.png) 0 -32px no-repeat;
+}
+
+#sidebar-head {
+	height: 34px;
+	background-color: #f6fbff;
+	border-top: 1px solid #DFDFDF;
+	border-bottom: 1px solid #DFDFDF;
+}
+#sidebar-head .menus .action {
+	float: right;
+	width: 16px;
+	height: 16px;
+	margin: 9px 5px;
+	cursor: pointer;
+	background: transparent url(../../../common/images/sprites/tree_bg.png) 0 0 no-repeat
+}
+#sidebar-head .menus .action.group {
+	background-position: -117px 0;
+	margin-right: 8px
+}
+#sidebar-head .menus .group:hover {
+	background-position: -291px 0
+}
+#sidebar-head .menus .group.active {
+	background-position: -311px 0
+}
+#sidebar-head .menus .action.train{
+	background-position: -134px 0;
+}
+#sidebar-head .menus .train:hover {
+	background-position: -251px 0
+}
+#sidebar-head .menus .train.active {
+	background-position: -271px 0
+}
+#sidebar-head .menus li {
+	position: relative;
+	float: left;
+	cursor: pointer;
+	font-size: 14px;
+}
+#sidebar-head .menus li.camera .icon {
+	background: transparent url(../../../common/images/sprites/dropdown.png) 7px 5px no-repeat;
+	vertical-align: text-top;
+	width: 20px;
+	height: 15px;
+	position: absolute;
+	top: 11px;
+	right: 16px;
+}
+/* #sidebar-head .menus li:hover{
+	margin: 7px 0;
+}
+#sidebar-head .menus li:hover .nav{
+	padding: 0 13px;
+	margin-top: 2px;
+
+}
+#sidebar-head .menus li:hover .nav >span{
+	color: #188dfb;
+	display: inline-block;
+	font-weight: bold;
+	border-bottom: 3px solid #188dfb;
+	padding: 0 6px 6px 6px;
+} mayue*/
+/* #sidebar-head .menus li.patrol .nav {
+	background-image: url(../../../common/images/icons/patrol.png)
+} */
+/* #sidebar-head .menus li .nav {
+	float: left;
+	padding: 0 30px;
+	line-height: 34px;
+	background: transparent url() 8px center no-repeat;
+	color: #333333
+} */
+
+#sidebar-head .menus li .nav {
+	float: left;
+	margin: 9px 0;
+	line-height: 16px;
+	padding:0 16px; 
+	/*background: transparent url() 8px center no-repeat;*/	
+	border-right: 1px solid #e4e8eb;
+} 
+#sidebar-head .menus li:hover .nav,#sidebar-head .menus li.active .nav{
+	padding: 0 10px;
+}
+#sidebar-head .menus li:hover .dropdown i,#sidebar-head .menus li.active .dropdown i{
+	background: transparent url(../../../common/images/sprites/dropdown-active.png) 4px 5px no-repeat
+}
+#sidebar-head .menus li .dropdown .hightlight i.up-dropdown{
+	background: transparent url(../../../common/images/inspect/dropup.png) 0px 0px no-repeat;
+	width: 12px;
+	height: 6px;
+	display: inline-block;
+	margin-left: 4px;
+	margin-bottom: 2px;
+}
+#sidebar-head .menus li:hover .nav span,#sidebar-head .menus li.active .nav span{
+	font-weight: bold;
+	color: #188dfb;
+	border-bottom: 3px solid #188dfb;
+	padding: 0 6px 5px 6px
+}
+/* #sidebar-head .menus li:hover #camerasType span,#sidebar-head .menus li.active #camerasType span{
+	padding: 0 21px 5px 6px
+} */
+
+#sidebar-head .menus li.label-manage .nav{
+	border-right:0px;
+}
+
+#camerasType span{
+	padding-right: 15px;
+}
+#sidebar .ui.dropdown.floating {
+	float: left
+}
+#sidebar .camera .ui.dropdown .ui.menu .item {
+	text-align: center;
+	border-bottom:0px;
+}
+#sidebar .camera .ui.dropdown .ui.menu {
+	position: absolute;
+	top: -7px;
+	/*top: 29px;*/
+	left: auto;
+	right: 0;
+	z-index: 100;
+	/* width: 106px; */
+	width:81px;
+}
+#sidebar-head .ui.dropdown .menu .item:hover{
+	background-color: #f6fbff;
+	color: #188dfb;
+}
+.menus .dropdown-menu.ui.small.menu {
+	box-shadow: none;
+	border-radius: 0px;
+}
+.menus .dropdown-menu.ui.small.menu .item{
+	font-size: 13px;
+}
+#sidebar-head .ui.dropdown .menu .item.hightlight{
+	background-color: #fff;
+	font-weight: bold;
+	color: #000;
+	padding-left: 0px;
+	padding-right: 0px;
+}
+#sidebar-head .ui.dropdown .menu .item.hightlight span{
+	margin-left: 8px;
+}
+#sidebar-head .ui.dropdown .menu .item.hightlight:hover{
+	background-color: #f6fbff;
+	color: #188dfb;
+}
+#sidebar-head .ui.dropdown .menu .item.hightlight:hover .up-dropdown{
+	background: transparent url(../../../common/images/inspect/dropup-active.png) 0px 0px no-repeat;
+	width: 12px;
+	height: 6px;
+	display: inline-block;
+	margin-left: 4px;
+	margin-bottom: 2px;
+}
+#sidebar-body [data-tabor="video-res"] .ui.input.action.search{
+	width: 100%;
+	float: left;
+	margin-top: 5px;
+}
+#sidebar-body [data-tabor="video-res"] .org-res-filter,#sidebar-body [data-tabor="my-group"] .org-my-group-filter{
+	width: 83%;
+	height: 27px;
+	line-height: 27px;
+	margin-left: 21px;
+	padding-left: 5px;
+	border: 1px solid #D7DFE8;
+	border-radius: 3px;
+	background: #DFEDF8;
+	text-align: left;
+}
+#sidebar-body [data-tabor="video-res"] .select-org-Panel,#sidebar-body [data-tabor="my-group"] .select-customize-Panel{
+	display: none;
+	margin-left: 21px;
+	padding: 3px;
+	border: 1px solid #D7dfe8;
+	width: 82%;
+	height: 50px;
+	overflow-y: scroll;
+}
+#sidebar-body [data-tabor="video-res"] .select-org-Panel ul,#sidebar-body [data-tabor="my-group"] .select-customize-Panel ul{
+	width: 100%;
+	height: 100%;
+}
+#sidebar-body [data-tabor="video-res"] .select-org-Panel ul li,#sidebar-body [data-tabor="my-group"] .select-customize-Panel ul li{
+	float: left;
+	display: inline-block;
+	width: 90px;
+	height: 18px;
+	margin-right: 15px;
+	max-width: 90px;
+	text-align: left;
+}
+#sidebar-body [data-tabor="video-res"] .select-org-Panel ul li span,#sidebar-body [data-tabor="my-group"] .select-customize-Panel ul li span{
+	display: inline-block;
+	width: 75px;
+	height: 18px;
+	max-width: 75px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	word-break: break-all;
+	white-space: nowrap;
+}
+#sidebar-body [data-tabor="video-res"] .select-org-Panel a.close,#sidebar-body [data-tabor="my-group"] .select-customize-Panel a.close{
+	display: inline-block;
+	height: 12px;
+	width: 12px;
+	background: url("/module/settings/mapconfig/images/close.png") no-repeat;
+	background-position: 0px 0px;
+	position: relative;
+	top: 4px;
+	float: right;
+}
+#sidebar-body [data-tabor="video-res"] .org-res-filter.active,#sidebar-body [data-tabor="my-group"] .org-my-group-filter.active{
+	border: solid 1px red;
+}
+#sidebar-body [data-tabor="video-res"] .org-res-filter span,#sidebar-body [data-tabor="my-group"] .org-my-group-filter span{
+	width: 195px;
+	max-width: 195px;
+	overflow: hidden;
+	display: inline-block;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+} 
+#sidebar-body [data-tabor="video-res"] .org-res-filter a.close,#sidebar-body [data-tabor="my-group"] .org-my-group-filter a.close{
+	display: inline-block;
+	height: 12px;
+	width: 12px;
+	background: url("/module/settings/mapconfig/images/close.png") no-repeat;
+	background-position: 0px 0px;
+	position: absolute;
+	top: 18px;
+	right: 26px;
+}
+#sidebar-body [data-tabor="video-res"] .org-res-filter a.edit,#sidebar-body [data-tabor="my-group"] .org-my-group-filter a.edit{
+	display: inline-block;
+	height: 15px;
+	width: 15px;
+	background: url("/module/inspect/monitor/images/editor.png") no-repeat;
+	background-position: 0px 0px;
+	position: absolute;
+	top: 15px;
+}
+#sidebar-body [data-tabor="video-res"] .ui.input.action.search input{
+	width: 78%;
+	border-radius: 3px;
+}
+#sidebar-body [data-tabor="video-res"] .ui.input.action.search > .search.action{
+	right: 8%;
+}
+#sidebar-body [data-tabor="my-group"] .ui.input.action.search{
+	width: 100%;
+	float: left;
+	margin-top: 5px;
+}
+#sidebar-body [data-tabor="my-group"] .ui.input.action.search input{
+	width: 78%;
+	border-radius: 3px;
+}
+#sidebar-body [data-tabor="my-group"] .ui.input.action.search > .search.action{
+	right: 8%;
+}
+/* #sidebar-head .menus li.camera:hover .nav, #sidebar-head .menus li.camera.active .nav {
+	background-image: url(../../../common/images/icons/camera_hover.png)
+}
+#sidebar-head .menus li.camera .nav {
+	background-image: url(../../../common/images/icons/camera.png)
+} */
+/* ------------body-------------- */
+#sidebar-body {
+	position: absolute;
+	top: 36px;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+#sidebar-body > div[data-tabor] {
+	display: none;
+	position: absolute;
+	bottom: 0;
+	top: 0;
+	left: 0;
+	right: 0;
+}
+#sidebar-body > div[data-tabor].active {
+	display: block;
+}
+
+#sidebar-body > [data-tabor] > .sheader{
+	position: absolute;
+	width: 100%;/* 改成100%,是因为监巡分组时头部上面一条黑线的位置 */
+	top: 0px;
+} 
+#sidebar-body > [data-tabor] > .video-resource-type{
+	position: absolute;
+	width: 100%;
+	top: 85px;
+} 
+#sidebar-body > [data-tabor] > .video-resource-detail{
+	position: absolute;
+	width: 100%;
+	top: 113px;
+}
+#sidebar-body > [data-tabor] > .sbody{
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
+	overflow-y: auto;
+}
+[data-tabor]> .tree-panel{
+	right: 0;
+	left: 0;
+}
+.all-resource{
+   width:45%;
+   padding: 6px 35px 6px 35px;
+   border: 1px solid #D7DFE8;
+   border-radius: 3px;
+   background: #DFEDF8;
+}
+.my-own-group{
+   width:45%;
+   padding: 6px 35px 6px 35px;
+   border-top: 1px solid #D7DFE8;
+   border-bottom: 1px solid #D7DFE8;
+   border-right: 1px solid #D7DFE8;
+   border-radius: 3px;
+   background: #F6FBFF;
+}
+/* 视频资源 start */
+[data-tabor='video-res'] > .search-camera,[data-tabor='my-group'] > .search-camera{
+	height: 32px;
+	padding: 8px 0px 8px 0px;
+	text-align: center;
+	background: #F6FBFF;
+}
+[data-tabor='video-res'] > .video-resource-type{
+	height: 30px;
+	padding: 0px 0px 3px 0px;
+	text-align: center;
+	border-bottom: 1px solid #D7DFE8;
+	background: #F6FBFF;
+	cursor: pointer;
+}
+[data-tabor='my-group'] > .video-resource-type{
+    height: 38px;
+	padding: 0px 0px 8px 0px;
+	text-align: center;
+	border-bottom: 0px solid #D7DFE8;
+	background: #F6FBFF;
+	cursor: pointer;
+}
+[data-tabor='my-group'] > .video-resource-detail{
+    height: 20px;
+	padding: 0px 0px 3px 0px;
+	border-bottom: 1px solid #D7DFE8;
+	background: #F6FBFF;
+}
+[data-tabor='my-group'] > .video-resource-detail .group-total{
+    margin-left: 21px;
+    color: #999999
+}
+[data-tabor='my-group'] > .video-resource-detail .group-total-num{
+    color: #999999
+}
+[data-tabor='my-group'] > .video-resource-detail .group-total-num-num{
+    color: #999999
+}
+[data-tabor='my-group'] > .video-resource-detail .add-group{
+    margin-left: 115px;
+    color: #999999;
+    cursor: pointer;
+    font-weight: normal;
+}
+[data-tabor='my-group'] > .video-resource-detail .add-group:hover{
+    margin-left: 115px;
+    color: #188DFB;
+    cursor: pointer;
+    font-weight: bold;
+}
+[data-tabor='my-group'] > .video-resource-detail i{
+    width: 10px;
+	height: 10px;
+	display: inline-block;
+	background: url('/module/common/images/inspect/gruop-head-ico.png') -1px -17px no-repeat;
+	margin-right: 4px;
+	cursor: pointer;
+}
+[data-tabor='my-group'] > .video-resource-detail i:hover{
+    width: 10px;
+	height: 10px;
+	display: inline-block;
+	background: url('/module/common/images/inspect/gruop-head-ico.png') -19px -17px no-repeat;
+	margin-right: 4px;
+	cursor: pointer;
+}
+[data-tabor='video-res'] > .tree-panel{
+	top: 115px;
+}
+[data-tabor='my-group']> .tree-panel{
+	top: 130px;
+}
+[data-tabor="video-res"] > .tree-panel > .tree,[data-tabor='my-group']> .tree-panel > .tree,[data-tabor='inspect-add-camera']> .tree-panel > .tree{
+	margin-left: 15px;
+	margin-right: 10px;
+}
+/* -------视频资源 end------- */
+[data-tabor='my-group'] .search-camera form,[data-tabor='my-group'] .search-camera .ui.button.blue{
+	/* float: left; */
+}
+[data-tabor='my-group'] .search-camera form{
+	/* margin-left: 15px;
+	margin-right: 10px; */
+}
+[data-tabor='my-group'] .search-camera form .ui.search input{
+	border-radius: 3px;
+	width: 150px;
+}
+[data-tabor='my-group'] .search-camera .ui.button.blue{
+	padding: 0 10px;
+}
+/* -------监巡分组 start------- 修改样式addby wujingwen grade 去掉> he padding-left:26*/
+[data-tabor="monitor-inspect"] .grade{
+	height: 45px;
+	line-height: 45px;
+	padding-left: 20px;
+	margin-top:40px;
+}
+
+[data-tabor="monitor-inspect"] .grade input[type='radio'] {
+	margin-bottom: -1px; /* ie9下特殊处理 */
+}
+[data-tabor="monitor-inspect"]  .grade >.icon-joint{
+	margin-right: 14px;
+}
+[data-tabor="monitor-inspect"]  .grade >#startbyrule label{
+	margin-right: 14px;
+}
+/* add by wujingwen top:45; 下边 margin-left:3px*/
+[data-tabor="monitor-inspect"] > .groups{
+	top: 80px;
+	
+}
+[data-tabor="monitor-inspect"] .grade .operation {
+	display: inline-block;
+	height: 16px;
+	margin-left: 0px;
+}
+[data-tabor="monitor-inspect"]  .grade span {
+	display: inline-block;
+	height: 20px;
+	width: 20px;
+	background: url("/module/common/images/icons/inspect-icons-new.png") no-repeat scroll 0 0;
+	cursor: pointer;
+	float: left;
+}
+[data-tabor="monitor-inspect"]  .grade .start {
+	background-position: 0 -24px;
+}
+[data-tabor="monitor-inspect"]  .grade .start:hover {
+	background-position: -25px -24px;
+}
+[data-tabor="monitor-inspect"]  .grade .pause {
+	background-position: 0 0;
+}
+[data-tabor="monitor-inspect"]  .grade .pause:hover {
+	background-position: -25px 0;
+}
+[data-tabor="monitor-inspect"] .grade .stop {
+	background-position: 0 -49px;
+	margin-left: 2px;
+	display: none;
+}
+[data-tabor="monitor-inspect"] .grade .stop:hover {
+	background-position: -25px -49px;
+	/*margin-left: 2px;*/
+}
+/* 编辑样式 add  by wujingwen  */
+.ico-editer {
+	display: inline-block;
+	line-height: 25px;
+	width: 14px;
+	height: 14px;
+	margin-right:10px;
+	background: url("/module/common/images/inspect/operate-ico.png")  no-repeat scroll 0 0;
+}
+.ico-editer:hover{
+	background-position: -17px 0;
+}
+.init-create{
+	border-bottom: 1px solid #D7DFE8;
+	margin: 3px 21px;
+	height:41px;
+	line-height:41px;
+}
+.init-create .no-data{
+	color:#999999;
+}
+.init-create input.creater{
+	line-height: 21px;
+	height: 22px;
+	padding: 0px 9px;
+	margin-top: 11px;
+	float: right;
+}
+
+/* 编辑样式结束 */
+/* 监巡分组 end */
+/* --------------轮巡部分----------- start*/
+[data-tabor="circle-inspect"] > .set-time{
+	height: 159px;
+	border-bottom: 1px solid #DFDFDF;
+	padding-left: 16px;
+	margin-right: 1px;
+	background: #F6FBFF;
+}
+[data-tabor="circle-inspect"] > .tree-panel{
+	top: 160px;
+	margin-left: 15px;
+}
+[data-tabor="circle-inspect"] >.set-time .group:first-child {
+	padding-top: 10px;
+}
+[data-tabor="circle-inspect"] >.set-time .group {
+	margin-bottom: 5px;
+}
+[data-tabor="circle-inspect"] >.set-time .group >.ui.input.tiny {
+	margin-bottom: 5px;
+}
+[data-tabor="circle-inspect"] .buttons{
+	margin-left: 65px;
+}
+[data-tabor="circle-inspect"] .button {
+	height: 30px;
+	line-height: 28px;
+	padding: 0 8px;
+	min-width: 66px;
+}
+/* --------------轮巡部分----------- end*/
+
+/* --------------新增分组----------- start*/
+[data-tabor="new-group"] > .set-name{
+	height: 44px;
+	background: #F6FBFF;
+}
+
+[data-tabor="new-group"] > .sbody{
+	top: 45px;
+	margin-left: 15px;
+	right: 0px;
+	left: 0px;
+}
+[data-tabor="new-group"] > .set-name .group{
+	padding-top: 10px;
+	margin-bottom: 5px;
+}
+[data-tabor="new-group"] > .set-name .buttons.left{
+	text-align: left;
+	margin-left:67px; 
+
+}
+[data-tabor="new-group"] .sbody .tree-panel{
+	width: 100%;
+	top: 74px;
+	bottom: 0px;
+}
+.sbody .second-header{
+	margin-top: 15px;
+}
+.sbody .second-header .words{
+	margin: 12px 0;
+}
+/* --------------新增分组----------- end*/
+
+/* -------监巡分组-布局设置 start------- */
+
+.sheader>.opera-panel{
+	height: 33px;
+	padding-top: 11px;
+	border-bottom: 1px solid #DFDFDF;
+	margin:0 16px; 
+}
+[data-tabor="inspect-layout"]>.group{
+	top: 45px;
+}
+/* 新建分组addby wujingwen*/
+.initcreate{
+	position: absolute;
+	top: 60px;
+	padding: 0px 14px;
+	margin: 0px 0px;
+	
+}
+.initcreate>p,.newTimeOb>p{
+	margin:10px 0px;
+}
+.addinspectsubmitbtn>p,.addinspectsubmitbtn>div{
+	margin-bottom:10px ;
+}
+.itemwrapper>li{
+	padding:5px 10px;
+	border: 1px solid #DFDFDF;
+	margin:5px 0px;
+}
+.itemwrapper li i{
+	display:inline-block;
+}
+.itemwrapper li i:nth-of-type(1){
+	margin-left:10px;
+}
+.addgroupName,.addstopTime{
+	width: 163px;
+	padding: 3px 8px;
+	border: 1px solid #D9D9D9;
+}
+p.inputRe{
+	position:relative;
+}
+span.bgView{
+	position:absolute;	
+	width:80px;
+	height:23px;
+	line-height:23px;
+	left:146px;
+	top:0px;
+	color:#A9A9A9;
+}
+span.inu,span.ind{
+	position:absolute;
+	border:1px solid #D9D9D9;
+	width:19px;
+	height:13px;
+	right:0px;
+	
+}
+span.inup{
+	top:0px;
+	background:url("../images/stop.png");
+	background-size:35px 20px;
+	background-position:0px 0px;
+}
+span.indown{
+	top:12px;
+	background:url("../images/stop.png");
+	background-size:35px 20px;
+	background-position: 0px 13px;	
+}
+.inupf{
+	top:0px;
+	background:url("../images/stop.png");
+	background-size:35px 20px;
+	background-position:20px 0px;
+}
+.indownf{
+	top:12px;
+	background:url("../images/stop.png");
+	background-size:35px 20px;
+	background-position: 20px 13px;	
+} 
+.addlevel{
+	width:163px;
+	padding:2px 0px;
+	border: 1px solid #DDDDDD;
+}
+.initcreate .addcamera{
+	padding: 0px 8px;
+	float: right;
+	height: 20px;
+	line-height: 20px;
+	padding: 0px 9px;
+}
+.newTime{
+	color:#188DFB;
+	margin-left:187px;
+	cursor:pointer;
+	display:none;
+}
+.newTimeOb{
+	padding:0px 7px;
+	border:1px solid #D9D9D9;
+}
+.create-button{
+	margin: 17px;
+	margin-left:59px;
+}
+.create-button .createbutton{
+	padding: 0px 9px;
+	margin:5px;
+	height:20px;
+	line-height:20px;
+}
+/*  add by wujingwen */
+.layoutNum{
+	padding: 10px 0px;
+	margin:5px 0px;
+	border-bottom:1px solid #D9D9D9;
+}
+.layoutNum .layout{
+	cursor:pointer;
+	display:inline-block;
+	margin-bottom: -6px;
+	margin-right:10px;
+	width:22px;
+	height:22px;	
+	background:url("../../../common/images/icons/layout.png"); 
+	
+}
+.layoutNum .layout.split1{
+	background-position: 0px 0px;
+}
+.layoutNum .layout.split4{
+	background-position: 0px -32px;
+}
+.layoutNum .layout.split9{
+	background-position: 0px -64px;
+}
+.layoutNum .layout.split16{
+	background-position: 0px -96px;
+}
+/* .layoutNum .layout:hover{
+	cursor:pointer;
+	display:inline-block;
+	margin-bottom: -6px;
+	margin-right:10px;
+	width:22px;
+	height:22px;	
+	background:url("../../../common/images/icons/layout-hover.png"); 
+	
+} */
+.layoutNum .layoutFlags{
+	cursor:pointer;
+	display:inline-block;
+	margin-bottom: -6px;
+	margin-right:10px;
+	width:22px;
+	height:22px;	
+	background:url("../../../common/images/icons/layout-hover.png"); 	
+}
+.inspectCamera .addcamera{
+	padding: 0px 9px;
+}
+/* 新建结束*/
+.sheader>.opera-panel> .back{
+	display: inline-block;
+	width: 196px;
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
+	height: 25px;
+	line-height: 25px;
+}
+.sheader>.opera-panel> .back .home-ico {
+	display: inline-block;
+	width: 18px;
+	height: 15px;
+	margin-top: 4px;
+	margin-bottom: -2px;
+	background: url("/module/common/images/inspect/home.png") no-repeat scroll 0 0;
+}
+
+.sheader>.opera-panel> .back .home-ico:hover {
+	background-position: -19px 0;
+}
+.sheader>.opera-panel> .back .home-arrow {
+	display: inline-block;
+	width: 5px;
+	height: 9px;
+	margin: 0px 2px 0px 2px;
+	background: url("/module/common/images/inspect/arrow-right.png") no-repeat scroll 0 0;
+}
+
+
+.sheader>.opera-panel> .ui.button.blue{
+	
+}
+
+
+/* -------监巡分组-布局设置 end -------*/
+
+/* -------监巡分组-时间设置 start -------*/
+[data-tabor="inspect-time"]>.sheader>.opera-panel> .back{
+	margin-right: 0px;
+	width: 145px;
+}
+[data-tabor="inspect-time"]>.group{
+	top: 45px;
+	padding-right: 12px;
+	padding-left: 20px;
+}
+/* -------监巡分组-时间设置 end -------*/
+
+/* -------监巡分组-添加摄像机到监巡分组 start -------*/
+[data-tabor="inspect-add-camera"]>.tree-panel{
+	top: 45px;
+}
+/* -------监巡分组-添加摄像机到监巡分组 end -------*/
+
+
+#sidebar-head .loop-header{
+	display: none;
+}
+#sidebar-body [data-tabor] .small-head-btn{
+	height: 20px;
+	line-height: 20px;
+	padding: 0px 10px;
+}
+.inspect-mask{
+	position: absolute;
+	z-index: 90;
+	width: 100%;
+	background-color: rgba(255,255,255,0.5);
+}
+.down-inspect-mask{
+	bottom: 0px;
+}
+.up-inspect-mask{
+	/*top: 36px;*/
+	top: 0px; /* 遮挡 我的分组 监巡分组  标记管理 一栏 */
+}
+.inspecting{
+	margin: 4px 0px 0px 35px;
+	color: #188dfb;
+	padding-bottom: 4px;
+}
+.inspecting-node{
+	background-color: #E5F4FF;
+}
+.tree-inspecting-node{
+	background-color: #E5F4FF;
+}
+#label-manage{
+	display: none;
+}
+/*---------------------- 隐藏标记管理tab ----------------------start*/
+/* 开启标记管理时只需要就中间这段代码注释掉就好 注释 add by wujingwen on 2015*/
+/* .label-manage{
+	display: none; 
+} */   
+#sidebar-head .menus li.patrol .nav{
+	/* border-right: 0; */
+	border-right:1px solid #e4e8eb;
+}
+#sidebar-head .menus li.camera.active .icon,#sidebar-head .menus li.camera:hover .icon {
+	right: 19px;
+}
+#sidebar-head .menus li.camera .icon {
+	/* right: 33px; */
+	right: 12px;
+}
+#sidebar-head .menus li.camera.active .icon,#sidebar-head .menus li.camera:hover .icon {
+	/* right: 30px; */
+	right: 9px;
+}
+#sidebar-head .menus li.active .nav,#sidebar-head .menus li .nav,#sidebar-head .menus li:hover .nav{
+	/*width: 100%;*/
+	padding: 0;
+	margin: 0 auto;
+	margin-top: 9px;
+}
+#sidebar-head .menus li.patrol:hover .nav,#sidebar-head .menus li.patrol.active .nav{
+	/* padding-left: 33px; */
+	padding-left: 10px;
+	padding-right: 8px;
+}
+#sidebar-head .menus li.patrol .nav{
+	/* padding-left: 39px; */
+	padding-left:16px;
+	padding-right: 14px;
+}
+#sidebar-head .menus li.camera:hover .nav,#sidebar-head .menus li.camera.active .nav{
+	/* padding-left: 32px;
+	padding-right: 28px; */
+	padding-left: 17px;
+	padding-right: 16px;
+}
+#sidebar-head .menus li.camera .nav{
+	/* padding-left: 38px;
+	padding-right: 28px; */
+	padding-left: 23px;
+	padding-right: 16px;
+}
+/* 新增 label-manage .nav开始*/
+#sidebar-head .menus li.label-manage:hover .nav,#sidebar-head .menus li.label-manage.active .nav{
+	padding-left: 10px;
+	padding-right: 8px;
+}
+#sidebar-head .menus li.label-manage .nav{
+	padding-left: 16px;
+	padding-right: 8px;
+}
+/* 新增 label-manage .nav结束*/
+#camerasType span{
+	padding-right: 6px;
+}
+#sidebar .camera .ui.dropdown .ui.menu {
+	/* left: -126px; 同时修改width  122行*/
+	left: -92px;
+}
+/*---------------------- 隐藏标记管理tab ----------------------end*/
+/* 时间插件样式 开始 add by wujingwen  */
+.time-input-ctrll {
+    position: relative;
+    border: 1px solid black;
+    width:77px;
+    height: 24px;
+    line-height: 24px;
+    top:9px;
+    display: inline-block;   
+}
+.levelSpan{
+	position: relative;
+	top: 2px;
+}
+.time-input-ctrll .text-select {
+    position: absolute;
+    width: 28px;
+    height: 100%;
+    margin: 0;
+    border: 0;
+    text-align: center;
+}
+
+.time-input-ctrll .text1 {
+    left: 0;
+}
+
+.time-input-ctrll .text2 {
+    left: 34px;
+}
+
+.time-input-ctrll .dot {
+    position: absolute;
+    left: 29px;
+}
+
+.time-input-ctrll .ctrl {
+    position: absolute;
+    right: 0;
+    display: inline-block;
+    font-size: 8px;
+    width: 15px;
+    height: 8px;
+    border: 1px solid #7E8083;
+    border-radius: 2px;
+}
+
+.time-input-ctrll .ctrl1 {
+    top: 1px;
+    cursor: pointer;
+    background: url('../../../common/images/icon.png') -20px -185px no-repeat;
+}
+
+.time-input-ctrll .ctrl1-active {
+    background-position: -67px -185px;
+}
+
+.time-input-ctrll .ctrl2 {
+    top: 13px;
+    cursor: pointer;
+    background: url('../../../common/images/icon.png') -5px -185px no-repeat;
+}
+
+.time-input-ctrll .ctrl2-active {
+    background-position: -52px -185px;
+}
+
+.control-choose-camera-panel {
+    width: 460px;
+    height: 594px;
+}
+.control-choose-camera-panel .name {
+    font-size: 12px;
+}
+.control-choose-camera-panel .choose-result {
+    position: absolute;
+    left: 472px;
+    top: 0;
+    border-radius: 2px;
+    padding: 0 15px;
+    width: 250px;
+    height: 402px;
+    background-color: #fff;
+}
+.control-choose-camera-panel .wrapper section {
+    padding: 12px 20px 22px;
+}
+.control-choose-camera-panel .tree-search-box input {
+    margin: 0;
+    border: 1px solid #DBDBDB;
+    border-radius: 3px;
+    padding: 0 25px 0 11px;
+    width: 382px;
+    height: 33px;
+    line-height: 33px;
+    font-size: 12px;
+    color: #999;
+    vertical-align: middle;
+}
+.control-choose-camera-panel .my-group-title input {
+    margin: 0;
+    border: 1px solid #DBDBDB;
+    border-radius: 3px;
+    padding: 0 25px 0 11px;
+    width: 229px;
+    margin-left: 8px; 
+    height: 33px;
+    line-height: 33px;
+    font-size: 12px;
+    color: #999;
+    vertical-align: middle;
+}
+.control-choose-camera-panel .redcoin {
+	margin-left: 5px;
+    color: red;
+}
+.control-choose-camera-panel .my-group-title span {
+    font-weight: bold;
+    font-size: 12px;
+}
+.control-choose-camera-panel .my-group-title{
+    height: 35px;
+}
+.control-choose-camera-panel .tree-search-box .btn-search {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 60px;
+    right: 22px;
+    background: url("../../../common/images/search_small.png") no-repeat scroll center center transparent;
+    border: medium none;
+    cursor: pointer;
+    font-size: 0;
+}
+.control-choose-camera-panel .tree-wrap {
+    margin-top: 10px;
+    padding: 5px 0 5px 12px;
+    border: 1px solid #DBDBDB;
+    width: 406px;
+    height: 430px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.control-choose-camera-panel .choose-result .head {
+    border-bottom: 1px solid #DBDBDB;
+    height: 38px;
+    line-height: 38px;
+    font-weight: bold; 
+
+}
+.control-choose-camera-panel .choose-result .head button{
+	position: absolute;
+    height: 25px;
+    width: 71px;
+    display: inline-block;
+    line-height: 25px;
+    padding: 0px 0px;
+    top: 4px;
+    right: 18px;
+
+}
+.control-choose-camera-panel .choose-result .result{
+    margin-top: 3px;
+    height: 310px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.control-choose-camera-panel .choose-result .result li.warmtip{
+    font-size: 12px;
+    padding: 5px 5px;
+}
+[data-tabor="inspect-create"] .cameraslist .result{
+	margin-top: 0px;
+    height: 310px;  
+    width:auto;
+    overflow-y:auto;
+}
+.control-choose-camera-panel .choose-footer{
+	border-top: 1px solid #DBDBDB;
+    padding: 0;
+    height: 49px;
+    background-color: #fff;
+    text-align: center;
+    line-height: 49px;
+}
+.control-choose-camera-panel .choose-result footer {
+    border-top: 1px solid #DBDBDB;
+    padding: 0;
+    height: 32px;
+    background-color: #fff;
+    text-align: center;
+    line-height: 32px;
+}
+.control-choose-camera-panel .choose-result footer>button{
+	float:right;
+	margin-top: 10px;
+}
+.control-choose-camera-panel .wrapper header .close {
+    background: url("../images/close.png") no-repeat center;
+}
+.control-choose-camera-panel .wrapper header .close:hover {
+    background: url("../images/close-hover.png") no-repeat center;
+}
+/* 覆写样式 默认显示枪机*/
+.control-choose-camera-panel .choose-result .result li i.leaf,[data-tabor="inspect-create"] .cameraslist .result li i.leaf{
+    display: inline-block;
+    position: relative;
+    top:1px;
+    *top:-3px;
+    width: 15px;
+    height: 13px;
+    margin-right: 3px;
+    padding: 0;
+    vertical-align: middle;
+}
+
+/*选择结果 枪机、离线 */
+.control-choose-camera-panel .choose-result .result li i.leaf,#sidebar-body > [data-tabor="inspect-create"] .cameraslist .result li i.leaf{
+    background: url("/module/common/images/sprites/tree_bg.png") no-repeat scroll 0 0 transparent;
+}
+/*选择结果 枪机、在线 */
+.control-choose-camera-panel .choose-result .result li i.leaf.marked,#sidebar-body > [data-tabor="inspect-create"] .cameraslist .result li i.leaf{
+    background: url("/module/common/images/sprites/tree_bg.png") no-repeat scroll -85px 0 transparent;
+}
+/*选择结果 球机、离线 */
+.control-choose-camera-panel .choose-result .result li i.leaf.dom,#sidebar-body > [data-tabor="inspect-create"] .cameraslist .result li i.leaf.dom{
+    background: url("../../../common/images/sprites/tree_bg.png") no-repeat scroll -156px 0 transparent;
+}
+/*选择结果 球机、在线 */
+.control-choose-camera-panel .choose-result .result li i.leaf.dom.dom-marked,#sidebar-body > [data-tabor="inspect-create"] .cameraslist .result li i.leaf.dom.dom-marked{
+    background: url("../../../common/images/sprites/tree_bg.png") no-repeat scroll -353px 0 transparent;
+}
+/*文本超出显示……*/
+.control-choose-camera-panel .text-elips,[data-tabor="inspect-create"] .cameraslist .text-elips{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    word-wrap: normal;
+}
+.control-choose-camera-panel .choose-result .result li.leaf,#sidebar-body > [data-tabor="inspect-create"] .cameraslist .result li.leaf{
+    height: 30px;
+    line-height: 30px;
+}
+.control-choose-camera-panel .choose-result .result li.leaf:hover,[data-tabor="inspect-create"] .cameraslist .result li.leaf:hover{
+    background-color: #F3F3F3;
+    color: #0088cc;
+}
+.control-choose-camera-panel .choose-result .result li.leaf:hover .remove-ipc,
+.control-choose-camera-panel .choose-result .result li.leaf:hover .group-camera-up,
+.control-choose-camera-panel .choose-result .result li.leaf:hover .group-camera-down,
+[data-tabor="inspect-create"] .cameraslist .result li.leaf:hover .remove-ipc, 
+[data-tabor="inspect-create"] .cameraslist .result li.leaf:hover .group-camera-up,
+[data-tabor="inspect-create"] .cameraslist .result li.leaf:hover .group-camera-down {
+    display: inline-block;
+}
+.control-choose-camera-panel .choose-result .result .name,[data-tabor="inspect-create"] .cameraslist .result .name{
+    display: inline-block;
+    width: 120px;
+    vertical-align: middle;
+}
+.control-choose-camera-panel .choose-result .result .group-camera-up,[data-tabor="inspect-create"] .cameraslist .result .group-camera-up{
+    float: right;
+    display: none;
+    margin: 7px 10px 0 0;
+    width: 16px;
+    height: 16px;
+    background: url("../images/camera-up-down.png") no-repeat 0 0;
+    cursor: pointer;
+}
+.control-choose-camera-panel .choose-result .result .group-camera-down,[data-tabor="inspect-create"] .cameraslist .result .group-camera-down{
+    float: right;
+    display: none;
+    margin: 7px 10px 0 0;
+    width: 16px;
+    height: 16px;
+    background: url("../images/camera-up-down.png") no-repeat 0 -18px;
+    cursor: pointer;
+}
+.control-choose-camera-panel .choose-result .result .group-camera-up:hover,[data-tabor="inspect-create"] .cameraslist .result .group-camera-up:hover{
+    background-position: -17px 0;
+}
+.control-choose-camera-panel .choose-result .result .group-camera-down:hover,[data-tabor="inspect-create"] .cameraslist .result .group-camera-down:hover{
+    background-position: -17px -18px;
+}
+.control-choose-camera-panel .choose-result .result .remove-ipc,[data-tabor="inspect-create"] .cameraslist .result .remove-ipc{
+    float: right;
+    display: none;
+    margin: 9px 10px 0 0;
+    width: 12px;
+    height: 12px;
+    background: url("../images/remove-ipc.png") no-repeat 0 0;
+    cursor: pointer;
+}
+.[data-tabor="inspect-create"]  .cameMar{
+	margin-top:24px;
+}
+.control-choose-camera-panel .choose-result .result .remove-ipc:hover,[data-tabor="inspect-create"] .cameraslist .result .remove-ipc:hover{
+    background-position: -12px 0;
+}
+#chooseCounts {
+    font-size: 14px;
+    font-weight: bold;
+    color: #DD0330;
+}
+.ocxPanel{
+	width: 400px;
+	height: 300px;
+	position: fixed;
+	right: 211px;
+	top: 170px;
+	z-index: 2000;
+	border-radius: 4px;
+	overflow: visible;
+	background-color: white;
+	cursor: default;
+	display: none
+}
+.ocxPanel .video-top{
+	position: relative!important;
+	width: 100%;
+	height: 30px;
+	line-height: 30px;
+	border-left: none !important;
+	background-image: url("../../../common/images/map/map-tool-bg.png");
+	z-index: 100;
+	border-radius: 5px 5px 0 0;
+}
+.ocxPanel .video-camera-info{
+	display: inline-block;
+	padding-left: 20px;
+	float: left;
+	width: 300px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+.ocxPanel .video-win-close{
+	width: 20px;
+	height: 20px;
+	display: inline-block;
+	margin: 7px 4px 0 0;
+	float: right;
+	background: url('/module/protection-monitor/common/images/icon.png') -15px -62px no-repeat;
+}

@@ -1,0 +1,61 @@
+{{#if globalsearchInfoWin}}
+<div class="infowindow-title">
+    {{#if globalsearchInfoWin.isgps}}
+    <span class="mark-name" title="{{globalsearchInfoWin.key}}">{{InfoWindowType globalsearchInfoWin.type}}编号：{{globalsearchInfoWin.key}}</span>
+    {{/if}}
+    {{#if globalsearchInfoWin.ismap}}
+    <span class="mark-name" title="{{globalsearchInfoWin.name}}">{{InfoWindowType globalsearchInfoWin.type}}名称：{{globalsearchInfoWin.name}}</span>
+    {{/if}}
+    {{#if globalsearchInfoWin.islightbar}}
+    <span class="mark-name" title="{{globalsearchInfoWin.code}}">{{InfoWindowType globalsearchInfoWin.type}}编号：{{globalsearchInfoWin.code}}</span>
+    {{/if}}
+    {{#if globalsearchInfoWin.is350M}}
+    <span class="mark-name" title="{{globalsearchInfoWin.key}}">{{InfoWindowType globalsearchInfoWin.type}}编号：{{globalsearchInfoWin.key}}</span>
+    {{/if}}
+    <span class="btns">
+        <i class="closeBtn"></i>
+    </span>
+</div>
+<div class="map-marker-business">
+    <div class="marker-gsearch-remark">
+        {{#if globalsearchInfoWin.isgps}}
+        {{#if globalsearchInfoWin.needdetails}}
+        <span title="{{globalsearchInfoWin.orgname}}">所属单位：{{globalsearchInfoWin.orgname}}</span>
+        <span title="{{globalsearchInfoWin.policeid}}">警员编号：{{globalsearchInfoWin.policeid}}</span>
+        <span title="{{globalsearchInfoWin.policename}}">警员姓名：{{globalsearchInfoWin.policename}}</span>
+        <span title="{{globalsearchInfoWin.cartype}}">车型：{{globalsearchInfoWin.cartype}}</span>
+        <span title="{{globalsearchInfoWin.carno}}">车牌：{{globalsearchInfoWin.carno}}</span>
+        <span title="{{globalsearchInfoWin.callno}}">电话：{{globalsearchInfoWin.callno}}</span>
+        {{/if}}
+        <span title="{{globalsearchInfoWin.time}}">时间：{{globalsearchInfoWin.time}}</span>
+            <span title="坐标">
+                <em>坐标：{{globalsearchInfoWin.longitude}}</em>
+                <em class="latitude">{{globalsearchInfoWin.latitude}}</em>
+            </span>
+        {{/if}}
+        {{#if globalsearchInfoWin.ismap}}
+        <span title="{{globalsearchInfoWin.addr}}">{{InfoWindowType globalsearchInfoWin.type}}地址：{{globalsearchInfoWin.addr}}</span>
+        {{/if}}
+        {{#if globalsearchInfoWin.islightbar}}
+        <span title="{{globalsearchInfoWin.addr}}">{{InfoWindowType globalsearchInfoWin.type}}地址：{{globalsearchInfoWin.addr}}</span>
+        {{/if}}
+        {{#if globalsearchInfoWin.is350M}}
+        {{!-- <span title="{{globalsearchInfoWin.callno}}">{{InfoWindowType globalsearchInfoWin.type}}电话：{{globalsearchInfoWin.callno}}</span> --}}
+        <span title="{{globalsearchInfoWin.time}}">时间：{{globalsearchInfoWin.time}}</span>
+            <span title="坐标">
+                <em>坐标：{{globalsearchInfoWin.longitude}}</em>
+                <em class="latitude">{{globalsearchInfoWin.latitude}}</em>
+            </span>
+        {{/if}}
+    </div>
+    <div class="marker-bussiness">
+        <span>在附近找：</span>
+            <span>
+	            <a class="circle-search" data-type="camera">摄像机</a>
+	            <a class="circle-search" data-type="alarm">报警</a>
+	            <a class="circle-search" data-type="gps">GPS</a>
+	            <a class="circle-search" data-type="350M">350M</a>
+            </span>
+    </div>
+</div>
+{{/if}}

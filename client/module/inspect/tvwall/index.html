@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=10,chrome=1"/>
+	<title>视云实战平台</title>
+	<!--[if lt IE 9]>
+	<script src="/libs/html5/html5.js"></script>
+	<![endif]-->
+
+	<link type="text/css" rel="stylesheet" href="/module/common/css/base.css" />
+	<link type="text/css" rel="stylesheet" href="/libs/semantic/semantic.css" />
+	<link type="text/css" rel="stylesheet" href="/libs/jquery/jquery-ui-1.10.1.custom.min.css">
+	<link type="text/css" rel="stylesheet" href="/libs/jquery/jquery.datetimepicker.css">
+	<link type="text/css" rel="stylesheet" href="/module/inspect/common/css/inspect.css" />
+	<link type="text/css" rel="stylesheet" href="/module/inspect/common/css/tree.css"/>
+	<link type="text/css" rel="stylesheet" href="/module/common/ptz/control.css"/>
+	<link type="text/css" rel="stylesheet" href="../common/css/tvwall.css">
+	<link type="text/css" rel="stylesheet" href="../common/css/filterDef.css">
+	<link type="text/css" rel="stylesheet" href="./css/tvstyle.css">
+</head>
+<body injectocx="true">
+	<div id="content">
+	<div class="ocxPanel"></div>
+		<div class="wrapper">
+			<aside id="sidebar">
+				<a id="sideResize">
+					<iframe src="about:blank"></iframe>
+					<span>调整宽度</span>
+				</a>
+
+				<!--<div class="header">
+					<ul class="menus ui tabular">
+						<li class="camera active" data-tab="cameras">
+							<a class="nav" id="camerasType">视频资源</a>
+							<div class="ui dropdown floating"> <i class="icon"></i>
+								<div class="ui vertical menu small dropdown-menu">
+									<a class="item" data-type="org">视频资源</a>-->
+									<!-- <a class="item" data-type="system">系统分组</a> -->
+									<!--<a class="item" data-type="customize">我的分组</a>
+								</div>
+							</div>
+						</li>-->
+						<!-- <li class="patrol" data-tab="patrol">
+						<a class="nav">监巡分组</a>
+					</li>
+					 <li class="action group" title="新增分组" data-tab="customize" id="customize"></li>
+				<li class="action train" title="轮巡设置" data-tab="inspect" id="startInspect"></li>
+				-->
+			<!--</ul>
+		</div>-->
+		
+		
+		
+		
+		<div class="header">
+			<ul class="tabular clearfix" >
+				<li class="item active" data-type="org">视频资源</li>
+				<li class="item" data-type="customize">我的分组</li>
+			</ul>
+			
+			</div>
+
+		<div id="treePanel">
+			<div class="ui tab active">
+				<div class="form-panel">
+					<div class="ui tab active filter" data-tab="cameras">
+						<form onsubmit="return false;" autoComplete="off">
+							<div class="ui input action search">
+								<input type="text" name="q" placeholder="全局搜索..." />
+								<button class="search action">搜索</button>
+							</div>
+							<div id="definition">
+                                <a href="#" title="高标清选择"></a>
+                                <ul class="ul-definition">
+                                    <li><input type="checkbox" value="0" checked="checked" class="sel-def sd" id="sd"><label for="sd">标清</label></li>
+                                    <li><input type="checkbox" value="1" checked="checked" class="sel-def hd" id="hd"><label for="hd">高清</label></li>
+                                </ul>
+                            </div>
+						</form>
+					</div>
+					<div class="ui tab inspect" data-tab="inspect">
+						<form onsubmit="return false;" autoComplete="off">
+							<div class="group">
+								<div class="ui input small">
+									<label for="interval">时间间隔：</label>
+									<input type="text" name="interval" id="interval" placeholder="输入时间间隔..." value="10" />
+								</div>
+							</div>
+							<div class="group">
+								<label for="interval">起止时间：</label>
+								<div class="ui input tiny">
+									<input type="text" class="interval-time" placeholder="开始时间..." value="00:00" />
+								</div>
+								<div class="ui input tiny">
+									<input type="text" class="interval-time" placeholder="结束时间..." value="23:59"/>
+								</div>
+							</div>
+							<div class="buttons left">
+								<button class="ui button blue" id="startInspector">启动轮巡</button>
+								<button class="ui button" id="cancelInspector">取消</button>
+							</div>
+						</form>
+					</div>
+
+					<div class="ui tab customize" data-tab="customize">
+						<form id="customizeForm" onsubmit="return false;" autoComplete="off">
+							<div class="group">
+								<div class="ui input small">
+									<label for="name">分组名称：</label>
+									<input type="text" name="name" placeholder="输入组名" />
+								</div>
+							</div>
+							<div class="buttons left">
+								<input type="submit" class="ui button blue" value="确定" />
+								<input type="reset" class="ui button" value="取消" id="cancelGroup" />
+							</div>
+						</form>
+					</div>
+				</div>
+
+				<div id="camerasPanel" class="loading"><!--
+					<div class="scrollbar disable">
+						<div class="track">
+							<div class="thumb"></div>
+						</div>
+					</div>
+					<div class="viewport">
+						<div class="overview"> -->
+							<div class="treeMenu"></div>
+							<div class="patrol"></div>
+							<div class="mapping"></div><!--
+						</div>
+					</div> -->
+				</div>
+			</div>
+		</div>
+	</aside>
+
+
+	<div id="major">
+		<div class="tvHeader">
+			<div class="tv-model">电视墙</div>
+			<!-- <div class="lytCon downAll">
+					<a class="down-monitors" title="全部下墙">全部下墙</a>
+				</div> -->
+			<div class="allOffWall">
+				<span class="ok ui button blue disabled" style="padding:0px 0px;height:25px;line-heigth:25px;width:70px;margin-right:15px;">全部下墙</span>
+			</div>
+			<div class="changeLyt permission permission-change-tvwall-layout">
+				选择布局：<select></select>
+			</div>
+		</div>
+		<!-- <div class="model-content" id="lypan">
+			<div class="tvContent viewport">
+				<div class="overview">
+					<ul></ul>
+				</div>
+			</div>
+			<div class="scrollbar disable">
+				<div class="track">
+					<div class="thumb"></div>
+				</div>
+			</div>
+		</div> -->
+		<div class="model-content" id="lyLishow">
+			<!-- <div class="scrollbar disable">
+				<div class="track">
+					<div class="thumb"></div>
+				</div>
+			</div> -->
+			<div class="tvList hideLyt viewport" id="wheel">
+				<div class="overview">
+					<ul id="autoMousewheel"></ul>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<div class="history-play-bar-panel"></div>
+	<div class="poll-layer"></div>
+	<div class="poll-tips">正在轮巡...<i class="stop-poll"></i></div>
+</div>
+</div>
+<script type="text/javascript" src="/libs/requirejs/require.js" data-main="/module/inspect/tvwall/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!-- 布防设置第二步 选择算法页面 -->
+{{#if mainFrame}}
+<div id="defence-second-step" class="defence-setting-content">
+	<div id='defenceWindow'>
+		<aside id="defence-setting-sidebar">
+			<div id="defence-setting-aside">
+			<div class='defenceruel'>
+				<p class='step-left-title'>请选择算法类型：</p>
+				<div class='rule-set'></div>
+			</div>
+			<div class='dataset'></div>
+		</div>
+		</aside>
+		<div class='right'></div>
+	</div>
+</div>
+{{/if}}
+
+{{#if rulelist}}
+<div class="alarm-events-rule-list">
+	<span class="rule_list_title">
+		<a class="current" data-type="default">
+			默认算法 <i></i>
+		</a>
+		<a data-type="others">
+			其他算法 <i></i>
+		</a>
+	</span>
+	<div class="default-rule-list"></div>
+	<div class="others-rule-list hidden_normal style-text-info">暂无其他厂商的算法！</div>
+</div>
+<div class="alarmRuleDetailPanel" style="display: none">
+
+</div>
+{{/if}}
+
+{{#if defaultRuleList}}
+    {{#each categories}}
+<dl class="rules_set {{#if showflag}}{{else}}hidden_normal{{/if}}">
+	<dt>
+		{{categoryname}}（{{subrulescount}}）
+		<i class="{{#CheckCategoryId subrules  'icon' @index}}{{/CheckCategoryId}}"></i>
+	</dt>
+	<dd class="{{#CheckCategoryId subrules  'content' @index}}{{/CheckCategoryId}}">
+		{{#each subrules}}
+		<span title="{{rulename}}" data-id="{{ruleid}}" data-name="{{rulename}}" data-modulename="{{modulename}}" data-moduleversion="{{moduleversion}}" data-taskid="{{#if taskId}}{{taskId}}{{else}}0{{/if}}" data-status="{{enableTask}}" class=" {{#if openflag}}{{else}}hidden_normal{{/if}} {{#EventActive enableTask}}{{/EventActive}}">
+			<i class="{{#FliterEventIcon ruleid taskId enableTask}}{{/FliterEventIcon}}"></i> <em><a class="{{#FliterEventText enableTask}}{{/FliterEventText}}">{{rulename}}</a></em> 
+		</span>
+		{{/each}}
+	</dd>
+</dl>
+{{/each}}
+{{/if}}
+
+{{#if alarmEventsContent}}
+<div class="alarm-events-content-video">
+	<div class="content-top-video-tool">
+		<span class="camera-name-text" title="{{cameraname}}{{cameracode}}">{{cameraname}}{{cameracode}}</span>
+		<span class="video-operation-tool">
+			<span class="intercept icon_pause" title="暂停"></span>
+			<a class="line icon_line_gray" title="直线"></a>
+			<a class="line icon_dbline_gray" title="双线"></a>
+			<a class="rectangle icon_rec_gray" title="矩形"></a>
+			<a class="rectangle icon_pol_gray" title="多边形"></a>
+			<a class="remove icon_remove_gray" title="清除"></a>
+			<a class="remove icon_removeall_gray" title="全部清除"></a>
+			<a class="see icon_eye" title="查看规则"></a>
+		</span>
+	</div>
+	<div class="content-down-video">
+		<!-- <object id="UIOCXDEFEND" classid="clsid:294EEBEC-7677-4EBA-B2D7-3FD669FBF2A2" width="100%" height="100%" align="center"></object> -->
+		<object id="UIOCXDEFEND" type="applicatin/x-firebreath" width="100%" height="100%" align="center" >
+       		<param name="onload" value="pluginLoaded"/>
+    	</object>
+	</div>
+	<!--视频布防右上角眼睛查看规则时已添加规则列表的遮罩层（ocx叠加）-->
+	<div class="pubdiv content-rule-list"></div>
+	<iframe class="content-rule-list-ifr" scroll="none" src="about:blank"></iframe>
+	<!--页面处理进度提示，遮罩层-->
+	<iframe class="process-tip-ifr hidden" scroll="none" src="about:blank"></iframe>
+	<div class="process-layout hidden"></div>
+	<div class="process-tips hidden"></div>
+</div>
+{{/if}}
+
+<!-- 右上角眼睛的浮动层页面 -->
+{{#if contentRuleTypeList}}
+	<ul>
+		{{#each list}}
+			<li event-type="{{id}}" data-points="{{frontParam}}">
+				<i class="icon_selected {{#FilterSelected ../module id}}{{/FilterSelected}}"></i><a title="{{name}}">{{name}}</a>
+			</li>
+		{{/each}}
+	</ul>
+{{/if}}

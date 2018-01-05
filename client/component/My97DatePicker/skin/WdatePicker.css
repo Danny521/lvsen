@@ -1,0 +1,13 @@
+.Wdate{
+	border:#999 1px solid;
+	height:20px;
+	background:#fff url("/module/common/images/icon_calendar.png") no-repeat right;
+	background-position: 92px 3px;
+	cursor: pointer;
+}
+.Wdate::-ms-clear{display:none;}
+
+.WdateFmtErr{
+	font-weight:bold;
+	color:red;
+}

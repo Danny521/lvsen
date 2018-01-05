@@ -1,0 +1,193 @@
+{{!--处理布控弹出框--}}
+{{#if toDealAlarm}}
+{{#with toDealAlarm}}
+	<!--遮罩层-->
+<iframe class="control layout_ifr hidden" scroll="none" src="about:blank"></iframe>
+<div class="control layout hidden"></div>
+	<!-- 弹出内容 -->
+	<div class="infowindow-down protect hidden" data-taskname="{{deployEvent.taskName}}">
+		<div class="dialog_title">
+			<h3 class='d-header' title="{{deployEvent.cameraName}}">{{deployEvent.cameraName}}</h3>
+	        <a title="关闭" class="close"></a>
+	    </div>
+		<div class="alarm-image protect">
+	        <p class="alarm-label">目标人</p>
+	       		<img src="{{list1 deployEvent.imgInfo}}" />
+	    </div>
+	    <div class="alarm-deal protect">
+	        <div class="select-person-image">
+	            <p class="alarm-label">候选人</p>
+		            <img src="/module/common/images/nopic.jpg" />
+	            <span class="image-tools">
+	                <i class="right" title="有效"></i>
+	                <i class="wrong" title="无效"></i>
+	                <i class="unknow" title="未知"></i>
+	            </span>
+	        </div>
+	        <div class="select-person-info"></div>
+	    </div>
+		<div class="protect-person-info">
+	        <div class="info-item">
+	            <span class="people">候选人</span>
+	            <span class="rate">比&nbsp;&nbsp;&nbsp;分</span>
+	        </div>
+	        <div class="person-images">
+	        {{#each targetPersons}}
+	            <span class="image-detail">
+	                <img src="{{list1 featureImagePath}}" data-personid="{{id}}" data-handlestatus="{{handleStatus}}" data-targetpersonname="{{targetPersonName}}" data-comparescore="{{score}}" data-libname="{{libName}}" data-description="{{description}}" data-index="{{@index}}"/>
+	                <i class="{{rightORwrong handleStatus}}"></i>
+	                <em class="{{#ScoreColor @index}}{{/ScoreColor}}">{{score}}</em>
+	            </span>
+	         {{/each}}
+	        </div>
+	    </div>
+	</div>
+{{/with}}
+{{/if}}
+{{#if candidate}}
+{{#with candidate}}
+<span class="person-details">
+    <em>姓&nbsp;&nbsp;名：</em><em class="name" title="{{targetpersonname}}">{{targetpersonname}}</em>
+</span>
+<span class="person-details">
+    <em>比&nbsp;&nbsp;分：</em><em class="score">{{comparescore}}</em>
+</span>
+<span class="person-details">
+    <em>所在库：</em><em class="lib" title="{{libname}}">{{libname}}</em>
+</span>
+<span class="person-details protect">
+    <span><em class="alarm-label">备&nbsp;&nbsp;注：</em></span>
+    <span><textarea placeholder="请输入备注..." >{{description}}</textarea></span>
+</span>
+<span class="person-details">
+    <a class="alarm-btn save-select-person" title="保存当前候选人的处理结果">保存</a>
+</span>
+{{/with}}
+{{/if}}
+
+{{!--处理布防时的弹出框--}}
+{{#if otherDealAlarm}}
+{{#with otherDealAlarm}}
+	<!--遮罩层-->
+<iframe class="defense layout_ifr hidden" scroll="none" src="about:blank"></iframe>
+<div class="defense layout hidden"></div>
+	<!-- 弹出内容 -->
+		<div class="deal_defense hidden" data-id="{{deployEvent.id}}">
+			<div class="dialog_title">
+				<h3 class='d-header' title="{{deployEvent.cameraName}}">{{deployEvent.cameraName}}</h3>
+		        <a title="关闭" class="close"></a>
+		    </div>
+			<ul class='info-body'>
+				<li class="pic item-1">
+					<a class="analysis" href="{{list1 deployEvent.imgInfo}}">
+						<img src="{{list1 deployEvent.imgInfo}}">
+					</a>
+				</li>
+				<li class="infor item-2">
+					<span class="infItem" data-id="{{deployEvent.id}}"><label>报警类型：</label>{{eventType2eventName deployEvent.eventType}}</span>
+					<span class="infItem"><label>报警时间：</label>{{mills2datatime deployEvent.absTime}}</span>
+					{{#if deployEvent.lprValue}}
+						<span class="infItem"><label>车牌号码：</label>{{null2unkown deployEvent.lprValue}}</span>
+					{{else}}
+						<span class="infItem"><label>区域名称：</label><em class="text" title="{{deployEvent.areaName}}">{{deployEvent.areaName}}</em></span>
+					{{/if}}
+					<span class="infItem"><label>处理人：</label><em class="text" title="{{null2unkown deployEvent.handleAuthor}}">{{null2unkown deployEvent.handleAuthor}}</em></span>
+					<span class="infItem"><label>处理时间：</label>{{mills2datatime deployEvent.handleTime}}</span>
+				</li>
+				<li class="infor item-3">
+					<span class="infItem"><label>报警级别：</label>
+                        <span class="select_container" data-type="alarm-level">
+                            <span class="text" data-value="{{#AlarmLevelFilter deployEvent.level 'value'}}{{/AlarmLevelFilter}}">{{#AlarmLevelFilter deployEvent.level 'text'}}{{/AlarmLevelFilter}}</span>
+                            <span class="arrow-down"></span>
+                        </span>
+					</span>
+					<span class="infItem"><span class="comment"><label>备注信息：</label></span><textarea placeholder='请输入备注信息' >{{deployEvent.comment}}</textarea></span>
+					<span class="buttons">
+						<button class="do deal" data-dealstatus="1">有效</button>
+						<button class="do undeal" data-dealstatus="2">无效</button>
+					</span>
+				</li>
+			</ul>
+		</div>
+{{/with}}
+{{/if}}
+
+
+<!-- 手动报警的模板 by wangxiaojun 2014-10-30 -->
+{{!--处理布防时手动报警的弹出框--}}
+{{#if handlerDealAlarm}}
+{{#with handlerDealAlarm}}
+	<!--遮罩层-->
+<iframe class="defense layout_ifr hidden" scroll="none" src="about:blank"></iframe>
+<div class="defense layout hidden"></div>
+	<!-- 弹出内容 -->
+		<div class="deal_defense hidden" data-id="{{deployEvent.id}}">
+			<div class="dialog_title">
+				<h3 class='d-header' title="{{deployEvent.reportPlace}}">{{deployEvent.reportPlace}}</h3>
+		        <a title="关闭" class="close"></a>
+		    </div>
+			<ul class='info-body'>
+				<li class="pic item-1">
+					<a class="analysis" href="{{list1 deployEvent.imgInfo}}">
+						<img src="{{list1 deployEvent.imgInfo}}">
+					</a>
+				</li>
+				<li class="infor item-2">
+					<span class="infItem" data-id="{{deployEvent.id}}"><label>报警类型：</label>{{eventType2eventName deployEvent.eventType}}</span>
+					<span class="infItem"><label>报警时间：</label>{{mills2datatime deployEvent.absTime}}</span>
+					<span class="infItem"><label>报警地点：</label><em class="text" title="{{ isPlace deployEvent.reportPlace}}">{{isPlace deployEvent.reportPlace}}</em></span>
+					<span class="infItem"><label>报警原因：</label><em class="text" title="{{deployEvent.reportReason}}">{{deployEvent.reportReason}}</em></span>
+					<span class="infItem" title="{{null2unkown deployEvent.reportPerson}}"><label>报警人：</label>{{null2unkown deployEvent.reportPerson}}</span>
+					<span class="infItem" title="{{null2unkown deployEvent.handleAuthor}}"><label>处理人：</label>{{null2unkown deployEvent.handleAuthor}}</span>
+				</li>
+				<li class="infor item-3">
+					<span class="infItem"><label>处理时间：</label>{{mills2datatime deployEvent.handleTime}}</span>
+					<span class="infItem"><label>报警级别：</label>
+                        <span class="select_container" data-type="alarm-level">
+                            <span class="text" data-value="{{#AlarmLevelFilter deployEvent.level 'value'}}{{/AlarmLevelFilter}}">{{#AlarmLevelFilter deployEvent.level 'text'}}{{/AlarmLevelFilter}}</span>
+                            <span class="arrow-down"></span>
+                        </span>
+					</span>
+					<span class="infItem"><span class="comment"><label>备注信息：</label></span><textarea placeholder='请输入备注信息' >{{deployEvent.comment}}</textarea></span>
+					<span class="buttons">
+						<button class="do deal" data-dealstatus="1">有效</button>
+						<button class="do undeal" data-dealstatus="2">无效</button>
+					</span>
+				</li>
+			</ul>
+		</div>
+{{/with}}
+{{/if}}
+
+<!-- 点击目标人时弹出层 -->
+{{#if checkAimPerson}}
+    {{#if turnPage}}{{else}}
+       <div class="pop_top">
+           <span class="top_text">目标人</span>
+           <span class="top_text">候选人</span>
+       </div>
+       <div class="pop_pic">
+            <div class="imgItem">
+                <img src="{{data.targetSrc}}">
+            </div>
+            <div class="imgItem">
+                <i class="turnPrev" title="上一张"></i>
+                <img class="cadidate" src="{{data.src}}">
+                <i class="turnNex" title="下一张"></i>
+            </div>
+        </div>
+    {{/if}}
+    <div class="pop_bottom">
+    	<div class="pop_bottom_all">
+	        <span class="infor_item">所属库：{{data.libname}}</span>
+	        <span class="infor_item">比分阈值：{{data.comparescore}}</span>
+	        <div class="toolsBar">
+	        	<span>报警处理状态：</span>
+	            <i class="right"></i>
+	            <i class="wrong"></i>
+	            <i class="unknow"></i>
+	        </div>
+        </div>
+        <!--<a class="pop_close">关闭</a>-->
+    </div>
+{{/if}}

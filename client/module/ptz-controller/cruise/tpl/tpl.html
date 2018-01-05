@@ -1,0 +1,153 @@
+{{#if autoCruise}}
+	<div class="cruise-list">
+		<div class="auto-title common-title clearfix">
+			<span class="l-index">编号</span>
+			<span class="l-name">名称</span>
+			<span class="l-controller">操作</span>
+		</div>
+		<ul class="show-cruise-list" auto="-1">
+			{{#each autoCruise.cruise}}
+			<li class="auto-list common-list" id="{{id}}" userId="{{userId}}" cameraId="{{cameraId}}" startTime="{{startTime}}" endTime="{{endTime}}" presetId="{{presetId}}" createTime="{{createTime}}">
+				<span class="l-index" >{{timeIndex @index}}</span>
+				<span class="l-name too-long">{{hasName name}}</span>
+				<span class="l-controller">
+					{{#if status}}
+							<i class="common-icon switch active"></i>
+					{{else}}
+							<i class="common-icon switch"></i>
+					{{/if}}
+					
+					<i class="common-icon edit"></i>
+					<i class="common-icon del"></i>
+				</span>
+			</li>
+			{{else}}
+			<li style="text-align:center;color:#ccc;padding:10px;">暂无数据!</li>
+			{{/each}}
+		</ul>
+	</div>
+{{/if}}
+
+{{#if addAuto}}
+	<div class="n-title clearfix">
+		<span class="add-new go-right common-icon" title="新增自动巡航预置位"></span>
+		<span class="go-back go-left">返回</span>
+	</div>
+	<div class="n-content">
+		<div class="auto-title common-title">
+			<span class="l-index">预置位标题</span>
+			<span class="l-name">间隔时间</span>
+			<span class="l-controller">操作</span>
+		</div>
+		<ul class="auto-ul">
+			<li class="auto-list">
+				<select name="presetId" class="pre-item presetId">
+					{{#each addAuto.presets}}
+						<option value="{{id}}">{{name}}</option>
+					{{/each}}
+				</select>
+				<div class='pre-item s-input'>
+					<input type="text" class="internalTime mousewheel-num" name="internalTime" value="5" min="1" max="50" step="1">秒
+				</div>
+				<span class='pre-controller' class="pre-item">
+					<i class="common-icon up" title="上移"></i>
+					<i class="common-icon down" title="下移"></i>
+					<i class="common-icon del" title="删除"></i>
+				</span>
+			</li>
+		</ul>
+		<div class="new-cruise-info">
+			<p>
+				<label for="new-cruise-name">名称</label>
+				<input id="new-cruise-name" class="long-input" placeholder="新的自动巡航" name="new-cruise-name" type="text">
+			</p>
+			<p>
+				<label for="after-down">结束后:</label>
+				<span class="after-down">
+					自动回位点:
+					<select name="after-down" id="after-down">
+						{{#each addAuto.presets}}
+							<option value="{{id}}">{{name}}</option>
+						{{/each}}
+					</select>
+				</span>
+			</p>
+			<p class="save-or-cancel">
+				<input type="button" class="blue-btn" value="保存" id="save_auto"/>
+				<input type="button" class="gray-btn" value="取消" id="cancel_auto"/>
+			</p>
+		</div>
+	</div>
+{{/if}}
+
+{{#if editAuto}}
+	{{#with editAuto.autoCruise}}
+	<div class="n-title clearfix">
+		<span class="add-new go-right common-icon" title="新增自动巡航预置位"></span>
+		<span class="go-back go-left">返回</span>
+	</div>
+	<div class="n-content">
+		<div class="auto-title common-title">
+			<span class="l-index">预置位标题</span>
+			<span class="l-name">间隔时间</span>
+			<span class="l-controller">操作</span>
+		</div>
+		<ul class='auto-ul'>
+			{{#each presets}}
+			<li class="auto-list" data-id="{{id}}">
+				<select name="presetId" class="pre-item presetId">
+					{{choseSelect presetId ../allPersets}}
+				</select>
+				<div class='pre-item s-input'>
+					<input type="text" class="internalTime mousewheel-num" min="1" max="50" step="1" name="internalTime" value="{{internalTime}}">秒
+				</div>
+				<span class='pre-controller' class="pre-item">
+					<i class="common-icon up"></i>
+					<i class="common-icon down"></i>
+					<i class="common-icon del"></i>
+				</span>
+			</li>
+			{{/each}}
+		</ul>
+		<div class="new-cruise-info">
+			<p>
+				<label for="new-cruise-name">名称</label>
+				<input id="new-cruise-name" class="long-input" value="{{hasName name}}" placeholder="新的自动巡航" name="new-cruise-name" type="text">
+			</p>
+			<p>
+				<label for="after-down">结束后:</label>
+				<span class="after-down">
+					自动回位点:
+					<select name="after-down" id="after-down">
+						{{choseSelect presetId allPersets}}
+					</select>
+				</span>
+			</p>
+			<p class="save-or-cancel">
+				<input type="button" id="save_auto" class="blue-btn" value="保存" />
+				<input type="button" id="cancel_auto" class="gray-btn" value="取消" />
+			</p>
+		</div>
+	</div>
+	{{/with}}
+{{/if}}
+
+{{#if addAutoPerset}}
+	{{#with addAutoPerset}}
+		<li class="auto-list">
+			<select name="presetId" id="" class="pre-item presetId">
+				{{#each presets}}
+					<option value="{{id}}">{{name}}</option>
+				{{/each}}
+			</select>
+			<div class='pre-item s-input'>
+				<input type="text" class="internalTime mousewheel-num" value="5" min="1" max="50" step="1">秒
+			</div>
+			<span class='pre-controller' class="pre-item">
+				<i class="common-icon up"></i>
+				<i class="common-icon down"></i>
+				<i class="common-icon del"></i>
+			</span>
+		</li>
+	{{/with}}
+{{/if}}

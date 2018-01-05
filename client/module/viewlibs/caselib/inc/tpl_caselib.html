@@ -1,0 +1,42 @@
+<div class="items-panel">
+	
+	<ul class="items-list auto-adapt clearfix">
+		{{#list}}	
+		<li data-id="{{id}}" data-path="{{path}}" data-showType ="{{showType}}">
+				<!-- 缩略图显示 start-->
+				<div class="thumb-figure ease">
+					<!-- <div class="operator ease">
+						<a class="right download" title="下载"></a>
+						<a class="right edit" title="编辑"></a>
+						<a class="right remove" title="删除"></a>
+					</div> -->
+					<a href="javascript:void(0)" class="checkbox {{icpStatus sys_status}}"></a>
+					<a class="thumb-anchor">
+						<span class="vbox"><img src="{{showImage picture}}" alt="" /></span>
+					</a>
+				</div>
+				<!-- 缩略图显示 end-->
+
+			<!-- 文案信息显示 start-->
+
+				<div class="synopsis isincident">
+					<span title="{{showTrueName name}}">
+						<em class="statue {{auditFlag}}">{{{auditFlag}}}</em>
+						<a class="casename" data-incidentname="{{showTrueName name}}" >{{{name}}}</a>
+					</span>
+					<span class="related" title="{{showTrueName location}}">
+						{{{location}}}
+					</span>
+					<span class="time">
+						<span class='time-upper'>{{{mills2str timeUpper}}}<em class="timer-limit">(上限)</em></span>
+						<span class='time-lower'>{{{mills2str timeLower}}}<em class="timer-limit">(下限)</em></span>
+					</span>
+				</div>
+
+			<!-- 文案信息显示 end-->
+			</li>
+	{{else}}
+	<h2 style="padding:10px; text-align:center;">暂无数据</h2>
+	{{/list}}
+	</ul>
+</div>

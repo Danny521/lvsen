@@ -1,0 +1,62 @@
+{{#with alarmInfo.info}}
+<div class="infowindow-title">
+    <span id="alarm-event-top" data-cameraId="{{event.deployEvent.cameraId}}">{{event.deployEvent.cameraName}}</span>
+    <span class="btns">
+        <i title="报警处理" class="alarm-mark-deal"></i>
+        <!-- <a href="/inspect/history/1#cId={{event.deployEvent.cameraChannelId}}&begintime={{beginTime event.deployEvent.absTime}}&endtime={{enTime event.deployEvent.absTime}}"
+        hisdata="{{cameraChannelId}},{{beginTime deployEvent.absTime}},{{enTime deployEvent.absTime}}"
+        title="历史调阅" id="checkV" class="alarm-video-play" style="display:none" data-time="{{deployEvent.absTime}}" data-id="{{deployEvent.cameraChannelId}}" target="historyProxy"></a> -->
+        <i class="closeBtn" data-handler="close" title="关闭"></i>
+    </span>
+</div>
+<div id="alarm-events-content" class="clearfix" data-id="{{event.deployEvent.id}}" data-time="{{event.deployEvent.absTime}}" data-type="{{event.deployEvent.eventTypeName}}">
+    <div class="operate">
+        <div class="alarm-event-mark" style="display:none">
+            <div class="alarm-event-level">
+                <span class="text" level-type="{{event.deployEvent.level}}">{{intToAllLevel event.deployEvent.level}}</span>
+                <span class="down"></span>
+                <div class="level-list1">
+                    <ul>
+                        <li level-type="1">报警级别--一般</li>
+                        <li level-type="2">报警级别--重要</li>
+                        <li level-type="3">报警级别--严重</li>
+                    </ul>
+                </div>
+            </div>
+            <textarea class="event-mark-text">{{event.deployEvent.comment}}</textarea>
+            <a id = "dealAlarm" class="deal-btn save deal-alarm"  data-level="1">有效</a>
+            <a id = "cancelAlarm" class="deal-btn cancel cancel-alarm"  data-level="2">无效</a>
+        </div>
+        <div class="alarm-event-detail">
+            <div class="event-image">
+                <img src="{{event.deployEvent.imgInfo}}" />
+            </div>
+            <!-- <div class="event-status">
+                <span>状态：</span><span id="status" class="status{{event.deployEvent.dealStatus}}" title="intTostatus event.deployEvent.dealStatus">{{intTostatus event.deployEvent.dealStatus}}</span>
+            </div> -->
+
+            <div class="event-time">
+                <span>报警时间：</span><span title="{{mills2datatime event.deployEvent.absTime}}">{{mills2datatime event.deployEvent.absTime}}</span>
+            </div>
+            <div class="event-palce">
+                <span>报警地点：</span><span title="{{event.deployEvent.reportPlace}}">{{event.deployEvent.reportPlace}}</span>
+            </div>
+            <div class="event-reason">
+                <span>报警原因：</span><span title="{{event.deployEvent.reportReason}}">{{event.deployEvent.reportReason}}</span>
+            </div>
+
+            <div class="event-level">
+                <span>报警级别：</span><span class="level level{{event.deployEvent.level}}" title="{{intTolevel event.deployEvent.level}}">{{intTolevel event.deployEvent.level}}</span>
+            </div>
+            <div class="event-type">
+                <span>报警类型：</span><span title="手动报警">手动报警</span>
+            </div>
+            <div class="event-person">
+                <span>报警人：</span><span title="{{event.deployEvent.reportPerson}}">{{event.deployEvent.reportPerson}}</span>
+            </div>
+        </div>
+        <i class="pre" title="上一个报警信息" data-disc="pre" data-currentpage="{{currentPage}}" data-id="{{event.deployEvent.id}}"></i>
+        <i class="next" title="下一个报警信息" data-disc ="next" data-currentpage="{{currentPage}}" data-id="{{event.deployEvent.id}}"></i>
+    </div>
+</div>
+{{/with}}

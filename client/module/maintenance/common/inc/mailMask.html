@@ -1,0 +1,20 @@
+
+        <ul class="maillist">
+            <li class="mailtitle">
+                <span>序号</span>
+                <span>真实姓名</span>
+                <span>登陆名</span>
+                <span>邮箱通知</span>
+                <span>短信通知</span>            
+            </li>
+            {{#each res}}
+            <li class="mailitem" data-plan="{{plan_id}}" data-user="{{user_id}}" data-mail="{{send_mail}}" data-sms="{{send_sms}}" >
+                <span>{{user_id}}</span>
+                <span>{{user_name}}</span>
+                <span>{{user_name}}</span>
+                <span> <i class="maill {{mailChk send_mail}}"></i> </span>
+                <span> <i class="sms {{mailChk send_sms}}"></i> </span>              
+            </li>            
+
+            {{/each}}
+        </ul>

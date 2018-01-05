@@ -1,0 +1,37 @@
+<div id="header">
+	<div class="setting-head newinsertheader">
+		<a class="ui button blue float-right" task-id="{{taskPlan.id}}" task-status="{{taskPlan.status}}" id="configplansubmit">确定</a>
+		<a class="back back-home" data-role="plan"> <i></i></a>
+	</div>
+</div>
+<div id="body">
+	<div class="serchbox advance">
+		 <!--暂时屏蔽联动选项-->
+        <div id="linkage" style="display:none">
+            巡检结果邮箱/短信联动：            
+            <button class="ui button blue btnsize">联动选择</button>
+        </div>
+		<div class="ui input">
+			<label>
+				计划名称：
+				<input type="text" name="newtaskName" id="newtaskName" data-type="plan" placeholder="请输入计划名称..." value="{{taskPlan.taskName}}" />
+			</label>
+		</div>
+		<div class="ui input">
+			<label>
+				计划频率：
+				<select id="newplanfrequency" name="newplanfrequency">
+					<option value="1" {{ifequal taskPlan.frequency 1 "selected"}}>每天</option>
+					<option value="2" {{ifequal taskPlan.frequency 2 "selected"}}>每周</option>
+					<option value="3" {{ifequal taskPlan.frequency 3 "selected"}}>每月</option>
+				</select>
+			</label>
+		</div>
+		<div class="ui input" id="plandate" style="display:none;">
+		</div>
+	</div>
+	<p>巡检摄像机：</p>
+	<div class="cameras-list setplan" data-tab="list">
+		<div class="treePanel">摄像机列表</div>
+	</div>
+</div>

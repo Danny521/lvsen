@@ -1,0 +1,59 @@
+<div class="resource np-resource">
+    <div class="sidebar-search-div">
+        <form onsubmit="return false;">
+            <div class="org-res-filter">
+                <span data-orgid="">筛选组织...</span>
+                <a class="expand expand2" data-type="org-edit" data-event="click" data-handler="showSelectedOrgs" style="position:absolute;right:25px;top:10px;"></a> 
+                <a class="close" title="清除" data-event="click" data-handler="clearOrg"></a> 
+            </div>
+            <div class="select-org-Panel">
+                <ul>
+
+                </ul>
+            </div>
+            <div class="sidebar-search-panel" style="position:relative;">
+                <input class="sidebar-search np-input-search" maxlength="30" placeholder="全局搜索...">
+                <input class="sidebar-search-submit np-input-search-btn" data-event="click" data-handler="ClickSearchBtn" type="submit">
+            </div>
+        </form>
+    </div>
+    <div class="sidebar-resource-type-container">
+        <ul class="inline-list sidebar-body-resource-type np-left-resource-fliter">
+        <li class="np-business-click" data-handler="LoadCamera">
+            <i class="camera-icon"></i>
+            <span>摄像机</span>
+        </li>
+        <li class="np-business-click" data-handler="LoadBayonet">
+            <i class="cross-icon"></i>
+            <span>卡口</span>
+        </li>
+        <li class="np-business-click" data-handler="LoadPolice">
+            <i class="car-icon"></i>
+            <span>警力</span>
+        </li>
+        <!-- <li class="np-business-click" data-handler="LoadPoliceman">
+            <i class="police-icon"></i>
+            <span>警员</span>
+        </li> -->
+        <li class="row-last np-business-click" data-handler="LoadLightbar">
+            <i class="pole-icon"></i>
+            <span>灯杆</span>
+        </li>
+    </ul>
+    </div>
+    <div class="sidebar-filter-container np-camera-tree-fliter">
+        <div class="sidebar-filter" style="display:none;">
+            <span>画质：</span>
+            <span class="item active np-sh-all" data-event="click" data-handler="SHCameraFliter">不限</span>
+            <span class="item np-hd" data-event="click" data-handler="SHCameraFliter">高清</span>
+            <span class="item np-sd" data-event="click" data-handler="SHCameraFliter">标清</span>
+        </div>
+        <div class="sidebar-filter">
+            <span>状态：</span>
+            <span class="item active np-oo-all" data-event="click" data-handler="OnOffCameraFliter">不限</span>
+            <span class="item np-on" data-event="click" data-handler="OnOffCameraFliter">在线</span>
+            <span class="item np-off" data-event="click" data-handler="OnOffCameraFliter">离线</span>
+        </div>
+    </div>
+    <div class="sidebar-tree loading"></div>
+</div>

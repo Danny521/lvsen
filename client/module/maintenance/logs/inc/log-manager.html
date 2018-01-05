@@ -1,0 +1,61 @@
+<!-- 面包屑模版 -->
+{{#if breadrumb}}
+<div class="breadcrumb">
+	{{#each breadrumb}}
+	<a class="section" data-id="{{id}}">{{name}}</a>
+	<span class="divider arrow">></span>
+	{{/each}}
+	<span class="section"></span>
+</div>
+{{/if}}
+<!-- 日志列表 -->
+{{#if logsList}}
+<dl class="team_list">
+	{{#each logsList.logs}}
+	<dd data-id="{{id}}" data-createDate="{{createDate}}" data-ip="{{ip}}" data-userName="{{userName}}" data-module="{{module}}" data-function="{{function}}" data-index="{{@index}}"  class="{{even @index}}">
+		<label>
+			<input type="checkbox" class="checkbox" data-id="{{id}}"></label>
+		<p class="nowrap">{{mills2string createDate}}</p>
+		<p class="nowrap" title="{{userName}}">{{userName}}</p>
+		<p class="opra-detail nowrap" title="{{trimLog description}}">{{trimLog description}}</p>
+		<p class="nowrap">{{ip}}</p>
+	</dd>
+	{{else}}
+	<p style='text-align:center;padding:10px;color:#888;'>暂无数据!</p>
+	{{/each}}
+</dl>
+{{/if}}
+<!-- 日志详情列表 -->
+{{#if logDetail}}
+<dl class="detail_lists">
+	<dd>
+		<label>日志名称:</label>
+		<!-- <span>{{logName logDetail.type}}</span> -->
+		<span title="{{logDetail.type}}">{{logDetail.type}}</span>
+	</dd>
+	<dd>
+		<label>记录时间:</label>
+		<span>{{mills2string logDetail.createDate}}</span>
+	</dd>
+	<dd>
+		<label>IP地址:</label>
+		<span>{{logDetail.ip}}</span>
+	</dd>
+	<dd>
+		<label>操作人:</label>
+		<span title="{{logDetail.userName}}">{{logDetail.userName}}</span>
+	</dd>
+	<dd>
+		<label>操作模块:</label>
+		<span title="{{logDetail.module}}">{{logDetail.module}}</span>
+	</dd>
+	<dd>
+		<label>操作功能:</label>
+		<span title="{{logDetail.function}}">{{logDetail.function}}</span>
+	</dd>
+</dl>
+<p class="clearfix">
+    <label>操作详情:</label>
+    <span title="{{trimLog logDetail.description}}">{{trimLog logDetail.description}}</span>
+</p>
+{{/if}}

@@ -1,0 +1,241 @@
+#footer {
+	clear:both;
+}
+#content .wrapper, #footer .wrapper {
+	margin: 30px auto 0;
+	max-width: 1200px;
+	_width: 1200px;
+}
+#content .wrapper .main{
+	border: 1px solid #E4E4E4;
+	margin-right: 0px;
+	margin-bottom: 30px;
+}
+#content .wrapper .header{
+	border-bottom: 1px solid #E4E4E4;
+    height: 42px;
+    line-height: 42px;
+}
+#content .wrapper .header h3{
+	border-bottom: 2px solid #1566C3;
+    float: left;
+    font-size: 14px;
+    font-weight: normal;
+    height: 41px;
+    padding: 0 24px;
+}
+#content .wrapper .main .content{
+	margin-top: 20px;
+	min-height: 500px;
+}
+#content .wrapper .main .content .small-title{
+	height: 38px;
+	background-color: #E6E6E6;
+	font-size: 14px;
+    font-weight: normal;
+    border-bottom: 1px solid #CCCCCC;
+}
+#content .wrapper .main .content .upload-item{
+	height: 38px;
+	background-color: #F2F2F2;
+	border-top: 1px solid #FFFFFF;
+	border-bottom: 1px solid #E6E6E6;
+}
+#content .main .small-title span,#content .main .upload-item span{
+	display: inline-block;
+	line-height: 38px;
+	float: left;
+}
+#content .main .small-title .resource-name,#content .main .upload-item .resource-name{
+	width: 31%;/*370px*/
+	padding-left: 24px;
+	padding-right: 26px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	word-break: keep-all;
+}
+#content .main .small-title .upload-progress,#content .main .upload-item .upload-progress{
+	width: 31%; /*378px*/
+	padding-right: 80px;
+} 
+
+.progress-label {
+	display: inline-block;
+}
+#content .main .small-title .status,#content .main .upload-item .status{
+	width: 11%;  /*135px*/
+}
+#content .main .small-title .operate,#content .main .upload-item .operate{
+	/*width: 185px;*/
+}
+#content .main .upload-item .operate{
+	color: #5279C0;
+}
+#content .header .special-button{
+	padding-right:10px; 
+	padding-left:10px; 
+}
+
+#content .header .special-button i.add-resource{
+	display: inline-block;
+	margin-top: 2px;
+	width: 12px;
+	height: 10px;
+	background: url("/module/common/images/icons/add_resource.png") no-repeat scroll 0px 0px transparent;
+}
+#content .header a{
+	font-weight: bold;
+	float: right;
+	margin: 6px 6px 0 0;
+}
+#content .main .upload-item .upload-progress span{
+	display: inline-block;
+}
+#content .main .upload-item .upload-progress .progress-value{
+	color: #70BE1D;
+	float: left;
+	margin-left: 334px;
+	margin-top: -25px;
+}
+#content .main .upload-item .upload-progress .probar_wrapper{
+	height: 9px;
+	margin-top: 14px;
+	background-color: #CFCFCF;
+    border: 1px solid #666666;
+    border-radius: 8px 8px 8px 8px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1) inset;
+    height: 7px;
+    width: 85%;/*318px*/
+    float: left;
+}
+
+#content .upload-progress .probar_wrapper .probar-outter{
+	width:  100%;  /*318px*/
+	height: 7px;
+	overflow: hidden;
+	border-radius: 7px 7px 7px 7px;
+}
+#content .upload-progress .probar_wrapper .probar-bullet{
+	width: 0px;
+	height: 7px;
+	background-color: #919191;
+    background-image: -moz-linear-gradient(top, #7bd11f, #63a71a);
+    background-image: -webkit-linear-gradient(top, #7bd11f, #63a71a);
+    background-image: -ms-linear-gradient(top, #7bd11f, #63a71a);
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#7bd11f, endColorstr=#63a71a);/*IE<9>*/
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient (GradientType=0, startColorstr=#7bd11f, endColorstr=#63a71a)";/*IE8+*/
+    border-radius: 7px;
+    height: 100%;
+    border-right: 1px solid #686868;
+    display: block;
+}
+.upload-item .importing,.upload-item .writing{
+	color: #4F7721;
+}
+.upload-item .unwrite,.upload-item .unsubmit{
+	color: #BF1D34;
+}
+
+.upload-item .unaudit{
+	color: #CDCDCD;
+}
+
+.upload-item .delete-resource{
+	color: #BF3F1D;
+	margin-left: 13px;
+}
+
+.upload-item .operate a i{
+	position: relative;
+	display: inline-block;
+	margin-left: 4px;
+	width: 8px;
+	height: 4px;
+	top:-2px;
+	background: url("/module/common/images/icons/dir.png") no-repeat scroll 0 0;
+}
+
+*:first-child+html .upload-item .operate a i{
+	position: relative;
+	bottom:4px;
+}
+
+.upload-item .operate a i.down{
+	background-position: 0 0px;
+}
+.upload-item .operate a i.up{
+	background-position: 0 -4px;
+}
+.main .content .form-box{
+	height:566px;
+	margin-top: -1px;
+}
+
+.modify .entity-preview .picture,.modify .entity-preview .picture img {
+    max-width: 660px;
+}
+.main .content .form-box .deck{
+	
+}
+.main .content .form-box .deck i{
+	float: left;
+	display: inline-block;
+	margin:0;
+	padding: 0;
+}
+
+.main .content .form-box .deck i.hook{
+	width: 17px;
+	height:12px;
+	background: url("/module/common/images/icons/deck_hook.png") no-repeat scroll 0 0;
+}
+.main .content .form-box .deck i.before-line{
+	width: 45px;
+	height:12px;
+	background: url("/module/common/images/icons/deck_line.png") repeat-x scroll 0 0;
+}
+.main .content .form-box .deck i.after-line{
+	width: 1136px;
+	height:12px;
+	background: url("/module/common/images/icons/deck_line.png") repeat-x scroll 0 0;
+}
+.form-box{
+	display: none;
+}
+.upload-item .operate a.write-info{
+	border-color: #C4CBCF;
+    color: #62778C;
+    height: 22px;
+    line-height: 22px;
+    border:none;
+	padding: 0;
+	overflow: visible;
+	vertical-align: middle;
+}
+.upload-item .operate a.watchRecoure{
+    border:none;
+	padding: 0;
+	vertical-align: top;
+}
+
+
+
+/* 进入任务消息详情页头部全部取消高亮 */
+#header .nav .active span,#header .nav .active em{
+	background: none;
+}
+
+#footer {
+	border-top: none;
+}
+
+#chooseFile1 {
+	background: none;
+	box-shadow:0 1px #2277C5 inset;
+	background-color: #2277C5;
+    border: 1px solid #2DA5EC;
+    color: #FFFFFF;
+    height: 28px;
+    line-height: 28px;
+}

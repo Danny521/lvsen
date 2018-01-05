@@ -1,0 +1,46 @@
+@charset "utf-8";
+/* CSS Document */
+/*
+ * 东方网力 CSS Library 2.0.0
+ * Copyright(c)  2014, 东方网力 CSS
+ * @url http://www.netposa.com
+ */
+/*========================================== 样式开始@Start ==========================================*/
+.droppanel-container {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.droppanel-container .droppanel {
+	display: none;
+	position: absolute;
+	left: 150px;
+	top: 0px;
+	width: 1000px;
+	height: 800px;
+	z-index: 1001;
+	background: #fff;
+	overflow: hidden;
+	-webkit-box-shadow: 0px 5px 10px 3px #A3A3A3;
+	box-shadow: 0px 5px 10px 3px #A3A3A3;
+}
+.droppanel-container > i.close {
+	position: absolute;
+	display: block;
+	width: 85px;
+	height: 27px;
+	/*top: 86px;*/
+	left: 65px;
+	cursor: pointer;
+	color: #fff;
+	font-size: 14px;
+	background: transparent url("/component/panel/icon-close.png") no-repeat scroll 0 0;
+	text-indent: -100px;
+	z-index: 1003;
+	overflow: hidden;
+	opacity: 0.9;
+}
+.hidden {
+	display: none!important;
+}
+/*========================================== 样式开始@End ==========================================*/

@@ -1,0 +1,58 @@
+{{#if cameraLocationPanel }}
+<div class="infowindow-title">
+	<span class="mark-name" title="{{cameraLocationPanel.name}} {{showCode cameraLocationPanel.code}}">{{cameraLocationPanel.name}}{{showCode cameraLocationPanel.code}}</span>
+	<span class="btns">
+			<i class="closeBtn"></i>
+		</span>
+	</div>
+<div class="location-box add-location" style="display:block;">
+	<form id="locationForm" onsubmit="return false;">
+		<div class="item"><span class="name">经度：</span>
+			<div class="item-box ui input">
+				<input id="longitude" class="map-input" maxlength="12" type="text" value="{{cameraLocationPanel.longitude}}"  name="longitude "  placeholder="输入精度">
+			</div>
+		</div>
+
+		<div class="item"><span class="name">纬度：</span>
+			<div class="item-box ui input">
+				<input id="latitude" class="map-input" maxlength="11" type="text"  name="latitude" value="{{cameraLocationPanel.latitude}}"  placeholder="输入纬度">
+			</div>
+		</div>
+
+		<div class="operation">
+			<button type="button" class="ui button blue small right permission permission-maker-camera-point" id="cancelMark">取消</button>
+			<button type="button" class="ui button blue small right permission permission-maker-camera-point" id="saveMark">保存</button>
+		</div>
+	</form>
+</div>
+{{/if}}
+
+{{#if cameraLocationInfo }}
+<div class="location-box edit-location" style="display:block;">
+	<div class="item"><span class="name">经度：</span>
+		<div class="item-box ui input">
+			<input id="longitude" class="map-input" type="text" value="{{cameraLocationInfo.longitude}}"  name="longitude "  placeholder="输入精度">
+		</div>
+	</div>
+
+	<div class="item"><span class="name">纬度：</span>
+		<div class="item-box ui input">
+			<input id="latitude" class="map-input" type="text"  name="latitude" value="{{cameraLocationInfo.latitude}}"  placeholder="输入纬度">
+		</div>
+	</div>
+
+	<div class="operation">
+		<button type="button" class="ui button blue small right" id="cancelMark">取消</button>
+		<button type="button" class="ui button blue small right" id="editMark">编辑</button>
+	</div>
+</div>
+{{/if}}
+
+
+{{#if mapInputBox}}
+<div id="mapInputBox">
+	
+	
+</div>
+
+{{/if}}

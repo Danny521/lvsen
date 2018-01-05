@@ -1,0 +1,33 @@
+#definition{
+	display: none;/* 暂时隐藏 */
+	position: absolute;
+	top: 13px;
+	right: 25px;
+	z-index: 200;
+	width: 70px;
+}
+#definition a{
+	position: absolute;
+	right: 0;
+	background: url("/module/common/images/inspect/sd_hd.png") no-repeat;
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+}
+#definition .ul-definition{
+	display: none;
+	margin-top: 24px;
+	position: absolute;
+	right: 0;
+	background: #fff;
+	padding: 4px;
+	border:1px solid #ccc;
+}
+#definition .ul-definition li{
+	height: 20px;
+	line-height: 20px;
+}
+#definition .ul-definition li input{
+	padding-right: 10px;
+	vertical-align: middle;
+}

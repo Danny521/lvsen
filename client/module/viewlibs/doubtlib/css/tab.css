@@ -1,0 +1,84 @@
+.tabs {
+	height: 38px;
+	line-height: 38px;
+	border: 1px solid #D9E0EF;
+	background-color: #F9F9F9;
+}
+
+.tabs li {
+	float: left;
+}
+
+.tabs li a {
+	display: block;
+	padding: 0 15px;
+	font-size: 14px;
+	height: 38px;
+}
+.sub-tab li a{
+	display: inline;
+}
+.tabs li.active a {
+	background-color: #FFFFFF;
+	border-style: solid;
+	border-width: 2px 1px 1px;
+	border-color: #1053AC #D9E0EF transparent;
+	height: 37px;
+	line-height: 36px;
+	margin-top: -1px;
+	padding: 0 14px 1px;
+}
+.sub-tab li.active a{
+	border:none;
+	border-bottom: 1px solid #999999;
+	line-height: 38px;
+	padding: 0;
+	margin-right: 20px;
+	margin-top: 0;
+}
+.tabs li.active:first-child a {
+	margin-left: -1px;
+	padding-left: 15px;
+}
+.sub-tab li:first-child a{
+	margin-left: 10px;
+}
+.sub-tab li.active:first-child a {
+	margin-left: 10px;
+	padding-left: 0;
+}
+.folder {
+	background: url(/module/viewlibs/doubtlib/images/folder-open.png) no-repeat;
+    display: block; 
+    position: absolute; 
+    width: 24px;
+    height: 24px; 
+    right: 6px; 
+    bottom: 6px;
+}
+.filter-box .doubtlib_tabs{
+	height: 40px; 
+	padding: 0;
+}
+.filter-box .select{
+   	border-left: 0px; 
+	border-right: 0px;
+	border-bottom: 0px;
+}
+#VideoWarp .bg-content .main-content.video-content{
+	left: 0;
+    right: 0;
+    bottom: 62px;
+}
+#VideoWarp .bg-content .main-content{
+	top:41px;
+}
+#VideoWarp .download{
+	display: none;
+}
+#VideoWarp .grab{
+	display: none;
+}
+.video-block .panel span{
+	display: inline;
+}

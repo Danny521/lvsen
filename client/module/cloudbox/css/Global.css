@@ -1,0 +1,70 @@
+@charset "utf-8";
+html { -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; SCROLLBAR-FACE-COLOR: #f0f0f0; SCROLLBAR-HIGHLIGHT-COLOR: #f5f5f5; SCROLLBAR-SHADOW-COLOR: #8b8c8c; SCROLLBAR-3DLIGHT-COLOR: #fff; SCROLLBAR-ARROW-COLOR: #240024; SCROLLBAR-TRACK-COLOR: #fcfcfc; SCROLLBAR-DARKSHADOW-COLOR: #ccc; SCROLLBAR-BASE-COLOR: #f4f4f4 }
+* html body { overflow: visible; background-image: url(about:blank); background-attachment: fixed }
+* html iframe, * html frame { overflow: auto }
+* html frameset { overflow: hidden }
+iframe { width: 100%; height: 100% }
+body { color: #666; background: #fff; SCROLLBAR-FACE-COLOR: #f0f0f0; SCROLLBAR-HIGHLIGHT-COLOR: #f5f5f5; SCROLLBAR-SHADOW-COLOR: #8b8c8c; SCROLLBAR-3DLIGHT-COLOR: #fff; SCROLLBAR-ARROW-COLOR: #240024; SCROLLBAR-TRACK-COLOR: #fcfcfc; SCROLLBAR-DARKSHADOW-COLOR: #ccc; SCROLLBAR-BASE-COLOR: #f4f4f4 }
+body, dl, dd, h1, h2, h3, h4, h5, h6, p, form, ul, ol { margin: 0 auto; padding: 0 }
+select { font-size: 12px; outline: none; border: 1px solid #ccc; padding: 3px 5px; color: #999; background: #fff; box-shadow: none }
+textarea { word-wrap: break-word; word-break: break-all; overflow: auto; border: none }
+input::-ms-clear { display: none }
+input[type='text'] { color: #999; border: 1px solid #ccc;border-radius: 2px; }
+input[type='botton'] { border: none }
+table { width: 100%; border-collapse: collapse }
+td, th { font-size: 12px }
+ul, ol { list-style-type: none }
+img { border: none; vertical-align: top; -ms-interpolation-mode: bicubic }
+a { color: #666; text-decoration: none; outline: none; white-space: nowrap; work-break: keep-all }
+a { blr: expression(this.onFocus=this.blur()) }
+a:hover { text-decoration: underline }
+a:active, a:focus { outline: none }
+h1 { height: 60px; line-height: 60px; font-size: 48px }
+h2 { height: 40px; line-height: 40px; font-size: 32px }
+h3 { height: 32px; line-height: 32px; font-size: 24px }
+h4, h5, h6 { font-weight: normal; font-size: 12px }
+dfn, em, i, b, strong { font-style: normal; font-weight: normal }
+.line { display: block; width: 100%; font-size: 0; height: 0px; line-height: 0px; border-top: 1px solid #DDDDDD; border-bottom: 1px solid #FFFFFF }
+.pointer { cursor: pointer }
+.NoBorder { border: none }
+.textLeft { text-align: left }
+.textCenter { text-align: center }
+.textRight { text-align: right }
+.Break { word-break: break-all; word-wrap: break-word }
+.Nobreak { word-break: keep-all; word-wrap: normal }
+.FL { float: left }
+.FR { float: right }
+.UnLine { text-decoration: underline }
+.DisunLine { text-decoration: none }
+.absolute { position: absolute }
+.relative { position: relative }
+.fixed { position: fixed }
+.wrapper { clear: both;}
+.whole { height: 100%; overflow: hidden }
+.o-hidden { overflow: hidden }
+.invisible { visibility: hidden }
+.hidden { display: none }
+.block { display: block }
+.clear { clear: both; height: 0px; width: 100%; font-size: 1px; line-height: 0px; visibility: hidden; overflow: hidden }
+.cRed { color: #F00 }
+.cWhite { color: #FFF }
+.cGreen { color: #0F0 }
+.cGray { color: #666 }
+.cBlue { color: #00F }
+.cblack { color: #000 }
+.bRed { background: red }
+.bBlack { background: black }
+.bYellow { background: Yellow }
+.bBlue { background: Blue }
+.bGreen { background: Green }
+.bWhite { background: #fff }
+.FB { font-weight: bold }
+.FN { font-weight: normal }
+.FI { font-style: italic }
+.content .viewport { }
+.content .overview { }
+.content .scrollbar { position: absolute; right: 0px; z-index: 9; width: 5px; margin-right: 4px }
+.content .track { height: 100%; width: 5px; position: relative; cursor: pointer; background: #f0f0f0 }
+.content .thumb { height: 36px; width: 5px; background: transparent url(/module/common/images/bg/tiny_scrollbar.png) 0 0 no-repeat; overflow: hidden; position: absolute; top: 0 }
+.content .disable { display: none }
+.noSelect { user-select: none; -o-user-select: none; -moz-user-select: none; -khtml-user-select: none; -webkit-user-select: none }

@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=10,chrome=1">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<title>视云实战平台</title>
+	<!--[if lt IE 9]>
+	<script src="/libs/html5/html5.js"></script>
+	<![endif]-->
+
+	<link type="text/css" rel="stylesheet" href="/module/common/css/base.css" />
+	<link type="text/css" rel="stylesheet" href="/libs/semantic/semantic.css" />
+	<link type="text/css" rel="stylesheet"  href="/libs/jquery/jquery-ui.css">
+	<link type="text/css" rel="stylesheet" href="/libs/jquery/jquery.datetimepicker.css"/>
+	<link type="text/css" rel="stylesheet" href="/libs/jquery/jquery.Jcrop.css"/>
+	<link type="text/css" rel="stylesheet" href="/module/viewlibs/caselib/css/entity.css"/>
+	<link type="text/css" rel="stylesheet" href="/module/viewlibs/caselib/css/icon.css" />
+	<link type="text/css" rel="stylesheet" href="/module/viewlibs/caselib/css/video.css"/>
+	<link type="text/css" rel="stylesheet" href="/module/viewlibs/caselib/css/localhost.css"/>
+	<link type="text/css" rel="stylesheet" href="/module/viewlibs/caselib/css/dialog_video.css"/>
+</head>
+<body>
+<div id="content">
+<div class="libbanner">
+	<span>
+		<a href="javascript:void(0)" onclick="return false;" class="already">选择结构化信息</a>
+		<a href="javascript:void(0)" onclick="return false;" class="current">填写结构化信息表单</a>
+		<a href="javascript:void(0)" onclick="return false;" class="already">填写所属视图表单</a>
+		<a href="javascript:void(0)" onclick="return false;" class="already">创建案事件</a>
+		<a href="javascript:void(0)" onclick="return false;">完成入库操作</a>
+	</span>
+</div>
+<div class="wrapper clearfix">
+	<ul class="breadcrumb">
+		<li>
+			<a href="/module/viewlibs/workbench/index">视图库</a>
+			<span class="divider">&gt;</span>
+		</li>
+		<li>
+			<a>车辆信息</a>
+			<span class="divider">&gt;</span>
+		</li>
+		<li class="active">编辑车辆信息</li>
+	</ul>
+
+	<div class="main modify">
+
+		<div class="resources tabview">
+			<form autocomplete="off" id="car_form">
+				<div class="fieldset">
+					<div class="module active">
+						<div class="module-head">
+							<h3>必填信息</h3> <i class="fix-png"></i>
+						</div>
+						<div class="module-body">
+							<div class="scrollbar disable">
+								<div class="track">
+									<div class="thumb"></div>
+								</div>
+							</div>
+							<div class="viewport car-view">
+								<div class="overview">
+									<div class="group">
+										<div class="form-item">
+											<span class="item-label">
+												<label for="licenseType">
+													<span class="required">*</span>
+													车牌种类：
+												</label>
+											</span>
+											<div class="item-box">
+												<select class="input-select" id="licenseType" maxlength="2" name="licenseType" data-default="">
+													<option value="">--请选择车牌种类--</option>
+													<option value="01">大型汽车号牌</option>
+													<option value="02">小型汽车号牌</option>
+													<option value="03">使馆汽车号牌</option>
+													<option value="04">领馆汽车号牌</option>
+													<option value="05">境外汽车号牌</option>
+													<option value="06">外籍汽车号牌</option>
+													<option value="07">两、三轮摩托车号牌</option>
+													<option value="08">轻便摩托车号牌</option>
+													<option value="09">使馆摩托车号牌</option>
+													<option value="12">外籍摩托车号牌</option>
+													<option value="13">农用运输车号牌</option>
+													<option value="14">拖拉机号牌</option>
+													<option value="15">挂车号牌</option>
+													<option value="16">教练汽车号牌</option>
+													<option value="17">教练汽车号牌</option>
+													<option value="18">试验汽车号牌</option>
+													<option value="19">试验汽车号牌</option>
+													<option value="20">临时人境汽车号牌</option>
+													<option value="21">临时人境摩托车号牌</option>
+													<option value="22">临时行驶车号牌</option>
+													<option value="23">警用汽车号牌</option>
+													<option value="24">警用摩托号牌</option>
+													<option value="99">其他号牌</option>
+                                                    <option value="0">未知</option>
+                                                    <option value="1">蓝牌小汽车</option>
+                                                    <option value="2">黑牌小汽车</option>
+                                                    <option value="3">单排黄牌车</option>
+                                                    <option value="4">双排黄牌车</option>
+                                                    <option value="5">警车车牌</option>
+                                                    <option value="6">武警车牌</option>
+                                                    <option value="7">个性化车牌</option>
+                                                    <option value="8">单排军牌</option>
+                                                    <option value="9">双排军牌</option>
+                                                    <option value="10">使馆牌</option>
+                                                    <option value="11">香港牌</option>
+												</select>
+											</div>
+										</div>
+										<div class="form-item">
+											<span class="item-label">
+												<label for="licenseColor">
+													<span class="required">*</span>
+													车牌颜色：
+												</label>
+											</span>
+											<div class="item-box">
+												<select class="input-select" id="licenseColor" name="licenseColor"  data-default="">
+													<option value="">--请选择车牌颜色--</option>
+													<option value="0">未知</option>
+													<option value="1">蓝</option>
+													<option value="2">黄</option>
+													<option value="3">白</option>
+													<option value="4">黑</option>
+													<option value="5">绿</option>
+												</select>
+											</div>
+										</div>
+										<div class="form-item">
+											<span class="item-label">
+												<label for="licenseNumber">
+													<span class="required">*</span>
+													车牌号码：
+												</label>
+											</span>
+											<div class="item-box">
+												<input type="text" class="input-text" maxlength="16" name="licenseNumber" id="licenseNumber" value=""/>
+											</div>
+										</div>
+										<div class="form-item">
+											<span class="item-label">
+												<label for="carType">
+													<span class="required">*</span>
+													车辆类型：
+												</label>
+											</span>
+											<div class="item-box">
+												<select id="carTypeMain" name="carTypeMain" class="input-select input-select-second notNull" data-default=""></select>
+												<select id="carTypeSub" name="carTypeSub" class="input-select" data-default=""></select>
+											</div>
+										</div>
+										<div class="form-item">
+											<span class="item-label">
+												<label for="carColor">
+													<span class="required">*</span>
+													车身颜色：
+												</label>
+											</span>
+											<div class="item-box">
+												<select class="input-select" id="carColor" name="carColor" data-default="">
+                                                    <option value="">--请选择--</option>
+                                                    <option value="8">黑</option>
+                                                    <option value="0">白</option>
+                                                    <option value="1">灰</option>
+                                                    <option value="4">红</option>
+                                                    <option value="6">蓝</option>
+                                                    <option value="2">黄</option>
+                                                    <option value="12">橙</option>
+                                                    <option value="7">棕</option>
+                                                    <option value="5">绿</option>
+                                                    <option value="3">粉</option>
+                                                    <option value="9">紫</option>
+                                                    <option value="10">多种</option>
+                                                    <option value="11">其它</option>
+												</select>
+											</div>
+										</div>
+										<div class="form-item">
+											<span class="item-label">
+												<label for="transitTime">
+													<span class="required">*</span>
+													经过时刻：
+												</label>
+											</span>
+											<div class="item-box">
+												<input type="text" class="input-text input-time" maxlength="50" name="transitTime" id="transitTime" value=""/>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="module">
+						<div class="module-head">
+							<h3>选填信息</h3> <i class="fix-png"></i>
+						</div>
+						<div class="module-body">
+							<div class="scrollbar disable">
+								<div class="track">
+									<div class="thumb"></div>
+								</div>
+							</div>
+							<div class="viewport car-view">
+								<div class="overview">
+									<div class="group">
+										<div class="form-item">
+											<span class="item-label">
+												<label for="appearTime">来源视频时间：</label>
+											</span>
+											<div class="item-box">
+												<input type="text" class="input-text input-time" maxlength="50" id="appearTime" name="appearTime" value=""/>
+											</div>
+										</div>
+										<div class="form-item">
+											<span class="item-label">
+												<label for="isFakeLicense">是否套牌：</label>
+											</span>
+											<div class="item-box">
+												<input type="checkbox" class="input-check" name="isFakeLicense" id="isFakeLicense" value=""/>
+											</div>
+										</div>
+										<div class="form-item">
+											<span class="item-label">
+												<label for="driveSpeed">
+													行驶速度
+													<i class="gray">(km/h)</i>
+													：
+												</label>
+											</span>
+											<div class="item-box">
+												<input type="text" class="input-text" name="driveSpeed" id="driveSpeed" maxlength="10" value=""/>
+											</div>
+										</div>
+										<div class="form-item">
+											<span class="item-label">
+												<label for="driveStatus">行驶状态：</label>
+											</span>
+											<div class="item-box">
+												<select class="input-select" id="driveStatus" maxlength="4" name="driveStatus" value="">
+													<option value="">--请选择行驶状态--</option>
+													<option value="0">正常</option>
+													<option value="1">嫌疑</option>
+													<option value="2072">超速</option>
+													<option value="2027">逆行</option>
+													<option value="01">直行</option>
+													<option value="02">倒车</option>
+													<option value="03">掉头</option>
+													<option value="04">起步</option>
+													<option value="05">停车</option>
+													<option value="06">左转弯</option>
+													<option value="07">右转弯</option>
+													<option value="08">变更车道</option>
+													<option value="09">躲避障碍</option>
+													<option value="10">静止</option>
+													<option value="11">其他</option>
+												</select>
+											</div>
+										</div>
+										<div class="form-item">
+											<span class="item-label">
+												<label for="useNature">车辆使用性质：</label>
+											</span>
+											<div class="item-box">
+												<select class="input-select" id="useNature" maxlength="1" name="useNature" data-default="">
+													<option value="">--请选择车辆使用性质--</option>
+													<option value="A">非营运</option>
+													<option value="B">公路客运</option>
+													<option value="C">租赁</option>
+													<option value="D">出租客运</option>
+													<option value="E">旅游客运</option>
+													<option value="F">货运</option>
+													<option value="H">警用</option>
+													<option value="I">消防</option>
+													<option value="J">救护</option>
+													<option value="K">工程抢险</option>
+													<option value="L">营转非</option>
+													<option value="M">出租转非</option>
+													<option value="Z">其他</option>
+												</select>
+											</div>
+										</div>
+										<div class="form-item">
+											<span class="item-label">
+												<label for="carBrand">车辆品牌：</label>
+											</span>
+											<div class="item-box">
+												<input type="text" class="input-text " maxlength="20" name="carBrand" id="carBrand" value="" />
+											</div>
+										</div>
+										<div class="form-item">
+											<span class="item-label">
+												<label for="carModel">车辆型号：</label>
+											</span>
+											<div class="item-box">
+												<input type="text" class="input-text" maxlength="20" name="carModel" id="carModel" value=""/>
+											</div>
+										</div>
+										<div class="form-item">
+											<span class="item-label">
+												<label for="carShape">车辆外型：</label>
+											</span>
+											<div class="item-box">
+												<input type="text" class="input-text" maxlength="10" name="carShape" id="carShape" value=""/>
+											</div>
+										</div>
+										<div class="form-item">
+											<span class="item-label">
+												<label for="frontHood">车前盖：</label>
+											</span>
+											<div class="item-box">
+												<input type="text" class="input-text" maxlength="10" name="frontHood" id="frontHood" value=""/>
+											</div>
+										</div>
+										<div class="form-item">
+											<span class="item-label">
+												<label for="backHood">车后盖：</label>
+											</span>
+											<div class="item-box">
+												<input type="text" class="input-text" maxlength="10" name="backHood" id="backHood" value=""/>
+											</div>
+										</div>
+										<div class="form-item">
+											<span class="item-label">
+												<label for="wheel">车轮：</label>
+											</span>
+											<div class="item-box">
+												<input type="text" class="input-text " maxlength="10" name="wheel" id="wheel" value=""/>
+											</div>
+										</div>
+										<div class="form-item">
+											<span class="item-label">
+												<label for="wheelTracks">车轮印花纹：</label>
+											</span>
+											<div class="item-box">
+												<input type="text" class="input-text" maxlength="10" name="wheelTracks" id="wheelTracks" value=""/>
+											</div>
+										</div>
+										<div class="form-item">
+											<span class="item-label">
+												<label for="carWindow">车窗：</label>
+											</span>
+											<div class="item-box">
+												<input type="text" class="input-text " maxlength="10" name="carWindow" id="carWindow" value=""/>
+											</div>
+										</div>
+										<div class="form-item">
+											<span class="item-label">
+												<label for="carRoof">车顶：</label>
+											</span>
+											<div class="item-box">
+												<input type="text" class="input-text " maxlength="10" name="carRoof" id="carRoof" value="" />
+											</div>
+										</div>
+										<div class="form-item">
+											<span class="item-label">
+												<label for="carChassis">底盘：</label>
+											</span>
+											<div class="item-box">
+												<input type="text" class="input-text" maxlength="10" name="carChassis" id="carChassis" value=""/>
+											</div>
+										</div>
+										<div class="form-item">
+											<span class="item-label">
+												<label for="carFilming">遮挡：</label>
+											</span>
+											<div class="item-box">
+												<input type="text" class="input-text" maxlength="10" name="carFilming" id="carFilming" value=""/>
+											</div>
+										</div>
+										<div class="form-item">
+											<span class="item-label">
+												<label for="filmingColor">贴膜颜色：</label>
+											</span>
+											<div class="item-box">
+												<input type="text" class="input-text" maxlength="10" name="filmingColor" id="filmingColor" value=""/>
+											</div>
+										</div>
+										<div class="form-item">
+											<span class="item-label">
+												<label for="transitRoad">经过道路名称 ：</label>
+											</span>
+											<div class="item-box">
+												<input type="text" class="input-text" maxlength="50" name="transitRoad" id="transitRoad" value=""/>
+											</div>
+										</div>
+										<div class="form-item" style="display: none">
+											<span class="item-label">
+												<label for="points">标记坐标 ：</label>
+											</span>
+											<div class="item-box">
+												<input type="text" class="input-text" maxlength="50" name="points"  id="points" value=""/>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="form-item ">
+					<div class="item-box submit-wrapper">
+						<input type="submit" value="保存信息" class="input-submit next-step permission permission-create" />
+					</div>
+				</div>
+			</form>
+		</div>
+
+		<div class="entity-preview" data-id="">
+			<div class="markwrap clearfix">
+				<!-- <div class="video_edit">
+				-->
+				<div class="video_tool"></div>
+				<!-- </div>
+				-->
+				<div class="display-format tab-title">
+					<ul class="menus">
+						<li data-tab="picture" data-anchor="picture" class="tab-title-item active"><a class="btn">特征图片</a></li>
+						<li data-tab="ocxbody" data-anchor="ocxbody" class=" tab-title-item"><a class="btn" id="videoid">视频片段</a></li>
+					</ul>
+
+				</div>
+
+			</div>
+
+			<div class="entity-box tab-content">
+                 	    <div class="video tab-content-item" data-target="ocxbody" data-tab="ocxbody" data-videopath="">
+					<object id="UIOCX" type="applicatin/x-firebreath" align="center" width="800" height="520">
+						<param name="onload" value="pluginLoaded"/>
+					</object>
+					<div class="video-block">
+						<div class="progress-bg"></div>
+						<div class="progress-bar">
+							<div class="bullet">
+								<i class="play-point"></i>
+							</div>
+							<i class='start-mark'></i>
+							<i class='end-mark'></i>
+						</div>
+						<div class="panel" onselectstart="return false">
+							<span class="time">
+								<span class="nowtime" nowtime-ms="0">00:00:00</span>
+								&nbsp;/
+								<span class="alltime" alltime-ms="0">00:00:00</span>
+							</span>
+							<span class="speed">
+								倍速： <em></em>
+							</span>
+							<span class="fullwin" title="全屏"></span>
+							<!-- <span class="grab" title="抓图"></span>
+						-->
+						<span class="stop" title="停止"></span>
+						<span class="forward" title="快进"></span>
+						<span class="switch" title="播放"></span>
+						<span class="rewind" title="慢放"></span>
+					</div>
+
+				</div>
+			</div>
+			<div class="picture tab-content-item active" data-tab="picture" id="image_struct" data-target="picture">
+			</div>
+		</div>
+	</div>
+
+</div>
+</div>
+</div>
+
+<!--<script type="text/javascript" src="/component/base/base.self.js"></script>
+<script type="text/javascript" src="/libs/jquery/jquery-ui-1.10.1.custom.min.js"></script>
+<script type="text/javascript" src="/libs/jquery/jquery-ui-timepicker-addon.js"></script>
+<script type="text/javascript" src="/libs/scrollbar/scrollbar.js"></script>
+<script type="text/javascript" src="/component/cascade/common.cascade.js"></script>
+<script type="text/javascript" src="/libs/jquery/jquery.validate.js"></script>
+<script type="text/javascript" src="/libs/jquery/jquery.pagination.js"></script>
+<script type="text/javascript" src="/module/common/js/nativePlayer.js"></script>
+<script type="text/javascript" src="/module/imagejudge/js/player.js"></script>
+<script type="text/javascript" src="/module/viewlibs/caselib/js/video.js"></script>
+<script type="text/javascript" src="/module/viewlibs/caselib/js/medialib_link.js"></script>
+<script type="text/javascript" src="/module/viewlibs/caselib/js/create_car_bak.js"></script>
+<script type="text/javascript" src="/module/common/permission/permission.js"></script>
+-->
+<script type="text/javascript" src="/libs/requirejs/require.js"></script>
+<script type="text/javascript">
+	require(['/require-conf.js'],function(){
+		require(['/module/viewlibs/caselib/js/create_car_bak.js']);
+	});
+
+</script>
+</body>
+</html>

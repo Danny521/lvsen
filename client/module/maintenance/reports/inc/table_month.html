@@ -1,0 +1,55 @@
+<table id="examinetable" class="examinetable" data-type="month"> 
+    
+  <tr>
+    <td rowspan="2">地市</td>
+    <td rowspan="2">监测数</td>
+    
+    <td colspan="3">联网指标</td>
+    <td colspan="4">在线率</td>
+    <td colspan="4">完好率</td>
+    <td colspan="3">&nbsp;</td>
+  </tr>
+  <tr>
+     <td>实有地市/旗县</td>
+    <td>符合要求地市数量</td>
+    <td>实有上联监控数</td>
+    <td>实测在线数</td>
+    <td>实测巡检总数</td>
+    <td>实测在线率</td>
+    <td>巡检次数</td>
+    <td>检测合格数</td>
+    <td>检测总数</td>
+    <td>完好率</td>
+    <td>诊断次数</td>
+    <td>GIS采集数</td>
+    <td>实际上联监控数</td>
+    <td>GIS 采集率</td>
+  </tr>
+  {{#each data}}
+  <tr data-trName ={{month_id}} data-type="month" data-cityid={{city_id}}>
+    <td >{{city_name}}</td>    
+    <td >{{inspect_counts}}</td>
+    
+    <td class="canSet">{{actual_city_num}}</td>
+    <td>{{quality_city_num}}</td>
+    <td>{{actual_camera_num}}</td>
+
+    
+    <td>{{actual_online_num}}</td>
+    <td>{{actual_camera_num}}</td>    
+    <td>{{online_rate}}</td>
+    <td>{{inspect_counts}}</td>
+    
+    <td>{{intact_camera_num}}</td>
+    <td>{{actual_online_num}}</td>
+    <td>{{intact_rate}}</td>
+    <td>{{inspect_counts}}</td>
+
+    <td>{{coor_collect_num}}</td>
+    <td>{{actual_camera_num}}</td>
+    <td>{{coor_rate}}</td>
+
+  </tr>
+  {{/each}}
+
+</table>

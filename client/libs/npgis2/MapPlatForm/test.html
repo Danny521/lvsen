@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=10,chrome=1"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<title>视云实战平台</title>
+</head>
+<script type="text/javascript" src="http://192.168.61.33:1090/v1.0/Init.js"></script>
+<script type="text/javascript" src="MapBase.js"></script>
+<script type="text/javascript">
+	function loadMap(){
+		var mapContainer = document.getElementById("pMapID");
+		var map = new NPMapLib.Map(mapContainer, {
+	        minZoom: 0,
+	        maxZoom: 10,
+	        restrictedExtent: [120.21702921092, 29.485713008051, 123.02395562752, 32.292639424656]
+	    });
+	    var url = '/server2426080/arcgis/rest/services/shanghaiBaseMap512/MapServer';
+	    var baseLayer = new NPMapLib.Layers.ArcgisTileLayer(url, 'Aerials');
+	    map.addLayers([baseLayer]);
+	    map.addControl(new NPMapLib.Controls.NavigationControl());
+	    maptool = new MapPlatForm.Base.MapTools(map);
+	    var layer = new NPMapLib.Layers.OverlayLayer("x");
+	    map.addLayer(layer);
+	    var mapservice = new MapPlatForm.Base.MapService(map);
+	    // var buffer = mapservice.getGeometryBuffer(map.getCenter(),500,function(result){
+		   //  	var bufferResult = new NPMapLib.Geometry.Polygon(result.rings, {
+	    //         color: "green", //颜色
+	    //         fillColor: "bule", //填充颜色
+	    //         weight: 1, //宽度，以像素为单位
+	    //         opacity: 1, //透明度，取值范围0 - 1
+	    //         fillOpacity: 0.3 //填充的透明度，取值范围0 - 1
+		   //  });
+	    //     map.addOverlay(bufferResult);
+	    //     var extent = bufferResult.getExtent();
+     //   		map.zoomToExtent(extent);
+	    // });
+	var p1=new NPMapLib.Geometry.Point(121.37750150329002,31.139753012255);
+	var p2=new NPMapLib.Geometry.Point(121.37750150329002,31.146034789310995);
+	var p3=new NPMapLib.Geometry.Point(121.39703211921999,31.146034789311003);
+	var p4=new NPMapLib.Geometry.Point(121.39703211921999,31.139753012255);
+	var ps = [];
+	ps.push(p1);
+	ps.push(p2);
+	ps.push(p3);
+	ps.push(p4);
+	ps.push(p1);
+	var polygon = new NPMapLib.Geometry.Polygon(ps);
+		mapservice.queryPOIByGeometry(polygon,function(points){
+			console.log(points);
+		});
+		// mapservice.queryPOIByFilter("name=n",function(points,pageCount,totalCount){
+		// 	console.log(points);
+		// 	console.log(pageCount);
+		// 	console.log(totalCount);
+		// });
+	    // maptool.addCircleSearchControl(map.getCenter(),function(circle){
+	    // 	console.log(circle);
+	    // });
+	}
+</script>
+<body onload="loadMap()" oncontextmenu=self.event.returnValue=false onselectstart="return false">
+<div id = "pMapID" style="top:0px;left:0px;width:1420px;height:700px;"></div>
+</body>

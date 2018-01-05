@@ -1,0 +1,182 @@
+@charset "utf-8";
+/*
+ * CSS Library 2.0.0
+ */
+/*========================================== 样式开始@Start ==========================================*/
+body {
+	min-height:670px;
+	background:url(../images/body_bg.png);
+}
+.top {
+	height:9px;
+	background:url(../images/top_bg.png) repeat-x;
+}
+.login {
+	width:1000px;
+	height:600px;
+	background:url(../images/login_bg.png) center -94px no-repeat;
+	margin: 0 auto;
+}
+.login span.logo {
+	height:105px;
+	display:block;
+	background:url(../images/login_icon03.png) center center no-repeat;
+}
+.login h6 {
+	height:60px;
+	padding:1% 0;
+	display:block;
+	background:url(../images/login_text.png) center center no-repeat;
+}
+.login .index_welcome, .login .index_welcome a {
+	color: #E0E0E0;
+	font-weight: bold;
+	font-size: 14px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	margin: 0px 0px 20px 0px;
+}
+.login .index_welcome i.welcome {
+	display: inline-block;
+	margin-right: 25px;
+}
+.login .index_welcome  a.logout {
+	color: #E0E0E0;
+	display: inline-block;
+}
+.login .index_welcome  a.logout:hover, .login .index_welcome  i.welcome a:hover{
+	color: #F4A31F;
+}
+.index {
+	width:580px;
+	height:360px;
+	position:relative;
+	margin: 0 auto;
+}
+
+.three-item{
+	width: 480px;
+}
+
+.index li{
+	display: inline-block;
+	position: relative;
+	margin-left: 28px;
+	width: 114px;
+	height: 160px;
+}
+.index li span{
+	position: absolute;
+	text-align: center;
+	width: 78px;
+	top: 128px;
+	left: 7px;
+	color: #E0E0E0;
+	font-weight: bold;
+	font-size: 17px;
+}
+.index li a {
+	width:114px;
+	height:126px;
+	margin-left: -20px;
+	display:inline-block;
+}
+.index ul{
+	text-align: center;
+}
+.icon_inspect {
+	background:url(../images/index.png) 0px 0 no-repeat;
+}
+.icon_inspect:hover{
+	background-position: 0px -126px;
+}
+ul.firstList li:hover span{
+	color: #F4A31F;
+}
+.icon_gate {
+	background:url(../images/index.png) -120px 0px no-repeat;
+}
+.icon_gate:hover{
+	background-position:  -120px -126px;
+}
+.icon_media, .icon_imageanalysis {
+	background:url(../images/index.png) -240px 0 no-repeat;
+}
+.icon_media:hover, .icon_imageanalysis:hover {
+	background-position: -240px -126px;
+}
+
+.icon_imageanalysis {
+	background:url(../images/index.png) -360px 0 no-repeat;
+}
+.icon_imageanalysis:hover {
+	background-position: -360px -126px;
+}
+/*.icon_imageprocess {
+	background:url(../images/index.png) -360px 0 no-repeat;
+}
+.icon_imageprocess:hover{
+	background-position: -360px -126px;
+}*/
+.icon_cloud {
+	background:url(../images/index.png) -720px 0 no-repeat;
+}
+.icon_cloud:hover{
+	background-position: -720px -126px;
+}
+.icon_maintain, .icon_maintenance {
+	background:url(../images/index.png) -480px 0 no-repeat;
+}
+.icon_maintain:hover, .icon_maintenance:hover {
+	background-position: -480px -126px;
+}
+.icon_config {
+	background:url(../images/index.png) -600px 0 no-repeat;
+}
+.icon_config:hover{
+	background-position: -600px -126px;
+}
+/*首页icon添加布防布控样式 刘钊 start*/
+.icon_deploy{
+	background:url(../images/index.png) -840px 0 no-repeat;
+}
+.icon_deploy:hover{
+	background-position: -840px -125px;
+}
+/*首页icon添加布防布控样式 刘钊 end*/
+.footer {
+	height:44px;
+	padding:15px;
+	background:#182d54;
+	border-top:2px solid #132341;
+	position:fixed;
+	left:0px;
+	bottom:0px;
+	right: 0px;
+}
+.footer_cont {
+	width:400px;
+	height:44px;
+	margin: 0 auto;
+	text-align: center;
+}
+.footer_cont em {
+	width:170px;
+	height:44px;
+	float:left;
+	background:url(../images/footer_icon.png) center center no-repeat;
+}
+.footer_cont span {
+	float:left;
+	padding-left:10px;
+	border-left:1px solid #3059a6;
+	height:44px;
+}
+.footer_cont p {
+	height:22px;
+	line-height:22px;
+	color:#3059a6;
+	text-shadow: 0 1px #000;
+}
+/*========================================== 样式开始@End ==========================================*/

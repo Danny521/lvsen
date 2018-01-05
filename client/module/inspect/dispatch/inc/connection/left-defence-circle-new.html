@@ -1,0 +1,92 @@
+{{#if circleFrame}}
+<div class="defence-circle-new">
+    <div class="defence-circle-header">
+        <i class="sidebar-home-icon" data-event="click" data-handler="GoBackToBusiness"></i>
+        <b> > </b><span class=" pointer" data-event="click" data-handler="BackToCircleGroup">防控圈</span><b> > </b><span>{{data.eventType}}</span>
+        <a href="javascript:viod(0)" data-event="click" data-handler="SaveOrEditCircle" class="blue-button save-button">保存</a>
+    </div>
+    <div class="defence-circle-build">
+
+    </div>
+</div>
+{{/if}}
+
+{{#if addOrEditCircle}}
+<div class="defence-circle-build-content" data-groupid="{{data.groupId}}"  data-id="{{data.id}}">
+    <div class="row">
+        <label>名 称 :</label>
+        <input id="name" maxlength="30" placeholder="请输入防控圈名称" value="{{data.name}}" data-event="blur" data-handler="CheckCircleName">
+    </div>
+    <div class="row">
+        <label>描 述 :</label>
+        <textarea id="discription" maxlength="300" placeholder="请输入描述">{{data.description}}</textarea>
+    </div>
+    <div class="row">
+        <label>搜索范围 :</label>
+        <input id="distance" data-event="blur" data-handler="ModifyBuffer" value="{{#FilterDistance data.distance}}{{/FilterDistance}}">
+        <span style="position:absolute;right:5px;top:5px; font-size:14px;color:#a5a5a5;">米</span>
+    </div>
+    <div class="row clearfix" style="font-size:0px;">
+        <label>工 具 :</label>
+        <span class="map-draw" data-event="click" data-handler="DrawLine"></span>
+                <span class="color-selected" data-color="{{#FilterColor data.color}}{{/FilterColor}}">
+                                <i></i>
+                            </span>
+        <dl class="color-options">
+            <dt class="blue" data-value="#0c97d5"></dt>
+            <dt class="red" data-value="#fb2c54"></dt>
+            <dt class="green" data-value="#44b500"></dt>
+            <dt class="yellow" data-value="#ffdf48"></dt>
+            <dt class="pure" data-value="#c726fd"></dt>
+            <dt class="orange" data-value="#e69138"></dt>
+            <dt class="pink-red floor" data-value="#ff5ed7"></dt>
+            <dt class="white floor" data-value="#ffffff"></dt>
+            <dt class="black floor" data-value="#000000"></dt>
+            <dt class="pink floor" data-value="#ffc1cb"></dt>
+            <dt class="gray floor" data-value="#c1c1c1"></dt>
+            <dt class="pure-red floor" data-value="#674ea7"></dt>
+        </dl>
+    </div>
+    <div class="row clearfix">
+        <label>框选资源 :</label>
+        <span class="map-draw" data-event="click" data-handler="MapSelect"></span>
+    </div>
+</div>
+<div class="defence-circle-camera">
+    <h6>摄像机列表:</h6>
+    <ul class="camera-list">
+        {{#if data.cameras.length}}
+            {{#each data.cameras}}
+                <li class="camera-item clearfix" data-id="{{id}}" data-latitude ="{{latitude}}" data-longitude="{{longitude}}" data-sdchannel="{{translate sd_channel}}" data-hdchannel="{{translate hd_channel}}" data-type="{{camera_type}}" data-name="{{name}}" data-code="{{cameraCode}}" data-cstatus="{{camera_status}}" data-score='{{score}}'>
+                    <i class="ico {{#cameraStatusAndTypeByChannels hd_channel sd_channel  camera_type score}}{{/cameraStatusAndTypeByChannels}}"></i>
+                    <span class="name" title="{{name}}">{{name}}</span>
+                    <div class="camera-item-button">
+                        <i class="del camera-delete" title="删除" data-event="click" data-handler="DeleteCamera"></i>
+                    </div>
+                </li>
+            {{/each}}
+        {{else}}
+            {{!--暂无数据。--}}
+        {{/if}}
+    </ul>
+</div>
+{{/if}}
+
+
+{{#if newCircleCameraList}}
+    {{#if circleCameras}}
+        {{#if circleCameras.cameras.length}}
+            {{#each circleCameras.cameras}}
+            <li class="camera-item clearfix" data-id="{{id}}" data-latitude ="{{latitude}}" data-longitude="{{longitude}}" data-sdchannel="{{translate sd_channel}}" data-hdchannel="{{translate hd_channel}}" data-type="{{camera_type}}" data-name="{{name}}" data-code="{{cameraCode}}" data-cstatus="{{camera_status}}" data-score='{{score}}'>
+                <i class="ico {{#cameraStatusAndTypeByChannels hd_channel sd_channel  camera_type score}}{{/cameraStatusAndTypeByChannels}}"></i>
+                <span class="name" title="{{name}}">{{name}}</span>
+                <div class="camera-item-button">
+                    <i class="del camera-delete" title="删除" data-event="click" data-handler="DeleteCamera"></i>
+                </div>
+            </li>
+            {{/each}}
+        {{else}}
+            {{!--暂无数据。--}}
+        {{/if}}
+    {{/if}}
+{{/if}}

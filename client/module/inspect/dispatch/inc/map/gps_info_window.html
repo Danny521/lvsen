@@ -1,0 +1,53 @@
+<div class="infowindow-title">
+    <span class="text">GPS信息</span>
+    <span class="btns">
+        <i class="closeBtn" data-handler="close" title="关闭"></i>
+    </span>
+</div>
+<div class="infowindow-content gps">
+    <span class="resource-gps-code info-item gps-item">
+        <!--<i class="resource-code-i police"></i>-->GPS编号：&nbsp;{{dataInfo.gpsName}}
+    </span>
+    <span class="resource-addr info-item gps-item">
+        <!--<i class="resource-addr-i"></i>-->车牌号码：&nbsp;{{#if dataInfo.lprVale}}{{dataInfo.lprVale}}{{else}}暂无{{/if}}
+    </span>
+    <span class="resource-time info-item gps-item">
+        联系方式：&nbsp;{{#if dataInfo.contacts}}{{dataInfo.contacts}}{{else}}暂无{{/if}}
+    </span>
+    <span class="resource-time info-item gps-item">
+        出现时间：&nbsp;{{dataInfo.time}}
+    </span>
+</div>
+<div class="infowindow-footer">
+    <ul class="footer-tabs">
+        <li class="active" data-tab="near"><i class="around"></i>在附近找</li>
+        <li data-tab="endhere" class="permission permission-path-planning"><i class="endhere"></i>到这里去</li>
+        <li data-tab="fromhere" class="permission permission-path-planning"><i class="gothere"></i>从这里出发</li>
+    </ul>
+    <div class="footer-tabs-content">
+        <div class="active" data-tab="endhere">
+            <span>起点：</span>
+            <span class="ui input origination"><input type="text" name="start-point" data-type="start" class="input-search-address"/></span>
+            <input class="ui button best-route-origin" maxlength="100" data-handler="originRouteSearch" type="button" value="路径规划" />
+        </div>
+        <div data-tab="fromhere">
+            <span>终点：</span>
+            <span class="ui input destination"><input type="text" data-type="end" class="input-search-address" /></span>
+            <input class="ui button best-route-dest" maxlength="100" data-handler="destRouteSearch" type="button" value="路径规划" />
+        </div>
+        <div data-tab="near">
+            <span class="resource-links">
+                <a data-handler="cameraSearch">摄像机</a>
+                <a data-handler="bayonetSearch">卡口</a>
+                <a data-handler="policeCarSearch">警力</a>
+                <!--<a data-handler="policeSearch">警员</a>-->
+                <a data-handler="lightbarSearch">灯杆</a>
+                <a data-handler="alarmSearch">报警信息</a>
+            </span>
+            <form onsubmit="return false;" style="display: inline">
+                <span class="ui input search-content"><input type="text" maxlength="30" /></span>
+                <input class="ui button search" data-handler="normalSearch" type="submit" value="搜索" />
+            </form>
+        </div>
+    </div>
+</div>

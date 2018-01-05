@@ -1,0 +1,94 @@
+{{#if linkage}}
+<div id="linkagedContent">
+	<ul>
+		{{#if cloudPlat}}
+		<li data-type="cloudPlat" data-camerId = "{{cloudPlat.cId}}" data-taskId="{{cloudPlat.taskId}}" data-name="{{cloudPlat.name}}" >
+			<p class="mainInfo" >
+				<label>
+					<input type="checkbox" {{isChecked cloudPlat.ptz}}  />
+					<span class="listName">有报警时切换云台预置位</span>
+					
+				</label>
+
+				<span class="slecetMode {{hasLinkage cloudPlat.ptz}}"><em>{{presetName cloudPlat.ptz}}</em><i class="icon_arrow"></i></span>
+				<span class="warnInfo hidden">暂无预置位，请在<a href="javascript:void(0)" class="goset">视频监控</a>中设置</span>
+			</p>
+			<ul class="presetPanel currpanel"  data-model="preset">
+					
+			</ul>
+			<p class="addInfo">注：如勾选，表示有报警信息时将该摄像机切换至选定云台预置位；反之，不切换。</p>
+		</li>
+		{{/if}}
+		{{#if tviews}}
+		<li  data-type="tviews"  >
+			<p class="mainInfo">
+				<label>
+					<input type="checkbox" {{isChecked1 tviews}} />
+					<span class="listName">有报警时电视墙显示</span>
+				</label>
+				<span class="slecetMode {{hasLinkage1 tviews}}"><em>{{tvwallName tviews}}</em><i class="icon_arrow"></i></span>
+				<span class="chanelpanel slecetMode {{hasLinkage2 tviews}}"><em>{{chanelName tviews}}</em><i class="icon_arrow"></i></span>
+				<span class="warnInfo hidden">暂无模板，请在<a href="javascript:void(0)" class="goset">业务管理</a>设置</span>
+			</p>
+			<ul class="modlePanel currpanel" data-model="model">
+					
+			</ul>
+			<ul class="chanelPanel currpanel"  data-model="chanel">
+				
+			</ul>
+			<p class="addInfo">注：如勾选，表示有报警信息时在电视墙显示该摄像机图像；反之，不显示。</p>
+		</li>
+		{{/if}}
+		{{#if messages}}
+		<li  data-type="messages">
+			<p class="mainInfo">
+				<label>
+					<input type="checkbox" {{isChecked2 messages.isMessage}} />
+					<span class="listName">有报警时发消息给我</span>
+				</label>
+			</p>
+			<p class="addInfo">注：如勾选，表示有报警信息时在系统页面右下角有消息框提示；反之，不显示。</p>
+		</li>
+		{{/if}}
+		{{#if gis}}
+		<li  data-type="gis">
+			<p class="mainInfo">
+				<label>
+					<input type="checkbox" {{isChecked2 gis.isLinkGis}} />
+					<span class="listName">联动GIS地图显示</span>
+				</label>
+			</p>
+			<p class="addInfo">注：如勾选，表示有报警信息时在联动GIS地图中显示；反之，不显示。</p>
+		</li>
+		{{/if}}
+		{{#if mobile}}
+		<li  data-type="mobile">
+			<p class="mainInfo">
+				<label>
+					<input type="checkbox" {{isChecked2 mobile.isLinkMobile}} />
+					<span class="listName">联动移动端(PMVP)</span>
+				</label>
+			</p>
+		</li>
+		{{/if}}
+	</ul>
+</div>
+{{/if}}
+
+{{#if presetList}}
+{{#each presetList}}
+	<li data-sortNo="{{sortNo}}" data-cameraId="{{cameraId}}" data-stopTime="{{stopTime}}" data-id="{{id}}" class="presetList" data-name="{{name}}" title="{{name}}" alt="{{name}}">{{name}}</li>
+{{/each}}
+{{/if}}
+
+{{#if modelList}}
+{{#each modelList}}
+	<li  data-id="{{id}}" data-status="{{this.status}}" class="presetList" data-name="{{name}}" title="{{name}}" alt="{{name}}">{{name}}</li>
+{{/each}}
+{{/if}}
+
+{{#if chanelList}}
+{{#each chanelList}}
+	<li  data-id="{{this.id}}" data-layoutid="{{this.layoutId}}" class="presetList" data-screenId="{{this.screenId}}">{{this.screenId}}</li>
+{{/each}}
+{{/if}}

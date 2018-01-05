@@ -1,0 +1,35 @@
+<div class="group-content">
+	{{#watchs}}
+	<div class="group-item">
+		<div class="item-header">
+			<a data-id="{{id}}" class="del hovershow">
+				<i class="ico-editer"  data-id="{{id}}" title="编辑"></i>
+				<i class="icon-del"  data-id="{{id}}" title="删除分组"></i>
+			</a>
+			<span class="name" title="{{groupName}}">{{groupName}}</span>
+			<span class = "stopTime" style="display:none">{{stopTime}}</span>
+		</div>
+		{{#each times}}
+		<div class="item-body">
+			<span class="time">时间：<span class="star">{{startTime}}</span>-<span class="end">{{endTime}}</span></span>
+			<span class="level">等级：</span><span class="levele">{{level}}</span>
+			<i class="ico-editer" title="编辑" style = "display:none"></i>
+			<i class="icon-del"title="删除" style = "display:none"></i>
+		</div>
+		{{/each}}
+		<div class="item-num">已选摄像机：
+			<span >{{cameras.length}}</span>
+		</div>
+		<div class="camera-list" data-layout="{{layout}}">
+			<ul>
+				{{#cameras}}
+				<li>
+					<i data-cameraid="{{cameraId}}" class="{{isBall cameraType}}"></i>
+					<span class="title camera-name" title={{cameraName}}>{{cameraName}}</span>
+				</li>
+				{{/cameras}}
+			</ul>
+		</div>
+	</div>
+	{{/watchs}}
+</div>

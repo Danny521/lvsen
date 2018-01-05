@@ -1,0 +1,255 @@
+html{
+	overflow: hidden;
+}
+body,div{
+	margin: 0px;
+	padding: 0px;
+	border: 0px;
+	font-size: 12px;
+	font-family: "Microsoft Yahei";
+	overflow: hidden;
+}
+button{
+	border: none;
+	outline: none;
+	cursor: pointer;
+}
+ul{
+	list-style: none;
+}
+.clearfix{
+	content: "";
+	clear: both;
+}
+.clearfix:before,.clearfix:after{
+	display: table;
+	clear: both;
+	content: "";
+}
+.push-left{
+	float: left;
+}
+.push-right{
+	float: right;
+}
+.hide{
+	display: none;
+}
+.deroction{
+	height: 12px;
+	background-color: #f0f0f0;
+	border-bottom: 1px solid #c9c9c9;
+}
+.head{
+	height: 38px;
+	line-height: 38px;
+}
+.head-title{
+	font-size: 14px;
+	padding-left: 20px;
+}
+.head-button{
+	padding-right: 20px;
+}
+.btn-start,.btn-stop,.btn-update{
+	border-radius: 2px;
+	background: #1da2fb;
+	color: #FFFFFF;
+	height: 26px;
+	text-align: center;
+	width: 80px;
+	line-height: 26px;
+}
+.btn-gray{
+	background-color: #f0f0f0;
+}
+/* pvg信息列表样式 */
+.content{
+	position: absolute;
+	top: 50px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+}
+/* 列表标题样式 */
+.inline-list{
+	font-size: 0px;
+	height: 34px;
+	line-height: 34px;
+}
+.inline-list li{
+	font-size: 12px;
+	display: inline-block;
+}
+.inline-title{
+	background-color: #848484;
+	padding-right: 17px;
+}
+.inline-title li{
+	color: #fff;
+	border-right: 1px solid #bdbdbd;
+	width: 14.1%;
+	text-align: center;
+	overflow: hidden;
+}
+/* 具体列表内容样式 */
+.content-lists{
+	position: absolute;
+	top: 34px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	width: 100%;
+	overflow-y: scroll;
+}
+.inline-content li{
+	border-right: 1px solid #bdbdbd;
+	width: 14.1%;
+	text-align: center;
+}
+.inline-list li.last{
+	border-right: none;
+}
+.blue-class{
+	color: #1da2fb;
+	cursor: pointer;
+}
+.white-class{
+	background-color: #fff;
+}
+.gray-class{
+	background-color: #f4f4f4;
+}
+/* 检测结果界面样式 */
+.result-header{
+	height: 34px;
+	line-height: 34px;
+	border-bottom: 1px solid #c9c9c9;
+}
+.result-header span{
+	font-size: 14px;
+	padding-left: 16px;
+
+}
+.result-header button{
+	height: 24px;
+	width: 50px;
+	background-color: #1da2fb;
+	color: #fff;
+	border-radius: 2px;
+	margin:6px 16px;
+	line-height: 24px;
+}
+/* tabs切换键样式 */
+.tabs{
+	height: 42px;
+	line-height: 42px;
+	font-size: 14px;
+	background-color: #f0f0f0;
+	border-bottom: 1px solid #c9c9c9;
+	padding-left: 30px;
+}
+.tabs span{
+	margin-right: 24px;
+	height: 40px;
+	cursor: pointer;
+}
+.current{
+	font-weight: bold;
+	border-bottom: 2px solid #1787d1;
+}
+/* 标题头样式 */
+.result-title{
+	height: 50px;
+	line-height: 62px;
+	border-bottom: 1px solid #c9c9c9;
+}
+.result-title div,.result-title span{
+	width: 23.8%;
+	font-weight: bold;
+	font-size: 14px;
+}
+.result-title div:first-child span{
+	font-weight: normal;
+	font-size: 12px;
+}
+.check-all{
+	margin-left: 36px;
+}
+input[type="checkbox"]{
+	position: relative;
+	top: 2px;
+}
+.image{
+	background-image: url(/module/maintenance/configdetection/Images/icon.png);
+	height: 16px;
+	width: 29px;
+	background-repeat: no-repeat;
+	position: absolute;
+	margin-left: 22px;
+}
+/* 每一条信息样式 */
+.infos{
+	position: absolute;
+	left: 0px;
+	right: 0px;
+	top: 228px;
+	bottom: 0px;
+	overflow-y: auto;
+}
+.infos-left{
+	border-right: 1px solid #e1e1e1;
+}
+.infos-left,.infos-right{
+	width: 49.8%;
+}
+.left-each,.right-each{
+	width: 94%;
+	margin:5px auto;
+	border:1px solid #c9c9c9;
+	border-radius: 2px;
+}
+.left-header,.right-header{
+	height: 26px;
+	line-height: 26px;
+	background-color: #eaeaea;
+	padding-left: 10px;
+}
+.left-header button,.right-header button{
+	background-color:#eaeaea;
+	background-image: url(/module/maintenance/configdetection/Images/hide.png);
+	background-repeat: no-repeat;
+	background-position: left;
+}
+.left-header button.show,.right-header button.show{
+	background-image: url(/module/maintenance/configdetection/Images/show.png);
+}
+.left-content-hide,.right-content-hide{
+	height: 30px;
+	line-height: 30px;
+	background-color:#f5f5f5;
+	padding-left: 14px;
+}
+.left-content,.right-content{
+	background-color: #f5f5f5;
+	padding: 0px 14px 14px 14px;
+}
+.left-content ul,.right-content ul{
+	font-size: 0px;
+}
+.left-content ul li:first-child,.right-content ul li:first-child{
+	width: 84px;
+	text-align: right;
+}
+.left-content ul li,.right-content ul li{
+	display: inline-block;
+	font-size: 12px;
+	height: 26px;
+	line-height: 26px;
+}
+.red-class{
+	color: red;
+}
+#userInfo {
+position:static!important;
+}

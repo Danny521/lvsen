@@ -1,0 +1,85 @@
+.content{
+	padding: 20px;
+}
+.content .ocx{
+	display: inline-block;
+	float: left;
+	width: 70%;
+}
+.content .camera-list{
+	display: inline-block;
+	background: #f7f7f7;
+	border: 1px solid #e5e5e5;
+	min-height: 217px;
+	width: 25%;
+	margin-left: 10px;
+	float: left;
+	padding: 10px;
+}
+.content .camera-list p{
+	font-weight: bold;
+}
+.camera-list ul li{
+	padding-left: 10px;
+	height: 25px;
+	line-height: 25px;
+	cursor: pointer;
+}
+.camera-list ul li span{
+	width: 87%;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+	display: inline-block;
+}
+.camera-list .active{
+	color: #188dfb;
+}
+.camera-list ul li .camera-qiu{
+	display: inline-block;
+	position: relative;
+	top: 2px;
+	width: 13px;
+    height: 13px;
+    margin-right: 3px;
+    background: url("/module/common/images/sprites/tree_bg.png") no-repeat scroll -353px 0 transparent;
+}
+.camera-list ul li .camera-qiang{
+	display: inline-block;
+	position: relative;
+	top: 2px;
+    width: 15px;
+    height: 13px;
+    margin-right: 3px;
+    background: url("/module/common/images/sprites/tree_bg.png") no-repeat scroll -85px 0 transparent;
+}
+.footer table{
+	border-right: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+    float: left;
+    margin-top: 6px;
+    width: 100%;
+}
+.footer table td{
+	border-left: 1px solid #e5e5e5;
+	border-top: 1px solid #e5e5e5;
+	height: 35px;
+	line-height: 35px;
+}
+.footer table .table-left{
+	background: #f7f7f7;
+	width: 16%;
+	text-align: right;
+	padding-right: 10px;
+}
+.footer table .table-right{
+	width: 39%;
+	text-align: left;
+	padding-left: 10px;
+}
+.footer .task{
+	font-weight: bold;
+}
+.footer .sign{
+	color: #749b48;
+}

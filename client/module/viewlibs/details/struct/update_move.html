@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=10,chrome=1">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<title>视云实战平台</title>
+	<!--[if lt IE 9]>
+	<script src="/libs/html5/html5.js"></script>
+	<![endif]-->
+
+	<link type="text/css" rel="stylesheet" href="/module/common/css/base.css" />
+	<link type="text/css" rel="stylesheet" href="/libs/semantic/semantic.css" />
+	<link type="text/css" rel="stylesheet"  href="/libs/jquery/jquery-ui.css">
+	<link type="text/css" rel="stylesheet" href="/libs/jquery/jquery.datetimepicker.css"/>
+	<link type="text/css" rel="stylesheet" href="/module/viewlibs/doubtlib/css/entity.css"/>
+	<link type="text/css" rel="stylesheet" href="/module/viewlibs/details/struct/css/entity.css"/>
+</head>
+<body>
+	<div id="content">
+		<div class="wrapper clearfix">
+			<div class="loading"></div>
+			<script id="view-template" type="text/x-handlebars-template">
+				{{#moving}}
+				<ul class="breadcrumb">
+				<li>
+					<a href="/module/viewlibs/workbench/index.html" target="media">我的工作台</a>
+					<span class="divider">&gt;</span>
+				</li>
+				<li>
+					<a href=""></a>
+					<span class="divider">&gt;</span>
+				</li>
+				<li>
+					<a href="">线索列表</a>
+					<span class="divider">&gt;</span>
+				</li>
+				<li class="active">编辑运动目标信息</li>
+			</ul>
+
+			<div class="main modify">
+
+				<div class="resources tabview">
+					<form autocomplete="off" method="post" id="move-form" class="entity-form">
+						<div class="fieldset">
+							<div class="module active">
+								<div class="module-head">
+									<h3>基本信息</h3> <i class="fix-png"></i>
+								</div>
+								<div class="module-body">
+									<div class="scrollbar disable">
+										<div class="track">
+											<div class="thumb"></div>
+										</div>
+									</div>
+									<div class="viewport scene-view">
+										<div class="overview">
+											<div class="group">
+												<div class="form-item">
+													<span class="item-label">
+														<label for="appearTime">来源视频时间：</label>
+													</span>
+													<div class="item-box">
+														<input type="text" class="input-text input-time" maxlength="50" name="appearTime" value="{{datetransfer appearTime}}"/>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="type">类型：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="type" maxlength="1" name="type" data-default="{{type}}">
+															<option value="">--请选择物体类型--</option>
+															<option value="0" {{selected type "0"}}>未知</option>
+															<option value="1" {{selected type "1"}}>人体</option>
+															<option value="2" {{selected type "2"}}>车辆</option>
+															<option value="3" {{selected type "3"}}>物体</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="headColor">头部颜色：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="headColor" maxlength="1" name="headColor" data-default="{{headColor}}">
+															<option value="">--请选择头部颜色--</option>
+															<option value="-1" {{selected headColor "-1"}}>未知</option>
+															<option value="0" {{selected headColor "0"}}>白色</option>
+															<option value="1" {{selected headColor "1"}}>灰（银色）</option>
+															<option value="2" {{selected headColor "2"}}>黄色</option>
+															<option value="3" {{selected headColor "3"}}>粉色</option>
+															<option value="4" {{selected headColor "4"}}>红色</option>
+															<option value="5" {{selected headColor "5"}}>绿色</option>
+															<option value="6" {{selected headColor "6"}}>蓝色</option>
+															<option value="7" {{selected headColor "7"}}>棕色</option>
+															<option value="8" {{selected headColor "8"}}>黑色</option>
+															<option value="9" {{selected headColor "9"}}>紫色</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="upperColor">上半身颜色：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="upperColor" maxlength="2" name="upperColor" data-default="{{upperColor}}">
+															<option value="">--请选择上半身颜色--</option>
+															<option value="-1" {{selected upperColor "-1"}}>未知</option>
+															<option value="0" {{selected upperColor "0"}}>白色</option>
+															<option value="1" {{selected upperColor "1"}}>灰（银色）</option>
+															<option value="2" {{selected upperColor "2"}}>黄色</option>
+															<option value="3" {{selected upperColor "3"}}>粉色</option>
+															<option value="4" {{selected upperColor "4"}}>红色</option>
+															<option value="5" {{selected upperColor "5"}}>绿色</option>
+															<option value="6" {{selected upperColor "6"}}>蓝色</option>
+															<option value="7" {{selected upperColor "7"}}>棕色</option>
+															<option value="8" {{selected upperColor "8"}}>黑色</option>
+															<option value="9" {{selected upperColor "9"}}>紫色</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="lowerColor">下半身颜色：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="lowerColor" maxlength="1" name="lowerColor" data-default="{{lowerColor}}">
+															<option value="">--请选择下半身颜色--</option>
+															<option value="-1" {{selected lowerColor "-1"}}>未知</option>
+															<option value="0" {{selected lowerColor "0"}}>白色</option>
+															<option value="1" {{selected lowerColor "1"}}>灰（银色）</option>
+															<option value="2" {{selected lowerColor "2"}}>黄色</option>
+															<option value="3" {{selected lowerColor "3"}}>粉色</option>
+															<option value="4" {{selected lowerColor "4"}}>红色</option>
+															<option value="5" {{selected lowerColor "5"}}>绿色</option>
+															<option value="6" {{selected lowerColor "6"}}>蓝色</option>
+															<option value="7" {{selected lowerColor "7"}}>棕色</option>
+															<option value="8" {{selected lowerColor "8"}}>黑色</option>
+															<option value="9" {{selected lowerColor "9"}}>紫色</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="footColor">脚部颜色：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="footColor" maxlength="1" name="footColor" data-default="{{footColor}}">
+															<option value="">--请选择脚部颜色--</option>
+															<option value="-1" {{selected footColor "-1"}}>未知</option>
+															<option value="0" {{selected footColor "0"}}>白色</option>
+															<option value="1" {{selected footColor "1"}}>灰（银色）</option>
+															<option value="2" {{selected footColor "2"}}>黄色</option>
+															<option value="3" {{selected footColor "3"}}>粉色</option>
+															<option value="4" {{selected footColor "4"}}>红色</option>
+															<option value="5" {{selected footColor "5"}}>绿色</option>
+															<option value="6" {{selected footColor "6"}}>蓝色</option>
+															<option value="7" {{selected footColor "7"}}>棕色</option>
+															<option value="8" {{selected footColor "8"}}>黑色</option>
+															<option value="9" {{selected footColor "9"}}>紫色</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="height">高度(cm)：</label>
+													</span>
+													<div class="item-box">
+														<input type="text" class="input-text" maxlength="4" id="height" name="height" value="{{height}}" />
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="color">颜色：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="color" maxlength="2" name="color" data-default="{{color}}">
+															<option value="">--请选择颜色--</option>
+															<option value="-1" {{selected color "-1"}}>未知</option>
+															<option value="0" {{selected color "0"}}>白色</option>
+															<option value="1" {{selected color "1"}}>灰（银色）</option>
+															<option value="2" {{selected color "2"}}>黄色</option>
+															<option value="3" {{selected color "3"}}>粉色</option>
+															<option value="4" {{selected color "4"}}>红色</option>
+															<option value="5" {{selected color "5"}}>绿色</option>
+															<option value="6" {{selected color "6"}}>蓝色</option>
+															<option value="7" {{selected color "7"}}>棕色</option>
+															<option value="8" {{selected color "8"}}>黑色</option>
+															<option value="9" {{selected color "9"}}>紫色</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="gray">灰度：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="gray" maxlength="2" name="gray" data-default="{{gray}}">
+															<option value="">--请选择灰度--</option>
+															<option value="-1" {{selected gray "-1"}}>未知</option>
+															<option value="0" {{selected gray "0"}}>暗（深色）</option>
+															<option value="1" {{selected gray "1"}}>亮（浅色）</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="description">描述：</label>
+													</span>
+													<div class="item-box">
+														<textarea class="input-area" id="description" maxlength="200" name="description" value="{{description}}">{{description}}</textarea>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="form-item ">
+							<div class="item-box submit-wrapper">
+								<input type="submit" value="保存信息" class="input-submit next-step permission permission-create" />
+								<input type="button" value="取消" class="ui button input-cancel permission permission-create" />
+
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="entity-preview" data-id="{{id}}">
+					<div class="markwrap clearfix">
+						<div class="display-format tab-title">
+							<ul class="menus">
+								<li data-tab="picture" data-anchor="picture" class="tab-title-item active">
+									<a class="btn">图片</a>
+								</li>
+								{{#tabular videoId}}
+								<li data-tab="ocxbody" data-anchor="ocxbody" class=" tab-title-item">
+									<a class="btn">视频</a>
+								</li>
+								{{/tabular}}
+							</ul>
+
+						</div>
+					</div>
+
+					<div class="entity-box tab-content">
+						{{#tabular videoId}}
+                        <div class="video tab-content-item" data-target="ocxbody" data-tab="ocxbody"  data-videopath="{{videoPath}}">
+                            <object id="UIOCX" type="applicatin/x-firebreath" width = "800" height = "450">
+                            	<param name="onload" value="pluginLoaded"/>
+                            </object>
+                            <div class="video-block">
+                           		 <div class="progress-bg"></div>
+                                <div class="progress-bar">
+                                    <div class="bullet"> <i class="play-point"></i>
+                                    </div>
+                                    <i class='start-mark'></i>
+                                    <i class='end-mark'></i>
+                                </div>
+                                <div class="panel" onselectstart="return false">
+                                <span class="time">
+											<span class="nowtime" nowtime-ms="0">00:00:00</span>&nbsp;/
+											<span class="alltime" alltime-ms="14859247">00:00:00</span>
+										</span>
+										<span class="speed">倍速：<em></em></span>
+										<span class="fullwin" title="全屏"></span>
+										<span class="editing" title="人工标注"></span>
+										<span class="loop" title="循环"></span>
+										<span class="sequence" title="顺序"></span>
+										<span class="stop" title="停止"></span>
+										<span class="forward" title="快进"></span>
+										<span class="switch" title="播放"></span>
+										<span class="rewind" title="慢放"></span>
+                                </div>
+
+                            </div>
+                        </div>
+						{{/tabular}}
+						<div class="picture tab-content-item active" data-target="picture"data-tab="picture">
+							<span class="hook"></span>
+							<img src="{{picture}}" alt="" class="entity-img"></div>
+					</div>
+				</div>
+
+			</div>
+			{{/moving}}
+			</script>
+		</div>
+	</div>
+	<script type="text/javascript" src="/libs/requirejs/require.js" data-main="/module/viewlibs/details/struct/js/update_move.js"></script>
+
+</body>
+</html>

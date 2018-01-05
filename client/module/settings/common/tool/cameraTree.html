@@ -1,0 +1,21 @@
+<ul>
+	{{#if init}}
+		{{#each orgs}}   
+				<li data-tree-level="{{../level}}" {{isVirtual strOrgId}} class="{{isChild}} {{#isTree isChild}}root{{/isTree}}" data-res="org" data-type="{{isChild}}" data-id="{{changeId id strOrgId}}"  data-name="{{name}}" data-des="{{description}}" data-exp="{{mills2str dueDate}}" data-departid="{{orgCode}}" data-level="{{level}}">{{#if ../selectable}}<i class="checkbox {{ ../../selected }}"></i>{{/if}}{{#isTree isChild}}<i class="fold"></i>{{/isTree}}<i class="root"></i><span class="name" title="{{name}}">{{name}}</span></li>
+		{{/each}}
+
+		{{#each cameras}}   
+				<li data-tree-level="{{../level}}" class="{{isChild}} {{hasNoRight score}}" data-camerascore="{{score}}"  data-type="leaf" data-res="camera" data-org={{orgId}} data-cameratype="{{camera_type}}" data-id="{{id}}"  data-name="{{name}}" data-ip="{{ip}}" data-path="{{path}}" data-port="{{port}}" data-status="{{status}}" >{{#if ../selectable}}<i class="checkbox {{ ../../selected }}"></i>{{/if}}{{#isTree isChild}}<i class="fold"></i>{{/isTree}}<i class="camera{{cameraType}}"></i><span class="name" title="{{name}} {{#if cameraCode}}({{cameraCode}}){{/if}}">{{name}} {{#if cameraCode}}({{cameraCode}}){{/if}}</span></li>
+		{{/each}}
+
+	{{else}}
+		{{#each orgs}}
+			<li data-tree-level="{{../level}}" {{isVirtual strOrgId}} class="{{isChild}}" data-id="{{changeId id strOrgId}}"  data-res="org" data-name="{{name}}" data-des="{{description}}" data-exp="{{mills2str dueDate}}" data-departid="{{orgCode}}" data-level="{{level}}" data-level="{{level}}" data-type="{{isChild}}">{{#if ../selectable}}<i class="checkbox {{ ../../selected }}"></i>{{/if}}{{#isTree isChild}}<i class="fold"></i>{{/isTree}}<i class="{{isChild}}"></i><span class="name" title="{{name}}">{{name}}</span></li>
+		{{/each}}
+
+		{{#each cameras}}   
+				<li data-tree-level="{{../level}}" class="{{isChild}} {{hasNoRight score}}" data-camerascore="{{score}}"  data-type="leaf" data-res="camera" data-org={{orgId}} data-cameratype="{{camera_type}}" data-id="{{id}}"  data-name="{{name}}" data-ip="{{ip}}" data-path="{{path}}" data-port="{{port}}" data-status="{{status}}" >{{#if ../selectable}}<i class="checkbox {{ ../../selected }}"></i>{{/if}}{{#isTree isChild}}<i class="fold"></i>{{/isTree}}<i class="camera{{cameraType}}"></i><span class="name" title="{{name}} {{#if cameraCode}}({{cameraCode}}){{/if}}">{{name}} {{#if cameraCode}}({{cameraCode}}){{/if}}</span></li>
+		{{/each}}
+	{{/if}}
+
+</ul>	

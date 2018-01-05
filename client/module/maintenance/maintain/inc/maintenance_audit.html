@@ -1,0 +1,135 @@
+<div class="make-polling">
+	<div class="setting-head">
+		<a class="back back-home"> <i></i></a>
+	</div>
+	<div class="group-info">
+		<div class="item-header">
+			<h3 class="name show-hide" title="{{groupName}}">
+				<i class='icon arrow'></i>长安分局巡检任务201312 
+			</h3>
+
+			<form onsubmit="return false;" autoComplete="off">
+				
+				<div class="searching">
+					<div class="status">
+						<p class="mis-time">
+							任务时间 :  <span class="time">2014-01-30</span>
+						</p>
+						<p class="mis-status">
+							　责任人 :  <span class="status">张三</span>
+						</p>
+					</div>
+					<div class="serchbox simple">
+						<div class="ui input action search">
+							<input type="text" placeholder="全局搜索..." name="q">
+							<button class="search action">搜索</button>
+						</div>
+						<a class="show-details left" href="javascript:;">高级>></a>
+					</div>
+				</div>
+
+				<div class='details'>
+					<div class="detailsinner">
+						<div class=" serchbox">
+							<div class="polling mode">
+								<label>
+									巡检方式：
+								</label>
+									<select id="mode" >
+										<option data-value="option1">未巡检</option>
+										<option data-value="option2">已巡检</option>
+										<option data-value="option2">提交待审核</option>
+										<option data-value="option2">已巡检</option>
+									</select>
+							</div>
+							<div class="polling status">
+								<label>
+									巡检状态：
+								</label>
+									<select id="status" >
+										<option data-value="option1">未巡检</option>
+										<option data-value="option2">已巡检</option>
+										<option data-value="option2">提交待审核</option>
+										<option data-value="option2">已巡检</option>
+									</select>
+							</div>
+							<div class="polling result">
+								<label>
+									巡检结果：
+								</label>
+									<select id="result" >
+										<option data-value="option1">未巡检</option>
+										<option data-value="option2">已巡检</option>
+										<option data-value="option2">提交待审核</option>
+										<option data-value="option2">已巡检</option>
+									</select>
+							</div>
+							<div class="polling ui input ">
+								<label>
+									巡检时间：
+								</label>
+									<input type='text' id='time' class='datepicker' placeholder='巡检时间'/> 
+							</div>
+						</div>
+						<div class='confirm-btn'>
+							<span class="ui blue tiny button do-search">搜索</span>
+							<span class="ui tiny button cancel">取消</span>
+						</div>
+				</div>
+				</div>
+
+			</form>
+		</div>
+		<div class='cameras'>
+			<div class="opration">
+				<p class='auto-polling'>巡检摄像机 :  </p>
+				<p class="polling-model clearfix">
+					<a href='#' title='模块模式' class="block-model" data-tab="block"></a>
+					<a href='#' title='列表模式' class="list-model active" data-tab="list"></a>
+					<span class="bytime"><a href='#' class=''> 时间 </a><i class="downarrow darkarrow"></i></span>
+					<span class="byhand"><a href='#' class='actived'> 手动 </a> <i class="downarrow bluearrow"></i></span>
+				</p>
+			</div>
+			<div class="cameras-list polling" data-tab="list">
+				<div class="scrollbarPanel">
+					<div class="scrollbar"><div class="track"><div class="thumb"><div class="end"></div></div></div></div>
+					<div class="viewport">
+						<div class="overview">
+							<div class="treePanel">cameras-list</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="tasks-list polling" data-tab="block">
+
+				<div class="groups">
+					<div class="group-item">
+						<div class="item-header">
+							<span class="name" title="长安分局巡检任务201312" data-id="123">长安分局巡检任务201312</span>
+						</div>
+						<div class="item-body">
+							<span class="status">
+								<q>巡检状态：</q>
+								已巡检
+							</span>
+							<span class="time">
+								<q>巡检结果：</q>
+								正常
+							</span>
+							<span class="status">
+								<q>巡检方式：</q>
+								手动
+							</span>
+							<span class="time">
+								<q>巡检时间：</q>
+								2014-01-23
+							</span>
+						</div>
+					</div>
+				</div>
+
+
+			</div>
+		</div>
+	</div>
+</div>

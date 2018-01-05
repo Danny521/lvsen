@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=10,chrome=1">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<title>视云实战平台</title>
+	<!--[if lt IE 9]>
+	<script src="/libs/html5/html5.js"></script>
+	<![endif]-->
+
+	<link type="text/css" rel="stylesheet" href="/module/common/css/base.css" />
+	<link type="text/css" rel="stylesheet" href="/libs/semantic/semantic.css" />
+	<link type="text/css" rel="stylesheet"  href="/libs/jquery/jquery-ui.css">
+	<link type="text/css" rel="stylesheet" href="/libs/jquery/jquery.datetimepicker.css"/>
+	<link type="text/css" rel="stylesheet" href="/module/viewlibs/common/common.css"/>
+	<link type="text/css" rel="stylesheet" href="/module/viewlibs/doubtlib/css/entity.css"/>
+	<link type="text/css" rel="stylesheet" href="/libs/thickbox/thickbox.css"/>
+	<link type="text/css" rel="stylesheet" href="/module/viewlibs/doubtlib/css/tab.css"/>
+	<link type="text/css" rel="stylesheet" href="/module/viewlibs/details/struct/css/entity.css"/>
+</head>
+<body>
+	<div id="content">
+		<div class="wrapper clearfix">
+			<ul class="breadcrumb">
+				<li>
+					<a href="/module/viewlibs/workbench/index.html">我的工作台</a>
+					<span class="divider">&gt;</span>
+				</li>
+				<li>
+					<a href=""></a>
+					<span class="divider">&gt;</span>
+				</li>
+				<li>
+					<a href="">线索列表</a>
+					<span class="divider">&gt;</span>
+				</li>
+				<li class="active">人员信息</li>
+			</ul>
+			<div class="main">
+				<div class="loading"></div>
+
+				<script id="view-template" type="text/x-handlebars-template">
+				{{#person}}
+				<div class="resources tabview">
+				<div data-type="video" data-id="{{id}}" class="actions">
+				 	<!--疑情信息关联案事件-->
+					{{#unless incidentId}}
+					{{#belongs this}}
+					{{#auditBar status 1 3}}
+					<a class="action ui button relate permission permission-create" data-rtype="1" id="chooseIncident" {{getMediaId ../videoId ../imageId}}>关联案事件</a>
+					{{/auditBar}}
+					{{/belongs}}
+					<!--疑情信息关联案事件结束-->
+					<!--未通过，未提交提交审核-->
+					{{#auditBar status 1 3}}
+					<a class="action ui button audit permission permission-create" data-id="{{../id}}" data-type="1"  data-status="{{../status}}">提交审核</a>
+					{{/auditBar}}
+					<!--未通过，未提交提交审核结束-->
+					{{/unless}}
+					<!--案事件的结构化信息生成线索-->
+					{{#if incidentId}}
+					{{#isiStruct this}}
+					<a class="action ui button save save-to-thread permission permission-create" data-id="{{id}}">生成线索</a>
+					{{/isiStruct}}
+					{{/if}}
+					<!--案事件结构化信息生成线索结束-->
+					<!--已通过才有保存-->
+
+					{{#auditStatus status}}
+					<a class="action ui button save save-to-clound permission permission-import" data-id="{{../id}}">保存</a>
+					{{/auditStatus}}
+
+					{{#belongs1 this}}
+					<a class="action ui button edit permission permission-create">编辑</a>
+					{{/belongs1}}
+					<!--只有待审核不显示删除-->
+					{{#unwaitPass status}}
+					<a class="action remove ui button permission {{isOwner ../userId ../status}}">删除</a>
+					{{/unwaitPass}}
+				</div>
+				{{#waitPass status}}
+				<div id="auditSection" class="actions permission permission-review" data-type="1" data-id="{{../id}}">
+					<a id="reject" class="reject {{isIncident ../incidentId}}" data-incidentid="{{../incidentId}}"><i></i>打回</a>
+					{{#unless ../incidentId}}
+					<a class='reject'><i></i>打回</a>
+					<a class='pass'><i></i>通过</a>
+					{{/unless}}
+				</div>
+				{{/waitPass}}
+
+				<div class="resources tabview">
+					<div class="header">
+						<ul class="tabs menus ui tabular">
+							<li data-tab="info" class="active">
+								<a>基本信息</a>
+							</li>
+							{{#if incidentId}}
+							<li data-tab="incident" class="" data-incidentid="{{incidentId}}">
+								<a>所属案事件</a>
+							</li>
+							{{/if}}
+							<li data-tab="video" class="">
+								<a>所属视图信息</a>
+							</li>
+						</ul>
+					</div>
+
+					<div class="views ui tab active">
+						<div class="scrollbar disable">
+							<div class="track">
+								<div class="thumb"></div>
+							</div>
+						</div>
+						<div class="viewport">
+							<div class="overview">
+
+								<div data-tab="info" class="view active ui tab">
+									<ul class="menus ui tabular tabs sub-tab">
+										<li data-tab="property" class="active">
+											<a >基本属性</a>
+										</li>
+										<li data-tab="body">
+											<a >身体</a>
+										</li>
+										<li data-tab="suit">
+											<a >着装</a>
+										</li>
+										<li data-tab="persontyppe">
+											<a >人员类型</a>
+										</li>
+									</ul>
+									<div data-tab="property" class="view active ui tab">
+									    <table class="common-table">
+									        <tbody>
+									            <tr>
+									            	<td class="attr-name">来源视频绝对时间：</td>
+									                <td class="attr-value">
+									                    <span class="value">{{datetransfer appearTime}}</span>
+									                </td>
+									            </tr>
+									            <tr class="odd">
+									            	<td class="attr-name">证件类型：</td>
+									                <td class="attr-value">
+									                    <span class="value">{{cardtype}}</span>
+									                </td>
+									            </tr>
+									            <tr>
+									            	<td class="attr-name">证件号码：</td>
+									                <td class="attr-value"> {{#searchPerson cardtype cardnumb}} {{else}}
+									                    <span class="value" title="">{{cardnumb}}</span>
+									                    {{/searchPerson}}
+									            </tr>
+									            <tr class="odd">
+									            	<td class="attr-name">姓名：</td>
+									                <td class="attr-value">
+									                    <span class="value">{{name}}</span>
+									                </td>
+									            </tr>
+									            <tr>
+									            	<td class="attr-name">曾用名：</td>
+									                <td class="attr-value">
+									                    <span class="value">{{formerName}}</span>
+									                </td>
+									            </tr>
+									            <tr class="odd">
+									            	<td class="attr-name">绰号：</td>
+									                <td class="attr-value">
+									                    <span class="value">{{nickname}}</span>
+									                </td>
+									            </tr>
+									            <tr>
+									            	<td class="attr-name">年龄上限：</td>
+									                <td class="attr-value">
+									                    <span class="value">{{ageUpper}}</span>
+									                </td>
+									            </tr>
+									            <tr class="odd">
+									            	<td class="attr-name">年龄下限：</td>
+									                <td class="attr-value">
+									                    <span class="value">{{ageLower}}</span>
+									                </td>
+									            </tr>
+									            <tr>
+									            	<td class="attr-name">民族：</td>
+									                <td class="attr-value">
+									                    <span class="value">{{nation}}</span>
+									                </td>
+									            </tr>
+									            <tr class="odd">
+									            	<td class="attr-name">籍贯：</td>
+									                <td class="attr-value">
+									                    <span class="value">
+									                        {{translate nativeMain nativeSub '' '' 'address'}}
+									                    </span>
+									                </td>
+									            </tr>
+									            <tr>
+									            	<td class="attr-name">居住地：</td>
+									                <td class="attr-value">
+									                    <span class="value">
+									                        {{translate residenceProvince residenceCity residenceCountry residenceStreets 'address'}}
+									                    </span>
+									                </td>
+									            </tr>
+									            <tr class="odd">
+									            	<td class="attr-name">口音：</td>
+									                <td class="attr-value">
+									                    <span class="value">{{voice}}</span>
+									                </td>
+									            </tr>
+									            <tr>
+									            	<td class="attr-name">职业：</td>
+									                <td class="attr-value">
+									                    <span class="value">
+									                        {{translate professionMain professionSub '' '' 'profession'}}
+									                    </span>
+									                </td>
+									            </tr>
+									            <tr class="odd">
+									            	<td class="attr-name">同行人数：</td>
+									                <td class="attr-value">
+									                    <span class="value">{{industryCount}}</span>
+									                </td>
+									            </tr>
+									            <tr>
+									            	<td class="attr-name">性别：</td>
+									                <td class="attr-value">
+									                    <span class="value">{{gender}}</span>
+									                </td>
+									            </tr>
+									        </tbody>
+									    </table>
+									</div>
+									<div data-tab="body" class="view  ui tab">
+									    <table class="common-table">
+									        <tbody>
+									            <tr class="odd">
+									            	<td class="attr-name">身高上限：</td>
+									                <td class="attr-value">
+									                    <span class="value">{{heightUpper}}</span>
+									                </td>
+									            </tr>
+									            <tr>
+									            	<td class="attr-name">身高下限：</td>
+									                <td class="attr-value">
+									                    <span class="value">{{heightLower}}</span>
+									                </td>
+									            </tr>
+									            <tr class="odd">
+									            	<td class="attr-name">体型：</td>
+									                <td class="attr-value">
+									                    <span class="value">{{physique}}</span>
+									                </td>
+									            </tr>
+									            <tr>
+									            	<td class="attr-name">肤色：</td>
+									                <td class="attr-value">
+									                    <span class="value">{{complexion}}</span>
+									                </td>
+									            </tr>
+									            <tr class="odd">
+									            	<td class="attr-name">发型：</td>
+									                <td class="attr-value">
+									                    <span class="value">{{hairstyle}}</span>
+									                </td>
+									            </tr>
+									            <tr>
+									            	<td class="attr-name">发色：</td>
+									                <td class="attr-value">
+									                    <span class="value">{{haircolor}}</span>
+									                </td>
+									            </tr>
+									            <tr class="odd">
+									            	<td class="attr-name">姿势：</td>
+									                <td class="attr-value">
+									                    <span class="value">{{posture}}</span>
+									                </td>
+									            </tr>
+									            <tr>
+									            	<td class="attr-name">状态：</td>
+									                <td class="attr-value">
+									                    <span class="value">{{mindstate}}</span>
+									                </td>
+									            </tr>
+									            <tr class="odd">
+									            	<td class="attr-name">脸型：</td>
+									                <td class="attr-value">
+									                    <span class="value">{{face}}</span>
+									                </td>
+									            </tr>
+									            <tr>
+									            	<td class="attr-name">脸部特征：</td>
+									                <td class="attr-value">
+									                    <span class="value">{{faceFeature}}</span>
+									                </td>
+									            </tr>
+									            <tr class="odd">
+									            	<td class="attr-name">体貌特征：</td>
+									                <td class="attr-value">
+									                    <span class="value">{{bodyFeature}}</span>
+									                </td>
+									            </tr>
+									            <tr class="odd">
+									            	<td class="attr-name">体表特征：</td>
+									                <td class="attr-value">
+									                    <span class="value">{{surfaceFeature}}</span>
+									                </td>
+									            </tr>
+									            <tr>
+									            	<td class="attr-name">习惯动作：</td>
+									                <td class="attr-value">
+									                    <span class="value">{{habitAction}}</span>
+									                </td>
+									            </tr>
+									        </tbody>
+									    </table>
+									</div>
+									<div data-tab="suit" class="view  ui tab">
+									    <table class="common-table">
+									        <tbody>
+									            <tr class="odd">
+									            	<td class="attr-name">上衣款式：</td>
+									                <td class="attr-value">
+									                    <span class="value">{{jacketStyle}}</span>
+									                </td>
+									            </tr>
+									            <tr>
+									            	<td class="attr-name">上衣颜色：</td>
+									                <td class="attr-value">
+									                    <span class="value">{{jacketColor}}</span>
+									                </td>
+									            </tr>
+									            <tr class="odd">
+									            	<td class="attr-name">裤子款式：</td>
+									                <td class="attr-value">
+									                    <span class="value">{{trousersStyle}}</span>
+									                </td>
+									            </tr>
+									            <tr>
+									            	<td class="attr-name">裤子颜色：</td>
+									                <td class="attr-value">
+									                    <span class="value">{{trousersColor}}</span>
+									                </td>
+									            </tr>
+									            <tr class="odd">
+									            	<td class="attr-name">鞋子款式：</td>
+									                <td class="attr-value">
+									                    <span class="value">{{shoesStyle}}</span>
+									                </td>
+									            </tr>
+									            <tr>
+									            	<td class="attr-name">鞋子颜色：</td>
+									                <td class="attr-value">
+									                    <span class="value">{{shoesColor}}</span>
+									                </td>
+									            </tr>
+									            <tr class="odd">
+									            	<td class="attr-name">帽子款式：</td>
+									                <td class="attr-value">
+									                    <span class="value">{{hatStyle}}</span>
+									                </td>
+									            </tr>
+									            <tr>
+									            	<td class="attr-name">帽子颜色：</td>
+									                <td class="attr-value">
+									                    <span class="value">{{hatColor}}</span>
+									                </td>
+									            </tr>
+									            <tr class="odd">
+									            	<td class="attr-name">眼镜款式：</td>
+									                <td class="attr-value">
+									                    <span class="value">{{glassesStyle}}</span>
+									                </td>
+									            </tr>
+									            <tr>
+									            	<td class="attr-name">眼镜颜色：</td>
+									                <td class="attr-value">
+									                    <span class="value">{{glassesColor}}</span>
+									                </td>
+									            </tr>
+									            <tr class="odd">
+									            	<td class="attr-name">围巾颜色：</td>
+									                <td class="attr-value">
+									                    <span class="value">{{scarfColor}}</span>
+									                </td>
+									            </tr>
+									            <tr>
+									            	<td class="attr-name">包款式：</td>
+									                <td class="attr-value">
+									                    <span class="value">{{bagStyle}}</span>
+									                </td>
+									            </tr>
+									            <tr class="odd">
+									            	<td class="attr-name">包颜色：</td>
+									                <td class="attr-value">
+									                    <span class="value">{{bagColor}}</span>
+									                </td>
+									            </tr>
+									        </tbody>
+									    </table>
+									</div>
+									<div data-tab="persontyppe" class="view ui tab">
+									    <table class="common-table">
+									        <tbody>
+									            <tr>
+									            	<td class="attr-name">是否驾驶员：</td>
+									                <td class="attr-value">
+									                    <span class="value">{{isChecked isDriver}}</span>
+									                </td>
+									            </tr>
+									            <tr class="odd">
+									            	<td class="attr-name">驾驶证种类：</td>
+									                <td class="attr-value">
+									                    <span class="value">{{driverLicense}}</span>
+									                </td>
+									            </tr>
+									            <tr>
+									            	<td class="attr-name">驾驶员状态：</td>
+									                <td class="attr-value">
+									                    <span class="value">{{driverStatus}}</span>
+									                </td>
+									            </tr>
+									            <tr class="odd">
+									            	<td class="attr-name">是否涉外：</td>
+									                <td class="attr-value">
+									                    <span class="value">{{isChecked isForeigner}}</span>
+									                </td>
+									            </tr>
+									            <tr>
+									            	<td class="attr-name">护照证件种类：</td>
+									                <td class="attr-value">
+									                    <span class="value">{{passportCategory}}</span>
+									                </td>
+									            </tr>
+									            <tr class="odd">
+									            	<td class="attr-name">入出境人员类别：</td>
+									                <td class="attr-value">
+									                    <span class="value">{{foreignerCategory}}</span>
+									                </td>
+									            </tr>
+									            <tr>
+									            	<td class="attr-name">是否涉恐：</td>
+									                <td class="attr-value">
+									                    <span class="value">{{isChecked isTerrorist}}</span>
+									                </td>
+									            </tr>
+									            <tr class="odd">
+									            	<td class="attr-name">涉恐人员编号：</td>
+									                <td class="attr-value">
+									                    <span class="value">{{terroristNumber}}</span>
+									                </td>
+									            </tr>
+									            <tr>
+									            	<td class="attr-name">是否工作人员：</td>
+									                <td class="attr-value">
+									                    <span class="value">{{isChecked isWorker}}</span>
+									                </td>
+									            </tr>
+									            <tr class="odd">
+									            	<td class="attr-name">职务类别：</td>
+									                <td class="attr-value">
+									                    <span class="value">{{workCategory}}</span>
+									                </td>
+									            </tr>
+									            <tr>
+									            	<td class="attr-name">是否犯罪人员：</td>
+									                <td class="attr-value">
+									                    <span class="value">{{isChecked isCriminal}}</span>
+									                </td>
+									            </tr>
+									            <tr class="odd">
+									            	<td class="attr-name">犯罪专长：</td>
+									                <td class="attr-value">
+									                    <span class="value">{{criminalSkilled}}</span>
+									                </td>
+									            </tr>
+									            <tr>
+									            	<td class="attr-name">体表特殊标记：</td>
+									                <td class="attr-value">
+									                    <span class="value">{{criminalMark}}</span>
+									                </td>
+									            </tr>
+									            <tr class="odd">
+									            	<td class="attr-name">作案手段：</td>
+									                <td class="attr-value">
+									                    <span class="value">{{criminalMethod}}</span>
+									                </td>
+									            </tr>
+									            <tr>
+									            	<td class="attr-name">作案特点：</td>
+									                <td class="attr-value">
+									                    <span class="value">{{criminalFeature}}</span>
+									                </td>
+									            </tr>
+									            <tr class="odd">
+									            	<td class="attr-name">在逃人员编码：</td>
+									                <td class="attr-value">
+									                    <span class="value">{{criminalNumber}}</span>
+									                </td>
+									            </tr>
+									            <tr>
+									            	<td class="attr-name">是否在押人员：</td>
+									                <td class="attr-value">
+									                    <span class="value">{{isChecked isDetain}}</span>
+									                </td>
+									            </tr>
+									            <tr class="odd">
+									            	<td class="attr-name">看守所编码：</td>
+									                <td class="attr-value">
+									                    <span class="value">{{detainPrison}}</span>
+									                </td>
+									            </tr>
+									            <tr>
+									            	<td class="attr-name">在押人员身份：</td>
+									                <td class="attr-value">
+									                    <span class="value">{{detainIdentity}}</span>
+									                </td>
+									            </tr>
+									            <tr class="odd">
+									            	<td class="attr-name">在押人员特殊身份：</td>
+									                <td class="attr-value">
+									                    <span class="value">{{detainSpecial}}</span>
+									                </td>
+									            </tr>
+									            <tr>
+									            	<td class="attr-name">成员类型：</td>
+									                <td class="attr-value">
+									                    <span class="value">{{detainCategory}}</span>
+									                </td>
+									            </tr>
+									            <tr class="odd">
+									            	<td class="attr-name">是否被害人：</td>
+									                <td class="attr-value">
+									                    <span class="value">{{isChecked isVictim}}</span>
+									                </td>
+									            </tr>
+									            <tr>
+									            	<td class="attr-name">被害人种类：</td>
+									                <td class="attr-value">
+									                    <span class="value">
+									                        {{translate victimCategoryMain victimCategorySub '' '' 'victim'}}
+									                    </span>
+									                </td>
+									            </tr>
+									            <tr class="odd">
+									            	<td class="attr-name">受伤害程度：</td>
+									                <td class="attr-value">
+									                    <span class="value">{{victimHarmful}}</span>
+									                </td>
+									            </tr>
+									            <tr>
+									            	<td class="attr-name">尸体状况：</td>
+									                <td class="attr-value">
+									                    <span class="value">{{victimCorpse}}</span>
+									                </td>
+									            </tr>
+									            <tr class="odd">
+									            	<td class="attr-name">信息来源：</td>
+									                <td class="attr-value">
+									                    <span class="value">{{infomationSource}}</span>
+									                </td>
+									            </tr>
+									            <tr style="display:none;">
+									                <td id="points1" value="{{points}}">{{points}}</td>
+									                <td class="value">{{points}}</td>
+									            </tr>
+									        </tbody>
+									    </table>
+									</div>
+								</div>
+								<div data-tab="incident" class="view ui tab">
+								</div>
+								<div data-tab="video" class="view ui tab">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				</div>
+				<div class="entity-preview" data-id="{{id}}" data-videoid="{{videoId}}" data-imageid="{{imageId}}">
+				<div class="markwrap clearfix">
+					{{#if status}}
+					<div class="audit-status">
+						<span class="track-type">人员</span>
+						{{#belongs this}}
+						<span class="{{translateStatus status 'color'}} status">[{{translateStatus status 'name'}}]</span>
+						{{/belongs}}
+					</div>
+					{{/if}}
+					<div class="display-format">
+						<ul class="menus ui tabular ">
+							<li data-tab="picture" class="active">
+								<a class="btn">特征图片</a>
+							</li>
+							{{#tabular videoId}}
+							<li data-tab="ocxbody">
+								<a class="btn">视频片段</a>
+							</li>
+							{{/tabular}}
+						</ul>
+
+					</div>
+					</div>
+
+					<div class="entity-box">
+						{{#tabular videoId}}
+                        <div class="video ui tab " data-tab="ocxbody" data-videopath="{{videoPath}}">
+                            <object id="UIOCX" type="applicatin/x-firebreath" width = "800" height = "450">
+                            	<param name="onload" value="pluginLoaded"/>
+                            </object>
+                            <div class="video-block">
+                           		 <div class="progress-bg">
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="bullet">
+                                    	<i class="play-point"></i>
+                                    </div>
+                                    <i class='start-mark'></i>
+                                    <i class='end-mark'></i>
+                                </div>
+                                <div class="panel" onselectstart="return false">
+                                <span class="time">
+											<span class="nowtime" nowtime-ms="0">00:00:00</span>&nbsp;/
+											<span class="alltime" alltime-ms="14859247">04:07:39</span>
+										</span>
+										<span class="speed">倍速：<em></em></span>
+										<span class="fullwin" title="全屏"></span>
+										<span class="grab" title="抓图"></span>
+										<span class="editing" title="人工标注"></span>
+										<span class="stop" title="停止"></span>
+										<span class="forward" title="快进"></span>
+										<span class="switch" title="播放"></span>
+										<span class="rewind" title="慢放"></span>
+                                </div>
+
+                            </div>
+                        </div>
+						{{/tabular}}
+						<div class="picture ui tab active" data-tab="picture">
+							<span class="hook"></span>
+							<img src="{{picture}}" alt="" class="entity-img"></div>
+					</div>
+				</div>
+				{{/person}}
+				</script>
+
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="/libs/requirejs/require.js" data-main="/module/viewlibs/details/struct/js/main.js"></script>
+
+</body>
+</html>

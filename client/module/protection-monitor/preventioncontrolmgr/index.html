@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=10,chrome=1"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<title>视云实战平台</title>
+	<!--[if lt IE 9]>
+	<script src="/libs/html5/html5.js"></script>
+	<![endif]-->
+
+	<link type="text/css" rel="stylesheet" href="/module/common/css/base.css" />
+	<link rel="stylesheet" type="text/css" href="/libs/thickbox/thickbox.css">
+	<link type="text/css" rel="stylesheet" href="/libs/semantic/semantic.css" />
+	<link type="text/css" rel="stylesheet" href="/libs/jquery/jquery-ui.css">
+	<link type="text/css" rel="stylesheet" href="/libs/jquery/jquery.pagination.css"/>
+	<link type="text/css" rel="stylesheet" href="css/tree.css"/>
+	<link type="text/css" rel="stylesheet" href="/module/protection-monitor/common/css/tree.css"/>
+	<link type="text/css" rel="stylesheet" href="/module/protection-monitor/common/css/pub.css">
+	<link type="text/css" rel="stylesheet" href="/module/protection-monitor/defencesetting/css/icon.css">
+	<link type="text/css" rel="stylesheet" href="/module/protection-monitor/preventioncontrolmgr/css/preventioncontrolmgr.css">
+	<!-- 联动选择css样式 -->
+	<link type="text/css" rel="stylesheet" href="/module/protection-monitor/preventioncontrolmgr/css/control-linkage.css">
+</head>
+<body>
+	<div id="content">
+		<!--下拉列表等浮动层-->
+		<div class="preventioncontrolmgr pubdiv" data-type="">
+			<ul></ul>
+		</div>
+		<div class="wrapper">
+			<aside id="sidebar">
+				<a id="sideResize">
+					<iframe src="about:blank"></iframe>
+					<span class="resize"></span>
+				</a>
+				<div id="aside">
+					<div class="tab-panel">
+						<div class="tab-header">
+							<!-- <div data-hview = "defence-task" class="active"> <i class="icons-sdefence-task"></i>
+								布防任务管理
+							</div>
+							<div data-hview = "control-task" > <i class="icons-scontrol-task"></i>
+								<span>布控任务管理</span>
+							</div> -->
+							<div data-hview = "people-control" class="people-control">
+								<i class="icons-speople-control"></i>
+								<span>布控库</span>
+							</div>
+							<div data-hview = "taskNum-set" class="">
+								<i class="icons-taskNumSet"></i>
+								<span>任务数设置</span>
+							</div>
+						</div>
+						<div class="tabs">
+							<ul>
+								<!-- <li data-tab="defence-task" class="active armingmanagement"><i class="icons-defence-task" title="布防任务管理"></i></li>
+								<li data-tab="control-task" class="surveillancemanagement"><i class="icons-control-task" title="布控任务管理"></i></li> -->
+								<li data-tab="people-control" class="surveillancepeople"><i class="icons-people-control" title="布控库"></i></li>
+								<li data-tab="taskNum-set" class="tasKsetNum "><i class="icons-taskNumSet" title="任务数"></i></li>
+							</ul>
+						</div>
+						<div class="tab-content">
+							<!-- 组织树 -->
+							<div data-view="defence-task" class="active">
+								<div class="tree-search">
+									<input id="searchInput" type="text" placeholder="全局搜索..." name="q" autocomplete="off">
+									<button id="searchBtn" title="搜索"></button>
+								</div>
+								<div class="tree-container">
+									<div class="">
+										<div class="scrollbar">
+											<div class="track">
+												<div class="thumb">
+													<div class="end"></div>
+												</div>
+											</div>
+										</div>
+										<div class="viewport">
+											<div class="overview">
+												<div class="treePanel"></div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div data-view="control-task">
+								<div class="mid-top-panel">
+									<div class="control-task-list-head active">
+										<p class="clearfix">
+											<span class="people">人员布控</span>
+											<span class="car noactive"> <em class="protect-hidden">车辆布控</em>
+											</span>
+										</p>
+										<p class="defence-task-create clearfix">
+											<span class="text">布控列表</span>
+											<!-- <span class="create-task permission permission-new-surveillance-task" id="CreatePeopleDefenceTask">新建任务</span> -->
+										</p>
+										<div class="search-content">
+											<div class="ui input action search search-list">
+												<input type="text" name="q_personlib" placeholder="布控任务搜索..." id="ConmenSearch" />
+												<button class="search action">搜索</button>
+												<a class="advanced-query">高级>></a>
+											</div>
+											<div class="people-search-content" style="display:none">
+												<span class="ui input"> <em class="label">任务名称：</em>
+													<input type="text" name="name" class="name" maxlength="20"/>
+												</span>
+												<span>
+													<em class="label">布控状态：</em>
+													<span class="select_container" data-type="control-status">
+														<span class="text" data-value="3">全部</span>
+														<span class="arrow-down"></span>
+													</span>
+												</span>
+												<span class="opera">
+													<input type="button" class="ui button blue big" value="查询" id="PeopleTaskSearch"/>
+													<input type="button" class="ui button cancel big" value="取消" id="GoBack"/>
+												</span>
+											</div>
+											<div class="car-search-content"></div>
+										</div>
+									</div>
+									<div class="people-control-check-head">
+										<span class="return-to check" title="返回" id="DefenceTaskCheckReturn"></span>
+										<span class="check-opera">
+											<!-- <input type="button" class="ui button blue big permission permission-edit-surveillance-task" title="编辑当前的布控任务" value="编辑" id="CheckEditTask"/> -->
+											<input type="button" class="ui button blue big permission permission-cancel-surveillance-task" title="撤销当前的布控任务" value="撤控" id="CheckCanecelTask">
+									</div>
+									<div class="people-control-edit-head clearfix">
+										<span class="return-to" title="返回" id="DefenceTaskEditReturn"></span>
+										<input type="button" class="save-btn ui button big blue" value="保存" id="DefenceTaskEditSave"/>
+									</div>
+									<div class="people-control-tree-select-head clearfix">
+										<span class="return-to" title="返回" id="GetDefenceCameraReturn"></span>
+										<input type="button" class="save-btn ui button big blue" value="保存" id="GetDefenceCamera"/>
+									</div>
+								</div>
+								<div class="mid-bottom-panel">
+									<div class="control-task-people-list active">
+										<div class="control-task-people-list-inner"></div>
+										<div class="pagination"></div>
+									</div>
+									<div class="control-task-car-list"></div>
+									<div class="people-control-check-form"></div>
+									<div class="people-control-edit-form"></div>
+									<div class="people-control-checkbox-tree treeMenu"></div>
+								</div>
+							</div>
+							<div data-view="people-control">
+								<div class="mid-top-panel">
+									<div class="people-library-search active">
+										<div class="ui input action search search-library">
+											<input type="text" name="q_personlib" placeholder="资源搜索..." />
+											<button class="search action">搜索</button>
+										</div>
+										<input type="button" class="create-people-library ui button big blue permission permission-new-surveillance-lib" id="createPeopleLibrary" value="新建"/>
+										<table class="create-people-lib-table">
+											<tr>
+												<td class="label">库名称：</td>
+												<td class="ui input">
+													<input type="text" placeholder="请输入库名称" name="name" maxlength="20"/>
+												</td>
+											</tr>
+											<tr>
+												<td class="label">比分阈值：</td>
+												<td class="ui input">
+													<input type="text" placeholder="1~100" name="threshold"/>
+												</td>
+											</tr>
+											<tr>
+												<td></td>
+												<td>
+													<input type="button"  class="ui button big cancel" value="取消" id="cancelPeopleLibrary"/>
+													<input type="button" class="ui button big blue" value="保存" id="savePeopleLibrary"/>
+												</td>
+											</tr>
+										</table>
+									</div>
+								</div>
+								<div class="mid-bottom-panel">
+									<ul class="people-library-list"></ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</aside>
+			<div id="major">
+				<div class="defence-task active" id="protectMgr"></div>
+				<div class="control-task">
+					<div class="breadcrumb">
+						<span class="active section">&nbsp;</span>
+						<div class="map-toolbar">
+							<div class="tool-container" title="工具">
+								<ul class="map-tools-list">
+									<li>
+										<a class="map-max" data-type="max" title="放大">放大</a>
+									</li>
+									<li>
+										<a class="map-min" data-type="min" title="缩小">缩小</a>
+									</li>
+									<li>
+										<a class="map-measure" data-type="measure" title="测距">测距</a>
+									</li>
+									<!--<li>
+									<a class="map-clear" data-type="clear">清除</a>
+								</li>
+								-->
+							</ul>
+						</div>
+						<a class="fullscreen" title="全屏"></a>
+					</div>
+				</div>
+				<div id="mapId">
+					<div class="map-resource-layers">
+						<h2 class="layers-head">
+							<span class="title">资源</span>
+							<span class="contract-btn up"></span>
+						</h2>
+						<ul class="resource-layers">
+							<li class="clearfix active" id="ResourceIndoor">
+								<i class="checkbox"></i>
+								<i class="ico indoor"></i>
+								<span class="name">室内</span>
+							</li>
+							<li class="clearfix active" id="ResourceHiShpomt">
+								<i class="checkbox"></i>
+								<i class="ico hishpomt"></i>
+								<span class="name">制高点</span>
+							</li>
+							<li class="clearfix active" id="ResourceElevated">
+								<i class="checkbox"></i>
+								<i class="ico elevated"></i>
+								<span class="name">高架</span>
+							</li>
+							<li class="clearfix active" id="ResourceWater">
+								<i class="checkbox"></i>
+								<i class="ico water"></i>
+								<span class="name">水面</span>
+							</li>
+							<li class="clearfix active" id="ResourceGround">
+								<i class="checkbox"></i>
+								<i class="ico ground"></i>
+								<span class="name">路面</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="control-video"></div>
+			</div>
+			<div class="people-control">
+				<div class="breadcrumb">
+					<span class="active section lib">人员布控库</span>
+				</div>
+				<div class="people-library-search-content">
+					<div class="top-search-panel">
+						<label>姓名：</label>
+						<span class=" ui input">
+							<input type="text" name="name" maxlength="20"/>
+						</span>
+						<label>证件类型：</label>
+						<span class="select_container" data-type="searchcraditcardtype">
+							<span class="text" data-value="">全部</span>
+							<span class="arrow-down"></span>
+						</span>
+						<label>证件号：</label>
+						<span class=" ui input">
+							<input type="text" name="IDcard"/>
+						</span>
+						<input type="button" id="PersonSearchBtn"/>
+						<span class="opera">
+                                <input type="button" class="alarm-btn permission permission-new-surveillance-person" value="新增" id="CreatePersonBtn"/>
+							    <input type="button" class="alarm-btn permission permission-import-surveillance-persons" value="批量导入" id="BulkImportBtn"/>
+								<input type="button" class="alarm-btn permission permission-mdelete-surveillance-persons" value="批量删除" id="BulkDeleteBtn"/>
+						</span>
+					</div>
+					<table class="people-library-th">
+						<tr>
+							<td width="4%">
+								<input type="checkbox"/>
+							</td>
+							<td width="10%">姓名</td>
+							<td width="10%">性别</td>
+							<td width="10%">证件类型</td>
+							<td width="20%">证件号</td>
+							<td width="15%">比分阈值</td>
+							<td width="10%">入库状态</td>
+							<td width="15%">操作</td>
+						</tr>
+					</table>
+					<div class="people-library-content">
+						<div class="people-library-content-inner"></div>
+						<div class="pagination"></div>
+					</div>
+					<div class="check-person see-details"></div>
+					<div class="create-edit-person check-person"></div>
+				</div>
+			</div>
+			<div class="taskNum-set">
+				<div class="breadcrumb">
+					<span>任务数设置</span>
+					<span class="button ui blue mySetTask" id="saveTaskSet">保存设置</span>
+				</div>
+				<div class="taskSetPanel">
+					<p>最大布防任务个数：<span><em class="maxSetNum">0</em><input type="text" class="maxSetInput" maxlength="9" /></span>&nbsp;个<i class="icon-set"></i>
+					
+					</p>
+					<p><span class="orgtitle">组织机构：</span><span class="maxNums">最大任务数</span></p>
+					<div id="orgTreePanel">
+						<div class="treePanel"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!--页面处理进度提示，遮罩层-->
+<div class="process-cover-layout common-hidden"></div>
+<div class="process-msg common-hidden">
+	<span class="text"></span>
+	<span class="rate"></span>
+	<span class="process-bar">
+		<p class="process-rate"></p>
+	</span>
+</div>
+<script type="text/javascript" src="/libs/requirejs/require.js" data-main="/require-conf"></script>
+<script type="text/javascript">
+ 	require(['/module/protection-monitor/preventioncontrolmgr/js/superMain.js']);
+</script>
+</body>
+</html>

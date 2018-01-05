@@ -1,0 +1,156 @@
+.common-dialog {
+	border: 1px solid rgba(0,0,0,0.3);
+	box-shadow: 0;
+	border-radius: 0px;
+	background-color: #FFFFFF;
+	background-clip: padding-box;
+	border-radius: 0px;
+}
+.common-dialog section{
+	height: 400px;
+	margin-top: -10px;
+}
+.wrapper{
+	width: 100%;
+}
+.module-body{
+	height: 100%;
+	margin-right: 10px;
+}
+#chsdialog_2{
+	margin-right: -20px;
+}
+.module-body .scrollbar{
+	margin-top: 0;
+	position: relative;
+	float: right;
+	width: 10px;
+	margin-right: 0;
+	margin-top: 0;
+	padding-right: 0px;
+}
+.rwpath {
+	color: #DAD9D8;
+}
+header h3{
+	border-bottom:thin solid #DAD9D8;
+	background: #f9f9f9;
+}
+.alsoseltpath{
+	border-bottom:thin solid #DAD9D8;
+	margin-left: -10px;
+	width: 171px;
+}
+.centerpath{
+	float: left;
+	height:451px;
+	margin-top: -10px;
+	width: 1px;
+	border-left:thin solid #DAD9D8;
+}
+.nameborder{
+	border: thin solid #DAD9D8;
+	background: #f5f5f7;
+	margin-right: 10px;
+	height: 20px;
+	padding: 5px;
+}
+ .track {
+	height: 100%;
+	width: 10px;
+	position: relative;
+	cursor: pointer;
+	background: #f0f0f0;
+}
+ .thumb {
+	height: 36px;
+	width: 10px;
+	background: transparent url(/module/common/images/bg/pvd_scroll.png) 0 0 no-repeat;
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+	left:3px;
+}
+.viewport {
+	margin-right: 20px;
+	height: 400px;
+	overflow: hidden;
+	position: relative;
+}
+.selectviewport{
+	height: 400px;
+	overflow: hidden;
+	position: relative;
+}
+.rightdiv{
+	width: 90%;
+}
+.rightdiv ul li {
+	float: left;
+	margin-top: 10px;
+	margin-left: 10px;
+}
+.rightdiv ul li label{
+	float: right;
+	width: 16px;
+	height: 16px;
+	margin-right: 6px;
+	margin-left: 6px;
+	background: transparent url(/module/common/images/buttons/delete.png) 0 0 no-repeat;
+}
+.rightdiv ul li label:hover{
+	background: url(/module/common/images/buttons/delete-hover.png);
+}
+.overview {
+	 position: absolute; 
+	 left: 0; 
+	 top: 0;
+	 width: 100%;
+ }
+
+ .analyzer-message {
+	width: 100%;
+}
+.analyzer-message .issue_table tr {
+	border: 1px solid #f0f0ed;
+	vertical-align: middle;
+	text-align: center;
+	padding: 15px;
+	height: 25px;
+}
+.oddtr {
+	background-color:#fafcff;
+}
+.eventr {
+	background-color:#ffffff;
+}
+
+
+.analyzer-message .issue_table tr td{
+	padding: 10px 15px 10px 0;
+}
+
+
+.common-dialog .wrapper footer {
+	padding: 7px 13px 7px;
+	border-top: 1px solid #E5E5E5;
+	background-color: #FFFFFF;
+	text-align: center;
+	clear:both;
+}
+.analyzer-message .issue_table .task-left {
+	text-align: left;
+}
+
+.analyzer-message .issue_table .task-right {
+	text-align: right;
+}
+
+
+.analyzer-message .issue_table tr:hover,.analyzer-message .issue_table tr.hover td {
+	background-color: #fafafa;
+}
+
+.analyzer-icon .icon_analyzer {
+	margin-right: 0px;
+}

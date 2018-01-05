@@ -1,0 +1,14 @@
+{{#each this}}
+<ul class="check-item clearfix" data-index="{{@index}}" data-name="{{name}}">
+	<li class="push-left">
+		<a class="status"></a>
+	</li>
+	<li class="check-cmd push-left">{{name}}</li>
+	<li class="check-des push-left">{{describe}}</li>
+	<li class="look push-right">
+		<a class="look-img"></a>
+		<label class="hide">查看</label>
+	</li>
+</ul>
+<ul class="progress-line hide" data-index="{{@index}}"></ul>
+{{/each}}		

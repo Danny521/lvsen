@@ -1,0 +1,13 @@
+{{#if videoplay}}
+    <div class="video-top" data-alarmid="{{data.alarmid}}" data-cameraid="{{data.cameraid}}">
+        <span class="video-camera-info">
+            {{data.orgName}}-<em class="alarm-label">{{data.cameraName}}</em>
+        </span>
+        <a class="video-win-close" title="关闭视频播放窗口"></a>
+    </div>
+    <div class="video-down">
+        <object id="UIOCX_CURR" type="applicatin/x-firebreath" width ="400" height ="270" align="center">
+            <param name="onload" value="pluginLoaded"/>
+        </object>
+    </div>
+{{/if}}

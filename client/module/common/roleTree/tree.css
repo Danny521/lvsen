@@ -1,0 +1,1305 @@
+.tree-outtest-container .loading {
+	background: transparent url(/module/common/images/animate/horizontal-loading.gif) center center no-repeat;
+}
+.tree-outtest-container{
+    position: absolute;
+}
+
+#treePanel .viewport {
+	margin-right: 20px;
+}
+#treePanel .overview {
+	position: absolute;
+	left: 15px;
+	top: 0;
+	right: 0;
+}
+#camerasPanel .myAttentionList,#camerasPanel .defenseCircle{
+	height: 100%;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	overflow-y: auto;
+}
+#myAttentionListPager{
+	margin-top: 5px;
+}
+#camerasPanel .guardRouteList,#guardRouteListContainer{
+	height: 100%;
+}
+#guardRouteListContainer .map-guard-routes,#defenseCircleContainer .circle-group-ul,#myAttentionListContainer .my-attention-list{
+	height: 100%;
+	overflow-y:auto;
+}
+.map-guard-routes-groups{
+	height: 100%;
+	overflow-y:auto;
+}
+#camerasPanel[data-type='globalsearch'] .globalSearch{
+	height: 100%;
+	position: relative;
+}
+#globalSearchResult{
+    position: absolute;
+    top: 0px;
+    bottom: 20px;
+    left: 0px;
+    right: 0px;
+}
+#camerasPanel .globalSearch .pagination{
+    position: absolute;
+    bottom: 0px;
+}
+#globalSearchResult .global-search-result{
+    position: absolute;
+    top: 20px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    overflow-y: auto;
+}
+
+#treePanel .scrollbar {
+	position: relative;
+	float: right;
+	width: 12px;
+	margin-right: 4px;
+}
+
+#treePanel .track {
+	height: 100%;
+	width: 12px;
+	position: relative;
+	cursor: pointer;
+	background: transparent url(/module/common/images/bg/track_line.png) center 0 repeat-y;
+}
+
+#treePanel .thumb {
+	height: 72px;
+	width: 12px;
+	background: transparent url(/module/common/images/bg/scrollbar.png) 0 0 no-repeat;
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+}
+
+#treePanel .disable {
+	display: none;
+}
+
+.display-area {
+	margin-left: 280px;
+}
+
+#sidebar .ui.tab {-
+	bottom: auto;
+	height: 100%;
+}
+
+#sidebar .title {
+	position: relative;
+	width: 100px;
+	height: 30px;
+	line-height: 30px;
+	padding-top: 5px;
+}
+#sidebar .groups .camera-list .camera-name{
+	/*overflow: hidden;
+	white-space: nowrap;
+	text-overflow:ellipsis;
+	display: inline-block;
+	width: 150px;
+	padding-top: 0px;
+	float: left;
+	line-height: 25px;
+	height: 25px;*/
+}
+.tree-outtest-container {
+	font-size: 12px;
+	/*margin-left: 15px;*/
+    /*height: 100%;*/
+    overflow-y: auto;
+    overflow-x:hidden;
+}
+.patrol > .tree-outtest-container {
+	margin-left: 0px;
+}
+.tree-outtest-container a {
+	color: #333333;
+	cursor: pointer;
+}
+.tree-outtest-container > .no-data{
+	margin: 0 auto;
+	width: 73px;
+	height: 16px;
+	color: #999;
+	margin-top: 11px;
+}
+.tree-outtest-container .node.active > .no-data{
+	margin: 0px 0px 0px 33px;
+	width: 73px;
+	height: 16px;
+	color: #999;
+}
+.tree-outtest-container .checktree .no-data{
+	padding-left: 56px;
+	color:#999;
+}
+.tree-outtest-container i {
+	display: block;
+	/*float: left;*/
+}
+
+.tree-outtest-container .tree {
+	padding-left: 20px;
+}
+
+.tree-outtest-container > .tree {
+	padding-left: 0;
+	padding-top: 10px;
+}
+
+
+.tree-outtest-container .node .tree,.tree-outtest-container .node h2 {
+	display: none;
+}
+
+.tree-outtest-container .node.active > .tree ,.tree-outtest-container .node.active > h2 {
+	display: block;
+	background: #F6FBFF
+}
+
+.tree-outtest-container .node a.active {
+	color: #188dfb;
+}
+.tree-outtest-container .leaf {
+	position: relative;
+	display: block;
+	padding: 0 10px 0 12px;
+	height:24px;
+	line-height:24px;/*
+	border-radius: 3px;*/
+}
+.tree-outtest-container .checktree .leaf{
+	padding-right: 0px;
+	display: inline-block;
+	overflow: hidden;
+	/* width: 180px; */
+	width: 100%;
+}
+.tree-outtest-container .leaf > span{
+	height: 24px;
+	min-width: 80px;
+	width: 80%;
+	display: inline-block;
+	color: #000000;
+	vertical-align: middle;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.tree-outtest-container .checktree .leaf > span{
+	height: 24px;
+	width: 74%;
+	display: inline;
+	color: #000000;
+	white-space: nowrap;
+}
+.tree-outtest-container .leaf > span > b{
+	color: #188dfb;
+	height: 24px;
+	line-height: 24px;
+	float: left;
+}
+.tree-outtest-container .checktree .leaf > span > b{
+	color: #188dfb;
+	height: 24px;
+	line-height: 24px;
+	float: none;
+	width: auto;
+}
+.tree-outtest-container .leaf > span > em{
+	width: 86%;
+	height: 24px;
+	line-height: 24px;
+	color: #000;
+	width: 83%\0;
+}
+.tree-outtest-container .node.selected .leaf > span > em{
+	font-weight: bold;
+	color: #188DFB;
+}
+.tree-outtest-container .offline .leaf > span > em{
+	 color: #A0ABB7;
+}
+.tree-outtest-container .checktree .leaf > span > em{
+	/* width: auto;
+	float: none;
+	white-space: normal; */
+}
+/*.tree-outtest-container .leaf > span > em.isSD{
+    width: 130px;
+}*/
+.tree-outtest-container .node.search .leaf{
+	margin-left: 6px;
+}
+.tree-outtest-container .leaf:hover,
+.tree-outtest-container .node.opened ,
+.tree-outtest-container .node.activated {
+	background-color: #D9EFFF;
+}
+.tree-outtest-container .node.opened > .leaf >.text-over{
+	font-weight: bold;
+}
+.tree-outtest-container .checktree .leaf:hover {
+	background-color: transparent;
+}
+.tree-outtest-container .leaf:hover,.tree-outtest-container .leaf.active,.tree-outtest-container .group span:hover {
+	color: #1B6BBC;
+}
+
+.tree-outtest-container .leaf .more {
+	position: absolute;
+	width: 16px;
+	height: 16px;
+	background: transparent url(/module/common/images/sprites/operate-bg.png) -151px 0 no-repeat;
+	top: 4px;
+	right: 5px;
+	display: none;
+}
+
+.tree-outtest-container .leaf:hover .more {
+	display: block;
+}
+
+.tree-outtest-container .leaf .more:hover {
+	background-position: -134px 0;
+}
+
+.tree-outtest-container .checkbox {
+	background: url(/module/common/images/sprites/tree_bg_halfCheck.png) no-repeat -32px 0;
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+	vertical-align: middle;
+}
+.tree-outtest-container .ptzctrl {
+	display: inline-block;
+	height: 15px;
+	position: relative;
+	top: 5px;
+	margin: right;
+	padding: 0px;
+	width: 15px;
+	cursor: pointer;
+	background: url(/module/settings/common/tool/tree_bg.png) no-repeat -503px 0px;
+}
+.tree-outtest-container .ptzctrl.checked {
+	background: url(/module/settings/common/tool/tree_bg.png) no-repeat -535px 0;
+}
+.tree-outtest-container .ptzctrl.NoCheck {
+	background: url(/module/settings/common/tool/tree_bg.png) no-repeat -520px 0;
+}
+
+.tipCheckPanel .ptzctrl {
+	display: inline-block;
+	height: 15px;
+	position: relative;
+	top: 5px;
+	margin: right;
+	padding: 0px;
+	width: 15px;
+	cursor: pointer;
+	background: url(/module/settings/common/tool/tree_bg.png) no-repeat -503px 0px;
+}
+.tipCheckPanel .ptzctrl.checked {
+	background: url(/module/settings/common/tool/tree_bg.png) no-repeat -535px 0;
+}
+.tipCheckPanel .ptzctrl.NoCheck {
+	background: url(/module/settings/common/tool/tree_bg.png) no-repeat -520px 0;
+}
+
+.tree-outtest-container .leaf .checkbox{
+	margin-top: 5px;
+	margin-left: 5px;
+}
+.tree-outtest-container .small-checkbox {
+	background: url(/module/common/images/icons/groud-input.png) no-repeat 0 -30px;
+	width: 15px;
+	height: 15px;
+	margin: 1px 3px 0 6px;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+ .small-checkbox.checked {
+	background-position: 0 5px;
+}
+
+.tree-outtest-container .checkbox.halfChecked {
+	background: url(/module/common/images/sprites/tree_bg_halfCheck.png) no-repeat -173px 0;
+}
+.tree-outtest-container .checkbox.checked {
+	background: url(/module/common/images/sprites/tree_bg_halfCheck.png) no-repeat -47px 0;
+}
+/*
+.tree-outtest-container .node {
+	min-height: 26px;
+	line-height: 26px;
+	display: block;
+}
+*/
+.tree-outtest-container .node .loading {
+	height: 26px;
+	padding-left: 65px;
+	text-transform: capitalize;
+	background: transparent url(/module/common/images/animate/loader-mini.gif) 42px center no-repeat;
+}
+
+.tree-outtest-container .node.edit {
+	background: #dbe2ec;
+}
+
+.tree-outtest-container .node .group {
+	position: relative;
+	height: 24px;
+	line-height: 24px; /* mayue try */
+	display: block;
+	margin: 0;
+	padding-left: 15px;
+	background: url(/module/common/images/close.png) no-repeat 0 7px; /*mayue try*/
+}
+.tree-outtest-container .node.active >.group {
+	background: url(/module/common/images/open.png) no-repeat 0 7px;
+}
+.addCamerasToGuardRoute > .tree-outtest-container .node .group {
+	width: 180px;
+}
+.tree-outtest-container .node .group.active {
+	color: #188dfb;
+}
+.tree-outtest-container .node {
+	white-space: nowrap;
+}
+.tree-outtest-container  .node.govSelected[data-type="point"],.tree-outtest-container .node.govSelected[data-type="camera"],.tree-outtest-container .node.govSelected[data-type="bayonet"]{
+	background: #edd6ce
+}
+.tree-outtest-container .node.curractive{
+	background: #ccc
+}
+.tree-outtest-container .node .group > i.fold,.tree-outtest-container .node .group >.text-over,.tree-outtest-container .node .group >.statistics{
+	vertical-align: middle;
+}
+.tree-outtest-container .node.active > .group >.text-over{
+	font-weight: bold;
+}
+[data-tabor="my-group"] .tree-outtest-container .node.active > .group >.text-over{
+	width: 51%;
+}
+.tree-outtest-container .group span.text-over {
+	line-height: 20px;
+	height: 20px;
+	/*min-width: 90px;*/
+	max-width: 370px;
+	overflow: hidden;
+	display: inline-block;
+	text-overflow: ellipsis;
+	word-break: break-all;
+	white-space: nowrap;
+	vertical-align: middle;
+	margin-left: -3px;
+}
+.tree-outtest-container .node .group >.statistics .online-count{
+	color: #000;
+}
+.tree-outtest-container .node .group >.statistics .offline-count{
+	color: #000;
+}
+
+/* .tree-outtest-container .node .group >.statistics .online-text,.tree-outtest-container .node .group >.statistics .offline-text{
+	display: none;
+}
+.tree-outtest-container .node .group >.statistics .online-text.active,.tree-outtest-container .node .group >.statistics .offline-text.active{
+	display: inline-block;
+} */
+.tree-outtest-container .rootli.node .group >.statistics{
+	color: #666;
+	margin-left: 3px;
+}
+.tree-outtest-container .rootli.node>.group .circle-inspect{
+	display: none;
+}
+.tree-outtest-container .checktree .group span {
+	line-height: 20px;
+	height: 20px;
+	/*width: auto;*/
+	/*width: 150px;
+	overflow: hidden;
+	display: inline-block;
+	text-overflow: ellipsis;
+	word-break: break-all;
+	white-space: nowrap;
+	margin-top: 4px;*/
+}
+
+
+.tree-outtest-container .group span input {
+	border: 1px solid #c3cad4;
+	background: #ffffff;
+	cursor: pointer;
+	/*font-size: 12px;*/
+	width: 100px;
+}
+
+.tree-outtest-container .fold {
+	background: url("/module/common/images/icons/tree.png") no-repeat scroll -14px -551px transparent;
+	width: 16px;
+	height: 13px;
+	display: inline-block;
+	vertical-align: middle;
+	margin-left: 2px;
+}
+
+.tree-outtest-container .group:hover .fold,
+.tree-outtest-container .node.active > .group .fold,
+.similar-hover > .group .fold{
+	background-position: -153px -551px;
+}
+.tree-inspect-hover > .group .fold{
+	background-position: -153px -551px;
+}
+
+.tree-outtest-container .node .group .fold.home {
+	display: inline-block;
+	background: url(/module/common/images/icons/tree.png) no-repeat scroll -148px -13px transparent;
+	width: 16px;
+	height: 13px;
+	margin-right: 5px;
+}
+/*
+.tree-outtest-container .group:hover .home,
+.tree-outtest-container .node.active > .group .home {
+	background-position: -100px 0;
+}*/
+
+/* 默认枪击 */
+.tree-outtest-container .camera {
+	background: url(/module/common/images/sprites/tree_bg.png) no-repeat -85px 0;
+	width: 15px;
+	height: 13px;
+	margin: 0px;
+	display: inline-block;
+	vertical-align: middle;
+}
+.tree-outtest-container .bayonet {
+	background: url(/module/inspect/dispatch/js/pvd/monitor/zTree_v3/css/img/monitor_offline.png) no-repeat 2px 0;
+	width: 15px;
+	height: 13px;
+	margin: 0px;
+	display: inline-block;
+	vertical-align: middle;
+}
+.tree-outtest-container .node .camera.active {
+	/*background-position: -85px 0;*/
+}
+.tree-outtest-container .node.offline .camera {
+	background-position: 0 0;
+}
+.tree-outtest-container .camera.hasHD {
+	background: url(/module/common/images/sprites/gun_HD.png) no-repeat;
+	background-position: 0 0;
+	width: 21px;
+}
+.tree-outtest-container .node.selected .camera {
+	background: url(/module/common/images/sprites/video-play-icon.gif)  ;
+	background-position: 0 0;
+	width: 14px;
+	height: 14px;
+}
+.tree-outtest-container .node.selected .camera.dome{
+	background: url(/module/common/images/sprites/video-play-icon.gif)  ;
+	background-position: 0 0;
+	width: 14px;
+	height: 14px;
+}
+/*.tree-outtest-container .node.selected .camera.active.hasHD{
+	background: url(/module/common/images/sprites/camera-gun-HD-selected.png) no-repeat;
+	width:24px;
+}
+.tree-outtest-container .node.selected .camera.dome.active.hasHD{
+	background: url(/module/common/images/sprites/camera-ball-HD-selected.png) no-repeat;
+	width:24px;
+}*/
+.tree-outtest-container .node.disabled > .leaf > .camera{
+	background: url("/module/common/images/sprites/camera-disabled.png") no-repeat 0 -126px;
+}
+.tree-outtest-container .node.offline.disabled  > .leaf > .camera {
+	background: url("/module/common/images/sprites/camera-disabled.png") no-repeat 0 0;
+}
+.tree-outtest-container .node.disabled > .leaf > .dome.camera {
+	background: url("/module/common/images/sprites/camera-disabled.png") no-repeat 0 -189px !important;
+}
+.tree-outtest-container .node.offline.disabled > .leaf > .dome.camera {
+	background: url("/module/common/images/sprites/camera-disabled.png") no-repeat 0 -63px !important;
+}
+
+
+.tree-outtest-container .node .camera.warn {
+	background-position: -485px 0;
+	height: 11px;
+}
+
+.tree-outtest-container .node.selected .camera.active {
+	background-position: -448px 0;
+}
+.tree-outtest-container .node.disabled.selected .camera {
+	background-position: 0 -125px;
+}
+
+.tree-outtest-container .node .camera.active.warn {
+	background-position: -466px 0;
+}
+
+.tree-outtest-container .node .leaf .dome {
+	width: 16px;
+	height: 14px;
+	background: url(/module/common/images/sprites/tree_bg.png) no-repeat -156px 0;
+}
+.tree-outtest-container .node .leaf .Integrated {
+	width: 16px;
+	height: 14px;
+	background: url(/module/common/images/sprites/Integrated.png) no-repeat ;
+}
+.tree-outtest-container .node .leaf .sky {
+	width: 16px;
+	height: 14px;
+	background: url(/module/common/images/sprites/sky.png) no-repeat ;
+}
+.tree-outtest-container .node .leaf .cross {
+	width: 16px;
+	height: 16px;
+	background: url(/module/common/images/sprites/cross.png) no-repeat ;
+}
+/*.tree-outtest-container .node.selected .camera.dome {
+	background-position: -333px 0;
+	height: 15px;
+}*/
+
+.tree-outtest-container .node .camera.dome.active {
+	background-position: -353px 0;
+}
+
+.tree-outtest-container .node .camera.dome.warn {
+	background-position: -390px 0;
+	height: 15px;
+}
+
+.tree-outtest-container .node.selected .camera.dome.active,.tree-outtest-container .node.selected .camera.sky.active,.tree-outtest-container .node.selected .camera.Integrated.active,.tree-outtest-container .node.selected .camera.cross.active{
+	/* background-position: -373px 0;  
+	background: url(/module/common/images/sprites/camera-gun-HD-selected.png) no-repeat;
+	width:24px; */
+	background: url(/module/common/images/sprites/video-play-icon.gif)  ;
+	background-position: 0 0;
+	width: 14px;
+	height: 14px;
+}
+
+/*.tree-outtest-container .node .camera.dome.active.warn {
+	background-position: -408px 0;
+}*/
+/* 高清球机 */
+/* .tree-outtest-container .node .leaf .hasHD {
+	width:21px;
+	background: url(/module/common/images/sprites/ball_HD.png) no-repeat;
+} */
+/*.tree-outtest-container .node .leaf .dome.hasHD {
+	width:21px;
+	background: url(/module/common/images/sprites/ball_HD.png) no-repeat;
+}*/
+
+
+#sidebar .menus li {
+	cursor: pointer;
+}
+
+.tree-outtest-container .node .operator {
+	background: #D9EFFF;
+	height: 22px;
+	display: none;
+}
+
+.tree-outtest-container .node.opened .operator {
+	display: block;
+}
+
+.tree-outtest-container .node .group-operator {
+	display: none;
+	/*margin-right: 10px;*/
+	margin-top: 5px;
+}
+
+.tree-outtest-container .group:hover .group-operator ,.tree-outtest-container .similar-hover .group .group-operator{
+	display: inline-block;
+}
+.tree-outtest-container.customize-pecial .group:hover .group-operator{
+ 	display: inline-block; 
+}
+.tree-outtest-container .group:hover .group-operator{
+	display: inline-block;
+}
+.tree-outtest-container .tree-inspect-hover .group .group-operator{
+	display: none;
+}
+.tree-outtest-container .tree-inspect-hover>.group .group-operator{
+	display: inline-block;
+}
+.tree-outtest-container .tree-inspect-hover .group:hover .group-operator{
+	display: inline-block;
+}
+.tree-outtest-container .node .group:hover .inspect-operator,.tree-outtest-container .node.similar-hover .group .inspect-operator{
+	display: none;
+}
+.tree-outtest-container .node .group:hover .inspect-operator{
+	display: none;
+}
+.tree-outtest-container .node.tree-inspect-hover .group .inspect-operator{
+	display: none;
+}
+.tree-outtest-container .node.inspecting-node .group .group-operator.inspect-operator{
+	display: inline-block;
+}
+.tree-outtest-container .node.inspecting-node .group .group-operator{
+	display: none;
+}
+.tree-outtest-container .node.tree-inspecting-node>.group .group-operator.inspect-operator{
+	display: inline-block;
+}
+.tree-outtest-container .node.tree-inspecting-node>.group .group-operator{
+	display: none;
+}
+.tree-outtest-container .node .operator a{
+	display: inline-block;
+	*display: inline;
+	zoom: 1;
+	width: 16px;
+	height: 16px;
+	background: url(/module/common/images/sprites/operate-bg-new.png) no-repeat;
+	float: right;
+	margin-right: 5px;
+}
+.tree-outtest-container .group-operator ,.tree-outtest-container .node .operator .remove{
+	display: inline-block;
+	*display: inline;
+	zoom: 1;
+	width: 16px;
+	height: 16px;
+	background: url(/module/common/images/inspect/my-gruops-icos-2.png) no-repeat;
+	float: right;
+	margin-right: 5px;
+}
+.tree-outtest-container .group-operator.inspect-operator{
+	display: none;
+	zoom: 1;
+	width: 16px;
+	height: 16px;
+	background: url(/module/common/images/inspect/inspect-btns.png) no-repeat;
+	float: right;
+	margin-right: 5px;
+}
+
+.tree-outtest-container .group-operator.pause-inspect{
+	background-position: 0px 0px;
+}
+.tree-outtest-container .group-operator.pause-inspect:hover{
+	background-position: -20px 0px;
+}
+.tree-outtest-container .group-operator.pause-inspect.disable{
+	background-position: -40px 0px;
+}
+.tree-outtest-container .group-operator.stop-inspect{
+	background-position: 0px -21px;
+}
+.tree-outtest-container .group-operator.stop-inspect:hover{
+	background-position: -20px -21px;
+}
+.tree-outtest-container .group-operator.stop-inspect.disable{
+	background-position: -40px -21px;
+}
+.tree-outtest-container .group-operator.route-inspect{
+	background-position: 0px 0px;
+}
+.tree-outtest-container .group-operator.route-inspect:hover{
+	background-position: -21px 0px;
+}
+.tree-outtest-container .group-operator.route-inspect.disable{
+	background-position: -42px 0px;
+}
+/*全部资源组织树上的轮巡按钮清除右边距，modify by zhangyu 2016 05 17*/
+.tree-outtest-container .group-operator.circle-inspect{
+	background-position: 0px -76px;
+	margin-right: 0;
+}
+/*我的分组组织树上的轮巡按钮补充右边距，add by zhangyu 2016 05 17*/
+.customize-pecial .group-operator.circle-inspect{
+	margin-right: 5px;
+}
+.tree-outtest-container .group-operator.circle-inspect:hover,.tree-outtest-container .similar-hover .group .group-operator.circle-inspect{
+	background-position: -21px -76px;
+}
+.tree-outtest-container .group-operator.circle-inspect:hover,.tree-outtest-container .tree-inspect-hover .group .group-operator.circle-inspect{
+	background-position: -21px -76px;
+}
+.tree-outtest-container .group-operator.circle-inspect.disable{
+	background-position: -42px -76px;
+}
+.tree-outtest-container .group-operator.edit{
+	background-position: 0px -38px;
+}
+.tree-outtest-container .group-operator.edit:hover{
+	background-position: -21px -38px;
+}
+.tree-outtest-container .group-operator.edit.disable{
+	background-position: -42px -38px;
+}
+.tree-outtest-container .group-operator.remove,.tree-outtest-container .node .operator .remove{
+	background-position: 0px -57px;
+}
+.tree-outtest-container .group-operator.remove:hover,.tree-outtest-container .node .operator .remove:hover{
+	background-position: -21px -57px;
+}
+.tree-outtest-container .group-operator.remove.disable,.tree-outtest-container .node .operator .remove.disable{
+	background-position: -42px -57px;
+}
+.tree-outtest-container .node .operator a {
+	position: relative;
+	left: 0;
+	top: 0;
+}
+
+
+.tree-outtest-container .node .operator .inspect {
+	background-position: 0 0;
+}
+
+.tree-outtest-container .node .operator .inspect:hover {
+	background-position: -287px 0;
+}
+
+.tree-outtest-container .node .operator .inspect.active {
+	background-position: -384px 0;
+}
+/*.tree-outtest-container .node.offline .operator .inspect {
+	background-position: -484px 0;
+}*/
+.tree-outtest-container .node .operator .append {
+	background-position: 0px -63px;
+}
+
+.tree-outtest-container .node .operator .append:hover {
+	background-position: -19px -63px;
+}
+
+.tree-outtest-container .node .operator .append.active {
+	background-position: -19px -63px;
+}
+.tree-outtest-container .node .operator .append.disable {
+	background-position: -38px -63px;
+}
+/*.tree-outtest-container .node.offline .operator .append {
+	background-position: -464px 0;
+}*/
+.tree-outtest-container .node .operator .play {
+	background-position: 0px 0px;
+}
+
+.tree-outtest-container .node .operator .play:hover {
+	background-position: -19px 0;
+}
+
+.tree-outtest-container .node .operator .play.active {
+	background-position: -19px 0;
+}
+.tree-outtest-container .node .operator .play.disable {
+	background-position: -38px 0;
+}
+
+/*.tree-outtest-container .node.offline .operator .play {
+	background-position: -444px 0;
+}*/
+
+.tree-outtest-container .node .operator .history {
+	background-position: 0px -21px;
+	border: none;
+}
+
+.tree-outtest-container .node .operator .history:hover {
+	background-position: -19px -21px;
+}
+
+.tree-outtest-container .node .operator .history.active {
+	background-position: -19px -21px;
+}
+.tree-outtest-container .node .operator .history.disable {
+	background-position: -38px -21px;
+}
+/*.tree-outtest-container .node.offline .operator .history {
+	background-position: -424px 0;
+}*/
+.tree-outtest-container .node .operator .tvwall {
+	background-position: 0 -84px;
+}
+
+.tree-outtest-container .node .operator .tvwall:hover {
+	background-position: -19px -84px;
+}
+
+.tree-outtest-container .node .operator .tvwall.active {
+	background-position: -19px -84px;
+}
+.tree-outtest-container .node .operator .tvwall.disable {
+	background-position: -38px -84px;
+}
+.tree-outtest-container .node .operator .correct {
+    /*纠错功能暂时隐藏，add by zhangyu 2015.5.23*/
+    display: none;
+	background-position: 0 -105px;
+}
+
+.tree-outtest-container .node .operator .correct:hover {
+	background-position: -19px -105px;
+}
+
+.tree-outtest-container .node .operator .correct.active {
+	background-position: -19px -105px;
+}
+.tree-outtest-container .node .operator .correct.disable {
+	background-position: -38px -105px;
+}
+/*.tree-outtest-container .node.offline .operator .tvwall {
+	background-position: -404px 0;
+}*/
+
+.tree-outtest-container .node .operator .defend {
+	background-position: 0px -42px;
+}
+
+.tree-outtest-container .node .operator .defend:hover {
+	background-position: -19px -42px;
+}
+
+.tree-outtest-container .node .operator .defend.active {
+	background-position: -19px -42px;
+}
+.tree-outtest-container .node .operator .defend.disable {
+	background-position: -38px -42px;
+}
+#groupwrap {
+	position: absolute;
+	top: 18px;
+	/*right: -44px;*/
+	right: -30px;
+	padding: 5px 0 10px;
+	margin: 0 auto;
+	z-index: 2;
+}
+
+.tree-outtest-container .node .operator .inspect #groupwrap {
+	right: -26px;
+}
+
+#groupwrap .grouplist {
+	width: 110px;
+	overflow: hidden;
+	background: #fdfdfd;
+	border: 1px solid #C9C9C9;
+	border-radius: 3px;
+	box-shadow: 0 0 1px 1px rgba(0,0,0,0.1);
+}
+#groupwrap .grouplist > .no-data-groupwrap {
+	text-align: center;
+	padding: 8px 0;
+	display: block;
+	cursor: default;
+}
+#groupwrap .groupbox{
+	margin:10px 0; 
+}
+#groupwrap .viewport {
+	margin-right: 8px;
+	height: 168px;
+	overflow: hidden;
+	position: relative;
+}
+
+#groupwrap .overview {
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+}
+
+#groupwrap .scrollbar {
+	position: relative;
+	float: right;
+	width: 8px;
+	margin-right: 0;
+}
+
+#groupwrap .thumb {
+	height: 12px;
+	width: 6px;
+	background: transparent url(/module/common/images/small-scroll.png) 0 0 no-repeat;
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+	padding-top: 10px;
+}
+
+#groupwrap .thumb .end {
+	height: 2px;
+	width: 6px;
+	background: transparent url(/module/common/images/small-scroll.png) 0 0 no-repeat;
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+}
+
+#groupwrap .track {
+	height: 100%;
+	width: 12px;
+	position: relative;
+	cursor: pointer;
+	background: #ffffff;
+}
+
+#groupwrap .disable {
+	display: none;
+}
+
+#groupwrap .buttons {
+	text-align: center;
+	background-color: #F2F2F2;
+	border-top: 1px solid #E4E4E4;
+	height: 31px;
+}
+
+#groupwrap .grouplist li {
+	width: 100%;
+	display: block;
+	height: 20px;
+	line-height: 20px;
+	padding: 0 10px 0 0;
+	margin-bottom: 1px;
+	vertical-align: middle;
+}
+
+#groupwrap .grouplist li span{
+	width: 72%;
+	display: inline-block;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	vertical-align: middle;
+}
+
+#groupwrap .grouplist li:hover {
+	background-color: #f0f5f8;
+}
+
+#groupwrap .triangle {
+	display: block;
+	position: absolute;
+	width: 9px;
+	height: 6px;
+	background: url(/module/common/images/trangle.png) no-repeat 0 0;
+	/*left: 54px;*/
+	left: 69px;
+	top: 0;
+}
+
+.tree-outtest-container .node .inspect .triangle {
+	left: 63px;
+}
+
+ .ui.button.save-append, .ui.button.cancel-append {
+	padding: 0 6px;
+	height: 20px;
+	line-height: 20px;
+	margin: 5px 0 0 5px;
+}
+
+#sidebar .form-panel .ui.tab {
+	position: relative;
+	border-bottom: 1px solid #FFFFFF;
+	padding-left:  16px;
+	margin-right: 1px;
+	background: #F6FBFF;
+	z-index: 20;
+}
+
+#sidebar .form-panel .ui.tab:after {
+	border-bottom: 1px solid #D7DFE8;
+	bottom: 0;
+	content: " ";
+	left: 0;
+	position: absolute;
+	width: 100%;
+}
+
+#sidebar .form-panel .ui.tab.filter {
+	padding: 8px 8px 8px 0;/* padding: 8px 27px 8px 0; */
+	text-align: center;
+	z-index: 1;
+}
+
+#sidebar .form-panel .ui.tab .gray {
+	color: #a9a9a9;
+}
+/* 改版注释 by mayue start */
+/*#sidebar .form-panel .group {
+	margin-bottom: 5px;
+}
+#sidebar .form-panel .group:first-child{
+	padding-top: 10px;
+} */
+/* 改版注释 by mayue start */
+#sidebar .form-panel .inspect .ui.input.tiny {
+	margin-bottom: 5px;
+}
+
+#sidebar .form-panel .buttons {
+	padding-right: 20px;
+}
+
+#sidebar .form-panel .button {
+	height: 30px;
+	line-height: 28px;
+	padding: 0 8px;
+	min-width: 66px;
+	margin-bottom: 10px;
+}
+
+.header .loop-header {
+	display: none;
+	color: #333333;
+	font-family: "微软雅黑";
+	line-height: 34px;
+	padding-left: 18px;
+}
+
+.header .loop-header .loop-time {
+	color: #b2b2b2;
+	margin-left: 5px;
+}
+
+/*轮巡遮罩层*/
+#camerasPanel .masklayer {
+	position: absolute;
+	top: 0px;
+	left: 0;
+	right: 0;
+	bottom: 0px;
+	opacity: 0.5;
+	z-index: 850;
+	display: none;
+	background-color: #ffffff;
+	filter: alpha(opacity=50);
+	_position: absolute;
+	_width: 100%;
+	_height: expression(function(){return Math.max(document.documentElement.clientHeight,document.documentElement.scrollHeight);
+}());
+}
+
+#camerasPanel  .masklayer iframe {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	opacity: 0;
+	filter: alpha(opacity=0);
+}
+/*时间插件*/
+.ui-datepicker{
+	font-size: 12px;
+	z-index: 7000;
+}
+.ui_tpicker_hour_slider, .ui_tpicker_minute_slider, .ui_tpicker_second_slider{
+	/* width: 175px;
+	margin-left: -2px; */
+}
+.node .leaf b.isHD{
+    color: #E24332;
+    font-weight: bold;
+}
+:root .ui-timepicker-div dl .ui_tpicker_hour_label{
+	padding-right:0px;
+}
+.similar-hover .circle-inspect-time{
+	height: 118px;
+	border: 1px solid #dddddd;
+	border-radius: 3px;
+	width: 103%;
+	background-color: #fff;
+	margin-top: 5px;
+	margin-bottom: 8px;
+}
+.similar-hover .circle-inspect-time .circle-inspect-body{
+	width: 100%;
+}
+.tree-inspect-hover .circle-inspect-time .circle-inspect-body{
+	width: 100%;
+}
+.similar-hover .circle-inspect-time .circle-inspect-body .interval{
+	width: 83%;
+	margin: 0 auto;
+	display: block;
+	margin-top: 13px;
+	border-radius: 3px;
+}
+.tree-inspect-hover .circle-inspect-time .circle-inspect-body .tree_interval{
+	width: 83%;
+	margin: 0 auto;
+	border-radius: 3px;
+}
+.similar-hover .circle-inspect-time .circle-inspect-body .btns{
+	margin: 0 auto;
+    margin-top: 10px;
+    padding-right: 8px;
+}
+.tree-inspect-hover .circle-inspect-time .circle-inspect-body .btns{
+	margin: 0 auto;
+    margin-top: 10px;
+    padding-right: 8px;
+}
+.similar-hover .circle-inspect-time .circle-inspect-body .btns .button{
+	float: right;
+}
+.tree-inspect-hover .circle-inspect-time .circle-inspect-body .btns .button{
+	float: right;
+}
+.circle-inspect-time .btns > .ui.button.blue{
+	padding: 0px 8px;
+	border: none;
+	height: 20px;
+	line-height: 20px;
+	margin: 0 3px;
+}
+.tree-outtest-container .node .circle-inspect-time .arrow{
+	display: block;
+	position: relative;
+	width: 10px;
+	height: 6px;
+	background: url(/module/common/images/inspect/up-arrow.png) no-repeat 0 0;
+	margin-top: -6px;
+	float: right;
+	margin-right: 44px;
+}
+.statistics .offline-statistic{
+	display: none;
+}
+.tree-outtest-container .hide-hd,.tree-outtest-container .hide-sd,.tree-outtest-container .hide-online,.tree-outtest-container .hide-offline{
+	display: none;
+}
+.sidebar-search-div .sidebar-search-panel{
+    position: absolute;
+    top: 35px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    min-height: 155px;
+    border-radius: 0 0 3px 3px;
+    box-shadow: 0 0 5px #666666;
+    background: #fff;
+    overflow-x:hidden;
+    overflow-y:auto;
+    z-index: 10;
+    display: none
+}
+.search-camera .sidebar-search-panel{
+    position: absolute;
+	top: 40px;
+	left: 20px;
+	right: 0;
+	bottom: 0;
+	min-height: 155px;
+	border-radius: 0 0 3px 3px;
+	box-shadow: 0 0 5px #666666;
+	background: #fff;
+	overflow-x: hidden;
+	overflow-y: auto;
+	display: none;
+	width: 238px;
+	z-index: 100;
+}
+.sidebar-search-panel .camera-search-item{
+    line-height: 30px;
+    height: 30px;
+    padding-left: 10px;
+    cursor: pointer;
+    text-align: left;
+}
+ .sidebar-search-div .camera-search-item span{
+ 	width: 195px;
+ }
+.search-camera .camera-search-item span{
+	width: 185px
+ }
+ .sidebar-search-panel .camera-search-item span{
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    vertical-align: middle;
+    margin-left: 5px;
+    text-align: left;
+}
+.sidebar-search-panel .camera-search-item:hover{
+    background-color: #e5f4ff; 
+}
+.sidebar-search-panel .camera-search-item .camera {
+    background: url(/module/common/images/sprites/tree_bg.png) no-repeat -85px 0;
+    width: 15px;
+    height: 13px;
+    margin: 0px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.sidebar-search-panel .camera-search-item .dome {
+width: 16px;
+height: 14px;
+background: url(/module/common/images/sprites/tree_bg.png) no-repeat -156px 0;
+}
+.sidebar-search-panel .camera-search-item .dome.active {
+background-position: -353px 0;
+}
+.sidebar-search-panel .camera-search-item.offline .camera {
+background-position: 0 0;
+}
+.sidebar-search-panel .camera-search-item .camera {
+    background: url(/module/common/images/sprites/tree_bg.png) no-repeat -85px 0;
+    width: 15px;
+    height: 13px;
+    margin: 0px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.sidebar-search-panel .camera-search-item .cross {
+width: 16px;
+height: 16px;
+background: url(/module/common/images/sprites/cross.png) no-repeat;
+}
+.sidebar-search-panel .camera-search-item .sky{
+width: 16px;
+height: 14px;
+background: url(/module/common/images/sprites/sky.png) no-repeat;
+}
+.sidebar-search-panel .camera-search-item  .Integrated {
+    width: 16px;
+    height: 14px;
+    background: url(/module/common/images/sprites/Integrated.png) no-repeat ;
+}

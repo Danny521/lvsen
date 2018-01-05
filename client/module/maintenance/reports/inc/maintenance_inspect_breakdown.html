@@ -1,0 +1,20 @@
+<table class="ui seven column table inverted segment content">
+	{{#each infos}}
+	<tr class="{{#redBroken allCheckCameraBrokenCnt allCheckCameraCnt}}{{/redBroken}}" data-orgId="{{orgId}}" data-orgName="{{orgName}}" data-camNum="{{camNum}}" data-selfBuildCnt="{{selfBuildCnt}}" data-markCnt="{{markCnt}}" data-deviceCorrCnt="{{deviceCorrCnt}}" data-selfCheckCameraCnt="{{selfCheckCameraCnt}}" data-selfCheckCameraBrokenCnt="{{selfCheckCameraBrokenCnt}}" data-selfCheckCnt="{{selfCheckCnt}}" data-selfCheckBrokenCnt="{{selfCheckBrokenCnt}}" data-allCheckCameraCnt="{{allCheckCameraCnt}}" data-allCheckCameraBrokenCnt="{{allCheckCameraBrokenCnt}}" data-allCheckCnt="{{allCheckCnt}}" data-allCheckBrokenCnt="{{allCheckBrokenCnt}}">
+		<td class="checkboxth"><input type="checkbox" class="checkbox" data-orgname="{{orgName}}" data-camcnt="{{camCnt}}" data-markcnt="{{markCnt}}" data-selfcheckcameracnt="{{allCheckCameraCnt}}" data-selfcheckcamerabrokencnt="{{allCheckCameraBrokenCnt}}" data-selfcheckrate="{{#selfCheckCameraRate allCheckCameraBrokenCnt allCheckCameraCnt}}{{/selfCheckCameraRate}}" data-markrate="{{#markCntRate markCnt camCnt}}{{/markCntRate}}"></td>
+		<td class="orgname">{{orgName}}</td>
+		<td>{{camCnt}}</td>
+		<!-- <td>{{selfBuildCnt}}</td> -->
+		<!-- <td>{{selfBuildCnt}}</td> -->
+		<td>{{markCnt}}</td>
+		<!-- <td>{{deviceCorrCnt}}</td> -->
+		<!-- <td>{{selfCheckCameraCnt}}</td>
+		<td>{{selfCheckCameraBrokenCnt}}</td> -->
+		<td>{{allCheckCameraCnt}}</td>
+		<td>{{allCheckCameraBrokenCnt}}</td>
+		<td>{{#selfCheckCameraRate allCheckCameraBrokenCnt allCheckCameraCnt}}{{/selfCheckCameraRate}}</td>
+		<td>{{#markCntRate markCnt camCnt}}{{/markCntRate}}</td>
+		<!-- <td>{{#deviceCorrCntRate deviceCorrCnt selfCheckCameraCnt}}{{/deviceCorrCntRate}}</td> -->
+	</tr>
+	{{/each}}
+</table>

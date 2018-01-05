@@ -1,0 +1,184 @@
+#structureCanvas {
+	position: absolute;
+	top: 40px;
+	bottom: 0;
+	width: 100%;
+	overflow: hidden;
+}
+
+/*修复firefox圆角周围出现黑边的BUG*/
+#structureCanvas .node{
+	background-color: #FFFFFF;
+}
+
+#structureCanvas .jitLabel{
+	line-height: 2.5em;
+	color: #FEFEFE;
+	cursor: pointer;
+	border:2px solid #5190cb;
+	background-color: #fff;
+	border-radius: 0.5em;
+
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+#structureCanvas .jitNodeTitle{
+	position: relative;
+	padding-left: 1em;
+	padding-right: 1em;
+	font-size: 1em;
+	background-color: #5190cb;
+	text-align: center;
+
+	white-space:nowrap;
+	text-overflow:ellipsis;
+	-o-text-overflow:ellipsis;
+	overflow:hidden;
+
+	/*border-top-left-radius: 0.5em;
+	border-top-right-radius: 0.5em;*/
+}
+#structureCanvas .jitNodeTitle i.arrow{
+	display: none;
+	position: absolute;
+	right: 0;
+	top: 4px;
+	width: 20px;
+	height: 20px;
+	/*background: url(/images/safety/icons.png) -112px -117px no-repeat transparent;*/
+}
+
+#structureCanvas .jitNodeTitle.titleOnly{
+	padding-left: 0;
+	text-align: center;
+	font-size: 1em;
+	line-height: 60px;
+	background-color: #2E81B3;
+
+	border-radius: 0.5em;
+}
+
+#structureCanvas .jitNodeBody{
+	display: none;
+	padding-left: 4px;
+	padding-right: 4px;
+	color:#777777;
+	/*background-color: #3394C9;*/
+
+	/*border-bottom-right-radius: 0.5em;
+	border-bottom-left-radius: 0.5em;*/
+}
+
+#structureCanvas .jitNodeBody div.item{
+	height: 22px;
+	white-space:nowrap;
+	text-overflow:ellipsis;
+	-o-text-overflow:ellipsis;
+	overflow:hidden;
+}
+
+#structureCanvas .jitLabel.org{
+	width: 110px;
+	height: 30px;
+}
+
+#structureCanvas .jitLabel.deviceRelation{
+	width: 110px;
+	height: 30px;
+}
+
+
+/*	设备关系图	*/
+
+#relationCanvas {
+	position: absolute;
+	top: 40px;
+	bottom: 0;
+	width: 100%;
+	overflow: hidden;
+}
+
+/*修复firefox圆角周围出现黑边的BUG*/
+#relationCanvas .node{
+	background-color: #FFFFFF;
+}
+
+#relationCanvas .jitLabel{
+	line-height: 2.5em;
+	color: #FEFEFE;
+	cursor: pointer;
+	border:2px solid #5190cb;
+	background-color: #fff;
+	border-radius: 0.5em;
+
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+#relationCanvas .jitNodeTitle{
+	position: relative;
+	padding-left: 1em;
+	padding-right: 1em;
+	font-size: 1em;
+	background-color: #5190cb;
+
+	white-space:nowrap;
+	text-overflow:ellipsis;
+	-o-text-overflow:ellipsis;
+	overflow:hidden;
+
+	/*border-top-left-radius: 0.5em;
+	border-top-right-radius: 0.5em;*/
+}
+#relationCanvas .jitNodeTitle i.arrow{
+	display: none;
+	position: absolute;
+	right: 0;
+	top: 4px;
+	width: 20px;
+	height: 20px;
+	/*background: url(/images/safety/icons.png) -112px -117px no-repeat transparent;*/
+}
+
+#relationCanvas .jitNodeTitle.titleOnly{
+	padding-left: 0;
+	text-align: center;
+	font-size: 1em;
+	line-height: 60px;
+	/*background-color: #2E81B3;*/
+
+	/*border-radius: 0.5em;*/
+}
+
+#relationCanvas .jitNodeBody{
+	padding-left: 4px;
+	padding-right: 4px;
+	color:#777777;
+	/*background-color: #3394C9;*/
+
+	/*border-bottom-right-radius: 0.5em;
+	border-bottom-left-radius: 0.5em;*/
+}
+
+#relationCanvas .jitNodeBody div.item{
+	height: 22px;
+	white-space:nowrap;
+	text-overflow:ellipsis;
+	-o-text-overflow:ellipsis;
+	overflow:hidden;
+}
+
+#relationCanvas .jitLabel.org{
+	width: 200px;
+	height: 60px;
+}
+
+#relationCanvas .jitLabel.deviceRelation{
+	width:200px;
+	height: 60px;
+}

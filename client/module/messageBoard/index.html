@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<!--[if lt IE 9]>
+	<script src="/libs/html5/html5.js"></script>
+	<![endif]-->
+	<meta http-equiv="X-UA-Compatible" content="IE=10,chrome=1"/>
+	<link type="text/css" rel="stylesheet" href="/module/common/css/base.css" />
+	<link type="text/css" rel="stylesheet" href="/libs/semantic/semantic.css" />
+	<link type="text/css" rel="stylesheet" href="/libs/jquery/jquery-ui.css">
+	<link type="text/css" rel="stylesheet" href="/libs/jquery/jquery.datetimepicker.css">
+	<link type="text/css" rel="stylesheet" href="/libs/jquery/jquery.pagination.css"/>
+	<link type="text/css" rel="stylesheet" href="css/messageBoardMain.css"/>
+	<script type="text/javascript" src="/libs/requirejs/require.js"></script>
+	<script type="text/javascript" src="/require-conf.js"></script>
+	<title>视云实战平台</title>
+</head>
+<body style="height:100%;overflow-y:auto">
+	<!-- 外层容器_Wrapper_@Start -->
+	<div class="wrapper">
+		<!-- 页面主体_main_@Start -->
+		<div class="main">
+			<div class="boardHeader">
+				<div class="leftPanel">
+					<span class="nomalTitle" data-type="timer" data-handler="sortList" data-event="click">时间排序</span>
+					<span class="nomalTitle large active" data-type="counts" data-handler="sortList" data-event="click">关注度从高到低</span>
+					
+				</div>
+				<div class="rightPanel">
+					<span class="searchPanel ui input"><input  type="text" class="mysearchInput" placeholder="全局搜索" /><i class="icon_search"></i></span>
+					<span class="searchBtn ui blue button"  data-handler="NewMessagePanel" data-event="click">发帖</span>
+				</div>
+			</div>
+			<div class="messageContent">
+			</div>
+			<!-- 显示分页栏 -->
+			<div class="pagination"></div>
+		</div>
+		<div id="commonLayer"></div>
+		<div class="messageDialog">
+			<div class="diaTitle">
+				<h3>发帖</h3>
+				<span class="closeBtn" data-handler="closeMsgDialog" data-event="click"></span>
+			</div>
+			<div class="diaContent">
+				<div class="msgTile">
+					<label>主题：</label>
+					<span class="ui input"><input type="text" class="myTitle" maxlength="60"  /></span>
+				</div>
+				<div class="msgContent">
+					<label>内容：</label>
+					<textarea class="mytextarea" maxlength="180"></textarea>
+				</div>
+			</div>
+			<div class="diaTools">
+				<span class="ui blue button sendMessage"  data-handler="sendMessage" data-event="click">发帖</span>
+				<span class="ui button reEdit" data-handler="clearSendPanel" data-event="click">重新编辑</span>
+			</div>
+		</div>
+		<!-- 页面主体_main_@End -->
+	</div>
+	
+
+	<!-- 外层容器_Wrapper_@End -->
+	<script>require(['js/main.js'])</script>
+</body>
+</html>

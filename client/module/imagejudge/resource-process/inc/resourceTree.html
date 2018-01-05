@@ -1,0 +1,70 @@
+<ul>
+	{{#if init}}
+		{{#each records}}
+			<li data-tree-level="{{../level}}" class="{{isChild}}" data-taskkey="{{taskKey}}" data-shootTime="{{shootTime}}" data-type="{{isChild}}" data-parentid="{{parentId}}" data-filepath="{{filePath}}" data-localpath="{{localPath}}" data-filetype="{{fileType}}" data-id="{{id}}" data-isClue ="{{isClue}}" data-incidentId="{{incidentId}}" data-incidentName="{{incidentName}}" data-cid="{{cid}}" data-pid="{{pid}}" data-name="{{fileName}}" data-filetype="{{fileType}}" data-videoThumbnail="{{thumbnail}}"  >
+				{{#if ../selectable}} <i class="checkbox {{ ../../selected }}"></i>{{/if}}
+				{{#isTree isChild}} <i class="fold"></i>{{/isTree}}
+                <div class="treeThumbnail">
+                    <div class="oriTreeThumbnail">
+                        <image class="treePanelImage" src="{{getImagePath fileType thumbnail}}"></image>
+                    </div>
+                    {{#isType fileType 1}}
+                    <div class="hoverTreeThumbnail">
+                        <image class="treePanelVideoImage" src="/module/imagejudge/resource-process/images/hoverImage.png"></image>
+                    </div>
+                    {{/isType}}
+                </div>
+
+				<div class="do_tree">
+					<span class="name" title="{{fileName}} ">{{fileName}}</span>
+                    <a href="javascript:void(0);" class="stop-do hidden rtask-status-waiting rtask-status-processing" title="停止"></a>
+                    <a href="javascript:void(0);" class="forlook hidden rtask-status-finished" title="查看结果"></a>
+                    <a href="javascript:void(0);" class="redo hidden rtask-status-failed" title="重新分析"></a>
+                    <a href="javascript:void(0);" class="redo hidden rtask-status-stoped" title="重新分析"></a>
+                    <a href="javascript:void(0);" class="close" title="删除"></a>
+					{{#isType fileType 1}}
+						<span class="status_change do_ing hidden rtask-status-waiting">等待中..</span>
+						<span class="status_change do_ing hidden rtask-status-processing">处理中..</span>
+						<span class="status_change do_comp hidden rtask-status-finished">完成处理</span>
+						<span class="status_change do_fail hidden rtask-status-failed">处理失败</span>
+						<span class="status_change do_ing hidden rtask-status-stoped">已停止</span>
+					{{/isType}}
+
+				</div>
+                {{#isType fileType 1}}
+                    <div class="hidden planOuter"><div class="planInner goodBkColor"></div></div>
+                {{/isType}}
+			</li>
+		{{/each}}
+	{{else}}
+		{{#each records}}
+			<li data-tree-level="{{../level}}" class="{{isChild}}" data-taskkey="{{taskKey}}" data-shootTime="{{shootTime}}" data-type="{{isChild}}" data-parentid="{{parentId}}" data-filepath="{{filePath}}" data-localpath="{{localPath}}" data-id="{{id}}" data-isClue ="{{isClue}}" data-incidentId="{{incidentId}}" data-incidentName="{{incidentName}}" data-cid="{{cid}}"  data-pid="{{pid}}" data-name="{{fileName}}" data-filetype="{{fileType}}" data-videoThumbnail="{{thumbnail}}" >
+				{{#if ../selectable}}
+				<i class="checkbox {{ ../../selected }}"></i>
+				{{/if}}{{#isTree isChild}}
+				<i class="fold"></i>
+				{{/isTree}}
+				<i class="{{isChild}} {{#eq isChild 'tree'}}file0{{else}}file{{../fileType}}{{/eq}}"></i>
+
+				<div class="do_tree">
+					<span class="name" title="{{fileName}} ">{{fileName}}</span>
+                    <a href="javascript:void(0);" class="stop-do hidden rtask-status-waiting rtask-status-processing" title="停止"></a>
+                    <a href="javascript:void(0);" class="forlook hidden rtask-status-finished" title="查看结果"></a>
+                    <a href="javascript:void(0);" class="redo hidden rtask-status-failed" title="重新分析"></a>
+                    <a href="javascript:void(0);" class="redo hidden rtask-status-stoped" title="重新分析"></a>
+					<a href="javascript:void(0);" class="close" title="删除" ></a>
+					{{#isType fileType 1}}
+						<span class="status_change do_ing hidden rtask-status-waiting">等待中..</span>
+						<span class="status_change do_ing hidden rtask-status-processing">处理中..</span>
+						<span class="status_change do_comp hidden rtask-status-finished">完成处理</span>
+						<span class="status_change do_fail hidden rtask-status-failed">处理失败</span>
+						<span class="status_change do_ing hidden rtask-status-stoped">已停止</span>
+					{{/isType}}
+				</div>
+                {{#isType fileType 1}}
+                <div class="hidden planOuter"><div class="planInner goodBkColor"></div></div>
+                {{/isType}}
+			</li>
+		{{/each}}
+	{{/if}}
+</ul>

@@ -1,0 +1,164 @@
+<div style="float:left; width:77%;margin-left:-20px;height:100%"> 	
+<div class="nameborder"><span style="margin-left:60px;">姓名</span><span style="margin-left:180px;">角色</span></div>
+<div id="chsdialog_1" class="module-body">
+
+<div  class="scrollbar">
+	<div  class="track">
+		<div class="thumb"></div>
+	</div>
+</div>
+<div class="viewport car-view">
+<div class="overview">
+	<div class="analyzer-table">
+		<table class="analyzer-message">
+			<tbody class="issue_table ">
+			{{#personList}}
+				{{#if eOrotype}}
+				<tr class="eventr">
+					<td>
+						<input class="icon_analyzer" checked name="check" value="{{number}}" type="checkbox" >
+						<label for="">{{name}}</label>
+					</td>
+					<td>
+						<label for="">分析人员</label>
+					</td>
+				</tr>
+				{{else}}
+					<tr class="oddtr">
+						<td>
+							<input class="icon_analyzer" checked name="check" value="{{number}}" type="checkbox" >
+							<label for="">{{name}}</label>
+						</td>
+						<td>
+							<label for="">分析人员</label>
+						</td>
+					</tr>
+				{{/if}}
+				<!--<tr class="oddtr list-analyzer list">
+					<td class="analyzer-icon task-left nbor">
+						<input class="icon_analyzer"  name="check" value="1" type="checkbox" data-id="3">
+						<label for="">王五</label>
+					</td>
+					<td class="analyzer-icon task-left nbor">
+						<label for="">审核人员</label>
+					</td>
+				</tr>
+				<tr class=" eventr list-analyzer list">
+					<td class="analyzer-icon task-left nbor">
+						<input class="icon_analyzer"  name="check" value="1" type="checkbox" data-id="3">
+						<label for="">赵六</label>
+					</td>
+					<td class="analyzer-icon task-left nbor">
+						<label for="">分析人员</label>
+					</td>
+				</tr>
+				<tr class="oddtr list-analyzer list">
+					<td class="analyzer-icon task-left nbor">
+						<input class="icon_analyzer" checked name="check" value="1" type="checkbox" data-id="3">
+						<label for="">李四</label>
+					</td>
+					<td class="analyzer-icon task-left nbor">
+						<label for="">审核人员</label>
+					</td>
+				</tr>
+				<tr class="list-analyzer list">
+					<td class="analyzer-icon task-left nbor">
+						<input class="icon_analyzer"  name="check" value="1" type="checkbox" data-id="3">
+						<label for="">李明</label>
+					</td>
+					<td class="analyzer-icon task-left nbor">
+						<label for="">审核人员</label>
+					</td>
+				</tr>
+				<tr class="list-analyzer list">
+					<td class="analyzer-icon task-left nbor">
+						<input class="icon_analyzer"  name="check" value="1" type="checkbox" data-id="3">
+						<label for="">李雷</label>
+					</td>
+					<td class="analyzer-icon task-left nbor">
+						<label for="">审核人员</label>
+					</td>
+				</tr>
+				<tr class="list-analyzer list">
+					<td class="analyzer-icon task-left nbor">
+						<input class="icon_analyzer"  name="check" value="1" type="checkbox" data-id="3">
+						<label for="">孙七</label>
+					</td>
+					<td class="analyzer-icon task-left nbor">
+						<label for="">审核人员</label>
+					</td>
+				</tr>-->
+				{{/personList}}
+			</tbody>
+		</table>
+	</div>
+</div>
+</div>
+</div>
+</div>
+<div class="centerpath"></div>
+<div style="float:left; margin-left:10px;width:23%;"> 
+<div style="height:20px; padding:5px;">已选<span id="selectPnum">5</span>人</div>
+<div class="alsoseltpath"></div>
+<div id="chsdialog_2" class="module-body">
+<div  class="scrollbar">
+	<div  class="track">
+		<div class="thumb"></div>
+	</div>
+</div>
+<div class="selectviewport car-view">
+<div class="overview">
+<div class="rightdiv">
+	<ul>
+		{{#alreadySelect}}
+		<li><span>{{name}}</span><label data-type="{{number}}"></label></li>
+		{{/alreadySelect}}
+	</ul>
+</div>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+	var seletenum = 10;
+	//if (jQuery(".analyzer-table").height() > 150) { //编辑页和创建滚动条
+		jQuery("#chsdialog_1").tinyscrollbar({ //内容区添加滚动条
+			thumbSize: 36
+		});
+	//}
+		//勾选左侧右侧对应修改
+		jQuery("section .icon_analyzer[name = check]:checkbox").on('change', function() {
+            if (!jQuery(this).is(":checked")) {
+            	seletenum --;
+            	jQuery("#selectPnum").html(seletenum);
+                //删除右侧已有人员
+                var thisindex = jQuery(this).parent().parent().index(); 
+               // console.log(thisindex+'---'+jQuery("section .rightdiv label")[thisindex]);
+               var delobjindex =jQuery("section .rightdiv li").find('label[data-type="'+thisindex+'"]').parent().index();
+        		var delobj = jQuery("section .rightdiv li label")[delobjindex];
+        		jQuery(delobj).parent().remove();
+            }else if(jQuery(this).is(":checked")){
+            	seletenum ++;
+            	jQuery("#selectPnum").html(seletenum);
+            	//右侧添加左侧选中人员
+            	var thenselect = '<li><span>'+jQuery(this).next().html()+'</span><label data-type="'+jQuery(this).parent().parent().index()+'"></label></li>';
+               jQuery("section .rightdiv ul").append(thenselect);
+               console.log(jQuery("#chsdialog_2 .overview").height());
+               if(jQuery("#chsdialog_2 .overview").height()>175){
+               		jQuery("#chsdialog_2").tinyscrollbar({ //内容区添加滚动条
+						thumbSize: 36
+					});
+               }
+            }
+            fixRtoL();
+        });
+        //删除右侧人员左侧对应修改
+        function fixRtoL(){
+        	jQuery("section .rightdiv label").on('click',function(){
+        	var thisindex = jQuery(this).attr('data-type') - 0;
+        	jQuery(this).parent().remove();
+        	jQuery("section .icon_analyzer[name = check]:checkbox").eq(thisindex).attr("checked",false);
+        	seletenum --;
+        	jQuery("#selectPnum").html(seletenum);
+        });
+        }
+</script>

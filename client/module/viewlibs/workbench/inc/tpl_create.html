@@ -1,0 +1,17 @@
+{{#if upload}}
+<div class='upload-item' data-id='{{upload.id}}' id="" data-type="{{type}}">
+	<span class='resource-name' title='{{upload.name}}'>{{upload.name}}</span>
+	<span class='upload-progress'>
+		<span class='probar_wrapper'>
+			<span class='probar-outter'>
+				<span class='probar-bullet'></span>
+			</span>
+		</span>
+		<span class='progress-value'></span>
+	</span>
+	<span class='status importing'>导入中...</span>
+	<span class='operate'>
+		<a class='cancel-import'>取消导入</a>
+	</span>
+</div>
+{{/if}}

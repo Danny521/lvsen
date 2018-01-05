@@ -1,0 +1,215 @@
+/*图片编辑页样式表单样式------start-----------*/
+.form-item {
+	font-size: 12px;
+	margin-bottom: 9px;
+	margin-top: 9px;
+}
+.submit-area .submit-wrapper {
+	text-align: center;
+	margin-top: 16px;
+}
+
+.submit-area .submit-wrapper.item-box{
+	margin: 0;
+}
+.submit-wrapper .input-submit.next-step{
+	margin-right: 5px;
+}
+
+.form-item .item-label {
+	float: left;
+	line-height: 30px;
+	text-align: right;
+	width: 130px;
+	padding-right: 10px;
+	color: #666666;
+}
+
+.form-item .item-box {
+	margin-left: 140px;
+	line-height: 22px;
+}
+
+.form-item .item-box input, .form-item .item-box select, .form-item .item-box textarea{
+	border: 1px solid #ccc;
+    border-radius: 2px;
+}
+.form-item .item-box textarea{
+	width: 191px;
+}
+
+.form-item .item-box .input-select-second{
+	margin-bottom: 5px;
+}
+
+.form-item .item-box .input-blue{
+	padding: 0 20px;
+	height: 30px;
+	line-height: 30px;
+	border: 1px solid #1471CD;
+	border-radius: 2px;
+	box-shadow: 0 1px #5EA2EC inset;
+	background: #1a74d9;
+	background: linear-gradient(top,#3A8BE8,#1869C3);
+	background: -moz-linear-gradient(top,#3A8BE8,#1869C3);
+	background: -webkit-linear-gradient(top,#3A8BE8,#1869C3);
+	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#3A8BE8,endColorstr=#1869C3);
+	font-family: "Microsoft Yahei";
+	font-size: 12px;
+	color: #FFFFFF;
+	cursor: pointer;
+}
+.form-item .item-box .input-blue:hover{
+	background: #2983E8;
+	background: linear-gradient(top,#569DED,#2983E8);
+	background: -moz-linear-gradient(top,#569DED,#2983E8);
+	background: -webkit-linear-gradient(top,#569DED,#2983E8);
+	text-decoration: none;
+	border-color: #1263B5;
+	box-shadow: 0 0.5px #5EA2EC inset;
+	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#569DED,endColorstr=#2983E8);
+}
+.form-item .item-box .input-cancel{
+	padding: 0 20px;
+	height: 30px;
+	line-height: 30px;
+	margin-left: 10px;
+	box-shadow: 0 1px #FFFFFF inset;
+	font-family: "Microsoft Yahei";
+	font-size: 12px;
+	vertical-align: top;
+}
+.form-item .item-box label.error {
+	margin-right: 10px;
+}
+
+.form-item .input-text {
+	font-size: 12px;
+	width: 183px;
+	height: 22px;
+	padding: 0 5px;
+}
+
+.form-item .input-select {
+	font-size: 12px;
+	padding: 3px;
+	width: 195px;
+}
+.form-item .input-check{
+	margin-top: 8px;
+}
+.form-item .incident-select {
+	margin-top: 16px;
+}
+
+.form-item .input-area {
+	font-size: 12px;
+	width: 183px;
+	height: 100px;
+}
+
+.form-item  .input-time {
+	background: url(/module/common/images/bg/time.png) 170px center no-repeat;
+}
+.form-item .required {
+	color: #FF0000;
+	vertical-align: middle;
+}
+
+.submit-box {
+	padding: 20px 10px 5px;
+	border-top: 1px dotted #DDDDDD;
+}
+
+label.error {
+	color: #ff0000;
+	display: block;
+}
+
+textarea.error,input.error,select.error,.form-item  .input-time.error {
+	border: 1px solid #ff0000;
+	background-color: #FFFFD5;
+}
+
+.horizon-line {
+	margin: 20px 0;
+}
+
+.upload-cover {
+	text-align: center;
+	margin-top: 15px;
+}
+
+.fieldset .module {
+	/*margin-bottom: 15px;*/
+	/*max-height: 468px;*/
+	background-color: #FFFFFF;
+	border: 1px solid #E4E4E4;
+	border-top: none;
+	/*overflow: hidden;*/
+}
+.fieldset .module:first-child{
+	border-top: 2px solid #1F73C2;	
+}
+
+.fieldset .module .module-head {
+	border-bottom: none;
+	cursor: pointer;
+}
+
+.fieldset .module-head h3 {
+	font-size: normal;
+	height: 30px;
+	line-height: 30px;
+	color: #1f73c2;
+	padding-left: 10px;
+}
+
+.fieldset .module-head i {
+	display: block;
+	background: transparent url(/module/common/images/icons/dir.png) 0 -4px no-repeat;
+	width: 7px;
+	height: 4px;
+	margin-right: 12px;
+	margin-top: -16px;
+	float: right;
+}
+
+.fieldset .active .module-head i {
+	background-position: 0 0;
+}
+
+.fieldset .module-body .group {
+	/*padding: 10px 15px 10px 0;
+	height: 470px;
+	overflow-x: hidden;
+	overflow-y: scroll;*/
+}
+
+.fieldset .module-body {
+	display: none;
+	border-top: 1px solid #E4E4E4;
+}
+
+.fieldset .active .module-body {
+	display: block;
+}
+/*图片编辑页样式表单样式------end-----------*/
+
+/* Tiny Scrollbar --------------start*/
+.module-body { width: 378px; margin: 0px; position: relative;}
+.module-body .viewport { width: 378px; height: 447px; overflow: hidden; position: relative; background-color: #ffffff;}
+.module-body .overview { list-style: none; position: absolute; left: 0; top: 0; padding: 0; margin: 0; }
+.module-body .scrollbar{ position: absolute;right:0px; background-position: 0 0; width: 10px; z-index: 1;}
+.module-body .track { background-color: #F0F0F0; height: 100%; width:8px; position: relative; padding: 0 1px; }
+.module-body .thumb { background: url(/module/common/images/bg/pvd_scroll.png) no-repeat; height: 20px; width: 8px; cursor: pointer; overflow: hidden; position: absolute; top: 0; left: 3px; }
+.module-body .thumb .end { overflow: hidden; height: 5px; width: 25px; }
+.module-body .disable { display: none; }
+.noSelect { user-select: none; -o-user-select: none; -moz-user-select: none; -khtml-user-select: none; -webkit-user-select: none; }
+/* Tiny Scrollbar --------------end*/
+
+/*对picture.css中样式覆盖----------start*/
+#content .wrapper .header .body{
+	margin-top: 24px;
+}
+/*对picture.css中样式覆盖----------end*/

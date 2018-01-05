@@ -1,0 +1,641 @@
+.ui.nine.column.table td, .ui.nine.column.table th {
+    width: 11.1111%;
+}
+.ui.six.column.table td, .ui.six.column.table th {
+    width: 16.66667%;
+}
+
+.breadcrumb a {
+    cursor: default;
+    color: #3A94FF;
+}
+.fl {
+    float:left;
+}
+.fr {
+    float:right;
+}
+.hidden {
+    overflow:hidden;
+}
+.header {
+    position:relative;
+    display: block!important;
+    height:39px!important;
+}
+#major .header {
+    height: 39px;
+}
+#major .header .title {
+    line-height: 40px;
+}
+#major .body {
+    top: 41px;
+    background:#FFF;
+}
+#treePanel {
+    top:41px;
+    background:#EBF0F4;
+}
+#sidebar .ui.tab .filter {
+    background:#EBF0F4;
+}
+#sidebar>.header .title {
+    height: 39px;
+    padding-left: 51px;
+    line-height: 39px;
+    color: #333;
+    font-size: 14px;
+    overflow: hidden;
+    /*background: #FFF url("/module/common/images/safety/icons.png") no-repeat -49px -687px;*/
+    background: #FFF url("../images/report_icons.png") no-repeat -49px -687px;
+}
+#sidebar>.header .title.result {
+    /*background-position:-49px -687px;*/
+    background-position: /*-3px -130px*/-4px 2px;
+}
+#sidebar>.header .title.examine{
+     background:url("../images/videoCheckMini.png") no-repeat;
+     background-position: 18px 13px;
+}
+#sidebar>.header .title.breakdown {
+    /*background-position:-48px -637px;*/
+    background: #FFF url("../images/report_icons.png") no-repeat -49px -687px;
+    background-position: -4px -64px;
+}
+/* #sidebar>.header .title.cameraStat {
+    background-position:-48px -637px;
+} */
+#stat {
+    width:50px;
+    height:100%;
+    position:absolute;
+    top:40px;
+    left:0px;
+    z-index:9;
+    background:#4D83AC;
+}
+#stat.menus li {
+    width:50px;
+    height:50px;
+    background: url("../images/stats-icons.png") no-repeat /*-1px -6px*/ -1px -106px;
+    cursor:pointer;
+}
+#stat.menus li {
+    float:none;
+}
+#stat.menus li a {
+    text-indent:-9999px;
+}
+/* #stat.menus li:hover, */ 
+#stat.menus li.active {
+    /*background-position:-50px -50px;*/
+    background-color: #3D9DE0;
+}
+#stat.menus li.breakdown {
+    background-position: -1px -57px;
+}
+/* #stat.menus li.breakdown:hover, */ 
+/*#stat.menus li.breakdown.active {
+    background-position: -50px -0px;
+}*/
+/* #stat.menus li.cameraStat {
+    background-position:-0px -100px;
+}
+#stat.menus li.cameraStat.active {
+    background-position: -50px -100px;
+} */
+#treePanel .viewport {
+    margin-left: 50px;
+}
+
+
+
+/* 摄像机类型统计表格 */
+/* #sumCamera{
+    height: 40px;
+    background: #e9e9e9;
+    font-weight: bold;
+    position: fixed;
+    bottom: 0;
+} */
+/* #tablechartcameraStat .orgName{
+    text-align: left;
+    padding-left: 65px;
+}
+#tablechartcameraStat .bRight{
+    border-right: 1px solid #ccc;
+}
+.ui.inverted.table tbody tr.check td{
+    background: #d3e3f0 !important;
+} */
+/* 表格 */
+#tablechart .head,#tablechartbreakdown .head,#tablechartcameraStat .head {
+    display:none;
+    margin: 0 0 0 -1px;
+}
+/* #searchboxbreakdown {
+    display:none;
+} */
+#search.ui.eight.column.table td {
+    width: auto;
+}
+.ui.seven.column.table th {
+    width: 14.2857%;
+}
+.ui.eight.column.table td {
+    width: 12%;
+}
+#search input {
+    width:auto;
+}
+#search.width-1280-1310 input,#search.width-1280-1310 select {
+    width:120px;
+}
+.ui.segment {
+    box-shadow:none;
+}
+.ui.inverted.segment, .ui.primary.inverted.segment {
+    background-color: #FFF;
+    color:#000;
+    table-layout:fixed;
+    padding:0;
+}
+/* .ui.inverted.segment.sum{
+    background-color: #e9e9e9;
+} */
+#searchbreakdown {
+    table-layout:fixed;
+    margin-left: 14px;
+}
+.ui.inverted.table th {
+    background:#CCC;
+    color:#000;
+    text-align:center;
+    background:#E6EBF1;
+    width: 12%;
+}
+.ui.four.column.table.segment td.fixedwidthtd {
+    width:auto;
+}
+.ui.inverted.table .head th {
+    /*background: url("/module/common/images/icons/icon_table_head_bg.png") repeat 0px 0px;*/
+    height:34px;
+    border-top: 1px solid #DADEE3;
+    border-bottom: 1px solid #DADEE3;
+    background-color: #EBF0F4;
+    color: #333333;
+}
+.ui.inverted.table tbody tr:nth-child(2n) {
+    background-color:#FFF;
+}
+.ui.inverted.table td {
+    color:#000;
+}
+.ui.table td, .ui.table th {
+     padding: 0.75em 0.3em;
+ }
+.tips {
+    text-align:center;
+    height:30%;
+    overflow:hidden;
+    border-bottom:1px solid #DFDFDF;
+}
+.tips span {
+    text-align:center;
+    font-size:16px;
+    position: relative;
+    color: #999;
+    line-height:200px;
+}
+#major .body {
+    height:900px;
+}
+#tableresult, #tablebreakdown,#tablecameraStat {
+    display:none;
+    margin:0;
+    position:relative;
+}
+#tableresult .result tr.badstatus td{
+    color: #e21440;
+}
+#tablebreakdown .result tr.redBroken td{
+    color: #e21440;
+}
+#tableresult1,#tableresult2,#tablebreakdown1,#tablebreakdown2 {
+    height:185px;
+    width:100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    position:relative;
+}
+#tableresult2 {
+    display:none;
+}
+#tableresult.active, #tablebreakdown.active,#tableresult1.active, #tableresult2.active, #tablecameraStat.active {
+    display:block;
+}
+.camera-area .overview .ui.inverted.table tbody tr.bg td {
+    background:#EFF2F7;
+}
+
+.camera-area .overview tr.active td {
+    background:#EBF0F4;
+}
+.ui.inverted.table tbody tr {
+    border-bottom:1px solid #E6EBF0
+}
+.ui.inverted.table tbody tr.even:hover td, .ui.inverted.table tbody tr.odd:hover td {
+    background-color: #EBF0F4;
+}
+.ui.inverted.table tbody tr td.orgname{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.ui.inverted.table tbody tr.even td {background:#FAFCFF;}
+
+.ui.inverted.table tbody tr.odd  td {background:#FFF;}
+
+.ui.eight.column.table.inverted.segment.inspectresult.head {
+    margin:0;
+}
+.ui.table.head {
+    width:100%;
+}
+
+#sidebar .ui.tab .filter {
+    border:none;
+}
+
+/* 统计新版搜索 */
+#search, #searchbreakdown, #searchcameraStat{
+    width:100%;
+    overflow:hidden;
+    height:37px;
+    line-height:37px;
+}
+/* #searchcameraStat{
+    width:100%;
+    overflow:hidden;
+    height:37px;
+    line-height:37px;
+    position: absolute;
+    top:-37px;
+    display: none;
+} */
+
+#search span, #searchbreakdown span {
+    margin-right:6px;
+    display:inline-block;
+}
+#search span input.datepicker, #searchbreakdown span input.datepicker, #search #cameraName {
+    height:23px;
+    width:115px;
+    line-height:23px\9;
+    border:1px solid #ededed;
+    padding:0;
+    cursor: pointer;
+    background: url("/module/common/images/icon_calendar.png") no-repeat 95px 2px;
+}
+#search #cameraName {
+    background:none;
+}
+#search span #manufacturerId, #status {
+    height: 25px;
+    padding: 0;
+    /*width: 150px;
+    width: auto;*/
+    width: 115px;
+    margin-top: 0px;
+}
+/*统计新版搜索*/
+
+#action {
+    float:right;
+}
+#search.ui.eight.column.table .fixedwidthtd, #searchbreakdown .fixedwidthtd {
+    width:64px;
+}
+.export.ui.button.blue, #submitsearchbreakdown, #search #submitsearch {
+    margin: 8px 15px 0 0;
+    width: 42px;
+    height: 19px;
+    line-height: 19px;
+    padding: 0;
+    border: 1px solid #cfd2d4;
+    box-shadow: 0px -1px 1px #cfd2d4;
+    background: #dce1e6;
+    filter:none;
+    border-top: 1px solid #f5fbff;
+    border-radius: 0;
+    color: #333;
+}
+#submitsearchbreakdown, #search #submitsearch {
+    height: 25px;
+    width: 25px;
+    margin: -5px 15px 0 0;
+    padding: 0;
+    border:none;
+    box-shadow:none;
+    background: url(/module/common/images/cloudmanagement/public/icon.png) -164px -44px no-repeat;
+    color: #333;
+    text-indent:-99999px;
+    -webkit-transition:none;
+    transition:none;
+}
+#submitsearchbreakdown:hover, #search #submitsearch:hover {
+    background-position:-191px -44px;
+}
+#searchbox {
+    overflow:hidden;
+}
+/* 摄像机类型统计导出 */
+/* #exportcameraStat{
+    background: #00a3f5;
+    color: #fff;
+    border:none;
+} */
+/* HightCharts */
+
+/* Tab */
+#tab,#tabs {
+    background: transparent;
+    width: 34px;
+    position: absolute;
+    left: 44%;
+    height: 12px;
+    display:none;
+}
+#tab .tabs,#tabs .tabs {
+    width:10px;
+    height:10px;
+    border-radius:10px;
+    border:1px solid #6F9DC6;
+    background:#FFF;
+    display:inline-block;
+    cursor:pointer;
+}
+#tab .tabs.first,#tabs .tabs.first {
+    margin-right:6px;
+}
+#tab .tabs.active,#tabs .tabs.active {
+    background:#6F9DC6;
+}
+
+
+
+.checkall {
+    border-top: none;
+    display: inline;
+    margin: 2px 0 0 1px;
+    padding:0;
+    vertical-align: top;
+}
+.ui.table th.checkboxth, .ui.column.table td.checkboxth, .ui.seven.column.table th.checkboxth {
+    width:50px!important;
+    padding:0.75em 0 0.75em 10px;
+    padding-left: 14px;
+    text-align: left;
+    table-layout:fixed;
+    overflow:hidden;
+}
+
+select {
+    margin-top:1px;
+    /*width: 150px;*/
+    width: auto;
+    padding: 3px 2px;
+}
+
+
+
+/* 滚动条 */
+
+.camera-area .viewport {
+    overflow: hidden;
+    position: relative;
+    background:#FFF;
+}
+
+.camera-area .overview {
+    position: absolute;
+    left:0;
+    top:0;
+    right: 0;
+}
+
+.camera-area .scrollbar {
+    position: relative;
+    float: right;
+    width: 5px;
+    margin-right: 4px;
+}
+
+.camera-area .track {
+    height: 100%;
+    width: 5px;
+    position: relative;
+    cursor: pointer;
+    background:#f0f0f0;
+}
+
+.camera-area .thumb {
+    height: 36px;
+    width: 5px;
+    background: transparent url(/module/common/images/bg/tiny_scrollbar.png) 0 0 no-repeat;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+}
+
+.camera-area .disable {
+    display: none;
+}
+
+/* 统计搜索 */
+.tree-search {
+    position: relative;
+    width: 200px;
+    margin-top: 8px;
+    top: -7px;
+    left: -9px;
+}
+.tree-search input {
+    padding: 0 25px 0 11px;
+    width: 148px;
+    height: 25px;
+    line-height: 25px;
+    background-color: #FFFFFF;
+    border: 1px solid #D9D9D9;
+    border-radius: 15px;
+    color: #999;
+    font-size: 12px;
+    margin: 0 0 0 15px;
+    transition: background-color 0.2s ease-out 0s, box-shadow 0.2s ease 0s, border-color 0.2s ease 0s;
+    vertical-align: middle;
+}
+.tree-search input:focus {
+    border-color: #78A8D5;
+    color: #444444;
+}
+.tree-search #searchBtn {
+    font-size: 0;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 4px;
+    right: 6px;
+    background: url("/module/common/images/search_small.png") no-repeat scroll center center transparent;
+    border: medium none;
+    cursor: pointer;
+    font-size: 0;
+}
+
+
+.ui.seven.column.table th,.ui.seven.column.table td,.ui.inverted.table th,.ui.eight.column.table td,.ui.eight.column.table td {
+    width:auto;
+}
+
+
+#tableresult2 .highcharts-grid path {
+    display:none;
+}
+
+
+
+
+
+/* 暂时 */
+/* #search {
+    display:none;
+}*/
+
+
+/*2014.09.22*/
+#tableresult1, #tableresult1 {
+    display:none;
+}
+.ui.inverted.table tbody tr.orgscheckedinfo {
+    border: none;
+}
+.ui.table .orgscheckedinfotd {
+    padding:0;
+}
+.checkedinfo {
+    background: url('/module/common/images/icons/alloperate.png') -73px -8px;
+    text-indent: -99999px;
+    display: inline-block;
+    width: 22px;
+}
+.order .asc {
+    background: url('/module/common/images/jquery.ui/ui-icons_888888_256x240.png') -69px -20px;
+    width: 8px;
+    height: 8px;
+    margin-left: 5px;
+    display: inline-block;
+}
+.order .desc {
+    background: url('/module/common/images/jquery.ui/ui-icons_888888_256x240.png') -3px -20px;
+    width: 8px;
+    height: 8px;
+    margin-left: 5px;
+    display: inline-block;
+}
+
+
+.fontweight {
+    font-weight:normal;
+}
+.orgscheckedinfotd td {
+    background: #DCEDFD;
+}
+.orgscheckedinfotd .fontweight td {
+    background:#CCE5FC;
+}
+.ui.table .orgscheckedinfotd .ui.table td {
+    padding:0.5em 0.3em;
+}
+
+#resultdetail {
+    position: absolute;
+    top: 37px;
+    left: 0;
+    z-index: 1;
+    display:none;
+    width: 100%;
+    border-bottom:none;
+}
+.ui.button.blue.back {
+    position: absolute;
+    top: -31px;
+    right: 7px;
+    width: 42px;
+    height: 19px;
+    line-height: 19px;
+    padding: 0;
+    border: 1px solid #cfd2d4;
+    box-shadow: 0px -1px 1px #cfd2d4;
+    background: #dce1e6;
+    filter: none;
+    border-top: 1px solid #f5fbff;
+    border-radius: 0;
+    color: #333;
+    display:none;
+}
+.ui.sixs.column.table.inverted.resultdetail.head {
+    margin:0;
+}
+#chart {
+    height:105px;
+    width:100%;
+    background:#FFF;
+    border-top:1px solid #DFDFDF;
+    border:none;
+}
+
+.ui.inverted.table th.number, .ui.inverted.table td.number{
+    width:60px;
+}
+.ui.six.column.table th.checkboxth {
+    width:50px!important;
+}
+.ui.six.column.table td.checkboxth {
+    width:50px!important;
+}
+.ui.nine.column.table td.checkboxth {
+    width:50px!important;
+}
+.ui.nine.column.table th.checkboxth {
+    width: 50px!important;
+}
+
+.pagination {
+    margin-top: 4px;
+}
+
+.tableheader {
+    width:100%;
+    background: #EBF0F4;
+}
+
+#download_frame {
+    display:none;
+}
+
+/* 修正树形错位的问题 */
+.treePanel li > i.fold {
+    margin-right:2px;
+}
+#TB_window {
+    font-family: "Microsoft Yahei", "微软雅黑", "宋体";
+    color: #333;
+}
+#TB_caption {
+    padding:11px 30px 10px 15px;
+}
+
+
+
+
+.placeholder { color: #A9A9A9; }

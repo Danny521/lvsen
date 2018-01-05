@@ -1,0 +1,497 @@
+.tree-search {
+    position: relative;
+    width: 200px;
+    margin-top: 8px;
+    margin-bottom: 5px;
+    margin-left: 15px;
+}
+
+.tree-container {
+    margin-left: 15px;
+    overflow: auto;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.tree-search input {
+    padding: 0 25px 0 11px;
+    width: 160px;
+    height: 25px;
+    line-height: 25px;
+    background-color: #FFFFFF;
+    border: 1px solid #D9D9D9;
+    border-radius: 15px;
+    color: #999;
+    font-size: 12px;
+    margin: 0 0 0 0;
+    transition: background-color 0.2s ease-out 0s, box-shadow 0.2s ease 0s, border-color 0.2s ease 0s;
+    vertical-align: middle;
+}
+
+.tree-search input:focus {
+    border-color: #78A8D5;
+    color: #444444;
+}
+
+.tree-search .btn-search {
+    font-size: 0;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 4px;
+    right: 6px;
+    background: url("../../../common/images/search_small.png") no-repeat scroll center center transparent;
+    border: medium none;
+    cursor: pointer;
+}
+
+.tree-search #searchBtn2 {
+    font-size: 0;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 4px;
+    right: 6px;
+    background: url("../../../common/images/search_small.png") no-repeat scroll center center transparent;
+    border: medium none;
+    cursor: pointer;
+}
+
+li.tree span.active {
+    color: #188DFB;
+    font-weight: bolder;
+}
+
+.simple-camera-tree-panel{
+	/*width: 210px;*/
+	width: 100%;
+	height: 100%;
+	overflow-y:auto;
+	overflow-x:hidden;
+	padding: 0;
+}
+
+.simple-camera-tree-panel .no-data{
+	font-size: 11px;
+	margin: 0;
+	height: 16px;
+	line-height: 16px;
+}
+.simple-camera-tree-panel .no-data i.loading-img{
+	display: inline-block;
+	float: left;
+	width: 16px;
+	height: 16px;
+	margin-right: 5px;
+	background: url(../../../common/images/animate/mini-loading.gif) no-repeat scroll 0 0 transparent;
+}
+
+
+.simple-camera-tree-panel ul{
+	margin: 0 0 0 18px;
+	padding: 0;
+	list-style-type: none;
+}
+.simple-camera-tree-panel>ul{
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+.simple-camera-tree-panel li{
+	padding-top: 2px;
+	white-space: nowrap;
+}
+
+.simple-camera-tree-panel li span{
+	display: inline-block;
+	cursor: pointer;
+	height:22px;
+	line-height: 22px;
+	/*width:150px;*/
+	width: 84%;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow:ellipsis;
+	vertical-align: text-bottom;
+	user-select: none; 
+	-o-user-select: none; 
+	-moz-user-select: none; 
+	-khtml-user-select: none; 
+	-webkit-user-select: none; 
+}
+
+.simple-camera-tree-panel li>i.fold{
+	display: inline-block;
+	position: relative;
+	top:-1px;
+	*top:-4px;
+	height: 13px;
+    width: 11px;
+    margin-right: 6px;
+	cursor: pointer;    
+	background: url("../../../common/images/close.png") no-repeat scroll 0 1px transparent;
+}
+
+.simple-camera-tree-panel li.active>i.fold{
+	background: url("../../../common/images/open.png") no-repeat scroll 0 1px transparent;
+}
+
+.simple-camera-tree-panel li i.checkbox{
+    display: inline-block;
+    height: 15px;
+    margin-right: 6px;
+    padding: 0;
+    position: relative;
+    top: 0;
+    width: 15px;
+    cursor: pointer;
+ 	background: url("../../../common/images/sprites/tree_bg.png") no-repeat scroll -32px 0 transparent;
+}
+.simple-camera-tree-panel li i.selected{
+	background: url("../../../common/images/sprites/tree_bg.png") no-repeat scroll -47px 0 transparent;
+}
+
+.simple-camera-tree-panel li.cur>span{
+	/*color: #188DFB;*/
+}
+
+/*.simple-camera-tree-panel li.leaf>span{
+	max-width: 120px;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}*/
+
+.simple-camera-tree-panel li.root>span{
+	/*color: #188DFB;*/
+}
+
+.simple-camera-tree-panel .leaf{
+	cursor: pointer;
+	padding-left: 17px;
+}
+
+.simple-camera-tree-panel li i.root{
+	display: inline-block;
+	position: relative;
+	top:-1px;
+	*top:-3px;
+	width: 16px;
+	height: 13px;
+	margin-right: 3px;
+	padding: 0;
+	/*background: url("../../../common/images/icons/tree.png") no-repeat scroll -15px -13px transparent;*/
+	background: url("../../../common/images/icons/tree.png") no-repeat scroll -148px -13px transparent;
+}
+/*.simple-camera-tree-panel li.cur>i.root,
+.simple-camera-tree-panel li:hover>i.root{
+	background-position: -148px -13px;
+}*/
+
+.simple-camera-tree-panel li i.tree{
+	display: inline-block;
+	position: relative;
+	top:-1px;
+	*top:-3px;
+	width: 16px;
+	height: 13px;
+	margin-right: 3px;
+	padding: 0;
+	background: url("../../../common/images/icons/tree.png") no-repeat scroll -14px -551px transparent;
+}
+
+/* 摄像机树 覆写样式*/
+/* li i.camera-style.tree{
+	display: inline-block;
+	position: relative;
+	top:-1px;
+	*top:-3px;
+	width: 12px;
+	height: 13px;
+	padding: 0;
+	background: url("../../../common/images/sprites/tree_bg.png") no-repeat scroll -62px 0 transparent;
+}*/
+
+
+
+.simple-camera-tree-panel li.cur>i.tree,
+.simple-camera-tree-panel li:hover>i.tree{
+	background-position: -153px -551px;
+}
+
+
+
+/* 摄像机树 覆写*/
+/*.simple-camera-tree-panel li.cur>i.tree.camera-style,
+.simple-camera-tree-panel li:hover>i.tree.camera-style{
+	background-position: -73px 0;
+}*/
+
+
+
+.simple-camera-tree-panel li i.leaf{
+	display: inline-block;
+	position: relative;
+	top:0;
+	*top:-2px;
+	width: 16px;
+	height: 13px;
+	margin-right: 3px;
+	padding: 0;
+	background: url("../../../common/images/icons/tree.png") no-repeat scroll -14px -551px transparent;
+	/*background: url("../../../common/images/icons/tree.png") no-repeat scroll -15px -592px transparent;*/
+}
+
+/* 覆写样式 默认显示枪机*/
+.simple-camera-tree-panel li i.leaf.camera-style{
+	display: inline-block;
+	position: relative;
+	top:1px;
+	*top:-3px;
+	width: 15px;
+	height: 13px;
+	margin-right: 3px;
+	padding: 0;
+	background: url("../../../common/images/sprites/tree_bg.png") no-repeat scroll 0 0 transparent;
+}
+.simple-camera-tree-panel li i.leaf.camera-style.active{
+	background-position: -85px 0;
+}
+/*枪机、人脸摄像机、离线 普通状态*/
+.simple-camera-tree-panel li i.leaf.camera-style.ipcCamera{
+	padding: 2px 0;
+	width: 21px;
+	height: 13px;
+	background: url("../images/ipc-camera-offline.png") no-repeat 0 0;
+}
+/*枪机、人脸摄像机、离线 鼠标悬停状态 这里纯粹是为了覆盖别的样式*/
+.simple-camera-tree-panel li i.leaf.camera-style.ipcCamera:hover,
+.simple-camera-tree-panel li i.leaf.camera-style.ipcCamera.active{
+	background-position: 0 0;
+}
+/* 球机、人脸摄像机、离线 普通状态*/
+.simple-camera-tree-panel li i.leaf.camera-style.dom.ipcCamera{
+	padding: 2px 0;
+	width: 21px;
+	height: 13px;
+	background: url("../images/ipc-camera-ball-offline.png") no-repeat 0 0;
+}
+.simple-camera-tree-panel li i.leaf.camera-style.dom.ipcCamera.active,
+.simple-camera-tree-panel li i.leaf.camera-style.dom.ipcCamera:hover{
+	background-position: 0 0;
+}
+
+/* 显示球机 */
+.simple-camera-tree-panel li i.leaf.camera-style.dom{
+	background: url("../../../common/images/sprites/tree_bg.png") no-repeat scroll -156px 0 transparent;
+}
+.simple-camera-tree-panel li i.leaf.camera-style.dom.active{
+	background-position:  -168px 0;
+}
+
+.simple-camera-tree-panel li.cur>i.leaf,
+.simple-camera-tree-panel li:hover>i.leaf{
+	background-position: -90px -592px;
+}
+
+.simple-camera-tree-panel li.cur>i.leaf.camera-style,
+.simple-camera-tree-panel li i.leaf.camera-style.marked,
+.simple-camera-tree-panel li:hover>i.leaf.camera-style{
+	background-position: -85px 0 ;
+}
+.simple-camera-tree-panel li.disabled .checkbox{
+	
+}
+.simple-camera-tree-panel li.disabled i.leaf.camera-style{
+	background: url("/module/common/images/sprites/camera-disabled.png") no-repeat 0 0;
+}
+.simple-camera-tree-panel li.disabled i.leaf.camera-style.marked{
+	background: url("/module/common/images/sprites/camera-disabled.png") no-repeat 0 -126px;
+}
+.simple-camera-tree-panel li.disabled i.leaf.camera-style.dom{
+	background: url("/module/common/images/sprites/camera-disabled.png") no-repeat 0 -63px;
+}
+.simple-camera-tree-panel li.disabled i.leaf.camera-style.dom-marked{
+	background: url("/module/common/images/sprites/camera-disabled.png") no-repeat 0 -189px;
+}
+
+.simple-camera-tree-panel li.cur>i.leaf.camera-style.ipcCamera,
+.simple-camera-tree-panel li:hover>i.leaf.camera-style.ipcCamera {
+	padding: 2px 0;
+	width: 21px;
+	height: 13px;
+	background: url("../images/ipc-camera-offline.png") no-repeat 0 0;
+}
+.simple-camera-tree-panel li i.leaf.camera-style.marked.ipcCamera{
+	padding: 2px 0;
+	width: 21px;
+	height: 13px;
+	background: url("../images/ipc-camera.png") no-repeat 0 0;
+}
+.simple-camera-tree-panel li.cur>i.leaf.camera-style.dom.dom-marked.ipcCamera,
+.simple-camera-tree-panel li i.leaf.camera-style.dom.dom-marked.ipcCamera,
+.simple-camera-tree-panel li:hover>i.leaf.camera-style.dom.dom-marked.ipcCamera {
+	padding: 2px 0;
+	width: 21px;
+	height: 13px;
+	background: url("../images/ipc-camera-ball.png") no-repeat 0 0;
+}
+.simple-camera-tree-panel li.cur>i.leaf.camera-style.dom.ipcCamera,
+.simple-camera-tree-panel li i.leaf.camera-style.dom.ipcCamera,
+.simple-camera-tree-panel li:hover>i.leaf.camera-style.dom.ipcCamera {
+	padding: 2px 0;
+	width: 21px;
+	height: 13px;
+	background: url("../images/ipc-camera-ball-offline.png") no-repeat 0 0;
+}
+.simple-camera-tree-panel li:hover>span{
+	color: #1B6BBC;
+}
+
+/*.simple-camera-tree-panel li>i.leaf.camera-style.marked{
+	background-position: -447px 0 ;
+}*/
+
+/*	地图标注摄像机树样式覆写	*/
+.simple-camera-tree-panel.camera-mark li i.leaf.camera-style{
+	display: inline-block;
+	position: relative;
+	top:1px;
+	*top:-3px;
+	width: 17px;
+	height: 13px;
+	margin-right: 3px;
+	padding: 0;
+	background: url("../../../common/images/sprites/tree_bg.png") no-repeat scroll -633px 0 transparent;
+}
+.simple-camera-tree-panel.camera-mark li i.leaf.camera-style.active{
+	background-position: -633px 0;
+}
+
+/* 显示球机 */
+.simple-camera-tree-panel.camera-mark li i.leaf.camera-style.dom{
+	background: url("../../../common/images/sprites/tree_bg.png") no-repeat scroll -654px 0 transparent;
+}
+.simple-camera-tree-panel.camera-mark li i.leaf.camera-style.dom.active{
+	background-position:  -654px 0px;
+}
+
+.simple-camera-tree-panel.camera-mark li.cur>i.leaf,
+.simple-camera-tree-panel.camera-mark li:hover>i.leaf{
+	background-position: -90px -592px;
+}
+
+.simple-camera-tree-panel.camera-mark li.cur>i.leaf.camera-style,
+.simple-camera-tree-panel.camera-mark li:hover>i.leaf.camera-style{
+	background-position: -633px 0 ;
+}
+.simple-camera-tree-panel.camera-mark li i.leaf.camera-style.marked{
+	background-position: -592px 0 ;
+}
+.simple-camera-tree-panel.camera-mark li:hover>span{
+	color: #1B6BBC;
+}
+
+/*.simple-camera-tree-panel li>i.leaf.camera-style.marked{
+	background-position: -447px 0 ;
+}*/
+
+.simple-camera-tree-panel.camera-mark li.cur>i.leaf.camera-style.dom,
+.simple-camera-tree-panel.camera-mark li:hover>i.leaf.camera-style.dom{
+	background-position: -654px 0 ;
+}
+.simple-camera-tree-panel.camera-mark li i.leaf.camera-style.dom.dom-marked{
+	background-position: -612px -1px ;
+}
+
+
+
+/*------------- scrollbar 以下是滚动条的样式-------------   */
+/*.scrollbarPanel {
+	height: 100%;
+	clear: both; 
+}
+.scrollbarPanel .viewport {  height: 100%; overflow: hidden; position: relative; }
+.scrollbarPanel .overview { list-style: none; position: absolute; left: 0; top: 0; }
+.scrollbarPanel .thumb .end,
+.scrollbarPanel .thumb {
+	height: 72px;
+	width: 12px;
+	background: transparent url(../../../common/images/bg/scrollbar.png) 0 0 no-repeat;
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+}
+.scrollbarPanel .scrollbar { display:none;position: relative; float: right; width: 15px; }
+.scrollbarPanel .track {
+ 	height: 100%;
+	width: 12px;
+	position: relative;
+	cursor: pointer;
+	background: transparent url(../../../common/images/bg/track_line.png) center 0 repeat-y;
+  }
+
+.scrollbarPanel .thumb { height: 72px; width: 13px; cursor: pointer; overflow: hidden; position: absolute; top: 0; }
+.scrollbarPanel .thumb .end { overflow: hidden; height: 5px; width: 13px; }
+.scrollbarPanel .disable{ display: none; }*/
+
+
+.noSelect { user-select: none; -o-user-select: none; -moz-user-select: none; -khtml-user-select: none; -webkit-user-select: none; }
+	
+
+
+/*.simple-camera-tree-panel ul>li>ul>li>i,
+.simple-camera-tree-panel ul>li>ul>li>ul>li>i{
+	background: url("../../../common/images/icons/tree.png") no-repeat scroll -14px -551px transparent;
+}
+.simple-camera-tree-panel ul>li>ul>li>ul>li>ul>li>i{
+	background: url("../../../common/images/icons/tree.png") no-repeat scroll -15px -590px transparent;
+}*/
+
+
+/*.simple-camera-tree-panel ul>li>ul>li>ul>li.cur>i.tree,
+.simple-camera-tree-panel ul>li>ul>li>ul>li.cur>i.leaf,
+.simple-camera-tree-panel ul>li>ul>li>ul>li:hover>i.leaf,
+.simple-camera-tree-panel ul>li>ul>li>ul>li:hover>i.tree{
+	background-position: -153px -551px;
+}
+
+.simple-camera-tree-panel ul>li>ul>li>ul>li>ul>li.cur>i.leaf,
+.simple-camera-tree-panel ul>li>ul>li>ul>li>ul>li:hover>i.leaf{
+	background-position: -153px -590px;
+}*/
+/*.simple-camera-tree-panel li[data-tree-level='1']>span{
+	max-width: 165px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+.simple-camera-tree-panel li[data-tree-level='2']>span{
+	max-width: 140px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+.simple-camera-tree-panel li[data-tree-level='3']>span{
+	max-width: 130px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+.simple-camera-tree-panel li[data-tree-level='4']>span{
+	max-width: 100px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.simple-camera-tree-panel li[data-tree-level='5']>span{
+	max-width: 600px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+*/

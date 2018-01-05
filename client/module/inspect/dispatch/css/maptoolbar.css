@@ -1,0 +1,501 @@
+#gismap .map-tool {
+	position: absolute;
+	width: 100%;
+	height: 36px;
+	border-left: none !important;
+	background: url("/module/common/images/map/map-tool-bg.png") repeat-x;
+	z-index: 100
+}
+/*a标签的样式*/
+#gismap .map-tool a {
+	cursor: pointer;
+    color: #333333;
+    display: inline-block;
+}
+
+#map-tool-right a:hover, #gismap .map-region a:hover {
+    color: #2B75C9
+}
+
+#map-tool-right a:active, #gismap .map-region a:active {
+    color: #009FDA
+}
+
+/*地图左侧工具栏位置标示*/
+#gismap .map-tool .map-region {
+	width: 150px;
+	margin-top: 9px;
+	float: left
+}
+
+#gismap .map-tool .map-region a {
+    margin-left: 16px;
+}
+
+/*地图右侧工具栏*/
+#map-tool-right {
+    height: 100%;
+    float: right;
+}
+
+#map-tool-right .map-tool-item {
+    position: relative;
+    float: left;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+    margin-top: 1px;
+    border-left: solid 1px #ffffff;
+    border-right: solid 1px #ffffff;
+}
+
+#map-tool-right .map-tool-item:hover {
+    background-color: #F3F3F3;
+    border-left: solid 1px #e3e2e2;
+    border-right: solid 1px #e3e2e2;
+}
+
+#map-tool-right .map-tool-item li.list-item {
+    /*地图工具栏，下拉列表的li项样式*/
+    text-align: left;
+    padding-left: 7px;
+    height: 26px;
+    line-height: 26px;
+    border-top: solid 1px #ffffff;
+    border-bottom: solid 1px #ffffff;
+    cursor: pointer;
+}
+
+
+#map-tool-right .map-tool-item li.list-item:hover {
+    background-color: #F3F3F3;
+    border-top: solid 1px #ddd;
+    border-bottom: solid 1px #ddd;
+}
+
+#map-tool-right .map-tool-item li.list-item.first-child:hover{
+    border-top: solid 1px #F3F3F3;
+}
+
+#map-tool-right .map-tool-item .checkbox{
+    float: left;
+    display: inline-block;
+    margin: 4px 8px 0 0;
+    height: 15px;
+    width: 15px;
+    cursor: pointer;
+    background: url("/module/common/images/sprites/tree_bg.png") no-repeat scroll -32px 0 transparent;
+}
+
+#map-tool-right .map-tool-item .checkbox.checked{
+    background-position: -47px 0px;
+}
+
+#map-tool-right .map-tool-item i.map-tool-i {
+    width: 15px;
+    height: 15px;
+    margin: 0 2px -4px 0;
+    display: inline-block;
+    background: url("../images/map/map-tool.png") no-repeat;
+}
+
+/*地图选择标签*/
+#map-tool-right .map-tool-item i.select {
+    background-position: 0 -31px;
+}
+
+#gismap .map-tool-item.map-select {
+	width: 80px;
+}
+#gismap .map-tool-item i.rect {
+    background-position: -16px -31px;
+}
+#gismap .map-tool-item i.circle {
+    background-position: -34px -31px;
+}
+#gismap .map-tool-item i.line {
+    background-position: -49px -31px;
+}
+#gismap .map-tool-item i.polygon {
+    background-position: -63px -31px;
+}
+
+/*视野内搜索*/
+#map-tool-right .map-tool-item i.seerange {
+    background-position: 0 -46px;
+}
+
+#gismap .map-tool-item.seerange {
+	width: 100px;
+}
+
+#gismap .map-tool-item a.map-groups.active {
+
+}
+
+/*地图工具*/
+#map-tool-right .map-tool-item i.maptools {
+    background-position: 0 -62px;
+}
+
+#gismap .map-tools-a:hover ul {
+	display: block;
+}
+
+#gismap .map-tools-a {
+	width: 80px;
+}
+
+/*报警信息*/
+#map-tool-right .map-tool-item i.alarm {
+    background-position: 0 -16px;
+}
+#map-tool-right .map-tool-item.active i.alarm {
+    background-position: -15px -16px;
+}
+#map-tool-right .map-tool-item.map-showInfo {
+	width: 80px;
+}
+#map-tool-right .map-tool-item.map-showInfo.active a{
+    color: red !important;
+}
+#map-tool-right .map-tool-item.map-showInfo.active {
+    background-color: #F3F3F3;
+    border-left: solid 1px #e3e2e2;
+    border-right: solid 1px #e3e2e2;
+}
+
+/*全屏、退出全屏*/
+#map-tool-right .map-tool-item i.fullscreen {
+    background-position: 0 -78px;
+}
+#map-tool-right .map-tool-item.map-exitfullscreen i.fullscreen {
+    background-position: -16px -78px;
+}
+
+#gismap .map-tool-item.map-fullscreen {
+	width: 80px;
+}
+
+#gismap .map-tool-item.map-exitfullscreen {
+	width: 80px;
+}
+
+#gismap .ui.button.npplay {
+	margin: 0px 0 0 10px
+}
+
+/*地图资源列表*/
+#map-tool-right .map-tool-item i.resource {
+    background-position: 0 0;
+}
+
+#map-tool-right .map-tool-item.map-resource {
+    width: 80px;
+}
+
+#map-tool-right .map-resource-list {
+    display: none;
+    position: absolute;
+    width: 100px;
+    left: -1px;
+    top: 34px;
+    z-index: 100;
+    border: 1px solid #dfdfdf;
+    background-color: #FFFFFF;
+}
+
+#map-tool-right iframe.map-resource-list.map-resource-iframe{
+    width: 102px;
+    height: 112px;
+    top:36px;
+    z-index: 99;
+    border: none !important;
+}
+
+#map-tool-right .map-resource-list i.resource-type-i {
+    width: 13px;
+    height: 13px;
+    margin: 5px 5px 0 0;
+    float: right;
+    display: inline-block;
+    background: url("/module/inspect/dispatch/images/map/map-resource.png") no-repeat;
+}
+
+#map-tool-right .map-resource-list i.camera {
+    background-position: -9px 0;
+}
+
+#map-tool-right .map-resource-list i.bayonet {
+    background-position: -35px 0;
+}
+
+#map-tool-right .map-resource-list i.lightbar {
+    background-position: -117px 0;
+}
+
+#map-tool-right .map-resource-list i.policecar {
+    width: 15px;
+    background-position: -62px 0;
+}
+
+#map-tool-right .map-resource-list i.policeman {
+    background-position: -91px 0;
+}
+
+#map-tool-right .camera-type-list {
+    display: none;
+    position: absolute;
+    width: 100px;
+    left: 100px;
+    top: -1px;
+    z-index: 100;
+    border: 1px solid #dfdfdf;
+    border-left: none;
+    background-color: #F3F3F3;
+}
+#map-tool-right iframe.camera-type-list.camera-type-iframe {
+    width: 101px;
+    height: 140px;
+    top: 1px;
+    z-index: 99;
+    border: none !important;
+}
+
+#map-tool-right .camera-type-list li.list-item-camera {
+    /*地图工具栏，下拉列表的li项样式*/
+    padding-left: 10px;
+    height: 26px;
+    line-height: 26px;
+    border-top: solid 1px #F3F3F3;
+    border-bottom: solid 1px #F3F3F3;
+    border-left: solid 1px #dfdfdf;
+}
+
+#map-tool-right .camera-type-list li.list-item-camera:hover {
+    background-color: #F3F3F3;
+    border-top: solid 1px #ddd;
+    border-bottom: solid 1px #ddd;
+    background-color: #ffffff;
+}
+
+#map-tool-right .camera-type-list li.list-item-camera.first-child{
+    border-left: none;
+}
+
+#map-tool-right .camera-type-list li.list-item-camera.first-child:hover{
+    border-top: solid 1px #fff;
+}
+
+#map-tool-right .camera-type-list li.list-item-camera.last-child:hover{
+    border-bottom: solid 1px #fff;
+}
+
+#map-tool-right .camera-type-list li.indoor {
+
+}
+
+/*地图选择列表*/
+#map-tool-right .map-select-list {
+	display: none;
+	position: absolute;
+    width: 80px;
+	left: -1px;
+	top: 34px;
+	z-index: 100;
+	border: 1px solid #dfdfdf;
+	background-color: #FFFFFF
+}
+#map-tool-right iframe.map-select-list.map-select-iframe{
+	width: 82px;
+	height: 114px;
+	z-index: 99;
+	border: none !important;
+}
+
+#map-tool-right .map-select-list li i {
+    display: inline-block;
+    float: left;
+    margin: 7px 5px 0 1px;
+    height: 15px;
+    width: 15px;
+	background: url('../images/map/map-tool.png') no-repeat;
+}
+
+#map-tool-right .map-select-list li i.map-rectangle-select-i {
+	background-position: -16px -31px;
+}
+
+#map-tool-right .map-select-list li i.map-circle-select-i {
+	background-position: -34px -31px;
+}
+#map-tool-right .map-select-list li i.map-line-select-i {
+    background-position: -49px -31px;
+}
+#map-tool-right .map-select-list li i.map-polygon-select-i {
+    background-position: -63px -31px;
+}
+
+/*地图工具列表*/
+#map-tool-right .map-tools-a:hover .map-tools-list {
+	top: 34px;
+}
+
+#map-tool-right .map-tools-list {
+	position: absolute;
+    width: 80px;
+	left: -1px;
+	top: -2000px;
+	z-index: 100;
+	border: 1px solid #c9c9c9;
+    background-color: #ffffff;
+}
+#map-tool-right iframe.map-tools-list{
+	z-index: 99;
+	width: 82px;
+    height: 114px;
+	left: -1px;
+	border: none !important;
+}
+
+#map-tool-right .map-tools-list li i {
+    display: inline-block;
+    float: left;
+    margin: 4px 8px 0 0;
+    width: 15px;
+    height: 15px;
+	background: url('../images/map/map-tool.png') no-repeat;
+}
+
+#map-tool-right .map-tools-list li i.map-max-i {
+    background-position: -17px -60px;
+}
+
+#map-tool-right .map-tools-list li i.map-min-i {
+    background-position: -34px -60px;
+}
+
+#map-tool-right .map-tools-list li i.map-measure-i {
+    width: 8px;
+    height: 13px;
+    margin: 4px 10px 0 3px;
+	background-position: -51px -62px;
+}
+
+#map-tool-right .map-tools-list li i.map-screenshot-i {
+	background-position: -68px -60px
+}
+
+#map-tool-right .map-tools-list li i.map-mark-i {
+	background-position: -85px -60px
+}
+
+#map-tool-right .map-tools-list li i.map-print-i {
+	background-position: -102px -60px
+}
+
+#map-tool-right .map-tools-list li i.map-clear-i {
+    background-position: -61px -60px;
+}
+
+/*视野范围内搜索*/
+#map-tool-right iframe.map-searcharound-content{
+    z-index: 99;
+    width: 272px;
+    height: 172px;
+    right: -9px;
+    border: none !important;
+}
+#mapSearchAroundContent, .map-searcharound-content {
+	display: none;
+	width: 270px;
+    height: 170px;
+	position: absolute;
+	left: -70px;
+	top: 34px;
+	z-index: 101;
+	border: 1px solid #c9c9c9;
+	background-color: #FFFFFF
+}
+
+#mapSearchAroundContent .map-title {
+    background-color: #ffffff;
+    height: 30px;
+    line-height: 30px;
+    padding: 0px 7px;
+    border-bottom: 1px solid #DDDDDD;
+    text-align: left;
+}
+#mapSearchAroundContent .viewport {
+    height: 70px;
+}
+#mapSearchAroundContent ul.map-around-search-container {
+	padding: 10px 5px 10px 0px;
+	overflow: hidden
+}
+
+#mapSearchAroundContent ul li {
+	float: left;
+	padding: 0px 5px 2px 5px;
+    line-height: 16px;
+}
+
+#mapSearchAroundContent ul li span.label {
+	display: inline-block;
+	float: left;
+	width: 60px;
+	text-align: right;
+}
+
+#mapSearchAroundContent ul li span.data-content {
+	display: inline-block;
+	width: 180px;
+	float: left;
+	margin-top: -2px\0;
+    text-align: left;
+    margin-top: 0px;
+}
+
+#mapSearchAroundContent ul li a {
+	color: #188DFB !important;
+	line-height: 16px;
+	margin-left: 5px;
+	margin-right: 5px
+}
+
+#mapSearchAroundContent ul li a:hover {
+	color: #00BAFF !important;
+}
+
+#mapSearchAroundContent ul li a:active {
+	color: #009FDA !important;
+}
+
+#mapSearchAroundContent .view-search-footer {
+    margin-top: 5px;
+}
+
+#mapSearchAroundContent .view-search-footer .search-value {
+    width: 153px !important;
+    height: 11px !important;
+    line-height: 16px !important;
+    margin-right: 4px;
+}
+
+#mapSearchAroundContent .view-search-footer .search-view-btn {
+    height: 26px !important;
+    line-height: 24px !important;
+    padding: 0 10px;
+}
+/*地图操作条遮罩层*/
+.map-toolbar-mask{
+    width: 100%;
+    height: 36px;
+    position: absolute;
+    background-color: #fff;
+    filter:alpha(opacity=50); /*IE滤镜，透明度50%*/
+    -moz-opacity:0.5; /*Firefox私有，透明度50%*/
+    opacity:0.5;/*其他，透明度50%*/
+    z-index: 101;
+    display: none;
+}

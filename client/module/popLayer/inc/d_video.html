@@ -1,0 +1,56 @@
+<div class="bg-content video-content">
+    <div class="tab-content main-content video-content">
+
+        <div class="tab-content-item content-video content-video-original active" data-target='0'>
+            <div class="video-wrap">
+                <div class="ocx-box">
+                    <object id="UIOCX" type="applicatin/x-firebreath" align="center" width="100%" style="width:100%">
+                        <param name="onload" value="pluginLoaded"/>
+                    </object>
+                </div>
+                <div class="video-block">
+                    <div class="progress-bg"></div>
+                    <div class="progress-bar">
+                        <div class="bullet">
+                            <i class="play-point"></i>
+                        </div>
+                        <i class='start-mark'></i>
+                        <i class='end-mark'></i>
+                    </div>
+                    <div class="panel" onselectstart="return false">
+                        <div class="vbar-right">
+                            <a href="javascript:void(0)" style=""><span class="download" title='下载'><i class="download-icon"></i>下载</span></a>
+                            <span style="" class="grab video-grab" title='抓图' data-id="{{video.id}}" data-type="1" data-name="{{video.fileName}}" data-shootTime="{{video.shootTime}}"></span>
+                            <span style="" class="fullwin" title='全屏'></span>
+
+                        </div>
+                        <div class="time vbar-left">
+                            <span class="nowtime" nowtime-ms="0">00:00:00</span>
+                            &nbsp;/
+                            <span class="alltime" alltime-ms="{{video.timeLag}}">00:00:00<!--{{time2Str endTime}}--></span>
+							<span class="speed" title='倍速'>
+								倍速：
+								<em></em>
+							</span>
+                        </div>
+                        <div class="vbar-mid">
+                            <span class="rewind" title='慢放'></span>
+                            <span class="switch active" title='播放'></span>
+                            <span class="forward" title='快进'></span>
+                            <span class="stop" title='停止' style="display: none"></span>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-content-item content-video-abstract content-video" data-target='1'>
+            <div class="video-wrap"></div>
+        </div>
+        <div class="tab-content-item content-video-multi content-video" data-target='2'>
+            <div class="video-wrap"></div>
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,90 @@
+{{#if cameraLocationPanel }}
+<div class="infowindow-title">
+	<span class="mark-name" title="{{cameraLocationPanel.name}} {{showCode cameraLocationPanel.code}}">{{cameraLocationPanel.name}}{{showCode cameraLocationPanel.code}}</span>
+	<span class="btns delespan">
+			<i class="btn deleteBtn"></i>
+	</span>
+	<span class="btns closespan">
+			<i class="btn closeBtn"></i>
+		</span>
+	</div>
+<div class="location-box add-location" style="display:block;">
+	<div class="all-contro">
+		<div class="lon-lat-container ui input">
+			<label>经度：</label>
+			<input id="longitude" class="map-input" maxlength="12" type="text" value="{{cameraLocationPanel.longitude}}"  name="longitude "  placeholder="输入精度">
+			<label>纬度:</label>
+			<input id="latitude" class="map-input" maxlength="11" type="text"  name="latitude" value="{{cameraLocationPanel.latitude}}"  placeholder="输入纬度">
+		</div>
+		<div class="angle-container ui input">
+			<label>摄像机照射角度：</label>
+			<input id="angle" class="map-input" type="text" value="{{cameraLocationPanel.angle}}" placeholder="0" name="angle"></input>
+			<div class="up-down">
+				<ul>
+					<li class="up"></li>
+					<li class="down"></li>
+				</ul>
+			</div>
+		</div>
+		<div class="range-cont"> 
+			<div class="range-div">
+				<div class="range-color" style="width: 0px;"></div>
+				<button class="range-btn" style="left: 0px;"></button>
+			</div>
+		</div>
+		<div class="tip"></div>
+		<div  id="markInfo" style="margin-top:5px;font-size:12px;color: #AAAAAA;">
+			<div style="padding-bottom:5px;padding-top: 4px;border-top: 1px dashed #DFDFDF;">
+			    <label>标注时间：</label>
+			    <label>{{cameraLocationPanel.date}}</label>
+			</div>
+			<div style="padding-bottom:5px;">
+			    <label>标注人：</label>
+			    <label>{{cameraLocationPanel.userName}}</label>
+			</div>
+		    <div style="">
+			    <label>标注人所属组织：</label>
+			    <label>{{cameraLocationPanel.orgName}}</label>
+	        </div>
+		</div>
+		<div class="operation">
+			<button type="button" class="ui button green small right permission permission-maker-camera-point" id="againMark">重新标注</button>
+			<button type="button" class="ui button blue small right permission permission-maker-camera-point" id="saveMark">保存</button>
+			<button type="button" class="ui button small right permission permission-maker-camera-point" id="cancelMark">取消</button>
+		</div>
+
+	</div>
+
+	
+</div>
+{{/if}}
+
+{{#if cameraLocationInfo }}
+<div class="location-box edit-location" style="display:block;">
+	<div class="item"><span class="name">经度：</span>
+		<div class="item-box ui input">
+			<input id="longitude" class="map-input" type="text" value="{{cameraLocationInfo.longitude}}"  name="longitude "  placeholder="输入精度">
+		</div>
+	</div>
+
+	<div class="item"><span class="name">纬度：</span>
+		<div class="item-box ui input">
+			<input id="latitude" class="map-input" type="text"  name="latitude" value="{{cameraLocationInfo.latitude}}"  placeholder="输入纬度">
+		</div>
+	</div>
+
+	<div class="operation">
+		<button type="button" class="ui button blue small right" id="cancelMark">取消</button>
+		<button type="button" class="ui button blue small right" id="editMark">编辑</button>
+	</div>
+</div>
+{{/if}}
+
+
+{{#if mapInputBox}}
+<div id="mapInputBox">
+	
+	
+</div>
+
+{{/if}}

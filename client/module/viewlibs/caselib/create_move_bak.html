@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=10,chrome=1">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<title>视云实战平台</title>
+	<!--[if lt IE 9]>
+	<script src="/libs/html5/html5.js"></script>
+	<![endif]-->
+
+	<link type="text/css" rel="stylesheet" href="/module/common/css/base.css" />
+	<link type="text/css" rel="stylesheet" href="/libs/semantic/semantic.css" />
+	<link type="text/css" rel="stylesheet"  href="/libs/jquery/jquery-ui.css">
+	<link type="text/css" rel="stylesheet" href="/libs/jquery/jquery.datetimepicker.css"/>
+	<link type="text/css" rel="stylesheet" href="/libs/jquery/jquery.Jcrop.css"/>
+	<link type="text/css" rel="stylesheet" href="/module/viewlibs/caselib/css/entity.css"/>
+	<link type="text/css" rel="stylesheet" href="/module/viewlibs/caselib/css/icon.css" />
+	<link type="text/css" rel="stylesheet" href="/module/viewlibs/caselib/css/video.css"/>
+	<link type="text/css" rel="stylesheet" href="/module/viewlibs/caselib/css/localhost.css"/>
+	<link type="text/css" rel="stylesheet" href="/module/viewlibs/caselib/css/dialog_video.css"/>
+</head>
+<body>
+	<div id="content">
+		<div class="libbanner">
+			<span>
+				<a href="javascript:void(0)" onclick="return false;" class="already">选择结构化信息</a>
+				<a href="javascript:void(0)" onclick="return false;" class="current">填写结构化信息表单</a>
+				<a href="javascript:void(0)" onclick="return false;" class="already">填写所属视图表单</a>
+				<a href="javascript:void(0)" onclick="return false;" class="already">创建案事件</a>
+				<a href="javascript:void(0)" onclick="return false;">完成入库操作</a>
+			</span>
+		</div>
+		<div class="wrapper clearfix">
+			<ul class="breadcrumb">
+				<li>
+					<a href="/module/viewlibs/workbench/index">视图库</a>
+					<span class="divider">&gt;</span>
+				</li>
+				<li>
+					<a>运动目标信息</a>
+					<span class="divider">&gt;</span>
+				</li>
+				<li class="active">编辑运动目标信息</li>
+			</ul>
+
+			<div class="main modify">
+
+				<div class="resources tabview">
+					<form autocomplete="off" id="moveForm">
+						<div class="fieldset">
+							<div class="module active">
+								<div class="module-head">
+									<h3>基本信息</h3> <i class="fix-png"></i>
+								</div>
+								<div class="module-body">
+									<div class="scrollbar disable">
+										<div class="track">
+											<div class="thumb"></div>
+										</div>
+									</div>
+									<div class="viewport scene-view">
+										<div class="overview">
+											<div class="group">
+												<div class="form-item">
+													<span class="item-label">
+														<label for="appearTime">来源视频时间：</label>
+													</span>
+													<div class="item-box">
+														<input type="text" class="input-text input-time" maxlength="50" id="appearTime" name="appearTime" value=""/>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="type">类型：</label>
+													</span>
+													<div class="item-box">
+														<select id="type" name="type" class='input-select ' data-default="">
+															<option value="">--请选择物体类型--</option>
+															<option value="0">未知</option>
+															<option value="1">人体</option>
+															<option value="2">车辆</option>
+															<option value="3">物体</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="headColor">头部颜色：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="headColor" maxlength="1" name="headColor" data-default="">
+															<option value="">--请选择头部颜色--</option>
+															<option value="-1">未知</option>
+															<option value="0">白色</option>
+															<option value="1">灰（银色）</option>
+															<option value="2">黄色</option>
+															<option value="3">粉色</option>
+															<option value="4">红色</option>
+															<option value="5">绿色</option>
+															<option value="6">蓝色</option>
+															<option value="7">棕色</option>
+															<option value="8">黑色</option>
+															<option value="9">紫色</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="upperColor">上半身颜色：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="upperColor" maxlength="4" name="upperColor" data-default="">
+															<option value="">--请选择上半身颜色--</option>
+															<option value="-1">未知</option>
+															<option value="0">白色</option>
+															<option value="1">灰（银色）</option>
+															<option value="2">黄色</option>
+															<option value="3">粉色</option>
+															<option value="4">红色</option>
+															<option value="5">绿色</option>
+															<option value="6">蓝色</option>
+															<option value="7">棕色</option>
+															<option value="8">黑色</option>
+															<option value="9">紫色</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="lowerColor">下半身颜色：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="lowerColor" maxlength="4" name="lowerColor" data-default="">
+															<option value="">--请选择下半身颜色--</option>
+															<option value="-1">未知</option>
+															<option value="0">白色</option>
+															<option value="1">灰（银色）</option>
+															<option value="2">黄色</option>
+															<option value="3">粉色</option>
+															<option value="4">红色</option>
+															<option value="5">绿色</option>
+															<option value="6">蓝色</option>
+															<option value="7">棕色</option>
+															<option value="8">黑色</option>
+															<option value="9">紫色</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="footColor">脚部颜色：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="footColor" maxlength="4" name="footColor" data-default="">
+															<option value="">--请选择脚部颜色--</option>
+															<option value="-1">未知</option>
+															<option value="0">白色</option>
+															<option value="1">灰（银色）</option>
+															<option value="2">黄色</option>
+															<option value="3">粉色</option>
+															<option value="4">红色</option>
+															<option value="5">绿色</option>
+															<option value="6">蓝色</option>
+															<option value="7">棕色</option>
+															<option value="8">黑色</option>
+															<option value="9">紫色</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="height">高度(cm)：</label>
+													</span>
+													<div class="item-box">
+														<input type="text" class="input-text" maxlength="4" name="height" id="height" value="" />
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="color">颜色：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="color" maxlength="4" name="color" data-default="">
+															<option value="">--请选择颜色--</option>
+															<option value="-1">未知</option>
+															<option value="0">白色</option>
+															<option value="1">灰（银色）</option>
+															<option value="2">黄色</option>
+															<option value="3">粉色</option>
+															<option value="4">红色</option>
+															<option value="5">绿色</option>
+															<option value="6">蓝色</option>
+															<option value="7">棕色</option>
+															<option value="8">黑色</option>
+															<option value="9">紫色</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="gray">灰度：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="gray" maxlength="4" name="gray" data-default="">
+															<option value="">--请选择灰度--</option>
+															<option value="-1">未知</option>
+															<option value="0">暗（深色）</option>
+															<option value="1">亮（浅色）</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="description">描述：</label>
+													</span>
+													<div class="item-box">
+														<textarea class="input-area" id="description" maxlength="200" name="description" value=""></textarea>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="form-item ">
+							<div class="item-box submit-wrapper">
+								<input type="submit" value="保存信息" class="input-submit next-step permission permission-create" />
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="entity-preview" data-id="{{id}}">
+					<div class="markwrap clearfix">
+						<!-- <div class="video_edit">
+						-->
+						<div class="video_tool"></div>
+						<!-- </div>
+						-->
+						<div class="display-format tab-title">
+							<ul class="menus">
+								<li data-tab="picture" data-anchor="picture" class="tab-title-item active"><a class="btn">特征图片</a></li>
+								<li data-tab="ocxbody" data-anchor="ocxbody" class=" tab-title-item"><a class="btn" id="videoid">视频片段</a></li>
+							</ul>
+
+						</div>
+
+					</div>
+
+					<div class="entity-box tab-content">
+                 	    <div class="video tab-content-item" data-target="ocxbody" data-tab="ocxbody" data-videopath="">
+							<object id="UIOCX" type="applicatin/x-firebreath" align="center" width="800" height="520">
+								<param name="onload" value="pluginLoaded"/>
+							</object>
+							<div class="video-block">
+								<div class="progress-bg"></div>
+								<div class="progress-bar">
+									<div class="bullet"> <i class="play-point"></i>
+									</div>
+									<i class='start-mark'></i>
+									<i class='end-mark'></i>
+								</div>
+								<div class="panel" onselectstart="return false">
+									<span class="time">
+										<span class="nowtime" nowtime-ms="0">00:00:00</span>&nbsp;/
+										<span class="alltime" alltime-ms="0">00:00:00</span>
+									</span>
+									<span class="speed">倍速：<em></em></span>
+									<span class="fullwin" title="全屏"></span>
+									<span class="stop" title="停止"></span>
+									<span class="forward" title="快进"></span>
+									<span class="switch" title="播放"></span>
+									<span class="rewind" title="慢放"></span>
+								</div>
+
+							</div>
+						</div>
+						<div class="picture tab-content-item active" data-tab="picture" id="image_struct" data-target="picture">
+				        </div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<!--<script type="text/javascript" src="/component/base/base.self.js"></script>
+	<script type="text/javascript" src="/libs/jquery/jquery-ui-1.10.1.custom.min.js"></script>
+	<script type="text/javascript" src="/libs/jquery/jquery-ui-timepicker-addon.js"></script>
+	<script type="text/javascript" src="/libs/scrollbar/scrollbar.js"></script>
+	<script type="text/javascript" src="/component/cascade/common.cascade.js"></script>
+	<script type="text/javascript" src="/libs/jquery/jquery.validate.js"></script>
+	<script type="text/javascript" src="/libs/jquery/jquery.pagination.js"></script>
+	<script type="text/javascript" src="/module/common/js/nativePlayer.js"></script>
+	<script type="text/javascript" src="/module/imagejudge/js/player.js"></script>
+	<script type="text/javascript" src="/module/viewlibs/caselib/js/video.js"></script>
+	<script type="text/javascript" src="/module/viewlibs/caselib/js/medialib_link.js"></script>
+	<script type="text/javascript" src="/module/viewlibs/caselib/js/create_move_bak.js"></script>
+	<script type="text/javascript" src="/module/common/permission/permission.js"></script>-->
+	<script type="text/javascript" src="/libs/requirejs/require.js"></script>
+	<script type="text/javascript">
+		require(['/require-conf.js'],function(){
+			require(['/module/viewlibs/caselib/js/create_move_bak.js']);
+		});
+
+	</script>
+</body>
+</html>

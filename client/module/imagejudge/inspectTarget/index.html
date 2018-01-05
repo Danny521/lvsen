@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=10,chrome=1"/>
+    <title>视云实战平台</title>
+    <!--[if lt IE 9]>
+    <script src="/libs/html5/html5.js"></script>
+    <![endif]-->
+
+    <!-- 全局样式Global -->
+    <link type="text/css" rel="stylesheet" href="/module/common/css/base.css" />
+    <link type="text/css" rel="stylesheet" href="/libs/semantic/semantic.css" />
+    <link rel="stylesheet" type="text/css" href="/libs/jquery/jquery-ui.css">
+    <link type="text/css" rel="stylesheet" href="/libs/jquery/jquery.datetimepicker.css"/>
+    <!-- 公共样式public -->
+    <link rel="stylesheet" type="text/css" href="../common/public.css"/>
+    <!-- 目标排查target -->
+    <link rel="stylesheet" type="text/css" href="./css/target.css"/>
+    <!-- 图标、背景icon -->
+    <link rel="stylesheet" type="text/css" href="../common/icon.css" />
+    <link rel="stylesheet" type="text/css" href="cloudTree/tree.css"/>
+    <link type="text/css" rel="stylesheet" href="/libs/jquery/jquery.pagination.css"/>
+    <!--弹出层样式-->
+    <link rel="stylesheet" type="text/css" href="/module/common/viewPic/viewPic.css"/>
+    <script type="text/javascript" src="/libs/requirejs/require.js" data-main="./js/main.js"></script>
+</head>
+<body>
+    <!-- 外层容器_Wrapper_@Start -->
+    <div class="wrapper">
+        <!-- 页面主体_main_@Start -->
+        <div class="main">
+            <div class="div-width">
+                <!-- 页面主体左侧_main_left_@Start -->
+                <div class="main_left" >
+                    <!-- 侧边栏_sidebar_@Start -->
+                    <div class="sidebar">
+                        <!-- 目标排查_target_@Start -->
+                        <div class="target_title">
+                        <span class="target_select">
+                            <!-- 第一个em不能删，如果删掉的话逻辑代码就会有很大的变动，所以才去影藏-->
+                            <em id='j-list' style="display:none">检索结果<!--  <i class="icon_downarrow"></i> --></em>
+                            <em id='h-list'>检索历史</em>
+                            </span>
+                            <a class="operate-icon-delete" href="javascript:void(0);" id='clear_all_history' title="清空记录"></a>
+                        </div>
+                        <div class="target_cont">
+                            <div class="inner_cont">
+                                <div class="retrieve_cont"></div>
+                                <div class="history_cont"></div>
+                            </div>
+                            <div id='listPagination' class="pagination"></div>
+                        </div>
+                        <!-- 目标排查_target_@End --> </div>
+                    <!-- 侧边栏_sidebar_@End --> </div>
+                <!-- 页面主体左侧_main_left_@End -->
+
+                <!-- 页面主体右侧_main_right_@Start -->
+                <div class="" id="mainRight">
+                    <!--div class="screening search-form" -->
+                        <!-- 目标排查筛选条件_search_area_@Start -->
+                    <div class="search_area">
+                        <div class="search_text">
+                            <span class="select_file_btn" title='选择资源范围'>选择资源</span>
+                            <input type="text" id='searchValue' placeholder="请先选择资源" />
+                            <a href="javascript:void(0)" class="btn btn_ok disable-btn" id='doSearch'>检 索</a>
+                        </div>
+                        <div class="control-toggle">
+                            <div class="div-type" id="selectResult"><label>已选条件 :</label> <span class="select-cancel">全部取消</span></div>
+                            <div class="search-selections file_type div-type type">
+                                <label class="disable">类型 :</label>
+                                <!-- <span class='s-all' data-cat='0'>全部</span> -->
+                                <span class='s-people disable' data-cat='1'>人员</span>
+                                <span class='s-car disable' data-cat='2'>车辆</span>
+                                <span class='s-exibit disable' data-cat='3'>物品</span>
+                                <span class='s-sense disable' data-cat='4'>场景</span>
+                                <span class='s-moves disable' data-cat='5'>运动目标</span>
+                                <span class='s-others disable' data-cat='6'>其他</span>
+                            </div>
+                             <div class="div-type" id="timeSelect">
+                                <label class="disable">时间 :</label>
+                                <input type="text "  placeholder='起始时间' class="input-time" disabled="disabled" id='begin_time' /> <em class="disable">至</em>
+                                <input type="text"  placeholder='结束时间' class="input-time"  disabled="disabled" id='end_time' />
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 目标排查筛选条件_search_area_@End -->
+                    <!--/div-->
+                    <div class="search-result">
+                        <div class="disable make-new-result">
+                            <!-- <label class='is-new-result disable'>保存当前检索结果</label> -->
+                            <div class='save-details'>
+                                <input type="text" placeholder='把历史记录保存成检索' id='newResultName'/>
+                                <p>
+                                    <a href='javascript:void(0)' id='saveHistoryList'>保存</a>
+                                </p>
+                            </div>
+                        </div>
+                        <dl class="sort">
+                            <dt>
+                                <!-- <h5>检索结果</h5> -->
+                                <a href="javascript:void(0)" title="" class="sort_btn" id='buildTime'>
+                                    <b>创建时间</b>
+                                    <i class="icon_blue_down"></i>
+                                </a>
+                                <a href="javascript:void(0)" title="" class="sort_btn" id='apperTime'>
+                                    <b>目标出现时间</b>
+                                    <i class="icon_red_down"></i>
+                                </a>
+                                <span class="info-title">
+                                    <p>共检索到<i class='totalResults'> 0 </i>个结构化信息</p>
+                                    <em class="picture_mode"><a class="thumbnail thumbnail_current" title="缩略图" href="javascript:void(0);"></a>
+                                    <a class="listpic" title="列表" href="javascript:void(0);"></a></em>
+                                </span>
+                                <span class="list-search">
+                                    <input id="searchInput" type="text" placeholder="在结果中搜索" name="q" autocomplete="off">
+                                    <i id ="searchBtn"></i>
+                                </span>
+                            </dt>
+                            <dd>
+                                <ul class="contentList results clearfix">
+                                    <!--delete　　LI-->
+                                    <!--<li class='thumb-figure'>-->
+                                        <!--<a class='thumb-anchor' data-id='{{id}}' data-name='{{name}}'>-->
+                                           <!--<span><img src="/module/common/images/inspect/car_pic.png"></span>-->
+                                        <!--</a>-->
+                                        <!--<h6>123-456-789</h6>-->
+                                        <!--<p>2014-02-03 12:12:25</p>-->
+                                    <!--</li>-->
+                                    <!--<li class='thumb-figure'>-->
+                                        <!--<a class='thumb-anchor' data-id='{{id}}' data-name='{{name}}'>-->
+                                           <!--<span><img src="/module/common/images/inspect/car_pic.png"></span>-->
+                                        <!--</a>-->
+                                       <!--<h6>123-456-789</h6>-->
+                                        <!--<p>2014-02-03 12:12:25</p>-->
+                                    <!--</li>-->
+                                    <!--<li class='thumb-figure'>-->
+                                        <!--<a class='thumb-anchor' data-id='{{id}}' data-name='{{name}}'>-->
+                                           <!--<span><img src="/module/common/images/inspect/car_pic.png"></span>-->
+                                        <!--</a>-->
+                                       <!--<h6>123-456-789</h6>-->
+                                        <!--<p>2014-02-03 12:12:25</p>-->
+                                    <!--</li>-->
+                                    <!--<li class='thumb-figure'>-->
+                                        <!--<a class='thumb-anchor' data-id='{{id}}' data-name='{{name}}'>-->
+                                            <!--<span><img src="/module/common/images/inspect/car_pic.png"></span>-->
+                                        <!--</a>-->
+                                        <!--<h6>123-456-789</h6>-->
+                                        <!--<p>2014-02-03 12:12:25</p>-->
+                                    <!--</li>-->
+                                    <!--<li class='thumb-figure'>-->
+                                        <!--<a class='thumb-anchor' data-id='{{id}}' data-name='{{name}}'>-->
+                                            <!--<span><img src="/module/common/images/inspect/car_pic.png"></span>-->
+                                        <!--</a>-->
+                                       <!--<h6>123-456-789</h6>-->
+                                        <!--<p>2014-02-03 12:12:25</p>-->
+                                    <!--</li>-->
+                                    <!--<li class='thumb-figure'>-->
+                                        <!--<a class='thumb-anchor' data-id='{{id}}' data-name='{{name}}'>-->
+                                           <!--<span><img src="/module/common/images/inspect/car_pic.png"></span>-->
+                                        <!--</a>-->
+                                        <!--<h6>123-456-789</h6>-->
+                                        <!--<p>2014-02-03 12:12:25</p>-->
+                                    <!--</li>-->
+                                    <!--<li class='thumb-figure'>-->
+                                        <!--<a class='thumb-anchor' data-id='{{id}}' data-name='{{name}}'>-->
+                                           <!--<span><img src="/module/common/images/inspect/car_pic.png"></span>-->
+                                        <!--</a>-->
+                                        <!--<h6>123-456-789</h6>-->
+                                        <!--<p>2014-02-03 12:12:25</p>-->
+                                    <!--</li>-->
+                                    <!--<li class='thumb-figure'>-->
+                                        <!--<a class='thumb-anchor' data-id='{{id}}' data-name='{{name}}'>-->
+                                            <!--<span><img src="/module/common/images/inspect/car_pic.png"></span>-->
+                                        <!--</a>-->
+                                        <!--<h6>123-456-789</h6>-->
+                                        <!--<p>2014-02-03 12:12:25</p>-->
+                                    <!--</li>-->
+                                         <!--<li class='thumb-figure'>-->
+                                        <!--<a class='thumb-anchor' data-id='{{id}}' data-name='{{name}}'>-->
+                                            <!--<span><img src="/module/common/images/inspect/car_pic.png"></span>-->
+                                        <!--</a>-->
+                                        <!--<h6>123-456-789</h6>-->
+                                        <!--<p>2014-02-03 12:12:25</p>-->
+                                    <!--</li>-->
+                                    <!--<li class='thumb-figure'>-->
+                                        <!--<a class='thumb-anchor' data-id='{{id}}' data-name='{{name}}'>-->
+                                            <!--<span><img src="/module/common/images/inspect/car_pic.png"></span>-->
+                                        <!--</a>-->
+                                        <!--<h6>123-456-789</h6>-->
+                                        <!--<p>2014-02-03 12:12:25</p>-->
+                                    <!--</li>-->
+
+                                </ul>
+                                <div class="pagination pagepart itempager" id='pagination'></div>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+                <!-- 页面主体右侧_main_right_@End -->
+            </div>
+        <!-- 页面主体_main_@End -->
+        </div>
+    </div>
+    <div id="np-preview-picture" class="preview-picture">
+        <div class="preview-close pointer" id="np-preview-close"></div>
+
+        <div class="preview-main" id="np-preview-main">
+            <div class="preview-prev pointer" id="np-preview-prev"></div>
+            <div class="preview-next pointer" id="np-preview-next"></div>
+            <div class="preview-content">
+                <img class="preview-img" src="" id="np-preview-img" style="cursor: move">
+            </div>
+            <div class="preview-tools">
+                <div class="preview-tools-bar" id="np-tools-bar">
+                    <a class="pointer np-elel"><i class="elel-icon"></i></a>
+                    <a class="pointer np-addClues"><i class="addClues-icon"></i>生成线索</a>
+                    <a class="pointer np-download"><i class="download-icon"></i>下载</a>
+                    <a class="pointer np-marked"><i class="marked-icon"></i>人工标注</a>
+                    <a class="pointer np-handle"><i class="handle-icon"></i>图像处理</a>
+                    <a class="pointer np-store"><i class="store-icon"></i>入库</a>
+                    <a class="pointer np-delete"><i class="delete-icon"></i>删除</a>
+                </div>
+            </div>
+            <div class="thumb-picture" id="np-thumb-picture">
+                <button class="thumb-close pointer" id="np-thumb-close"></button>
+                <img src="" id="np-preview-thumb-img">
+                <div class="outline" id="np-thumb-outline"></div>
+            </div>
+        </div>
+        <div class="preview-sidebar" id="np-sidebar">
+            <div class="preview-sidebar-control pointer" id="np-sidebar-control"></div>
+            <div class="preview-sidebar-content">
+                <div class="preview-sidebar-content-title">
+                    <button class="preview-sidebar-content-title-editor pointer" id="np-editor-infomation"></button>
+                    <h4 class="preview-sidebar-content-title-h4" id="np-sidebar-title"></h4>
+                </div>
+                <div id="np-sidebar-detail">
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- 外层容器_Wrapper_@End -->
+    <!--script type="text/javascript" src="/libs/jquery/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="/libs/mootools/mootools.js"></script>
+    <script type="text/javascript" src="/component/base/base.self.js"></script>
+    <script type="text/javascript" src="/libs/handlebars/handlebars.js"></script>
+    <script type="text/javascript" src="/libs/jquery/jquery-ui.js"></script>
+    <script type="text/javascript" src="/libs/jquery/jquery-ui-timepicker-addon.js"></script>
+    <script type="text/javascript" src="/libs/scrollbar/scrollbar.js"></script>
+    <script type="text/javascript" src="/libs/jquery/jquery.pagination.js"></script>
+    <script type="text/javascript" src="cloudTree/tool.js"></script-->
+    <!---->
+    <!--<script type="text/javascript" >require(['./js/main.js']);</script>-->
+</body>
+
+</html>

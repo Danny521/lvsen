@@ -1,0 +1,149 @@
+{{#if guardrouteGroupList}}
+    {{#if guardrouteGroupList.grouplist.length}}
+        {{#each guardrouteGroupList.grouplist}}
+        <div class="route-team np-guard-route-group" data-id='{{id}}' data-routecount='{{policeLines.length}}' data-lines='{{policeLines}}' data-name='{{groupName}}'>
+            <div class="route-team-header" data-event="click" data-handler="ShowHideRoutes">
+                <i class="route-team-status"></i>
+                <span class="route-team-name" title="{{groupName}}">{{groupName}}</span>
+                <span class="route-team-number">( <em>{{policeLines.length}}</em> )</span>
+                <div class="route-team-button">
+                    <button class="route-team-add np-route-new np-first init" data-event="click" data-handler="AddGuardRoute" type="button" data-mark="route-new" data-dom="#sidebar-body"></button>
+                    <button class="route-team-editor" type="button"></button>
+                    <button class="route-team-delete" data-event="click" data-handler="DeleteGroup" type="button"></button>
+                </div>
+                <form class="route-team-form" onsubmit="return false;">
+                    <input class="route-team-form-name" maxlength="30" data-event="click" data-handler="ModifyGroupNameFocus" />
+                    <button class="blue-button save-button" data-event="click" data-handler="ModifyGroupName" type="submit">保存</button>
+                    <button class="white-button cancle-button" type="button">取消</button>
+                </form>
+            </div>
+            <ul class="route-team-body np-guard-route-list np-routes-list">
+
+            </ul>
+        </div>
+        {{/each}}
+    {{else}}
+    <p class="no-result-style">暂没有分组数据。</p>
+    {{/if}}
+{{/if}}
+
+{{#if guardrouteList}}
+    {{#if guardrouteList.policeline.length}}
+        {{#each guardrouteList.policeline}}
+        <li class="clearfix np-route-item" data-event="click" data-handler="ShowHideCameraList" data-id='{{id}}' data-pointinfo='{{pointinfo}}' data-bufferpoint='{{bufferpoint}}' data-startpoint='{{startpoint}}' data-stoppoint='{{stoppoint}}' data-zoom='{{zoom}}' data-name='{{name}}' data-code='{{code}}' data-gpsid='{{gpsId}}' data-startname='{{startname}}' data-stopname='{{stopname}}' data-distance='{{distance}}' data-score='{{score}}'>
+            <div class="route-team-info np-route-header-info">
+                <span><b class="checkbox  np-route-checkbox" data-event="click" data-handler="CheckGuardRoute"></b></span>
+                <span class="route-team-text np-route-name" title="{{name}}">线路<em class=" np-route-index">{{#formatIndex @index}}{{/formatIndex}}</em>： {{name}}</span>
+                <div class="camera-operate-icon np-route-item-opera">
+                    <button class="camera-play permission permission-real-time-view" data-event="click" data-handler="PlayRoute" type="button" title="播放"></button>
+                    <button class="camera-stop permission permission-real-time-view" data-event="click" data-handler="StopPausePlay" type="button" title="停止"></button>
+                    <button class="camera-set" data-event="click" data-handler="ConfigRoute" type="button" title="配置"></button>
+                    <button class="camera-editor" data-event="click" data-handler="EditRoute" type="button" title="编辑"></button>
+                    <button class="camera-delete" data-event="click" data-handler="DelRoute" type="button" title="删除"></button>
+                </div>
+            </div>
+            <div class="route-team-setting np-route-config">
+                <span class="arrow"></span>
+                <form onsubmit="return false;">
+                    <div class="row">
+                        <label>时间间隔:</label>
+                        <input class="np-config-time" value="5" />
+                    </div>
+                    <div class="row">
+                        <label>车队代号:</label>
+                        <input class="np-config-code" maxlength="30" value="{{code}}" />
+                    </div>
+                    <div class="row">
+                        <label>GPS编号:</label>
+                        <input class="np-config-gpsid" maxlength="30" value="{{gpsId}}" />
+                    </div>
+                    <div class="row pull-right" style="margin-top:0px;">
+                        <button class="blue-button save-button" data-event="click" data-handler="ConfigRouteSave" type="submit">保存</button>
+                        <button class="white-button cancle-button" data-event="click" data-handler="ConfigRouteCancel" type="button">取消</button>
+                    </div>
+                </form>
+            </div>
+        </li>
+        {{/each}}
+    {{else}}
+    <p class="no-result-style">该分组下暂没有警卫路线。</p>
+    {{/if}}
+{{/if}}
+
+{{#if searchResult}}
+<ul class="search-business-result np-search-guard-route-list np-routes-list">
+    {{#if searchResult.policeline.length}} {{#each searchResult.policeline}}
+    <li class="clearfix business-result-item np-route-item" data-event="click" data-handler="ShowHideCameraList" data-id='{{id}}' data-pointinfo='{{pointinfo}}' data-bufferpoint='{{bufferpoint}}' data-startpoint='{{startpoint}}' data-stoppoint='{{stoppoint}}' data-zoom='{{zoom}}' data-name='{{name}}' data-code='{{code}}' data-gpsid='{{gpsId}}' data-startname='{{startname}}' data-stopname='{{stopname}}' data-distance='{{distance}}' data-score='{{score}}'>
+        <div class="result-info np-route-header-info">
+            <span><b class="checkbox np-route-checkbox" data-event="click" data-handler="CheckGuardRoute"></b></span>
+            <span class="search-business-result-text np-route-name" title="{{name}}">{{name}}</span>
+            <div class="camera-operate-icon np-route-item-opera">
+                <button class="camera-play permission permission-real-time-view" data-event="click" data-handler="PlayRoute" type="button"></button>
+                <button class="camera-stop permission permission-real-time-view" data-event="click" data-handler="StopPausePlay" type="button"></button>
+                <button class="camera-set" data-event="click" data-handler="ConfigRoute" type="button"></button>
+                <button class="camera-editor" data-event="click" data-handler="EditRoute" type="button"></button>
+                <button class="camera-delete" data-event="click" data-handler="DelRoute" type="button"></button>
+            </div>
+        </div>
+        <div class="route-team-setting np-route-config">
+            <span class="arrow"></span>
+            <form onsubmit="return false;">
+                <div class="row">
+                    <label>时间间隔:</label>
+                    <input class="np-config-time" value="5" />
+                </div>
+                <div class="row">
+                    <label>车队代号:</label>
+                    <input class="np-config-code" maxlength="20" value="{{code}}" />
+                </div>
+                <div class="row">
+                    <label>GPS编号:</label>
+                    <input class="np-config-gpsid" maxlength="20" value="{{gpsId}}" />
+                </div>
+                <div class="row">
+                    <button class="blue-button save-button" data-event="click" data-handler="ConfigRouteSave" type="submit">保存</button>
+                    <button class="white-button cancle-button" type="button">取消</button>
+                </div>
+            </form>
+        </div>
+    </li>
+    {{/each}} {{else}}
+    <p class="no-result-style">没有查询到符合的警卫路线。</p>
+    {{/if}}
+</ul>
+{{/if}}
+
+{{#if cameraList}}
+<div class="defence-camera-list np-group-camera-content">
+    <i class="arrow"></i>
+    <div class="route-begin">
+        <i class="begin-point"></i>
+        <span class="name" title="{{routeData.startname}}">{{routeData.startname}}</span>
+        <span class="np-play-opera play-camera-list">
+            <i title="上一个" class="play-opera-icon play-prev" data-event="click" data-handler="preRouteCamera"></i>
+            <i title="下一个" class="play-opera-icon play-next" data-event="click" data-handler="nextRouteCamera"></i>
+        </span>
+    </div>
+    <ul class="np-group-camera-list">
+        {{#if cameraData.cameras.length}} 
+        <li class="camera-item clearfix total">共{{cameraData.cameras.length}}个</li>
+        {{#each cameraData.cameras}}
+        <li class="camera-item np-group-route-camera-item clearfix" data-id='{{id}}' data-name='{{name}}' data-type='{{type}}' data-camerastatus='{{camera_status}}' data-cameracode='{{#cameraCodeShow cameraCode}}{{/cameraCodeShow}}' data-installsddress='{{installAddress}}' data-cameratype='{{camera_type}}' data-latitude='{{latitude}}' data-longitude='{{longitude}}' data-hdchannel='{{translate hd_channel}}' data-sdchannel='{{translate sd_channel}}' data-installtype='{{installType}}' data-score='{{score}}'>
+            <i class="ico {{#cameraStatusAndTypeByChannels hd_channel sd_channel camera_type score}}{{/cameraStatusAndTypeByChannels}}"></i>
+            <span class="name np-group-route-camera-name" title="{{name}}{{#cameraCodeShow cameraCode}}{{/cameraCodeShow}}">{{name}}{{#cameraCodeShow cameraCode}}{{/cameraCodeShow}}</span>
+            <div class="camera-item-button clearfix">
+                <i class="camera-play permission permission-real-time-view" title="播放实时视频" data-event="click" data-handler="PlayCamera"></i>
+                <i class="camera-defence permission permission-set-defence-task" title="布防设置" data-event="click" data-handler="AddDefence"></i>
+                <i class="camera-twtall permission permission-sendto-tvwall" title="发送到电视墙" data-event="click" data-handler="SendToWall"></i>
+            </div>
+        </li>
+        {{/each}} {{else}}
+        <li class="camera-item clearfix no-result-style">此路线暂没有摄像机。</li>
+        {{/if}}
+    </ul>
+    <div class="route-end">
+        <i class="end-point"></i>
+        <span class="name" title="{{routeData.stopname}}">{{routeData.stopname}}</span>
+    </div>
+</div>
+{{/if}}

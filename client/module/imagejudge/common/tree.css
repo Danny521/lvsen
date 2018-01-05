@@ -1,0 +1,445 @@
+
+/*	远端资源树容器其他元素	*/
+.layer {
+	position:fixed;
+	top:0px;
+	left:0px;
+	right:0px;
+	bottom:0px;
+	background:#000;
+	z-index:1001;
+	opacity:0.5;
+	filter:alpha(opacity=50);
+	display:none;
+}
+.layer iframe{
+	width: 100%;
+	height: 100%;
+	/*z-index:1002;*/
+	background-color: transparent;
+}
+.select_file {
+	width:520px;
+	height:420px;
+	border:1px solid #cfd2d4;
+	background:#fff;
+	overflow:hidden;
+	position:fixed;
+	top:50%;
+	left:50%;
+	z-index:9999;
+	margin:-210px 0 0 -260px;
+	border-radius:5px;
+	display:none;
+}
+.select_file_title {
+	height:40px;
+	background:#dce1e7;
+	position:relative;
+}
+.select_file_title h6 {
+	height:40px;
+	line-height:40px;
+	font-weight:bold;
+	float:left;
+	padding:0 10px;
+}
+.select_file_title a {
+	width:12px;
+	height:12px;
+	display:block;
+	position:absolute;
+	top:14px;
+	right:10px;
+}
+.select_file_body {
+	height:310px;
+	margin: 10px;
+	padding: 5px 0;
+	border:1px solid #ebedf0;
+
+	overflow:hidden;
+}
+.select_file_foot {
+	position: relative;
+	height:40px;
+	background:#dce1e7;
+}
+.select_file_foot a {
+	position: absolute;
+	margin-right: 15px;
+	width: 45px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	display: inline-block;
+}
+
+.select_file_foot a.ui.select{
+	top:8px;
+	right: 85px;
+
+}
+.select_file_foot a.ui.cancel{
+	top:8px;
+	right: 10px;
+}
+.select_file_foot #checkAll{
+	position: relative;
+	top:10px;
+	left: 8px;
+}
+.select_file_foot #checkLabel{
+	position: relative;
+	top:8px;
+	left: 10px;
+}
+
+/* -------------- 资源树 --------------------*/
+.treePanel{
+	/*width: 210px;*/
+	overflow:hidden;
+	padding: 0;
+	margin-left: 10px;
+
+}
+
+.treePanel .no-data{
+	font-size: 11px;
+	margin: 0;
+	height: 16px;
+	line-height: 16px;
+	padding-left: 19px;
+}
+.treePanel .no-data i.loading-img{
+	display: inline-block;
+	float: left;
+	width: 16px;
+	height: 16px;
+	margin-right: 5px;
+	background: url(/module/common/images/animate/mini-loading.gif) no-repeat scroll 0 0 transparent;
+}
+
+
+.treePanel ul{
+	margin: 0 0 0 18px;
+	padding: 0;
+	list-style-type: none;
+}
+.treePanel>ul{
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	user-select: none; 
+	-o-user-select: none; 
+	-moz-user-select: none; 
+	-khtml-user-select: none; 
+	-webkit-user-select: none; 
+}
+.treePanel li{
+	padding-top: 2px;
+	white-space: nowrap;
+}
+.treePanel li i{
+	cursor: pointer;
+}
+.treePanel li div{
+	display: inline-block;
+}
+.treePanel li span{
+	display: inline-block;
+	cursor: pointer;
+	height:22px;
+	line-height: 22px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow:ellipsis;
+	vertical-align: text-bottom;
+}
+
+
+.treePanel li>i.fold{
+	display: inline-block;
+	position: relative;
+	top:-1px;
+	*top:-4px;
+	height: 13px;
+    width: 11px;
+    margin-right: 6px;
+	cursor: pointer;    
+	background: url("/module/common/images/close.png") no-repeat scroll 0 1px transparent;
+	/*display: none;*/
+}
+
+.treePanel li.active>i.fold{
+	background: url("/module/common/images/open.png") no-repeat scroll 0 1px transparent;
+}
+
+
+
+.treePanel li i.checkbox{
+    display: inline-block;
+    height: 15px;
+    margin-right: 6px;
+    padding: 0;
+    position: relative;
+    top: 0;
+    width: 15px;
+    cursor: pointer;
+ 	background: url("/module/common/images/sprites/tree_bg.png") no-repeat scroll -32px 0 transparent;
+}
+.treePanel li i.selected{
+	background: url("/module/common/images/sprites/tree_bg.png") no-repeat scroll -47px 0 transparent;
+}
+
+.treePanel li.cur>span{
+	/*color: #188DFB;*/
+}
+
+/*.treePanel li.leaf>span{
+	max-width: 120px;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}*/
+
+.treePanel li.root>span{
+	/*color: #188DFB;*/
+}
+
+.treePanel .leaf{
+	cursor: pointer;
+	padding-left: 17px;
+}
+
+.treePanel li i.root{
+	display: inline-block;
+	position: relative;
+	top:0;
+	*top:-2px;
+	width: 16px;
+	height: 13px;
+	margin-right: 3px;
+	padding: 0;
+	/*background: url("/module/common/images/icons/tree.png") no-repeat scroll -15px -13px transparent;*/
+	background: url("/module/common/images/imagejudge/icon_tree.png") no-repeat scroll -2px -2px  transparent;
+}
+/*.treePanel li.cur>i.root,
+.treePanel li:hover>i.root{
+	background-position: -148px -13px;
+}*/
+.treePanel li.graybg>div,
+.treePanel li>div:hover{
+	background-color: #dce3ed;
+	border-radius: 2px;
+}
+.treePanel li>div:hover>a{
+	/*display: none;*/
+	display: inline-block;
+	width: 16px;
+	height: 14px;
+	background: url("/module/common/images/imagejudge/icon.png") no-repeat scroll  -269px -38px transparent;
+}
+.treePanel li i.tree{
+	display: inline-block;
+	position: relative;
+	top:0;
+	*top:-2px;
+	width: 16px;
+	height: 14px;
+	margin-right: 3px;
+	padding: 0;
+	background: url("/module/common/images/imagejudge/icon_tree.png") no-repeat scroll -2px -2px  transparent;
+}
+
+.treePanel li.active>i.root,
+.treePanel li.active>i.tree{
+	background-position: -25px -2px
+}
+/* 摄像机树 覆写样式*/
+/* li i.camera-style.tree{
+	display: inline-block;
+	position: relative;
+	top:-1px;
+	*top:-3px;
+	width: 12px;
+	height: 13px;
+	padding: 0;
+	background: url("/module/common/images/sprites/tree_bg.png") no-repeat scroll -62px 0 transparent;
+}*/
+
+
+
+.treePanel li.cur>i.tree,
+.treePanel li:hover>i.tree{
+	/*background-position: -153px -551px;*/
+}
+
+
+
+/* 摄像机树 覆写*/
+/*.treePanel li.cur>i.tree.camera-style,
+.treePanel li:hover>i.tree.camera-style{
+	background-position: -73px 0;
+}*/
+
+
+
+.treePanel li i.leaf{
+	display: inline-block;
+	position: relative;
+	top:0;
+	*top:-2px;
+	width: 16px;
+	height: 14px;
+	margin-right: 3px;
+	padding: 0;
+	/*background: url("/module/common/images/icons/tree.png") no-repeat scroll -14px -551px transparent;*/
+	background: url("/module/common/images/imagejudge/icon_tree.png") no-repeat scroll -32px 0 transparent;
+}
+
+/*	显示文件夹	*/
+.treePanel li i.leaf.file0{
+	background-position: -2px -2px;
+}
+/*	显示视频 */	
+.treePanel li i.leaf.file1{
+	background-position: -64px -2px;
+}
+/* 显示图片	*/
+.treePanel li i.leaf.file2{
+	background-position: -45px -2px;
+}
+
+/*.treePanel li i.leaf.camera-style.active{
+	background-position: -85px 0;
+}*/
+
+/* 显示球机 */
+/*.treePanel li i.leaf.camera-style.dom{
+	background: url("/module/common/images/sprites/tree_bg.png") no-repeat scroll -156px 0 transparent;
+}
+.treePanel li i.leaf.camera-style.dom.active{
+	background-position:  -168px 0;
+}*/
+
+/*.treePanel li.cur>i.leaf,
+.treePanel li:hover>i.leaf{
+	background-position: -90px -592px;
+}
+*/
+/*.treePanel li.cur>i.leaf.camera-style,
+.treePanel li i.leaf.camera-style.marked,
+.treePanel li:hover>i.leaf.camera-style{
+	background-position: -85px 0 ;
+}*/
+.treePanel li:hover>span{
+	color: #1B6BBC;
+}
+
+/*.treePanel li>i.leaf.camera-style.marked{
+	background-position: -447px 0 ;
+}*/
+
+/*.treePanel li.cur>i.leaf.camera-style.dom,
+.treePanel li i.leaf.camera-style.dom.dom-marked,
+.treePanel li:hover>i.leaf.camera-style.dom{
+	background-position: -353px 0 ;
+}*/
+
+
+/*------------- scrollbar -------------   */
+.scrollbarPanel {
+	height: 100%;
+	clear: both; 
+}
+.scrollbarPanel .viewport { /*width: 200px;*/ height: 100%; overflow: hidden; position: relative; }
+.scrollbarPanel .overview { list-style: none; position: absolute; left: 0; top: 0; }
+.scrollbarPanel .thumb .end,
+.scrollbarPanel .thumb {
+	height: 72px;
+	width: 12px;
+	background: transparent url(/module/common/images/bg/scrollbar.png) 0 0 no-repeat;
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.scrollbarPanel .scrollbar { position: relative; float: right; width: 15px; margin-top: -5px;}
+.scrollbarPanel .track {
+ 	height: 100%;
+	width: 12px;
+	position: relative;
+	cursor: pointer;
+	background: transparent url(/module/common/images/bg/track_line.png) center 0 repeat-y;
+  }
+
+.scrollbarPanel .thumb { height: 72px; width: 13px; cursor: pointer; overflow: hidden; position: absolute; top: 0; }
+.scrollbarPanel .thumb .end { overflow: hidden; height: 5px; width: 13px; }
+.scrollbarPanel .disable{ display: none; }
+.noSelect { user-select: none; -o-user-select: none; -moz-user-select: none; -khtml-user-select: none; -webkit-user-select: none; }
+	
+
+
+
+#resourceTree .treePanel li[data-tree-level='1']>div{
+	width: 225px;
+}
+#resourceTree .treePanel li[data-tree-level='1']>div span{
+	width: 202px;
+	padding-left: 5px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+#resourceTree .treePanel li[data-tree-level='2']>div{
+	width: 207px;
+}
+#resourceTree .treePanel li[data-tree-level='2']>div span{
+	width: 184px;
+	padding-left: 5px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+#resourceTree .treePanel li[data-tree-level='3']>div{
+	width: 189px;
+}
+
+#resourceTree .treePanel li[data-tree-level='3']>div span{
+	width: 166px;
+	padding-left: 5px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+#resourceTree .treePanel li[data-tree-level='4']>div{
+	width: 171px;
+}
+
+#resourceTree .treePanel li[data-tree-level='4']>span{
+	width: 148px;
+	padding-left: 5px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+
+
+/* 资源数样式覆写  */
+#resourceTree .treePanel li>i.fold{
+	display: none;
+}
+#resourceTree .treePanel .leaf{
+	cursor: pointer;
+	padding-left: 0;
+}
+#resourceTree .treePanel .no-data{
+	padding-left: 2px;
+}
+#resourceTree .treePanel li>span:hover>a{
+	display: inline-block;
+}

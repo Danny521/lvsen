@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html style="height:100%;overflow-y:auto">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=10,chrome=1">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<title>视云实战平台</title>
+	<!--[if lt IE 9]>
+	<script src="/libs/html5/html5.js"></script>
+	<![endif]-->
+
+	<link type="text/css" rel="stylesheet" href="/module/common/css/base.css" />
+	<link type="text/css" rel="stylesheet" href="/libs/semantic/semantic.css" />
+	<link type="text/css" rel="stylesheet"  href="/libs/jquery/jquery-ui.css">
+	<link type="text/css" rel="stylesheet" href="/libs/jquery/jquery.datetimepicker.css"/>
+	<link type="text/css" rel="stylesheet" href="/module/viewlibs/toMediaLib/css/medialib.css"/>
+	<link type="text/css" rel="stylesheet" href="/module/viewlibs/caselib/css/entity.css"/>
+	<link type="text/css" rel="stylesheet" href="/module/viewlibs/common/common.css"/>
+	<link type="text/css" rel="stylesheet" href="/libs/thickbox/thickbox.css"/>
+	<link type="text/css" rel="stylesheet" href="/module/viewlibs/caselib/css/localhost.css"/>
+	<link rel="stylesheet" type="text/css" href="/module/viewlibs/caselib/css/dialog_video.css"/>
+	<link type="text/css" rel="stylesheet" href="/module/viewlibs/caselib/css/incident.css"/>
+
+</head>
+<body style="height:100%;overflow-y:auto">
+	<div id="content">
+		<div class="libbanner">
+			<span class="thr">
+				<a href="javascript:void(0)" onclick="return false;" class="already">选择结构化信息</a>
+				<a href="javascript:void(0)" onclick="return false;" class="already">填写结构化信息表单</a>
+				<a href="javascript:void(0)" onclick="return false;" class="current">填写所属视图表单</a>
+				<a href="javascript:void(0)" onclick="return false;" class="already">创建案事件</a>
+				<a href="javascript:void(0)" onclick="return false;">完成入库操作</a>
+			</span>
+		</div>
+		<div class="wrapper clearfix">
+			<iframe id="medialibIframe" src="/module/viewlibs/toMediaLib/inc/medialibIframeStruct.html" style="display: none" name="temiframe"></iframe>
+			<ul class="breadcrumb">
+				<li>
+					<a  href="/module/viewlibs/workbench/index.html">视图库</a>
+					<span class="divider">&gt;</span>
+				</li>
+				<li class="active">编辑视频信息</li>
+			</ul>
+			<div class="main modify">
+
+				<div class="resources tabview">
+					<form autocomplete="off"id="form">
+
+						<div class="fieldset">
+							<div class="module active">
+								<div class="module-head">
+									<h3>必填信息</h3> <i class="fix-png"></i>
+								</div>
+								<div class="module-body">
+									<div class="scrollbar disable">
+										<div class="track">
+											<div class="thumb"></div>
+										</div>
+									</div>
+									<div class="viewport">
+										<div class="overview">
+											<div class="group">
+												<div id="lineToIncident">
+												<div  class="form-item">
+													<span class="item-label">
+														<label for="">
+															<span class=""></span>
+															关联案事件：
+														</label>
+													</span>
+													<div><input id="unIncident" name="createincident" checked="checked" value="unIncident" type="radio"  /><span>不关联案事件</span>
+													</div>
+												</div>
+												<div  class="form-item">
+													<div class="item-box"><input id="createIncident" name="createincident" type="radio" value="createIncident" /><span>创建案事件</span>
+													</div>
+												</div>
+												<div  class="form-item">
+													<div class="item-box"><input id="existingIncident" name="createincident"  value="" type="radio"  /><span>添加至已有案事件</span>
+													</div>
+												</div>
+												<div  class="form-item">
+													<div class="item-box">
+														<input class="input-text" id="incidentname" maxlength="30" name="incidentname" type="text" placeholder="输入案事件名称"  disabled="true" value="">
+													</div>
+												</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="fileFormat">
+															<span class="required">*</span>
+															文件格式：
+														</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="fileFormat" name="fileFormat" data-default="" >
+															<option value="">--请选择--</option>
+															<option value="01">MPG</option>
+															<option value="02">MOV</option>
+															<option value="03">AVI</option>
+															<option value="04">RM</option>
+															<option value="05">RMVB</option>
+															<option value="06">XVID</option>
+															<option value="07">VOB</option>
+															<option value="08">M2TS</option>
+															<option value="09">MP4</option>
+															<option value="99">其他</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="shootTime">
+															<span class="required">*</span>
+															拍摄日期：
+														</label>
+													</span>
+													<div class="item-box">
+														<input class="input-text input-time" id="shootTime" maxlength="50" name="shootTime" value="" type="text"></div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="category">
+															<span class="required">*</span>
+															分类：
+														</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="category" name="category" data-default="">
+															<option value="">--请选择--</option>
+															<option value="F1">底片</option>
+															<option value="F2">正片</option>
+															<option value="F2.1">建设面貌</option>
+															<option value="F2.2">人物类</option>
+															<option value="F2.3">会议类</option>
+															<option value="F2.4">参观视察类</option>
+															<option value="F2.5">业务活动类</option>
+															<option value="F2.6">荣誉类</option>
+															<option value="F2.7">文体活动类</option>
+															<option value="F3">录音带</option>
+															<option value="F4">录像带</option>
+															<option value="F5">磁盘</option>
+															<option value="F6">光盘</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="name">
+															<span class="required">*</span>
+															题名：
+														</label>
+													</span>
+													<div class="item-box">
+														<input class="input-text" id="name" maxlength="30" name="name" value="" type="text"></div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="description">
+															<span class="required">*</span>
+															内容描述：
+														</label>
+													</span>
+													<div class="item-box">
+														<textarea class="input-area" id="description" maxlength="200" name="description" value=""></textarea>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="location">
+															<span class="required">*</span>
+															拍摄地点：
+														</label>
+													</span>
+													<div class="item-box">
+														<select id="province" name="province" class="input-select  notNull input-select-second" data-default="">
+															<option value="">--请选择--</option>
+														</select>
+														<select id="city" name="city" class="input-select  notNull input-select-second" data-default="">
+															<option value="">--请选择--</option>
+														</select>
+														<select id="country" name="country" class="input-select notNull input-select-second" data-default="">
+															<option value="">--请选择--</option>
+
+														</select>
+														<input name="streets" id="streets" class="input-text" placeholder="请输入街道详细地址" value="" maxlength="200" type="text"></div>
+												</div>
+
+												<div class="form-item">
+													<span class="item-label">
+														<label for="longitude">
+															<span class="required">*</span>
+															拍摄地点经度：
+														</label>
+													</span>
+													<div class="item-box">
+														<input class="input-text" id="longitude" maxlength="50" name="longitude" value="0.000000" type="text"></div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="latitude">
+															<span class="required">*</span>
+															拍摄地点纬度：
+														</label>
+													</span>
+													<div class="item-box">
+														<input class="input-text" id="latitude" maxlength="50" name="latitude" value="0.000000" type="text"></div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="duration">
+															<span class="required">*</span>
+															视频长度 <i class="graycolor">（秒）</i>
+															：
+														</label>
+													</span>
+													<div class="item-box">
+														<input class="input-text" id="duration" maxlength="50" name="duration" value="" type="text"></div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="enterTime">
+															<span class="required">*</span>
+															视频入点：
+														</label>
+													</span>
+													<div class="item-box">
+														<input class="input-text input-time" id="enterTime" maxlength="50" name="enterTime" value="" type="text"></div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="startTime">
+															<span class="required">*</span>
+															开始绝对时间：
+														</label>
+													</span>
+													<div class="item-box">
+														<input class="input-text input-time" id="startTime" maxlength="50" name="startTime" value="" type="text">
+														<label></label>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="endTime">
+															<span class="required">*</span>
+															结束绝对时间：
+														</label>
+													</span>
+													<div class="item-box">
+														<input class="input-text input-time" id="endTime" maxlength="50" name="endTime" value="" type="text">
+														<label></label>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="width">
+															<span class="required">*</span>
+															宽度：
+														</label>
+													</span>
+													<div class="item-box">
+														<input class="input-text" id="width" maxlength="50" name="width" value="1000" type="text"></div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="height">
+															<span class="required">*</span>
+															高度：
+														</label>
+													</span>
+													<div class="item-box">
+														<input class="input-text" id="height" maxlength="50" name="height" value="1000" type="text"></div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="module">
+								<div class="module-head">
+									<h3>选填信息</h3>
+									<i class="fix-png"></i>
+								</div>
+								<div class="module-body">
+									<div class="scrollbar disable">
+										<div class="track">
+											<div class="thumb"></div>
+										</div>
+									</div>
+									<div class="viewport">
+										<div class="overview">
+											<div class="group">
+
+												<div class="form-item">
+													<span class="item-label">
+														<label for="sourceId">来源：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="sourceId" name="sourceId" data-default="">
+															<option value="">--请选择--</option>
+															<option value="01">政府机关监控</option>
+															<option value="02">社会治安监控</option>
+															<option value="03">交通监控</option>
+															<option value="04">出入境监控</option>
+															<option value="05">港口监控</option>
+															<option value="06">金融系统监控</option>
+															<option value="07">旅馆监控</option>
+															<option value="08">互联网营业场所监控</option>
+															<option value="09">娱乐服务场所监控</option>
+															<option value="10">其它企业/事业单位监控</option>
+															<option value="11">居民自建监控</option>
+															<option value="12">移动拍摄</option>
+															<option value="13">网络获取</option>
+															<option value="99">其他</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="device">来源地点/设备编码：</label>
+													</span>
+													<div class="item-box">
+														<input class="input-text" id="device" maxlength="20" name="device" value="" type="text"></div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="codeFormat">编码格式：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="codeFormat" name="codeFormat" data-default="">
+															<option value="">--请选择--</option>
+															<option value="01">SVAC</option>
+															<option value="02">H.264</option>
+															<option value="03">MPEG-4</option>
+															<option value="04">MPEG-2</option>
+															<option value="99">其他</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="supplement">题名补充：</label>
+													</span>
+													<div class="item-box">
+														<input class="input-text" id="supplement" maxlength="30" name="supplement" value="" type="text"></div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="earmark">专项名：</label>
+													</span>
+													<div class="item-box">
+														<input class="input-text" id="earmark" maxlength="30" name="earmark" value="" type="text"></div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="subject">主题词：</label>
+													</span>
+													<div class="item-box">
+														<input class="input-text" id="subject" maxlength="30" name="subject" value="" type="text"></div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="keywords">关键词：</label>
+													</span>
+													<div class="item-box">
+														<input class="input-text" id="keywords" maxlength="30" name="keywords" value="" type="text"></div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="keyman">主题人物：</label>
+													</span>
+													<div class="item-box">
+														<input class="input-text" id="keyman" maxlength="30" name="keyman" value="" type="text"></div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="secrecy">密级：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="secrecy" name="secrecy" data-default="">
+															<option value="">--请选择--</option>
+															<option value="01">公开</option>
+															<option value="02">秘密</option>
+															<option value="03">机密</option>
+															<option value="04">绝密</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="language">语言：</label>
+													</span>
+													<div class="item-box">
+														<input class="input-text" id="language" maxlength="100" name="language" value="" type="text"></div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="picker">采集人：</label>
+													</span>
+													<div class="item-box">
+														<input class="input-text" id="picker" maxlength="100" name="picker" value="" type="text"></div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="pickerCompany">采集单位名称：</label>
+													</span>
+													<div class="item-box">
+														<input class="input-text" id="picker_company" maxlength="100" name="pickerCompany" value="" type="text"></div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="quality">质量等级：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="quality" name="quality" data-default="">
+															<option value="">--请选择--</option>
+															<option value="1">极差</option>
+															<option value="2">较差</option>
+															<option value="3">一般</option>
+															<option value="4">较好</option>
+															<option value="5">很好</option>
+														</select>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="form-item submit-area">
+							<div class="item-box submit-wrapper">
+								<!--<input class="before_update input-submit" type="button" value="上一步" />-->
+								<input class="next_update input-submit" type="submit" value="保存信息" />
+							</div>
+						</div>
+					</form>
+				</div>
+				<iframe src="/module/viewlibs/toMediaLib/inc/medialibIframe.html" style="display: none" name="videoiframe" id="videoiframe"></iframe>
+				<div class="entity-preview" data-id="{{id}}">
+					<div class="entity-box">
+						<div class="video ui tab active" data-tab="ocxbody">
+							<object id="UIOCX" type="applicatin/x-firebreath" align="center" width="800" height="520">
+								<param name="onload" value="pluginLoaded"/>
+							</object>
+							<div class="video-block">
+								<div class="progress-bg"></div>
+								<div class="progress-bar">
+									<div class="bullet">
+										<i class="play-point"></i>
+									</div>
+									<i class='start-mark'></i>
+									<i class='end-mark'></i>
+								</div>
+								<div class="panel" onselectstart="return false">
+									<span class="time">
+										<span class="nowtime" nowtime-ms="0">00:00:00</span>&nbsp;/
+										<span class="alltime" alltime-ms="0">00:00:00</span>
+									</span>
+									<span class="speed">倍速：<em></em></span>
+									<span class="fullwin" title="全屏"></span>
+									<span class="stop" title="停止"></span>
+									<span class="forward" title="快进"></span>
+									<span class="switch" title="播放"></span>
+									<span class="rewind" title="慢放"></span>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<!--<div id="footer">
+		<div class="wrapper">东方网力公司版权所有　© 2014</div>
+	</div>-->
+	<!--<script type="text/javascript" src="/component/base/base.self.js"></script>
+	<script type="text/javascript" src="/libs/jquery/jquery-ui-1.10.1.custom.min.js"></script>
+	<script type="text/javascript" src="/libs/jquery/jquery-ui-timepicker-addon.js"></script>
+	<script type="text/javascript" src="/libs/scrollbar/scrollbar.js"></script>
+	<script type="text/javascript" src="/component/cascade/common.cascade.js"></script>
+	<script type="text/javascript" src="/libs/jquery/jquery.validate.js"></script>
+	<script type="text/javascript" src="/module/viewlibs/common/js/tool.js"></script>
+	<script type="text/javascript" src="/module/viewlibs/caselib/js/incident.js"></script>
+	<script type="text/javascript" src="/module/common/js/nativePlayer.js"></script>
+	<script type="text/javascript" src="/module/viewlibs/caselib/js/player.js"></script>
+	<script type="text/javascript" src="/module/viewlibs/toMediaLib/getFileHWF.js"></script>
+    <script type="text/javascript" src="/module/viewlibs/toMediaLib/js/update_video_bak.js"></script>
+    <script type="text/javascript" src="/module/common/permission/permission.js"></script>-->
+	<script type="text/javascript" src="/libs/requirejs/require.js"></script>
+	<script type="text/javascript">
+		require(['/require-conf.js'],function(){
+			require(['/module/viewlibs/toMediaLib/js/update_video_bak.js']);
+		});
+
+	</script>
+</body>
+</html>

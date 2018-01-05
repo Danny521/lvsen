@@ -1,0 +1,274 @@
+{{!--人员布防--}}
+
+{{#if defensePersonList}}
+	<div class="breadcrumb">
+		{{#each defensePersonList.bread}}
+		<a class="section" data-id="{{this.id}}">{{this.name}}</a>
+		<span class="divider arrow">></span>
+		{{/each}}
+		<span class="active section">人员布控</span>
+	</div>
+ 	<div class="content" id="content_list">    
+    	<div class="conditions">
+            <label for="">姓名：</label>
+            <input type="text" />
+            <label for="">身份证号：</label>
+            <input type="text" />
+            <label for="">高危等级：</label>
+            <select>
+                <option>高</option>
+            </select>
+            <label for="">涉案类型：</label>
+            <select>
+                <option>涉案类型</option>
+            </select>
+            <a href="javascript:void(0);" title="查询" class="conditions_btn"></a>
+            <span>
+                <a href="javascript:void(0);" class="btn" id="new_btn">新建</a>
+                <a href="javascript:void(0);" class="btn">导出</a>
+            </span>
+        </div>
+        <div class="table_lists_wrap">                
+        	<table cellpadding="0" cellspacing="0" border="0" class="table_lists">
+                <thead>
+                    <tr>
+                        <th class="select"><input type="checkbox" /></th>
+                        <th>姓名</th>
+                        <th>性别</th>
+                        <th>身份证号</th>
+                        <th>高危等级</th>
+                        <th>涉案类型</th>
+                        <th>身高</th>
+                        <th>其他信息</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+            {{!-- 分页条 --}}
+            {{#if pagebar}}
+            <div class="pagepart">
+                <div class ="pagination"></div>
+            </div>
+            {{/if}} 
+        </div>
+	</div>
+{{/if}}
+
+{{!--人员布防列表--}}
+{{#if defensePersonItems}}
+	{{#each defensePersonItems.defensePerson}}
+        <tr>
+            <td class="select"><input type="checkbox" /></td>
+            <td>{{name}}</td>
+            <td>{{sex}}</td>
+            <td>{{cardID}}</td>
+            <td>{{rank}}</td>
+            <td>{{type}}</td>
+            <td>{{height}}</td>
+            <td>{{info}}</td>
+            <td class="tools">
+                <a href="javascript:void(0);" title="查看" class="icon_look"></a>
+                <a href="javascript:void(0);" title="范围" class="icon_scope"></a>
+                <a href="javascript:void(0);" title="编辑" class="icon_edit"></a>
+                <a href="javascript:void(0);" title="删除" class="icon_delete"></a>
+            </td>
+        </tr>
+    {{/each}}
+{{/if}}
+
+
+{{!--车辆布防--}}
+{{#if defenseCarList}}
+	<div class="breadcrumb">
+		{{#each defenseCarList.bread}}
+		<a class="section" data-id="{{this.id}}">{{this.name}}</a>
+		<span class="divider arrow">></span>
+		{{/each}}
+		<span class="active section">车辆布控</span>
+	</div>
+	<div class="content" id="content_list">    
+    	<div class="conditions">
+            <label for="">车牌：</label>
+            <input type="text" />
+            <label for="">车辆类型：</label>
+            <select>
+                <option>高</option>
+            </select>
+            <label for="">布控单位：</label>
+            <input type="text" />
+          	<label for="">布控时间：</label>
+            <input type="text" />
+            <a href="javascript:void(0);" title="查询" class="conditions_btn"></a>
+            <span>
+                <a href="javascript:void(0);" class="btn" id="new_btn">新建</a>
+                <a href="javascript:void(0);" class="btn">导出</a>
+            </span>
+        </div>
+        <div class="table_lists_wrap">                
+        	<table cellpadding="0" cellspacing="0" border="0" class="table_lists">
+                <thead>
+                    <tr>
+                        <th class="select"><input type="checkbox" /></th>
+                        <th>车牌号</th>
+                        <th>车辆类型</th>
+                        <th>布控开始时间</th>
+                        <th>布控结束时间</th>
+                        <th>布控类型</th>
+                        <th>布控单位</th>
+                        <th>布控原因</th>
+                        <th>布控等级</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+            {{!-- 分页条 --}}
+            {{#if pagebar}}
+            <div class="pagepart">
+                <div class ="pagination"></div>
+            </div>
+            {{/if}} 
+        </div>
+	</div>
+{{/if}}
+
+
+{{!--车辆布防列表--}}
+{{#if defenseCarItems}}
+	{{#each defenseCarItems.defenseCar}}
+	<tr {{even @index}} data-id="{{id}}">
+		<td class="select"><input type="checkbox" /></td>
+		<td class="">{{carid}}</td>
+		<td class="">{{carType}}</td>
+		<td class="">{{beginTime}}</td>
+		<td class="">{{endTime}}</td>
+		<td class="">{{defenseType}}</td>
+		<td class="">{{depart}}</td>
+		<td class="">{{reason}}</td>
+		<td class="">{{rank}}</td>
+		<td class="tools">
+            <a href="javascript:void(0);" title="查看" class="icon_look"></a>
+            <a href="javascript:void(0);" title="范围" class="icon_scope"></a>
+            <a href="javascript:void(0);" title="编辑" class="icon_edit"></a>
+            <a href="javascript:void(0);" title="删除" class="icon_delete"></a>
+        </td>
+	</tr>
+	{{/each}}
+{{/if}}
+
+{{!--布防管理--}}
+{{#if alarmingCameraList}}
+	<div class="breadcrumb">
+		{{#each alarmingCameraList.bread}}
+		<a class="section" data-id="{{this.id}}">{{this.name}}</a>
+		<span class="divider arrow">></span>
+		{{/each}}
+		<span class="active section">布防管理</span>
+	</div>
+ 	<div class="content" id="content_list">    
+    	<div class="conditions">
+            <label for="">名称：</label>
+            <input type="text" name="name"/>
+            <label for="">事件类型：</label>
+            <select name="status">
+                <option value="">全部</option>
+                {{#each alarmingCameraList.defences}}
+            	   <option value="{{evType}}">{{name}}</option>
+                {{/each}}
+            </select>
+            <input type="hidden" value="" id="hiddenEvType"/>
+            <a href="javascript:void(0);" title="查询" class="conditions_btn"></a>
+            <span>
+                <!-- <a href="javascript:void(0);" class="btn create_btn" id="new_btn">新建</a> -->
+               <!--  <a href="javascript:void(0);" class="btn export_btn">导出</a> -->
+                <a href="javascript:void(0);" class="btn set_btn" title="设置布防路数限制">设置</a>
+            </span>
+        </div>
+        <div class="table_lists_wrap">   
+            <table cellpadding="0" cellspacing="0" border="0" class="table_lists">
+                <thead>
+                    <tr>
+                        <th class="code">编号</th>
+                        <th align="left">摄像机名称</th>
+                        <th>操作</th>
+                    </tr>
+                    
+                </thead>
+                <tbody>   
+                </tbody>
+            </table>   
+            {{!-- 分页条 --}}
+            {{#if pagebar}}
+            <div class="pagepart">
+                <div class ="pagination"></div>
+            </div>
+            {{/if}}       
+        </div>
+	</div>
+{{/if}}
+
+{{!--摄像机列表--}}
+{{#if alarmingCameraItems}}
+    {{#if alarmingCameraItems.cameraList}}
+	{{#each alarmingCameraItems.cameraList}}
+		<tr class="{{even @index}} camera_list" data-id="{{id}}">
+			<td class="code">{{#list @index}}{{/list}}</td>
+			<td class="cameraname">{{cameraName}}{{#CameraCode cameraCode}}{{/CameraCode}}</td>
+			<td class="tools">
+	        	<a href="javascript:void(0);" title="查看" class="icon_look" data-id="{{id}}"></a>  
+              	<!--<a href="javascript:void(0);" title="范围" class="icon_scope"></a> -->
+	            <a href="javascript:void(0);" title="编辑" class="icon_edit" data-id="{{id}}"></a>
+	            <a href="javascript:void(0);" title="删除" class="icon_delete" data-id="{{id}}"></a>
+	        </td>
+		</tr>
+	{{/each}}
+    {{else}}
+        <tr class="no-camera-line">
+            <td colspan="3" class="no-camera-info">没有查询到与搜索条件相匹配的布防摄像机！</td>
+        </tr>
+    {{/if}}
+{{/if}}
+{{#if defenseTasks}}
+    <tr class="alarming_list">
+        <td class="code"></td>
+        <td colspan="2">
+            {{#each defenseTasks.defensetasks}}
+            <div class="control">
+                <span class="switch {{#isProtect enableTask}}{{/isProtect}}" title="{{#isProtectDes enableTask}}{{/isProtectDes}}" data-id="{{id}}"></span>
+                <em class="">{{ruleName}}</em>
+                <div class="tools">
+                    <a href="javascript:void(0);" title="编辑" class="icon_edit" data-id="{{id}}" data-evtype="{{evType}}"></a>
+                    <a href="javascript:void(0);" title="删除" class="icon_delete" data-id="{{id}}"></a>
+                </div>
+            </div>
+            {{/each}}
+        </td>
+    </tr>
+{{/if}}
+{{#if setDefenseLimitNums}}
+<div class="defence-mgr-pub-dialog">
+    <div class="dialog_title">
+        <h6>设置布防路数信息</h6>
+        <a href="javascript:void(0);" title="关闭" class="close"></a>
+    </div>
+    <div class="dialog_body">
+        <!--内容区-->
+        <div class="ui input cameras-limit-num" data-max-cameras="{{maxCameras}}" data-min-cameras="{{minCameras}}">
+            <em>最大布防摄像机数：</em><input type="text" name="camerasNum" value="{{curCameras}}" />
+        </div>
+        <div class="ui input tasks-limit-num" data-max-tasks="{{maxTasks}}" data-min-tasks="{{minTasks}}">
+            <em>最大布防任务数：</em><input type="text" name="tasksNum" value="{{curTasks}}" />
+        </div>
+        <div class="text-info-style">
+            <span>{{#NoticeInfo maxCameras maxTasks}}{{/NoticeInfo}}</span>
+        </div>
+    </div>
+    <div class="dialog_foot">
+        <input class="ui button blue save" type="button" value="确 定" />
+        <input class="ui button cancel" type="button" value="取 消" />
+    </div>
+</div>
+{{/if}}

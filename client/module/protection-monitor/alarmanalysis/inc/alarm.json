@@ -1,0 +1,56 @@
+{
+    "code": 200,
+    "data": {
+        "message": "成功",
+        "event": {
+            "id": 1,
+            "comment":"挖掘机技术到底哪家强",
+            "imgInfo": ["/assets/images/nopic.jpg"],
+            "cameraId": 1,
+            "persons": [{
+                "targetPersonId": 1,
+                "featureImagePath": ["/assets/images/nopic.jpg"],
+                "targetPersonName": "张三",
+                "compareScore": 629,
+                "libName": "嫌疑库",
+                "createTime": 1411644144000,
+                "description": "XXX案件嫌疑人"
+            }, {
+                "targetPersonId": 2,
+                "featureImagePath": ["/assets/images/nopic.jpg"],
+                "targetPersonName": "李四",
+                "compareScore": 800,
+                "libName": "逃犯库",
+                "createTime": 1411644144000,
+                "description": "潜逃人员"
+            },
+            {
+                "targetPersonId": 3,
+                "featureImagePath": ["/assets/images/nopic.jpg"],
+                "targetPersonName": "王四",
+                "compareScore": 800,
+                "libName": "逃犯库",
+                "createTime": 1411644144000,
+                "description": "潜逃人员"
+            },
+            {
+                "targetPersonId": 4,
+                "featureImagePath": ["/assets/images/nopic.jpg"],
+                "targetPersonName": "李一",
+                "compareScore": 800,
+                "libName": "逃犯库",
+                "createTime": 1411644144000,
+                "description": "潜逃人员"
+            },
+            {
+                "targetPersonId": 5,
+                "featureImagePath": ["/assets/images/nopic.jpg"],
+                "targetPersonName": "李天一",
+                "compareScore": 800,
+                "libName": "逃犯库",
+                "createTime": 1411644144000,
+                "description": "潜逃人员"
+            }]
+        }
+    }
+}

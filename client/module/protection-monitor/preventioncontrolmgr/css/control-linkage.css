@@ -1,0 +1,222 @@
+.linkage-panel .disnone {
+	display: none;
+}
+.linkage-panel {
+	height: 415px;
+}
+.linkage-panel .wrapper header {
+	border-bottom: 1px solid #ddd;
+	height: 44px;
+	background-color: #f3f3f3;
+}
+.linkage-panel .wrapper header .close {
+	background: url(/module/common/images/buttons/dialog-close.png) no-repeat scroll center center transparent;
+}
+.linkage-panel .wrapper header .close:hover {
+	background-image: url(/module/common/images/buttons/dialog-close-hover.png);
+}
+.linkage-panel .wrapper header .title {
+	font-size: 14px;
+	color: #444;
+}
+.linkage-panel .wrapper section {
+	padding: 0;
+}
+#linkageChooseContent nav {
+	border-bottom: 1px solid #E1E1E1;
+	height: 34px;
+	background-color: #FAFAFA;
+}
+#linkageChooseContent nav .item {
+	float: left;
+	box-sizing: border-box;
+	width: 114px;
+	height: 35px;
+	line-height: 35px;
+	text-align: center;
+	font-size: 12px;
+}
+#linkageChooseContent nav .item.active {
+	border-bottom: 2px solid #188DFB;
+}
+#linkageChooseContent nav .item.active a {
+	font-size: 13px;
+	color: #188DFB;
+}
+#linkageChooseContent nav .item a {
+	display: inline-block;
+	border-right: 1px solid #E9E9E9;
+	width: 100%;
+	height: 14px;
+	line-height: 14px;
+	color: #444;
+}
+#linkageChooseContent nav .item a * {
+	vertical-align: middle;
+}
+#linkageChooseContent nav .item .icon {
+	display: inline-block;
+	margin-right: 5px;
+	height: 14px;
+	width: 14px;
+	background: url("../images/notify-type.png") no-repeat 0 0;
+}
+#linkageChooseContent nav .telephone .icon {
+	background-position: 0 0;
+}
+#linkageChooseContent nav .telephone.active .icon {
+	background-position: 0 -15px;
+}
+#linkageChooseContent nav .email .icon {
+	background-position: -14px 0;
+}
+#linkageChooseContent nav .email.active .icon {
+	background-position: -14px -15px;
+}
+#linkageChooseContent nav .message .icon {
+	background-position: -30px 0;
+}
+#linkageChooseContent nav .message.active .icon {
+	background-position: -30px -15px;
+}
+.linkage-panel .wrapper section .linkage-content {
+	padding: 0 20px;
+}
+#linkageChooseContent .linkage-content {
+	margin-top: 13px;
+}
+#linkageChooseContent .linkage-content .add-area {
+	height: 32px;
+	line-height: 32px;
+}
+#linkageChooseContent .linkage-content .add-area .add-input {
+	border: 1px solid #DBDBDB;
+	padding: 5px 10px;
+	width: 278px;
+	height: 20px;
+	line-height: 20px;
+	border-radius: 4px;
+}
+#linkageChooseContent .linkage-content .add-area .add-btn {
+	margin: 0 0 0 10px;
+	padding: 0;
+	width: 50px;
+	height: 32px;
+}
+#linkageChooseContent .linkage-content .add-area .tips {
+	font-size: 12px;
+	color: #E24332;
+}
+#linkageChooseContent .linkage-content .add-result {
+	margin-top: 10px;
+	padding: 9px;
+	width: 510px;
+	height: 210px;
+	border: 1px solid #DBDBDB;
+	background-color: #FAFAFA;
+}
+#linkageChooseContent .linkage-content .add-result .no-result {
+	margin: 80px auto 0;
+	width: 280px;
+	line-height: 20px;
+	font-size: 12px;
+	color: #AAAAAA;
+}
+#linkageChooseContent .linkage-content .add-result .result-list li {
+	float: left;
+	margin-bottom: 6px;
+	margin-right: 4px;
+	padding: 0 4px;
+	width: 158px;
+	height: 25px;
+	background-color: #EFF7FE;
+	line-height: 25px;
+	font-size: 12px;
+	color: #333333;
+}
+#linkageChooseContent .linkage-content .add-result .result-list .element-name {
+	display: inline-block;
+	width: 140px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	word-wrap: normal;
+}
+#linkageChooseContent .linkage-content .add-result .result-list li .delete {
+	float: right;
+	margin-top: 5px;
+	width: 14px;
+	height: 14px;
+	background: url("../images/result-close.png") no-repeat -1px 0;
+	cursor: pointer;
+}
+#linkageChooseContent .linkage-content .add-result .result-list li .delete:hover {
+	background-position: -13px 0;
+}
+#linkageChooseContent .linkage-content .add-footer {
+	margin: 10px 0;
+	height: 24px;
+	color: #AAA;
+}
+#linkageChooseContent .linkage-content .add-footer .time-input-ctrl {
+	float: none;
+	vertical-align: middle;
+}
+#linkageChooseContent .linkage-content .add-footer .time-type {
+	display: inline-block;
+	cursor: pointer;
+}
+#linkageChooseContent .linkage-content .add-footer .time-type * {
+	vertical-align: middle;
+}
+#linkageChooseContent .linkage-content .add-footer .whole-day {
+	margin-right: 26px;
+}
+#linkageChooseContent .linkage-content .add-footer .time-type i {
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	background: url("../images/time-radio.png") no-repeat -16px 0;
+}
+#linkageChooseContent .linkage-content .add-footer .time-type i.active {
+	background-position: 0 0;	
+}
+#linkageChooseContent .linkage-content .add-footer .time {
+	border: 1px solid #ddd;
+	width: 28px;
+	height: 22px;
+	border-radius: 4px;
+	text-align: center;
+}
+#linkageChooseContent .linkage-content .add-footer .time-group {
+	color: #AAA;
+}
+#linkageChooseContent .linkage-content .message-content {
+	padding-left: 15px;
+}
+#linkageChooseContent .linkage-content .message-content .header *{
+	vertical-align: middle;
+}
+#linkageChooseContent .linkage-content .message-content .header .checkbox {
+	display: inline-block;
+	margin-right: 5px;
+	width: 17px;
+	height: 16px;
+	background: url("../images/link-checkbox.png") no-repeat 0 0;
+	cursor: pointer;
+}
+#linkageChooseContent .linkage-content .message-content .header .checkbox.active {
+	background-position: -17px 0;
+}
+#linkageChooseContent .linkage-content .message-content p {
+	margin-top: 10px;
+	padding: 10px;
+	border: 1px solid #E5E5E5;
+	width: 438px;
+	height: 18px;
+	border-radius: 4px;
+	background-color: #F9F9F9;
+	line-height: 18px;
+	font-size: 12px;
+	color: #999;
+}

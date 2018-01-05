@@ -1,0 +1,64 @@
+{{#if resFrame}}
+<ul class="np-res-container">
+
+</ul>
+{{/if}}
+
+{{#if police}}
+    {{#if items.length}}
+        {{#each items}}
+        <li class="number-car-people" data-event="click" data-handler="LeftResItemClick" data-key="{{key}}" data-lon="{{lon}}" data-lat="{{lat}}" data-type="{{type}}" data-subtype="{{subType}}" data-time="{{time}}"><i class="point"></i>GPS编号：{{gpsName}} <button class="check-locus np-gps-check-locus permission permission-gps-monitoring" title="查看轨迹" data-event="click" data-handler="ViewGPSLineClick" data-key="{{key}}" data-carCode="{{lprVale}}" data-lon="{{lon}}" data-lat="{{lat}}" data-type="{{type}}" data-subtype="{{subType}}" data-time="{{time}}"></button></li>
+        {{/each}}
+    {{else}}
+        <p class="no-result-style">暂无警力信息。</p>
+    {{/if}}
+{{/if}}
+
+{{#if lightbar}}
+    {{#if items.length}}
+        <li class="lightbar-item" style="cursor: auto">
+            <span class="lightbar-item-number">灯杆编号</span>
+            <span class="lightbar-item-address">地点</span>
+        </li>
+        {{#each items}}
+        <li class="lightbar-item np-lightbar-item" data-event="click" data-handler="LeftResItemClick" data-code="{{code}}" data-name="{{name}}" data-lon="{{longitude}}" data-lat="{{latitude}}" data-type="{{type}}" data-subtype="{{subType}}" data-description="{{description}}">
+            <span class="lightbar-item-number">{{code}}</span>
+            <span class="lightbar-item-address">{{name}}</span>
+        </li>
+        {{/each}}
+    {{else}}
+        <p class="no-result-style">暂无灯杆信息。</p>
+    {{/if}}
+{{/if}}
+
+{{#if policeman}}
+    {{#if items.length}}
+        {{#each items}}
+        <li class="number-car-people" data-event="click" data-handler="LeftResItemClick"  data-key="{{key}}" data-lon="{{lon}}" data-lat="{{lat}}" data-carCode="{{lprVale}}" data-type="{{type}}" data-subtype="{{subType}}" data-time="{{time}}"><i class="point"></i>350M编号：{{key}} <button class="check-locus permission permission-gps-monitoring" title="查看轨迹" data-event="click" data-handler="ViewGPSLineClick"></button></li>
+        {{/each}}
+    {{else}}
+        <p class="no-result-style">暂无警员信息。</p>
+    {{/if}}
+{{/if}}
+
+{{#if bayonet}}
+<ul>
+    {{#if items.length}}
+        {{#each items}}
+        <li></li>
+        {{/each}}
+    {{else}}
+        <p class="no-result-style">暂无卡口信息。</p>
+    {{/if}}
+</ul>
+{{/if}}
+
+{{#if maproute}}
+    {{#if items.length}}
+        {{#each items}}
+        <li class="maproute-item" data-event="click" data-handler="LeftRouteItemClick" data-pos="{{@index}}">{{value}}</li>
+        {{/each}}
+    {{else}}
+        <p class="no-result-style">暂无道路信息。</p>
+    {{/if}}
+{{/if}}

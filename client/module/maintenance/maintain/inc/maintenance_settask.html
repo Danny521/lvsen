@@ -1,0 +1,27 @@
+<div id="header">
+	<div class="setting-head newinsertheader">
+		<a class="ui button blue float-right" id="mytaskconfigtask" task-id="{{task.taskId}}">确定</a>
+		<a class="back back-home"> <i></i></a>
+	</div>
+</div>
+
+<div id="body">
+	<div class="serchbox advance">
+		<div class="ui input">
+			<label>
+				任务名称：
+				<input type="text" name="taskName" id="taskName" data-type="task" placeholder="请输入任务名称..." value="{{task.taskName}}"/>
+			</label>
+		</div>
+		<!--<div class="ui input">
+			<label>
+				提交时间：
+				<input type="text" name="taskDate" id="taskDate" class='datepicker input-time' readonly placeholder="请选择提交时间..." value="{{mills2str task.taskDate}}"/>
+			</label>
+		</div>-->
+	</div>
+	<p>巡检摄像机：</p>
+	<div class="cameras-list settask" data-tab="list">
+		<div class="treePanel">摄像机列表</div>
+	</div>
+</div>

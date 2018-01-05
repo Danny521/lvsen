@@ -1,0 +1,185 @@
+{{#if addMark}}
+<div class="infowindow-title">
+    <span class="text">编辑标记</span>
+		<span class="btns">
+			<span class="my-attention-ico" id="AddToMyAttention" title="加入关注"></span><!-- permission permission-favorite-->
+			<i class="closeBtn" title="关闭" data-handler="close"></i>
+		</span>
+</div>
+<div class="map-police-schuduling">
+    <div class="ui input">
+        <span>名称：</span>
+        <input type="text" name="markerName" id="markerName" placeholder="我的标记" maxlength="15">
+        <input type="hidden" name="markerX" id='markerX'/>
+        <input type="hidden" name="markerY" id='markerY'/>
+        <input type="hidden" name="markerIndex" id='markerIndex'/>
+        <input type="hidden" name="markerId" id='markerId'/>
+        <input type="hidden" name="isMyAttention" id='isMyAttention' value='false'/>
+    </div>
+    <div class="ui form">
+        <div class="ui field">
+            <span>备注：</span>
+            <textarea name="markerDescription" id="markerDescription" maxlength="200" placeholder="我的备注"></textarea>
+        </div>
+    </div>
+    <div class="ui buttons">
+        <div class="ui blue small button" id="saveMarker">保存</div>
+        <div class="ui small button" id="deleteMarker">删除</div>
+    </div>
+</div>
+{{/if}}
+
+{{#if editMarkfalse}}
+{{#with  editMarkfalse.attributes}}
+<div class="infowindow-title">
+    <span class="text">{{#if name}}{{name}}{{else}}编辑标记{{/if}}</span>
+		<span class="btns">
+			<i class="my-attention-ico" id="AddToMyAttention" title="加入关注"></i><!-- permission permission-favorite-->
+			<i class="closeBtn" title="关闭" data-handler="close"></i>
+		</span>
+</div>
+<div class="map-police-schuduling">
+    <div class="ui input">
+        <span>名称：</span>
+        <input type="text" name="markerName" id="markerName" placeholder="我的标记" maxlength="15" value="{{name}}">
+        <input type="hidden" name="markerName" id="markerName" value="{{name}}"/>
+        <input type="hidden" name="markerX" id='markerX' value="{{lon}}"/>
+        <input type="hidden" name="markerY" id='markerY' value="{{lat}}"/>
+        <input type="hidden" name="markerIndex" id='markerIndex' value="{{index}}"/>
+        <input type="hidden" name="markerId" id='markerId' value="{{markerId}}"/>
+        <input type="hidden" name="isMyAttention" id='isMyAttention' value="{{isMyAttention}}"/>
+    </div>
+    <div class="ui form">
+        <div class="ui field">
+            <span>备注：</span>
+            <textarea name="markerDescription" id="markerDescription" maxlength="200" placeholder="我的备注">{{remark}}</textarea>
+        </div>
+    </div>
+    <div class="ui buttons">
+        <div class="ui blue small button" id="saveMarker">保存</div>
+        <div class="ui small button" id="deleteMarker">删除</div>
+    </div>
+</div>
+{{/with}}
+{{/if}}
+
+{{#if editMarktrue}}
+{{#with  editMarktrue.attributes}}
+<div class="infowindow-title">
+    <span class="text">{{name}}</span>
+		<span class="btns">
+			<i class="my-attention-ico-cancel" id="cancelFromMyAttention" title="取消关注"></i><!-- permission permission-favorite-->
+			<i class="closeBtn" title="关闭" data-handler="close"></i>
+		</span>
+</div>
+<div class="map-police-schuduling">
+    <div class="ui input">
+        <span>名称：</span>
+        <input type="text" name="markerName" id="markerName" placeholder="我的标记" maxlength="15" value="{{name}}">
+        <input type="hidden" name="markerName" id="markerName" value="{{name}}"/>
+        <input type="hidden" name="markerX" id='markerX' value="{{lon}}"/>
+        <input type="hidden" name="markerY" id='markerY' value="{{lat}}"/>
+        <input type="hidden" name="markerIndex" id='markerIndex' value="{{index}}"/>
+        <input type="hidden" name="markerId" id='markerId' value="{{markerId}}"/>
+        <input type="hidden" name="isMyAttention" id='isMyAttention' value="{{isMyAttention}}"/>
+    </div>
+    <div class="ui form">
+        <div class="ui field">
+            <span>备注：</span>
+            <textarea name="markerDescription" id="markerDescription" maxlength="200" placeholder="我的备注">{{nullToremark remark}}</textarea>
+        </div>
+    </div>
+    <div class="ui buttons">
+        <div class="ui blue small button" id="saveMarker">保存</div>
+        <div class="ui small button" id="deleteMarker">删除</div>
+    </div>
+</div>
+{{/with}}
+{{/if}}
+
+{{#if MyAttentiontrue}}
+{{#with MyAttentiontrue.attributes}}
+<div class="infowindow-title">
+    <span class="text">{{nullToName name}}</span>
+	<span class="btns">
+        <i class="marker-edit" title="编辑"></i>
+        <i class="my-attention-ico-cancel" id="cancelFromMyAttention" title="取消关注"></i><!-- permission permission-favorite-->
+        <i class="closeBtn" title="关闭" data-handler="close"></i>
+    </span>
+</div>
+<div class="map-marker-business">
+    <div class="marker-remark" title="{{nullToremark remark}}">
+        {{nullToremark remark}}
+    </div>
+    <input type="hidden" name="markerName" id="markerName" value="{{name}}"/>
+    <input type="hidden" name="markerX" id='markerX' value="{{lon}}"/>
+    <input type="hidden" name="markerY" id='markerY' value="{{lat}}"/>
+    <input type="hidden" name="markerIndex" id='markerIndex' value="{{index}}"/>
+    <input type="hidden" name="markerId" id='markerId' value="{{markerId}}"/>
+    <input type="hidden" name="isMyAttention" id='isMyAttention' value="{{isMyAttention}}"/>
+    <input type="hidden" name="markerDescription" id="markerDescription" value="{{remark}}"/>
+</div>
+{{/with}}
+{{/if}}
+
+{{#if MyAttentionfalse}}
+{{#with  MyAttentionfalse.attributes}}
+<div class="infowindow-title">
+    <span class="mark-name">{{nullToName name}}</span>
+	<span class="btns">
+        <i class="marker-del" title="删除此点"></i>
+        <i class="marker-edit" title="编辑"></i>
+        <i class="my-attention-ico" id="AddToMyAttention" title="加入关注"></i><!-- permission permission-favorite-->
+        <i class="closeBtn" title="关闭" data-handler="close"></i>
+    </span>
+</div>
+<div class="map-marker-business">
+    <div class="marker-remark" title="{{nullToremark remark}}">
+        {{nullToremark remark}}
+    </div>
+    <input type="hidden" name="markerName" id="markerName" value="{{name}}"/>
+    <input type="hidden" name="markerX" id='markerX' value="{{lon}}"/>
+    <input type="hidden" name="markerY" id='markerY' value="{{lat}}"/>
+    <input type="hidden" name="markerIndex" id='markerIndex' value="{{index}}"/>
+    <input type="hidden" name="markerId" id='markerId' value="{{markerId}}"/>
+    <input type="hidden" name="isMyAttention" id='isMyAttention'  value="{{isMyAttention}}"/>
+    <input type="hidden" name="markerDescription" id="markerDescription" value="{{remark}}"/>
+</div>
+{{/with}}
+{{/if}}
+
+{{#if showFooter}}
+<div class="infowindow-footer">
+    <ul class="footer-tabs">
+        <li class="active" data-tab="near"><i class="around"></i>在附近找</li>
+        <li data-tab="endhere" class="permission permission-path-planning"><i class="endhere"></i>到这里去</li>
+        <li data-tab="fromhere" class="permission permission-path-planning"><i class="gothere"></i>从这里出发</li>
+    </ul>
+    <div class="footer-tabs-content">
+        <div class="active" data-tab="endhere">
+            <span>起点：</span>
+            <span class="ui input origination"><input type="text"  name="start-point" data-type="start" class="input-search-address"/></span>
+            <input class="ui button best-route-origin" maxlength="100" data-handler="originRouteSearch" type="button" value="路径规划" />
+        </div>
+        <div data-tab="fromhere">
+            <span>终点：</span>
+            <span class="ui input destination"><input type="text"  data-type="end" class="input-search-address"/></span>
+            <input class="ui button best-route-dest" maxlength="100" data-handler="destRouteSearch" type="button" value="路径规划" />
+        </div>
+        <div data-tab="near">
+            <span class="resource-links">
+                <a data-handler="cameraSearch">摄像机</a>
+                <a data-handler="bayonetSearch">卡口</a>
+                <a data-handler="policeCarSearch">警力</a>
+               <!-- <a data-handler="policeSearch">警员</a>-->
+                <a data-handler="lightbarSearch">灯杆</a>
+                <a data-handler="alarmSearch">报警信息</a>
+            </span>
+            <form onsubmit="return false;" style="display: inline">
+                <span class="ui input search-content"><input type="text" maxlength="30" /></span>
+                <input class="ui button search" data-handler="normalSearch" type="submit" value="搜索" />
+            </form>
+        </div>
+    </div>
+</div>
+{{/if}}

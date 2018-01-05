@@ -1,0 +1,129 @@
+{{#if regionSelect}}
+<div class="map-tool-item">
+	<a>{{regionName}}</a>
+</div>
+{{/if}}
+
+{{#if resource}}
+<div class="map-tool-item map-resource" data-event="mouseenter mouseleave" data-handler="MaptoolItemHover">
+    <i class="map-tool-i resource"></i>
+    <a title="资源">资源</a>
+    <ul class="map-resource-list">
+        {{#if resource.camera}}
+        <li class="camera-resource list-item first-child np-map-schedule-fullview" data-type="camera" data-event="mouseenter mouseleave click" data-handler="CameraResourceItemHover">
+            <i class="checkbox checked"></i>
+            <a class="map-resource-camera">摄像机</a>
+            <i class="resource-type-i camera"></i>
+            <ul class="camera-type-list" data-event="mouseleave" data-handler="CameraTypeListLeave">
+                <li class="list-item-camera first-child np-map-schedule-fullview" data-type="Indoor" data-event="click" data-handler="CameraResourceTypeClick"><i class="checkbox checked"></i><a>室内</a></li>
+                <li class="list-item-camera np-map-schedule-fullview" data-type="HiShpomt" data-event="click" data-handler="CameraResourceTypeClick"><i class="checkbox checked"></i><a>制高点</a></li>
+                <li class="list-item-camera np-map-schedule-fullview" data-type="Elevated" data-event="click" data-handler="CameraResourceTypeClick"><i class="checkbox checked"></i><a>高架</a></li>
+                <li class="list-item-camera np-map-schedule-fullview" data-type="Water" data-event="click" data-handler="CameraResourceTypeClick"><i class="checkbox checked"></i><a>水面</a></li>
+                <li class="list-item-camera last-child np-map-schedule-fullview" data-type="Ground" data-event="click" data-handler="CameraResourceTypeClick"><i class="checkbox checked"></i><a>路面</a></li>
+            </ul>
+            <iframe class="camera-type-list camera-type-iframe" scroll="none" src="about:blank"></iframe>
+        </li>
+        {{/if}}
+        {{#if resource.bayonet}}
+        <li class="bayonet-resource list-item np-map-schedule-fullview" data-type="bayonet" data-event="click" data-handler="ResourceItemClick"><i class="checkbox "></i><a class="map-resource-bayonet">卡口</a><i class="resource-type-i bayonet"></i></li>
+        {{/if}}
+        {{#if resource.lightbar}}
+        <li class="lightbar-resource list-item np-map-schedule-fullview" data-type="lightbar" data-event="click" data-handler="ResourceItemClick"><i class="checkbox"></i><a class="map-resource-lightbar">灯杆</a><i class="resource-type-i lightbar"></i></li>
+        {{/if}}
+        {{#if resource.policecar}}
+        <li class="policecar-resource list-item np-map-schedule-fullview" data-type="policecar" data-event="click" data-handler="ResourceItemClick"><i class="checkbox"></i><a class="map-resource-policecar">警力</a><i class="resource-type-i policecar"></i></li>
+        {{/if}}
+        {{#if resource.policeman}}
+        <!--<li class="policeman-resource list-item np-map-schedule-fullview" data-type="policeman" data-event="click" data-handler="ResourceItemClick"><i class="checkbox"></i><a class="map-resource-policeman">警员</a><i class="resource-type-i policeman"></i></li>-->
+        {{/if}}
+    </ul>
+    <iframe class="map-resource-list map-resource-iframe" scroll="none" src="about:blank"></iframe>
+</div>
+{{/if}}
+
+{{#if mapShowInfo}}
+<div class="map-tool-item map-showInfo np-map-schedule-fullview" data-event="mouseenter mouseleave click" data-handler="MaptoolItemAlarm">
+    <i class="map-tool-i alarm"></i>
+    <a title="报警信息">报警信息</a>
+</div>
+{{/if}}
+
+{{#if select}}
+<div class="map-tool-item map-select np-map-schedule-fullview" data-event="mouseenter mouseleave click" data-handler="MapSelectItem">
+    <i class="map-tool-i select"></i>
+	<a title="选择" class="map-select">选择</a>
+	<ul class="map-select-list">
+		{{#if select.rectSelect}}
+		<li class="camera-select list-item np-map-schedule-fullview" data-event="click" data-handler="MapSelect"><i class="map-rectangle-select-i"></i><a class="map-rectangle-select">框选</a></li>
+		{{/if}}
+		{{#if select.circleSelect}}
+		<li class="camera-select list-item np-map-schedule-fullview" data-event="click" data-handler="MapSelect"><i class="map-circle-select-i"></i><a class="map-circle-select">圈选</a></li>
+		{{/if}}
+		<li class="camera-select list-item np-map-schedule-fullview" data-event="click" data-handler="MapSelect"><i class="map-line-select-i"></i><a class="map-line-select">线选</a></li>
+		<li class="camera-select list-item np-map-schedule-fullview" data-event="click" data-handler="MapSelect"><i class="map-polygon-select-i"></i><a class="map-polygon-select">多边形选</a></li>
+	</ul>
+	<iframe class="map-select-list map-select-iframe" scroll="none" src="about:blank"></iframe>
+</div>
+{{/if}}
+
+{{#if rangeSearch}}
+<div class="map-tool-item seerange" data-event="mouseenter mouseleave" data-handler="MaptoolItemHover">
+    <i class="map-tool-i seerange"></i>
+	<a title="视野内搜索">视野内搜索</a>
+	<div class="map-searcharound-content" id="mapSearchAroundContent">
+		
+	</div>
+	<iframe class="map-searcharound-content" scroll="none" src="about:blank"></iframe>
+</div>
+{{/if}}
+
+{{#if tools}}
+<div class="map-tools-a map-tool-item" data-event="mouseenter mouseleave" data-handler="MaptoolItemHover">
+    <i class="map-tool-i maptools"></i>
+	<a title="工具">工具</a>
+	<ul class="map-tools-list">
+		{{#if tools.max}}
+		<li class="list-item np-map-schedule-fullview" data-event="click" data-handler="MapToolsDeal"><i class="map-max-i"></i><a class="map-max">放大</a></li>
+		{{/if}}
+		{{#if tools.min}}
+		<li class="list-item np-map-schedule-fullview" data-event="click" data-handler="MapToolsDeal"><i class="map-min-i"></i><a class="map-min">缩小</a></li>
+		{{/if}}
+		{{#if tools.measureLength}}
+		<li class="list-item np-map-schedule-fullview" data-event="click" data-handler="MapToolsDeal"><i class="map-measure-i"></i><a class="map-measure">测距</a></li>
+		{{/if}}
+		{{#if tools.screenshot}}
+		<li class="list-item np-map-schedule-fullview" data-event="click" data-handler="MapToolsDeal"><i class="map-screenshot-i"></i><a class="map-screenshot">截图</a></li>
+		{{/if}}
+		{{#if tools.print}}
+		<li class="list-item np-map-schedule-fullview" data-event="click" data-handler="MapToolsDeal"><i class="map-print-i"></i><a target="print" class="map-print" id="mapPrint">打印</a></li>
+		{{/if}}
+		{{#if tools.mapclear}}
+		<li class="list-item np-map-schedule-fullview" data-event="click" data-handler="MapToolsDeal"><i class="map-clear-i"></i><a class="map-clear" id="mapClear">清除</a></li>
+		{{/if}}
+	</ul>
+	<iframe class="map-tools-list" scroll="none" src="about:blank"></iframe>
+</div>
+{{/if}}
+
+{{#if fullScreen}}
+<div class="map-tool-item map-fullscreen" data-event="mouseenter mouseleave click" data-handler="MaptoolItemFullscreen">
+    <i class="map-tool-i fullscreen"></i>
+	<a title="全屏">全屏</a>
+</div>
+{{/if}}
+
+{{#if switchLayer}}
+<a class="map-layer-satellite np-map-schedule-fullview" data-event="click" data-handler="MapSwitch" title="显示卫星图层" layer="normal"></a>
+{{/if}}
+
+{{#if platMap}}
+<a class="map-platmap" data-event="click" data-handler="PlatMap" title="显示平面地图" layer="normal"></a>
+{{/if}}
+
+{{#if fullViewImg}}
+<div class="map-fullview-img"></div>
+{{/if}}
+
+{{#if policeScheduleImg}}
+<div class="map-police-schedule-img"></div>
+{{/if}}

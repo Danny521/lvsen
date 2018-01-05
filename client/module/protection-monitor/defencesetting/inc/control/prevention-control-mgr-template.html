@@ -1,0 +1,774 @@
+{{#if EditPeopleControlTask}}
+	<form id="PeopleTaskFrom"  class="people-task-form">
+		<table>
+			<tr>
+				<td class="label">任务名称：</td>
+				<td class="ui input">
+                    <input type="text" value="{{EditPeopleControlTask.task.name}}" maxlength="020" name="taskName" placeholder="请输入名称"/>
+					<input type="hidden" value="{{EditPeopleControlTask.task.id}}" name="id"/>
+                </td>
+			</tr>
+			<tr>
+				<td class="label">布控级别：</td>
+				<td>
+                    <div class="select_container" data-type="alarm-level">
+                        <span class="text" data-value="{{#FilterControlDetails EditPeopleControlTask.task.level 'value' 'level'}}{{/FilterControlDetails}}">{{#FilterControlDetails EditPeopleControlTask.task.level 'text' 'level'}}{{/FilterControlDetails}}</span>
+                        <span class="arrow-down"></span>
+                    </div>
+				</td>
+			</tr>
+			<tr>
+				<td class="label">起始时间：</td>
+				<td class="ui input"><input type="text" class="input-time" value="{{#FilterControlDetails EditPeopleControlTask.task.startTime 'text' 'time'}}{{/FilterControlDetails}}" name="startTime"/></td>
+			</tr>
+			<tr>
+				<td class="label">结束时间：</td>
+				<td class="ui input"><input type="text" class="input-time" value="{{#FilterControlDetails EditPeopleControlTask.task.endTime 'text' 'time'}}{{/FilterControlDetails}}" name="endTime"/></td>
+			</tr>
+			<tr>
+				<td class="label library">布 控 库：</td>
+				<td>
+					<ul class="control-library">
+						{{#each EditPeopleControlTask.libraries}}
+						<li class="clearfix" data-id="{{id}}" data-libraryname="{{libraryName}}" data-libflag="{{libFlag}}">
+							<i class="checkbox {{#Checked selected}}{{/Checked}}"></i>
+							<span class="text" title="{{libraryName}}">{{libraryName}}</span>
+						</li>
+						{{/each}}
+					</ul>
+				</td>
+			</tr>
+		</table>
+		<p class="linkage-head clearfix permission permission-set-ganged-rule">联动方式设定：<button class="linkage-check ui button blue" data-taskId="{{EditPeopleControlTask.task.id}}">联动选择</button></p>
+		<p class="camera-list-head">
+			<span>点位</span>
+			<span class="opera">
+				<input class="tree-select ui button small blue" type="button" value="勾选"/>
+				<input class="map-select ui button small blue" type="button" value="框选"/>
+			</span>
+		</p>
+		<ul class="camera-list">
+			
+		</ul>
+	</form>
+{{/if}}
+
+{{#if DefenceEditCameraList}}
+	{{#if DefenceEditCameraList.cameras}}
+	{{#each DefenceEditCameraList.cameras}}
+		<li class="camera-item clearfix" data-id="{{id}}" data-name="{{name}}" data-cameracode="{{cameraCode}}" data-cameratype="{{camera_type}}" data-longitude="{{longitude}}" data-latitude="{{latitude}}" data-hdchannel="{{translate hd_channel}}" data-sdchannel="{{translate sd_channel}}" data-cstatus="{{camera_status}}" data-minsize="{{minSize}}"  data-maxsize="{{maxSize}}"  data-left="{{left}}"  data-top="{{top}}"  data-right="{{right}}"  data-bottom="{{bottom}}">
+			<span class="camera-img {{#cameraStatusAndTypeByChannels hd_channel sd_channel camera_type}}{{/cameraStatusAndTypeByChannels}}"></span>
+			<span class="text" title="{{name}}{{#cameraCodeShow cameraCode}}{{/cameraCodeShow}}">{{name}}{{#cameraCodeShow cameraCode}}{{/cameraCodeShow}}</span>
+			<span class="camera-opera">
+				<i class="config" data-id={{id}} title="设置"></i>
+				<i class="delete" data-id={{id}} title="删除"></i>
+			</span>
+			<div class="control-camera-config">
+                <p class="first-line rule-modify">
+                    <span class="label">设置布控区域：</span><input type="button" class="ui button middle blue" value="设置"/>
+                </p>
+				<p class="second-line min-face">
+					<span class="label">最小人脸(px)：</span> <input type="text" name="minW" placeholder="宽" value="{{minSize}}"/><input type="text" name="minH" placeholder="高" value="{{minSize}}"/><input type="button" class="ui button middle blue" value="标定"/>
+				</p>
+				<p class="third-line max-face">
+					<span class="label">最大人脸(px)：</span> <input type="text" name="maxW" placeholder="宽" value="{{maxSize}}"/><input type="text" name="maxH" placeholder="高" value="{{maxSize}}"/><input type="button" class="ui button middle blue" value="标定"/>
+				</p>
+				<p class="forth-line save-protect">
+                    <input type="hidden" name="minSize" value="{{minSize}}"/>
+                    <input type="hidden" name="maxSize" value="{{maxSize}}"/>
+                    <input type="hidden" name="left" value="{{left}}"/>
+                    <input type="hidden" name="top" value="{{top}}"/>
+                    <input type="hidden" name="right" value="{{right}}"/>
+                    <input type="hidden" name="bottom" value="{{bottom}}"/>
+					<input type="button" class="ui button middle blue save" value="保存">
+                    <input type="button" class="ui button middle cancel" value="取消">
+				</p>
+			</div>
+		</li>
+	{{/each}}
+	{{else}}
+		<li class="no-result">暂无摄像机！</li>
+	{{/if}}
+{{/if}}
+
+{{#if DefenceAddCameras}}
+	{{#if DefenceAddCameras.cameras}}
+	{{#each DefenceAddCameras.cameras}}
+		<li class="camera-item clearfix" data-id="{{id}}" data-name="{{name}}" data-cameracode="{{cameraCode}}" data-cameratype="{{camera_type}}" data-longitude="{{longitude}}" data-latitude="{{latitude}}" data-hdchannel="{{translate hd_channel}}" data-sdchannel="{{translate sd_channel}}" data-cstatus="{{camera_status}}" data-minsize="60"  data-maxsize="200"  data-left="0"  data-top="0"  data-right="0"  data-bottom="0">
+			<span class="camera-img {{#cameraStatusAndTypeByChannels hd_channel sd_channel camera_type}}{{/cameraStatusAndTypeByChannels}}"></span>
+			<span class="text" title="{{name}}{{#cameraCodeShow cameraCode}}{{/cameraCodeShow}}">{{name}}{{#cameraCodeShow cameraCode}}{{/cameraCodeShow}}</span>
+			<span class="camera-opera">
+				<i class="config" data-id={{id}} title="设置"></i>
+				<i class="delete" data-id={{id}} title="删除"></i>
+			</span>
+			<div class="control-camera-config">
+                <p class="first-line rule-modify">
+                    <span class="label">设置布控区域：</span><input type="button" class="ui button middle blue" value="设置"/>
+                </p>
+				<p class="second-line min-face">
+					<span class="label">最小人脸(px)：</span> <input type="text" name="minW" placeholder="宽" value="60"/><input type="text" name="minH" placeholder="高"  value="60"/><input type="button" class="ui button middle blue" value="标定"/>
+				</p>
+				<p class="third-line max-face">
+					<span class="label">最大人脸(px)：</span> <input type="text" name="maxW" placeholder="宽"  value="200"/><input type="text" name="maxH" placeholder="高"  value="200"/><input type="button" class="ui button middle blue" value="标定"/>
+				</p>
+				<p class="forth-line save-protect">
+					<input type="hidden" name="minSize" value="60"/>
+					<input type="hidden" name="maxSize" value="200"/>
+					<input type="hidden" name="left" value="0"/>
+					<input type="hidden" name="top" value="0"/>
+					<input type="hidden" name="right" value="0"/>
+					<input type="hidden" name="bottom" value="0"/>
+					<input type="button" class="ui button middle blue save" value="保存">
+                    <input type="button" class="ui button middle cancel" value="取消">
+				</p>
+			</div>
+		</li>
+	{{/each}}
+	{{/if}}
+{{/if}}
+
+{{#if CheckPeopleControlTask}}
+	<form id="PeopleTaskCheckFrom" class="people-task-form">
+		<table>
+			<tr>
+				<td class="label">任务名称：</td>
+				<td>
+                    <span class="taskname" title="{{CheckPeopleControlTask.name}}">{{CheckPeopleControlTask.name}}</span>
+                    <input type="hidden" value="{{CheckPeopleControlTask.id}}" name="id"/>
+                    <input type="hidden" value="{{CheckPeopleControlTask.status}}" name="status"/>
+                </td>
+			</tr>
+			<tr>
+				<td class="label">布控级别：</td>
+				<td>{{#LevelFilter CheckPeopleControlTask.level}}{{/LevelFilter}}</td>
+			</tr>
+			<tr>
+				<td class="label">布 控 库：</td>
+				<td>
+					<ul class="control-library">
+						
+					</ul>
+				</td>
+			</tr>
+			<tr>
+				<td class="label">布控时间：</td>
+				<td class="time">{{TimeFilter CheckPeopleControlTask.startTime}} 至{{TimeFilter CheckPeopleControlTask.endTime}}</td>
+			</tr>
+		</table>
+		<p class="camera-list-head">
+			<span>摄像机点位</span>
+		</p>
+		<ul class="camera-list">
+			
+		</ul>
+	</form>
+{{/if}}
+{{#if checkPeopleLibraries}}
+{{#each checkPeopleLibraries}}
+<li class="clearfix">
+	<span class="text" title="{{libraryName}}">{{libraryName}}</span>
+</li>
+{{/each}}
+{{/if}}
+
+{{#if DefenceCheckCameraList}}
+	{{#if DefenceCheckCameraList.cameras}}
+	{{#each DefenceCheckCameraList.cameras}}
+		<li class="camera-item clearfix" data-id="{{id}}" data-longitude="{{longitude}}" data-latitude="{{latitude}}">
+			<span class="camera-img {{#cameraStatusAndTypeByChannels hd_channel sd_channel camera_type}}{{/cameraStatusAndTypeByChannels}}"></span>
+			<span class="text" title="{{name}}{{#cameraCodeShow cameraCode}}{{/cameraCodeShow}}">{{name}}{{#cameraCodeShow cameraCode}}{{/cameraCodeShow}}</span>
+		</li>
+	{{/each}}
+	{{else}}
+		<li class="no-result">暂无摄像机！</li>
+	{{/if}}
+{{/if}}
+{{#if ocx}}
+	<div class="infowindow-title">
+		<span class="text" title="{{ocx.name}}{{#cameraCodeShow ocx.cameraCode}}{{/cameraCodeShow}}">{{ocx.name}}{{#cameraCodeShow ocx.cameraCode}}{{/cameraCodeShow}}</span>
+		<span class="btns">
+			<i class="closeBtn" title="关闭"></i>
+		</span>
+	</div>
+	<div class="map-video-container">
+		
+	</div>
+{{/if}}
+{{#if cameraInfo}}
+	<div class="infowindow-title">
+		<span class="text" title="{{cameraInfo.name}}{{#cameraCodeShow cameraInfo.cameraCode}}{{/cameraCodeShow}}">{{cameraInfo.name}}{{#cameraCodeShow cameraInfo.cameraCode}}{{/cameraCodeShow}}</span>
+		<span class="btns">
+			<i class="historyBtn" title="历史调阅"></i>
+			<i class="sendtotvwallBtn" title="发送至电视墙"></i>
+			<i class="sendtoextendBtn" title="发送至扩展屏"></i>
+			<i class="closeBtn" title="关闭"></i>
+		</span>
+	</div>
+	<table class="map-camera-info" data-id="{{cameraInfo.id}}" data-name="{{cameraInfo.name}}" data-status="{{cameraInfo.camera_status}}"  data-cameratype="{{cameraInfo.camera_type}}" data-code="{{#cameraCodeShow cameraInfo.cameraCode}}{{/cameraCodeShow}}" data-longitude="{{cameraInfo.longitude}}" data-latitude="{{cameraInfo.latitude}}" data-hdchannel="{{translate cameraInfo.hd_channel}}" data-sdchannel="{{translate cameraInfo.sd_channel}}">
+		<tr class="head">
+			<td><span class="{{#cameraStatusAndType cameraInfo.camera_type cameraInfo.isOnline}}{{/cameraStatusAndType}}"></span></td>
+			<td class="camera-status">
+				{{#isOnline cameraInfo.isOnline}}
+					{{#if data}}
+						<span class="camera-status-online" title="点击播放视频">实时视频</span>
+					{{else}}
+						离线
+					{{/if}}
+				{{/isOnline}}
+			</td>
+		</tr>
+		<tr class="even">
+			<td class="label">分类：</td><td>{{#cameraInstallType cameraInfo.installType}}{{/cameraInstallType}}</td>
+		</tr>
+		<tr class="odd">
+			<td class="label">地址：</td><td>{{cameraInfo.installAddress}}</td>
+		</tr>
+		<tr class="even">
+			<td class="label">坐标：</td><td>{{cameraInfo.longitude}}</td>
+		</tr>
+		<tr class="even">
+			<td class="label"></td><td>{{cameraInfo.latitude}}</td>
+		</tr>
+	</table>
+{{/if}}
+{{#if PeopleLibraryList}}
+	{{#if PeopleLibraryList.libraries}}
+	{{#each PeopleLibraryList.libraries}}
+	<li class="people-library-item" data-id="{{id}}" data-name="{{libraryName}}" data-threshold="{{threshold}}" data-libflag="{{libFlag}}">
+		<span class="text" title="{{libraryName}}">{{libraryName}}</span>
+		<span class="opera">
+			<i class="edit icon_edit" title="编辑人员分库" data-id="{{id}}"></i>
+			<i class="delete icon_delete" title="删除人员分库" data-id="{{id}}"></i>
+		</span>
+	</li>
+	{{/each}}
+	{{else}}
+		<li class="no-result">暂无人员布控库信息！</li>
+	{{/if}}
+{{/if}}
+{{#if PeopleLibraryEdit}}
+	<div class="people-library-edit">
+		<table class="create-people-lib-table">
+        	<tr>
+        		<td class="label">库名称：</td><td class="ui input"><input type="text" placehoder="请输入库名称" name="name" value="{{PeopleLibraryEdit.name}}" maxlength="20"/>
+        		<input type="hidden" name="id" value="{{PeopleLibraryEdit.id}}"/>
+        		</td>
+        	</tr>
+        	<tr>
+        		<td class="label">比分阈值：</td><td class="ui input"><input type="text" placehoder="1~100" name="threshold" value="{{PeopleLibraryEdit.threshold}}"/></td>
+        	</tr>
+        	<tr>	
+        		<td></td>
+        		<td>
+                    <input type="button" class="blue save ui button big" value="保存"/>
+        			<input type="button"  class="cancel ui button big" value="取消" data-id="{{PeopleLibraryEdit.id}}" data-name="{{PeopleLibraryEdit.name}}" data-threshold="{{PeopleLibraryEdit.threshold}}" data-libflag="{{PeopleLibraryEdit.libflag}}"/>
+        		</td>
+        	</tr>
+        </table>
+	</div>
+{{/if}}
+
+{{#if PeopleLibraryEditSuccess}}
+	<span class="text" title="{{PeopleLibraryEditSuccess.name}}">{{PeopleLibraryEditSuccess.name}}</span>
+	<span class="opera">
+		<i class="edit icon_edit" title="编辑" data-id="{{PeopleLibraryEditSuccess.id}}"></i>
+		<i class="delete icon_delete" title="删除" data-id="{{PeopleLibraryEditSuccess.id}}"></i>
+	</span>
+{{/if}}
+
+{{#if PeopleList}}
+	{{#if PeopleList.personnels}}
+		<table>
+            {{#each PeopleList.personnels}}
+                <tr data-id="{{id}}">
+                    <td width="4%"><input type="checkbox"/></td>
+                    <td width="10%" class="name">{{name}}</td>
+                    <td width="10%">{{#PersonListFilter gender "sex"}}{{/PersonListFilter}}</td>
+                    <td width="10%">{{papersTypeName}}</td>
+                    <td width="20%">{{#isDetail papersTypeName papersNumber}}{{/isDetail}}</td>
+                    <td width="15%">{{threshold}}</td>
+                    <td width="10%" class="{{#PersonListFilter modelingStatus 'status-class'}}{{/PersonListFilter}}">{{#PersonListFilter modelingStatus "status"}}{{/PersonListFilter}}</td>
+                    <td width="15%" class="opera">
+                        <span class="check icon_look" title="查看人员信息" data-id="{{id}}"></span>
+                        <span class="edit icon_edit" title="编辑人员信息" data-id="{{id}}"></span>
+                        <span class="moveto icon_moveto" title="移动到" data-id="{{id}}">
+                        </span>
+                        <span class="delete icon_delete" title="删除人员信息" data-id="{{id}}"></span>
+                    </td>
+                </tr>
+            {{/each}}
+		</table>
+    {{else}}
+        <table><tr><td class="no-result">
+            {{#if isSearch}}
+                未查询到人员信息，请更换查询条件！
+            {{else}}
+                该人员库暂没有人员信息，请先添加人员！
+            {{/if}}
+        </td></tr></table>
+	{{/if}}
+{{/if}}
+{{#if peopleBreadCrumb}}
+{{#with peopleBreadCrumb}}
+	<span class="section lib">{{libName}}</span>
+	{{#if peopleList}}{{else}}
+	<span class="arrow">></span>
+	<span class="section">{{type}}</span>
+	{{/if}}
+{{/with}}
+{{/if}}
+{{#if CheckPersopn}}
+    <div class="title-panel">
+        <p class="title">人员查看</p>
+        <input type="button" class="alarm-btn back" value="返回" />
+        <input  type="button" class="alarm-btn edit" value="编辑" data-id="{{data.personnel.id}}"/>
+    </div>
+    <div class="check-person-table-container">
+        <table class="check-person-table see">
+            <tr>
+                <td class="label">所属对比库： </td>
+                <td class="content"> {{data.libName}}</td>
+                <td class="picture" rowspan="12">
+                    <p class="title">人员照片</p>
+                    <div class="big-pic">
+                        <img src=""/>
+                    </div>
+                    <ul class="small-pic-ul clearfix">
+                    {{#each data.images}}
+                        <li class="small-pic-item">
+                            <img class="see" src="{{imagePath}}"/>
+                        </li>
+                     {{/each}}   
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td class="label">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名： </td>
+                <td class="content"> {{data.personnel.name}}</td>
+            </tr>
+            <tr>
+                <td class="label">曾&nbsp;&nbsp;用&nbsp;&nbsp;名： </td>
+                <td class="content">{{data.personnel.formerName}}</td>
+            </tr>
+            <tr>
+                <td class="label">性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别： </td>
+                <td class="content">{{#PersonDetailsFilter data.personnel.gender 'text' 'sex'}}{{/PersonDetailsFilter}}</td>
+            </tr>
+            <tr>
+                <td class="label">国&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;籍： </td>
+                <td class="content">{{data.personnel.nationalityName}}</td>
+            </tr>
+            <tr>
+                <td class="label">民&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;族： </td>
+                <td class="content">{{data.personnel.nationName}}</td>
+            </tr>
+            <tr>
+                <td class="label">户 籍 地 址： </td>
+                <td class="content">{{data.personnel.registerAddress}}</td>
+            </tr>
+            <tr>
+                <td class="label">证 件 类 型： </td>
+                <td class="content">{{data.personnel.papersTypeName}}</td>
+            </tr>
+            <tr>
+                <td class="label">证 件 号 码： </td>
+                <td class="content">{{#isDetail data.personnel.papersTypeName data.personnel.papersNumber}}{{/isDetail}}</td>
+            </tr>
+            <tr>
+                <td class="label">出 生 日 期： </td>
+                <td class="content">{{#EditPersonDetailsFilter data.personnel.birthday 'text' 'birthday'}}{{/EditPersonDetailsFilter}}</td>
+            </tr>
+            <tr>
+                <td class="label">比 分 阈 值： </td>
+                <td class="content">{{data.personnel.threshold}}</td>
+            </tr>
+            <tr>
+                <td class="label">备&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注： </td>
+                <td class="content">{{data.personnel.remark}}</td>
+            </tr>
+        </table>
+    </div>
+{{/if}}
+
+{{#if createEditPerson}}
+    <div class="title-panel">
+        <p class="title">{{operationType}}</p>
+        <input type="button" class="alarm-btn back" value="返回" />
+    </div>
+    <div class="check-person-table-container" data-id="{{data.personId}}">
+    	<form id="save-edit-person">
+        <table class="check-person-table">
+            <tr>
+                <td class="label">所属对比库： </td>
+                <td class="content">
+                    <div class="ui input">
+                        <input type="text" data-id="{{libraryId}}" name="libraryName" value="{{libraryName}}" disabled="disabled" />
+                    </div>
+                </td>
+                <td class="picture" rowspan="12">
+                    <p class="title">人员照片</p>
+                    <div class="big-pic">
+                        <img src=""/>
+                    </div>
+                    <ul class="small-pic-ul clearfix">
+                        {{#each data.images}}
+                        <li class="small-pic-item">
+                            <img id="SelectFile{{addOne @index}}" class="edit" src="{{imagePath}}"/>
+                            <div class="img-cover {{#CheckImg imagePath 'cover'}}{{/CheckImg}}">
+
+                            </div>
+                            <div class="img-opera {{#CheckImg imagePath 'opera'}}{{/CheckImg}}">
+                                <span class="status {{#CheckImg imagePath 'status'}}{{/CheckImg}}"><i class="img-status">成功</i></span>
+                                <span class="del"><i class="img-del-icon icon_delete" title="删除图片"></i></span>
+                            </div>
+                        </li>
+                       {{/each}}
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+            <td class="label"><span class="spark">*</span>姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名： </td>
+                <td class="content">
+                    <div class="ui input">
+                        <input type="text" id="name" name="name" value="{{data.personnel.name}}" maxlength="20"/>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="label">曾&nbsp;&nbsp;用&nbsp;&nbsp;名： </td>
+                <td class="content">
+                    <div class="ui input">
+                        <input type="text" id="formerName" name="formerName" value="{{data.personnel.formerName}}" />
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="label">性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别： </td>
+                <td class="content">
+                    <div class="select_container" data-type="sex">
+                        <span class="text" data-value="{{#EditPersonDetailsFilter data.personnel.gender 'value' 'sex'}}{{/EditPersonDetailsFilter}}">{{#EditPersonDetailsFilter data.personnel.gender 'text' 'sex'}}{{/EditPersonDetailsFilter}}</span>
+                        <span class="arrow-down"></span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="label">国&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;籍： </td>
+                <td class="content">
+                    <div class="select_container" data-type="nation">
+                        <span class="text" data-value="{{#EditPersonDetailsFilter data.personnel.nationality 'value' 'nation'}}{{/EditPersonDetailsFilter}}">{{#EditPersonDetailsFilter data.personnel.nationalityName 'text' 'nation'}}{{/EditPersonDetailsFilter}}</span>
+                        <span class="arrow-down"></span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="label">民&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;族： </td>
+                <td class="content">
+                    <div class="select_container" data-type="group">
+                        <span class="text" data-value="{{#EditPersonDetailsFilter data.personnel.nation 'value' 'group'}}{{/EditPersonDetailsFilter}}">{{#EditPersonDetailsFilter data.personnel.nationName 'text' 'group'}}{{/EditPersonDetailsFilter}}</span>
+                        <span class="arrow-down"></span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="label">户 籍 地 址： </td>
+                <td class="content">
+                    <div class="ui input">
+                        <input type="text" id="address" name="address" value="{{data.personnel.registerAddress}}" />
+                    </div>
+                </td>
+            </tr>
+            <tr>
+            	<td class="label"><span class="spark">*</span>证 件 类 型： </td>
+                <td class="content">
+                    <div class="select_container" data-type="craditcardtype">
+                        <span class="text" data-value="{{#EditPersonDetailsFilter data.personnel.papersType 'value' 'craditcardtype'}}{{/EditPersonDetailsFilter}}">{{#EditPersonDetailsFilter data.personnel.papersTypeName 'text' 'craditcardtype'}}{{/EditPersonDetailsFilter}}</span>
+                        <span class="arrow-down"></span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="label"><span class="spark">*</span>证 件 号 码： </td>
+                <td class="content">
+                    <div class="ui input">
+                        <input type="text" id="cardNo" name="cardNo" value="{{data.personnel.papersNumber}}" />
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="label">出 生 日 期： </td>
+                <td class="content">
+                     <div class="ui input">
+                         <div class="birthday-container">
+                            <input type="text" id="birthday" class="text birthday-time" data-value="{{#EditPersonDetailsFilter data.personnel.birthday 'value' 'birthday'}}{{/EditPersonDetailsFilter}}" value="{{#EditPersonDetailsFilter data.personnel.birthday 'text' 'birthday'}}{{/EditPersonDetailsFilter}}" />
+                            <i class ="calendar"></i>
+                         </div>
+                     </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="label"><span class="spark">*</span>比 分 阈 值： </td>
+                <td class="content">
+                    <div class="ui input">
+                        <input type="text" id="weightScore" name="weightScore" value="{{data.personnel.threshold}}" />
+                    </div>
+                </td>
+            </tr>
+            <tr class="person-comment">
+                <td class="label">备&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注： </td>
+                <td class="content">
+                    <textarea name="comment" placeholder="请输入备注信息...">{{data.personnel.remark}}</textarea>
+                </td>
+            </tr>
+            <tr>
+                <td class="label"></td>
+                <td class="content submit">
+                    <input type="button" class="ui button big blue" id="savePersonInfo" value="保存">
+                    <input type="button" class="ui button big" id="cancelSavePersonInfo" value="取消">
+                </td>
+            </tr>
+        </table>
+        </form>
+    </div>
+{{/if}}
+
+{{!--布防管理--}}
+{{#if alarmingCameraList}}
+	<div class="breadcrumb">
+		{{#each alarmingCameraList.bread}}
+		<a class="section" data-id="{{this.id}}">{{this.name}}</a>
+		<span class="divider arrow">></span>
+		{{/each}}
+		<span class="active section">布防任务管理</span>
+	</div>
+ 	<div class="content" id="content_list">    
+    	<div class="conditions">
+            <label>摄像机名称：</label>
+            <span class=" ui input"><input type="text" name="name" maxlength="20"/></span>
+            <label>事件类型：</label>
+            <span class="select_container" data-type="defence-type">
+                <span class="text" data-value="">全部</span>
+                <span class="arrow-down"></span>
+            </span>
+            <input type="hidden" value="" id="hiddenEvType"/>
+            <a title="查询" class="conditions_btn"></a>
+            <span class="opera">
+                <input type="button" class="alarm-btn set_btn protect-hide" title="设置布防路数限制" value="设置" />
+            </span>
+        </div>
+        <div class="table_lists_wrap">   
+            <table cellpadding="0" cellspacing="0" border="0" class="table_lists">
+                <thead>
+                    <tr>
+                        <th class="code">编号</th>
+                        <th class="cameraname">摄像机名称</th>
+                        <th>组织机构</th>
+                        <th>最近设置时间</th>
+                        <th>最近设置人</th>
+                        <th class="opera">操作 <a title="展开所有布防任务" class="icon_look" data-id="{{id}}"></a></th>
+                    </tr>
+                    
+                </thead>
+                <tbody>   
+                </tbody>
+            </table>   
+            {{!-- 分页条 --}}
+            {{#if pagebar}}
+            <div class="pagepart">
+                <div class ="pagination"></div>
+            </div>
+            {{/if}}       
+        </div>
+	</div>
+{{/if}}
+
+{{!--摄像机列表--}}
+{{#if alarmingCameraItems}}
+    {{#if alarmingCameraItems.cameraList}}
+	{{#each alarmingCameraItems.cameraList}}
+		<tr class="{{even @index}} camera_list" data-id="{{id}}">
+			<td class="code">{{#list @index}}{{/list}}</td>
+			<td class="cameraname">{{cameraName}}{{cameraCodeShow cameraCode}}</td>
+			<td class="org">{{orgName}}</td>
+			<td class="lastest-time">{{#DefenceTimeFilter this.updateTime}}{{/DefenceTimeFilter}}</td>
+			<td class="lastest-person">{{updateUser}}</td>
+			<td class="tools">
+	            <a title="编辑" class="icon_edit" data-id="{{id}}"></a>
+	            <a title="删除" class="icon_delete" data-id="{{id}}"></a>
+	        </td>
+		</tr>
+        {{#if defenceTasks}}
+            {{#each defenceTasks}}
+            <tr class="alarming_list">
+                <td class="code"></td>
+                <td class="task">
+                    <span class="switch {{#isProtect this.enableTask}}{{/isProtect}}" title="{{#isProtectDes this.enableTask}}{{/isProtectDes}}" data-id="{{this.id}}"></span>
+                    <em>{{this.ruleName}}</em>
+                </td>
+                <td></td>
+                <td>{{#DefenceTimeFilter this.updateTime}}{{/DefenceTimeFilter}}</td>
+                <td>{{this.updateUser}}</td>
+                <td>
+                    <div class="task-tools">
+                        <a title="编辑布防任务" class="icon_edit" data-id="{{this.id}}" data-evtype="{{this.evType}}"></a>
+                        <a title="删除布防任务" class="icon_delete" data-id="{{this.id}}"></a>
+                    </div>
+                </td>
+            </tr>
+        {{/each}}
+        {{/if}}
+	{{/each}}
+    {{else}}
+        <tr class="no-camera-line">
+            <td colspan="6" class="no-camera-info">没有查询到与搜索条件相匹配的布防摄像机！</td>
+        </tr>
+    {{/if}}
+{{/if}}
+
+{{#if defenseTasks}}
+    {{#each defenseTasks}}
+    <tr class="alarming_list">
+        <td class="code"></td>
+        <td class="task">
+            <span class="switch {{#isProtect this.enableTask}}{{/isProtect}}" title="{{#isProtectDes this.enableTask}}{{/isProtectDes}}" data-id="{{this.id}}"></span>
+            <em>{{ruleName}}</em>
+        </td>
+        <td></td>
+        <td>{{#DefenceTimeFilter this.updateTime}}{{/DefenceTimeFilter}}</td>
+        <td>{{updateUser}}</td>
+        <td>
+            <div class="task-tools">
+                <a title="编辑布防任务" class="icon_edit" data-id="{{id}}" data-evtype="{{evType}}"></a>
+                <a title="删除布防任务" class="icon_delete" data-id="{{id}}"></a>
+            </div>
+        </td>
+    </tr>
+    {{/each}}
+{{/if}}
+
+{{#if setDefenseLimitNums}}
+<div class="defence-mgr-pub-dialog">
+    <div class="dialog_title">
+        <h6>设置布防路数信息</h6>
+        <a title="关闭" class="close"></a>
+    </div>
+    <div class="dialog_body">
+        <!--内容区-->
+        <div class="ui input cameras-limit-num" data-max-cameras="{{maxCameras}}" data-min-cameras="{{minCameras}}" data-cur-cameras="{{curCameraCount}}">
+            <em>最大布防摄像机数：</em><input type="text" name="camerasNum" value="{{#DefaultLimits curCameras curCameraCount 'camera'}}{{/DefaultLimits}}" />
+        </div>
+        <div class="ui input tasks-limit-num" data-max-tasks="{{maxTasks}}" data-min-tasks="{{minTasks}}" data-cur-tasks="{{curTaskCount}}">
+            <em>最大布防任务数：</em><input type="text" name="tasksNum" value="{{#DefaultLimits curTasks curTaskCount 'task'}}{{/DefaultLimits}}" />
+        </div>
+        <div class="text-info-style">
+            <span>{{#NoticeInfo maxCameras maxTasks}}{{/NoticeInfo}}</span>
+        </div>
+    </div>
+    <div class="dialog_foot">
+        <input class="ui button blue save" type="button" value="确 定" />
+        <input class="ui button cancel" type="button" value="取 消" />
+    </div>
+</div>
+{{/if}}
+
+{{!-- 布控设置页面 --}}
+{{#if alarmEventsContent}}
+<div class="alarm-events-content-video">
+	<div class="content-top-video-tool" data-id="{{cameraid}}">
+		<span class="camera-name-text" title="{{cameraname}}{{cameracode}}">{{cameraname}}{{cameracode}}</span>
+		<span class="video-operation-tool">
+			<span class="intercept icon_pause" title="暂停"></span>
+			<a class="see icon_eye" title="查看规则"></a>
+		</span>
+	</div>
+	<div class="content-down-video">
+		<!-- <object id="UIOCXCONTROL" classid="clsid:294EEBEC-7677-4EBA-B2D7-3FD669FBF2A2" width="100%" height="100%" align="center"></object> -->
+		<object id="UIOCXCONTROL" type="applicatin/x-firebreath" width="100%" height="100%" align="center" class="uiocx-control">
+			<param name="onload" value="pluginLoaded"/>
+		</object>
+	</div>
+</div>
+{{/if}}
+
+{{#if controlstatus}}
+    <li data-value="3">全部</li>
+    <li data-value="-1">未开始</li>
+    <li data-value="0">布控中</li>
+    <li data-value="1">已过期</li>
+    <li data-value="2">已撤销</li>
+{{/if}}
+
+{{#if sex}}
+    <li data-value="M">男</li>
+    <li data-value="F">女</li>
+    <li data-value="U">未知</li>
+{{/if}}
+
+{{#if common}}
+    {{#each data}}
+    <li data-value="{{id}}">{{name}}</li>
+    {{/each}}
+{{/if}}
+
+{{#if craditcardtype}}
+    {{#each data}}
+    <li data-value="{{id}}">{{typeName}}</li>
+    {{/each}}
+{{/if}}
+
+{{#if defencetype}}
+    <li data-value="">全部</li>
+    {{#each data}}
+    <li data-value="{{evType}}">{{name}}</li>
+    {{/each}}
+{{/if}}
+
+{{#if alarmlevel}}
+<li data-value="1">一般</li>
+<li data-value="2">重要</li>
+<li data-value="3">严重</li>
+{{/if}}
+
+
+
+{{#if ImportData}}
+<div class="thead ui tabular import">共导入{{ImportData.total}}条数据，成功<em class="success">{{ImportData.succ}}</em>条，失败<em class="fail">{{ImportData.failCounter}}</em>条
+	{{#if ImportData.failDatas}},
+	<a class="check">查看失败详情</a>
+	{{/if}}
+</div>
+<div class="tbody" >
+	<div id="suceessTable" style="display:none">
+		<table>
+			<thead>
+				<tr class="title">
+				<th class="name">姓名</th>
+				<th class="threshold">阈值</th>
+				<th class="number">证件号码</th>
+				<th class="remark">失败原因</th></tr>
+			</thead>
+			{{#each ImportData.failDatas}}
+			<tbody class="even up" >
+				<tr class="table_lists_cont {{even @index}}">
+				{{#if name}}
+				<td class="name" title="{{name}}">{{name}}</td>
+				{{else}}
+				<td class="name" title="未知">未知</td>
+				{{/if}}
+				{{#if threshold}}
+				<td class="threshold" title="{{threshold}}">{{threshold}}</td>
+				{{else}}
+				<td class="threshold" title="未知">未知</td>
+				{{/if}}
+				{{#if papersNumber}}
+				<td class="number" title="{{papersNumber}}">{{papersNumber}}</td>
+				{{else}}
+				<td class="number" title="未知">未知</td>
+				{{/if}}
+				<td class="remark" title="{{remark}}">{{remark}}</td>
+				</tr>
+			</tbody>
+			{{/each}}
+		</table>
+	</div>
+</div>
+{{/if}}

@@ -1,0 +1,22 @@
+{{#if records}}
+{{#each records}}
+<ul class="inline-list content-list {{even @index}} clearfix" data-msgId="{{msgId}}" data-msgContent="{{msgContent}}" data-msgStatus="{{msgStatus}}" data-createdTime="{{created_time}}" data-msgContentUrl="{{msgContentUrl}}">
+	<li class="each-description push-left">
+		<div class="checkbox each-checkbox push-left"></div>
+		<div class="message{{msgStatus}} push-left"></div>
+		<span class="des-content push-left" data-url="{{msgContentUrl}}">{{msgContent}}</span>
+		<!-- <span class="des-content push-right">监巡分组"学校门口"将于2分钟后开始</span>
+	-->
+</li>
+
+<li  class="each-time push-left">{{created_time}}</li>
+<!-- <li  class="span-time push-left">2014-09-01-10:00:12</li>
+-->
+<li class="push-left">
+<div class="delete"></div>
+</li>
+</ul>
+{{/each}}
+{{else}}
+<p style='text-align:center;padding:10px;color:#888;'>暂无数据!</p>
+{{/if}}

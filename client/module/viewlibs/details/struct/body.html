@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=10,chrome=1">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<title>视云实战平台</title>
+	<!--[if lt IE 9]>
+	<script src="/libs/html5/html5.js"></script>
+	<![endif]-->
+	<link type="image/x-icon" rel="shortcut icon" href="/favicon.ico" />
+	<link type="text/css" rel="stylesheet" href="/module/common/css/base.css" />
+	<link type="text/css" rel="stylesheet" href="/libs/semantic/semantic.css" />
+	<link type="text/css" rel="stylesheet"  href="/libs/jquery/jquery-ui.css" />
+	<link type="text/css" rel="stylesheet" href="/libs/jquery/jquery.datetimepicker.css"/> 
+	<link type="text/css" rel="stylesheet" href="/module/viewlibs/common/common.css"/>
+	<link type="text/css" rel="stylesheet" href="/module/viewlibs/doubtlib/css/entity.css"/>
+	<link type="text/css" rel="stylesheet" href="/libs/thickbox/thickbox.css"/>
+	<link type="text/css" rel="stylesheet" href="/module/viewlibs/details/struct/css/entity.css"/>
+	<link type="text/css" rel="stylesheet" href="/module/popLayer/css/details.css"/>
+	<link type="text/css" rel="stylesheet" href="/module/viewlibs/doubtlib/css/tab.css"/>
+</head>
+<body>
+	
+	<div id="content">
+		<div class="wrapper clearfix">
+			<ul class="breadcrumb">
+				<li>
+					<a href="/module/viewlibs/workbench/index.html">我的工作台</a>
+					<span class="divider">&gt;</span>
+				</li>
+				<li>
+					<a href=""></a>
+					<span class="divider">&gt;</span>
+				</li>
+				<li>
+					<a href="">线索列表</a>
+					<span class="divider">&gt;</span>
+				</li>
+				<li class="active">人体信息</li>
+			</ul>			
+			<div class="main">	
+				<div class="loading"></div>
+			<script id="view-template" type="text/x-handlebars-template">
+			{{#body}}
+			<div class="resources tabview">
+				<div data-type="video" data-id="{{uuid}}" class="actions">
+				 	<!--疑情信息关联案事件-->
+					{{#unless incidentId}}
+					{{#belongs this}}
+					{{#auditBar status 1 3}}
+					<a class="action ui button relate permission permission-create" data-rtype="2" id="chooseIncident" {{getMediaId ../videoId ../imageId}}>关联案事件</a>
+					{{/auditBar}}
+					{{/belongs}}
+					<!--疑情信息关联案事件结束-->
+					<!--未通过，未提交提交审核-->
+					{{#auditBar status 1 3}}
+					<a class="action ui button audit permission permission-create" data-id="{{../id}}" data-type="2"  data-status="{{../status}}">提交审核</a>
+					{{/auditBar}}
+					<!--未通过，未提交提交审核结束-->
+					{{/unless}}
+					<!--案事件的结构化信息生成线索-->
+					{{#if incidentId}}
+					{{#isiStruct this}}
+					<a class="action ui button save save-to-thread permission permission-create" data-id="{{id}}">生成线索</a>
+					{{/isiStruct}}
+					{{/if}}
+					<!--案事件结构化信息生成线索结束-->
+					<!--已通过才有保存-->
+					
+					<a class="action ui button save save-to-clound permission permission-import" data-id="{{uuid}}">保存</a>
+					
+					
+					{{#belongs1 this}}
+					<a class="action ui button edit permission permission-create">编辑</a>
+					{{/belongs1}}
+					<!--只有待审核不显示删除-->
+				
+					<a class="action remove ui button permission {{isOwner ../userId ../status}}">删除</a>
+					
+				</div>
+				{{#waitPass status}}
+				<div id="auditSection" class="actions permission permission-review" data-type="2" data-id="{{../id}}">
+					<a id="reject" class="reject {{isIncident ../incidentId}}" data-incidentid="{{../incidentId}}"><i></i>打回</a>
+					{{#unless ../incidentId}}
+					<a class='reject'><i></i>打回</a>
+					<a class='pass'><i></i>通过</a>
+					{{/unless}}
+				</div>
+				{{/waitPass}}
+				<div class="header">
+					<ul class="tabs menus ui tabular">
+						<li data-tab="info" class="active">
+							<a>基本信息</a>
+						</li>
+						{{#if incidentId}}
+						<li data-tab="incident" class="" data-incidentid="{{incidentId}}">
+							<a>所属案事件</a>
+						</li>
+						{{/if}}
+						<li data-tab="video" class="">
+							<a>所属视图信息</a>
+						</li>
+					</ul>
+				</div>
+				<div class="views ui tab active">
+					<div class="scrollbar disable">
+						<div class="track">
+							<div class="thumb"></div>
+						</div>
+					</div>
+					<div class="viewport">
+						<div class="overview">
+							<div data-tab="info" class="view active ui tab">
+							<table class="common-table">
+							    <tbody>
+						        <tr>
+						        	<td class="attr-name">所处分类：</td>
+						            <td class="attr-value">
+						                <span class="value">暂未填写</span>
+						            </td>
+						        </tr>
+						        <tr>
+						        	<td class="attr-name">类型：</td>
+						            <td class="attr-value">
+						                <span class="value">人体</span>
+						            </td>
+						        </tr>
+						        <tr>
+						        	<td class="attr-name">头部信息：</td>
+						            <td class="attr-value">
+						                <span class="value">暂未填写</span>
+						            </td>
+						        </tr>
+						        <tr>
+						        	<td class="attr-name">上半身颜色：</td>
+						            <td class="attr-value">
+										<span class="value">{{upperColor}}</span>
+						            </td>
+						        </tr>
+						        <tr>
+						        	<td class="attr-name">下半身颜色：</td>
+						            <td class="attr-value">
+						                <span class="value">{{lowerColor}}</span>
+						            </td>
+						        </tr>
+						        <tr>
+						        	<td class="attr-name">脚部颜色：</td>
+						            <td class="attr-value">
+						                <span class="value">{{footColor}}</span>
+						            </td>
+						        </tr>
+						        <tr>
+						        	<td class="attr-name">高度：</td>
+						            <td class="attr-value">
+						                <span class="value">{{height}}</span>
+						            </td>
+						        </tr>
+						        <tr>
+						        	<td class="attr-name">颜色：</td>
+						            <td class="attr-value">
+						                <span class="value">{{color}}</span>
+						            </td>
+						        </tr>
+						        <tr>
+						        	<td class="attr-name">灰度：</td>
+						            <td class="attr-value">
+						                <span class="value">{{gray}}</span>
+						            </td>
+						        </tr>
+						        <tr>
+						        	<td class="attr-name">描述：</td>
+						            <td class="attr-value">
+						                <span class="value">暂未填写</span>
+						            </td>
+						        </tr>
+						    </tbody>
+							</table>
+							</div>
+							<div data-tab="incident" class="view ui tab">							
+							</div>
+							<div data-tab="video" class="view ui tab">								
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="entity-preview" data-id="{{uuid}}" data-mediaId="{{uuid}}">
+				<div class="markwrap clearfix">
+					
+					<div class="audit-status">
+						<span class="track-type">人体</span>
+						{{#belongs this}}
+						<span class="{{translateStatus status 'color'}} status">[{{translateStatus status 'name'}}]</span>
+						{{/belongs}}
+					</div>
+				
+					<div class="display-format">
+				        <ul class="menus ui tabular ">
+				            <li data-tab="picture" class="active"><a class="btn">特征图片</a></li>
+				            {{#tabular startTime}}<li data-tab="ocxbody" class=""><a class="btn">视频片段</a></li>{{/tabular}}
+				        </ul>
+
+					</div>
+				</div>
+			    <div class="entity-box">
+			    	<div id="VideoWarp" class="video ui tab" style=" width:800px; height:0px"></div>
+			        <div class="picture ui tab active" data-tab="picture">
+			            <span class="hook"></span>
+			            <img src="{{sceneImg}}" alt="" class="entity-img">
+			            
+			        </div>
+			    </div>
+			</div>
+			{{/body}}
+			</script>			
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="/libs/requirejs/require.js" data-main="/module/viewlibs/details/struct/js/main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,65 @@
+<form onsubmit="return false;" autoComplete="off">
+	<div class="serchbox simple">
+		<div class="ui input action search">
+			<input type="text" name="q" placeholder="全局搜索..." />
+			<button class="search action searchTask">搜索</button>
+		</div>
+	</div>
+
+	<div class="serchbox advance">
+		<div class="ui input">
+			<label>
+				任务名称：
+				<input type="text" name="taskName"  placeholder="请输入任务名称..." />
+			</label>
+		</div>
+		<div class="ui input">
+			<label>
+				任务状态：
+				<select id="checktaskstatus" name='taskStatus'>
+					<option data-value="option1" value='1'>未巡检</option>
+					<option data-value="option2" value='2'>已巡检</option>
+					<option data-value="option2" value='3'>待审核</option>
+					<option data-value="option2" value='4'>已审核</option>
+				</select>
+			</label>
+		</div>
+		<div class="ui input">
+			<label>
+				提交时间：
+				<input type="text" name="taskDate" class='datepicker' placeholder="请输入提交时间..." />
+			</label>
+		</div>
+	</div>
+
+	<input type="submit" class="submit right ui button blue" value="搜索">
+	<a class="changemodel left" href="javascript:;">高级>></a>
+</form>
+{{#each tasks}}
+<div class="groups">
+	<div class="group-item">
+		<div class="item-header">
+			<span class="name moredetail checktask" title="{{taskName}}" task-id = "{{taskId}}">{{taskName}}</span>
+		</div>
+		<div class="item-body">
+			<span class="time">
+				<q>提交时间：</q>
+				{{mills2str taskDate}}
+			</span>
+			<span class="status">
+				<q>责任人：</q>
+				{{userName}}
+			</span>
+		</div>
+		<div class="item-footer">
+			<a class="audit" href="#" task-id = "{{taskId}}">审核意见</a>
+			<a class="delete" href="#" task-id = "{{taskId}}">删除</a>
+		</div>
+		<form class="audit" task-id="{{taskId}}" action="" method="post">
+			<textarea></textarea>
+			<input type="reset" class="cancel ui blue button" value="取消">
+			<input type="submit" class="submit ui blue button" value="确定">
+		</form>
+	</div>
+</div>
+{{/each}}

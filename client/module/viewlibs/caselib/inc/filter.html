@@ -1,0 +1,98 @@
+<div class="filter-box">
+	<div class="header">
+		<h1 class="hblue">案事件信息库 -</h1>
+		<h1>&nbsp;筛选条件</h1>
+	</div>
+	<div class="content">
+		<div class="filter-panel">
+			<div class="filter clearfix" data-filter="t">
+				<span class="type">创建时间：</span>
+				<ul class="createtime">
+					<li class="active"  data-key="0">
+						<a>全部</a>
+					</li>
+					<li  data-key="7">
+						<a>近10分钟</a>
+					</li>
+					<li  data-key="9">
+						<a>近1小时</a>
+					</li>
+					<li  data-key="1">
+						<a>今日</a>
+					</li>
+					<li  data-key="2">
+						<a>昨日</a>
+					</li>
+					<li  data-key="3">
+						<a>近7天</a>
+					</li>
+					<li  data-key="4">
+						<a>近30天</a>
+					</li>
+					<li  class="custom" data-key="6">
+						<a class="custom-a">自定义</a>
+						<div class="custom-time"> <i class="brace"></i>
+							<input type="text" value="" name="" class="input-text input-time valid" data-filter='s'>
+							<span>—</span>
+							<input type="text" value="" name="" class="input-text input-time valid" data-filter='e'>
+							<span class="span-btn">
+								<button type="submit"   class="btn">确定</button>
+							</span>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="filter clearfix" data-filter="a">
+				<span class="type">案事件类别：</span>
+				<ul class="casetype">
+					<li class="active"  data-type="all" data-key="0">
+						<a>全部</a>
+					</li>
+					<li  data-type="offense"  data-key="01">
+						<a>刑事犯罪案件</a>
+					</li>
+					<li  data-type="traffic"  data-key="02">
+						<a>出入境案事件</a>
+					</li>
+					
+					<li  data-type="security"  data-key="04">
+						<a>报警信息</a>
+					</li>
+					<li  data-type="mass"  data-key="05">
+						<a>违反治安管理行为</a>
+					</li>
+					<li  data-type="immigration"  data-key="06">
+						<a>群体性事件</a>
+					</li>
+					<li  data-type="alarm"  data-key="07">
+						<a>治安灾害事故</a>
+					</li>
+					<li  data-type="events"  data-key="08">
+						<a>道路交通事故</a>
+					</li>
+					<li  data-type="ship" data-key="10">
+						<a>重大事件预警</a>
+					</li>
+					<li  class="fences down">
+						<span><em>展开</em><i></i></span>
+					</li>
+					<li  data-type="terror" class="wrap hiden" data-key="09">
+						<a>涉恐事件</a>
+					</li>
+					<li  data-type="disaster"  class="hiden" data-key="03">
+						<a>船舶（民）管理事件、案件</a>
+					</li>
+					
+					<li  data-type="else" class="hiden" data-key="11">
+						<a>其他</a>
+					</li>
+				</ul>
+			</div>
+			
+			<div class="filter clearfix" data-filter="n">
+				<span class="type">创建人员：</span>
+					<input type="text" value="" name="" class="input-text create" /><input class="seach" readonly />
+			</div>
+		</div>
+	</div>
+</div>

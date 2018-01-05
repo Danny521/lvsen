@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+	<head>
+		<meta charset="utf-8"/>
+		<title>视云实战平台</title>
+
+		<link type="text/css" rel="stylesheet" href="/module/common/css/base.css" />
+		<link type="text/css" rel="stylesheet" href="/module/maintenance/netdetection/css/netdetection.css" />
+	</head>
+	<body>
+		<div class="ex-report">
+			<div class="reportTable"></div>
+			<div class="downout">
+				<button class="report-out see-report">导出</button>
+			</div>
+		</div>
+
+
+		<script type="text/javascript" src="/assets/js/lib/jquery-1.10.2.min.js"></script>
+		<script type="text/javascript" src="/assets/js/lib/base.js"></script>
+		<script type="text/javascript" src="/assets/js/lib/handlebars.js"></script>
+		<script type="text/javascript">
+			jQuery(function(){
+				//获取参数
+				var getQueryString = function(name){
+				    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+				    var r = window.location.search.substr(1).match(reg);
+				    if (r != null) return unescape(r[2]); return null;
+				}
+				//注册助手
+				var registerHelper = function(){
+					//设备类型名称转换
+					Handlebars.registerHelper("DeviceType", function(type){
+						if(type === 1){
+							return  "NVR--网络录像机";
+						}else if(type === 2){
+							return  "IPC--网络摄像机";
+						}else if(type === 3){
+							return "解码器";
+						}
+					});
+					//是否
+					Handlebars.registerHelper("IsOrNo", function(status){
+						if(status){
+							return "是";
+						}else if(status === null || status === ""){
+							return "--";
+						}else{
+							return "否";
+						}
+					});
+					//是否具备
+					Handlebars.registerHelper("IsOrNoHave", function(status){
+						if(status){
+							return "具备";
+						}else if(status === null || status === ""){
+							return "--";
+						}else{
+							return "不具备";
+						}
+					});
+					//是否正常
+					Handlebars.registerHelper("IsOrNoNormal", function(status){
+						if(status){
+							return "正常";
+						}else if(status === null || status === ""){
+							return "--";
+						}else{
+							return "异常";
+						}
+					});
+					Handlebars.registerHelper("RegisterStatus", function(status){
+						if(status){
+							return "注册成功";
+						}else if(status === null || status === ""){
+							return "--";
+						}else{
+							return "注册失败";
+						}
+					});
+					//--
+					Handlebars.registerHelper("empty", function(status){
+						if(status){
+							return status;
+						}else{
+							return "--";
+						}
+					});
+				};
+				var id = getQueryString("id");
+				var name = getQueryString("name");
+				registerHelper();
+				jQuery.ajax({
+					url: "/service/accesscheck/"+id,
+					type: "get",
+					dataType: "json",
+					success: function(tem) {
+						if (tem.code === 200) {
+							//加载模板
+							logDict.insertMedialog("m2", "查看" + name + "设备的入网检测报告", "f5", "o4");
+							var type = tem.data.info.deviceType;
+							jQuery.get("/module/maintenance/netdetection/inc/netdetection_template.html", function(template){
+								if (tem) {
+									template = Handlebars.compile(template);
+									//1表示NVR-网络录像机；2表示IPC-网络摄像机；3表示解码器
+									if(type === 1){
+									jQuery(".reportTable").empty().html(template({
+										detectreportNVR:  tem.data.info
+									}));
+									}else if(type ===2){
+										jQuery(".reportTable").empty().html(template({
+											detectreportIPC:  tem.data.info
+										}));
+									}else if(type ===3){
+										jQuery(".reportTable").empty().html(template({
+											detectreportDecoder:  tem.data.info
+										}));
+
+									}
+
+									jQuery("#numAndDate").show();
+									jQuery(".all-summary").addClass("disable");
+									jQuery(" #numAndDate .info-number").html(tem.data.info.id);
+									jQuery("#numAndDate .info-date").html(Toolkit.mills2datetime(parseInt(tem.data.info.createDate)));
+									jQuery("#sult td").html("");
+									jQuery(".all-summary").attr("disabled","ture");
+									if(tem.data.info.conclusion){
+										jQuery("#sult td").html("<span>通过</span>");
+									}else{
+										jQuery("#sult td").html("<span>未通过</span>");
+									}
+								}
+							});
+						}else if(tem.code === 500){
+							notify.info("获取数据失败！");
+						}
+					},
+					error: function(){
+						notify.error("网络或者服务器异常！");
+					}
+				});
+
+				jQuery("button.report-out").click(function(){
+					window.open("/service/accesscheck/export/"+id);
+				});
+			});
+
+
+		</script>
+	</body>
+</html>

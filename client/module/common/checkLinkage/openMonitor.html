@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="chrome=1,IE=10"/>
+        <title>视云实战平台-监控联动摄像机画面</title>
+        <link type="text/css" rel="stylesheet" href="/module/common/css/base.css" />
+        <link type="text/css" rel="stylesheet" href="/module/common/checkLinkage/css/monitor.css"/>
+        
+    </head>
+
+<body>
+    <div class="content">
+        <div class="ocx">
+            
+            <object id="UIOCX" style="width: 100%; height: 240px;" type="applicatin/x-firebreath" width = "" height = "">
+                <param name="onload" value="pluginLoaded"/>
+            </object>
+        </div>
+        <div class="camera-list">
+            <p>关联摄像机</p>
+            <ul></ul>
+        </div>
+        <div class="footer">
+        </div>
+    </div>
+        <script type="text/javascript" src="/libs/requirejs/require.js"></script>
+        <script type="text/javascript" src="/require-conf.js"></script>
+        <script type="text/javascript">require(["js/monitor.js"])</script>
+    </body>
+</html>

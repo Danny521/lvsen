@@ -1,0 +1,86 @@
+
+<div class="bg-content picture-content">
+	<div class="left-bar"></div>
+	<div class="right-bar"></div>
+	<div class="tab-title main-title pic-title">
+		<!-- <div class="derive">
+			{{#if handleNum}}
+			<span>已生成<span class="derive-nums pic-nums">{{handleNum}}</span>个图片结果集</span>
+			{{/if}}
+		            {{#if structuredNum}}
+				<span>已生成<span class="derive-nums struct-nums">{{structuredNum}}</span>个结构化信息</span>
+		            {{/if}}
+		</div> -->
+	</div>
+	<div class="tab-content main-content pic-content">
+		<div class="tab-content-item content-pic active" data-target='0'>
+			<div class="pic-wrap">
+				<img id="big-pic" class="big-pic" src="" alt="">
+			</div>
+		</div>
+		<div class="tab-content-item content-video" data-target='1'>
+			<div class="video-wrap"></div>
+		</div>
+
+	</div>
+	<div class="eyes">
+		<img src="{{filePath}}" alt="">
+		<button class="close-eyes pointer"></button>
+		<div class="outline">
+			<div class="outInner"></div>
+		</div>
+	</div>
+	<div class="iframe-and-control">
+		<div class="content-controll-bar">
+			<a href="javascript:void(0)" class='elel'>1:1</a>
+			<a class='down-load permission permission-download'><i class="download-icon"></i>下载</a>
+			<a href="javascript:void(0)" data-action="medialib" class='save-to-repository permission permission-tobaselib'><i class="repository-icon"></i>入库</a>
+			<a href="javascript:void(0)" class="image-analysis permission permission-process"><i class="image-icon"></i>图像处理</a>
+			<a href="javascript:void(0)"  class='save-to-cloud permission permission-import'><i class="save-to-cloud-icon"></i>上传至云空间</a>
+			<a href="javascript:void(0)" title="旋转" class="viewer-tool-rotate"><i class="viewer-tool-rotate-icon"></i>旋转</a>
+			<!-- <a title="水平翻转" class="viewer-tool-horizontalturn"><i class="viewer-tool-horizontalturn-icon"></i>水平翻转</a>
+			<a href="javascript:void(0)" title="垂直翻转" class="viewer-tool-verticalturn"><i class="viewer-tool-verticalturn-icon"></i>垂直翻转</a> -->
+		</div>
+	</div>
+</div>
+<div class="bg-sider">
+	<div class="s-bar"></div>
+	<div class="inner-sider info">
+
+		<div class="saved-info active">
+			<div class="saved-info-title">
+				<i class="edit-icon" style="display: none"></i><h4 class="title too-long"  title="{{fileName}}">{{fileName}}</h4>
+			</div>
+			<p class="first-title">
+				<span class='saved-label'>图片大小 :</span><span class='saved-content pic-length'>{{filterFileSize fileSize}}</span>
+			</p>
+			<p>
+				<span class='saved-label'>图片格式 :</span><span class='saved-content pic-format'>{{fileFormat}}</span>
+			</p>
+			<p>
+				<span class='saved-label'>创建时刻 :</span><span class='saved-content pic-create-time'>{{mills2ISODate storageTime}}</span>
+			</p>
+			<p>
+				<span class='saved-label'>拍摄时刻 :</span><span class='saved-content shoot-time pic-shoot-time'>{{mills2ISODate adjustTime}}</span>
+			</p>
+			<p>
+				<span class='saved-label'>备注信息 :</span><span class='saved-content none-edit-remark pic-remark'>{{noValue remark}}</span>
+			</p>
+		</div>
+		<div class="editing-info">
+			<p>
+				<span class='editing-label'>图片名称 :</span><input type="text" class='editing-text-input pic-source-name pic-input-title' value='{{fileName}}'>
+			</p>
+			<p>
+				<span class='editing-label'>拍摄时刻 :</span><input type="text" class='editing-text-input pic-appear-time datepicker pic-input-shootTime' value='{{mills2ISODate adjustTime}}'>
+			</p>
+			<p>
+				<span class='editing-label'>备注信息 :</span><textarea class='editing-text-textarea pic-input-remark'>{{remark}}</textarea>
+			</p>
+			<p class="p-btn">
+				<a href="javascript:void(0)" class="a-btn save-btn"><i class="save-icon"></i>保存</a>
+				<a href="javascript:void(0)" class="a-btn cancel-btn"><i class="cancel-icon"></i>取消</a>
+			</p>
+		</div>
+	</div>
+</div>

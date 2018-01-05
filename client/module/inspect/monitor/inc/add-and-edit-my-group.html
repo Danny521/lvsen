@@ -1,0 +1,65 @@
+<div class="my-group-title">
+		<span>1、分组名称 :</span><input class="my-group-name-panel" type="text" placeholder="请输入分组名称" name="my-group-name" autocomplete="off" value="{{groupName}}"><span class="redcoin">*</span>
+</div>
+<div class="cameras-panel">
+    <div class="my-group-title" style="height:27px;margin-top:14px;">
+    	<span>2、请在下方勾选摄像机 :</span><span class="redcoin">*</span>
+    </div>
+	<div class="tree-search-box">
+		<input class="simple-camera-tree-search-input" type="text" placeholder="全局搜索..." name="q" autocomplete="off" style="width:312px;">
+		<button class="simple-camera-tree-search-btn btn-search" title="搜索" style="top:144px;right:320px;"></button>
+	</div>
+	<div class="tree-wrap" style="width:336px;height:360px;">
+		<div>
+			<div>
+				<div class="scrollbar">
+					<div class="track">
+						<div class="thumb">
+							<div class="end"></div>
+						</div>
+					</div>
+				</div>
+				<div class="viewport">
+					<div class="overview">
+						<div class="simple-camera-tree-panel">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="choose-footer" style="border:0px;">
+		<button class="ui button blue sure">确定</button>
+		<button class="ui button cancle">取消</button>
+</div>
+<div class="choose-result" style="left:383px;margin-top:134px;
+     border: 1px solid #DBDBDB;height: 415px;width:250px;">
+	<div class="head" style="height:33px;">已选择：<em id="chooseCounts"></em>
+          <button class="ui button remove">删除全部</button>
+	</div>
+	<ul class="result mygroup-camera-list" style="height:377px;">
+		{{#if oldCameraList}}
+		{{#each oldCameraList}}
+		<li class='leaf' data-id='{{id}}'>
+			<i class='leaf {{getCamearstatus cameratype cstatus hdchannel}}'></i>
+			<span class='name text-elips' title='{{name}}'>{{name}}</span>		
+			<i class='remove-ipc' title="删除"></i>
+			<i class="group-camera-down" title="下移"></i>
+			<i class="group-camera-up" title="上移"></i>
+		</li>
+		{{/each}}
+		{{/if}}
+	</ul>
+</div>
+<div class="ocxPanel">
+</div>
+{{#if cameraList}}
+	{{#each cameraList}}
+		<li class='leaf' data-id='{{id}}'>
+			<i class='leaf camera-style marked'></i>
+			<span class='name text-elips' title='{{cameraName}}'>{{cameraName}}</span>			
+			<i class='remove-ipc'></i>
+		</li>
+	{{/each}}
+{{/if}}

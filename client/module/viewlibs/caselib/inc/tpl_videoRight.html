@@ -1,0 +1,261 @@
+{{#video}}
+
+                <!-- 视图分析_video_analysis_@Start -->
+                <div class="location">
+                    <h6>人工标注</h6>
+                </div>
+                <!-- 视图分析_video_analysis_@End -->
+
+                <!-- 视图分析内容区域_video_content_@Start -->
+                <div class="video_content">
+                    <!-- 视频内容查看_video_edit_@Start -->
+                    <dl class="video_edit">
+                        <dt>
+                            <a href="javascript:void(0)" data-flag="tool_hideen" class="edit_class current">视&nbsp;&nbsp;&nbsp;&nbsp;频</a>
+                            <a href="javascript:void(0)" data-flag="tool_show" class="edit_class beginhide">特征图片</a>
+
+                            <div class="video_tool"></div>
+                        </dt>
+                        <dd>
+                            <span data-flag="tool_hideen">
+
+                            <object id="UIOCX" type="applicatin/x-firebreath" width="700" align="center" height="350"><PARAM NAME="_Version" VALUE="65536"><PARAM NAME="_ExtentX" VALUE="21166"><PARAM NAME="_ExtentY" VALUE="13758"><PARAM NAME="_StockProps" VALUE="0"></object>                 
+							<div class="video-block">
+                                 <div class="progress-bg">
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="bullet">
+                                        <i class="play-point"></i>
+                                    </div>
+                                    <i class="start-mark"></i>
+                                    <i class="end-mark"></i>
+                                </div>
+                                <div onselectstart="return false" class="panel">
+                                    <span class="time">
+                                        <span class="nowtime" nowtime-ms="0">00:00:00</span>&nbsp;/
+                                        <span class="alltime" alltime-ms="0">00:00:00</span>
+                                    </span>
+                                    <em class="speed">倍速：<em></em></em>
+                                    <span class="fullwin"></span>
+                                    <span class="grab"></span>
+                                    <span class="stop"></span>
+                                    <span class="forward"></span>
+                                    <span class="switch"></span>
+                                    <span class="rewind"></span>
+                                </div>
+
+                            </div>   
+                            </span>
+                            <span data-flag="tool_show">
+                                <div id="image_struct" class="image_struct"></div>
+                            </span>
+                        </dd>
+                        <dd class="filename"></dd>
+                    </dl>
+
+                    
+                    <!-- 视频内容查看_video_edit_@End -->
+
+                    <!-- 视频内容查看_video_info_@Start -->
+                    <form id="mark_form">
+                        <div class="video_info">
+                            <dl class="video_form">
+                                <dt>
+                                    <i class="icon_import"></i>
+                                    <h6>标记可疑目标</h6>
+                                    <a href="javascript:void(0);" id="mark_target"> <b class="icon_edit"></b>
+                                        标记目标
+                                    </a>
+                                </dt>
+                                <dd>
+                                    <span>
+                                        <img src="/module/common/images/imagejudge/default_pic.png"/>
+                                    </span>
+                                </dd>
+                                <dt>
+                                    <i></i>
+                                    <h6>标记目标视频片段</h6>
+                                    <a href="javascript:void(0);" id="mark_extract">
+                                        <b class="icon_edit"></b>
+                                        标记片段
+                                    </a>
+                                </dt>
+                                <dd>
+                                    <p>
+                                        <label>出现时间：</label>
+                                        <input type="text" id="timeBegin" name="timeBegin" class="" value="00:00:00"/>
+                                    </p>
+                                    <p>
+                                        <label>消失时间：</label>
+                                        <input type="text" id="timeEnd" name="timeEnd" class="" value="00:00:00"/>
+                                    </p>
+                                    <!-- 来源视频绝对时间 -->
+                                    <input type="hidden" id="appearTime" name="appearTime" value=""/>
+                                    <!-- 视频标识 -->
+                                    <input type="hidden" id="sourceId" name="sourceId" value=""/>
+                                    <input type="hidden" id="pvdSourceId" name="pvdSourceId" value=""/>
+                                    <!-- 来源类型 -->
+                                    <input type="hidden" id="sourceType" name="sourceType" value="" />
+                                    <!-- 特征图路径 -->
+                                    <input type="hidden" id="picture" name="picture" value="" /></dd>
+                                <dt>
+                                    <i class="icon_import"></i>
+                                    <h6>生成结构化信息类型</h6>
+                                </dt>
+                                <dd>
+                                    <select name="structuredType" id="structuredType" data-type="">
+                                        <option value="">--请选择--</option>
+                                        <option value="1" data-type="person">人员</option>
+                                        <option value="2" data-type="car">车辆</option>
+                                        <option value="3" data-type="exhibit">物品</option>
+                                        <option value="4" data-type="scene">场景</option>
+                                        <!--<option value="5" data-type="move">运动目标</option>-->
+                                    </select>
+                                </dd>
+                                <dt>
+                                    <i></i>
+                                    <h6>填写备注信息</h6>
+                                </dt>
+                                <dd>
+                                    <textarea name="remark" id="remark"></textarea>
+                                </dd>
+                                <dd>
+                                    <a href="javascript:void(0);" class="btn btn_ok" id="jump_medialib">入库</a>
+                                    <a href="javascript:void(0);" class="btn" id="save_cloud">保存</a>
+                                </dd>
+                            </dl>
+                        </div>
+                    </form>
+
+                    <!-- 视频内容查看_video_info_@End --> </div>
+{{/video}}
+
+{{#image}}
+
+                <!-- 视图分析_video_analysis_@Start -->
+                <div class="location">
+                    <h6>人工标注</h6>
+                </div>
+                <!-- 视图分析_video_analysis_@End -->
+
+                <!-- 视图分析内容区域_video_content_@Start -->
+                <div class="video_content">
+                    <!-- 视频内容查看_video_edit_@Start -->
+                    <dl class="video_edit">
+                        <dt>
+                            <!-- <a href="javascript:void(0)" data-flag="tool_hideen" class="edit_class current">视&nbsp;&nbsp;&nbsp;&nbsp;频</a> -->
+                            <a href="javascript:void(0)" data-flag="tool_show" class="edit_class beginhide">特征图片</a>
+
+                            <div class="video_tool"></div>
+                        </dt>
+                        <dd>
+                           <!--  <span data-flag="tool_hideen">
+                           
+                           <object id="UIOCX" classid="clsid:294EEBEC-7677-4EBA-B2D7-3FD669FBF2A2" width="700" align="center" height="350"><PARAM NAME="_Version" VALUE="65536"><PARAM NAME="_ExtentX" VALUE="21166"><PARAM NAME="_ExtentY" VALUE="13758"><PARAM NAME="_StockProps" VALUE="0"></object>                      
+                                                       <div class="video-block">
+                                <div class="progress-bg">
+                               </div>
+                               <div class="progress-bar">
+                                   <div style="width: 702.18px;" class="bullet">
+                                       <i class="play-point"></i>
+                                   </div>
+                                   <i class="start-mark"></i>
+                                   <i class="end-mark"></i>
+                               </div>
+                               <div onselectstart="return false" class="panel">
+                               <span class="time">
+                                   <span class="nowtime" nowtime-ms="0" nowtime="44460">00:00:44</span>&nbsp;/
+                                   <span class="alltime" alltime-ms="50653">00:00:50</span>
+                               </span>
+                               <span class="fullwin"></span>
+                               <span class="grab"></span>
+                                                           <span class="editing"></span>
+                                                           <span class="stop"></span>
+                               <span class="forward"></span>
+                               <span class="switch active"></span>
+                               <span class="rewind"></span>
+                               </div>
+                           
+                           </div>        
+                           </span> -->
+                            <span data-flag="tool_show">
+                                <div id="image_struct" class="image_struct"></div>
+                            </span>
+                        </dd>
+                        <dd class="filename"></dd>
+                    </dl>
+                    <!-- 视频内容查看_video_edit_@End -->
+
+                    <!-- 视频内容查看_video_info_@Start -->
+                    <form id="mark_form">
+                        <div class="video_info">
+                            <dl class="video_form">
+                                <dt>
+                                    <i class="icon_import"></i>
+                                    <h6>标记可疑目标</h6>
+                                    <a href="javascript:void(0);" id="mark_pic"> <b class="icon_edit"></b>
+                                        标记目标
+                                    </a>
+                                </dt>
+                                <dd>
+                                    <span>
+                                        <img src="/module/common/images/imagejudge/default_pic.png"/>
+                                    </span>
+                                </dd>
+                              <dt style="display:none">
+                                  <i></i>
+                                  <h6>标记目标视频片段</h6>
+                                  <a href="javascript:void(0);" id="mark_extract">
+                                      <b class="icon_edit"></b>
+                                      标记片段
+                                  </a>
+                              </dt>
+                            <dd style="display:none">
+                                    <p>
+                                        <label>出现时间：</label>
+                                        <input type="text" id="timeBegin" name="timeBegin" class="" value="00:00:00"/>
+                                    </p>
+                                    <p>
+                                        <label>消失时间：</label>
+                                        <input type="text" id="timeEnd" name="timeEnd" class="" value="00:00:30"/>
+                                    </p>
+                                    来源视频绝对时间
+                                    <input type="hidden" id="appearTime" name="appearTime" value="2014-01-02 12:22:01"/>
+                                    视频标识
+                                    <input type="hidden" id="sourceId" name="sourceId" value="1"/>
+                                    来源类型
+                                    <input type="hidden" id="pvdSourceId" name="pvdSourceId" value=""/>
+                                    <input type="hidden" id="sourceType" name="sourceType" value="wqqw" />
+                                    特征图路径
+                                    <input type="hidden" id="picture" name="picture" value="sadcdscsa" /></dd>
+                                <dt>
+                                    <i class="icon_import"></i>
+                                    <h6>生成结构化信息类型</h6>
+                                </dt>
+                                <dd>
+                                    <select name="structuredType" id="structuredType" data-type="">
+                                        <option value="">--请选择--</option>
+                                        <option value="1" data-type="person">人员</option>
+                                        <option value="2" data-type="car">车辆</option>
+                                        <option value="3" data-type="exhibit">物品</option>
+                                        <option value="4" data-type="scene">场景</option>
+                                        <!--<option value="5" data-type="move">运动目标</option>-->
+                                    </select>
+                                </dd>
+                                <dt>
+                                    <i></i>
+                                    <h6>填写备注信息</h6>
+                                </dt>
+                                <dd>
+                                    <textarea name="remark" id="remark"></textarea>
+                                </dd>
+                                <dd>
+                                    <a href="javascript:void(0);" class="btn btn_ok" id="jump_medialib">入库</a>
+                                    <a href="javascript:void(0);" class="btn" id="save_cloud">保存</a>
+                                </dd>
+                            </dl>
+                        </div>
+                    </form>
+
+                    <!-- 视频内容查看_video_info_@End --> </div>
+{{/image}}

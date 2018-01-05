@@ -1,0 +1,346 @@
+<div id='mediaVideo'>
+	<div class='wrapper'>
+		<!-- <div class='graybar'></div> -->
+		<div class="loading"></div>
+		<script id="view-template" type="text/x-handlebars-template">
+			<div class='header'>
+				<div class='crumbs'>
+					<a class='first' href="/module/viewlibs/workbench/index" >我的工作台</a>
+					<span>&gt;</span>
+					<a class='second' data-caseid="{{incidentId}}">{{incidentName}}</a>
+					<span>&gt;</span>
+					<a class='third'>视频信息</a>
+				</div>
+				<div class='body'>
+					<div class='title'>
+						<span>{{name}}</span>
+						{{#uneq state "已通过"}}
+						<a class='clue {{textdisabe ../count}}' id="videoClue" target='media'>(<span>结构化信息</span><i>{{../count}}</i>条)</a>
+						{{/uneq}}
+					</div>
+
+					<div class='operate clearfix'>
+						{{#unwaitPass status}}
+						<a class='delete permission {{isOwner ../userId ../status}}' data-videoname="{{../name}}">
+							<span class="ui button">删除</span>
+						</a>
+						{{/unwaitPass}}
+						{{#auditBar status 1 3}}
+						<a class='edit {{isLogUser ../userId }} permission permission-create'>
+							<i></i>
+							<span class="ui button">编辑</span>
+						</a>
+						{{/auditBar}}
+						{{#auditStatus status 4}}
+						<a class='save-to-clound permission permission-import' data-id="{{../id}}">
+							<i></i>
+							<span class="ui button">保存</span>
+						</a>
+						{{/auditStatus}}
+					</div>
+					{{#if incidentId}}
+						{{#waitPass status}}
+						<div class='call-back operate clearfix permission permission-review'>
+							<a data-caseid="{{../incidentId}}" id='reject'><i></i>打回</a>
+						</div>
+						
+						{{/waitPass}}
+					{{/if}}
+				</div>
+			</div>
+			<div class='main'>
+				
+				<div class="display-format tabvideo">
+					<span class="btn tab1 active" id="videoid">原始视频</span>
+					<span class="btn tab2" id="videosumy">剪切型摘要</span>
+					<span class="btn tab3" id="videosumyAdd">叠加型摘要</span>
+					<div class="clearfix seletediv" style="display:none;"> 
+					   <dl> 
+					    <dt class="floatL"> 
+					     <span class="dtspan">播放速度</span> 
+					    </dt> 
+					    <dd class="last floatL"> 
+					    <div class="set-item floatL"> 
+					     	<lavel>无目标：</lavel> 
+					      	<select class="speed-nomark"> 
+					      		<option value="8" selected="">8x</option>
+					      	 	<option value="4">4x</option> 
+					      		<option value="2">2x</option>
+					       	 	<option value="1">1x</option> 
+					        	<option value="1/2">1/2x</option>
+					       		<option value="1/4">1/4x</option>
+					        	<option value="1/8">1/8x</option>
+					         </select> 
+					     </div> 
+					     <div class="set-item floatR"> 
+					      	<lavel>有目标：</lavel> 
+					      	<select class="speed-mark">
+					     		<option value="8">8x</option>
+					     	 	<option value="4">4x</option>
+					     	 	<option value="2">2x</option>
+					     	    <option value="1" selected="">1x</option> 
+					     	    <option value="1/2">1/2x</option>
+					     	    <option value="1/4">1/4x</option>
+					     	    <option value="1/8">1/8x</option>
+					     	</select> 
+					     </div> 
+					    </dd> 
+					   </dl>
+					</div>
+					<!--<iframe id="iframeSelet" style="display:none;"></iframe>-->
+				</div>
+				<div class='media-info'>
+					<ul class='tabs'>
+						<li data-tab='commoninfo' class='active'>基本信息</li>
+					
+						<li data-tab='incident' id="incidentId" data-incidentid='{{incidentId}}' class='related-case'>所属案事件</li>
+						<li data-tab='thread' id="threadId" class='related-case'>线索</li>
+					</ul>
+				
+					<div class='views'>
+						<div class="scrollbar disable">
+							<div class="track">
+								<div class="thumb"></div>
+							</div>
+						</div>
+						<div class="viewport">
+							<div class="overview">
+								<div data-view='commoninfo' class='commoninfo active'>
+									<table class="common-table">
+									    <tbody>
+									        <tr>
+									            <td class="attr-name">来源：</td>
+									            <td class="attr-value">{{sourceId}}</td>
+									        </tr>
+									        <tr>
+									            <td class="attr-name">设备编码：</td>
+									            <td class="attr-value">{{device}}</td>
+									        </tr>
+									        <tr>
+									            <td class="attr-name">文件格式：</td>
+									            <td class="attr-value">{{fileFormat}}</td>
+									        </tr>
+									        <tr>
+									            <td class="attr-name">编码格式：</td>
+									            <td class="attr-value">{{codeFormat}}</td>
+									        </tr>
+									        <tr>
+									            <td class="attr-name">拍摄日期：</td>
+									            <td class="attr-value">{{shootTime}}</td>
+									        </tr>
+									        <tr>
+									            <td class="attr-name">分类：</td>
+									            <td class="attr-value">{{category}}</td>
+									        </tr>
+									        <tr>
+									            <td class="attr-name">题名：</td>
+									            <td class="attr-value">{{name}}</td>
+									        </tr>
+									        <tr>
+									            <td class="attr-name">题名补充：</td>
+									            <td class="attr-value">{{supplement}}</td>
+									        </tr>
+									        <tr>
+									            <td class="attr-name">专项名：</td>
+									            <td class="attr-value">{{earmark}}</td>
+									        </tr>
+									        <tr>
+									            <td class="attr-name">主题词：</td>
+									            <td class="attr-value">{{subject}}</td>
+									        </tr>
+									        <tr>
+									            <td class="attr-name">关键词：</td>
+									            <td class="attr-value">{{keywords}}</td>
+									        </tr>
+									        <tr>
+									            <td class="attr-name">内容描述：</td>
+									            <td class="attr-value">{{description}}</td>
+									        </tr>
+									        <tr>
+									            <td class="attr-name">主题人物：</td>
+									            <td class="attr-value">{{keyman}}</td>
+									        </tr>
+									        <tr>
+									            <td class="attr-name">拍摄地点：</td>
+									            <td class="attr-value">
+									                <span class="value">
+									                    {{location}}
+									                </span>
+									            </td>
+									        </tr>
+									        <tr>
+									            <td class="attr-name">拍摄地点经纬度：</td>
+									            <td class="attr-value">{{longitude}},{{latitude}}</td>
+									        </tr>
+									        <tr>
+									            <td class="attr-name">密级：</td>
+									            <td class="attr-value">{{secrecy}}</td>
+									        </tr>
+									        <tr>
+									            <td class="attr-name">语言：</td>
+									            <td class="attr-value">{{language}}</td>
+									        </tr>
+									        <tr>
+									            <td class="attr-name">视频长度(秒)：</td>
+									            <td class="attr-value">{{duration}}</td>
+									        </tr>
+									        <tr>
+									            <td class="attr-name">视频入点：</td>
+									            <td class="attr-value">{{enterTime}}</td>
+									        </tr>
+									        <tr>
+									            <td class="attr-name">视频开始绝对时间：</td>
+									            <td class="attr-value">{{startTime}}</td>
+									        </tr>
+									        <tr>
+									            <td class="attr-name">视频结束绝对时间：</td>
+									            <td class="attr-value">{{endTime}}</td>
+									        </tr>
+									        <tr>
+									            <td class="attr-name">视频宽高：</td>
+									            <td class="attr-value">{{width}} X {{height}}</td>
+									        </tr>
+									        <tr>
+									            <td class="attr-name">质量等级：</td>
+									            <td class="attr-value">{{quality}}</td>
+									        </tr>
+									        <tr>
+									            <td class="attr-name">采集人：</td>
+									            <td class="attr-value">{{picker}}</td>
+									        </tr>
+									        <tr>
+									            <td class="attr-name">采集单位名称：</td>
+									            <td class="attr-value">{{pickerCompany}}</td>
+									        </tr>
+									    </tbody>
+									</table>
+								</div>
+								<div data-view='incident' class='incident'>
+								</div>
+								<div data-view="thread" class="videos thread active">
+									<ul class="clearfix"></ul>
+									<div class="pagebar pagination videos" style="display: none;"><span class="current">1</span><p><span>1</span>/<span>1</span></p></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class='media  entity-preview' id="videoOldId" >
+					<div class='video' data-path="{{path}}" data-localpath="{{localpath}}" data-shoottime="{{shootTime}}" data-videoid="{{videoId}}" data-videoname="{{name}}" data-fileid="{{id}}">
+                        <object id="UIOCX" type="applicatin/x-firebreath" align="center" width="800" height="520"></object>
+                        <div class="video-block video-detail">
+                           	<div class="progress-bg"></div>
+                            <div class="progress-bar">
+                                <div class="bullet">
+                                	<i class="play-point"></i>
+                                </div>
+                                <i class='start-mark'></i>
+                                <i class='end-mark'></i>
+                            </div>
+                            <div class="panel" onselectstart="return false">
+	                            <span class="time">
+									<span class="nowtime" nowtime-ms="0">00:00:00</span>&nbsp;/
+									<span class="alltime" alltime-ms="14859247">00:00:00</span>
+								</span>
+								<span class="speed" >倍速：<em></em></span>
+								<span class="fullwin" title="全屏"></span>
+								<span class="grab" title="抓图"></span>
+								<span class="editing permission permission-analysis {{isLogUser userId }}" data-shoottime="{{shootTime}}" title="人工标注" data-incidentid={{incidentId}}></span>
+								<span class="smartmark permission permission-analysis {{isLogUser userId }}" data-shoottime="{{shootTime}}" title="智能标注" data-incidentid={{incidentId}}></span>
+								<span class="stop" title="停止"></span>
+								<span class="forward" title="快进"></span>
+								<span class="switch" title="播放"></span>
+								<span class="rewind" title="慢放"></span>
+	                         </div>
+                        </div>
+                    </div>
+				</div>					
+				<div class='media  entity-preview psletffar' id="videoSumyId">
+					<div class="player-container">
+					    <object class="player-obj" id="videoCut" type="applicatin/x-firebreath" width="800" height="520" align="center"></object>
+					    <div class="player-controls">
+					        <div class="control-progress">
+					            <div class="progress-bar-left"></div>
+					            <div class="progress-bar-box">
+					                <div class="progress-bar-inner">
+					                    <div class="progress-bullet">
+					                        <i class="progress-play-point"></i>
+					                    </div>
+					                    <!-- <div class="progress-mark-section"></div> -->
+					                    <i class="progress-mark-start"></i>
+					                    <i class="progress-mark-end"></i>
+					                </div>
+					            </div>
+					        </div>
+					        <div class="control-panel clearfix">
+					            <div class="play-times">
+					                <span class="time-nowtime">00:00:00</span>&nbsp;/
+					                <span class="time-alltime">00:00:00</span>
+					                <span class="time-speed">倍速：<span></span></span>
+					            </div>
+					            <div class="play-buttons">
+					                <i class="btn-slow" title="慢放"></i>
+					                <i class="btn-play" title="播放"></i>
+					                <i class="btn-forward" title="快进"></i>
+					                <i class="btn-stop" title="停止"></i>
+					            </div>
+					            <div class="others-buttons">
+					                <!--<i class="btn-screenshot" title="抓图"></i>-->
+					                <i class="btn-fullwin" title="全屏"></i>
+					            </div>
+					        </div>
+					    </div>
+					</div>
+				</div>
+				<div class='media  entity-preview psletffar' id="videoSumyAddId">
+					<div id="overlay_player_window" class="player-container1">
+					    <object class="player-obj" id="OVERLAY"  type="application/x-vcplayer" width="800" height="520" align="center">
+					        <param name="onload" value="pluginLoaded"/>
+					    </object>
+					    <div class="player-controls">
+					        <div class="control-progress">
+					            <div class="progress-bar-left"></div>
+					            <div class="progress-bar-box">
+					                <div id="overlay_bar_inner" class="progress-bar-inner">
+					                    <div id="overlay_progress_bullet" class="progress-bullet">
+					                        <i id="overlay_play_point" class="progress-play-point"></i>
+					                    </div>
+					                    <!-- <div class="progress-mark-section"></div> -->
+					                    <i class="progress-mark-start"></i>
+					                    <i class="progress-mark-end"></i>
+					                </div>
+					            </div>
+					        </div>
+					        <div class="control-panel clearfix">
+					            <div class="play-times">
+					                <span id="overlay_time_nowtime" class="time-nowtime">00:00:00</span>&nbsp;/
+					                <span id="overlay_time_alltime" class="time-alltime">00:00:00</span>
+					                <span id="overlay_time_speed" class="time-speed">倍速：<span></span></span>
+					            </div>
+					            <div class="play-buttons">
+					                <i id="overlay_btn_slow" class="btn-slow" title="慢放"></i>
+					                <i id="overlay_btn_play" class="btn-play" title="播放"></i>
+					                <i id="overlay_btn_forward" class="btn-forward" title="快进"></i>
+					                <i id="overlay_btn_stop" class="btn-stop" title="停止"></i>
+					            </div>
+					            <div class="others-buttons">
+					                <span class="overlay_density">密度：
+					                    <select id="overlay-select-density">
+					                        <option>1</option>
+					                        <option>2</option>
+					                        <option selected="selected">3</option>
+					                        <option>4</option>
+					                        <option>5</option>
+					                    </select>
+					                </span>
+					                <i id="overlay_btn_fullwin" class="btn-fullwin" title="全屏"></i>
+					            </div>
+					        </div>
+					    </div>
+					</div>
+				</div>	
+				
+			</div>
+		</script>
+	</div>
+</div>

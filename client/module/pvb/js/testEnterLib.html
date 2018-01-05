@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=10,chrome=1"/>
+<title>入库测试</title>
+<link type="text/css" rel="stylesheet" href="/module/common/css/base.css" />
+<link type="text/css" rel="stylesheet" href="/libs/semantic/semantic.css" />
+    <link rel="stylesheet" type="text/css" href="/libs/jquery/jquery-ui.css"/>
+    <link type="text/css" rel="stylesheet" href="/libs/jquery/jquery.datetimepicker.css">
+<link type="text/css" rel="stylesheet" href="/module/pvb/css/enterlib.css" />
+<link type="text/css" rel="stylesheet" href="/module/common/popLayer/css/details.css" />
+<script type="text/javascript" src="/libs/jquery/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" data-main="/require-conf.js" src="/libs/requirejs/require.js"></script>
+<style>
+
+</style>
+</head>
+<body>
+<script>
+require(['enterlib-main.js'], function(EnterLib) {
+   /* var imgObj = {
+        type: "img",
+        filePath: "http://192.168.60.57:8012/module/pvb/testImg.jpg",
+        fileFormat:"",
+        resourceObj:{
+            fileName:'视图名称test',
+            fileDate:'2016-03-12 00:00:00',
+            fileDesc:'描述内容test'
+        }
+    };
+    EnterLib.init(imgObj);*/
+
+
+    var PFSVideoObj = {
+        type: "PFS",
+        filePath: "NPFS:192.168.60.155:9000/username=admin&password=admin#/pvb/videos/89e67af1-a446-41b0-bab3-fc990605b62a.mbf"
+    };
+    EnterLib.init(PFSVideoObj);
+
+
+  /* var historyVideoObj = {
+        type: "history",
+        cameraId: 20563,
+        vodType: 0,
+        fileFormat: "MPG",
+        longitude: 121.47297317,
+        latitude: 31.27992079,
+        duration: 183,
+        enterTime: 1460092292000,
+        beginTime: 1460092292000,
+        endTime: 1460092475000,
+        width: 500,
+        height: 300
+    };*/
+    //EnterLib.init(historyVideoObj);
+});
+</script>
+</body>
+</html>

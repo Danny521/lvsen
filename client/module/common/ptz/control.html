@@ -1,0 +1,281 @@
+<div id="ptzCamera">
+	<div class="header">
+		<ul class="ui tabular">
+			<li data-tab="ptz" class="not-support ptz permission permission-ptz-control">
+				<a>云台控制</a>
+			</li>
+			<li data-tab="effect" class="support permission effect">
+				<a>色彩调节</a>
+			</li>
+			<li data-tab="preset" class="not-support preset permission permission-delete-preset permission-call-preset permission-set-preset">
+				<a>预置位</a>
+			</li>
+			<li data-tab="cruise"  class="not-support cruise permission permission-preset-cruise">
+				<a>巡航</a>
+			</li>
+			<li data-tab="hisplay" class="not-support hisplay must-hide permission permission-view-history" style="display:none">
+				<a>历史回放</a>
+			</li>
+		</ul>
+	</div>
+	<div class="content">
+		<div class="view ptz ui tab" data-tab="ptz">
+			<div class="box">
+				<div class="box-body">
+					<div class="ptz-adjust">
+						<div class="adjust-wrap">
+							<span class="zoom up adjust" data-cmd="11" title="焦距增大">
+							</span>
+							<span class="zoom down adjust" data-cmd="11" title="焦距减小">
+							</span>
+							<span class="focus up adjust" data-cmd="12" title="焦点增大">
+							</span>
+							<span class="focus down adjust" data-cmd="12" title="焦点减小">
+							</span>
+							<span class="iris up adjust" data-cmd="10" title="光圈增大">
+							</span>
+							<span class="iris down adjust" data-cmd="10" title="光圈减小">
+							</span>
+						</div>
+					</div>
+					<div class="dir-control">
+						<div class="vertical dir right" data-cmd="0">
+						</div>
+						<div class="dir rightup" data-cmd="1">
+						</div>
+						<div class="dir up" data-cmd="2">
+						</div>
+						<div class="dir leftup" data-cmd="3">
+						</div>
+						<div class="vertical dir left" data-cmd="4">
+						</div>
+						<div class="dir leftdown" data-cmd="5">
+						</div>
+						<div class="dir down" data-cmd="6">
+						</div>
+						<div class="dir rightdown" data-cmd="7">
+						</div>
+						<div class="scan" data-cmd="8">
+						</div>
+					</div>
+					<div class="control-speed">
+						<span class="item">
+							控制速度
+						</span>
+						<div class="speedSlider"></div>
+					</div>
+					<div class="equipment">
+						<span class="switch off">
+						</span>
+						<span class="choose">
+							<select>
+								<option class="wipe" id="wipe">雨刷</option>
+								<option class="light" id="light">灯光</option>								
+							</select>
+						</span>				
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="view effect ui tab" data-tab="effect">
+			<div class="box">
+				<div class="box-body">
+					<ul>
+						<li class="brightness">
+							<span class="item">
+								亮度
+							</span>
+							<div class="brightnessSlider"></div>
+							<span class="count">0</span>
+						</li>
+						<li class="contrast">
+							<span class="item">
+								对比度
+							</span>
+							<div class="contrastSlider"></div>
+							<span class="count">0</span>
+						</li>
+						<li class="saturation">
+							<span class="item">
+								饱和度
+							</span>
+							<div class="saturationSlider"></div>
+							<span class="count">0</span>
+						</li>
+						<li class="hue">
+							<span class="item">
+								色调
+							</span>
+							<div class="hueSlider"></div>
+							<span class="count">0</span>
+						</li>
+					</ul>
+					<div class="buttons">
+						<a class="ui button reset">重置</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="view preset ui tab" data-tab="preset">
+			<div class="box">
+				<div class="box-head">
+					<span class="pre-num">编号</span>
+					<span class="pre-img">预置位图片</span>
+					<span class="pre-name">预置位标题</span>
+				</div>
+				<div class="box-body">
+					<ul>
+					</ul>
+					<div class="buttons">
+						<a class="ui button blue call permission permission-call-preset">调用</a>
+						<a class="ui button delete permission permission-delete-preset">删除</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="view cruise ui tab" data-tab="cruise">
+			<div class="box">
+				<div class="box-head">
+					<h3>						
+					</h3>
+					<div class="time-interval">
+						<span>(</span>
+						<span class="stime"></span>
+						<span>-</span>
+						<span class="etime"></span>
+						<span>)</span>
+					</div>
+					<i class="cruise-setting" title="设置">
+					</i>
+				</div>
+				<div class="box-head auto-head">
+					<span class="head-num">编号</span>
+					<span class="head-title">预置位标题</span>
+					<span class="head-time">间隔时间(秒)</span>
+				</div>
+				<div class="box-head period-head">
+					<span class="head-num">编号</span>
+					<span class="head-title">预置位标题</span>
+					<span class="head-pstart">开始时间</span>
+					<span class="head-pend">结束时间</span>
+				</div>
+				<div class="box-body">
+					<div class="presets-div">
+					</div>
+					<div class="buttons">
+						<a class="ui button blue start">启动</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="view hisplay ui tab" data-tab="hisplay" style="display:none;">
+			<div class="box">
+				<div class="box-body" style="text-align:left;">
+				<div class="beginTime">
+	                 <input value="输入开始时间" class="his_beginTime input-time"/><span class="icon-timepicker">&nbsp;</span>
+				</div>
+					<div class="endTime">
+	                 <input value="输入结束时间" class="his_endTime input-time"/><span class="icon-timepicker">&nbsp;</span>
+					</div><a class="asearch permission permission-view-history">查询</a>
+					<div class="resultList">
+					   暂无数据
+				</div>			
+			</div>
+			</div>
+		</div>	
+	</div>
+</div>
+<div id="setCruise">
+	<div class="header">
+		<ul class="ui tabular">
+			<li data-tab="auto" class="active">
+				<a>自动巡航</a>
+			</li>
+			<li data-tab="period" class="">
+				<a>时间段巡航</a>
+			</li>
+		</ul>
+		<a class="back">返回</a>
+	</div>
+	<div class="content">
+		<div class="view active ui tab" data-tab="auto">
+			<div class="box">
+				<div class="box-head actions">
+					<span class="add" title="添加预置位">
+					</span>
+					<span class="down"  title="下移">
+					</span>
+					<span class="up" title="上移">
+					</span>
+					<span class="delete" title="删除预置位">
+					</span>
+				</div>
+				<div class="box-head">
+					<span class="preset-num">编号</span>
+					<span class="preset-title">预置位标题</span>
+					<span class="preset-interval">时间间隔(秒)</span>
+				</div>
+				<div class="box-body">
+					<ul class="preset-ul">
+					</ul>
+					<div class='box-div after'>
+						<span class="even-span start-span">开始</span>
+						<span class="odd-span">
+							<input type="text" class="datetimepicker start" />
+						</span>
+						<span class="even-span end-span">结束</span>
+						<span class="odd-span">
+							<input type="text" class="datetimepicker end" />
+						</span>
+					</div>
+					<div class='box-div'>
+						<span class="back-to">自动回位点</span>
+						<span class="odd-span">
+							<select class="preset-name">
+							</select>
+						</span>
+					</div>
+					<div class="buttons">
+						<a class="ui button blue confirm">确定</a>
+						<a class="ui button cancle">取消</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="view ui tab" data-tab="period">
+			<div class="box">
+				<div class="box-head actions">
+					<span class="add" title="增加预置位">
+					</span>
+					<span class="down" title="下移">
+					</span>
+					<span class="up" title="上移">
+					</span>
+					<span class="delete" title="删除预置位">
+					</span>
+				</div>
+				<div class="box-head">
+					<span class="head-num">编号</span>
+					<span class="head-title">预置位标题</span>
+					<span>起始时间</span>
+					<span>结束时间</span>
+				</div>
+				<div class="box-body">
+					<ul class="preset-ul">
+					</ul>
+					<div class='box-div after'>
+						<span class="back-to">自动回位点</span>
+						<span>
+							<select class="preset-name">
+							</select>
+						</span>
+					</div>
+					<div class="buttons">
+						<a class="ui button blue confirm">确定</a>
+						<a class="ui button cancle">取消</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

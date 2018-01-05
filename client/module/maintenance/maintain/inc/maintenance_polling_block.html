@@ -1,0 +1,29 @@
+{{#each taskCameras}}
+<div class="groups">
+	<div class="group-item">
+		<div class="item-header">
+			<span class="name" title="{{cameraName}}">{{cameraName}}</span>
+		</div>
+
+		<div class="item-body">
+			<span class="status">
+				<q>巡检状态：</q>
+				{{result status}}
+			</span>
+			<span class="time">
+				<q>巡检结果：</q>
+				{{result status}}
+			</span>
+			<span class="status">
+				<q>巡检方式：</q>
+				{{polingType autoStatus status}}
+			</span>
+			<span class="time">
+				<q>巡检时间：</q>
+				{{mills2str inspectDate}}
+			</span>
+		</div>
+
+	</div>
+</div>
+{{/each}}

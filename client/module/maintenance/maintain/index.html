@@ -1,0 +1,179 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN" xmlns="http://www.w3.org/1999/html">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=10,chrome=1">
+	<title>公安视频实战应用平台</title>
+	<!--[if lt IE 9]><script src="/libs/html5/html5.js"></script><![endif]-->
+	<link type="image/x-icon" rel="shortcut icon" href="/favicon.ico" />
+	<link type="text/css" rel="stylesheet" href="/module/common/css/base.css" />
+	<link type="text/css" rel="stylesheet" href="/libs/semantic/semantic.css" />
+	<link rel="stylesheet" type="text/css" href="/libs/jquery/jquery-ui.css"/>
+	<link type="text/css" rel="stylesheet" href="/libs/jquery/jquery.datetimepicker.css"/>
+	<link type="text/css" rel="stylesheet" href="/module/common/css/tree.css"/>
+	<link type="text/css" rel="stylesheet" href="/module/common/ptz/control.css"/>
+	<link type="text/css" rel="stylesheet" href="css/pagination.css"/>
+	<link type="text/css" rel="stylesheet" href="css/options.css" />
+	<link type="text/css" rel="stylesheet" href="css/maintenance.css" />
+</head>
+<body>
+
+	<script type="text/javascript" src="/libs/requirejs/require.js"></script>
+	<script type="text/javascript" src="/require-conf.js"></script>
+	<script type="text/javascript">require(["js/main"])</script>
+	<div id="content">
+		<div class="wrapper">
+	<aside id="sidebar">
+
+			<!--<a id="sideResize">
+				<iframe src="about:blank"></iframe>
+				<span>调整宽度</span>
+			</a>-->
+			<ul class="header" id="task">
+				<li class="tasklist">任务列表</li>
+
+				<li class="ui button blue newtask" title="新建任务">新建任务</li>
+				<li class="setPanel" title="参数设置"></li>
+			</ul>
+					
+					
+			<div id="aside">
+				
+					<div class="searchbox">
+						<input class="tasksearch" type="text" id="taskSearchSimple" name="taskName" placeholder="请输入关键字查询..." />
+					    <button></button>
+					</div>
+					<div class="refresh hidden">点击刷新</div>
+					
+					<div id="onlineBox">
+						
+					</div>
+						
+					
+			</div>
+			
+
+    </aside>
+
+<div id="major">
+
+
+<table class="righttotal">
+	<tr>
+		<th>
+			<div class="divOrange">
+				<div class="icon_marks markOrange"></div>
+				<div class="rightCon">
+					<P>实有县区总数</P>
+					<P></P>
+				</div>
+			</div>
+		</th>
+		
+		<th>
+			<div class="divOrange">
+				<div class="icon_marks markOrange"></div>
+				<div class="rightCon">
+					<P>联网县区总数</P>
+					<P></P>
+				</div>
+				
+			</div>
+		
+		</th>
+		
+		<th>
+			<div class="divGreen">
+				<div class="icon_marks markGreen"></div>
+				<div class="rightCon">
+					<P>上报摄像机总数</P>
+					<P></P>
+				</div>
+				
+			</div>
+		</th>
+		
+		<th>
+			<div class="divGreen">
+				<div class="icon_marks markGreen"></div>
+				<div class="rightCon">
+					<P>上报摄像机在线数</P>
+					<P></P>
+				</div>
+			</div>
+		</th>
+		
+		<th >
+			<div class="divGreen">
+				<div class="icon_marks markGreen"></div>
+				<div class="rightCon">
+					<P>上报摄像机在线率</P>
+					<P></P>
+				</div>
+				
+			</div>
+		</th>
+		<th>
+			<div class="divBlue">
+				<div class="icon_marks markBlue"></div>
+				<div class="rightCon more">
+					<P>GIS采集总数</P>
+					<P></P>
+				</div>
+				
+			</div>
+		
+		</th>
+		
+		<th>
+			<div class="divBlue">
+				<div class="icon_marks markBlue"></div>
+				<div class="rightCon more">
+					<P>GIS采集率</P>
+					<P></P>
+				</div>
+				
+			</div>
+		</th>
+	</tr>
+</table>
+<div id="notask" style="display: block;"><img src="images/notask.png"></div>
+
+
+<div id="rightTable">
+  <!--点击左侧任务显示状态-->
+</div>
+
+</div>
+
+</div>
+</div>
+<div class="popLayer"></div>
+<div class="setPanelPart">
+	
+	<div class="popTitle">
+        <span class="head">参数设置</span>
+        <span class="close"></span>
+    </div>
+	<p class="pt20">
+		<label>根组织级别：</label>
+		<input type="text" class="h30 orgName" readonly  placeholder="请选择组织名" />
+		<span class="arrow"></span>
+	</p>
+	<div id="selectOrg">
+		<ul>
+			<li>省级</li>
+			<li>市级</li>
+		</ul>	
+	</div>
+	<p>
+		<label class="leLabel">上联摄像机路数最小值：</label>
+		<input type="text" class="h30 tinyInput"  placeholder="400" />
+	</p>
+	<div class="panelFooter"> 
+		<input type="button" value="确定" class="ui button blue tinyMine sure">
+		<input type="button" value="取消" class="ui button tinyMine cancle">
+	</div>
+</div>
+</body>
+</html>

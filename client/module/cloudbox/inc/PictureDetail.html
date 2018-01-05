@@ -1,0 +1,89 @@
+<div class="p-detail">
+    <div class="p-title">
+        <ul class='p-summary'>
+            <li class='p-summary-item'>
+                <h6 title='{{image.fileName}}'>{{image.fileName}}</h6>
+                {{#if structuredNum}}
+                <a id="jumpTdetials" data-id="{{video.id}}"><em>(已存{{structuredNum}}条结构化信息)</em></a>
+                {{/if}}
+                {{#if handleNum}}
+                <a><em id="pictureHandleInfo" data-id="{{image.id}}">(已存{{handleNum}}条图像处理结果)</em></a>
+                {{/if}}
+            </li>
+        </ul>
+        <span class='l-oper'>
+            <a href="javascript:void(0)"  data-action="download" class="oper-item permission permission-download">
+                <i class="icon_download"></i>
+                下载
+            </a>
+            <a href="javascript:void(0)" data-action="analysis" class=" oper-item permission permission-analysis"><i class="icon_target"></i>
+                人工标注
+            </a>
+            <a href="javascript:void(0)"  data-action="imagesjude" class="oper-item permission permission-process"> <i class="icon_target"></i>
+                图像处理
+            </a>
+            <a href="javascript:void(0)"  data-action="sedit" {{isShow image.pvd}} class='oper-item'> <i class="icon_edit"></i>
+                编辑
+            </a>
+            <a href="javascript:void(0)" data-action="medialib" class="oper-item permission permission-tobaselib">
+                <i class="icon_storage"></i>
+                入库
+            </a>
+            <a href="javascript:void(0)" data-action="delFile" class="oper-item permission permission-create">
+                <i class="icon_delete"></i>
+                删除
+            </a>
+        </span>
+    </div>
+    <div class="p-body">
+        <div class="p-info">
+            <ul class="show-info active p-c-info ">
+                <li class='info-li-item'>
+                    <label>图片名称：</label>
+                    <em title="{{image.fileName}}">{{image.fileName}}</em>
+                </li>
+                <li class="odd info-li-item">
+                    <label>图片大小：</label>
+                    <em title="{{image.fileSize}}">{{filterFileSize image.fileSize}}</em>
+                </li>
+                <li class='info-li-item '>
+                    <label>图片格式：</label>
+                    <em title="{{image.fileFormat}}">{{image.fileFormat}}</em>
+                </li>
+                <li class="odd info-li-item">
+                    <label>创建时间：</label>
+                    <em title="{{image.storageTime}}">{{mills2ISODate image.storageTime}}</em>
+                </li>
+                <li class='info-li-item'>
+                    <label>拍摄时间：</label> <em class="shootTime" title="{{mills2ISODate image.adjustTime}}">{{mills2ISODate image.adjustTime}}</em>
+                </li>
+                <li class="odd info-li-item">
+                    <label>备注信息：</label>
+                    <em title="{{image.remark}}" class="contents">{{noValue image.remark}}</em>
+                </li>
+            </ul>
+            <ul class="edit-info p-e-info">
+                <li class='info-li-item'>
+                    <label>图片名称：</label>
+                    <input value="{{image.fileName}}" type="text" id='file_name' name="fileName">
+                </li>
+                <li class='info-li-item'>
+                    <label>拍摄时间：</label>
+                    <input value="{{mills2ISODate image.adjustTime}}" readonly type="text"  class='datepicker' id="shootTime" name="shootTime">
+                </li>
+                <li class='info-li-item'>
+                    <label>备注信息：</label>
+                    <textarea name="remark" id="remark">{{image.remark}}</textarea>
+                </li>
+                <li class='info-li-item'>
+                    <a href="javascript:void(0);" class="btn btn_ok" id="jump_medialib" data-action="save" data-id="{{image.id}}">保存</a>
+                    <a href="javascript:void(0);" class="btn" id="save_cloud" data-action="cancel">取消</a>
+                </li>
+            </ul>
+        </div>
+        <div class="p-content show-area">
+            <img class='just-pic' src="{{image.filePath}}">
+        </div>
+    </div>
+</div>
+

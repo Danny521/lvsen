@@ -1,0 +1,11 @@
+<ul  onselectstart="return false;">
+	{{#if init}}
+	{{#each cameras}}
+	<li class="{{typeNameTransform type}} {{#isTree type}}root{{/isTree}} {{hasNoRight score}}" data-camerascore="{{score}}" data-tree-level="{{../level}}" data-type="{{typeNameTransform type}}" data-sync="{{isSynced}}" data-lat="{{latitude}}" data-lon="{{longitude}}" data-angle="{{angle}}" data-code="{{cameraCode}}" data-zoom="{{zoom}}" data-id="{{id}}"  data-name="{{name}}" >{{#if ../selectable}}<i class="checkbox {{ ../../selected }}"></i>{{/if}}{{#isTree type}}<i class="fold"></i>{{/isTree}}<i class="root"></i><span class="name" title="{{name}}">{{name}}</span></li>
+	{{/each}}
+	{{else}}
+	{{#each cameras}}
+	<li class="{{typeNameTransform type}} {{hasNoRight score}}" data-camerascore="{{score}}" data-camera="{{camera_type}}" data-id="{{id}}"  data-name="{{name}}" data-tree-level="{{../level}}"  data-sync="{{isSynced}}" data-lat="{{latitude}}" data-lon="{{longitude}}" data-angle="{{angle}}" data-code="{{cameraCode}}" data-zoom="{{zoom}}" data-type="{{typeNameTransform type}}">{{#if ../selectable}}<i class="checkbox {{ ../../selected }}"></i>{{/if}}{{#isTree type}}<i class="fold"></i>{{/isTree}}<i class="{{typeNameTransform type}} camera-style {{#eq camera_type 1}}dom{{/eq}} {{isMarked latitude longitude camera_type}}"></i><span class="name" title="{{name}}">{{name}}{{isGroup type cameraCode}}</span></li>
+	{{/each}}
+	{{/if}}
+</ul>

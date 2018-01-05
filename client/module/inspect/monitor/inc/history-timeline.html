@@ -1,0 +1,48 @@
+<div id="history_timeline" class="history" style="width:100%;display:none;">
+	<div class="head">
+		<div class="synchronized">
+			<ul disabled="disabled">
+				<li class="back disabledbtn" title="慢速播放"></li>
+				<li class="play disabledbtn" title='播放' style="display:none"></li>
+				<li class="pause disabledbtn" title='暂停'></li>
+				<li class="front disabledbtn" title="快速播放"></li>
+				<li class="stop disabledbtn" title="停止"></li>
+			</ul>
+			<span>倍速：x1</span>
+		</div>
+		<ul class="actions">
+			<li class="quire active" title="查询"></li>
+			<li class="down active" title="下载"></li>
+			<li class="sync">同步</li>
+		</ul>
+		<div class="unit">
+			<span class="minute" data-type='M'>分钟</span>
+			<span class="hour" data-type='H'>小时</span>
+			<span class="day" data-type='D'>天</span>
+			<span id="history_flagbtn" class="setpanel sync">收起</span>
+		</div>
+	</div>
+	<div class="timeline-body">
+		<ul class='cameraline'>
+			<li tabindex="0" style="display:none;">
+				<span>通道0</span>
+				<div id='paper0' class='time-panel canvas'></div>
+			</li>
+			<li tabindex="0" style="display:none;">
+				<span>通道1</span>
+				<div id='paper1' class='time-panel canvas'></div>
+			</li>
+			<li tabindex="0" style="display:none;">
+				<span>通道2</span>
+				<div id='paper2' class='time-panel canvas'></div>
+			</li>
+			<li tabindex="0" style="display:none;">
+				<span>通道3</span>
+				<div id='paper3' class='time-panel canvas'></div>
+			</li>
+		</ul>
+		<span class='long-pointer'></span>
+	</div>	
+</div>
+
+

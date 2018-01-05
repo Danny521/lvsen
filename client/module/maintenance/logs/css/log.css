@@ -1,0 +1,772 @@
+#sidebar>.header {
+    height: 34px;
+    background-color: #FFFFFF;
+    border-top: 1px solid #DFDFDF;
+    border-bottom: 1px solid #DFDFDF;
+}
+#treePanel {
+    width: 100%;
+    position: absolute;
+    top: 36px;
+    bottom: 0;
+}
+#sidebar:after {
+    content: ' ';
+    width: 0px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0px;
+    border-right: 1px solid #DFDFDF;
+}
+#sidebar {
+    width: 280px;
+    position: absolute;
+    top: 10px;
+    left: 0px;
+    bottom: 0px;
+    background-color: #F6FBFF;
+}
+#major {
+    position: absolute;
+    top: 10px;
+    left: 280px;
+    bottom: 0;
+    right: 0;
+}
+#content .wrapper {
+    position: absolute;
+    top: 0;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    background-color: #FEFEFE;
+    overflow: hidden;
+}
+#sideResize {
+    position: absolute;
+    left: 100%;
+    top: 50%;
+    cursor: w-resize;
+    margin-top: -1px;
+    z-index: 100;
+    font-size: 0;
+    width: 9px;
+    height: 38px;
+    overflow: hidden;
+}
+#sideResize span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 9px;
+    height: 38px;
+    z-index: 300;
+    background: rgba(0, 0, 0, 0) url(/module/common/images/bg/resizable.png) right 0 no-repeat;
+}
+a {
+    color: #666;
+    text-decoration: none;
+    outline: none;
+    white-space: nowrap;
+    work-break: keep-all;
+}
+.main {
+    min-width: 1200px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+}
+
+.main_right {
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 280px;
+    right: 0px;
+    overflow: hidden;
+    display: none;
+}
+.tools {
+    height: 40px;
+    line-height: 40px;
+    border-top: 1px solid #E0E4E8;
+    border-bottom: 1px solid #E0E4E8;
+}
+.location {
+    height: 40px;
+    float: left;
+    padding-left: 10px;
+}
+.location a {
+    height: 40px;
+    line-height: 40px;
+    text-align: right;
+    /*float: left;*/
+    color: #276BB5;
+}
+
+
+.screening {
+    height: 50px;
+    line-height: 50px;
+    /*border-bottom: 1px solid #E0E4E8;*/
+}
+#fornormal.active {
+    display: block;
+}
+.screening .p {
+    height: 50px;
+    line-height: 50px;
+    padding: 9px 0;
+    float: left;
+}
+.screening .p:first-child {
+    margin-top: 3px;
+}
+.screening .p label {
+    width: 60px;
+    height: 25px;
+    line-height: 25px;
+    text-align: right;
+    float: left;
+    font-family: "Microsoft Yahei", "微软雅黑", "宋体";
+}
+#actionClass .action-c {
+    font-family: "Microsoft Yahei", "微软雅黑", "宋体";
+}
+input[type='text'] {
+    color: #999;
+    border: 1px solid #CCC;
+}
+.placeholder {
+    color: #A9A9A9;
+}
+#actionClass {
+    float: right;
+    height: 26px;
+    line-height: 26px;
+    width: 88px;
+    margin-left: 5px;
+    border: 1px solid #CCC;
+}
+/*删除、导出按钮*/
+#fornormal .normal-right {
+    float: right;
+    padding: 0 10px;
+    position: relative;
+    margin-right: 20px;
+}
+.screening .p input[type='text'] {
+    height: 25px;
+    line-height: 25px;
+    padding: 0 6px 1px 5px;
+    width: 148px;
+    float: left;
+    margin-left: 5px;
+}
+.screening .p .input-time {
+    cursor: pointer;
+    background: url("/module/common/images/icon_calendar.png") no-repeat scroll 98% center;
+}
+.screening .p a.icon_search {
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    float: left;
+    margin-left: 10px;
+}
+.icon_search {
+    background: url(../../../common/images/cloudmanagement/public/icon.png) -164px -45px no-repeat;
+}
+
+.content {
+    position: absolute;
+    top: 120px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    /*overflow: auto;*/
+}
+.team_list {
+    overflow: hidden;
+}
+.team_list dt {
+    height: 32px;
+    overflow: hidden;
+    border-bottom: 1px solid #DADEE4;
+    border-top: 1px solid #F4FAFF;
+    background: #848484;
+}
+.team_list dt label {
+    width: 32px;
+    height: 13px;
+    padding: 6px 0 0 6px;
+    text-align: center;
+    float: left;
+}
+.team_list dt label input[type='checkbox'] {
+    width: 13px;
+    height: 13px;
+}
+.team_list dt h6 {
+    width: 50%;
+    min-width: 300px;
+    height: 32px;
+    line-height: 32px;
+    float: left;
+    font-weight: normal;
+    font-size: 12px;
+}
+.team_list dt em {
+    width: 120px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    float: left;
+}
+.team_list dt p {
+    width: 17.5%;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    float: left;
+    color: #FFFFFF;
+}
+.team_list dt span {
+    width: 120px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    float: right;
+}
+
+
+.team_list dfn {
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    overflow: hidden;
+    border-bottom: 1px solid #D7D9C3;
+    background: #F5F6DE;
+    display: none;
+}
+.team_list dfn b {
+    color: #C62D2D;
+}
+
+
+
+.content .scrollbar {
+    position: absolute;
+    right: 0px;
+    width: 5px;
+    margin-right: 4px;
+    z-index: 9;
+}
+.content .track {
+    height: 100%;
+    width: 5px;
+    position: relative;
+    cursor: pointer;
+    background: #F0F0F0;
+}
+.content .thumb {
+    height: 36px;
+    width: 5px;
+    background: rgba(0, 0, 0, 0) url(../../../common/images/bg/tiny_scrollbar.png) 0 0 no-repeat;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+}
+.content .viewport {
+    /*overflow: hidden;*/
+    position: relative;
+}
+.content .overview {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+}
+
+.team_list dd {
+    height: 32px;
+    overflow: hidden;
+    border-bottom: 1px solid #E0E4E8;
+    background-color: #F4F4F4;
+}
+
+/*隔行变色*/
+#content .team_list dd.even {
+    background-color: #FFFFFF;
+}
+.team_list dd label {
+    width: 32px;
+    height: 13px;
+    padding: 6px 0 0 6px;
+    text-align: center;
+    float: left;
+}
+.team_list dd label input[type='checkbox'] {
+    width: 13px;
+    height: 13px;
+}
+.team_list dd h6 {
+    width: 50%;
+    min-width: 300px;
+    height: 32px;
+    line-height: 32px;
+    float: left;
+}
+.team_list dd p {
+   /*  width: 150px; */
+    width: 18%;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    float: left;
+}
+
+#content .opra-detail {
+    width: 39%;
+}
+
+/*wumengmeng*/
+.breadcrumb a {
+    cursor: pointer;
+    color: #3A94FF;
+}
+.breadcrumb a.noactive {
+    cursor: default;
+    color: #9E9E9E;
+}
+.fl {
+    float:left;
+}
+.fr {
+    float:right;
+}
+.hidden {
+    overflow:hidden;
+}
+.header {
+    position:relative;
+    display: none;
+}
+#major .header {
+    height: 39px;
+}
+#major .header .title {
+    line-height: 40px;
+}
+#major .body {
+    top: 41px;
+    background:#FFF;
+}
+#treePanel {
+    top:41px;
+    background:#EBF0F4;
+}
+#sidebar .ui.tab .filter {
+    background:#EBF0F4;
+    border-bottom: none;
+}
+#sidebar>.header .title {
+    border-bottom: 1px solid #DFDFDF;
+    height: 39px;
+    padding-left: 51px;
+    line-height: 39px;
+    color: #333;
+    font-size: 14px;
+    background: #FFF url("../../../common/images/icons/sprite.png") no-repeat;
+}
+#sidebar>.header .title.result {
+    background-position:-34px 8px;
+}
+#stat {
+    width:50px;
+    height:100%;
+    position:absolute;
+    top:40px;
+    left:0px;
+    z-index:9;
+    background:#3d87bf;
+}
+#stat.menus li {
+    width: 50px;
+    height: 54px;
+    cursor:pointer;
+}
+#stat.menus li {
+    float:none;
+    display:none;
+}
+#stat.menus li a {
+    text-indent:-9999px;
+}
+/* #stat.menus li:hover, */
+#stat.menus li.active {
+    background-color: #359EDB;
+}
+#stat.menus li i {
+    display: inline-block;
+    width: 45px;
+    height: 44px;
+}
+#stat.menus .applylog i {
+    background: url("../../../common/images/icons/sprite.png") no-repeat 2px 6px;
+}
+#stat.menus .patrol i {
+    background: url("../../../common/images/icons/sprite.png") no-repeat 2px -50px;
+}
+#stat.menus .safey i {
+    background: url("../../../common/images/icons/sprite.png") no-repeat 2px -103px;
+}
+#stat.menus .system i {
+    background: url("../../../common/images/icons/sprite.png") no-repeat 2px -155px;
+}
+#stat.menus li.breakdown {
+    background-position:0 0;
+}
+/* #stat.menus li.breakdown:hover, */
+#stat.menus li.breakdown.active {
+    background-position: -50px -0px;
+}
+
+/* 统计搜索 */
+.tree-search {
+    position: relative;
+    width: 200px;
+    margin-top: 8px;
+    top: -7px;
+    left: -9px;
+}
+.tree-search input {
+    padding: 0 25px 0 11px;
+    width: 148px;
+    height: 25px;
+    line-height: 25px;
+    background-color: #FFFFFF;
+    border: 1px solid #D9D9D9;
+    border-radius: 15px;
+    color: #999;
+    font-size: 12px;
+    margin: 0 0 0 15px;
+    transition: background-color 0.2s ease-out 0s, box-shadow 0.2s ease 0s, border-color 0.2s ease 0s;
+    vertical-align: middle;
+}
+.tree-search input:focus {
+    border-color: #78A8D5;
+    color: #444444;
+}
+.tree-search #searchBtn {
+    font-size: 0;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 4px;
+    right: 6px;
+    background: url("../../../common/images/search_small.png") no-repeat scroll center center transparent;
+    border: medium none;
+    cursor: pointer;
+    font-size: 0;
+}
+#sidebar .form-panel .ui.tab {
+    padding: 8px 0 8px 16px;
+    border: none;
+}
+#treePanel .viewport {
+    margin-left: 50px;
+}
+
+/* 滚动条 */
+
+#treePanel .viewport {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    position: relative;
+}
+
+#treePanel .overview {
+    position: absolute;
+    left:0;
+    top:0;
+    right: 0;
+}
+
+#treePanel .scrollbar {
+    position: relative;
+    float: right;
+    width: 12px;
+    margin-right: 4px;
+    display:none;
+}
+
+#treePanel .track {
+    height: 100%;
+    width: 12px;
+    position: relative;
+    cursor: pointer;
+    background: transparent url(../../../common/images/bg/track_line.png) center 0 repeat-y;
+}
+
+#treePanel .thumb {
+    height: 72px;
+    width: 12px;
+    background: transparent url(../../../common/images/bg/scrollbar.png) 0 0 no-repeat;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+}
+
+#treePanel .disable {
+    display: none;
+}
+
+/* 边栏底部边框 */
+#sidebar .ui.tab .filter:after {
+    border-bottom:none;
+}
+
+
+/* 树 */
+i.camera0 {/*枪机*/
+    background: url("../../../common/images/sprites/tree_bg.png") no-repeat scroll -85px 0 transparent;
+    display: inline-block;
+    height: 13px;
+    margin-right: 3px;
+    padding: 0;
+    position: relative;
+    top: 1px;
+    width: 16px;
+}
+i.camera1 {/*球机*/
+    background-position:-352px 0;
+}
+.treePanel .error-no-data {
+    text-align: center;
+    height:32px;
+}
+
+#ptzCamera select{
+    padding:0;
+}
+
+
+input.input-blue {
+padding: 0 6px 1px 5px;
+height: 25px;
+line-height: 25px;
+border: 1px solid #32A4F9;
+border-radius: 2px;
+box-shadow: 0 1px #32A4F9 inset;
+background: #1a74d9;
+background: linear-gradient(top,#32A4F9,#32A4F9);
+background: -moz-linear-gradient(top,#32A4F9,#32A4F9);
+background: -webkit-linear-gradient(top,#32A4F9,#32A4F9);
+filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#32A4F9,endColorstr=#32A4F9);
+font-family: "Microsoft Yahei";
+font-size: 12px;
+color: #FFFFFF;
+cursor: pointer;
+}
+
+/*查询按钮*/
+#fornormal .log-search {
+    margin-left: 20px;
+    background: url("../../../common/images/search_icon.png") no-repeat scroll center center;
+    padding: 7px 13px;
+}
+
+#fornormal .log-search:hover {
+    margin-left: 20px;
+    background: url("../../../common/images/search_icon_hover.png") no-repeat scroll center center;
+    padding: 7px 13px;
+}
+
+/*日志列表表头*/
+#major .log-title {
+    background-color: #F5F5F7;
+    display: block;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 10px;
+}
+
+#major .log-title .title-left {
+    float: left;
+    position: absolute;
+}
+
+#major .log-title .title-right {
+    float: right;
+}
+
+/*日志详情*/
+#log-details {
+    height: 135px;
+    background-color: #F5F5F7;
+    margin-bottom: 0;
+    border-top: 1px solid #E0E4E8;
+    padding: 10px;
+}
+#log-details .detail_head {
+    height: 26px;
+}
+
+#log-details .detail_left {
+    float: left;
+    position: absolute;
+}
+
+#log-details .detail_right {
+    float: right;
+    margin-right: 22px;
+}
+
+#log-details .detail_right a {
+    padding: 3px 5px 3px 5px;
+    background-color: #959595;
+    color: #FFFFFF;
+}
+
+#log-details .details-list dl dd {
+    float: left;
+    width: 350px;
+    height: 30px;
+    line-height: 30px;
+}
+
+/*日志滚动条*/
+#content .viewport-logs {
+    height: 380px;
+}
+
+/*分页*/
+.log-pagination {
+    height: 40px;
+    line-height: 40px;
+}
+.log-pagination .pagination {
+    padding: 5px 0px;
+}
+
+.log-pagination .pagination .jumpto {
+    margin-left: 18px;
+}
+
+#checkPageNum {
+    width: 35px;
+    margin:0px 3px;
+    text-align: center;
+}
+.log-pagination .jumpto .count {
+    margin-top: 2px;
+}
+
+/*日志列表选中高亮显示*/
+#content .team_list dd.active {
+    background-color: #D5E3F0;
+    cursor: pointer;
+}
+#content .team_list dd:hover {
+    background-color: #D5E3F0;
+    cursor: pointer;
+}
+
+/*删除框*/
+.deleteDiv {
+    display: none;
+    position: absolute;
+    z-index: 10;
+    width: 380px;
+    height: 150px;
+    background-color: #FFFFFF;
+    border: 1px solid #D6D6D6;
+    margin: -11px 0px 0px -342px;
+    border-radius: 3px;
+}
+.deleteDiv .right .close {
+    background: url("../../../common/images/buttons/close.png") 0 0 no-repeat;
+    padding: 0px 8px 0px 4px;
+}
+.deleteDiv .right .close:hover {
+    background: url("../../../common/images/buttons/close-hover.png") 0 0 no-repeat;
+    padding: 0px 8px 0px 4px;
+}
+.deleteDiv-header {
+    padding: 10px;
+}
+.deleteDiv-header .left {
+}
+.deleteDiv-header .right {
+    float: right;
+}
+.deleteDiv-content {
+    padding: 10px;
+    margin-top: 12px;
+    border-top: 1px solid #F0F0F0;
+}
+.deleteDiv-content .content-floor {
+}
+.deleDays {
+    width: 35px;
+    height: 15px;
+}
+.deleClose {
+    margin-top: -17px;
+}
+.content-over {
+    height: 20px;
+}
+.content-over, .deleteDiv-content .content-floor {
+    margin: -9px 0px 2px 13px;
+}
+.auto-dele-sys,.auto-dele {
+    width: 200px;
+    /*display: inline-block;*/
+}
+.saveCont {
+    float: right;
+    margin: -2px -44px 0px 0px;
+}
+.deleCont {
+    float: right;
+    margin-right: -10px;
+}
+.content-floor .auto-dele-sys, .handclear {
+    margin-left: 20px;
+}
+
+.content-floor .auto-dele {
+    margin: -28px 0px 3px 22px;
+}
+a.btn {
+    padding: 4px 10px 4px 10px;
+    background-color: #32A4F9;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.jumpto .count{
+    width: 60px;
+}
+
+.jumpto .to{
+    width: 100px;
+}
+
+
+@media screen and (max-width:1270px) and (min-width:1200px)  {
+    .screening .p input[type='text'] {
+        width:123px;
+    }
+    #log-details .details-list dl dd {
+        width:300px;
+    }
+}

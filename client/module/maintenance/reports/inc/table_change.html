@@ -1,0 +1,149 @@
+{{#if resultPanel}}
+    
+        <tr>
+            <td rowspan="2" class="minw">年/月</td>
+            <td colspan="6">联网指标</td>
+            <td colspan="3">在线率</td>
+            <td colspan="3">完好率</td>
+            <td rowspan="2" class="minw">图像质量得分</td>
+            <td colspan="3">坐标信息采集</td>
+            <td rowspan="2" class="minw1">坐标采集得分</td>
+            <td rowspan="2" class="minw">月得分</td>
+
+        </tr>
+        <tr>
+          <td class="f9 minw">实有县区数量</td>
+          <td class="f9 minw">符合要求县区数量</td>
+          <td class="f9 minw">应上联监控数</td>
+          <td class="f9 minw">实有上联监控数</td>
+          <td class="f9">联网系数</td>
+          <td class="f9">联网指标</td>
+
+          <td class="f9">在线数</td>
+          <td class="f9">检测总数</td>
+          <td class="f9">实测在线率</td>
+
+          <td class="f9">检测合格数</td>
+          <td class="f9">检测总数</td>
+          <td class="f9">完好率</td>
+
+          <td class="f9">GIS采集数</td>
+          <td class="f9 minw">实际上联监控数</td>
+          <td class="f9">GIS采集率</td>
+        </tr>
+        
+   {{#each data}}
+      
+        <tr  class="{{isVer month_name}}">
+          <td>{{month_name}}</td>
+
+          <td class="canSet">{{actual_city_num}}</td>
+          <td>{{quality_city_num}}</td>
+          <td>{{need_camera_num}}</td>
+          <td>{{actual_camera_num}}</td>
+          <td>{{net_ratio}}</td>    
+          <td>{{net_measure}}</td>
+
+          <td>{{actual_online_num}}</td>
+          <td>{{actual_camera_num}}</td>
+          <td>{{changeType online_rate}}</td>
+
+          <td>{{intact_camera_num}}</td>
+          <td>{{actual_online_num}}</td>
+          <td>{{changeType intact_rate}}</td>
+          
+          <td>{{quality_point}}</td>
+
+          <td>{{coor_collect_num}}</td>
+          <td>{{actual_camera_num}}</td>
+          <td>{{changeType coor_rate}}</td>
+
+          <td>{{coor_point}}</td>
+          <td>{{final_point}}</td>
+          
+        </tr>
+      {{/each}}
+{{/if}}
+
+{{#if detailPanel}}
+          <tr>
+            <td rowspan="2" class="minw">城市</td>
+            <td colspan="2">联网率</td>
+            <td colspan="2">在线率</td>
+            <td colspan="2">完好率</td>
+            <td colspan="2">GIS采集率</td>
+            <td colspan="6">图像平台质量</td>
+            <td colspan="2"  class="minw">坐标采集</td>
+            <td rowspan="2"  class="minw1">单次巡检得分</td>
+
+        </tr>
+        <tr>
+          <td class="f9"  class="minw">应上联监控数</td>
+          <td class="f9"  class="minw">实际上联监控数</td>
+         
+
+          <td class="f9">实测在线数</td>
+          <td class="f9" class="minw">实测巡检总数</td>
+         
+          <td class="f9">检测合格数</td>
+          <td class="f9">检测总数</td>
+
+          <td class="f9">GIS采集数</td>
+          <td class="f9" class="minw">实际上联监控数</td>
+
+          <td class="f9">实有县区</td>
+          <td class="f9"  class="minw">符合要求县区数量</td>
+          <td class="f9">联网系数</td>
+          <td class="f9">联网指标</td>
+          <td class="f9">在线率</td>
+          <td class="f9">完好率</td>
+
+          <td class="f9">GIS采集率</td>
+          
+        </tr>
+        {{#if detailList}}
+         {{#each detailList}}
+          <tr>
+            <td>{{city_name}}</td>
+            <td class="canSet">{{need_camera_num}}</td>
+            <td>{{actual_camera_num}}</td>
+            <td>{{actual_online_num}}</td>
+            <td>{{actual_camera_num}}</td>
+            <td>{{intact_camera_num}}</td>  
+            <td>{{actual_online_num}}</td>
+            <td>{{coor_collect_num}}</td>
+            <td>{{actual_camera_num}}</td>
+            {{#if ../../points}}
+                {{#if ../../points.firstLoad}}
+                  <td rowspan ="{{spanLen ../../../detailList ../../../points}}">{{../../../points.actual_city_num}}</td>
+                  <td rowspan ="{{spanLen ../../../detailList ../../../points}}">{{../../../points.quality_city_num}}</td>
+                  <td rowspan ="{{spanLen ../../../detailList ../../../points}}">{{../../../points.net_ratio}}</td>
+                  <td rowspan ="{{spanLen ../../../detailList ../../../points}}">{{../../../points.net_measure}}</td>
+                  <td rowspan ="{{spanLen ../../../detailList ../../../points}}">{{changeType ../../../points.online_rate}}</td>
+                  <td rowspan ="{{spanLen ../../../detailList ../../../points}}">{{changeType ../../../points.intact_rate}}</td>
+                  <td colspan="2" rowspan ="{{spanLen ../../../detailList ../../../points}}">{{changeType ../../../points.coor_rate}}</td>
+                  <td rowspan ="{{spanLen ../../../detailList ../../../points}}">{{../../../points.final_point}}</td>
+                {{/if}}
+            {{/if}}
+        
+          {{/each}}
+         
+       </tr>
+      {{/if}}
+        
+     
+
+{{/if}}
+
+{{#if timesList}}
+{{#each timesList}}
+   <li data-times="{{count}}">第{{count}}次</li>
+{{/each}}
+{{/if}}
+  
+{{#if yearList}}
+{{#each yearList}}
+   <li>{{year}}</li>
+{{/each}}
+{{/if}}
+  

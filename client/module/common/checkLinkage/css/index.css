@@ -1,0 +1,534 @@
+#popLayer{
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	opacity: .5;
+	filter: alpha(opacity=50);
+	z-index: 999;
+	background: #000;
+}
+#popContainer {
+	position: absolute;
+	left: 50%;
+	top: 16%;
+	margin-left: -355px;
+	z-index: 100000;
+	background: #fff;
+	width: 790px;
+	height: 490px;
+	border-radius: 5px;
+	font-size: 14px;
+}
+#popContainer .popHeader{
+	height: 40px;
+	line-height: 40px;
+	padding: 0 20px;
+	border-bottom: 1px solid #ccc;
+	background: #f3f3f3;
+	border-radius: 5px 5px 0 0;
+}
+#popContainer .popHeader .close{
+	float: right;
+}
+#popContainer .popHeader .close i.icon-close{
+    background: url("../images/web_icon.png") -10px -100px no-repeat;
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	margin: 12px -5px 0 0;
+	cursor: pointer;
+}
+#popContainer .popContent{
+	height: 404px;
+	border-bottom: 1px solid #ccc;
+}
+#popContainer .popLeft{
+	float: left;
+	width: 140px;
+	background: #f3f3f3;
+	height: 404px;
+}
+#popContainer .popLeft .item-tab{
+	padding: 10px 10px 10px 20px;
+	cursor: pointer;
+}
+#popContainer .popLeft .active{
+    background: #ffffff;
+	border-left: 3px solid #188dfb;
+	color: #188dfb;
+	font-weight: bold;
+}
+#popContainer .popRight{
+  /*padding: 20px;*/
+	padding: 10px 20px 20px 20px;
+    margin-left: 140px;
+}
+.pmessage, .email, .message, .gis, .mobile, .tvwall, .monitor, .ptz{
+   height: 356px;
+}
+#popContainer .search{
+	height: 32px;
+	line-height: 32px;
+}
+#popContainer .search .add-input{
+    border: 1px solid #DBDBDB;
+	padding: 5px 10px;
+	width: 300px;
+	height: 20px;
+	line-height: 20px;
+	border-radius: 4px;
+}
+#popContainer .search .add-btn{
+	margin: 0 0 0 10px;
+	padding: 0;
+	width: 50px;
+	height: 32px;
+}
+.popRight .tips{
+	font-size: 12px;
+    color: #E24332;
+}
+#popContainer .disnone{
+	display: none;
+}
+.visibile{
+	visibility: hidden;
+}
+.popRight .add-result{
+	margin-top: 10px;
+	padding: 9px;
+	width: 590px;
+	height: 280px;
+	border: 1px solid #DBDBDB;
+	background-color: #FAFAFA;
+}
+.popRight .add-result .no-result{
+	margin: 80px auto 0;
+	width: 280px;
+	line-height: 20px;
+	font-size: 12px;
+	color: #AAAAAA;
+}
+.popRight .add-result .result-list li{
+	float: left;
+	margin: 0px 4px 6px 0px;
+	padding: 0px 4px;
+	width: 158px;
+	height: 25px;
+	background-color: #EFF7FE;
+	line-height: 25px;
+	font-size: 12px;
+	color: #333333;
+}
+.popRight .add-result .result-list .element-name{
+	display: inline-block;
+	width: 140px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	word-wrap: normal;
+}
+.popRight .add-result .result-list li .delete{
+	float: right;
+	margin-top: 5px;
+	width: 14px;
+	height: 14px;
+	background: url("../images/result-close.png") no-repeat -1px 0;
+	cursor: pointer;
+}
+.gis p, .message p, .mobile p{
+	margin-top: 10px;
+	padding: 10px;
+	border: 1px solid #E5E5E5;
+	width: 438px;
+	height: 18px;
+	border-radius: 4px;
+	background-color: #F9F9F9;
+	line-height: 18px;
+	font-size: 12px;
+	color: #999;
+}
+.popRight .header .checkbox{
+	display: inline-block;
+	float: left;
+    margin-top: 3px;
+	margin-right: 5px;
+	width: 17px;
+	height: 16px;
+	background: url("../images/link-checkbox.png") no-repeat 0 0;
+	cursor: pointer;
+}
+.popRight .header i.active{
+	background-position: -17px 0;
+}
+.popRight .add-footer{
+	margin: 10px 0;
+	height: 24px;
+	color: #AAA;
+}
+.pmessage .add-footer .whole-day{
+	margin-right :26px;
+}
+.pmessage .add-footer .time-type{
+	display: inline-block;
+    cursor: pointer;
+}
+.pmessage .add-footer .time-type *{
+	vertical-align: middle;
+}
+.pmessage .add-footer .time-type i.active{
+	background-position: 0 0;
+}
+.pmessage .add-footer .time-type i{
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	background: url("/module/protection-monitor/defencesetting/images/time-radio.png") no-repeat -16px 0;
+}
+.pmessage .add-footer .time-group{
+	color: #AAA;
+}
+.pmessage .add-footer .time-input-ctrl{
+	position: relative;
+	border: 1px solid black;
+	width: 80px;
+	height: 24px;
+	line-height: 24px;
+	display: inline-block; 
+	float: none;
+    vertical-align: middle;
+}
+.time-input-ctrl .text-select{
+	position: absolute;
+	width: 28px;
+	height: 100%;
+	margin: 0;
+	border: 0;
+	text-align: center;
+}
+.time-input-ctrl .dot{
+	position: absolute;
+    left: 29px;
+}
+.time-input-ctrl .text2{
+	left: 34px;
+}
+.time-input-ctrl .text1{
+	left: 0px;
+}
+.time-input-ctrl .ctrl1{
+	top: 1px;
+	cursor: pointer;
+	background: url('/module/protection-monitor/defencesetting/images/icon.png') -20px -185px no-repeat;
+}
+.time-input-ctrl .ctrl {
+	position: absolute;
+	right: 0;
+	display: inline-block;
+	font-size: 8px;
+	width: 15px;
+	height: 8px;
+	border: 1px solid #7E8083;
+	border-radius: 2px;
+}
+.time-input-ctrl .ctrl2 {
+	top: 13px;
+	cursor: pointer;
+	background: url('/module/protection-monitor/defencesetting/images/icon.png') -5px -185px no-repeat;
+}
+#popContainer .popFooter {
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+}
+#popContainer .popFooter a{
+	height: 25px;
+	line-height: 25px;
+}
+/**
+ * 监控画面样式
+ */
+.popRight .mid-left{
+	width: 48%;
+	position: relative;
+	display: inline-block;
+}
+.popRight .top-title{
+    margin-bottom: 5px;
+}
+.popRight .top-title .explain{
+    font-weight: bold;
+}
+.popRight .top-title span:last-child{
+    color: #E24332;
+}
+.popRight .mid-left .searchbox{
+	padding: 0px;
+}
+.popRight .mid-left .camera-search{
+	width: 100%;
+	padding: 5px 0px 5px 5px;
+	border-radius: 3px;
+	border: 1px solid #ddd;
+	max-width: 286px;
+}
+.popRight .mid-left button{
+	right: 0!important;
+    top: 2px;
+}
+.searchbox button{
+    width: 40px;
+	height: 30px;
+	cursor: pointer;
+	border: none;
+	position: absolute;
+	z-index: 2;
+	right: 15px;
+	top: 10px;
+	background: transparent url("../images/web_icon.png") 0 -16px no-repeat;
+}
+.popRight .mid-left .rule-camera-tree{
+	position: absolute;
+	top: 40px;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	border: 1px solid #ccc;
+	display: inline-block;
+	height: 311px;
+	border-radius: 3px;
+	overflow-x: auto;
+	overflow-y: auto;
+	padding: 0 10px;
+}
+.popRight .linked{
+	position: absolute;
+	width: 20px;
+	display: inline-block;
+	top: 246px;
+	right: 313px;
+	height: 20px;
+	background: url("../images/likeage.png") 5px 0 no-repeat;
+}
+.popRight .mid-right{
+	margin-left: 30px;
+	border: 1px solid #ccc;
+	height: 352px;
+	border-radius: 3px;
+	position: relative;
+	display: inline-block;
+	width: 46%;
+}
+.popRight .mid-right .header, .popRight .mid-center .header{
+	height: 32px;
+	margin: 0 10px;
+	line-height: 32px;
+	border-bottom: 1px solid #ccc;
+	font-weight: bold;
+}
+.delete-all{
+	height: 23px!important;
+	line-height: 23px!important;
+	padding: 0 4px!important;
+	vertical-align: middle;
+	float: right;
+	margin-top: 3px!important;
+	font-weight: normal;
+}
+.popRight .data-list{
+	position: absolute;
+	left: 0;
+	top: 40px;
+	bottom: 0;
+	right: 0;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+.popRight .data-list ul li{
+	height: 35px;
+	line-height: 35px;
+	cursor: pointer;
+}
+.popRight .mid-right .data-list ul li:hover span:last-child .icon-close{
+	background-color: #f3f3f3;
+	display: inline-block; 
+}
+.popRight .mid-right .data-list li .name{
+	margin-left: 10px;
+	width: 135px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+	display: inline-block;
+}
+
+.popRight .mid-right .data-list li .js-close{
+	float: right;
+	margin-right: 10px;
+}
+.popRight .mid-right .data-list ul li span:last-child img{
+	width: 100%;
+	height: 100%;
+}
+.popRight .mid-right .data-list ul li span:last-child .icon-close{
+	position: relative;
+	top: 3px;
+	cursor: pointer;
+	width: 17px;
+	height: 17px;
+	margin-right: 3px;
+	padding: 0;
+	background: url("../images/web_icon.png") no-repeat scroll -12px -102px transparent;
+	display: none
+}
+.popRight .mid-right .data-list ul li span:first-child .camera-gun-online{
+	display: inline-block;
+	position: relative;
+	top: 1px;
+	width: 15px;
+	height: 13px;
+	margin-right: 3px;
+	padding: 0;
+	background: url("/module/common/images/sprites/tree_bg.png") no-repeat scroll -85px 0 transparent;
+}
+.popRight .mid-right .data-list ul li span .camera-gun-offline{
+	display: inline-block;
+	position: relative;
+	top: 1px;
+	width: 15px;
+	height: 13px;
+	margin-right: 3px;
+	padding: 0;
+	background: url("/module/common/images/sprites/tree_bg.png") no-repeat scroll 0 0 transparent;
+}
+.popRight .mid-right .data-list ul li span .camera-ball-online{
+	display: inline-block;
+	position: relative;
+	top: 1px;
+	width: 15px;
+	height: 13px;
+	margin-right: 3px;
+	padding: 0;
+	background: url("/module/common/images/sprites/tree_bg.png") no-repeat scroll -353px 0 transparent;
+}
+.popRight .mid-right .data-list ul li span .camera-gun-online{
+	display: inline-block;
+	position: relative;
+	top: 1px;
+	width: 15px;
+	height: 13px;
+	margin-right: 3px;
+	padding: 0;
+	background: url("/module/common/images/sprites/tree_bg.png") no-repeat scroll -85px 0 transparent;
+}
+
+/**
+ * 云台预置位
+ */
+.popRight .ptz .mid-left, .popRight .tvwall .mid-left{
+	width: 34%;
+}
+.popRight .ptz .mid-left .camera-search, .popRight .tvwall .mid-left .camera-search{
+	max-width: 200px;
+}
+.popRight .mid-center{
+	margin-left: 7px;
+	position: relative;
+	display: inline-block;
+	border-radius: 3px;
+	border: 1px solid #ccc;
+	height: 352px;
+}
+.popRight .ptz .mid-center, .popRight .ptz .mid-right{
+	width: 30%;
+}
+.popRight .ptz .mid-right{
+	margin-left: 17px;
+}
+.popRight .ptz .linked{
+	right: 208px;
+}
+/**
+ * 电视墙
+ */
+.popRight .tvwall .mid-right{
+   width: 63%;
+   margin-left: 12px;
+}
+.popRight .tvwall .mid-right .data-list li .layout-select{
+	float: left;
+	margin-left: 5px;
+}
+.popRight .tvwall .mid-right .data-list li .name {
+	width: 105px;
+	float: left;
+}
+.popRight .tvwall .select_container{
+	width: 75px;
+	margin-right: 6px;
+	position: relative;
+    top: 5px;
+}
+ 
+
+/**
+ * 电视墙，监控画面树摄像机节点选中状态
+ */
+.mid-left .treePanel li.leaf i.radio-leaf {
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	background: url("../images/link-checkbox.png") no-repeat 0 0;
+}
+.mid-left .treePanel li.leaf i.radio-leaf.active {
+    background-position: -17px 0;
+}
+.monitor .data-list li .name{
+	width: 230px;
+}
+#popContainer .tvwall .arrow-down {
+    background: url('/module/protection-monitor/common/images/icon.png') -2px -65px no-repeat;
+}
+#popContainer .select_container .text{
+	width: 60px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+/**
+ * 云台预置位选中状态样式
+ */
+.popRight .mid-center .data-list .js-left{
+	float: left;
+	display: inline-block;
+	margin-left: 10px;
+	cursor: pointer;
+	max-width: 120px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+.popRight .mid-center .data-list .js-right{
+	float: right;
+	width: 42px;
+	height: 32px;
+	margin-right: 10px;
+	padding: 1px 0;
+}
+.popRight .mid-center .data-list .js-right img{
+   width: 100%;
+   height: 100%;
+}
+.popRight .mid-center .data-list i.radio.active{
+	background: url("../images/radio-active.png") no-repeat;
+}
+.popRight .mid-center .data-list i.radio{
+	width: 14px;
+	height: 14px;
+	background: url("../images/radio.png") no-repeat;
+	display: inline-block;
+	cursor: pointer;
+	margin: -2px 5px;
+}

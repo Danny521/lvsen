@@ -1,0 +1,29 @@
+{{#if dataList}}
+{{#if data}}
+{{#each data}}
+<tr>
+    <td data-name="monitorSystemId" data-value="{{monitorSystemId}}" title="{{monitorSystemId}}">{{monitorSystemId}}</td><!--
+    <td data-name="managerUnitCode" data-value="{{managerUnitCode}}" title="{{managerUnitCode}}">{{managerUnitCode}}</td>-->
+    <td data-name="managerUnitName" data-value="{{managerUnitName}}" title="{{managerUnitName}}">{{managerUnitName}}</td>
+    <td data-name="monitorSystemName" data-value="{{monitorSystemName}}" title="{{monitorSystemName}}">{{monitorSystemName}}</td>
+    <td data-name="monitorSystemLocation" data-value="{{monitorSystemLocation}}" title="{{monitorSystemLocation}}">{{monitorSystemLocation}}</td>
+    <td data-name="networkType" data-value="{{networkType}}" title="{{internetTypeHelper networkType}}">{{internetTypeHelper networkType}}</td>
+    <td data-name="isNetwork" data-value="{{isNetwork}}" title="{{isInternetHelper isNetwork}}">{{isInternetHelper isNetwork}}</td>
+    <td data-name="isNationalStandard" data-value="{{isNationalStandard}}" title="{{isInternationalHelper isNationalStandard}}">{{isInternationalHelper isNationalStandard}}</td>
+    <td data-name="videoStoragePeriod" data-value="{{videoStoragePeriod}}" title="{{videoStoragePeriod}}">{{videoStoragePeriod}}</td>
+    <td data-name="contactName" data-value="{{contactName}}" title="{{contactName}}">{{contactName}}</td>
+    <td data-name="contactPhone" data-value="{{contactPhone}}" title="{{contactPhone}}">{{contactPhone}}</td>
+    <td data-name="managerUnitAddress" data-value="{{managerUnitAddress}}" title="{{managerUnitAddress}}">{{managerUnitAddress}}</td>
+    <td data-name="status" data-value="{{status}}" title="{{statusHelper status}}">{{statusHelper status}}</td>
+    <td>
+        <span class="edit" title="编辑"><i data-id="{{id}}" data-event="click" data-handler="editTheSystem" class="editIcon"></i></span>
+        <span class="del" title="注销"><i data-id="{{id}}" data-event="click" data-handler="logOffTheSystem" class="delIcon permission permission-monitorsystem-cancel"></i></span>
+    </td><!--permission permission-monitorsystem-cancel-->
+</tr>
+{{/each}}
+{{else}}
+    <tr>
+        <td class="noData" colspan="13">暂无数据</td>
+    </tr>
+{{/if}}
+{{/if}}

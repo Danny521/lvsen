@@ -1,0 +1,167 @@
+<div class="v-detail">
+	<div class="v-title">
+		<ul class='v-summary'>
+			<li class='v-summary-item'>
+				<h6 title = '{{video.fileName}}'>{{video.fileName}}</h6>
+				{{#if structuredNum}}
+				<a id="jumpTdetials" data-id="{{video.id}}"> <em>(已生成{{structuredNum}}个结构化信息)</em>
+				</a>
+				{{/if}}
+				{{#if 0}}
+				<a id="getSummary" style='display:none' data-id="{{video.id}}"> <em>查看摘要</em>
+				</a>
+				{{/if}}
+			</li>
+		</ul>
+		<span class='l-oper'>
+			<a href="javascript:void(0)" data-action="download" class="oper-item permission permission-download"> <i class="icon_download"></i>
+				下载
+			</a>
+			<a href="javascript:void(0)" data-action="smartmark" class="oper-item permission permission-analysis"> <i class="icon_target"></i>
+				智能标注
+			</a>
+			<a href="javascript:void(0)" data-action="analysis" class="oper-item permission permission-analysis">
+				<i class="icon_target"></i>
+				人工标注
+			</a>
+			<a href="javascript:void(0)" {{isShow video.pvd}} class='oper-item' data-action="sedit">
+				<i class="icon_edit"></i>
+				编辑
+			</a>
+			<a href="javascript:void(0)" data-action="medialib" class="oper-item permission permission-tobaselib">
+				<i class="icon_storage"></i>
+				入库
+			</a>
+			<a href="javascript:void(0)" data-action="delFile" class="oper-item permission permission-create">
+				<i class="icon_delete"></i>
+				删除
+			</a>
+		</span>
+	</div>
+	<div class="v-body">
+		<div class="v-info">
+			<ul class="show-info active v-c-info">
+				<li class='info-li-item'>
+					<label>视频名称：</label>
+					<em title="{{video.fileName}}">{{video.fileName}}</em>
+				</li>
+				<li class="odd info-li-item">
+					<label>视频格式：</label>
+					<em title="{{video.fileFormat}}">{{video.fileFormat}}</em>
+				</li>
+				<li class='info-li-item'>
+					<label>视频大小：</label>
+					<em title="{{video.fileSize}}">{{filterFileSize video.fileSize}}</em>
+				</li>
+				<li class="odd info-li-item">
+					<label>创建时间：</label>
+					<em title="{{mills2ISODate video.storageTime}}">{{mills2ISODate video.storageTime}}</em>
+				</li>
+				<li class='info-li-item'>
+					<label>拍摄时间：</label>
+					<em title="{{video.adjustTime}}" class="shootTime">{{mills2ISODate video.adjustTime}}</em>
+				</li>
+				<li class="odd info-li-item">
+					<label>备注信息：</label>
+					<em title="{{video.remark}}" class="contents">{{noValue video.remark}}</em>
+				</li>
+			</ul>
+			<ul class="edit-info v-e-info">
+				<li class='info-li-item'>
+					<label>视频名称：</label>
+					<input value="{{video.fileName}}" type="text" id='file_name' name="fileName"></li>
+				<li class='info-li-item'>
+					<label>拍摄时间：</label>
+					<input value="{{mills2ISODate video.adjustTime}}" readonly type="text" id="shootTime" class='datepicker' name="shootTime"></li>
+				<li class='info-li-item'>
+					<label>备注信息：</label>
+					<textarea name="remark" id="remark">{{video.remark}}</textarea>
+				</li>
+				<li class='info-li-item'>
+					<a href="javascript:void(0);" class="btn btn_ok" id="jump_medialib" data-action="save" data-id="{{video.id}}">保存</a>
+					<a href="javascript:void(0);" class="btn" id="save_cloud" data-action="cancel">取消</a>
+				</li>
+			</ul>
+		</div>
+		<div class="v-content show-area">
+			<div class="active v-box" data-tab="ocxbody">
+				<div class="tab-title">
+					<span>
+						<a href="javascript:void(0)" class="active check-original tab-title-item" data-anchor='0'>原始视频</a>
+						<a href="javascript:void(0)"  class="check-abstract tab-title-item" data-anchor='1'>剪切视频</a>
+						<a href="javascript:void(0)"  class="multi-video tab-title-item" data-anchor='2'>叠加视频</a>
+					</span>
+					<div class='speed-controller'>
+						<div class="set-item floatL has-target">
+							<label>无目标：</label>
+							<select class="speed-nomark">
+								<option value="8" selected="">8x</option>
+								<option value="4">4x</option>
+								<option value="2">2x</option>
+								<option value="1">1x</option>
+								<option value="1/2">1/2x</option>
+								<option value="1/4">1/4x</option>
+								<option value="1/8">1/8x</option>
+							</select>
+						</div>
+						<div class="set-item floatR no-target">
+							<label>有目标：</label>
+							<select class="speed-mark">
+								<option value="8">8x</option>
+								<option value="4">4x</option>
+								<option value="2">2x</option>
+								<option value="1" selected="">1x</option>
+								<option value="1/2">1/2x</option>
+								<option value="1/4">1/4x</option>
+								<option value="1/8">1/8x</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="tab-content">
+					<div class="active tab-content-item v-box" data-target='0'>
+						<div class="ocx-box">
+							<object id="UIOCX" class="UIOCX" type="applicatin/x-firebreath" align="center" width="100%" style="width:100%">
+								<param name="onload" value="pluginLoaded"/>
+							</object>
+						</div>
+						<div class="video-block">
+							<div class="progress-bg"></div>
+							<div class="progress-bar">
+								<div class="bullet">
+									<i class="play-point"></i>
+								</div>
+								<i class='start-mark'></i>
+								<i class='end-mark'></i>
+							</div>
+							<div class="panel" onselectstart="return false">
+								<div class="vbar-right">
+									<span class="grab" title='抓图' data-id="{{video.id}}" data-type="1" data-name="{{video.fileName}}" data-shootTime="{{video.shootTime}}"></span>
+									<span class="fullwin" title='全屏'></span>
+								</div>
+								<div class="time vbar-left">
+									<span class="nowtime" nowtime-ms="0">00:00:00</span>
+									&nbsp;/
+									<span class="alltime" alltime-ms="{{video.timeLag}}">{{time2Str video.timeLag}}</span>
+									<span class="speed" title='倍速'>
+										倍速：
+										<em></em>
+									</span>
+								</div>
+								<div class="vbar-mid">
+									<span class="rewind" title='慢放'></span>
+									<span class="switch" title='播放'></span>
+									<span class="forward" title='快进'></span>
+									<span class="stop" title='停止'></span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="abstract ocx-box tab-content-item v-box" data-target='1'></div>
+					<div class="multi v-box ocx-box tab-content-item" data-target='2'></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

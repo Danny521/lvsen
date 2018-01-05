@@ -1,0 +1,20 @@
+{{#if defencelines.length}}
+    {{#each defencelines}}
+    <div class="electronic-defense-list-item" data-id="{{id}}" data-name="{{name}}" data-code="{{code}}" data-type="{{type}}" data-pointinfo="{{pointinfo}}">
+        <div class="list-item-header" data-event="click" data-handler="ShowLineOnMap" data-name="{{name}}" data-pointinfo="{{pointinfo}}" data-color="{{color}}" data-zoom="{{zoom}}">
+            <span title="{{name}}">{{name}}</span>
+            <button class="delete permission permission-delete-edefense" data-event="click" data-handler="DeleteLine" data-id="{{id}}" data-name="{{name}}"></button>
+        </div>
+        <div class="list-item-text">
+            <span>面积:</span>
+            <span>{{area}} <sup>M²</sup></span>
+        </div>
+        <div class="list-item-text clearfix" style="margin-top: 3px;">
+            <span class="pull-left">描述:</span>
+            <span class="electronic-description">{{description}}</span>
+        </div>
+    </div>
+    {{/each}}
+{{else}}
+<p class="no-result-style">暂无数据。</p>
+{{/if}}

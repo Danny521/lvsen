@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=10,chrome=1"/>
+    <title>视云实战平台</title>
+    <!--[if lt IE 9]><script src="/libs/html5/html5.js"></script><![endif]-->
+    <!--[if IE]><script src="/libs/canvas/excanvas.js"></script><![endif]-->
+
+    <link type="text/css" rel="stylesheet" href="/module/common/css/base.css" />
+    <link type="text/css" rel="stylesheet" href="/libs/semantic/semantic.css" />
+    <link rel="stylesheet" type="text/css" href="/libs/jquery/jquery-ui.css"/>
+    <link type="text/css" rel="stylesheet" href="/libs/jquery/jquery.pagination.css"/>
+    <link type="text/css" rel="stylesheet" href="/libs/jquery/jquery.datetimepicker.css"/>
+    <link type="text/css" rel="stylesheet" href="/libs/semantic/collections/form.css" />
+    <link type="text/css" rel="stylesheet" href="/module/settings/common/css/struct.css"/>
+    <link type="text/css" rel="stylesheet" href="/module/settings/common/css/group.css"/>
+    <link type="text/css" rel="stylesheet" href="/module/settings/usercenter/css/user-sidebar.css"/>
+    <link type="text/css" rel="stylesheet" href="/module/settings/usercenter/css/role.css">
+    <link type="text/css" rel="stylesheet" href="/module/settings/usercenter/css/notify-ms.css">
+</head>
+<body>
+    <div id="content">
+        <div class="wrapper user-select" onselectstart="return false;">
+            <aside id="sidebar" class="sideBar">
+                <ul id="myUL">
+                     <li data-tab='notifyInf' class="user inverted black menu item active">
+                         <i class="userIcon2"></i>
+                        <span>消息提醒</span>
+                    </li>
+                    <li data-tab='advanceInf' class="user inverted black menu item">
+                        <i class="userIcon3"></i>
+                        <span>任务管理</span>
+                    </li>
+                    <li data-tab='baseInf' class="user inverted black menu item">
+                        <i class="userIcon1"></i>
+                        <span>基本信息</span>
+                    </li>
+                </ul>
+            </aside>
+            <div id="major">
+                <!-- 消息通知 -->
+                <div data-tab="notifyInf" class="user-info active">
+                    <div class="filter-box">
+                        <div class="filter-content">
+                            <div class="filter-panel">
+                                <div class="filter clearfix" data-filter="t">
+                                    <span class="type">时间：</span>
+                                    <ul class="createtime">
+                                        <li class="active" data-key="">
+                                            <a href="#message/all">全部</a>
+                                        </li>
+                                        <li data-key="10">
+                                            <a href="#message/ten">近10分钟</a>
+                                        </li>
+                                        <li data-key="1">
+                                            <a href="#message/one">近1小时</a>
+                                        </li>
+                                        <li data-key="2">
+                                            <a href="#message/today">今日</a>
+                                        </li>
+                                        <li data-key="3">
+                                            <a href="#message/yesterday">昨日</a>
+                                        </li>
+                                        <li data-key="4">
+                                            <a href="#message/sevendays">近7天</a>
+                                        </li>
+                                        <li class="custom" data-key="6">
+                                            <a class="custom-a">自定义</a>
+                                            <div class="custom-time">
+                                                <i class="brace"></i>
+                                                <input type="text" value="" name="" class="input-text input-time startTime" data-filter="s" id="">
+                                                <span>—</span>
+                                                <input type="text" value="" name="" class="input-text input-time endTime" data-filter="e" id="">
+                                                <span class="span-btn">
+                                                    <button type="submit" class="btn">确定</button>
+                                                </span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="filter clearfix" data-filter="a">
+                                    <span class="type">类型：</span>
+                                    <ul class="casetype">
+                                        <li class="active" data-type="all" data-key="" data-module="module0"><!--data-key 请保持为空，发给后端参数时获取-->
+                                            <a href="#message/all">全部</a>
+                                            <i class="icon filter-icon all">0</i>
+                                        </li>
+                                        <li class="" data-type="" data-key="1" data-module="module1">
+                                            <a href="#message/inspect">视频指挥</a>
+                                            <i class="icon filter-icon">0</i>
+                                        </li>
+                                        <li class="" data-type="" data-key="10" data-module="module10">
+                                            <a href="#!message/vim">交通管理</a>
+                                            <i class="icon filter-icon">0</i>
+                                        </li>
+                                        <li class="" data-type="" data-key="3" data-module="module3">
+                                            <a href="#message/medialab">视图库</a>
+                                            <i class="icon filter-icon viewlabs">0</i>
+                                        </li>
+                                        <!--<li class="" data-type="" data-key="4" data-module="module4">
+                                            <a href="#!message/sss">布防布控</a>
+                                            <i class="icon filter-icon">2</i>
+                                        </li>-->
+                                        <li class="" data-type="" data-key="4" data-module="module4">
+                                            <a href="#message/imagejudge">图像研判</a>
+                                            <i class="icon filter-icon">0</i>
+                                        </li>
+                                        <li class="" data-type="" data-key="5" data-module="module5">
+                                            <a href="#message/maintain">运维管理</a>
+                                            <i class="icon filter-icon">0</i>
+                                        </li>
+                                        <li class="" data-type="" data-key="6" data-module="module6">
+                                            <a href="#message/settings">系统配置</a>
+                                            <i class="icon filter-icon">0</i>
+                                        </li>
+                                        <!--<li class="" data-type="" data-key="60" data-module="module60">
+                                            <a href="#message/system">权限变更</a>
+                                            <i class="icon filter-icon">0</i>
+                                        </li>-->
+                                    </ul>
+                                </div>
+                                <div class="filter clearfix" data-filter="n">
+                                    <span class="type">搜索：</span>
+                                    <input type="text" value="" name="" class="input-text createKey" placeholder="请输入关键字"/>
+                                    <input class="seach" type="submit" value="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-sec-header clearfix">
+
+                        <div class="operation-left">
+                            <div class="filter-info">
+                                <div class="checkbox-select clearfix">
+                                    <div class="checkbox allcheck push-left"></div>
+                                    <div class="dropdown push-right"></div>
+
+                                </div>
+                                <div class="small-marker-content">
+                                    <a data-key="1">已读</a>
+                                    <a data-key="0">未读</a>
+                                </div>
+                            </div>
+
+
+                            <div class="block-delete set-center">批量删除</div>
+                            <div class="set-info">
+                                <div class="set-marker">
+                                    <div class="div-set-marker push-left">标记为...</div>
+                                    <div class="dropdown push-right"></div>
+                                </div>
+                                <div class="big-marker-content">
+                                    <a class="read" data-key="1">已读</a>
+                                    <a class="read" data-key="0">未读</a>
+                                </div>
+                            </div>
+
+                            <div class="set-all-readed" data-key="1">全部标记为已读</div>
+                        </div>
+                        <div class="operations set-right">操作</div>
+                        <div class="ordertimes set-right">时间<i class="ordertime"></i></div>
+
+                    </div>
+
+                    <div class="content" id="ntList">
+                        <ul class="inline-list second-header">
+                            <li>
+                                已勾选
+                                <i></i>
+                                条通知，
+                            </li>
+                            <li class="checkAms">勾选所有通知</li>
+                            <li class="cancelAms" style="display:none">取消勾选</li>
+                        </ul>
+                        <div id="content-List" style="overflow-y:scroll">
+
+                        </div>
+
+                        <div class="notify-pagination">
+                            <div class="change-item">
+                                单页显示
+                                <div class="list-wrapper">
+                                    <input type="text" class="change-item-input" readonly value="20">
+                                    <ul class="change-item-list">
+                                        <li value="20">20</li>
+                                        <li value="40">40</li>
+                                        <li value="60">60</li>
+                                    </ul>
+                                </div>
+                                条
+                            </div>
+                            <div class="pagination" id='pagination'></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 任务管理部分 -->
+                <div data-tab="advanceInf" class="user-info advanceInf">
+                    <ul id="tabs" class="ui tabular">
+                        <li data-tab="processing" class="active" id="processing">正在处理(<q>0</q>)</li>
+                        <li data-tab="processed" id="processed">处理完成(<q>0</q>)</li>
+                    </ul>
+                    <div data-tab="processing" class="task ui tab active" id="processing-list">
+                        <ul>
+                            <li class="header">
+                                <div class="floated name" >任务名称</div>
+                                <!--<div class="floated date">时间</div>-->
+                                <div class="floated processing">状态</div>
+                                <div class="floated operation">操作</div>
+                            </li>
+                        </ul>
+                        <div class="button-box" id="processing-button">
+                            <!--<div class="floated-right button last">全部暂停</div>
+                            <div class="floated-right button" data-start="1">全部开始</div>-->
+                        </div>
+                        <div class="notify-pagination">
+                            <div class="pagination" id='processing-pagination'></div>
+                        </div>
+                    </div>
+                    <div data-tab="processed" class="task ui tab" id="processed-list">
+                        <ul>
+                            <li class="header">
+                                <div class="floated name" >任务名称</div>
+                                <!--<div class="floated date">任务时间</div>-->
+                                <div class="floated processed-time">完成时间</div>
+                                <div class="floated processed">状态</div>
+                                <div class="floated operation">清除全部记录</div>
+                            </li>
+                        </ul>
+                        <div class="button-box">
+                            <div class="button last" id="clearAllRecords">清除全部记录</div>
+                        </div>
+                        <div class="notify-pagination">
+                            <div class="pagination" id='processed-pagination'></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 基本信息部分内容 -->
+                <div data-tab="baseInf" id="userBaseInfo" class="user-info">
+                    <div class="breadcrumb">
+                        <span id="set" class="active section">基本信息</span>
+                    </div>
+                    <div id="info"></div>
+                    <!--#include file="/module/settings/usercenter/inc/user-baseinfo.html" -->
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div id="loading"></div>
+    <script type="text/javascript" src="/libs/requirejs/require.js" ></script>
+    <script type="text/javascript" src="/require-conf.js"></script>
+    <script type="text/javascript">
+        require(['/module/settings/usercenter/js/main.js']);
+    </script>
+</body>
+</html>

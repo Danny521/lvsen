@@ -1,0 +1,27 @@
+{{#if favoriteMark}}
+    {{#if data.attention.length}}
+        {{#each data.attention}}
+        <div class="row" data-event="click" data-handler="SetAttentionToMap" data-id='{{id}}' data-name='{{name}}' data-description='{{description}}' data-x='{{x}}' data-y='{{y}}' data-zoom='{{zoom}}'>
+            <span class="name" title="{{name}}">{{name}}</span>
+            <span class="my-date">{{#mills2str createTime}}{{/mills2str}}</span>
+        </div>
+        {{/each}}
+    {{else}}
+    <p class="no-result-style">暂无数据。</p>
+    {{/if}}
+{{/if}}
+
+{{#if favoriteRoutes}}
+    {{#if favoriteRoutes.favoriteRoutes.length}}
+        {{#each favoriteRoutes.favoriteRoutes}}
+        <div class="row" data-event="click" data-handler="CheckFavoriteRoute" data-id="{{id}}">
+            <i class="{{trafficModel}}"></i>
+            <p class="way">{{#TrafficModel trafficModel}}{{/TrafficModel}}：{{startPointName}}-{{endPointName}}</p>
+            <p class="date">{{#mills2datatime createTime}}{{/mills2datatime}}</p>
+            <i class="delete" title="删除" data-event="click" data-handler="DeleteFavoriteRoute" data-id="{{id}}"></i>
+        </div>
+        {{/each}}
+    {{else}}
+    <p class="no-result-style">暂无数据。</p>
+    {{/if}}
+{{/if}}

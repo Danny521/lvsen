@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8" />
+	<title>公安视频实战应用平台</title>
+	<!--[if lt IE 9]>
+	<script src="/assets/js/lib/html5.js"></script>
+	<![endif]-->
+	<link type="image/x-icon" rel="shortcut icon" href="/favicon.ico" />
+	<link type="text/css" rel="stylesheet" href="../../../style/base.css" />
+	<link type="text/css" rel="stylesheet" href="../../../style/semantic.css" />
+	<link rel="stylesheet" type="text/css" href="../../../libs/jquery/jquery-ui.css"/>
+	<link type="text/css" rel="stylesheet" href="../../../libs/jquery/jquery.datetimepicker.css"/>
+	<link type="text/css" rel="stylesheet" href="css/inspect.css" />
+	<link type="text/css" rel="stylesheet" href="../../../component/tree.css"/>
+	<link type="text/css" rel="stylesheet" href="../../../component/control.css"/>
+	<link type="text/css" rel="stylesheet" href="../../../component/map.css" />
+	<link type="text/css" rel="stylesheet" href="../../../libs/jquery/pagination.css"/>
+	<link type="text/css" rel="stylesheet" href="css/options.css" />
+	<link type="text/css" rel="stylesheet" href="css/maintenance.css" />
+</head>
+<body>
+	<!--#include file="/component/inc/navigator.html" -->
+	<!--#include file="inc/header-maintenance.html" -->
+	<script type="text/javascript" src="../../../libs/seajs/sea.js"></script>
+	<script type="text/javascript">
+		seajs.config({
+			base: "/",
+			alias: {
+				"JQ" : "js/lib/jquery-1.10.2.min.js",
+				"MT" : "js/lib/mootools.js",
+				"BS" : "js/lib/base.js",
+				"HB" : 'js/lib/handlebars',
+				"MN" : "rebuild/menu"
+			}
+		});
+		seajs.use("MN");
+	</script>
+	<div id="content">
+		<div class="wrapper">
+			<aside id="sidebar">
+				<!--
+				<a id="sideExpand">
+				<iframe src="about:blank"></iframe>
+				<span>边栏显隐</span>
+			</a>
+			-->
+			<a id="sideResize">
+				<iframe src="about:blank"></iframe>
+				<span>调整宽度</span>
+			</a>
+
+			<div class="header">
+				<ul class="menus ui tabular">
+					<li class="camera active mytask" data-tab="mytask">
+						<a class="nav" id="camerasType">任务列表</a>
+					</li>
+					<!--<li class="patrol checktask" data-tab="checktask" >
+					<a class="nav">审核任务</a>
+				</li>
+				-->
+				<li class="action plan" title="配置计划" data-tab="plan"></li>
+				<li class="action task" title="新建任务" data-tab="newtask"></li>
+				<!--<li class="action combine" title="合并任务" data-tab="combine"></li>
+			-->
+		</ul>
+	</div>
+
+	<div id="treePanel">
+		<div class="ui tab active">
+			<div class="form-panel">
+				<div class="scrollbar">
+					<div class="track">
+						<div class="thumb"></div>
+					</div>
+				</div>
+				<div class="viewport">
+					<div class="overview">
+						<div class="ui tab active filter mytask" data-tab="mytask" id="mytask"></div>
+
+						<div class="ui tab filter checktask" data-tab="checktask" id="checktask"></div>
+
+						<div class="ui tab newtask" data-tab="newtask" id="newtask"></div>
+
+						<div class="ui tab plan" data-tab="plan" id="plan"></div>
+
+						<div class="ui tab combine" data-tab="combine" id="combine"></div>
+
+						<div class="pagepart">
+							<div class ="pagination"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!--#include file="/assets/inc/control.html" -->
+</aside>
+
+<div id="major">
+	<div class="header clearfix">
+		<div class="rMenu">
+			<span class="pages">
+				<a class='item mappageup'>上一个</a>
+				<a class='item mappagedown'>下一个</a>
+			</span>
+            <div id="selectPanel">
+                <a class="item dropdown">
+                    <i class="icon split"></i>
+                </a>
+                <div class="function-container">
+                    <iframe class="function-panel" src="about:blank"></iframe>
+                    <div class="split-panel active">
+                        <i title="1分屏" class="layout split1" data-layout="1"></i>
+                        <i title="4分屏" class="layout split4" data-layout="4"></i>
+                        <i title="9分屏" class="layout split9" data-layout="9"></i>
+                        <i title="16分屏" class="layout split16" data-layout="16"></i>
+                    </div>
+                </div>
+            </div>
+			<span class="modelChange" >
+				<button id='maptype' class="ui button tiny">地图模式</button>
+				<button id='classic' class="ui button tiny">经典模式</button>
+			</span>
+		</div>
+		<h3 class="title">视频巡检</h3>
+	</div>
+	<div id="npplay">
+
+		<div class="body">
+			<div class="camera-area screen">
+                <div id="video-control">
+                    <div id="downBlockContent"><span></span></div>
+                    <iframe id="downBlock" class="down-block" src="about:blank" scrolling="no" border=0 frameborder=0 allowtransparency="true"></iframe>
+                </div>
+				<object id="UIOCX" classid="clsid:294EEBEC-7677-4EBA-B2D7-3FD669FBF2A2" align="center" width="" height=""></object>
+			</div>
+			<div class="relpos"></div>
+			<div class="controller-area">
+				<div class='mark'>
+					<p class="normal ui basic small button" id='normal'> <i class='ok'></i>
+						正常
+					</p>
+					<br/>
+					<p class="abnormal ui basic small button" id='abnormal'> <i class='err'></i>
+						异常
+					</p>
+				</div>
+				<!-- <form class='classic-info'>
+				-->
+				<div class="options"></div>
+				<div class="remarks">
+					<span>备注</span>
+					<textarea name="remarks" placeholder='请输入备注信息' disabled="disabled"></textarea>
+                    <span class="ui button disable" id='exception'>确 定</span>
+				</div>
+				<!-- </form>
+				-->
+				<div class="page-turning">
+					<span class="ui button disable" id='pageup'>上一批</span>
+					<span class="ui blue button disable" id='pagedown'>下一批</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="gismap" class='infinity'>
+	</div>
+</div>
+</div>
+</div>
+<div class="map-mask" id="mapMask">正在生成打印文件，请稍后...</div>
+	<script type="text/javascript">
+		seajs.config({
+			alias : {
+				"m"    : "rebuild/model",
+				"v"    : "rebuild/view",
+				"c"    : "rebuild/controller",
+				"init" : "rebuild/init"
+			}
+		});
+		seajs.use("init");
+	</script>
+</body>
+</html>

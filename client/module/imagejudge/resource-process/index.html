@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=10,chrome=1"/>
+    <title>视云实战平台</title>
+    <!--[if lt IE 9]>
+        <script type="text/javascript" src="/libs/html5/html5.js"></script>
+    <![endif]-->
+
+
+    <!-- 全局样式Global -->
+    <link type="text/css" rel="stylesheet" href="/module/common/css/base.css" />
+    <link type="text/css" rel="stylesheet" href="/libs/semantic/semantic.css" />
+    <link type="text/css" rel="stylesheet" href="/module/viewlibs/caselib/css/entity.css"/>
+
+    <!-- 公共样式public -->
+    <link rel="stylesheet" type="text/css" href="/module/imagejudge/resource-process/css/public.css"/>
+    <!-- 图像处理image -->
+    <link rel="stylesheet" type="text/css" href="css/image.css"/>
+    <!-- 图标、背景icon -->
+    <link rel="stylesheet" type="text/css" href="css/icon.css" />
+     <!-- 图像处理image 工具插件样式 -->
+    <link rel="stylesheet" type="text/css" href="css/image_tool.css"/>
+    <!-- jquery-ui -->
+    <link rel="stylesheet" type="text/css" href="/libs/jquery/jquery-ui.css" />
+    <!-- 裁剪插件 -->
+    <link rel="stylesheet" type="text/css" href="/libs/jquery/jquery.Jcrop.css"/>
+
+    <!-- 资源导入 -->
+    <link rel="stylesheet" type="text/css" href="css/tree.css"/>
+    <link rel="stylesheet" type="text/css" href="css/image_import.css"  />
+
+
+    <!-- 视图分析部分样式 -->
+
+    <link type="text/css" rel="stylesheet" href="/libs/jquery/jquery.datetimepicker.css"/>
+    <!-- 视图分析video -->
+    <link rel="stylesheet" type="text/css" href="css/video.css"/>
+    <!-- 图标、背景icon -->
+    <link rel="stylesheet" type="text/css" href="/libs/thickbox/thickbox.css"/>
+    <link rel="stylesheet" type="text/css" href="/module/viewlibs/caselib/css/video.css"/>
+    <!-- 视频下播放条 -->
+    <link rel="stylesheet" type="text/css" href="css/videobar.css"  />
+    <link rel="stylesheet" type="text/css" href="css/localhost.css"/>
+    <link rel="stylesheet" type="text/css" href="css/dialog_video.css"/>
+
+    <!-- 导入 -->
+    <link rel="stylesheet" type="text/css" href="/component/panel/main.css"/>
+    <link rel="stylesheet" type="text/css" href="/module/common/resource-import/resource_import.css"/>
+
+    <!-- 智能标注结果查看 -->
+    <link rel="stylesheet" type="text/css" href="/libs/jquery/jquery.pagination.css"/>
+    <link rel="stylesheet" type="text/css" href="/module/imagejudge/resource-process/css/smartmark-look.css"/>
+    <link rel="stylesheet" type="text/css" href="/module/imagejudge/resource-process/css/player1.css"/>
+    <script type=text/vbscript>
+        on error resume next
+        set f = createObject("ShockwaveFlash.ShockwaveFlash")
+        i_Flash = false
+        if IsObject(f) then
+        i_Flash = true
+        v_Flash = hex(f.FlashVersion())
+        end if
+    </script>
+</head>
+<body injectocx="true">
+
+    <!--  云端导入资源树面板 -->
+    <div class="select_file cloud-panel">
+        <div class="select_file_title">
+            <h6>选择资源</h6>
+            <a href="javascript:void(0)" title="关闭" class="icon_close close-select-panel"></a>
+        </div>
+        <div class="select_file_body">
+
+            <div id="cloudTree" class="scrollbarPanel">
+                <div class="scrollbar"><div class="track"><div class="thumb"><div class="end"></div></div></div></div>
+                <div class="viewport">
+                    <div class="overview">
+                        <div id="cloudTreePanel" class="treePanel"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="select_file_foot">
+            <input type="checkbox" id="checkAll"/><label for="checkAll" id="checkLabel">全选</label>
+            <a href="javascript:void(0)" title="保存至快照" class="ui button small blue select">保存至快照</a>
+            <a href="javascript:void(0)"  title="取消" class="ui button small cancel">取消</a>
+        </div>
+    </div>
+    <div class="layer cloud-panel-mask"></div>
+    <!-- 外层容器_Wrapper_@Start -->
+    <div class="whole">
+        <!-- 页面主体_main_@Start -->
+        <div class="main">
+
+            <!-- 页面主体左侧_main_left_@Start -->
+            <div class="main_left">
+
+                <div class="sidebar">
+                    <div class="sidebar_title">
+                        <h6>资源列表</h6>
+                        <a id="removeAllResource">清空资源</a>
+                        <button id="importRs">导入资源</button>
+                    </div>
+
+                    <div class="resource_title">
+                        <div class="allFile" data-type="0">
+                            <a >全部文件</a>
+                        </div>
+                        <div class="imageFile" data-type="2">
+                            <a class="imageJudge-imageFileImage"></a>
+                            <div class="imageFileTitle">图像</div>
+                        </div>
+                        <div class="videoFile" data-type="1">
+                            <a class="imageJudge-videoFileImage"></a>
+                            <div class="videoFileTitle">视频</div>
+                        </div>
+                    </div>
+                    <div class="resource_cont">
+                        <div id="resourceTree" class="scrollbarPanel">
+                            <div class="scrollbar"><div class="track"><div class="thumb"><div class="end"></div></div></div></div>
+                            <div class="viewport">
+                                <div class="overview">
+                                    <div id="resourceTreePanel" class="treePanel"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <ul class="resource_pic">
+
+                        </ul>
+
+                    </div>
+                </div>
+
+
+                <!-- 侧边栏_sidebar_@Start -->
+            </div>
+            <!-- 页面主体左侧_main_left_@End -->
+
+            <!-- 页面主体右侧_图像处理_main_right_image_@Start -->
+            <div id="main_right_image" class="main_right image_main_right hidden">
+
+                <!-- 图像处理菜单_image_repair_@Start -->
+                <div class="image_repair">
+                    <div class="location">
+                        <span class="main_nav">
+                            <a href="javascript:void(0);" class="current">常规处理</a>
+                            <a href="javascript:void(0);" class="nav-gj">高级处理</a>
+                        </span>
+                        <div class="view">
+                            <span class="view_btn">
+                                <a href="javascript:void(0);" class="btn btn_ok inlib permission permission-tobaselib"><span>入库<b class="icon_downarrow"></b></span></a>
+                                <a href="javascript:void(0);" class="btn save-image permission permission-import">保存</a>
+                                <ul class="drop-menu user-select">
+                                    <li class="group1" data-type="image">存为图片</li>
+                                    <li class="group1 ">存为结构化信息<b class="icon_leftarrow"></b></li>
+                                    <li class="group2" data-type="person">人员</li>
+                                    <li class="group2" data-type="car">车辆</li>
+                                    <li class="group2" data-type="exhibit">物品</li>
+                                    <li class="group2" data-type="scene">场景</li>
+                                    <li class="group2" data-type="others">其它</li>
+                                </ul>
+                            </span>
+                            <em class="image-ratio">100%</em>
+                            <div class="view_control">
+                                <i title="缩小" class="icon_small" data-type="-1"></i>
+                                <span id="zoomSlider">
+
+                                </span>
+                                <i title="放大" class="icon_big" data-type="1"></i>
+                            </div>
+                            <span class="view_btn">
+                                <a href="javascript:void(0);" class="btn" id="adaptTo">自适应</a>
+                            </span>
+                        </div>
+                    </div>
+                    <ul class="sub_nav">
+                        <li class="basis_menu active">
+                            <a href="javascript:void(0);" class="current">基础编辑</a>
+                            <a href="javascript:void(0);">图像增强</a>
+                            <a href="javascript:void(0);">噪声处理</a>
+                            <a href="javascript:void(0);">锐化</a>
+                            <a href="javascript:void(0);">颜色处理</a>
+                            <a href="javascript:void(0);">图像校正</a>
+                        </li>
+                        <li class="senior_menu">
+                            <a href="javascript:void(0);"  class="sub-nav-mh current">模糊处理</a>
+                            <a href="javascript:void(0);">去雾</a>
+                            <a href="javascript:void(0);">图像滤波</a>
+                            <a href="javascript:void(0);">形态学操作</a>
+                            <a href="javascript:void(0);" style="display: none;">图像复原</a>
+                            <a href="javascript:void(0);">色彩分离</a>
+                            <a href="javascript:void(0);">移行</a>
+                            <a href="javascript:void(0);">奇偶场</a>
+                            <a href="javascript:void(0);" style="display: none;">超分辨率</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 图像处理内容区域_image_content_@Start -->
+                <div class="image_content">
+                    <!-- 图像处理区域_image_area_@Start -->
+                    <div class="image_area">
+                        <div id="diskHolder"></div>
+                        <span class="image_look_btn">
+                            <a href="javascript:void(0);" data-name="" data-id="" data-imgurl="" class="icon_old_image" id="oldImg"><i></i>原图</a>
+                            <a href="javascript:void(0);" class="icon_contrast" id="imgCompare"><i></i>对比</a>
+                        </span>
+                        <span class="image_look_bg"></span>
+                        <img id="loading" src="/module/common/images/animate/horizontal-loading.gif"/>
+                        <div id="targetImgPaper"></div>
+                        <img src="" data-name="" data-id="" alt="" id="targetImg">
+                        <img src="" data-id="" id="orginImg" alt=""/>
+                    </div>
+
+                    <!-- 图像处理区域_image_area_@End -->
+
+                    <!-- 图像控制面板_control_panel_@Start -->
+                    <div class="control_panel">
+                        <!-- 常规处理_general_@Start -->
+                        <div class="general">
+                            <!-- 基础编辑_basis_@Start -->
+                            <div class="basis active control_item">
+                                <dl class="basic_editing" id="basicEdit">
+                                    <dt class="module-head rotat_module_head active open">
+                                        <!-- <i class="icon_rotat"></i> -->
+                                        <span>旋转</span>
+                                        <b class="icon_downarrow"></b>
+                                    </dt>
+                                    <dd class="module rotat_module active open">
+                                        <span class="func_rotat">
+                                            <a href="javascript:void(0);" title="逆时针旋转" class="left_rotat" data-type="270"></a>
+                                            <a href="javascript:void(0);" title="顺时针旋转" class="right_rotat" data-type="90"></a>
+                                            <a href="javascript:void(0);" title="左右翻转" class="level_mirror" data-type="column"></a>
+                                            <a href="javascript:void(0);" title="上下翻转" class="vertical_mirror" data-type="row"></a>
+                                        </span>
+                                        <span class="arbitrary_rotat">
+                                            <label>任意旋转</label>
+                                            <input type="text" value="0" id="rotatInput" />
+                                        </span>
+                                        <div class="sliding_bar">
+                                            <div id="rotatSlider" class="common_slider"></div>
+                                        </div>
+                                        <span class="control_btn">
+                                            <a href="javascript:void(0);" class="btn btn_yes" id="rotat_ok">保存至快照</a>
+                                            <a href="javascript:void(0);" class="btn cancle">取消</a>
+                                        </span>
+                                    </dd>
+                                    <dt class="cut_img module-head">
+                                        <!-- <i class="icon_cutting"></i> -->
+                                        <span>裁剪</span>
+                                        <b class="icon_downarrow"></b>
+                                    </dt>
+                                    <dd class="module">
+                                        <select class="cut_type">
+                                            <option value="0:1" class="free">自由裁剪</option>
+                                            <option value="1:1">1:1</option>
+                                            <option value="4:3">4:3</option>
+                                            <option value="16:9">16:9</option>
+                                        </select>
+                                        <span class="cut_num">
+                                            <p>
+                                                <em>宽度</em>
+                                                <i></i>
+                                                <em>高度</em>
+                                            </p>
+                                            <p>
+                                                <input type="text" class="width" />
+                                                <i>×</i>
+                                                <input type="text" class="height" />
+                                            </p>
+                                        </span>
+                                        <label class="lock_num"><input type="checkbox"><b>锁定裁剪比例</b></label>
+                                        <span class="control_btn">
+                                            <a href="javascript:void(0);" class="btn btn_yes" id="cut_ok">保存至快照</a>
+                                            <a href="javascript:void(0);" class="btn cancle" id="cut_cancle">取消</a>
+                                        </span>
+                                    </dd>
+                                    <dt class="sf_img module-head">
+                                        <!-- <i class="icon_cutting"></i> -->
+                                        <span>缩放</span>
+                                        <b class="icon_downarrow"></b>
+                                    </dt>
+                                    <dd class="module sf_module_active">
+                                        <select class="sf_type">
+                                            <option value="1:1" class="init">原图比例缩放</option>
+                                            <option value="" class="free">自由比例缩放</option>
+                                        </select>
+                                        <span class="sf_num" style="display:none">
+                                            <p>
+                                                <em>宽度</em>
+                                                <i></i>
+                                                <em>高度</em>
+                                            </p>
+                                            <p>
+                                                <input type="text" class="width" />
+                                                <i>×</i>
+                                                <input type="text" class="height" />
+                                            </p>
+                                        </span>
+                                        <div class="sf_filter">
+                                             <span class="arbitrary_rotat sf_ld">
+                                                <label>范围</label>
+                                                <span class="per">%</span>
+                                                <input type="text" value="100" id="sf_btn" />
+                                            </span>
+                                            <div class="sliding_bar">
+                                                <div class="common_slider width" id="sf_slider" data-defaultvalue="100"></div>
+                                            </div>
+                                        </div>
+                                        <span class="control_btn">
+                                            <a href="javascript:void(0);" class="btn btn_yes" id="sf_ok">保存至快照</a>
+                                            <a href="javascript:void(0);" class="btn cancle" id="sf_cancle">取消</a>
+                                        </span>
+                                    </dd>
+                                </dl>
+                            </div>
+                            <!-- 基础编辑_basis_@End -->
+                            <!-- 图像增强_enhance_@Start -->
+                            <div class="enhance control_item">
+                                <dl class="basic_editing">
+                                    <dt class="module-head">
+                                        <span>图像增强</span>
+                                        <b class="icon_downarrow"></b>
+                                    </dt>
+                                    <dd class="module">
+                                        <div class="color_item">
+                                            <span class="arbitrary_rotat">
+                                                <label>亮度</label>
+                                                <input type="text" value="0" />
+                                            </span>
+                                            <div class="sliding_bar">
+                                                <div class="common_slider"></div>
+                                            </div>
+                                        </div>
+                                        <div class="color_item">
+                                            <span class="arbitrary_rotat">
+                                                <label>清晰度</label>
+                                                <input type="text" value="0" />
+                                            </span>
+                                            <div class="sliding_bar">
+                                                <div class="common_slider"></div>
+                                            </div>
+                                        </div>
+                                        <div class="color_item">
+                                            <span class="arbitrary_rotat">
+                                                <label>对比度</label>
+                                                <input type="text" value="0" />
+                                            </span>
+                                            <div class="sliding_bar">
+                                                <div class="common_slider"></div>
+                                            </div>
+                                        </div>
+                                        <div class="color_item">
+                                            <span class="arbitrary_rotat">
+                                                <label>饱和度</label>
+                                                <input type="text" value="0" />
+                                            </span>
+                                            <div class="sliding_bar">
+                                                <div class="common_slider"></div>
+                                            </div>
+                                        </div>
+                                        <span class="control_btn">
+                                            <a href="javascript:void(0);" class="btn btn_yes">保存至快照</a>
+                                            <a href="javascript:void(0);" class="btn cancle">取消</a>
+                                        </span>
+                                    </dd>
+                                </dl>
+                            </div>
+                            <!-- 图像增强_enhance_@End -->
+                             <!-- 噪声处理_enhance_@Start -->
+                            <div class="enhance control_item">
+                                <dl class="basic_editing">
+                                    <dt class="module-head">
+                                        <span>噪声处理</span>
+                                        <b class="icon_downarrow"></b>
+                                    </dt>
+                                    <dd class="module">
+                                        <span class="control_btn">
+                                            <a href="javascript:void(0);" data-type="filter" class="btn recommend_value" data-default="5">使用推荐值</a>
+                                        </span>
+                                        <div class="median_filter">
+                                            <span class="arbitrary_rotat">
+                                                <label>处理程度</label>
+                                                <input type="text" value="0" />
+                                            </span>
+                                            <div class="sliding_bar">
+                                                <div class="common_slider width"></div>
+                                            </div>
+                                        </div>
+                                        <span class="control_btn">
+                                            <a href="javascript:void(0);" class="btn btn_yes">保存至快照</a>
+                                            <a href="javascript:void(0);" class="btn cancle">取消</a>
+                                        </span>
+                                    </dd>
+                                </dl>
+                            </div>
+                            <!-- 噪声处理_enhance_@End -->
+                            <!-- 锐化_sharpen_@Start -->
+                            <div class="sharpen control_item">
+                                <dl class="basic_editing">
+                                    <dt class="module-head">
+                                        <span>锐化</span>
+                                        <b class="icon_downarrow"></b>
+                                    </dt>
+                                    <dd class="module">
+                                        <div class="auto_sharpen">
+                                            <input type="checkbox" class="auto_sharpen_button"  data-default="" />
+                                            <label>自适应锐化</label>
+                                        </div>
+                                        <span class="control_btn">
+                                            <a href="javascript:void(0);" data-type="sharpen" class="btn recommend_value" data-default="7,50">使用推荐值</a>
+                                        </span>
+                                        <div class="sharpen_filter" >
+                                            <span class="arbitrary_rotat sharpen_cd">
+                                                <label>锐化程度</label>
+                                                <input id="sharpenLevel" type="text" value="0" />
+                                            </span>
+                                            <div id="spLevel" class="sliding_bar">
+                                                <div class="common_slider width"></div>
+                                            </div>
+
+                                        </div>
+                                        <div class="sharpen_filter">
+                                             <span class="arbitrary_rotat sharpen_ld">
+                                                <label>锐化强度</label>
+                                                <input id="sharpenStrength" type="text" value="0" />
+                                            </span>
+                                            <div id="spStrength" class="sliding_bar">
+                                                <div class="common_slider width"></div>
+                                            </div>
+                                        </div>
+                                        <span class="control_btn">
+                                            <a href="javascript:void(0);" class="btn btn_yes">保存至快照</a>
+                                            <a href="javascript:void(0);" class="btn cancle">取消</a>
+                                        </span>
+                                    </dd>
+                                </dl>
+                            </div>
+                            <!-- 锐化_sharpen_@End -->
+                            <!-- 颜色处理_colorProcess_@Start -->
+                             <div class="colorProcess control_item">
+                                <dl class="basic_editing">
+                                    <dt class="module-head">
+                                        <span>色彩-灰度转换</span>
+                                        <b class="icon_downarrow"></b>
+                                    </dt>
+                                    <dd class="module">
+                                        <span class="control_btn">
+                                            <a href="javascript:void(0);" data-type="0" class="btn colorPro" id="doColor">开始处理</a>
+                                        </span>
+                                        <span class="control_btn">
+                                            <a href="javascript:void(0);" class="btn btn_yes">保存至快照</a>
+                                            <a href="javascript:void(0);" class="btn cancle">取消</a>
+                                        </span>
+                                    </dd>
+                                     <dt class="module-head">
+                                        <span>去色</span>
+                                        <b class="icon_downarrow"></b>
+                                    </dt>
+                                    <dd class="module">
+                                        <span class="control_btn">
+                                            <a href="javascript:void(0);" data-type="1" class="btn colorPro" id="deColor">开始处理</a>
+                                        </span>
+                                        <span class="control_btn">
+                                            <a href="javascript:void(0);" class="btn btn_yes">保存至快照</a>
+                                            <a href="javascript:void(0);" class="btn cancle">取消</a>
+                                        </span>
+                                    </dd>
+                                     <dt class="module-head">
+                                        <span>自动色彩平衡</span>
+                                        <b class="icon_downarrow"></b>
+                                    </dt>
+                                    <dd class="module">
+                                        <span class="control_btn">
+                                            <a href="javascript:void(0);" data-type="2" class="btn colorPro" id="autoColor">开始处理</a>
+                                        </span>
+                                        <span class="control_btn">
+                                            <a href="javascript:void(0);" class="btn btn_yes">保存至快照</a>
+                                            <a href="javascript:void(0);" class="btn cancle">取消</a>
+                                        </span>
+                                    </dd>
+                                     <dt class="module-head">
+                                        <span>反色</span>
+                                        <b class="icon_downarrow"></b>
+                                    </dt>
+                                    <dd class="module">
+                                        <span class="control_btn">
+                                            <a href="javascript:void(0);" data-type="3" class="btn colorPro" id="rotaColor">开始处理</a>
+                                        </span>
+                                        <span class="control_btn">
+                                            <a href="javascript:void(0);" class="btn btn_yes">保存至快照</a>
+                                            <a href="javascript:void(0);" class="btn cancle">取消</a>
+                                        </span>
+                                    </dd>
+                                     <dt class="module-head">
+                                        <span>自动白平衡</span>
+                                        <b class="icon_downarrow"></b>
+                                    </dt>
+                                    <dd class="module">
+                                        <span class="control_btn">
+                                            <a href="javascript:void(0);" data-type="4" class="btn colorPro" id="whiteColor">开始处理</a>
+                                        </span>
+                                        <span class="control_btn">
+                                            <a href="javascript:void(0);" class="btn btn_yes">保存至快照</a>
+                                            <a href="javascript:void(0);" class="btn cancle">取消</a>
+                                        </span>
+                                    </dd>
+                                     <dt class="module-head">
+                                        <span>亮度拉伸</span>
+                                        <b class="icon_downarrow"></b>
+                                    </dt>
+                                    <dd class="module">
+                                        <span class="control_btn">
+                                            <a href="javascript:void(0);" data-type="5" class="btn colorPro" id="stretchInten">开始处理</a>
+                                        </span>
+                                        <span class="control_btn">
+                                            <a href="javascript:void(0);" class="btn btn_yes">保存至快照</a>
+                                            <a href="javascript:void(0);" class="btn cancle">取消</a>
+                                        </span>
+                                    </dd>
+                                     <dt class="module-head">
+                                        <span>亮度反转</span>
+                                        <b class="icon_downarrow"></b>
+                                    </dt>
+                                    <dd class="module">
+                                        <span class="control_btn">
+                                            <a href="javascript:void(0);" data-type="6" class="btn colorPro" id="rotaInten">开始处理</a>
+                                        </span>
+                                        <span class="control_btn">
+                                            <a href="javascript:void(0);" class="btn btn_yes">保存至快照</a>
+                                            <a href="javascript:void(0);" class="btn cancle">取消</a>
+                                        </span>
+                                    </dd>
+                                </dl>
+                            </div>
+                            <!-- 颜色处理_colorProcess_@End -->
+                            <!-- 颜色校正_ImageCorrect_@Start -->
+                            <div class="ImageCorrect control_item">
+                                <dl class="basic_editing">
+                                    <dt class="module-head">
+                                        <span>镜头畸变校正</span>
+                                        <b class="icon_downarrow"></b>
+                                    </dt>
+                                    <dd class="module">
+                                        <span class="control_btn">
+                                            <a href="javascript:void(0);" data-type="lensDisCron" class="btn recommend_value" data-default="78">使用推荐值</a>
+                                        </span>
+                                        <div class="image_correct">
+                                            <span class="arbitrary_rotat">
+                                                <label>校正程度</label>
+                                                <input type="text" value="0" />
+                                            </span>
+                                            <div class="sliding_bar">
+                                                <div id="imageCorrButton" class="common_slider width"></div>
+                                            </div>
+                                        </div>
+                                        <span class="control_btn">
+                                            <a href="javascript:void(0);" class="btn btn_yes">保存至快照</a>
+                                            <a href="javascript:void(0);" class="btn cancle">取消</a>
+                                        </span>
+                                    </dd>
+                                    <dt class="module-head ts">
+                                        <span>透视变换校正</span>
+                                        <b class="icon_downarrow"></b>
+                                    </dt>
+                                    <dd class="module">
+                                        <span class="control_btn">
+                                            <a href="javascript:void(0);" class="btn" id="perspColl">开始处理</a>
+                                        </span>
+                                        <span class="control_btn">
+                                            <a href="javascript:void(0);" class="btn btn_yes">保存至快照</a>
+                                            <a href="javascript:void(0);" class="btn cancle">取消</a>
+                                        </span>
+                                    </dd>
+                                </dl>
+                            </div>
+                             <!-- 颜色校正_ImageCorrect_@End -->
+                        </div>
+                        <!-- 常规处理_general_@End -->
+                        <!-- 高级处理_senior_@start-->
+                        <div class="senior">
+                            <!-- 去运动模糊_enhance_@Start -->
+                            <div class="enhance fuzzy control_item">
+                                <dl class="basic_editing">
+                                    <dt class="module-head">
+                                        <span>去运动模糊</span>
+                                        <b class="icon_downarrow"></b>
+                                    </dt>
+                                    <dd class="module fuzzy_module motion_fuzzy_module">
+                                        <span class="control_btn">
+                                            <a href="javascript:void(0);" class="btn recommend_value" data-type="motion" data-default="5">使用推荐值</a>
+                                        </span>
+                                        <div class="motion_fuzzy">
+                                            <span class="arbitrary_rotat">
+                                                <label>运动方向</label>
+                                                <span class="switch off"></span>
+                                                <input type="text" class="director" value="0" />
+                                            </span>
+                                             <div class="sliding_bar">
+                                                <div class="common_slider motion_slider director"></div>
+                                            </div>
+                                        </div>
+                                        <div class="fuzzy_item">
+                                            <span class="arbitrary_rotat">
+                                                <label>模糊程度</label>
+                                                <input type="text" class="fuzzy-value" value="0" />
+                                            </span>
+                                            <div class="sliding_bar">
+                                                <div class="common_slider motion_slider  fuzzy-value"></div>
+                                            </div>
+                                        </div>
+                                        <span class="control_btn">
+                                            <a href="javascript:void(0);" class="btn btn_yes" id="motionFuzzy">保存至快照</a>
+                                            <a href="javascript:void(0);" class="btn cancle">取消</a>
+                                        </span>
+                                    </dd>
+                                    <dt class="module-head">
+                                        <span>去散焦模糊</span>
+                                        <b class="icon_downarrow"></b>
+                                    </dt>
+                                    <dd class="module fuzzy_module">
+                                        <span class="control_btn">
+                                            <a href="javascript:void(0);" class="btn recommend_value" data-type="focus" data-default="5">使用推荐值</a>
+                                        </span>
+                                        <div class="fuzzy_item">
+                                        <span class="arbitrary_rotat">
+                                            <label>模糊程度</label>
+                                            <input type="text"  class="focus-value" value="0" />
+                                        </span>
+                                        <div class="sliding_bar">
+                                           <div class="common_slider focus_slider focus-value"></div>
+                                        </div>
+                                        </div>
+                                        <span class="control_btn">
+                                            <a href="javascript:void(0);" class="btn btn_yes" id="focusFuzzy">保存至快照</a>
+                                            <a href="javascript:void(0);" class="btn cancle">取消</a>
+                                        </span>
+                                    </dd>
+                                </dl>
+                            </div>
+                            <!-- 去运动模糊_enhance_@End -->
+
+                            <!-- 噪声处理_enhance_@Start -->
+                            <div class="enhance control_item">
+                                <dl class="basic_editing">
+                                    <dt class="module-head">
+                                        <span>去雾</span>
+                                        <b class="icon_downarrow"></b>
+                                    </dt>
+                                    <dd class="module">
+                                        <span class="control_btn">
+                                            <a href="javascript:void(0);" class="btn" id="defog">开始处理</a>
+                                        </span>
+                                        <span class="control_btn">
+                                            <a href="javascript:void(0);" class="btn btn_yes">保存至快照</a>
+                                            <a href="javascript:void(0);" class="btn cancle">取消</a>
+                                        </span>
+                                    </dd>
+                                </dl>
+                            </div>
+                            <!-- 噪声处理_enhance_@End -->
+                            <!-- 图像滤波_imageFilter_@Start -->
+                            <div class="imageFilter control_item">
+                                <dl class="basic_editing">
+                                    <dt class="module-head">
+                                        <span>中值滤波</span>
+                                        <b class="icon_downarrow"></b>
+                                    </dt>
+                                    <dd class="module">
+                                        <span class="control_btn">
+                                            <a href="javascript:void(0);" data-type="1" data-name="中值滤波" class="btn recommend_value" data-default="7">使用推荐值</a>
+                                        </span>
+                                        <div class="median_filter">
+                                            <span class="arbitrary_rotat">
+                                                <label>处理程度</label>
+                                                <input type="text" value="0" />
+                                            </span>
+                                            <div class="sliding_bar">
+                                                <div class="common_slider width" data-type="1" data-name="中值滤波" id="imageFilterMir"></div>
+                                            </div>
+                                        </div>
+                                        <span class="control_btn">
+                                            <a href="javascript:void(0);" class="btn btn_yes">保存至快照</a>
+                                            <a href="javascript:void(0);" class="btn cancle">取消</a>
+                                        </span>
+                                    </dd>
+                                    <dt class="module-head">
+                                        <span>高通滤波</span>
+                                        <b class="icon_downarrow"></b>
+                                    </dt>
+                                    <dd class="module">
+                                        <span class="control_btn">
+                                            <a href="javascript:void(0);" data-type="filter" data-name="高通滤波" class="btn recommend_value" data-default="10">使用推荐值</a>
+                                        </span>
+                                        <div class="median_filter">
+                                            <span class="arbitrary_rotat">
+                                                <label>处理程度</label>
+                                                <input type="text" value="0" />
+                                            </span>
+                                            <div class="sliding_bar">
+                                                <div class="common_slider width" data-type="0" data-name="高通滤波" id="imageFilterHigh"></div>
+                                            </div>
+                                        </div>
+                                        <span class="control_btn">
+                                            <a href="javascript:void(0);" class="btn btn_yes">保存至快照</a>
+                                            <a href="javascript:void(0);" class="btn cancle">取消</a>
+                                        </span>
+                                    </dd>
+                                    <dt class="module-head">
+                                        <span>低通滤波</span>
+                                        <b class="icon_downarrow"></b>
+                                    </dt>
+                                    <dd class="module">
+                                        <span class="control_btn">
+                                            <a href="javascript:void(0);" data-type="filter" data-name="低通滤波" class="btn recommend_value" data-default="90">使用推荐值</a>
+                                        </span>
+                                        <div class="median_filter">
+                                            <span class="arbitrary_rotat">
+                                                <label>处理程度</label>
+                                                <input type="text" value="0" />
+                                            </span>
+                                            <div class="sliding_bar">
+                                                <div class="common_slider width" data-type="0" data-name="低通滤波" id="imageFilterLow"></div>
+                                            </div>
+                                        </div>
+                                        <span class="control_btn">
+                                            <a href="javascript:void(0);" class="btn btn_yes">保存至快照</a>
+                                            <a href="javascript:void(0);" class="btn cancle">取消</a>
+                                        </span>
+                                    </dd>
+                                </dl>
+                            </div>
+                            <!-- 图像滤波_imageFilter_@End -->
+                            <!-- 形态学操作_morphology_@Start -->
+                            <div class="morphology control_item">
+                                <dl class="basic_editing">
+                                    <dt class="module-head">
+                                        <span>腐蚀</span>
+                                        <b class="icon_downarrow"></b>
+                                    </dt>
+                                    <dd class="module fs">
+                                        <span class="control_btn">
+                                            <a href="javascript:void(0);" data-type="filter" class="btn recommend_value" data-name="腐蚀" data-default="3">使用推荐值</a>
+                                        </span>
+                                        <div class="median_filter clearfix">
+                                            <span class="arbitrary_rotat">
+                                                <label>作用程度</label>
+                                            </span>
+                                             <select class="morph_type" data-name="腐蚀" id="morpherosionBar">
+                                                <option value="0">0</option>
+                                                 <option value="3">3</option>
+                                                 <option value="5">5</option>
+                                                 <option value="7">7</option>
+                                                 <option value="9">9</option>
+                                             </select>
+                                        </div>
+                                        <span class="control_btn">
+                                            <a href="javascript:void(0);" id="morpherosionBtn" class="btn btn_yes">保存至快照</a>
+                                            <a href="javascript:void(0);" class="btn cancle">取消</a>
+                                        </span>
+                                    </dd>
+                                    <dt class="module-head">
+                                        <span>膨胀</span>
+                                        <b class="icon_downarrow"></b>
+                                    </dt>
+                                    <dd class="module pz">
+                                        <span class="control_btn">
+                                            <a href="javascript:void(0);" data-type="filter" class="btn recommend_value" data-name="膨胀" data-default="3">使用推荐值</a>
+                                        </span>
+                                        <div class="median_filter clearfix">
+                                            <span class="arbitrary_rotat">
+                                                <label>作用程度</label>
+                                            </span>
+                                             <select class="morph_type" data-name="膨胀" id="expandBar">
+                                                <option value="0">0</option>
+                                                 <option value="3">3</option>
+                                                 <option value="5">5</option>
+                                                 <option value="7">7</option>
+                                                 <option value="9">9</option>
+                                             </select>
+                                        </div>
+                                        <span class="control_btn">
+                                            <a href="javascript:void(0);" id="expandBtn" class="btn btn_yes">保存至快照</a>
+                                            <a href="javascript:void(0);" class="btn cancle">取消</a>
+                                        </span>
+                                    </dd>
+                                </dl>
+                            </div>
+                            <!-- 形态学操作_morphology_@End -->
+                            <!-- 图像复原 -->
+                            <div class="picRecovery control_item" style="display: none;">
+                                <dl class="basic_editing">
+                                    <dt class="module-head">
+                                        <span>图像复原</span>
+                                        <b class="icon_downarrow"></b>
+                                    </dt>
+                                    <dd class="module">
+                                        <span class="control_btn">
+                                            <a href="javascript:void(0);" data-type="filter" class="btn recommend_value" data-name="图像复原" data-default="3">使用推荐值</a>
+                                        </span>
+                                        <div class="recovery_filter" >
+                                            <span class="arbitrary_rotat"> <!-- sharpen_cd有什么用? -->
+                                                <label>噪声抑制</label>
+                                                <input id="noiseControl" type="text" value="0" />
+                                            </span>
+                                            <div id="noiControl" class="sliding_bar">
+                                                <div class="common_slider width"></div>
+                                            </div>
+
+                                        </div>
+                                        <div class="recovery_filter">
+                                             <span class="arbitrary_rotat sharpen_ld">
+                                                <label>平滑程度</label>
+                                                <input id="smoothLevel" type="text" value="0" />
+                                            </span>
+                                            <div id="smLevel" class="sliding_bar">
+                                                <div class="common_slider width"></div>
+                                            </div>
+                                        </div>
+                                        <span class="control_btn">
+                                            <a href="javascript:void(0);" id="picRecoveryBtn" class="btn btn_yes">保存至快照</a>
+                                            <a href="javascript:void(0);" class="btn cancle">取消</a>
+                                        </span>
+                                    </dd>
+                                </dl>
+                            </div>
+                            <!-- 图像复原end -->
+                            <!-- 色彩分离 -->
+                            <div class="colorSeparate control_item">
+                                <dl class="basic_editing">
+                                    <dt class="module-head">
+                                        <span>色彩分离</span>
+                                        <b class="icon_downarrow"></b>
+                                    </dt>
+                                    <dd class="module">
+                                        <span class="control_btn">
+                                            <a href="javascript:void(0);" data-type="filter" class="btn recommend_value" data-name="色彩分离" data-default="3">使用推荐值</a>
+                                        </span>
+                                        <div class="colorSeparate_filter" >
+                                            <span class="arbitrary_rotat">
+                                                <label>色阶等级</label>
+                                                <input id="colorSeparateControl" type="text" value="0" />
+                                            </span>
+                                            <div id="csControl" class="sliding_bar">
+                                                <div class="common_slider width"></div>
+                                            </div>
+                                        </div>
+                                        <span class="control_btn">
+                                            <a href="javascript:void(0);" id="colorSeparateBtn" class="btn btn_yes">保存至快照</a>
+                                            <a href="javascript:void(0);" class="btn cancle">取消</a>
+                                        </span>
+                                    </dd>
+                                </dl>
+                            </div>
+                            <!-- 色彩分离end -->
+                            <!-- 移行 -->
+                            <div class="moveRow control_item">
+                                <dl class="basic_editing">
+                                    <dt class="module-head">
+                                        <span>移行</span>
+                                        <b class="icon_downarrow"></b>
+                                    </dt>
+                                    <dd class="module fs">
+                                        <div class="moveRow_filter">
+                                             <span class="arbitrary_rotat moveRowpf">
+                                                <label>偏移量</label>
+                                                <input id="offsetIpt" type="text" value="0" />
+                                            </span>
+                                            <div id="offsetDiv" class="sliding_bar">
+                                                <div class="common_slider width"></div>
+                                            </div>
+                                        </div>
+                                        <div class="median_filter clearfix">
+                                            <span class="arbitrary_rotat">
+                                                <label>操作类型</label>
+                                            </span>
+                                             <select class="oddeven_type" data-name="操作类型" id="operateBar">
+                                                <option value="none">--请选择--</option>
+                                                <option value="odd">移动奇数行</option>
+                                                <option value="even">移动偶数行</option>
+                                             </select>
+                                        </div>
+                                        <span class="control_btn">
+                                            <a href="javascript:void(0);" id="morpherosionBtn" class="btn btn_yes">保存至快照</a>
+                                            <a href="javascript:void(0);" class="btn cancle">取消</a>
+                                        </span>
+                                    </dd>
+                                </dl>
+                            </div>
+                            <!-- 移行end -->
+                            <!-- 奇偶场 -->
+                            <div class="oddEven control_item">
+                                <dl class="basic_editing">
+                                    <dt class="module-head">
+                                        <span>奇偶场</span>
+                                        <b class="icon_downarrow"></b>
+                                    </dt>
+                                    <dd class="module fs">
+                                        <div class="median_filter clearfix">
+                                            <span class="arbitrary_rotat">
+                                                <label>操作类型</label>
+                                            </span>
+                                             <select class="oddeven_type" data-name="操作类型" id="oddEvenBar">
+                                                <option value="none">--请选择--</option>
+                                                <option value="odd">替代奇数行</option>
+                                                <option value="even">替代偶数行</option>
+                                                <option value="reodd">移除奇数行</option>
+                                                <option value="reeven">移除偶数行</option>
+                                             </select>
+                                        </div>
+                                        <span class="control_btn">
+                                            <a href="javascript:void(0);" id="morpherosionBtn" class="btn btn_yes">保存至快照</a>
+                                            <a href="javascript:void(0);" class="btn cancle">取消</a>
+                                        </span>
+                                    </dd>
+                                </dl>
+                            </div>
+                            <!-- 奇偶场end -->
+                            <!-- 超分辨率 -->
+                            <div class="overDpi control_item" style="display: none;">
+                                <dl class="basic_editing">
+                                    <dt class="module-head">
+                                        <span>超分辨率</span>
+                                        <b class="icon_downarrow"></b>
+                                    </dt>
+                                    <dd class="module fs">
+                                        <div class="median_filter clearfix">
+                                            <span class="arbitrary_rotat">
+                                                <label>放大倍数</label>
+                                            </span>
+                                             <select class="morph_type" data-name="放大倍数" id="overDpiBar">
+                                                <option value="0">0</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                             </select>
+                                        </div>
+                                        <span class="control_btn">
+                                            <a href="javascript:void(0);" id="morpherosionBtn" class="btn btn_yes">保存至快照</a>
+                                            <a href="javascript:void(0);" class="btn cancle">取消</a>
+                                        </span>
+                                    </dd>
+                                </dl>
+                            </div>
+                            <!-- 超分辨率end -->
+                        </div>
+                        <!-- 高级处理_senior_@End -->
+
+                        <div class="editReminder hidden">
+
+                            <em></em>
+
+                            <span></span>
+
+                            <div class="editExplainTitle"></div>
+                            <div class="editExplainContent"></div>
+                            <div class="uEditExplainTitle"></div>
+                            <div class="uEditExplainContent"></div>
+                            <image class="editExplainImg" src="/module/imagejudge/resource-process/images/editReminder.png"></image>
+                        </div>
+                        <image class="editExplainImgHide hidden" src="/module/imagejudge/resource-process/images/videoIconPointer.png"></image>
+                    </div>
+                    <!-- 图像控制面板_control_panel_@End -->
+
+                </div>
+                <!-- 图像处理内容区域_image_content_@End -->
+                 <!-- 历史记录_basis_@Start -->
+                <div class="history_image">
+                    <span>
+                        <i class="icon_downarrow"></i>
+                        <b>文件: </b>
+                        <em class='snapshot'></em>&nbsp;的快照列表
+                    </span>
+                    <div class="history_image_list">
+                        <div class="scrollbar disable">
+                             <div class="track">
+                                 <div class="thumb"></div>
+                             </div>
+                         </div>
+                         <div class="viewport">
+                            <div class="overview">
+                                <ul>
+
+                                </ul>
+                            </div>
+                        </div>
+                        <em class="btn_saveall">
+                            <a href="javascript:void(0);" class="select_file_btn permission permission-import hidden" id="saveHistory">保存全部</a>
+                        </em>
+                        <em class="btn_clear">
+                            <a href="javascript:void(0);" class="long_btn hidden" id="clearHistory">清空列表</a>
+                        </em>
+                    </div>
+                </div>
+                <!-- 历史记录_basis_@End -->
+            </div>
+            <!-- 页面主体右侧_图像处理_main_right_image_@End -->
+
+
+            <!-- 页面主体右侧_视图分析_main_right_video_@Start -->
+            <div id="main_right_video" class="main_right hidden">
+            </div>
+            <!-- 页面主体右侧_视图分析_main_right_video_@End -->
+
+        </div>
+        <!-- 页面主体_main_@End -->
+
+
+    </div>
+    <script type="text/javascript" data-main="js/main.js" src="/libs/requirejs/require.js"></script>
+</body>
+</html>

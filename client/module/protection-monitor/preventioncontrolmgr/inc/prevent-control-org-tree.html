@@ -1,0 +1,13 @@
+<ul  onselectstart="return false;">
+	{{#if init}}
+		{{#each cameras}}   
+				<li style="display:{{isshow id type}}" class="{{typeNameTransform type}} {{#isTree1 type}}root{{/isTree1}}" data-tree-level="{{../level}}" data-type="{{typeNameTransform type}}" data-lat="{{latitude}}" data-lon="{{longitude}}" data-id="{{id}}"  data-name="{{name}}" data-maxcameras="{{maxCameraNumber}}" data-maxtasks="{{maxDefenceTask}}" data-cur-cameras="{{currentCameraNumber}}" data-cur-tasks="{{currentDefenceTask}}">{{#isTree1 type}}<i class="fold"></i>{{/isTree1}}<i class="root"></i><span class="name" title="{{name}}">{{name}}<em><!-- {{#SetLimit maxCameraNumber}}({{maxCameraNumber}}路){{/SetLimit}} --></em></span></li>
+		{{/each}}
+	{{else}}
+		{{#each cameras}}
+			<li style="display:{{isshow id type}}" class="{{typeNameTransform type}}" data-camera="{{camera_type}}" data-id="{{id}}"  data-name="{{name}}"  data-tree-level="{{../level}}"  data-lat="{{latitude}}" data-lon="{{longitude}}" data-type="{{typeNameTransform type}}" data-maxcameras="{{maxCameraNumber}}" data-maxtasks="{{maxDefenceTask}}" data-cur-cameras="{{currentCameraNumber}}" data-cur-tasks="{{currentDefenceTask}}">{{#isTree1 type}}<i class="fold"></i>{{/isTree1}}<i class="{{typeNameTransform type}} camera-style {{#eq camera_type 2}}dom{{/eq}} {{status  camera_type  camera_status}}"></i><span class="name" title="{{name}}{{isCode cameraCode}}">{{name}}{{isCode cameraCode}}<em><!-- {{#SetLimit maxCameraNumber}}({{maxCameraNumber}}路){{/SetLimit}} --></em></span></li>
+		{{/each}}
+	{{/if}}
+
+</ul>
+

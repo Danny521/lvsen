@@ -1,0 +1,473 @@
+@charset "UTF-8";
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit; vertical-align: baseline }
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, svg { display: block }
+body { line-height: normal }
+ol, ul { list-style: none }
+blockquote, q { quotes: none }
+blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none }
+table { border-collapse: collapse; border-spacing: 0 }
+ins { text-decoration: none }
+del { text-decoration: line-through }
+i { font-style: normal }
+input[type="radio"] { margin: 3px 3px 0 0 }
+input, select, textarea, button, option { font-family: inherit; font-family: "Microsoft Yahei", "微软雅黑", "宋体" }
+path { shape-rendering: crispEdges }
+/*input::-ms-clear { display: none }*/
+::-ms-clear, ::-ms-reveal {
+    display:none;
+}
+:focus { outline: 0 }
+:placeholder, :-moz-placeholder, ::-webkit-input-placeholder, :-ms-input-placeholder { color: #999999; font-family: "Microsoft Yahei", "微软雅黑", "宋体" }
+.clearfix:before, .clearfix:after { content: '\0020'; display: block; height: 0; overflow: hidden; visibility: hidden; width: 100% }
+.clearfix:after { clear: both }
+.clearfix { zoom: 1 }
+.user-select { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none }
+.nowrap { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; word-break: keep-all }
+.notify { position: fixed; margin: 0 auto; top: 15px; left: 0; right: 0; text-align: center; font-size: 15px; opacity: 0; width: 220px; padding: 10px; border-radius: 3px; color: #FFFFFF; background: #1F1F1F; z-index: 9999; -moz-transition: all .25s ease-in-out; -webkit-transition: all .25s ease-in-out; -ms-transition: all .25s ease-in-out; -o-transition: all .25s ease-in-out; transition: all .25s ease-in-out; -moz-transform: translateY(-100px); -webkit-transform: translateY(-100px); -ms-transform: translateY(-100px); -o-transform: translateY(-100px); transform: translateY(-100px) }
+.notify-info { color: #FFFFFF; background: #68B5E9;word-break:break-all; }
+.notify-warn { color: #FFFFFF; background: #F8AE1A;word-break:break-all; }
+.notify-error { color: #FFFFFF; background: #CF4965;word-break:break-all; }
+.notify-success { color: #FFFFFF; background: #5CB811;word-break:break-all; }
+.notify-animate, .notify-js-animate { opacity: 1; -moz-transform: translateY(0); -webkit-transform: translateY(0); -ms-transform: translateY(0); -o-transform: translateY(0); transform: translateY(0) }
+html { font-size: 12px; font-family: "Microsoft Yahei", "微软雅黑", "宋体"; color: #333333 }
+a { color: #005EAB; text-decoration: none; cursor: pointer }
+a:hover { color: #00BAFF }
+a:active { color: #009FDA }
+#logo { float: left; color: #FFFFFF; display: block; font-size: 14px; line-height: 34px; text-decoration: none }
+#navigator .wrapper, #header .wrapper { padding: 0 15px; min-width: 1280px; }
+#navigator .wrapper { height: 34px; background-color: #444444; border-top: 1px solid #636262; border-bottom: 1px solid #000000;overflow: hidden;}
+#navigator .ui.menu.nav { margin: 2px 0 0 145px; border: none }
+#navigator .ui.menu.nav .item { padding-left: 10px; padding-right: 10px }
+#navigator .ui.menu.nav .active.item { font-weight: bold }
+#navigator .ui.menu.nav .menu .item { padding-top: 8px; padding-bottom: 8px; line-height: 19px }
+#navigator .ui.menu.nav .menu .statistics { display:none;padding-top: 8px; padding-bottom: 8px; line-height: 19px ;cursor:default}
+#navigator .ui.menu.nav .menu .statistics .nav-count { margin: 0 3px; }
+#navigator .ui.menu.nav .menu .divide { vertical-align: middle; padding: 10px 0px; display: inline-block }
+#navigator .ui.menu.nav .menu .divideline1 { width: 1px; height: 14px; background-color: #1E2024; display: inline-block }
+#navigator .ui.menu.nav .menu .divideline2 { width: 1px; height: 14px; background-color: #3A3D45; display: inline-block }
+#navigator .ui.menu.nav .menu .item.last-child { line-height: 15px; }
+#navigator .ui.menu.nav .icon.settings, #navigator .ui.menu.nav .icon.cloud { float: left; width: 16px; height: 14px; margin: 0 3px 0 0; background: url(../images/icons/user.png) no-repeat scroll center center }
+#navigator .ui.menu.nav .icon.cloud { background: url(../images/icons/cloud.png) no-repeat scroll center center }
+#navigator .ui.menu.nav .icon.message { width: 16px;
+height: 16px;
+margin-top: 2px;
+background: url(../images/icons/messageBoard.png) no-repeat scroll center center;
+display: inline-block;
+margin-right: 6px;
+float: left;
+}
+#badges { float: left; color: #FFFFFF; display: block; font-size: 24px; line-height: 50px; text-decoration: none; padding-left: 60px; background: transparent url(../images/badges.png) 0 center no-repeat }
+#header { /*position: relative; top: -5px; */}
+#header .wrapper { height: 50px; background: #2277c5 url(../images/bg/navigator.png) 0 0 repeat-x;}
+#header .ui.menu.nav { margin-left: 265px }
+#header .ui.menu.nav a.item {display:inline-block;}
+#header .ui.menu.nav .item { color: #FFFFFF; line-height: 30px; padding-left: 15px; padding-right: 15px }
+#header .ui.menu.nav .active.item { background: transparent url(../images/bg/nagigator-menu-active.png) 0 0 repeat-x; padding-left: 14px; padding-right: 14px; border-left: 1px solid #1661B2; border-right: 1px solid #1661B2 }
+#header .ui.menu.nav .menu .item { padding-right: 0; line-height: normal }
+#header .ui.input input { width: 163px;padding-right: 23px; }
+#footer { margin-top: 10px; border-top: 1px solid #DDDDDD }
+#footer .wrapper { margin: 0 auto; text-align: center; padding: 10px 0; line-height: 30px }
+#footer .wrapper .lside { display: none }
+#footer .wrapper .rside, #footer .wrapper .lside a { color: #666666; font-size: 14px }
+#footer .wrapper .lside span { margin: 0 8px }
+#footer .wrapper .rside { margin-left: 40px }
+.common-dialog { position: absolute; z-index: 2000; top: -9999px; border: 1px solid rgba(0, 0, 0, 0.3); box-shadow: 0 0 8px #666666; background-color: #FFFFFF; background-clip: padding-box; border-radius: 5px }
+.common-dialog .wrapper header { border-bottom: 1px solid #DDD; height: 45px; padding: 0 15px; background: #F3F3F3; border-radius: 5px 5px 0 0 }
+.common-dialog .wrapper header .title { font-size: 15px; line-height: 45px; max-width: 400px; display: inline-block; white-space: nowrap; overflow: hidden; float: left; text-overflow: ellipsis; _width: 350px }
+.common-dialog .wrapper header .close { background: url(../images/buttons/dialog-close.png) no-repeat scroll center center transparent; height: 20px; overflow: hidden; position: absolute; right: 15px; text-indent: -9999px; top: 13px; width: 20px }
+.common-dialog .wrapper header .close:hover { background-image: url(../images/buttons/dialog-close-hover.png); cursor: pointer }
+.common-dialog .wrapper header .minify { background: transparent url(../images/buttons/minify.png) center center no-repeat; width: 20px; height: 20px; overflow: hidden; position: absolute; right: 40px; text-indent: -9999px; top: 10px }
+.common-dialog .wrapper header .minify:hover { background-image: url(../images/buttons/minify-hover.png) }
+.common-dialog .wrapper section { font-size: 14px; padding: 20px 30px; word-wrap: break-word }
+.common-dialog .wrapper .default-text { font-size: 14px; padding: 20px 0 20px 30px; background: transparent url(../images/animate/loading.gif) 0 center no-repeat }
+.common-dialog .wrapper footer { text-align: right; border-radius: 0 0 5px 5px; background: #F9F9F9; border-top: 1px solid #E5E5E5; padding: 4px 13px }
+.common-dialog .wrapper footer input { margin-left: 10px }
+#maskLayer, .nav-cover-layout { position: fixed; top: 0; left: 0; right: 0; bottom: 0; opacity: 0.2; z-index: 1000; display: none; background-color: #000000; filter: alpha(opacity=20); _position: absolute; _width: 100% }
+#maskLayer iframe { position: absolute; width: 100%; height: 100%; top: 0; left: 0; right: 0; bottom: 0; opacity: 0; filter: alpha(opacity=0) }
+.nav-cover-layout { height: 86px; bottom: auto;}
+#fDlgContainer { display: none; position: fixed; top: 0; left: 0; width: 180px; height: 50px; line-height: 50px; text-align: center; background-color: #fff; border: 1px solid #ccc; z-index: 9000 }
+.noSelect { user-select: none; -o-user-select: none; -moz-user-select: none; -khtml-user-select: none; -webkit-user-select: none }
+.permission { display: none }
+#content .wrapper .main .left-main .case-head > div .edit { display: none }
+.plugin-download-panel { position: relative; width: 360px; height: 152px; }
+.plugin-download-panel i.download-warn { position: absolute; display: inline-block; top: 10px; left: 30px; width: 65px; height: 65px; background: url("../images/product/icon_warn.png") no-repeat scroll 0 0 transparent; }
+.plugin-download-panel i.download-install { position: absolute; display: inline-block; top: 10px; left: 30px; width: 65px; height: 65px; background: url("../images/product/icon_install.png") no-repeat scroll 0 0 transparent; }
+.plugin-download-panel .section1 { float: right; width: 240px; height: 84px; font-size: 16px;}
+.plugin-download-panel .section1 td{ vertical-align:middle;height: 84px;}
+.plugin-download-panel .section2 { position: absolute; top: 85px; left: 130px; width: 120px; text-align: center; }
+.plugin-download-panel a { display: block; margin-top: 8px; }
+
+.common-dialog .save-to-clound { line-height: 40px; font-size: 16px; color: #5E5E5E; text-align: center }
+/* Nav */
+.inverted.black.menu.nav a{
+    visibility:hidden;
+}
+.inverted.black.menu.nav .right.menu a {
+    visibility:visible;
+}
+
+.libsearch .wrapper section{
+	height: 400px;
+}
+/* 8大库查询 start*/
+.libsearch .wrapper section{
+	padding-top: 0px;
+	padding-left: 0px;
+	padding-right: 0px;
+	height: 400px;
+}
+.libsearch .wrapper section i.default-text{
+	display: inline-block;
+	margin-left: 280px;
+	margin-top: 140px;
+}
+.libsearch .wrapper section .thead{
+	border-bottom: 1px solid #E5E5E5;
+	padding-left:15px;
+	padding-top:3px;
+	height: 29px;
+}
+.libsearch .wrapper section .thead span{
+	border-right: 1px solid #E5E5E5;
+	border-top: 1px solid #E5E5E5;
+	/* border-right: 1px solid #E5E5E5; */
+	float: left;
+	height: 28px;
+	line-height: 28px;
+	padding: 0px 7px;
+	background-color: #F9F9F9;
+	cursor: pointer;
+}
+.libsearch .wrapper section .thead span.active{
+	border-bottom: 1px solid #fff;
+	background-color: #fff;
+}
+.libsearch .wrapper section .thead span:first-child{
+	border-left: 1px solid #E5E5E5;
+}
+.libsearch .wrapper header{
+	height: 30px;
+	line-height: 30px;
+	padding: 0px 15px;
+}
+.libsearch .wrapper header .close:hover{
+
+}
+.libsearch .wrapper header .close{
+	top: 6px;
+	right: 7px;
+}
+.libsearch .wrapper header .title{
+	line-height: 30px;
+}
+.libsearch .wrapper section .tbody{
+	padding: 20px 30px;
+	height: 344px;  /* mayue */
+	overflow: auto;
+}
+.libsearch .wrapper section .tbody table{
+	float: left;
+	width: 320px;
+	table-layout: fixed;
+}
+.libsearch .wrapper section .tbody [data-tab="base"] table{
+	margin-left: 260px;
+}
+.libsearch .wrapper section .tbody [data-tab="base"] img{
+	width: 208px;
+	height: 256px;
+	/* top: 159px; */
+	position: fixed;
+	margin-top: 32px;
+	margin-left: 10px;
+}
+.libsearch .wrapper section .tbody table td{
+	font-size: 12px;
+	padding: 3px 0px;
+	display: inline-block;
+	overflow: hidden;
+	width: 310px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.libsearch .wrapper section .tbody div.ui.tab{
+	display: none;
+}
+.libsearch .wrapper section .tbody div.ui.tab.active{
+	display: inline-block;
+}
+.libsearch .wrapper section .tbody .unresult{
+	margin-left: 275px;
+	margin-top: 136px;
+}
+.libsearch .wrapper section .search_fail{
+	width: 195px;
+	margin: 0 auto;
+	padding-top: 171px;
+}
+
+
+/* 8大库查询 end*/
+
+
+
+
+/* placeholder置灰 */
+.ui.input input.placeholder,.ui.input textarea.placeholder{
+	color: #999;
+}
+input:-ms-input-placeholder{
+    color: #999 !important;
+}
+.ui input::-webkit-input-placeholder{
+	color: #ccc;
+}
+.ui input:-moz-placeholder{
+	color: #ccc;
+}
+
+/*云空间跳转到视图库资源不存在页面展示*/
+#content .deltext{
+	margin-top: 200px;
+	text-align: center;
+	font-size: 28px;
+	color: #CCC;
+}
+
+
+.do-not-remind {
+    position: absolute;
+    right: -150px;
+    top: 57px;
+    vertical-align: top;
+}
+#do-not-remind {
+    margin: 4px 2px 0 0;
+}
+
+
+/* 用户中心  用户提醒 */
+#userInfo {
+    position:relative;
+    color:#666;
+    font-size:12px;
+}
+
+#notifyInfo {
+    position: fixed;
+    top: 30px;
+    right: 60px;
+    width: 114px;
+    height: 96px;
+    border: 1px solid #CFCFCF;
+    z-index: 998;
+    display:none;
+}
+#notifyInfo li {
+    height:32px;
+    line-height:32px;
+    background:#FFF;
+    padding:0 10px;
+    position:relative;
+}
+#notifyInfo li:hover {
+    background:#D8ECFC;
+}
+#notifyInfo li a {
+    color:#666;
+}
+#userInfo i.icon {
+    display: inline-block;
+    margin: 0;
+    line-height: 1;
+    font-weight: normal;
+    text-decoration: inherit;
+    text-align: center;
+    font-style: normal;
+}
+#userInfo .filter-icon {
+    position: absolute;
+    padding: 1px 4px;
+    border: 1px solid #039DFF;
+    border-radius: 8px;
+    background-color: #039DFF;
+    color: #FFF;
+    bottom: 10px;
+    right: 5px;
+}
+.notifyBox, .notifyBox iframe {
+    width:320px;
+    border:1px solid #DDD;
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    z-index:99998;
+    background:#FFF;
+    border-radius:5px;
+    font-size:14px;
+    color:#444;
+    box-shadow:1px 2px 2px RGBA(0,0,0,0.15);;
+}
+.notifyBox {
+    z-index:99999;
+    display: none;
+}
+.notifyBox iframe {
+    height: 100%;
+    top:0;
+    left: 0;
+    position:absolute;
+}
+.notifyBox-header {
+    height:34px;
+    width:321px;
+    line-height:34px;
+    border-bottom:1px solid #DDD;
+    background: #F3F3F3;
+    position:relative;
+    top:0;
+    left:0;
+    z-index:99999;
+    border-radius:5px 5px 0 0;
+}
+.notifyBox-title {
+    background: url("../../settings/usercenter/images/notify.png") 5px 11px no-repeat;
+    padding-left: 25px;
+    float: left;
+}
+.notifyBox-close {
+    margin: 9px 15px 0 0;
+    float: right;
+    text-indent: -9999px;
+    width: 16px;
+    height: 16px;
+    background: url("../../settings/usercenter/images/spritesheet.png") -20px -668px no-repeat;
+    cursor:pointer;
+}
+.notifyBox-close:hover {
+    background-position:-20px -724px;
+}
+.notifyBox-body {
+    margin: 25px 20px 25px 20px;
+    position:relative;
+    top:0px;
+    left:0;
+    z-index:99999;
+}
+.notifyBox-body a {
+    white-space: normal;
+    word-break: break-word;
+}
+.notifyBox-body a.apply {
+    white-space: normal;
+    word-break: break-word;
+    overflow: hidden;
+    min-height: 50px;
+    max-height: 400px;
+    display: inline-block;
+}
+#navigator .ui.menu.nav .menu .item {
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+#userInfo i.icon#notify {
+    position:absolute;
+    width: 8px;
+    height: 8px;
+    left: 23px;
+    top: 0px;
+    z-index:999;
+    display:none;
+    padding:0;
+    opacity:1;
+    background: url("/module/common/images/dot.png") 0 0 no-repeat;
+}
+/*视频指挥左侧面板等待画面样式*/
+.monitor-content .loading,
+.dispatch-content .loading {
+    background: transparent url(/module/common/images/animate/horizontal-loading.gif) center center no-repeat;
+}
+.dispatch-content .loading_1 {
+    background: transparent url(/module/common/images/animate/loading_1.gif) 45% 35% no-repeat;
+}
+.dispatch-content .loading_1 .map-tips {
+    position: absolute;
+    top: 40%;
+    left: 40%;
+}
+/*图像研判、云空间、视图库、视频查看等播放工具栏按钮样式，bug[38658] add by zhangyu 2016.03.31*/
+.player-btn{
+    position: relative;
+    display:inline-block;
+    top:12px;
+    margin-right: 12px;
+    background:url(../images/playerbtn/player-btn.png)  no-repeat;
+    cursor: pointer;
+}
+.pb-stop{top:8px;height:14px;width:14px;background-position:0 0;}
+.pb-stop:hover{height:14px;width:14px;background-position:-14px 0;}
+.pb-rewind:hover{height:16px;width:15px;background-position:-28px 0;}
+.pb-rewind{top:8px;height:16px;width:15px;background-position:-43px 0;}
+.pb-forward{top:8px;height:16px;width:15px;background-position:-58px 0;}
+.pb-forward:hover{height:16px;width:15px;background-position:-73px 0;}
+.pb-pause:hover, .pb-play.active:hover{height:26px;width:23px;background-position:-88px 0;}
+.pb-pause, .pb-play.active{height:26px;width:23px;background-position:-109px 0;}
+.pb-play{height:26px;width:23px;background-position:-130px 0;}
+.pb-editing{height:25px;width:25px;background-position:-155px 0;}
+.pb-fullwin{height:26px;width:26px;background-position:-180px 0;}
+.pb-editing:hover{height:25px;width:26px;background-position:-206px 0;}
+.pb-fullwin:hover{height:26px;width:26px;background-position:-232px 0;}
+.pb-play:hover{height:26px;width:23px;background-position:-258px 0;}
+.pb-grab:hover{height:25px;width:30px;background-position:-284px 0;}
+.pb-grab{height:25px;width:30px;background-position:-314px 0;}
+.pb-loop{height:25px;width:30px;background-position:-330px 0;}
+.pb-loop:hover{height:25px;width:30px;background-position:-330px 0;}
+.pb-sequence{height:25px;width:30px;background-position:-330px 0;}
+.pb-sequence:hover{height:25px;width:30px;background-position:-330px 0;}
+
+/*系统 帮助、关于功能的样式   begin*/
+.help {
+    position: absolute;
+    right: 100px;
+    top: 20px;
+    width: 77px;
+    height: 31px;
+    background: url(/module/common/images/icons/help.png) 0 0 no-repeat;
+}
+.help:hover {
+    background-position: 0 -32px;
+}
+.about {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    width: 75px;
+    height: 31px;
+    background: url(/module/common/images/icons/about.png) 0 0 no-repeat;
+}
+.about:hover {
+    background-position: 0 -32px;
+}
+/* 不包含文字的关于 */
+.about-icon {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
+    background: url(/module/common/images/icons/about-icon.png) no-repeat;
+    vertical-align: middle;
+    cursor: pointer;
+}
+.about-ifr {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    opacity: 0.7;
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+    filter: alpha(opacity=70);
+}
+/*系统 帮助、关于功能的样式   end*/

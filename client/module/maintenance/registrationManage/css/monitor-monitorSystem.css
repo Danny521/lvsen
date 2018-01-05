@@ -1,0 +1,330 @@
+/*
+    monitorSystem页面基础样式
+    haoyong
+    2016-03-24
+*/
+.monitor-system .content {
+    padding-left: 20px;
+}
+.monitor-system .pageContentTitle {
+    position: relative;
+    width: 99%;
+    float: left;
+    vertical-align: bottom;
+}
+.monitor-system .monitorSystemPageTitle {
+    padding: 20px 0 20px 0;
+    float: left;
+}
+.monitor-system .monitorSystemPageTitle h3 {
+    display: block;
+    float: left;
+    font-size: 1.2em;
+    font-weight: bold;
+    line-height: 1.2em;
+}
+
+.monitor-system .createBtnBox {
+    position: absolute;
+    bottom: 10px;
+    right: 0px;
+    float: right;
+}
+.monitor-system .createBtnBox .primaryBtn {
+    font-size: 0.93em;
+    padding: 2px 5px;
+    margin: 0;
+}
+
+/**
+    通用表单样式
+    haoyong
+    2016-03-24
+*/
+.monitor-system .mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,.7);
+    vertical-align: middle;
+    text-align: center;
+    z-index: 1000;
+    display: none;
+}
+.monitor-system .monitorDialog {
+   float: left;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -325px;
+    margin-top: -190px;
+    width: 650px;
+    background-color: #fff;
+    border: 1px solid #aaa;
+    border-radius: 7px;
+}
+
+.monitor-system .monitorDialogTitle {
+    display: block;
+    float: left;
+    width: 100%;
+    vertical-align: middle;
+    background-color: #F3F3F3;
+    border-bottom: solid #ccc 1px;
+    border-radius: 7px 7px 0 0;
+    /*overflow: hidden;*/
+}
+.monitor-system .monitorDialogTitle h2 {
+    display: block;
+    float: left;
+    font-size: 1.2em;
+    line-height: 45px;
+    padding-left: 10px;
+    text-align: left;
+    border: none;
+}
+.monitor-system .cancleDialog {
+    float: right;
+    width: 15px;
+    height: 2.7em;
+    margin-right: 10px;
+    background: url(../images/dialog-close.png) no-repeat ;
+    cursor: pointer;
+}
+.monitor-system .cancleDialog:hover {
+    background: url(../images/dialog-close-hover.png) no-repeat;
+}
+
+.monitor-system .formEditOutter {
+    display: block;
+    float: left;
+    padding: 15px 20px 10px 20px;
+}
+
+.monitor-system .formEdit {
+    display: block;
+    float: left;
+}
+
+.monitor-system .formEdit fieldset {
+    display: block;
+    float: left;
+    width: 275px;
+    border: none;
+}
+.monitor-system .formEdit fieldset/*:first-child*/ {
+    margin-right: 20px;
+}
+.monitor-system .formEdit fieldset:last-child {
+    margin-top: 10px;
+    clear: both;
+    width: 100%;
+    text-align: center;
+}
+.monitor-system .formEdit label {
+    display: inline-block;
+    width: 110px;
+    font-size: 1em;
+    height: 30px;
+    float: left;
+    line-height: 30px;
+    text-align: right;
+}
+.monitor-system .formEdit label + input[type=text],
+.monitor-system .formEdit label + .select_container {
+    display: inline-block;
+    width: 155px;
+    height: 24px;
+    margin-bottom: 10px;
+    padding: 2px 3px;
+    border: 1px #999 solid;
+    border-radius: 2px;
+}
+.monitor-system .formEdit label + input[type=text]:hover,
+.monitor-system .formEdit label + .select_container:hover {
+    border-color: #78A8D5;
+}
+
+
+.monitor-system .formEdit .radioBox {
+    /*float: left;*/
+    display: inline-block;
+    width: 163px;
+    vertical-align: middle;
+    height: 24px;
+    text-align: left;
+    margin-top: 3px;
+    padding-top: 6px;
+    margin-bottom: 3px;
+}
+.monitor-system .errorDataInput {
+    border-color: #f5252d;
+}
+.monitor-system .formEdit .primaryBtn {
+    margin-right: 10px;
+}
+.monitor-system .primaryBtn {
+   /* display: block; 加了会换行*/
+    padding: 3px 9px;
+    background-color: #4FA6FF;
+    border: 1px #dddddd solid;
+    border-radius: 4px;
+    color: #ffffff;
+    cursor: pointer;
+}
+.monitor-system .cancleBtn {
+    background-color: #F2F2F2;
+    color: #555;
+}
+.monitor-system .primaryBtn:hover {
+    -webkit-box-shadow:1px 1px 2px #bbb;
+    -moz-box-shadow:1px 1px 2px #bbb;
+    box-shadow:1px 1px 2px #bbb;
+}
+
+.monitor-system .radioIcon {
+    display: inline-block;
+    height: 14px;
+    width: 14px;
+    cursor: pointer;
+    background-image: url("../images/radio.png");
+}
+
+/*.radioIcon*/
+.monitor-system .radioIcon.active {
+    background-image: url("../images/radio-active.png");
+}
+
+
+/*下拉菜单按钮*/
+.monitor-system .arrow-down {
+    background: url('../images/icon.png') -2px -65px no-repeat;
+    height: 13px;
+    width: 10px;
+    cursor: pointer;
+    margin-top: 7px;
+}
+
+.monitor-system .select_container span {
+    /*font-size: 1.1em;*/
+    line-height: 24px;
+}
+/*
+    表格的公共样式
+    haoyong
+    2016-03-24
+*/
+
+.monitor-system table {
+    width: 97.9%;
+    border-collapse: collapse;
+    margin-left: 20px;
+}
+.monitor-system table tr {
+    border-bottom: #ddd 1px solid;
+    background-color: #fff;
+}
+.monitor-system table tr:first-child {
+    background-color: #F3F3F3;
+}
+.monitor-system table tr.load {
+    background: transparent url('../../../common/images/animate/horizontal-loading.gif') center no-repeat;
+    margin: 0 auto;
+    width: 58px;
+    height: 100px;
+}
+.monitor-system table tr:hover {
+    background-color: #F9F9F9;
+    /*cursor: default;*/
+}
+.monitor-system table tr:first-child:hover {
+    background-color: #F3F3F3;
+    border-left: none;
+    border-right: none;
+}
+.monitor-system table td,
+.monitor-system table th {
+    padding-top: 11px;
+    padding-bottom: 11px;
+    text-align: center;
+}
+/*补丁*/
+.monitor-system table{
+    table-layout: fixed;
+}
+.monitor-system table th {
+    /*max-width: 300px;*/
+}
+.monitor-system table td {
+    width: auto;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/*补丁*/
+.monitor-system table th:last-child {
+    width: 70px;
+}
+.monitor-system table th {
+    color: #333;
+    font-weight: bold;
+}
+.monitor-system table td {
+    text-align: center;
+    vertical-align: middle;
+    color: #666;
+}
+.monitor-system .operateOutter {
+    width: 100%;
+    display: inline-block;
+}
+.monitor-system table td span {
+    display: inline-block;
+    margin:auto 4px;
+}
+.monitor-system .delIcon {
+    display: inline-block;
+    width: 12px;
+    height: 14px;
+    background-image: url("../images/logout.png");
+    background-position: 0 0;
+    cursor: pointer;
+}
+.monitor-system .delIcon:hover {
+    background-position: -13px 0;
+}
+
+.monitor-system .delIcon.delLogOff:hover {
+    background-image: url("../images/logout.png");
+    background-position: 0 0;
+    cursor: default;
+}
+
+.monitor-system .editIcon {
+    display: inline-block;
+    width: 12px;
+    height: 14px;
+    background-image: url("../images/operate-ico.png");
+    background-position: 0 0;
+    cursor: pointer;
+}
+.monitor-system .editIcon:hover {
+    background-position: -17px 0;
+}
+
+.monitor-system .editIcon.editLogOff:hover {
+    background-position: 0 0;
+    cursor: default;
+}
+.monitor-system .tableP{
+    position: absolute;
+    top: 92px;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    overflow-y: auto;
+
+}

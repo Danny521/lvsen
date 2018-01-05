@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=10,chrome=1">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<title>视云实战平台</title>
+	<!--[if lt IE 9]>
+	<script src="/libs/html5/html5.js"></script>
+	<![endif]-->
+
+	<link type="text/css" rel="stylesheet" href="/module/common/css/base.css" />
+	<link type="text/css" rel="stylesheet" href="/libs/semantic/semantic.css" />
+	<link type="text/css" rel="stylesheet"  href="/libs/jquery/jquery-ui.css">
+	<link type="text/css" rel="stylesheet" href="/libs/jquery/jquery.datetimepicker.css"/>
+	<link type="text/css" rel="stylesheet" href="/module/viewlibs/doubtlib/css/entity.css"/>
+	<link type="text/css" rel="stylesheet" href="/module/viewlibs/details/struct/css/entity.css"/>
+</head>
+<body>
+	<div id="content">
+		<div class="wrapper clearfix">
+			<div class="loading"></div>
+			<script id="view-template" type="text/x-handlebars-template">
+				{{#rest}}
+				<ul class="breadcrumb">
+				<li>
+					<a href="/module/viewlibs/workbench/index.html" target="media">我的工作台</a>
+					<span class="divider">&gt;</span>
+				</li>
+				<li>
+					<a href=""></a>
+					<span class="divider">&gt;</span>
+				</li>
+				<li>
+					<a href="">线索列表</a>
+					<span class="divider">&gt;</span>
+				</li>
+				<li class="active">编辑其他信息</li>
+			</ul>
+
+			<div class="main modify">
+
+				<div class="resources tabview">
+					<form autocomplete="off" method="post" id="others-form" class="entity-form">
+						<div class="fieldset">
+							<div class="module active">
+								<div class="module-head">
+									<h3>基本信息</h3> <i class="fix-png"></i>
+								</div>
+								<div class="module-body">
+									<div class="scrollbar disable">
+										<div class="track">
+											<div class="thumb"></div>
+										</div>
+									</div>
+									<div class="viewport scene-view">
+										<div class="overview">
+											<div class="group">
+												<div class="form-item">
+													<span class="item-label">
+														<label for="appearTime">来源视频时间：</label>
+													</span>
+													<div class="item-box">
+														<input type="text" class="input-text input-time" maxlength="50" name="appearTime" value="{{datetransfer appearTime}}"/>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="name">名称：</label>
+													</span>
+													<div class="item-box">
+														<input type="text" class="input-text" maxlength="100" name="name" value="{{name}}" />
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="description">描述：</label>
+													</span>
+													<div class="item-box">
+													<textarea class="input-area" id="description" maxlength="200" name="description" value="{{description}}">{{description}}</textarea>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="form-item ">
+							<div class="item-box submit-wrapper">
+								<input type="submit" value="保存信息" class="input-submit next-step permission permission-create" />
+								<input type="button" value="取消" class="ui button input-cancel permission permission-create" />
+
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="entity-preview" data-id="{{id}}">
+					<div class="markwrap clearfix">
+						<div class="display-format tab-title">
+							<ul class="menus">
+								<li data-tab="picture" data-anchor="picture" class="tab-title-item active">
+									<a class="btn">图片</a>
+								</li>
+								{{#tabular videoId}}
+								<li data-tab="ocxbody" data-anchor="ocxbody" class=" tab-title-item">
+									<a class="btn">视频</a>
+								</li>
+								{{/tabular}}
+							</ul>
+
+						</div>
+					</div>
+
+					<div class="entity-box tab-content">
+						{{#tabular videoId}}
+                        <div class="video tab-content-item" data-target="ocxbody" data-tab="ocxbody"  data-videopath="{{videoPath}}">
+                            <object id="UIOCX" type="applicatin/x-firebreath" width = "800" height = "450">
+                            	<param name="onload" value="pluginLoaded"/>
+                            </object>
+                            <div class="video-block">
+                           		 <div class="progress-bg"></div>
+                                <div class="progress-bar">
+                                    <div class="bullet"> <i class="play-point"></i>
+                                    </div>
+                                    <i class='start-mark'></i>
+                                    <i class='end-mark'></i>
+                                </div>
+                                <div class="panel" onselectstart="return false">
+                                <span class="time">
+											<span class="nowtime" nowtime-ms="0">00:00:00</span>&nbsp;/
+											<span class="alltime" alltime-ms="14859247">00:00:00</span>
+										</span>
+										<span class="speed">倍速：<em></em></span>
+										<span class="fullwin" title="全屏"></span>
+										<span class="grab" title="抓图"></span>
+										<span class="editing" title="人工标注"></span>
+										<span class="loop" title="循环"></span>
+										<span class="sequence" title="顺序"></span>
+										<span class="stop" title="停止"></span>
+										<span class="forward" title="快进"></span>
+										<span class="switch" title="播放"></span>
+										<span class="rewind" title="慢放"></span>
+                                </div>
+
+                            </div>
+                        </div>
+						{{/tabular}}
+						<div class="picture tab-content-item active" data-target="picture" data-tab="picture">
+							<span class="hook"></span>
+							<img src="{{picture}}" alt="" class="entity-img"></div>
+					</div>
+				</div>
+
+			</div>
+			{{/rest}}
+			</script>
+		</div>
+	</div>
+	<script type="text/javascript" src="/libs/requirejs/require.js" data-main="/module/viewlibs/details/struct/js/update_others.js"></script>
+
+</body>
+</html>

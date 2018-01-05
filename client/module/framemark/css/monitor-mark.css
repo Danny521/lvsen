@@ -1,0 +1,30 @@
+/* 
+* @Author: Administrator
+* @Date:   2015-06-02 15:14:45
+* @Last Modified by:   Administrator
+* @Last Modified time: 2015-06-02 16:27:15
+*/
+/*
+.menus li.camera:hover .nav, .menus li.camera.active .nav {
+	background-image: url(/module/framemark/images/camera_hover.png);
+	background-repeat: no-repeat;
+}*/
+
+
+.label-manage  div.search{
+	text-align: center;
+}
+
+.label-manage  .mark-search{
+	text-align: center;
+	padding-top: 10px;
+}
+
+.mark-checkbox #onlySelf{
+	vertical-align: middle;
+	margin-left: 7px;
+}
+
+label{
+	vertical-align: middle;
+}

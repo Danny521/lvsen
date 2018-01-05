@@ -1,0 +1,19 @@
+<div class="dombg">
+  
+  <ul class="reportcamera">
+    <p>上报摄像头</p>
+    
+    {{#each loadData}}    
+    <li class="reportcity" data-cityid="{{city_id}}">
+      <label>{{city_name}}</label>
+      <input type="text" value="{{reported_camera_num}}" >
+    </li>
+    {{/each}}   
+    
+  <div>
+  <button class="save ui button blue">上报</button>
+  <button class="cancel ui button">取消</button>
+  </div>
+  
+  </ul>
+</div>

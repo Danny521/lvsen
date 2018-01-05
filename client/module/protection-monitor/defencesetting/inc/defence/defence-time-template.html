@@ -1,0 +1,76 @@
+{{#if timeplate}}
+	<div class="time_info">
+	    <label><input type="checkbox" class="check-all" {{#CheckAllWeekDay timeSlot}}checked="true"{{/CheckAllWeekDay}} />周</label>
+	    <dfn>时段(时间格式：00:00-23:59)</dfn>
+	</div>
+	{{#each timeSlot}}
+	<div class="time_info" data-weekday="{{dayOfWeek}}">
+	    <label><input type="checkbox" {{#if useflag}}checked="true"{{/if}}/>{{#GetWeekDayName dayOfWeek}}{{/GetWeekDayName}}</label>
+	    <span class="{{#FormateWeekday dayOfWeek}}{{/FormateWeekday}}">
+	    	{{#if timeList}}
+    		{{#each timeList}}
+	        <em style="{{#GetTimeSlotPosition startTime endTime}}{{/GetTimeSlotPosition}}" data-startTime="{{startTime}}" data-endTime="{{endTime}}"></em>
+    		{{/each}}
+    		{{else}}
+    		<!--如果当前片段列表为空，则显示全部时间段-->
+    		<!-- <em></em> -->
+    		{{/if}}
+	    </span>
+	    <i class="{{#if useflag}}active{{/if}}"></i>
+	</div>
+	{{/each}}
+	<div class="time_info_bar">
+	</div>
+	<div class="time-dialog"></div>
+{{/if}}
+
+
+{{#if dialog}}
+	<!--遮罩层-->
+	<iframe class="time_layout_ifr hidden" scroll="none" src="about:blank"></iframe>
+	<div class="time_layout hidden"></div>
+
+	<!--弹出框-->
+	<div class="dialog hidden">
+		<div class="dialog_title">
+	    	<h6>周{{#GetWeekDayName dayOfWeek}}{{/GetWeekDayName}}时段</h6>
+	        <a title="关闭" class="close"></a>
+	    </div>
+	    <div class="dialog_body">
+	    	<div class="select_time">
+	        	<!--<input type="text" class="begintime" value="00:00" maxlength="5" />-->
+                <div class="begintime time-input-ctrl"></div>
+	            <em> - </em>
+	            <!--<input type="text" class="endtime" value="00:00" maxlength="5" />-->
+                <div class="endtime time-input-ctrl"></div>
+	            <a class="btn">添 加</a>
+	    	</div>
+	        <dl class="time_list">
+	        	<dt>时段<em class="style-text-info">（单日布防时间片段不能超过4个）</em></dt>
+	            <dd>
+	            	{{#if timeList}}
+	            	{{#each timeList}}
+	            	<p>
+	                	<span>{{startTime}} - {{endTime}}</span>
+	                    <a title="删除" class="icon_delete"></a>
+	                </p>
+	                {{/each}}
+	                {{else}}
+	                	<p><span class="style-text-info">当前还没有添加任何报警时间段。</span></p>
+	                {{/if}}
+	            </dd>
+	        </dl>
+	    </div>
+	    <div class="dialog_foot">
+	    	<input class="ui button blue save" type="button" value="确 定" />
+	    	<input class="ui button cancel" type="button" value="取 消" />
+	    </div>
+	</div>
+{{/if}}
+
+{{#if addtimeslot}}
+	<p class="hidden_normal">
+    	<span>{{startTime}} - {{endTime}}</span>
+        <a title="删除" class="icon_delete"></a>
+    </p>
+{{/if}}

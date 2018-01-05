@@ -1,0 +1,42 @@
+{
+    "code": 200,
+    "data": {
+        "replies": [
+            {
+                "id": 1,
+                "postId": 1,
+                "context": "回复2",
+                "createTime": 1462360413000,
+                "userId": 1,
+                "userName": "dd",
+                "updateTime": 1462360422000
+            },
+            {
+                "id": 1,
+                "postId": 1,
+                "context": "回复3",
+                "createTime": 1462360413000,
+                "userId": 1,
+                "userName": "33",
+                "updateTime": 1462360422000
+            },
+            {
+                "id": 1,
+                "postId": 1,
+                "context": "回复1",
+                "createTime": 1462360413000,
+                "userId": 1,
+                "userName": "Administrator",
+                "updateTime": 1462360422000
+            },{
+                "id": 1,
+                "postId": 1,
+                "context": "回复4",
+                "createTime": 1462360413000,
+                "userId": 1,
+                "userName": "aa",
+                "updateTime": 1462360422000
+            }
+        ]
+    }
+}

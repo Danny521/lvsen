@@ -1,0 +1,35 @@
+{{#exceptInfo}}
+<div class="map-issue clearfix">
+	
+	<form class="info clearfix" status = "disabled">
+		<div class="options">
+			<div class="image clearfix">
+				<span>图像</span>
+				<ul>
+					{{#each graphics}}
+					<li>
+						<input id="mapissue_{{id}}" data-id="{{id}}" type="checkbox">
+						<label for="mapissue_{{id}}">{{name}}</label>
+					</li>
+					{{/each}}
+				</ul>
+			</div>
+			<div class="clound clearfix">
+				<span>云台</span>
+				<ul>
+					{{#each ptzInfos}}
+					<li>
+						<input id="mapissue_{{id}}" data-id="{{id}}" type="checkbox">
+						<label for="mapissue_{{id}}">{{name}}</label>
+					</li>
+					{{/each}}
+				</ul>
+			</div>
+		</div>
+		<div class="remarks">
+			<span>备注</span>
+			<textarea name="remarks" placeholder="备注信息......"></textarea>
+		</div>
+	</form>
+</div>
+{{/exceptInfo}}

@@ -1,0 +1,279 @@
+h4 {
+    margin: 0px;
+    padding: 0px;
+    font-family: "Microsoft Yahei", "微软雅黑", "宋体";
+}
+button {
+    border: none;
+    outline: none;
+}
+.pointer {
+    cursor: pointer;
+}
+.preview-close {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    width: 62px;
+    height: 62px;
+    background: url(img/close.png) no-repeat;
+    z-index: 100;
+}
+.preview-close:hover {
+    background-image: url(img/close-hover.png);
+}
+.preview-picture {
+    position: absolute;
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+    background: #343434;
+    overflow: hidden;
+    display: none;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+.preview-main {
+    position: absolute;
+    right: 250px;
+    left: 0px;
+    top: 0px;
+    bottom: 0px;
+    padding: 50px 60px;
+}
+.preview-prev {
+    background: url(img/prev.png) no-repeat;
+    width: 44px;
+    height: 77px;
+    position: absolute;
+    left: 5px;
+    top: 50%;
+    margin-top: -39px;
+}
+.preview-prev:hover {
+    background-image: url(img/prev-hover.png);
+}
+.preview-prev:active {
+    background-image: url(img/prev-click.png);
+}
+.preview-next {
+    background: url(img/next.png) no-repeat;
+    width: 44px;
+    height: 77px;
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    margin-top: -39px;
+}
+.preview-next:hover {
+    background-image: url(img/next-hover.png);
+}
+.preview-next:active {
+    background-image: url(img/next-click.png);
+}
+.preview-content {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+.preview-img {
+    cursor: move;
+    position: relative;
+    width: auto;
+    height: auto;
+}
+.preview-sidebar {
+    float: right;
+    height: 100%;
+    width: 250px;
+    background: #212121;
+    position: relative;
+    color: #e0e0e0;
+}
+.preview-sidebar-control {
+    background: url(img/sidebar-close.png) no-repeat;
+    width: 24px;
+    height: 87px;
+    position: absolute;
+    left: -24px;
+    top: 60px;
+}
+.preview-sidebar-control:hover {
+    background-image: url(img/sidebar-close-hover.png);
+}
+.preview-sidebar-control.show {
+    background-image: url(img/sidebar-show.png);
+}
+.preview-sidebar-control.show:hover {
+    background-image: url(img/sidebar-show-hover.png);
+}
+.preview-sidebar-content {
+    padding: 60px 20px;
+}
+.preview-sidebar-content-title {
+    border-bottom: 1px solid #363636;
+    height: 30px;
+}
+.preview-sidebar-content-title-editor {
+    width: 22px;
+    height: 18px;
+    float: right;
+    background: url(img/pencil.png) no-repeat center;
+    border: none;
+    outline: none;
+}
+.preview-sidebar-content-title-editor:hover {
+    background-image: url(img/pencil-hover.png);
+}
+.preview-sidebar-content-title-h4 {
+    font-size: 14px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.preview-sidebar-content p {
+    color: #a5a5a5;
+    font-size: 0px;
+    line-height: 18px;
+    margin-top: 10px;
+}
+.preview-sidebar-content .info-title {
+    width: 65px;
+    display: inline-block;
+    font-size: 12px;
+    float: left;
+}
+.preview-sidebar-content .info-detail {
+    display: inline-block;
+    width: 145px;
+    font-size: 12px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    cursor: pointer;
+}
+.preview-tools {
+    width: 100%;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    text-align: center;
+    z-index: 100;
+}
+.preview-tools-bar {
+    height: 42px;
+    line-height: 40px;
+    border-radius: 3px;
+    background: #212121;
+    display: inline-block;
+}
+.preview-tools-bar a {
+    color: #a5a5a5;
+    font-size: 14px;
+    padding: 0px 12px;
+}
+.preview-tools-bar a:hover {
+    color: #098dfd;
+}
+.preview-tools-bar i {
+    display: inline-block;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+.preview-tools .elel-icon {
+    background: url(img/1-1.png) no-repeat left center;
+    width: 18px;
+    height: 14px;
+}
+.preview-tools .elel-icon:hover {
+    background-image: url(img/1-1-hover.png);
+}
+.preview-tools .download-icon {
+    background: url(img/download.png) no-repeat left center;
+    width: 14px;
+    height: 14px;
+}
+.preview-tools .addClues-icon{
+    background: url(img/icon-add.png) no-repeat;
+    background-size: 100% 100%;
+    width: 14px;
+    height: 14px;
+}
+.preview-tools a:hover .addClues-icon{
+    background: url(img/icon-add-hover.png)
+}
+.preview-tools-bar a:hover .download-icon {
+    background-image: url(img/download-hover.png);
+}
+.preview-tools .marked-icon {
+    background: url(img/marked.png) no-repeat left center;
+    width: 14px;
+    height: 14px;
+}
+.preview-tools-bar a:hover .marked-icon {
+    background-image: url(img/marked-hover.png);
+}
+.preview-tools .handle-icon {
+    background: url(img/handle.png) no-repeat;
+    width: 14px;
+    height: 14px;
+}
+.preview-tools-bar a:hover .handle-icon {
+    background-image: url(img/handle-hover.png);
+}
+.preview-tools .store-icon {
+    background: url(img/store.png) no-repeat;
+    width: 14px;
+    height: 14px;
+}
+.preview-tools-bar a:hover .store-icon {
+    background-image: url(img/store-hover.png);
+}
+.preview-tools .delete-icon {
+    background: url(img/delete.png) no-repeat;
+    width: 12px;
+    height: 14px;
+}
+.preview-tools-bar a:hover .delete-icon {
+    background-image: url(img/delete-hover.png);
+}
+.thumb-picture {
+    position: absolute;
+    width: 238px;
+    height: 178px;
+    border: 1px solid #9b9b9b;
+    bottom: 10px;
+    right: 10px;
+    overflow: hidden;
+    display: none;
+
+}
+.thumb-close {
+    position: absolute;
+    right: 3px;
+    top: 3px;
+    width: 11px;
+    height: 11px;
+    background: url(img/eye.png) no-repeat;
+    z-index: 11;
+}
+.thumb-close:hover {
+    background-image: url(img/eye-hover.png);
+}
+.thumb-picture img {
+    width: 238px;
+    height: 178px;
+}
+.thumb-picture .outline{
+    position: absolute;
+    left: 0px;
+    width: 235px;
+    height: 175px;
+    z-index: 10;
+    top: 0px;
+    border: 2px solid red;
+    background-image: url("data:image/gif; base64,AAAA");
+}

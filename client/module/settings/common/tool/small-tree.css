@@ -1,0 +1,268 @@
+
+.smallTreePanel{
+	width: 296px;
+	height: 320px;
+	overflow-x:auto;
+	overflow-y:auto;
+	padding: 0;
+}
+
+.smallTreePanel .no-data{
+	font-size: 11px;
+	margin: 0;
+	height: 16px;
+	line-height: 16px;
+}
+.smallTreePanel .no-data i.loading-img{
+	display: inline-block;
+	float: left;
+	width: 16px;
+	height: 16px;
+	margin-right: 5px;
+	background: url(mini-loading.gif) no-repeat scroll 0 0 transparent;
+}
+
+.smallTreePanel ul{
+	margin: 0 0 0 18px;
+	padding: 0;
+	list-style-type: none;
+}
+.smallTreePanel>ul{
+	margin: 0 0 0 10px;
+	padding: 0;
+	list-style-type: none;
+}
+.smallTreePanel li{
+	padding-top: 2px;
+	white-space: nowrap;
+}
+
+.smallTreePanel li span{
+	display: inline-block;
+	cursor: pointer;
+	height:22px;
+	line-height: 22px;
+	/*width:147px;
+	overflow: hidden;*/
+	white-space: nowrap;
+	text-overflow:ellipsis;
+	vertical-align: text-bottom;
+	user-select: none; 
+	-o-user-select: none; 
+	-moz-user-select: none; 
+	-khtml-user-select: none; 
+	-webkit-user-select: none; 
+}
+
+.smallTreePanel li>i.fold{
+	display: inline-block;
+	position: relative;
+	top:-1px;
+	*top:-4px;
+	height: 13px;
+    width: 11px;
+    margin-right: 6px;
+	cursor: pointer;    
+	background: url("close.png") no-repeat scroll 0 1px transparent;
+}
+
+.smallTreePanel li.active>i.fold{
+	background: url("open.png") no-repeat scroll 0 1px transparent;
+}
+
+
+
+/*.smallTreePanel li i.checkbox{
+    display: inline-block;
+    height: 15px;
+    margin-right: 6px;
+    padding: 0;
+    position: relative;
+    top: 0;
+    width: 15px;
+    cursor: pointer;
+ 	background: url("/images/sprites/tree_bg.png") no-repeat scroll -32px 0 transparent;
+}
+
+.smallTreePanel li i.selected{
+	background: url("/images/sprites/tree_bg.png") no-repeat scroll -47px 0 transparent;
+}*/
+
+.smallTreePanel li.cur>span{
+	/*color: #188DFB;*/
+}
+
+.smallTreePanel li.leaf>span{
+	max-width: 91px;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}
+
+.smallTreePanel li.root>span{
+	/*color: #188DFB;*/
+}
+
+.smallTreePanel .leaf{
+	cursor: pointer;
+	white-space: nowrap;
+	/*padding-left: 17px;*/
+}
+
+.smallTreePanel li i.root{
+	display: inline-block;
+	position: relative;
+	top:-1px;
+	*top:-3px;
+	width: 16px;
+	height: 13px;
+	margin-right: 3px;
+	padding: 0;
+	/*background: url("/images/icons/tree.png") no-repeat scroll -15px -13px transparent;*/
+	background: url("tree.png") no-repeat scroll -148px -13px transparent;
+}
+/*.smallTreePanel li.cur>i.root,
+.smallTreePanel li:hover>i.root{
+	background-position: -148px -13px;
+}*/
+
+.smallTreePanel li i.tree{
+	display: inline-block;
+	position: relative;
+	top:-1px;
+	*top:-3px;
+	width: 16px;
+	height: 13px;
+	margin-right: 3px;
+	padding: 0;
+	background: url("tree.png") no-repeat scroll -14px -551px transparent;
+}
+
+
+.smallTreePanel li.cur>i.tree,
+.smallTreePanel li:hover>i.tree{
+	background-position: -153px -551px;
+}
+
+.smallTreePanel li i.leaf{
+	display: inline-block;
+	position: relative;
+	top:-1px;
+	*top:-3px;
+	width: 16px;
+	height: 13px;
+	margin-right: 3px;
+	padding: 0;
+	background: url("tree.png") no-repeat scroll -14px -551px transparent;
+	/*background: url("/images/icons/tree.png") no-repeat scroll -15px -590px transparent;*/
+}
+
+.smallTreePanel li.cur>i.leaf,
+.smallTreePanel li:hover>i.leaf{
+	background-position: -153px -551px;
+	/*background-position: -153px -590px;*/
+}
+
+
+.smallScrollbarPanel { 
+	width: 296px; 
+	clear: both; 
+	height: 320px;
+	margin: 0 0 10px; 
+	overflow-y: auto;
+	overflow-x: hidden;
+
+
+}
+/*------------- scrollbar -------------   */
+/*   暂不使用滚动条
+.smallScrollbarPanel .viewport { width: 275px; height: 320px; overflow: hidden; position: relative; }
+.smallScrollbarPanel .overview { list-style: none; position: absolute; left: 0; top: 0; }
+.smallScrollbarPanel .thumb .end,
+.smallScrollbarPanel .thumb {
+	height: 72px;
+	width: 12px;
+	background: transparent url(/module/common/images/bg/scrollbar.png) 0 0 no-repeat;
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+}
+.smallScrollbarPanel .scrollbar { position: relative; float: right; width: 15px; }
+.smallScrollbarPanel .track {
+ 	height: 100%;
+	width: 12px;
+	position: relative;
+	cursor: pointer;
+	background: transparent url(/module/common/images/bg/track_line.png) center 0 repeat-y;
+  }
+
+.smallScrollbarPanel .thumb { height: 72px; width: 13px; cursor: pointer; overflow: hidden; position: absolute; top: 0; }
+.smallScrollbarPanel .thumb .end { overflow: hidden; height: 5px; width: 13px; }
+.smallScrollbarPanel .disable{ display: none; }
+
+*/
+.noSelect { user-select: none; -o-user-select: none; -moz-user-select: none; -khtml-user-select: none; -webkit-user-select: none; }
+	
+
+.smallTreePanel li[data-tree-level='1']>span{
+	max-width: 200px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+.smallTreePanel li[data-tree-level='2']>span{
+	max-width: 185px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+.smallTreePanel li[data-tree-level='3']>span{
+	max-width: 170px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+.smallTreePanel li[data-tree-level='4']>span{
+	max-width: 150px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+
+
+
+/*	三态	*/
+.smallTreePanel li i.checkbox{
+	display: inline-block;
+    height: 15px;
+    margin-right: 6px;
+    padding: 0;
+    position: relative;
+    top: 0;
+    width: 15px;
+    cursor: pointer;
+    background: url("tree_bg.png") no-repeat scroll -503px 0 transparent;
+}
+.smallTreePanel li i.icon0{
+	background-position: -520px 0;
+}
+
+.smallTreePanel li i.icon1{
+	background-position: -535px 0;
+}
+.smallTreePanel li i.no-choice{
+	display: inline-block;
+    height: 15px;
+    margin-right: 6px;
+    padding: 0;
+    position: relative;
+    top: 0;
+    width: 15px;
+}
+
+/* 功能树 默认展开第一级 */
+.func-tree-panel ul{
+	display:none;
+}
+

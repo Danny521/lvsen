@@ -1,0 +1,49 @@
+{{#each this}}
+<div class="update-infos clearfix" data-index={{@index}}>
+	<div class="infos-left push-left">
+		<div class="left-each">
+			<div class="left-header">
+				<input type="checkbox" data-index={{@index}}>
+				<span>{{get-pvg-title Pvgs}}</span>
+				<button class="btn-toggle push-right" data-index={{@index}}>&nbsp;&nbsp;展开</button>
+			</div>
+			{{#if Pvgs}}
+				<div class="left-content-hide">... ...</div>
+				<div class="left-content hide">
+					{{#each Pvgs}}
+						<ul class="{{compare-Pvg ../Tables this}}">
+							<li>{{title}}：</li>
+							<li>{{value}}</li>
+						</ul>
+					{{/each}}
+				</div>
+			{{else}}
+				<div class="left-content-hide">空数据</div>
+				<div class="left-content hide">空数据</div>
+			{{/if}}
+		</div>
+	</div>
+	<div class="infos-right">
+		<div class="right-each">
+			<div class="right-header">
+				<span>{{get-table-title Tables}}</span>
+				<button class="btn-toggle push-right" data-index={{@index}}>&nbsp;&nbsp;展开</button>
+			</div>
+			{{#if Tables}}
+				<div class="right-content-hide">... ...</div>
+				<div class="right-content hide">
+					{{#each Tables}}
+						<ul class="{{compare-Table ../Pvgs this}}">
+							<li>{{title}}：</li>
+							<li>{{value}}</li>
+						</ul>
+					{{/each}}
+				</div>
+			{{else}}
+				<div class="right-content-hide">空数据</div>
+				<div class="right-content hide">空数据</div>
+			{{/if}}
+		</div>
+	</div>
+</div>
+{{/each}}

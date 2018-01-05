@@ -1,0 +1,55 @@
+{{#if tag}}
+<div id="dom_Panel">
+	  <div id='mask_Layer'></div>
+	  <iframe src="about:blank" frameborder='0' marginWidth='0' marginHeight='0'></iframe>
+	  <div id="dialog">
+			<div class="leftPanel">
+				<div class="content">
+					<ul>
+						 <li style="display:none"><input id="frameid" value="{{tag.id}}"/></li>
+						<li><span class="text">标记名:&nbsp;</span><span id="pre_name">{{tag.name}}</span><input id="frameName" value="{{tag.name}}" style="display:none"/></li>
+						<li><span class="text">标记等级:&nbsp;</span><input level="{{tag.level}}" id="marker_Level" class="{{tag.colorType}}"/> 
+						<input id="level-hide" value="{{tag.level}}" type="hidden"/>
+						</li>
+						<li><span class="text">标记时间:&nbsp;</span>{{tag.time}}<input id="frameMarkTime" type="hidden" value="{{tag.time}}"/></li>
+						<li style='display:none'><input id="cameraId" type="hidden" value="{{tag.cameraId}}"/></li>
+						<li style="display:none"><span class="text">摄像机编号:&nbsp;</span>{{tag.cameraCode}}</li>
+						<li><span class="text">摄像机名称:&nbsp;</span>{{tag.cameraName}}</li>
+						<li><span class="text">所属组织:&nbsp;</span>{{tag.cameraOrgName}}</li>
+						<li><span class="text">图像分辨率:&nbsp;</span><span id="imageSize"></span></li>
+						<li><span class="text">创建人:&nbsp;</span><span id='taguserName'>{{tag.userName}}</span></li>
+						<li><span class="text">修改时间:&nbsp;</span>{{tag.modifyTime}}</li>
+					</ul>
+				</div>
+				<div class="description">
+					<div>详细描述：</div>
+					 <div class="desdata">
+						<div id="pre_description">{{tag.description}}</div>
+						<textarea id="description" style="display:none">{{tag.description}}</textarea>
+					 </div>
+				</div>
+		   			<!--<button class="more"></button>
+					 <ul class="moredo" tabindex="0" tabIndex="0">
+						<li class="lookpicture">查看图片</li>
+						<li class="recordList">录像片段</li>
+						<li class="moreRecord">更多录像</li>
+					</ul>-->
+				<div class="button">
+					<div><button class="play">查看录像</button><button class="save">入视图库</button></div>
+					<div><button class="edit">编辑标记</button><button class="delete">删除标记</button></div>
+				</div>
+			</div>
+			<div class="rightPanel">
+				<div class="content">
+					<span class="prev selectPages"></span>
+					<img src="{{tag.bigurl}}"/>
+					<object id='MarkUIOCX' class="UIOCX Mark" type="applicatin/x-firebreath" width='634' height='474' style="position: absolute;top:-1000px;width:100%;height:474px;">
+	                 	<param name="onload" value="pluginLoaded"/>
+					</object>
+					<span class="next selectPages"></span>
+				</div>
+			</div>
+			<img class="frame-close" src="/module/framemark/images/frame-close.png"/>
+	  </div>
+</div>
+{{/if}}

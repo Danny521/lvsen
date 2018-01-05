@@ -1,0 +1,113 @@
+<div id="aside" class="user-org">
+	<div class="tab-panel ">
+			<div class="tab-header">
+				<div data-hview = "mark" class="active select" style="border-right: 1px solid #e4e8eb;"><i class="icons-smark"></i>地图标注</div>
+				<!-- <div data-hview = "mark" class="active"><i class="icons-smark"></i>地图标注</div> -->
+				<!-- <div data-hview = "defense" ><i class="icons-sdefense"></i><span>电子防线</span></div> -->
+				<div data-hview = "record" class="active"><i class="icons-sdefense"></i><span>标注记录</span></div>
+			</div>
+			<div class="tabs">
+				<ul>
+					<li data-tab="mark" class="active mapmaker"><i class="icons-mark" title="地图标注"></i></li>
+					<!-- <li data-tab="defense" class="electronicarm"><i class="icons-defense" title="电子防线"></i></li> -->
+				</ul>
+			</div>
+		<div class="tab-content">
+			<!--style="display: none"-->
+			<div  id="mark" data-view="mark" class="active">
+				<div class="tree-search">
+					<div class="normal-search-panel">
+						<select id="markStatus" class="markStatus">
+							<option value="">全部</option>
+							<option value="0">未标注</option>
+							<option value="1">已标注</option>
+						</select>
+						<input id="searchInput" class="mark-search-input" type="text" placeholder="请输入关键字..." name="q" autocomplete="off">
+						<button id="searchBtn" title="搜索"></button>
+						<!-- <a id="advanceSearch">高级&gt;&gt;</a> -->
+					</div>
+
+					<div class="advance-search-panel" >
+						<p>
+							名称：<input id="cameraName" placeholder="请输入摄像机名称" />
+						</p>
+						<p>
+							状态：
+							<select id="markStatus">
+								<option value="0">未标注</option>
+								<option value="1">已标注</option>
+							</select>
+						</p>
+						<div class="action">
+							<button id="advCancel" class="ui button  right" type="button">取消</button>
+							<button id="advSearch" class="ui button blue  right" type="button">搜索</button>
+						</div>
+					</div>
+				</div>
+
+				<label class="tip-lab">请点选至地图标注:</label>
+				<button id="importBtn" class="batchImport ui button blue permission permission-maker-camera-batch-import" title="批量导入">批量导入</button>
+				<div class="tip-pic"></div>
+
+				<div class="tree-container">
+					<div id="leftTreePanel" class="treePanel"></div>
+				</div>
+
+			</div>
+
+			<!-- <div data-view="defense">
+
+				<div class="header group1">
+					<button id="add" class="ui button blue small right permission permission-new-edefense" type="button">新建</button>
+				</div>
+				<div class="group1 lines-container">
+					<div id ="defenseScrollBar" class="scrollbarPanel">
+						<div id="defenseList" class="treePanel">
+							<div class="list"></div>
+								<div class ="pagination"></div>
+							</div>
+					</div>
+				</div>
+
+				<form id="defenseForm">
+					<div class="header">
+						<button id="back"  type="button"></button>
+						<button id="sure" class="ui button blue small right" type="button">确定</button>
+					</div>
+					<div class="content">
+						<table>
+							<tr><td class="header" colspan="2">新建电子防线</td></tr>
+							<tr><td class="name name-special">名称：</td><td><input id="name" type="text" maxlength="30"/></td></tr>
+							<tr><td class="name"><span class="line-desc">描述：</span></td><td><textarea id="lineDescription"  maxlength="200">4555</textarea></td></tr>
+							<tr><td class="name">颜色：</td><td><input id="chooseColor" value="#ff0000" type="color"/></td></tr>
+							<tr><td class="name">工具：</td><td class="draw"><a class="tool-line" style="display:none;"></a><a class="tool-cover active"></a></td></tr>
+							
+						</table>
+					</div>
+						
+				</form>
+
+				
+			</div> -->
+
+			<!--这是标记记录左侧查询 style="display: none"-->
+			<div id="record" data-view="defense">
+				<div style="margin-top: 10px;">筛选条件：</div>
+				<div style="margin-top: 10px;" class="selType">
+					<span>标注类型：</span>
+					<span class="item active" data-type="0">全部</span>
+					<span class="item" data-type="1">新增</span>
+					<span class="item" data-type="2">编辑</span>
+					<span class="item" data-type="3">导入</span>
+					<span class="item" data-type="4">删除</span>
+				</div>
+				<div class="mtop">开始时间：<input style="background-color: white;" type="text" id="startTimebreakdown" name="startTime" class="onlyMark datepicker time" placeholder="请输入开始时间"></div>
+				<div class="mtop">结束时间：<input style="background-color: white;" type="text" id="endTimebreakdown" name="endTime" class="onlyMark datepicker time" placeholder="请输入结束时间"></div>
+				<div class="mtop">标注人：<input class="cinput" type="text" id="markPerson" name="markPerson" placeholder="请输入标注人"></div>
+				<div class="mtop">摄像机：<input class="cinput" type="text" id="markCamera" name="markCamera" placeholder="请输入摄像机名称"></div>
+				<div class="mtop"><button id="go" style="width: 97%" class="ui button blue newtask" title="查询">查询</button></div>
+			</div>
+
+		</div>
+	</div>
+</div>

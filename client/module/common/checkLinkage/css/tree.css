@@ -1,0 +1,429 @@
+.treePanel{
+	/*width: 210px;*/
+	overflow:hidden;
+	padding: 0;
+}
+
+.treePanel .no-data{
+	font-size: 11px;
+	margin: 0;
+	height: 16px;
+	line-height: 16px;
+}
+.treePanel .no-data i.loading-img{
+	display: inline-block;
+	float: left;
+	width: 16px;
+	height: 16px;
+	margin-right: 5px;
+	background: url(/module/common/images/animate/mini-loading.gif) no-repeat scroll 0 0 transparent;
+}
+
+
+.treePanel ul{
+	margin: 0 0 0 18px;
+	padding: 0;
+	list-style-type: none;
+}
+.treePanel>ul{
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+.treePanel li{
+	padding-top: 2px;
+	white-space: nowrap;
+}
+
+.treePanel li span{
+	display: inline-block;
+	cursor: pointer;
+	height:22px;
+	line-height: 22px;
+	/*width:150px;*/
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow:ellipsis;
+	vertical-align: text-bottom;
+	user-select: none; 
+	-o-user-select: none; 
+	-moz-user-select: none; 
+	-khtml-user-select: none; 
+	-webkit-user-select: none; 
+}
+
+.treePanel li>i.fold{
+	display: inline-block;
+	position: relative;
+	top:-1px;
+	*top:-4px;
+	height: 13px;
+    width: 11px;
+    margin-right: 6px;
+	cursor: pointer;    
+	background: url("/module/common/images/close.png") no-repeat scroll 0 1px transparent;
+}
+
+.treePanel li.active>i.fold{
+	background: url("/module/common/images/open.png") no-repeat scroll 0 1px transparent;
+}
+
+
+
+.treePanel li i.checkbox{
+    display: inline-block;
+    height: 15px;
+    margin-right: 6px;
+    padding: 0;
+    position: relative;
+    top: 0;
+    width: 15px;
+    cursor: pointer;
+ 	background: url("/module/common/images/sprites/tree_bg.png") no-repeat scroll -32px 0 transparent;
+}
+.treePanel li i.selected{
+	background: url("/module/common/images/sprites/tree_bg.png") no-repeat scroll -47px 0 transparent;
+}
+
+.treePanel li.cur>span{
+	/*color: #188DFB;*/
+}
+
+/*.treePanel li.leaf>span{
+	max-width: 120px;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}*/
+
+.treePanel li.root>span{
+	/*color: #188DFB;*/
+}
+
+.treePanel .leaf{
+	cursor: pointer;
+	padding-left: 17px;
+}
+
+.treePanel li i.root{
+	display: inline-block;
+	position: relative;
+	top:-1px;
+	*top:-3px;
+	width: 16px;
+	height: 13px;
+	margin-right: 3px;
+	padding: 0;
+	/*background: url("/module/common/images/icons/tree.png") no-repeat scroll -15px -13px transparent;*/
+	background: url("/module/common/images/icons/tree.png") no-repeat scroll -148px -13px transparent;
+}
+/*.treePanel li.cur>i.root,
+.treePanel li:hover>i.root{
+	background-position: -148px -13px;
+}*/
+
+.treePanel li i.tree{
+	display: inline-block;
+	position: relative;
+	top:-1px;
+	*top:-3px;
+	width: 16px;
+	height: 13px;
+	margin-right: 3px;
+	padding: 0;
+	background: url("/module/common/images/icons/tree.png") no-repeat scroll -14px -551px transparent;
+}
+
+/* 摄像机树 覆写样式*/
+/* li i.camera-style.tree{
+	display: inline-block;
+	position: relative;
+	top:-1px;
+	*top:-3px;
+	width: 12px;
+	height: 13px;
+	padding: 0;
+	background: url("/module/common/images/sprites/tree_bg.png") no-repeat scroll -62px 0 transparent;
+}*/
+
+
+
+.treePanel li.cur>i.tree,
+.treePanel li:hover>i.tree{
+	background-position: -153px -551px;
+}
+
+
+
+/* 摄像机树 覆写*/
+/*.treePanel li.cur>i.tree.camera-style,
+.treePanel li:hover>i.tree.camera-style{
+	background-position: -73px 0;
+}*/
+
+
+
+.treePanel li i.leaf{
+	display: inline-block;
+	position: relative;
+	top:0;
+	*top:-2px;
+	width: 16px;
+	height: 13px;
+	margin-right: 3px;
+	padding: 0;
+	background: url("/module/common/images/icons/tree.png") no-repeat scroll -14px -551px transparent;
+	/*background: url("/module/common/images/icons/tree.png") no-repeat scroll -15px -592px transparent;*/
+}
+
+/* 覆写样式 默认显示枪机*/
+.treePanel li i.leaf.camera-style{
+	display: inline-block;
+	position: relative;
+	top:1px;
+	*top:-3px;
+	width: 15px;
+	height: 13px;
+	margin-right: 3px;
+	padding: 0;
+	background: url("/module/common/images/sprites/tree_bg.png") no-repeat scroll 0 0 transparent;
+}
+.treePanel li i.leaf.camera-style.active{
+	background-position: -85px 0;
+}
+
+/* 显示球机 */
+.treePanel li i.leaf.camera-style.dom{
+	background: url("/module/common/images/sprites/tree_bg.png") no-repeat scroll -156px 0 transparent;
+}
+.treePanel li i.leaf.camera-style.dom.active{
+	background-position:  -168px 0;
+}
+
+
+.treePanel li i.leaf.camera-style.dom.dom-marked.hd {
+	width: 21px;
+    background: url('/module/common/images/sprites/camera-ball-HD-online.png') no-repeat 0 0;
+}
+
+.treePanel li i.leaf.camera-style.dom.hd{
+	width: 21px;
+    background: url('/module/common/images/sprites/camera-ball-HD-offline.png') no-repeat 0 0;
+}
+
+.treePanel li i.leaf.camera-style.marked.hd{
+	width: 21px;
+    background: url('/module/common/images/sprites/camera-gun-HD-online.png') no-repeat 0 0;
+}
+
+.treePanel li i.leaf.camera-style.hd{
+	width: 21px;
+    background: url('/module/common/images/sprites/camera-gun-HD-offline.png') no-repeat 0 0;
+}
+
+.treePanel li.cur>i.leaf,
+.treePanel li:hover>i.leaf{
+	background-position: -90px -592px;
+}
+
+.treePanel li.cur>i.leaf.camera-style,
+.treePanel li i.leaf.camera-style.marked,
+.treePanel li:hover>i.leaf.camera-style{
+	background-position: -85px 0 ;
+}
+.treePanel li:hover>span{
+	color: #1B6BBC;
+}
+
+/*.treePanel li>i.leaf.camera-style.marked{
+	background-position: -447px 0 ;
+}*/
+
+.treePanel li.cur>i.leaf.camera-style.dom,
+.treePanel li i.leaf.camera-style.dom.dom-marked,
+.treePanel li:hover>i.leaf.camera-style.dom{
+	background-position: -353px 0 ;
+}
+
+
+/*	地图标注摄像机树样式覆写	*/
+.treePanel.camera-mark li i.leaf.camera-style{
+	display: inline-block;
+	position: relative;
+	top:1px;
+	*top:-3px;
+	width: 17px;
+	height: 13px;
+	margin-right: 3px;
+	padding: 0;
+	background: url("/module/common/images/sprites/tree_bg.png") no-repeat scroll -633px 0 transparent;
+}
+.treePanel.camera-mark li i.leaf.camera-style.active{
+	background-position: -633px 0;
+}
+
+/* 显示球机 */
+.treePanel.camera-mark li i.leaf.camera-style.dom{
+	background: url("/module/common/images/sprites/tree_bg.png") no-repeat scroll -654px 0 transparent;
+}
+.treePanel.camera-mark li i.leaf.camera-style.dom.active{
+	background-position:  -654px 0px;
+}
+
+
+.treePanel li i.leaf.camera-style.dom.dom-marked.hd {
+	width: 21px;
+    background: url('/module/common/images/sprites/camera-ball-HD-online.png') no-repeat 0 0;
+}
+
+.treePanel li i.leaf.camera-style.dom.hd{
+	width: 21px;
+    background: url('/module/common/images/sprites/camera-ball-HD-offline.png') no-repeat 0 0;
+}
+
+.treePanel li i.leaf.camera-style.marked.hd{
+	width: 21px;
+    background: url('/module/common/images/sprites/camera-gun-HD-online.png') no-repeat 0 0;
+}
+
+.treePanel li i.leaf.camera-style.hd{
+	width: 21px;
+    background: url('/module/common/images/sprites/camera-gun-HD-offline.png') no-repeat 0 0;
+}
+
+
+.treePanel.camera-mark li.cur>i.leaf,
+.treePanel.camera-mark li:hover>i.leaf{
+	background-position: -90px -592px;
+}
+
+.treePanel.camera-mark li.cur>i.leaf.camera-style,
+.treePanel.camera-mark li:hover>i.leaf.camera-style{
+	background-position: -633px 0 ;
+}
+.treePanel.camera-mark li i.leaf.camera-style.marked{
+	background-position: -592px 0 ;
+}
+.treePanel.camera-mark li:hover>span{
+	color: #1B6BBC;
+}
+
+/*.treePanel li>i.leaf.camera-style.marked{
+	background-position: -447px 0 ;
+}*/
+
+.treePanel.camera-mark li.cur>i.leaf.camera-style.dom,
+.treePanel.camera-mark li:hover>i.leaf.camera-style.dom{
+	background-position: -654px 0 ;
+}
+.treePanel.camera-mark li i.leaf.camera-style.dom.dom-marked{
+	background-position: -612px -1px ;
+}
+
+
+.treePanel li.leaf.disabled i.camera-style.leaf {
+	background: url("/module/common/images/sprites/camera-disabled.png") no-repeat 0 -126px;
+}
+.treePanel li.leaf.disabled .camera-style.dom.dom-marked {
+	background: url("/module/common/images/sprites/camera-disabled.png") no-repeat 0 -189px !important;
+}
+
+
+/*摄像机前的单选按钮*/
+.treePanel li.leaf i.radio-leaf {
+	display: inline-block;
+	width: 14px;
+	height: 14px;
+	background: url("../images/radio.png") no-repeat;
+}
+.treePanel li.leaf i.radio-leaf.active {
+	background-image: url("../images/radio-active.png");
+}
+
+/*------------- scrollbar -------------   */
+.scrollbarPanel {
+	height: 100%;
+	clear: both; 
+}
+.scrollbarPanel .viewport { /*width: 200px;*/ height: 100%; overflow: hidden; position: relative; }
+.scrollbarPanel .overview { list-style: none; position: absolute; left: 0; top: 0; }
+.scrollbarPanel .thumb .end,
+.scrollbarPanel .thumb {
+	height: 72px;
+	width: 12px;
+	background: transparent url(/module/common/images/bg/scrollbar.png) 0 0 no-repeat;
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+}
+.scrollbarPanel .scrollbar { position: relative; float: right; width: 15px; }
+.scrollbarPanel .track {
+ 	height: 100%;
+	width: 12px;
+	position: relative;
+	cursor: pointer;
+	background: transparent url(/module/common/images/bg/track_line.png) center 0 repeat-y;
+  }
+
+.scrollbarPanel .thumb { height: 72px; width: 13px; cursor: pointer; overflow: hidden; position: absolute; top: 0; }
+.scrollbarPanel .thumb .end { overflow: hidden; height: 5px; width: 13px; }
+.scrollbarPanel .disable{ display: none; }
+.noSelect { user-select: none; -o-user-select: none; -moz-user-select: none; -khtml-user-select: none; -webkit-user-select: none; }
+	
+#treePanel li.hidden{
+	display: none!important
+}
+
+
+/*.treePanel ul>li>ul>li>i,
+.treePanel ul>li>ul>li>ul>li>i{
+	background: url("/module/common/images/icons/tree.png") no-repeat scroll -14px -551px transparent;
+}
+.treePanel ul>li>ul>li>ul>li>ul>li>i{
+	background: url("/module/common/images/icons/tree.png") no-repeat scroll -15px -590px transparent;
+}*/
+
+
+/*.treePanel ul>li>ul>li>ul>li.cur>i.tree,
+.treePanel ul>li>ul>li>ul>li.cur>i.leaf,
+.treePanel ul>li>ul>li>ul>li:hover>i.leaf,
+.treePanel ul>li>ul>li>ul>li:hover>i.tree{
+	background-position: -153px -551px;
+}
+
+.treePanel ul>li>ul>li>ul>li>ul>li.cur>i.leaf,
+.treePanel ul>li>ul>li>ul>li>ul>li:hover>i.leaf{
+	background-position: -153px -590px;
+}*/
+/*.treePanel li[data-tree-level='1']>span{
+	max-width: 165px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+.treePanel li[data-tree-level='2']>span{
+	max-width: 140px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+.treePanel li[data-tree-level='3']>span{
+	max-width: 130px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+.treePanel li[data-tree-level='4']>span{
+	max-width: 100px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.treePanel li[data-tree-level='5']>span{
+	max-width: 600px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+*/

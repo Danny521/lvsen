@@ -1,0 +1,141 @@
+
+<div class="thead ui tabular">
+	<span class='active' data-tab="base">人口基本信息</span>
+	<span data-tab="escape">在逃人员信息</span>
+	<span data-tab="drug">吸毒人员信息</span>
+	<span data-tab="criminal">违法犯罪人员</span>
+</div>
+<div class="tbody">
+	<div class="ui tab active clearfix" data-tab="base">
+		{{#personnel}}
+		<img src="data:image/jpg;base64,{{formatbase64 photo}}" />
+		<table>
+			<tbody>
+				<tr><td>姓名：<span title='{{name}}'>{{name}}</span></td></tr>
+				<tr><td>曾用名：<span title='{{nameUsed}}'>{{nameUsed}}</span></td></tr>
+				<tr><td>性别：<span title='{{sex}}'>{{sex}}</span></td></tr>
+				<tr><td>民族：<span title='{{nation}}'>{{nation}}</span></td></tr>
+				<tr><td>出生日期：<span title='{{birthdate}}'>{{birthdate}}</span></td></tr>
+				<tr><td>住址省市县(区)：<span title='{{address}}'>{{address}}</span></td></tr>
+				<tr><td>住址详址：<span title='{{detailedAddress}}'>{{detailedAddress}}</span></td></tr>
+				<tr><td>其他住址省市县(区)：<span title='{{otherAddress}}'>{{otherAddress}}</span></td></tr>
+				<tr><td>其他住址详址：<span title='{{otherDetailedAddress}}'>{{otherDetailedAddress}}</span></td></tr>
+				<tr><td>出生地：<span title='{{birthAddress}}'>{{birthAddress}}</span></td></tr>
+				<tr><td>公民身份号码：<span title='{{identityNumber}}'>{{identityNumber}}</span></td></tr>
+				<tr><td>文化程度：<span title='{{degreeEdu}}'>{{degreeEdu}}</span></td></tr>
+				<tr><td>婚姻状况：<span title='{{maritalStatus}}'>{{maritalStatus}}</span></td></tr>
+				<tr><td>身高：<span title='{{height}}'>{{height}}</span></td></tr>
+				<tr><td>职业：<span title='{{job}}'>{{job}}</span></td></tr>
+				<tr><td>服务处所：<span title='{{serviceHome}}'>{{serviceHome}}</span></td></tr>
+				<tr><td>变动日期：<span title='{{changeDate}}'>{{changeDate}}</span></td></tr>
+				<tr><td>变动原因：<span title='{{changeReason}}'>{{changeReason}}</span></td></tr>
+				<tr><td>何地迁入：<span title='{{inGround}}'>{{inGround}}</span></td></tr>
+				<tr><td>人员编号：<span title='{{number}}'>{{number}}</span></td></tr>
+				<tr><td>户口所在地：<span title='{{registeredAddress}}'>{{registeredAddress}}</span></td></tr>
+				<tr><td>出生地详址：<span title='{{birthDetailedAddress}}'>{{birthDetailedAddress}}</span></td></tr>
+				<tr><td>籍贯省市县区：<span title='{{hailAddress}}'>{{hailAddress}}</span></td></tr>
+				<tr><td>兵役情况：<span title='{{militaryService}}'>{{militaryService}}</span></td></tr>
+				<tr><td>出生地国籍：<span title='{{nationalityAddress}}'>{{nationalityAddress}}</span></td></tr>
+				<tr><td>籍贯国籍：<span title='{{nationality}}'>{{nationality}}</span></td></tr>
+			</tbody>
+		</table>
+		{{else}}
+			<div class="unresult">未查询到数据</div>
+		{{/personnel}}
+	</div>
+
+	<div class="ui tab clearfix" data-tab="escape">
+		{{#fugitivePersonnel}}
+		<table>
+			<tbody>
+				<tr><td>奖金：<span title='{{bonus}}'>{{bonus}}</span></td></tr>
+				<tr><td>身高：<span title='{{height}}'>{{height}}</span></td></tr>
+				<tr><td>出生日期上限：<span title='{{birthdate}}'>{{birthdate}}</span></td></tr>
+				<tr><td>立案单位详称：<span title='{{detailedCaseDept}}'>{{detailedCaseDept}}</span></td></tr>
+				<tr><td>案件编号：<span title='{{caseNumber}}'>{{caseNumber}}</span></td></tr>
+				<tr><td>案件类别：<span title='{{caseType}}'>{{caseType}}</span></td></tr>
+				<tr><td>姓名：<span title='{{name}}'>{{name}}</span></td></tr>
+				<tr><td>现住详细地址：<span title='{{detailedAddress}}'>{{detailedAddress}}</span></td></tr>
+				<tr><td>身份证号：<span title='{{identityNumber}}'>{{identityNumber}}</span></td></tr>
+			</tbody>
+		</table>
+		<table>
+			<tbody>
+				<tr><td>逃跑日期：<span title='{{flightDate}}'>{{flightDate}}</span></td></tr>
+				<tr><td>立案单位区划：<span title='{{caseDept}}'>{{caseDept}}</span></td></tr>
+				<tr><td>人员编号：<span title='{{number}}'>{{number}}</span></td></tr>
+				<tr><td>主办联系方式：<span title='{{contactInfo}}'>{{contactInfo}}</span></td></tr>
+				<tr><td>现住省市县区：<span title='{{address}}'>{{address}}</span></td></tr>
+				<tr><td>户籍省市县区：<span title='{{registeredAddress}}'>{{registeredAddress}}</span></td></tr>
+				<tr><td>简要案情及附加信息：<span title='{{caseDesc}}'>{{caseDesc}}</span></td></tr>
+				<tr><td>性别代码：<span title='{{sex}}'>{{sex}}</span></td></tr>
+				<tr><td>口音代码：<span title='{{accent}}'>{{accent}}</span></td></tr>
+			</tbody>
+		</table>
+		{{else}}
+			<div class="unresult">未查询到数据</div>
+		{{/fugitivePersonnel}}
+	</div>
+
+	<div class="ui tab clearfix" data-tab="drug">
+		{{#drugPersonnel}}
+		<table>
+			<tbody>
+				<tr><td>查获地点：<span title='{{seizedPlace}}'>{{seizedPlace}}</span></td></tr>
+				<tr><td>违法犯罪事实：<span title='{{crime}}'>{{crime}}</span></td></tr>
+				<tr><td>查获单位：<span title='{{seizedDept}}'>{{seizedDept}}</span></td></tr>
+				<tr><td>姓名：<span title='{{name}}'>{{name}}</span></td></tr>
+				<tr><td>身份证号：<span title='{{identityNumber}}'>{{identityNumber}}</span></td></tr>
+				<tr><td>出生日期：<span title='{{birthdate}}'>{{birthdate}}</span></td></tr>
+				<tr><td>户籍所在地：<span title='{{registeredAddress}}'>{{registeredAddress}}</span></td></tr>
+			</tbody>
+		</table>
+		<table>
+			<tbody>
+				<tr><td>实际居住地：<span title='{{address}}'>{{address}}</span></td></tr>
+				<tr><td>绰号：<span title='{{nickname}}'>{{nickname}}</span></td></tr>
+				<tr><td>户籍所在地详址：<span title='{{registeredDetailedAddress}}'>{{registeredDetailedAddress}}</span></td></tr>
+				<tr><td>实际居住地详址：<span title='{{detailedAddress}}'>{{detailedAddress}}</span></td></tr>
+				<tr><td>查获日期：<span title='{{seizedDate}}'>{{seizedDate}}</span></td></tr>
+				<tr><td>性别：<span title='{{sex}}'>{{sex}}</span></td></tr>
+				<tr><td>人员ID：<span title='{{drugPersonnelId}}'>{{drugPersonnelId}}</span></td></tr>
+			</tbody>
+		</table>
+		{{else}}
+			<div class="unresult">未查询到数据</div>
+		{{/drugPersonnel}}
+	</div>
+
+	<div class="ui tab clearfix" data-tab="criminal">
+		{{#criminalPersonnel}}
+		<table>
+			<tbody>
+				<tr><td>民族：<span title='{{nation}}'>{{nation}}</span></td></tr>
+				<tr><td>出生日期：<span title='{{birthdate}}'>{{birthdate}}</span></td></tr>
+				<tr><td>姓名：<span title='{{name}}'>{{name}}</span></td></tr>
+				<tr><td>身份证号：<span title='{{identityNumber}}'>{{identityNumber}}</span></td></tr>
+				<tr><td>身高：<span title='{{height}}'>{{height}}</span></td></tr>
+				<tr><td>案件类别：<span title='{{caseType}}'>{{caseType}}</span></td></tr>
+				<tr><td>姓名拼单：<span title='{{namepy}}'>{{namepy}}</span></td></tr>
+				<tr><td>曾用名：<span title='{{nameUsed}}'>{{nameUsed}}</span></td></tr>
+				<tr><td>案件编号：<span title='{{caseNumber}}'>{{caseNumber}}</span></td></tr>
+			</tbody>
+		</table>
+		<table>
+			<tbody>
+				<tr><td>性别：<span title='{{sex}}'>{{sex}}</span></td></tr>
+				<tr><td>简要案情：<span title='{{caseDesc}}'>{{caseDesc}}</span></td></tr>
+				<tr><td>户籍地详址：<span title='{{registeredDetailedAddress}}'>{{registeredDetailedAddress}}</span></td></tr>
+				<tr><td>文化程度：<span title='{{degreeEdu}}'>{{degreeEdu}}</span></td></tr>
+				<tr><td>身份：<span title='{{identity}}'>{{identity}}</span></td></tr>
+				<tr><td>专长：<span title='{{forte}}'>{{forte}}</span></td></tr>
+				<tr><td>居住地详址：<span title='{{detailedAddress}}'>{{detailedAddress}}</span></td></tr>
+				<tr><td>足长：<span title='{{footLength}}'>{{footLength}}</span></td></tr>
+				<tr><td>户籍地区划：<span title='{{registeredAddress}}'>{{registeredAddress}}</span></td></tr>
+			</tbody>
+		</table>
+		{{else}}
+			<div class="unresult">未查询到数据</div>
+		{{/criminalPersonnel}}
+	</div>
+</div>

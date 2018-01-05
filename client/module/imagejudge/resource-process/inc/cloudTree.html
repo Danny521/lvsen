@@ -1,0 +1,42 @@
+<ul>
+    {{#if init}}
+
+    {{#each records}}
+    <li data-tree-level="{{../level}}" class="{{isChild}}" data-type="{{isChild}}" data-parentid="{{directoryId}}"
+        data-id="{{id}}" data-cid="{{cid}}" data-name="{{fileName}}" data-filetype="{{fileType}}"
+        data-filesize="{{fileSize}}" data-storagetime="{{storageTime}}">
+        {{#if ../selectable}}
+        <i class="{{#eq isChild 'tree'}}hidden{{/eq}} checkbox {{ ../../selected }}"></i>
+        {{/if}}{{#isTree isChild}}
+        <i class="fold"></i>
+        {{/isTree}}
+        <i class="{{isChild}} {{#eq isChild 'tree'}}file0{{else}}file{{../fileType}}{{/eq}}"></i>
+        <span class="name" title="{{fileName}} ">
+            {{fileName}}
+            <a href="javascript:void(0);" title="删除" class="icon_delete"></a>
+        </span>
+    </li>
+    {{/each}}
+
+    {{else}}
+
+    {{#each records}}
+    <li data-tree-level="{{../level}}" class="{{isChild}}" data-type="{{isChild}}" data-parentid="{{directoryId}}"
+        data-id="{{id}}" data-cid="{{cid}}" data-name="{{fileName}}" data-filetype="{{fileType}}"
+        data-filesize="{{fileSize}}" data-storagetime="{{storageTime}}">
+        {{#if ../selectable}}
+        <!--<i class="checkbox {{ ../../selected }}"></i>-->
+        <i class="{{#eq isChild 'tree'}}hidden{{/eq}} checkbox {{ ../../selected }}"></i>
+        {{/if}}{{#isTree isChild}}
+        <i class="fold"></i>
+        {{/isTree}}
+        <i class="{{isChild}} {{#eq isChild 'tree'}}file0{{else}}file{{../fileType}}{{/eq}}"></i>
+        <span class="name" title="{{fileName}} ">
+            {{fileName}}
+            <a href="javascript:void(0);" title="删除" class="icon_delete"></a>
+        </span>
+    </li>
+    {{/each}}
+    {{/if}}
+
+</ul>	

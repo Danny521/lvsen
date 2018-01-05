@@ -1,0 +1,77 @@
+<!-- <div class="analysis-pop" id="analysis">
+	<div class="analysis-iframe">
+		<iframe src=""></iframe>
+	</div>
+	<button class="analysis-iframe-close"></button>
+</div> -->
+<div class="analysis track-height">
+    <div class="route-header">
+        <div class="route-header-title">
+            <i class="sidebar-home-icon np-map-overlay home-enable-click" data-mark="business"></i>
+            <b> > </b><span>轨迹分析</span>
+        </div>
+    </div>
+    <!-- <div class="analysis-type">
+        <ul class="inline-list">
+            <li class="active" data-tab="car-track">车查轨迹</li>
+            <span></span>
+            <li class="" data-tab="track-car">轨迹查车</li>
+        </ul>
+    </div> -->
+<!--     <div class="ui tab analysis-form" id="analysis-form" data-tab="car-track">
+        <div class="row">
+            <label>车牌号码：</label>
+            <input placeholder="请输入精确车牌" class="plate-number">
+        </div>
+        <div class="row">
+            <label>开始时间：</label>
+            <input class="analysis-start-time">
+        </div>
+        <div class="row">
+            <label>结束时间：</label>
+            <input class="analysis-end-time">
+        </div>
+        <div class="row">
+            <a href="javascript:void(0)" class="blue-button save-button" id="analysis-button" style="float:right;">查询</a>
+        </div>
+    </div> -->
+    <div class="track-car ui tab active" data-tab="track-car" id="track-car">
+        <div class="row">
+            <label><span class="red">*</span>开始时间：</label>
+            <input class="analysis-start-time time">
+        </div>
+        <div class="row">
+            <label><span class="red">*</span>结束时间：</label>
+            <input class="analysis-end-time time">
+        </div>
+        <div class="row">
+            <label>&nbsp;车牌号码：</label>
+            <input placeholder="请输入车牌" class="plate-number">
+        </div>
+        <div class="hr"/>
+        <div class="row">
+            <label><span class="red">*</span>起点：</label>
+            <div class="address-input">
+                <input placeholder="请输入起点名称" class="start-name" name="start-point"/>
+                <i class="start-point-mark" title="在地图上选择起点" data-type="start" data-event="click" data-handler="GetPointOnMap"></i>
+            </div>
+        </div>
+        <div class="row">
+            <label><span class="red">*</span>终点：</label>
+            <div class="address-input">
+                <input placeholder="请输入终点名称" class="end-name" name="end-point"/>
+                <i class="end-point-mark" title="在地图上选择终点" data-type="end" data-event="click" data-handler="GetPointOnMap"></i>
+            </div>
+        </div>
+        <div class="search-result-bayonet">
+            <p class="header">卡口列表：</p>
+            <ul>
+                
+            </ul>
+        </div>
+        <div class="row">
+            <a href="javascript:void(0)" class="white-button save-button" style="float:right;">查询</a>
+        </div>
+    </div>
+</div>
+<div class="track-cars-result"></div>

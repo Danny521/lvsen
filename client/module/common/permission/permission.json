@@ -1,0 +1,10 @@
+{
+    "validFunctionList":{
+        "5"    : "create",
+        "6"    : "review",
+        "7"    : "process",
+        "21"   : "browse",
+        "22"   : "delete",
+        "25"   : "analysis"
+    }
+}

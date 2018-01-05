@@ -1,0 +1,48 @@
+@charset "utf-8";
+/* CSS Document */
+/* * 东方网力 CSS Library 2.0.0
+* Copyright(c)  2014, 东方网力 CSS
+* @url http://www.netposa.com */
+/* * 大图标 */
+.icon_file { background: url(/module/cloudbox/img/icon.png) 0px 1px no-repeat; }
+.icon_file_blue { background: url(/module/cloudbox/img/icon.png) 0px -22px no-repeat; }
+.icon_event { background: url(/module/cloudbox/img/icon.png) -203px 1px no-repeat; }
+.icon_event_blue { background: url(/module/cloudbox/img/icon.png) -203px -21px no-repeat; }
+.icon_video { background: url(/module/cloudbox/img/icon.png) -52px 1px no-repeat; }
+.icon_video_blue { background: url(/module/cloudbox/img/icon.png) -52px -22px no-repeat; }
+.icon_pic { background: url(/module/cloudbox/img/icon.png) -26px 1px no-repeat; }
+.icon_pic_blue { background: url(/module/cloudbox/img/icon.png) -26px -22px no-repeat; }
+.icon_structured { background: url(/module/cloudbox/img/icon.png) -104px 0px no-repeat; }
+.icon_structured_blue { background: url(/module/cloudbox/img/icon.png) -104px -23px no-repeat; }
+.icon_paper { background: url(/module/cloudbox/img/icon.png) -104px 1px no-repeat; }
+.icon_paper_blue { background: url(/module/cloudbox/img/icon.png) -104px -22px no-repeat; }
+.e_icon { background: url(/module/common/images/jquery.ui/ui-icons_888888_256x240.png) -240px -110px no-repeat; display: inline-block; vertical-align: middle; width: 20px; height: 22px; }
+/* * 小图标 */
+.icon_personnel { background: url(/module/cloudbox/img/icon.png) 0px -46px no-repeat; }
+.icon_personnel_blue { background: url(/module/cloudbox/img/icon.png) 0px -66px no-repeat; }
+.icon_car { background: url(/module/cloudbox/img/icon.png) -26px -46px no-repeat; }
+.icon_car_blue { background: url(/module/cloudbox/img/icon.png) -26px -66px no-repeat; }
+.icon_items { background: url(/module/cloudbox/img/icon.png) -53px -46px no-repeat; }
+.icon_items_blue { background: url(/module/cloudbox/img/icon.png) -53px -66px no-repeat; }
+.icon_scenario { background: url(/module/cloudbox/img/icon.png) -80px -46px no-repeat; }
+.icon_scenario_blue { background: url(/module/cloudbox/img/icon.png) -80px -66px no-repeat; }
+.icon_movement { background: url(/module/cloudbox/img/icon.png) -107px -46px no-repeat; }
+.icon_movement_blue { background: url(/module/cloudbox/img/icon.png) -107px -66px no-repeat; }
+.icon_rest { background: url(/module/cloudbox/img/icon.png) -217px -45px no-repeat; }
+.icon_rest_blue { background: url(/module/cloudbox/img/icon.png) -217px -68px no-repeat; }
+/* * 功能图标 */
+.listpic { background: url(/module/cloudbox/img/icon.png) -130px 0px no-repeat; }
+.listpic_current { background: url(/module/cloudbox/img/icon.png) -130px -20px no-repeat; }
+.thumbnail { background: url(/module/cloudbox/img/icon.png) -149px 0px no-repeat; }
+.thumbnail_current { background: url(/module/cloudbox/img/icon.png) -149px -20px no-repeat; }
+.download { background: url(/module/cloudbox/img/icon.png) -31px -86px no-repeat; }
+.storage { background: url(/module/cloudbox/img/icon.png) -59px -86px no-repeat; }
+.delete { background: url(/module/cloudbox/img/icon.png) -87px -86px no-repeat; }
+.icon_storage { background: url(/module/cloudbox/img/icon.png) 0px -107px no-repeat; }
+.icon_download { background: url(/module/cloudbox/img/icon.png) -25px -107px no-repeat; }
+.icon_edit { background: url(/module/cloudbox/img/icon.png) -48px -107px no-repeat; }
+.icon_delete { background: url(/module/cloudbox/img/icon.png) -72px -107px no-repeat; }
+.icon_target { background: url(/module/cloudbox/img/icon.png) -96px -107px no-repeat; }
+.icon_folder { background: url(/module/cloudbox/img/icon.png) 0px -87px no-repeat; }
+/* .icon_search { background: url(/module/cloudbox/img/icon.png) -164px -44px no-repeat; } */
+/* .icon_search:hover { background: url(/module/cloudbox/img/icon.png) -191px -44px no-repeat; } */

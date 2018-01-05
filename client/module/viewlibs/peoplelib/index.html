@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=10,chrome=1">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<title>视云实战平台</title>
+	<!--[if lt IE 9]>
+	<script src="/libs/html5/html5.js"></script>
+	<![endif]-->
+
+	<link type="text/css" rel="stylesheet" href="/module/common/css/base.css" />
+	<link type="text/css" rel="stylesheet" href="/libs/semantic/semantic.css" />
+	<link type="text/css" rel="stylesheet"  href="/libs/jquery/jquery-ui.css">
+	<link type="text/css" rel="stylesheet" href="/libs/jquery/jquery.datetimepicker.css"/>
+	<link type="text/css" rel="stylesheet" href="/module//viewlibs/common/medialib.css"/>
+	<link type="text/css" rel="stylesheet" href="/module/viewlibs/common/aside.css"/>
+	<link type="text/css" rel="stylesheet" href="/component/panel/main.css"/>
+	<link type="text/css" rel="stylesheet" href="/module/viewlibs/common/panel_import.css"/>
+</head>
+<body>
+	<script type="text/javascript" src="/libs/requirejs/require.js" data-main="/module/viewlibs/peoplelib/js/main.js"></script>
+	<div class="sheader">
+		<h2 class="hblue">人员信息库<span class="divider">&gt;</span></h2>
+		<input type="text" value="" name="" class="input-text create" placeholder="请输入您要搜索的关键字" /><input class="secondseach" readonly />
+	</div>
+	<div id="content">
+		<div class="wrapper">
+			<!--#include file="/module/viewlibs/common/sidebar.html" -->
+			<div class="main">
+				<!--#include file="/module/viewlibs/peoplelib/inc/filter.html" -->
+				<div class="order-cases clearfix">
+					<span class="type">排序：</span>
+					<ul class="cases">
+						<li class="active" data-key="1" data-filter='o'>
+							<a>
+								创建时间<i class="dir_down"></i>
+							</a>
+						</li>
+						<li class="" data-key="1" data-filter='m'>
+							<a>
+								<span class='name'>目标出现时间</span><i class="dir_down"></i>
+							</a>
+						</li>
+					</ul>
+					<div class="total">
+						共<span class="count"> 0 </span><span class="infotype">条人员信息</span>
+						<span class="curpage"> </span>
+						<span class="totalpage"> </span>
+					</div>
+				</div>
+				<div class="box thumbs-box thumbs-larger-box ">
+					<div class="content">
+						<div class="loading"></div>
+						<div class="pagepart itempager pagination"></div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

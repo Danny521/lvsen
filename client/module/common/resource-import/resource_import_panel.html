@@ -1,0 +1,171 @@
+<div class="panel-import">
+    <div class="tab-header clearfix">
+        <ul class="ui tabular">
+            <li class="active" data-tab="local">
+                <span>本地导入</span>
+            </li>
+            <li class="permission permission-import" data-tab="cloud">
+                <span>云端选择</span>
+            </li>
+        </ul>
+        <div class="btn-group btn-group-local">
+            <a class="btn btn_ok btn_import hidden" href="javascript:void(0);"> 确定导入 </a>
+            <a class="btn btn_ok btn_add" href="javascript:void(0);" id="chooseLocalFile"> <i class="add"></i> 添加资源 </a>
+        </div>
+        <div class="btn-group btn-group-cloud hidden">
+            <a class="btn btn_ok btn_import hidden" href="javascript:void(0);"> 确定导入 </a>
+            <a class="btn btn_ok btn_add" href="javascript:void(0);" id="chooseColudFile"> <i class="add"></i> 添加资源 </a>
+        </div>
+        <span class="close hidden">收起</span>
+    </div>
+    <div class="tab-content">
+        <div class="ui tab active" data-tab="local">
+            <div class="result">
+                已添加 <span class="added">0</span> 个, 
+                导入成功  <span class="success">0</span> 个, 
+                导入失败 <span class="failure">0</span> 个
+            </div>
+            <div class="grid">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th class="name">名称</th>
+                            <th class="size">大小</th>
+                            <th class="time">拍摄时间</th>
+                            <th class="time-diff">校正时间</th>
+                            <th class="progress">进度</th>
+                            <th class="actions">操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>                  
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="ui tab" data-tab="cloud">
+            <div class="result">
+                已添加 <span class="added">0</span> 个, 
+                导入成功  <span class="success">0</span> 个, 
+                导入失败 <span class="failure">0</span> 个
+            </div>
+            <div class="grid">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th class="name">名称</th>
+                            <th class="size">大小</th>
+                            <th class="time">拍摄时间</th>
+                            <th class="time-diff">校正时间</th>
+                            <th class="progress">进度</th>
+                            <th class="actions">操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!--
+                         <tr>
+                            <td>aaa.jsp</td>
+                            <td>18kb</td>
+                            <td>
+                                <input type="text" class="input-time start-time" placeholder='起始时间'/>
+                                <span class="stime hidden"></span>
+                            </td>
+                            <td>
+                                <input type="text" class="input-time time-diff" placeholder='校正时间'/>
+                                <span class="dtime hidden"></span>
+                            </td>
+                            <td>
+                                <div class="progressbar"><div class="progress-label"></div></div>
+                                <span class="status-text">未开始</span>
+                            </td>
+                            <td>
+                                <a href="javascript:void(0);" class="btn remove-file">删除</a>
+                                <a href="javascript:void(0);" class="btn cancel-import hidden">取消</a>  
+                            </td>
+                        </tr> 
+                        <tr>
+                            <td>aaa.jsp</td>
+                            <td>18kb</td>
+                            <td>
+                                <input type="text" class="input-time start-time" placeholder='起始时间'/>
+                                <span class="stime hidden"></span>
+                            </td>
+                            <td>
+                                <input type="text" class="input-time time-diff" placeholder='校正时间'/>
+                                <span class="dtime hidden"></span>
+                            </td>
+                            <td>
+                                <div class="progressbar"><div class="progress-label"></div></div> 
+                                <span class="status-text text-primary">导入中</span>
+                            </td>
+                            <td>
+                                <a href="javascript:void(0);" class="btn remove-file hidden">删除</a>
+                                <a href="javascript:void(0);" class="btn cancel-import ">取消</a>  
+                            </td>
+                        </tr>   
+                        <tr>
+                            <td>aaa.jsp</td>
+                            <td>18kb</td>
+                            <td>
+                                <input type="text" class="input-time start-time" placeholder='起始时间'/>
+                                <span class="stime hidden"></span>
+                            </td>
+                            <td>
+                                <input type="text" class="input-time time-diff" placeholder='校正时间'/>
+                                <span class="dtime hidden"></span>
+                            </td>
+                            <td>
+                                <div class="progressbar"><div class="progress-label"></div></div> 
+                                <span class="status-text text-primary">流化中</span>
+                            </td>
+                            <td>
+                                <a href="javascript:void(0);" class="btn remove-file hidden">删除</a>
+                                <a href="javascript:void(0);" class="btn cancel-import">取消</a>  
+                            </td>
+                        </tr>  
+                        <tr>
+                            <td>aaa.jsp</td>
+                            <td>18kb</td>
+                            <td>
+                                <input type="text" class="input-time start-time hidden" placeholder='起始时间'/>
+                                <span class="stime">2014-09-22 11:55:00</span>
+                            </td>
+                            <td>
+                                <input type="text" class="input-time time-diff hidden" placeholder='校正时间'/>
+                                <span class="dtime">2014-09-22 11:55:00</span>
+                            </td>
+                            <td>
+                                <div class="progressbar"><div class="progress-label"></div></div>
+                                <span class="status-text text-success">导入成功</span>
+                            </td>
+                            <td>
+                                <a href="javascript:void(0);" class="btn remove-file">删除</a>
+                                <a href="javascript:void(0);" class="btn cancel-import hidden">取消</a>  
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>aaa.jsp</td>
+                            <td>18kb</td>
+                            <td>
+                                <input type="text" class="input-time start-time hidden" placeholder='起始时间'/>
+                                <span class="stime">2014-09-22 11:55:00</span>
+                            </td>
+                            <td>
+                                <input type="text" class="input-time time-diff hidden" placeholder='校正时间'/>
+                                <span class="dtime">2014-09-22 11:55:00</span>
+                            </td>
+                            <td>
+                                <div class="progressbar"><div class="progress-label"></div></div>
+                                <span class="status-text text-error">导入失败</span>
+                            </td>
+                            <td>
+                                <a href="javascript:void(0);" class="btn remove-file">删除</a>
+                                <a href="javascript:void(0);" class="btn cancel-import hidden">取消</a>  
+                            </td>
+                        </tr>
+                        -->                 
+                    </tbody>
+                </table>                 
+            </div>
+        </div>
+    </div>
+</div>

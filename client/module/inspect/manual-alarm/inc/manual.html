@@ -1,0 +1,61 @@
+<!--手动报警-->
+<div id="manual">
+	<div class="title">
+		<p>手动报警设置</p>
+		<i></i>
+	</div>
+	<div class="pic">
+		<img class="alarm-pic" src="" />
+	</div>
+	<div class="alarm-info">
+		<div class="form-item">
+			<span class="item-label">
+				<label for="time">报警时间</label>
+			</span>
+			<div class="item-box ui input">
+				<input id="time" class="input-text " type="text"  name="time" readonly= "true">
+			</div>
+		</div>
+		<div class="form-item">
+			<span class="item-label">
+				<label for="place">报警地点</label>
+			</span>
+			<div class="item-box ui input">
+				<input id="place" class="input-text " type="text"  name="place">
+			</div>
+		</div>
+		<div class="form-item alarm-cause">
+			<span class="item-label">
+				<label for="cause">报警原因</label>
+			</span>
+			<div class="item-box ui input" id="season" style="display:none">
+				<input id="cause" class="input-text " type="text"  name="cause">
+			</div>
+			<div class="item-box selectinput "><span>打架</span><i class="down"></i></div>
+			<ul><li class="active"><span>打架</span></li>
+				<li><span>偷盗</span></li>
+				<li><span>抢劫</span></li>
+				<li><span>翻越</span></li>
+				<li><span>聚集</span></li>
+				<li><span>起火</span></li>
+				<li><span>车辆事故</span></li>
+			</ul>
+            <a class="other">其他</a>
+		</div>
+		<div class="form-item level">
+			<span class="item-label">
+				<label for="level">报警级别</label>
+			</span>
+			<div class="item-box selectinput"><span>一般</span><i class="down"></i></div>
+			<ul>
+				<li class="active"><span>一般</span></li>
+				<li><span>重要</span></li>
+				<li><span>严重</span></li>
+			</ul>
+		</div>
+	</div>
+	<div class="foot">
+		<a class="give">确定</a>
+	</div>
+</div>
+<iframe scroll="none" src="about:blank" class="manual-iframe"></iframe>

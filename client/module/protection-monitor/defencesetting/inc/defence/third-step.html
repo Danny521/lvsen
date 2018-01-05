@@ -1,0 +1,557 @@
+<!-- 布防设置第三步 设置参数页面 -->
+{{#if ruleDetial}}
+{{#if isMark}}
+<div class="rules alarm-events-rule-detail">
+	<!-- <div class="alarm-event-rule-top">
+		<span title="返回" class="return-back-rules" id="returnBackToRuleList"></span>
+		<div class="buttons  alarm-event-rule-button">
+			<input class="ui button blue" id="smartMarkSave" type="button" value="保存">
+			<input class="ui button blue hidden permission permission-delete-defence-task" id="smartMarkDel" type="button" value="删除">
+            <div class="cover hidden"></div>
+		</div>
+	</div> -->
+   	<!--实时标注选项-->
+    <form id="smartMarkform">
+        <div class="video_info">
+            <dl class="video_form mgt">
+                <dd>
+                    <ul class="dataPicker">
+                        <li>
+                            <lable>开始时间：</lable>
+                            <span class="ui input"><input type="text" class="begin-time inputs-time" readonly="true" placeholder="请选择开始时间"></span>
+                        </li>
+                        <li>
+                            <lable>结束时间：</lable>
+                            <span class="ui input"><input type="text" class="end-time inputs-time" readonly="true" placeholder="请选择结束时间"></span> 
+
+                        </li>
+                    </ul>
+                </dd>
+                <dt>
+                    <i class="icon_import"></i>
+                    <h6>标注信息类型(必选)：</h6>
+                    <dd>
+                        <ul class="stMli">
+                            <li class="type type-mark">
+                                <input id="type-mark-move" name="type-mark-move" type="checkBox" />
+                                <label for="type-mark-move">人脸</label>
+                                <a href="#" data-type="move" class="videdoRight_advancedSet" title="设置"><i class="icon_set"></i></a>
+                            </li>
+                            <li class="type-params">
+                                <div class="type-params-item">
+                                    <label for="videoRight_targetHeight">参考人脸:</label>
+                                    <input class="spinner move-height-spinner" name="move-height" value="50" size="2">
+                                    <label class="resetReminder">[40～1080]</label>
+                                </div>
+                                <div class="type-params-item">
+
+                                    <label for="videoRight_delicacyLevel">灵&nbsp;敏&nbsp;度: </label>
+                                    <div class="delicacyLevel">
+                                        <span >低</span><span class="active" data-delicacylevel="true">中</span><span>高</span>
+                                    </div>
+                                </div>
+                                <div class="arrow"></div>
+                            </li>
+                            <li class="type type-mark">
+                                <input id="type-mark-face" type="checkBox"/>
+                                <label for="type-mark-face">人员</label>
+                                <a href="#" data-type="face" class="videdoRight_advancedSet" title="设置"><i class="icon_set"></i></a>
+                            </li>
+                            <li class="type-params">
+                                <div class="type-params-item">
+                                    <label for="videoRight_minimumFace">人员尺寸: </label>
+                                    <input class="spinner face-spinner" name="face-minFace" value="60" size="2">
+                                    <label class="resetReminder">[60～1000]</label>
+                                </div>
+                                <div class="type-params-item">
+                                    <label for="videoRight_delicacyLevel">灵&nbsp;敏&nbsp;度: </label>
+                                    <div class="delicacyLevel">
+                                        <span >低</span><span class="active" data-delicacylevel="true">中</span><span>高</span>
+                                    </div>
+                                </div>
+                                <div class="arrow"></div>
+                            </li>
+                            <li class="type type-mark">
+                                <input id="type-mark-car" type="checkBox" />
+                                <label for="type-mark-car">车辆</label>
+                                <a href="#" data-type="car" class="videdoRight_advancedSet" title="设置"><i class="icon_set"></i></a>
+                            </li>
+                            <li class="type-params">
+                                 <div class="arrow"></div>
+                                <div class="type-params-item">
+                                    <label for="videoRight_defaultProvinceName">默认省名: </label>
+                                    <select name="car-defaultProvince" disabled="disabled">
+                                        <option value="京">京</option>
+                                        <option value="津">津</option>
+                                        <option value="沪">沪</option>
+                                        <option value="冀">冀</option>
+                                        <option value="黑">黑</option>
+                                        <option value="吉">吉</option>
+                                        <option value="辽">辽</option>
+                                        <option value="豫">豫</option>
+                                        <option value="晋">晋</option>
+                                        <option value="陕">陕</option>
+                                        <option value="宁">宁</option>
+                                        <option value="甘">甘</option>
+                                        <option value="新">新</option>
+                                        <option value="蒙">蒙</option>
+                                        <option value="青">青</option>
+                                        <option value="藏">藏</option>
+                                        <option value="川">川</option>
+                                        <option value="贵">贵</option>
+                                        <option value="湘">湘</option>
+                                        <option value="鄂">鄂</option>
+                                        <option value="闽">闽</option>
+                                        <option value="苏">苏</option>
+                                        <option value="浙">浙</option>
+                                        <option value="皖" selected >皖</option>
+                                        <option value="鲁">鲁</option>
+                                        <option value="桂">桂</option>
+                                        <option value="云">云</option>
+                                        <option value="粤">粤</option>
+                                        <option value="琼">琼</option>
+                                        <option value="渝">渝</option>
+                                        <option value="赣">赣</option>
+                                        <option value="港">港</option>
+                                        <option value="学">学</option>
+                                        <option value="军">军</option>
+                                        <option value="空">空</option>
+                                        <option value="海">海</option>
+                                        <option value="北">北</option>
+                                        <option value="沈">沈</option>
+                                        <option value="兰">兰</option>
+                                        <option value="济">济</option>
+                                        <option value="南">南</option>
+                                        <option value="广">广</option>
+                                        <option value="成">成</option>
+                                        <option value="警">警</option>
+                                        <option value="消">消</option>
+                                        <option value="边">边</option>
+                                        <option value="通">通</option>
+                                        <option value="森">森</option>
+                                        <option value="金">金</option>
+                                        <option value="电">电</option>
+                                        <option value="挂">挂</option>
+                                    </select>
+                                </div>
+                                <div class="type-params-item">
+                                    <label for="videoRight_delicacyLevel">灵&nbsp;敏&nbsp;度: </label>
+                                    <div class="delicacyLevel">
+                                        <span >低</span><span class="active" data-delicacylevel="true">中</span><span>高</span>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </dd>
+                </dt>
+                <dt>
+                    <h6>范围选择</h6>
+                    <div class="showDraw"><i id="showDraws" class="icon_eyes-open hidden" title="查看"></i><i class="icon_alert"></i> 
+                     <div class="helperdiv">可绘制一个处理区域，最多可绘制5个屏蔽区域。</div>
+                     <div class="arrow"></div>
+                    </div>
+
+                     <dd>
+                        <ul class="stMli">
+                            <li class="type type-region">
+                                <label for="type-region-proc">处理区域：</label>
+                                <button id="type-region-proc"></button>
+                                
+                            </li>
+                            <li class="type type-region">
+                                <label for="type-region-shield">屏蔽区域：</label>
+                                <button id="type-region-shield"></button>
+                            </li>
+                        </ul>
+                    </dd>
+                </dt>
+            </dl>
+        </div>
+    </form>
+</div>
+{{else}}
+<div class="rules alarm-events-rule-detail">
+	<span class="rules_title">
+		<!--  permission permission-set-defence-task permission-edit-defence-task -->
+		<a class="current" data-type="data">
+			参数设置
+			<i></i>
+		</a>
+		<!--  permission permission-set-ganged-rule -->
+		<!-- <a class="ganged" data-type="ganged" >
+			联动规则
+			<i></i>
+		</a> -->
+	</span>
+	<div class="other-data">
+		<div id="manyData">  <!--class="{{#if isFace}}contain-protect{{/if}}"-->
+            {{#if isFace}}
+            <!--布防的title-->
+            <!-- <div class="rule-title-tab defence">
+                <em>布防参数设置</em>
+                <i class="icon_uparrow icon_downarrow"></i>
+            </div> -->
+            {{/if}}
+			<ul class="defence">
+			{{#FilterParam "region" this}}
+			<li>
+				<!--区域名称设置-->
+				<div class="li-item region" area-id="-1"> <em>区域名称设置:</em>
+					<div class="area_container">
+						<span class="text" data-domid=""></span>
+						<span class="arrow-down"></span>
+						<div class="pubdiv area-list">
+							<ul>
+								<li data-domid="none">暂无数据</li>
+							</ul>
+						</div>
+					</div>
+					<div class="ui input hidden">
+					    <input type="text" title="请填写新的区域名称（最多6个字）"  class="new-name" />
+					</div>
+					<input type="button" id="RuleRegionModify" class="ui button blue defence-text-input" value="修改" />
+				</div>
+			</li>
+            {{/FilterParam}}
+
+			{{#FilterParam "filter" this}}
+			<li>
+				<!--过滤器-->
+				<div class="li-item event-rect-filter">
+					<span class="top" data-rate="{{MinRectFilter}}">
+						<label>
+							<input type="checkbox" {{#CheckboxFilter EnableMinRectFilter}}checked="true"{{/CheckboxFilter}} name="EnableMinRectFilter" />
+						</label>
+						<em>最小物体（像素）:</em>
+						<div class="ui input">
+							<input class="filter-info" placeholder="宽" title="宽" name="minW" type="text" value="{{#FilterValue MinRectFilter 'Width'}}{{/FilterValue}}" />
+							<input class="filter-info" placeholder="高" title="高" name="minH" type="text" value="{{#FilterValue MinRectFilter 'Height'}}{{/FilterValue}}" />
+						</div>
+						<i id="RuleMinFilterModify" class="demarcate" title="标定"></i>
+						<!-- <input type="button" id="RuleMinFilterModify" class="ui button blue defence-text-input" value="标定" /> -->
+						<div class="filter_min_layout {{#CheckboxFilter EnableMinRectFilter}}hidden{{/CheckboxFilter}}"></div>
+					</span>
+					<span  data-rate="{{MaxRectFilter}}">
+						<label>
+							<input type="checkbox" {{#CheckboxFilter EnableMaxRectFilter}}checked="true"{{/CheckboxFilter}} name="EnableMaxRectFilter" />
+						</label>
+						<em>最大物体（像素）:</em>
+						<div class="ui input">
+							<input class="filter-info" placeholder="宽" title="宽" name="maxW" type="text" value="{{#FilterValue MaxRectFilter 'Width'}}{{/FilterValue}}" />
+							<input class="filter-info" placeholder="高" title="高" name="maxH" type="text" value="{{#FilterValue MaxRectFilter 'Height'}}{{/FilterValue}}" />
+						</div>
+						<i id="RuleMaxFilterModify" class="demarcate" title="标定"></i>
+						<!-- <input type="button" id="RuleMaxFilterModify" class="ui button blue defence-text-input" value="标定" /> -->
+						<div class="filter_max_layout {{#CheckboxFilter EnableMaxRectFilter}}hidden{{/CheckboxFilter}}"></div>
+					</span>
+				</div>
+			</li>
+			{{/FilterParam}}
+
+	        {{#FilterParam "alarmTime" this}}
+			<li>
+				<!--告警时间-->
+				<div class="ui input li-item event-alarm-time">
+					<em>告警时间(秒):</em>
+					<!-- <input type="text" name="wDuration" value="{{wDuration}}" /> -->
+                    <div class="speedSlider"></div>
+                    <img class="ruler" src="/module/protection-monitor/defencesetting/images/defaultSlider.png"/>
+				</div>
+			</li>
+			{{/FilterParam}}
+
+	        {{#FilterParam "fDensity" this}}
+			<li>
+				<!--人群密度-->
+				<div class="ui input li-item people-density">
+					<em>人群密度(0~1):</em>
+					<!-- <input type="text" name="fDensity" placeholder="0~1" value="{{fDensity}}" /> -->
+                    <div class="speedSlider1"></div>
+                    <img class="ruler1" src="/module/protection-monitor/defencesetting/images/slider1.png"/>
+				</div>
+			</li>
+			{{/FilterParam}}
+
+	        {{#FilterParam "nLPHeight" this}}
+			<li>
+				<!--车牌大小标定-->
+				<div class="li-item car-flag-set">
+					<em>车牌大小(像素):</em>
+					<div class="ui input">
+						<input class="car-flag-info" placeholder="宽" title="宽" name="carFlagW" type="text" value="{{nLPWidth}}" />
+						<input class="car-flag-info" placeholder="高" title="高" name="carFlagH" type="text" value="{{nLPHeight}}" />
+					</div>
+					<i id="CarFlagModify" class="demarcate" title="标定"></i>
+					<!-- <input type="button" id="CarFlagModify" class="ui button blue defence-text-input" value="标定" /> -->
+				</div>
+			</li>
+			{{/FilterParam}}
+
+	        {{#FilterParam "fSpeed" this}}
+			<li style="display: none;">
+				<!--触发报警速度-->
+				<div class="ui input li-item alarm-speed">
+					<em>触发报警速度(0~1):</em>
+					<input type="text" maxlength="4" name="alarmSpeed" value="{{fSpeed}}" />
+				</div>
+			</li>
+			{{/FilterParam}}
+
+	        {{#FilterParam "wSpeed" this}}
+			<li style="display: none;">
+				<!--打架速度-->
+				<div class="ui input li-item fight-speed">
+					<em>速度(1~100):</em>
+					<input type="text" name="fightSpeed" value="{{wSpeed}}" />
+				</div>
+			</li>
+            <li>
+                <div class="alarm-sensitivity li-item slider_bar">
+                    <em>灵&nbsp;敏&nbsp;度:&nbsp;</em>
+                    <span class="bar one {{select wSpeed 5}}" data-value="5">低</span>
+                    <span class="bar two {{select wSpeed 30}}"  data-value="30">中</span>
+                    <span class="bar three {{select wSpeed 80}}" data-value="80">高</span>
+                </div>
+            </li>
+			{{/FilterParam}}
+
+	        {{#FilterParam "wChaos" this}}
+			<li style="display:none">
+				<!--打架混乱度-->
+				<div class="ui input li-item fight-chaotic-rate">
+					<em>混乱度(1~100):</em>
+					<input type="text" name="fightChaoticRate" value="{{wChaos}}" />
+				</div>
+			</li>
+			{{/FilterParam}}
+
+            {{#FilterParam "streamSpeed" this}}
+            <li>
+                <!--人流、车流流速阈值-->
+                <div class="ui input li-item people-car-stream-rate">
+                    <em>{{#personORcar eventType}}{{/personORcar}}</em>
+                    <input type="text" name="streamSpeed" value="{{stream streamSpeed 100}}" />
+                </div>
+            </li>
+            {{/FilterParam}}
+
+	        {{#FilterParam "sensitivity" this}}
+			<li>
+				<!--灵敏度-->
+				<div class="alarm-sensitivity li-item slider_bar">
+					<em>灵&nbsp;敏&nbsp;度:&nbsp;</em>
+					<span class="bar one {{select Sensitivity 1}}" data-value="1">低</span>
+					<span class="bar two {{select Sensitivity 3}}"  data-value="3">中</span>
+					<span class="bar three {{select Sensitivity 5}}" data-value="5">高</span>
+				</div>
+			</li>
+			{{/FilterParam}}
+
+			<!-- {{#FilterParam "eventPicture"}}
+	        <li>
+                事件存图
+                <div class="event-picture-store">
+                    <span class="top">
+                        <input type="checkbox" {{#CheckboxFilter enable}}checked="true"{{/CheckboxFilter}} name="enable" />
+                        <em>服务器保存事件关联图片</em>
+                    </span>
+                    <span>
+                        <input type="checkbox" {{#CheckboxFilter enableOverlay}}checked="true"{{/CheckboxFilter}} name="enableOverlay" />
+                        <em>保存图片时叠加规则参数</em>
+                    </span>
+                </div>
+            </li>
+            {{/FilterParam}} -->
+
+			<li>
+                <!--任务等级，公共应用参数-->
+                <div class="li-item event-alarm-level slider_bar">
+                    <em>报警级别:</em>
+                    <span class="bar one {{FilterLevel severity 1}}" data-level="1">一般</span>
+					<span class="bar two {{FilterLevel severity 2}}"  data-level="2">重要</span>
+					<span class="bar three {{FilterLevel severity 3}}" data-level="3">严重</span>
+
+                    <!-- <div class="level_container">
+                        <span class="text" data-level="{{#FilterLevel severity 'num'}}{{/FilterLevel}}">{{#FilterLevel severity 'text'}}{{/FilterLevel}}</span>
+                        <span class="arrow-down"></span>
+                        <div class="pubdiv level-list">
+                            <ul>
+                                <li data-level="1">一般</li>
+                                <li data-level="2">重要</li>
+                                <li data-level="3">严重</li>
+                            </ul>
+                        </div>
+                    </div> -->
+                </div>
+			</li>
+            <li class="permission permission-set-ganged-rule">
+                <div class="li-item">
+                    <em>联动设定：</em>
+                    <button class="linkBtn">联动选择</button>
+                </div>
+
+            </li>
+			{{#FilterParam "time" this}}
+			<li>
+			<!--时间模板-->
+				<div class="rule-time-template"></div>
+			</li>
+			{{/FilterParam}}
+
+			</ul>
+
+            {{#if isFace}}
+            <!--布防的title-->
+            <!-- <div class="rule-title-tab protect">
+                <em>布控任务选择</em>
+                <i class="icon_uparrow"></i>
+            </div>
+            <ul class="protect hidden_normal">
+                <li>
+                    <div class="li-item add-protect">
+                        <i></i><a class="add">添加到已有的布控任务</a>
+                        <div class="pub-select-libs pubdiv">
+                            <ul>
+                                <div class="defence-loading"></div>
+                            </ul>
+                            <span class="select-operators">
+                                <input type="button" class="ui button blue defence-text-input" id="selectProtectSave" value="确定" />
+                                <input type="button" class="ui button cancel defence-text-input" id="selectProtectCancel" value="取消" />
+                            </span>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="protect-task-list">
+                        <ul>
+                            <div class="defence-loading"></div>
+                        </ul>
+                    </div>
+                </li>
+            </ul> -->
+            {{/if}}
+		</div>
+	</div>
+	<div class="other-ganged hidden_normal">
+	    <ul>
+			<li>
+				<span><input type="checkbox" class="checkinfo" data-type=1  {{checked linkOptions 1}} /></span>
+				<p>联动GIS地图显示</p>
+			</li>
+			<li class="hidden_normal">
+				<span><input type="checkbox" class="checkinfo" data-type=2 {{checked linkOptions 2}}/></span>
+				<p>向用户发送信息</p>
+			</li>
+		</ul>
+	</div>
+	<div id="time-tips"></div>
+</div>
+{{/if}}
+{{/if}}
+
+{{#if alreadyProtectList}}
+    {{#if data}}
+    {{#each data}}
+    <li>
+        <div class="protect-task-item">
+            <div class="item-title" data-id="{{id}}">
+                <em title="{{name}}">{{name}}</em>
+                <i class="icon_delete delete"></i>
+            </div>
+            <div class="item-content">
+                <div class="defence-loading"></div>
+            </div>
+        </div>
+    </li>
+    {{/each}}
+    {{else}}
+    <li class="style-text-info">当前摄像机暂未参与任何布控任务，请先添加到已有的布控任务！</li>
+    {{/if}}
+{{/if}}
+
+{{#if noSelectProtectList}}
+    {{#if data}}
+    {{#each data}}
+    <li class="noselect-lib-item" data-id="{{id}}">
+        <label>
+            <input type="checkbox" />
+        </label>
+        <em title="{{name}}">{{name}}</em>
+    </li>
+    {{/each}}
+    {{else}}
+    <li class="style-text-info">当前暂无布控任务！</li>
+    {{/if}}
+{{/if}}
+
+{{#if protectDetails}}
+<span class="item-details status">
+
+   <em>布控状态：</em><em>{{statusChange data.task.status 'status'}}</em>
+</span>
+<span class="item-details level">
+   <em>布控级别：</em><em>{{levelChange data.task.level 'level'}}</em>
+</span>
+<span class="item-details lib">
+   <em>布控库：</em>
+   <span>
+       {{#each data.libraries}}
+            {{#FilterControlDetail selected 'select'}}
+            <em data-id="{{id}}" title="{{libraryName}}">{{libraryName}}</em>
+            {{/FilterControlDetail}}
+       {{/each}}
+   </span>
+</span>
+<span class="item-details time">
+   <em>布控时间：{{timeChange data.task.startTime 'time'}} 至 {{timeChange data.task.endTime 'time'}}</em>
+</span>
+{{#each data.cameras}}
+<span class="item-details modify-rect">
+    <label>
+        <input type="checkbox" name="EnableFaceModify" />
+    </label>
+    <em>设置人脸布控区域:</em>
+    <input type="button" class="ui button blue defence-text-input" value="设置" />
+    <div class="cover_layout"></div>
+</span>
+<span class="item-details min-face">
+    <label>
+        <input type="checkbox" name="EnableMinFaceFilter" />
+    </label>
+    <em>最小人脸(px):</em>
+    <div class="ui input">
+        <input class="face-protect-info" placeholder="宽" title="宽" name="faceFlagW" type="text" value="{{minSize}}" />
+        <input class="face-protect-info" placeholder="高" title="高" name="faceFlagH" type="text" value="{{minSize}}" />
+    </div>
+    <input type="button" class="ui button blue defence-text-input" value="标定" />
+    <div class="cover_layout"></div>
+</span>
+<span class="item-details max-face">
+    <label>
+        <input type="checkbox" name="EnableMaxFaceFilter" />
+    </label>
+    <em>最大人脸(px):</em>
+    <div class="ui input">
+        <input class="face-protect-info" placeholder="宽" title="宽" name="faceFlagW" type="text" value="{{maxSize}}" />
+        <input class="face-protect-info" placeholder="高" title="高" name="faceFlagH" type="text" value="{{maxSize}}" />
+    </div>
+    <input type="button" class="ui button blue defence-text-input" value="标定" />
+    <div class="cover_layout"></div>
+</span>
+<span class="item-details save-protect">
+   <input class="ui button blue defence-text-input" type="button" value="保存">
+   <div class="cover_layout"></div>
+</span>
+{{/each}}
+{{/if}}
+
+<!-- 右上角眼睛的浮动层页面 -->
+{{#if contentRuleTypeList}}
+	<ul>
+		{{#each list}}
+			<li event-type="{{id}}" data-points="{{frontParam}}">
+				<i class="icon_selected {{#FilterSelected ../module id}}{{/FilterSelected}}"></i><a title="{{name}}">{{name}}</a>
+			</li>
+		{{/each}}
+	</ul>
+{{/if}}

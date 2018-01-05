@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=10,chrome=1"/>
+	<title>视云实战平台</title>
+	<!--[if lt IE 9]>
+	<script src="../../../libs/html5/html5.js"></script>
+	<![endif]-->
+	<!--[if IE]>
+	<script src="../../../libs/canvas/excanvas.js"></script>
+	<![endif]-->
+	<link type="text/css" rel="stylesheet" href="../../common/css/base.css" />
+	<link type="text/css" rel="stylesheet" href="../../../libs/semantic/semantic.css" />
+	<link type="text/css" rel="stylesheet" href="../../../libs/jquery/jquery-ui.css">
+	<link type="text/css" rel="stylesheet" href="../../../libs/semantic/collections/form.css" />
+	<link type="text/css" rel="stylesheet" href="../../../libs/jquery/jquery.pagination.css"/>
+	<link type="text/css" rel="stylesheet" href="../../common/tvwall/css/tvwall.css"/>
+	<link type="text/css" rel="stylesheet" href="../common/css/struct.css"/>
+	<link type="text/css" rel="stylesheet" href="../common/tool/tree.css"/>
+	<link rel="stylesheet" type="text/css" href="../common/css/table.css">
+	<link rel="stylesheet" type="text/css" href="./css/task-mgr.css">
+</head>
+<body>
+	<!-- // <script type="text/javascript" src="../../common/js/menu.js"></script> -->
+
+	<div id="content">
+		<div class="wrapper">
+			<aside id="sidebar">
+				<a id="sideResize">
+					<iframe src="about:blank"></iframe>
+					<span class="resize"></span>
+				</a>
+				<!--#include file="/module/settings/taskmgr/inc/settings-taskmgr-aside.html" -->
+			</aside>
+
+			<div id="major">
+
+				<div id="noData" class="main">
+
+				</div>
+
+				<!-- 分组详情 -->
+
+				<div id="detailsGroup" class="main"></div>
+
+				<!-- 新增分组管理 -->
+				<div id="createGroup" class="main"></div>
+
+				<!-- 编辑页面 -->
+				<div id="editGroup" class="main"></div>
+
+				<!-- 电视墙 -->
+
+				<div id="majorTv" class="main">
+					<div class="tvHeader">
+						<div class="tv-model">电视墙模板</div>
+						<div class="lytCon">
+							<a class="initLayout permission permission-set-tvwall-layout" title="设置默认布局">设置默认布局</a>
+							<a class="addLayout permission permission-set-tvwall-layout" title="保存布局">保存布局</a>
+							<a class="autoLayout permission permission-set-tvwall-layout" title="自动排版">自动排版</a>
+							<div id="aChnl"></div>
+						</div>
+					</div>
+					<!-- <div class="form-panel">
+					-->
+					<div class="model-content" id="lypan">
+
+						<div class="tvLyt viewport">
+							<div class="overview">
+								<ul>
+									<li class="permission permission-set-tvwall-layout">
+										<div class="lyt addrr" title="删除">
+											<a class="lytst" title="添加布局"></a>
+										</div>
+									</li>
+								</ul>
+							</div>
+
+						</div>
+
+						<div class="scrollbar disable">
+							<div class="track">
+								<div class="thumb"></div>
+							</div>
+						</div>
+
+					</div>
+
+					<div class="model-content" id="lyLishow">
+						<div class="scrollbar disable">
+							<div class="track">
+								<div class="thumb"></div>
+							</div>
+						</div>
+						<div class="tvList viewport">
+							<div class="overview">
+								<ul></ul>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<div id="syncSetting" class="main">
+					<div class="sync-bread breadcrumb">本部</div>
+					<div class="sync-title">数据同步计划</div>
+					<div class="sync-content">
+						<span class="switch-panel">
+						<i class="switch on"></i>
+						启动自动同步计划
+						</span>
+						每<select id="frequence">
+							<option value="0">天</option>
+							<option value="2">星期一</option>
+							<option value="3">星期二</option>
+							<option value="4">星期三</option>
+							<option value="5">星期四</option>
+							<option value="6">星期五</option>
+							<option value="7">星期六</option>
+							<option value="1">星期日</option>
+						</select>
+						<input id="sId" type="hidden" />
+						<input id="syncTime" class="input-time" type="text"  placeholder="请选择时间"/>
+						自动执行数据同步
+						<button id="savePlan" class="ui button blue" type="button">保存计划</button>
+
+					</div>
+
+
+				</div>
+
+
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="/libs/requirejs/require.js" data-main="/module/settings/taskmgr/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<div class="enterlib-container">
+    <div class="resource-container"></div>
+    <div class="enterlib-form">
+        <form id="resForm" autocomplete="off" class="">
+            <div class="title">
+                <h3>基本信息</h3>
+            </div>
+            <div class="form-content js-form-content">
+                <div class="input-list-item">
+                    <span>视图名称：</span>
+                    <input type="text" name="resource_name" value=""   class="input-text" maxlength="30"/>
+                    <span class="sign">*</span>
+                </div>
+                <div class="input-list-item">
+                    <span>文件格式：</span>
+                    <input  type="text" name="std_file_format" readonly="readonly" value="" class="input-text"/>
+                    <select class="city-selector file-format-show"  name="std_file_format_sel">
+                        <option value="MBF">MBF</option>
+                        <option value="MPG">MPG</option>
+                        <option value="MOV">MOV</option>
+                        <option value="AVI">AVI</option>
+                        <option value="RM">RM</option>
+                        <option value="RMVB">RMVB</option>
+                        <option value="XVID">XVID</option>
+                        <option value="VOB">VOB</option>
+                        <option value="M2TS">M2TS</option>
+                        <option value="MP4">MP4</option>
+                        <option value="其他">其他</option>
+                    </select>
+                </div>
+                <div class="input-list-item time">
+                    <span>拍摄日期：</span>
+                    <input type="text" name="shoot_time" value="" class="input-text"  placeholder="请选择拍摄时间" readonly/>
+                    <span class="sign">*</span>
+                </div>
+                <div class="input-list-item address js-ctm">
+                    <span>拍摄地点：</span>
+                    <div class="city-selector">
+                        <select name="ctm_province" class="province" ></select><span class="sign">*</span>
+                        <select name="ctm_city" value=""  class="city"></select><span class="sign">*</span>
+                        <select  class="area" name="ctm_country" ></select>
+                        <input type="text" name="ctm_streets" class="form-input input-text" placeholder="详细地址..." maxlength="50"/><span class="sign"></span>
+                    </div>
+                </div>
+                <div class="input-list-item descript">
+                    <span>描述：</span>
+                    <textarea name="resource_description" placeholder="请输入描述..." maxlength="150"></textarea><span class="sign"></span>
+                </div>
+                <div class="input-list-item" style="display:none;">
+                    <span>关联案事件：</span>
+                    <input type="text" class="input-text" name="event_name" placeholder="请输入案件编号或名称" value=""/>
+                    <span class="check">校验</span>
+                </div>
+                <div class="enterlib-btn">
+                    <button class="upload js-save" data-type="new" type="button">入库</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

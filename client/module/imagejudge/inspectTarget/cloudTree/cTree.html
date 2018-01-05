@@ -1,0 +1,61 @@
+{{#if c_body}}
+<div class="select_file cloud-panel">
+        <div class="select_file_title">
+            <h6>选择资源</h6>
+            <a href="javascript:void(0)" title="关闭" class="icon_close close-select-panel"></a>
+        </div>
+        <div class="tab" style="display:none;">
+            <span class="tabselect tab1 active permission permission-import" data-type="1">云空间</span><span class="tabselect tab2" data-type="2">视图库</span>
+        </div>
+
+        <div class="select_file_type">
+            <span class="title">资源类型：</span>
+        	<span class='select_file_all active' data-cat='all'><!-- <i class="img_file"> --></i>全部</span>
+        	<span class='select_file_inc' data-cat='folder'><!-- <i class="img_event"> --></i>案事件</span>
+        	<span class='select_file_video' data-cat='video'><!-- <i class="img_video"> --></i>视频</span>
+        </div>
+        <div class="select_file_body">
+            <div id="cloudTree" class="scrollbarPanel">
+                <div class="scrollbar"><div class="track"><div class="thumb"><div class="end"></div></div></div></div>
+                <div class="viewport">
+                    <div class="overview">
+                        <div id="cloudTreePanel" class="treePanel"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="select_file_foot">
+            <input type="checkbox" id="checkAll" style='display:none'/><label style='display:none' for="checkAll" id="checkLabel">全选</label>
+            <a href="javascript:void(0)" title="确定" class="ui button small blue select">确定</a>
+            <a href="javascript:void(0)"  title="取消" class="ui button small cancel">取消</a>
+        </div>
+    </div>
+    <div class="layer cloud-panel-mask"></div>
+{{/if}}
+
+
+{{#if c_list}}
+{{#with c_list}}
+	<ul>
+
+		{{#each records}}
+			<li data-tree-level="{{../level}}" class="{{isFold fileType}}" data-type="{{isFold fileType}}"
+
+			data-id="{{id}}" data-name="{{fileName}}"
+
+			data-filetype="{{fileType}}">
+
+			{{#if ../selectable}}<i class="checkbox {{ ../../checkType }} {{ ../../selected }}"></i>{{/if}}
+
+				{{#isTree fileType}}<i class="fold"></i>{{/isTree}}
+
+				<i class="{{isFold fileType}} {{#eq fileType 0}}file0{{else}}file{{../fileType}}{{/eq}}"></i>
+
+				<span class="name" title="{{fileName}} ">{{fileName}} <a href="javascript:void(0);" title="删除" class="icon_delete"></a>
+					</span>
+
+			</li>
+		{{/each}}
+	</ul>
+{{/with}}
+{{/if}}

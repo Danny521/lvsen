@@ -1,0 +1,27 @@
+{{#if normal}}
+<div class="pubdiv leave">
+    <ul>
+        <li data-id="">全部</li>
+        {{#each normal.data}}
+        <li data-id="{{id}}" title="{{name}}">{{name}}</li>
+        {{/each}}
+    </ul>
+</div>
+{{/if}}
+
+{{#if multiSelect}}
+<div class="pubdiv leave">
+        <div class="first">
+            <a class="allcheck" href="javascript:void(0)"></a><em>全选</em>
+            <a class="allclear" href="javascript:void(0)">清空</a>
+            <a href="javascript:void(0)" class="close" title="完成">完成</a>
+        </div>
+        <ul>
+            {{#each multiSelect.data}}
+            <li  data-id="{{id}}">
+                <i class="checkbox"></i><em title="{{name}}">{{name}}</em>
+            </li>
+            {{/each}}
+        </ul>
+</div>
+{{/if}}

@@ -1,0 +1,57 @@
+<ul  onselectstart="return false;">
+	{{#if init}}
+		{{#each cameras}}   
+				<li class="{{typeNameTransform type}} {{#isTree type}}root{{/isTree}} {{hasNoRight score}}" data-camerascore="{{score}}"  data-tree-level="{{../level}}" data-type="{{typeNameTransform type}}" data-sync="{{isSynced}}" data-lat="{{latitude}}" data-lon="{{longitude}}" data-angle="{{angle}}" data-code="{{cameraCode}}" data-zoom="{{zoom}}" data-id="{{id}}"  data-name="{{name}}" >{{#if ../selectable}}<i class="checkbox {{ ../../selected }}"></i>{{/if}}{{#isTree type}}<i class="fold"></i>{{/isTree}}<i class="root"></i>
+					<span class="name" title="{{name}}">{{name}}</span>
+                    <!--根节点-->
+					<span class='statistics'>
+						<span class="use">[</span>
+						<span class='online-statistic'>
+							<!--<span class='online-text'></span>-->
+							<span class='online-count'>0</span>
+						 </span>
+						 <span class='all-statistic'>
+							<span class='slash'>/</span>
+							<!--<span class='all-text'></span>-->
+							<span class='all-count'>0</span>
+						  </span>
+						  <span class='offline-statistic'>
+							<!--<span class='offline-text'></span>-->
+							<span class='offline-count'>0</span>
+						  </span>
+						  <span class="use">]</span>
+					</span>
+
+				</li>
+		{{/each}}
+	{{else}}
+		{{#each cameras}}
+			<li class="{{typeNameTransform type}} {{hasNoRight score}}" data-camerascore="{{score}}" data-camera="{{camera_type}}" data-id="{{id}}"  data-name="{{name}}" data-tree-level="{{../level}}"  data-sync="{{isSynced}}" data-lat="{{latitude}}" data-lon="{{longitude}}" data-angle="{{angle}}" data-code="{{cameraCode}}" data-zoom="{{zoom}}" data-type="{{typeNameTransform type}}">
+				{{#if ../selectable}}<i class="checkbox {{ ../../selected }}"></i>
+				{{/if}}{{#isTree type}}<i class="fold"></i>
+				{{/isTree}}<i class="{{typeNameTransform type}} camera-style {{#eq camera_type 1}}dom{{/eq}} {{isMarked latitude longitude camera_type}}"></i>
+				<span class="name widthAuto" title="{{name}}">{{name}}{{isGroup type cameraCode}}</span>
+				<!--非根节点-->
+				{{#isTree type}}
+				<span class='statistics'>
+					<span class="use">[</span>
+					<span class='online-statistic'>
+					    <!--<span class='online-text'></span>-->
+					    <span class='online-count'>0</span>
+				     </span>
+					 <span class='all-statistic'>
+						<span class='slash'>/</span>
+						<!--<span class='all-text'></span>-->
+						<span class='all-count'>0</span>
+					  </span>
+					  <span class='offline-statistic'>
+						<!--<span class='offline-text'></span>-->
+						<span class='offline-count'>0</span>
+					  </span>
+					  <span class="use">]</span>
+				</span>
+				{{/isTree}}
+			</li>
+    {{/each}}
+	{{/if}}
+</ul>

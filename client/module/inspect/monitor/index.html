@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=10,chrome=1"/>
+	<title>视云实战平台</title>
+	<!--[if lt IE 9]>
+	<script src="../../../libs/html5.js"></script>
+	<![endif]-->
+	<link type="image/x-icon" rel="shortcut icon" href="../../../favicon.ico" />
+	<link type="text/css" rel="stylesheet" href="../../common/css/base.css" />
+	<link type="text/css" rel="stylesheet" href="../../../libs/semantic/semantic.css" />
+	<link type="text/css" rel="stylesheet" href="../../../libs/jquery/jquery-ui.css">
+	<link type="text/css" rel="stylesheet" href="../../../libs/jquery/jquery.datetimepicker.css">
+	<link type="text/css" rel="stylesheet" href="../../../libs/thickbox/thickbox.css">
+	<link type="text/css" rel="stylesheet" href="../../../libs/jquery/jcarousel-default.css">
+	<link type="text/css" rel="stylesheet" href="../common/css/inspect.css" />
+	<link type="text/css" rel="stylesheet" href="/module/common/tree/tree.css"/>
+	<link type="text/css" rel="stylesheet" href="/module/inspect/common/css/simple-camera-tree.css"/>
+	<link type="text/css" rel="stylesheet" href="./css/index.css"/>
+	<link type="text/css" rel="stylesheet" href="../../common/ptz/control.css"/>
+	<link type="text/css" rel="stylesheet" href="./css/joint.css" />
+	<link type="text/css" rel="stylesheet" href="../../../libs/jquery/jquery.pagination.css"/>
+	<link type="text/css" rel="stylesheet" href="../common/css/tvwall.css">
+	<link type="text/css" rel="stylesheet" href="../common/css/tvwallInsert.css">
+	<link type="text/css" rel="stylesheet" href="../../../libs/spectrum/spectrum.css">
+	<link type="text/css" rel="stylesheet" href="../common/css/filterDef.css">
+    <link href="/module/common/popLayer/css/details.css" rel="stylesheet" type="text/css" />
+    <link type="text/css" rel="stylesheet" href="../download-cloud/css/record-download.css"/>
+	<link type="text/css" rel="stylesheet" href="../download-cloud/css/incident.css"/>
+	<link type="text/css" rel="stylesheet" href="/module/framemark/css/frame-mark.css">
+	<link type="text/css" rel="stylesheet" href="/module/framemark/css/monitor-mark.css">
+	<link type="text/css" rel="stylesheet" href="/module/framemark/css/timeline.css">
+	<link type="text/css" rel="stylesheet" href="/module/ptz-controller/mark.css" />
+</head>
+<body injectocx="true">
+<div id="content" class="monitor-content">
+	<div class="wrapper">
+		<aside id="sidebar">
+			<a id="sideResize">
+				<iframe src="about:blank"></iframe>
+				<span>调整宽度</span>
+			</a>
+
+			<div id="sidebar-head">
+				<ul class="menus ui tabular">
+					<li class="camera active" data-tab="cameras" data-tabor="video-res">
+						<a class="nav search-use-for-bind-event" id="camerasType" data-type="org">
+							<span>视频资源</span>
+						</a>
+					</li>
+					<li class="patrol permission permission-inspect-group" data-tab="patrol" data-tabor="monitor-inspect">
+						<a class="nav search-use-for-bind-event" title="监巡分组"><span>监巡分组</span></a>
+					</li>
+					<li class="label-manage permission permission-marker-management" title="标记管理" data-tab="label-manage" data-tabor="label-manage">
+						<a class="nav search-use-for-bind-event" title="标记管理"><span>标记管理</span></a>
+					</li>
+				</ul>
+				<div class="loop-header">
+					<span class="loop-title">
+						正在轮巡...
+						<span class="loop-time"></span>
+					</span>
+				</div>
+			</div>
+
+			<div id="sidebar-body">
+				<div class="ui tab active" style="display:none;">
+					<div class="form-panel">
+						<div class="ui tab active filter" data-tab="cameras">
+							<form onsubmit="return false;" autoComplete="off">
+								<div class="ui input action search">
+									<input type="text" name="q" placeholder="全局搜索..."/>
+									<button class="search action">搜索</button>
+								</div>
+							</form>
+							<div id="definition">
+								<a href="#" title="高标清选择"></a>
+								<ul class="ul-definition">
+									<li><input type="checkbox" value="0" checked="checked" class="sel-def sd" id="sd"><label for="sd">标清</label></li>
+									<li><input type="checkbox" value="1" checked="checked" class="sel-def hd" id="hd"><label for="hd">高清</label></li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="ui tab active" data-tab="patrol">
+							<!--置空-->
+						</div>
+
+						<div class="ui tab inspect" data-tab="inspect">
+							<form onsubmit="return false;" autoComplete="off">
+								<div class="group">
+									<div class="ui input">
+										<label for="interval">时间间隔：</label>
+										<input type="text" name="interval" id="interval" placeholder="单位:秒" />
+									</div>
+								</div>
+								<div class="group">
+									<div class="ui input tiny">
+										<label for="interval">开始时间：</label>
+										<input type="text" class="interval-time input-time" placeholder="开始时间..." value="" />
+									</div>
+									<div class="ui input tiny">
+										<label for="interval">结束时间：</label>
+										<input type="text" class="interval-time input-time" placeholder="结束时间..." value=""/>
+									</div>
+								</div>
+								<div class="buttons left">
+									<button class="ui button blue" id="startInspector">启动轮巡</button>
+									<button class="ui button" id="cancelInspector">取消</button>
+								</div>
+							</form>
+							<div class="ui tab customize" data-tab="customize">
+								<form id="customizeForm" onsubmit="return false;" autoComplete="off">
+									<div class="group">
+										<div class="ui input small">
+
+											<label for="name">分组名称：</label>
+											<input type="text" name="name" placeholder="输入组名" maxlength="15"/>
+
+										</div>
+									</div>
+									<div class="buttons left">
+										<input type="submit" class="ui button blue" value="确定" />
+										<input type="reset" class="ui button" value="取消" id="cancelGroup" />
+									</div>
+								</form>
+							</div>
+						</div>
+
+						<div id="camerasPanel" data-type="cameras">
+							<div class="treeMenu"></div>
+							<div class="patrol"></div>
+								<!-- </div>
+							</div> -->
+						</div>
+					</div>
+
+			</div>
+
+			<!-- 视频资源 start -->
+				<div data-tabor="video-res">
+					<div class="search-camera sheader">
+						<form onsubmit="return false;" autocomplete="off">
+							<div class="org-res-filter">
+								<span data-orgid="" title="筛选组织...">筛选组织...</span>
+								<a class="expand expand2" data-type="org-edit" style="padding-top: 28px; margin-left: 0px;"></a> 
+								<a class="close" title="清除" data-type="org-close"></a> 
+							</div>
+							<div class="select-org-Panel">
+								<ul>
+
+								</ul>
+							</div>
+							<div class="ui input action search">
+								<input type="text" name="q" placeholder="全局搜索..." class="tree-search-camera">
+								<button class="search action">搜索</button>
+							</div>
+						</form>
+					</div>
+					<div class="video-resource-type">
+						<span class="all-resource" data-type="org" data-tabor="video-res">全部资源</span><span class="my-own-group" data-type="customize" data-tabor="my-group">我的分组</span>
+					</div>
+
+					<div class="tree-panel sbody loading">
+
+					</div>
+				</div>
+				<!-- 视频资源 end -->
+
+				<!-- 我的分组 start -->
+				<div data-tabor="my-group">
+					<div class="search-camera sheader">
+						<form onsubmit="return false;" autocomplete="off">
+							<div class="org-my-group-filter">
+								<span data-orgid="" title="筛选组织...">筛选组织...</span>
+								<a class="expand expand2" title="编辑" data-type="customize-edit" style="padding-top: 28px; margin-left: 0px;"></a> 
+								<a class="close" title="清除" data-type="customize-close"></a>
+							</div>
+							<div class="select-customize-Panel">
+								<ul>
+
+								</ul>
+							</div>
+							<div class="ui input action search">
+								<input type="text" name="q" placeholder="全局搜索..." class="tree-search-camera">
+								<button class="search action">搜索</button>
+							</div>
+						</form>
+					</div>
+					<div class="video-resource-type">
+						    <span class="all-resource" data-type="org" data-tabor="video-res">全部资源</span><span class="my-own-group" data-type="customize" data-tabor="my-group">我的分组</span>
+					</div>
+					<div class="video-resource-detail">
+						    <span class="group-total">共</span><span class="group-total-num">0</span><span class="group-total-num-num">个分组</span>
+						    <span class="add-group">
+						    <i title="新增分组" data-tabor="new-group" id="new-group"></i>新增分组</span>
+					</div>
+					<div class="tree-panel sbody">
+
+					</div>
+				</div>
+				<!-- 我的分组 end -->
+				<!-- addby wujingwen  zhushi -->
+				<!-- 监巡分组 start -->
+				<div data-tabor="monitor-inspect">
+					<div class="init-create">
+						<span class="no-data"></span>
+						<input type="button" class=" ui button blue creater" value="新建"></input>
+					</div>
+					<div class="grade sheader">
+						<label class="icon-joint">优先模式 :</label>
+						<input type="radio" class="radio-btn" name="pattern" id="level" value="1" checked="true">
+						<label for="level" class="icon-joint">等级</label>
+						<input type="radio" class="radio-btn" name="pattern" id="group" value="3">
+						<label for="group" class="icon-joint">分组</label>
+						<div class="operation">
+							<span class="start" title="启动" id="start"></span>
+							<span class="stop" title="停止" id="stop"></span>
+						</div>
+					</div>
+					<div class="groups sbody">
+
+					</div>
+				</div>
+				<!-- 监巡分组 end -->
+				<!-- 新建监巡分组 start -->
+				<div data-tabor="inspect-create">
+					<div class="sheader">
+						<div class="opera-panel">
+							<a class="back back-home">
+								<i class="home-ico inspect-list"></i>
+								<i class="home-arrow"></i>
+								<span class="titie-text" >新建监巡分组</span>
+							</a>
+							<a  class="ui button blue save-modlayout small-head-btn addsubmitbtn">保存</a>
+						</div>
+					</div>
+					<div class ="initcreate" >
+						<form class="addinspectsubmitbtn" onsubmit="return false;" autoComplete="off">
+							<p>
+								<label class="item-title">监巡名称：</label>
+								<input type="text" placeholder="请输入监巡分组名称" maxlength="30" name="groupName" class="addgroupName"/>
+							</p>
+							<p class = "inputRe">
+								<label class="item-title">停留时间：</label>
+								<input type="text"  name="stopTime" class="addstopTime" value="10" placeholder="单位：秒"/>
+								<span class="inu inup"></span>
+								<span class="ind indown"></span>
+								<span class="bgView">( 10秒以上 )</span>
+							</p>
+							<!-- 模版容器框 -->
+							<div class="sbody group">
+								<ul class="itemwrapper">
+								</ul>
+							</div>
+							<div class="newTimeOb">
+								<p>
+									<label class="">监巡时段：</label>
+									<span class="begintime time-group time-input-ctrll"></span>-<span class="endtime time-group time-input-ctrll"></span>
+								</p>
+								<!-- <p>
+									<label>启 动 时 间：</label>
+									<input type="text" name="startTime" class="addstartTime"/>
+								</p>
+								<p>
+									<label>结 束 时 间：</label>
+									<input type="text" name="endTime" class="addendTime"/>
+								</p> -->
+								<p>
+									<label class="">监巡等级：</label>
+									<span class="levelSpan">
+									<select name="level" class="addlevel">
+										<option value="1">1(最高)</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+										<option value="4">4</option>
+										<option value="5">5</option>
+									</select>
+									</span>
+								</p>
+								<div class="create-button">
+									<span class="ui button blue createbutton firmbtn">确定</span>
+									<span class="ui button blue createbutton cancelbtn">取消</span>
+								</div>
+
+							</div>
+							<div class="newTime">
+								+添加时段
+							</div>
+							<div class="layoutNum" > 布局选择：
+								<i class="layout split1 " data-layout="1"  title="1分屏"></i>
+								<i class="layout split4 " data-layout="4"  title="4分屏"></i>
+								<i class="layout split9 " data-layout="9"  title="9分屏"></i>
+								<i class="layout split16 " data-layout="16"   title="16分屏"></i>
+							</div>
+							<div class="">
+								<span>监巡摄像机:</span>
+								<span class="ui button blue addcamera">添加</span>
+							</div>
+							<div class = "cameraslist " style="margin-top:24px">
+								<ul class = "result">
+								</ul>
+							</div>
+							<input type="reset" id="resetInput"  style="display:none"/>
+						</form>
+					</div>
+				</div>
+				<!--  新建监巡分组 end-->
+
+				<!-- 标记管理 start -->
+				<div data-tabor="label-manage" class="label-manage">
+					<div class="mark-search">
+						<div class="ui input action search">
+							<input type="text" name="q" placeholder="请输入关键字..."  id="framesearchText"/>
+							<button class="search action">搜索</button>
+						</div>
+						<label for="expandSearch" style="margin-left:5px;">高级</label>
+						<span id="expandSearch" class="expand expand2"></span>
+					</div>
+
+					<div id="framePanel">
+						<ul>
+							<li>
+								<span class="titleText">开始时间：</span>
+								<span class="content">
+									<input id="beginTime" class="time input-time"/>
+									<span class="color"></span>
+								</span>
+							</li>
+							<li>
+								<span class="titleText">结束时间：</span>
+								<span class="content">
+									<input id="endTime"  class="time  input-time"/>
+									<span class="color"></span>
+								</span>
+							</li>
+							<li>
+								<span class="titleText">标记名称：</span>
+								<span class="content">
+								   <input id="name" class="text"/>
+								</span>
+							</li>
+							<li>
+								<span class="titleText">标记级别：</span>
+								<span class="levels"><span class="checkbox color1" level="0"></span>
+								<span class="checkbox color2" level="1"></span>
+								<span class="checkbox color3" level="2"></span>
+								<span class="checkbox color4" level="3"></span>
+								<span class="checkbox color5" level="4"></span>
+							</li>
+							<li>
+								<span class="titleText">摄像机名称：</span>
+								<span class="content">
+									<input id="cameraName" class="text"/>
+								</span>
+							</li>
+							<!-- <li>
+								<span class="titleText">摄像机编号：</span>
+								<span class="content">
+									<input id="cameraCode" class="text"/>
+								</span>
+							</li> -->
+							<li>
+								<span class="titleText">创建人：</span>
+								<span class="content">
+									<input id="userName" class="text"/>
+								</span>
+							</li>
+							<!-- <li>
+								<span class="titleText">标记描述：</span>
+								<span class="content">
+									<input id="description" class="text"/>
+								</span>
+							</li> -->
+						</ul>
+						<div class="searchok">
+							<button class="ui button blue" id="searchdo" type="button">搜索</button>
+							<button class="ui  button" id="searchcancel" type="button">重置</button>
+						</div>
+					</div>
+
+					<div class="ShowframeName">
+						<div class="mark-checkbox">
+							<input id="onlySelf" type="checkbox"/> <label for="onlySelf">仅显示自己创建的帧标记</label>
+						</div>
+						<div class="frame-mark-names">
+							<!--
+							<div class="mark">
+								<span class="name">打架骂人(3302)</span>
+								<span class="arrow"><img src="/assets/images/inspect/mark-arrow.png"></span>
+							</div>
+							-->
+						</div>
+					</div>
+				</div>
+				<!-- 标记管理-添加摄像机到监巡分组 end -->
+				<!-- 轮巡 start -->
+				<div data-tabor="circle-inspect">
+					<div class="set-time sheader">
+						<form onsubmit="return false;" autocomplete="off">
+							<div class="group">
+								<div class="ui input">
+									<label for="interval">时间间隔：</label>
+									<input type="text" name="interval" id="interval" placeholder="单位:秒">
+								</div>
+							</div>
+							<div class="group">
+								<div class="ui input tiny">
+									<label for="interval">开始时间：</label>
+									<input type="text" class="interval-time input-time" placeholder="开始时间..." value="">
+								</div>
+								<div class="ui input tiny">
+									<label for="interval">结束时间：</label>
+									<input type="text" class="interval-time input-time" placeholder="结束时间..." value="">
+								</div>
+							</div>
+							<div class="buttons left">
+								<button class="ui button blue" id="startInspector">启动轮巡</button>
+								<button class="ui button" id="cancelInspector">取消</button>
+							</div>
+						</form>
+					</div>
+					<div class="tree-panel sbody">
+
+					</div>
+				</div>
+				<!-- 轮巡 end -->
+
+				<!-- 新增分组 start -->
+				<div data-tabor="new-group">
+					<div class="set-name sheader">
+						<div class="opera-panel">
+							<a class="back back-home">
+								<i class="home-ico mygroups-list"></i>
+								<i class="home-arrow"></i>
+								<span class="titie-text">新建分组</span>
+							</a>
+							<a class="ui button blue save-new-group small-head-btn">保存</a>
+						</div>
+						<!-- <form id="customizeForm" onsubmit="return false;" autocomplete="off">
+							<div class="group">
+								<div class="ui input small">
+									<label for="name">分组名称：</label>
+									<input type="text" name="name" placeholder="输入组名" maxlength="15">
+								</div>
+							</div>
+							<div class="buttons left">
+								<input type="submit" class="ui button blue" value="确定">
+								<input type="reset" class="ui button" value="取消" id="cancelGroup">
+							</div>
+						</form> -->
+					</div>
+					<div class="sbody">
+						<div class="second-header">
+							<div class="ui input small">
+							<form onsubmit="return false;" action="" class="new-group-submit">
+								<label for="name">分组名称：</label>
+								<input type="text" name="name" placeholder="请输入组名" maxlength="15">
+							</form>
+							</div>
+							<div class="words">请选择摄像机加入分组中:</div>
+						</div>
+						<div class="tree-panel">
+
+						</div>
+					</div>
+				</div>
+				<!-- 新增分组 end -->
+		</div>
+		</aside>
+
+
+	<div id="major">
+		<!-- 这个容器<div id="major">中的只有2个子容器，分别都添加了data-tabor属性 -->
+		<div id="npplay" data-tabor="un-label-manage">
+			<div class="header">
+				<h3 class="title">监控画面</h3>
+				<div class="ui atached menu">
+					<a class="item"> <i class="icon gpu startGPU" title="开启GPU硬解"></i>
+					</a>
+					<a class="item" style="margin-left:0;">
+						<button class="ui button tiny sync" style="margin-top: -6px;display:none;">同步</button>
+					</a>
+					<a class="item permission permission-inspect-group"> <i class="icon inspect" title="添加至监巡"></i>
+					</a>
+					<a class="item" target="screen">
+						<i class="icon sendto" title="发送到扩展屏"></i>
+					</a>
+					<a class="item">
+						<i class="icon fullscreen" title="全屏"></i>
+					</a>
+					<a class="item dropdown">
+						<i class="icon split" title="4分屏"></i>
+					</a>
+					<a class="item">
+						<i class="icon close" title="关闭全部"></i>
+					</a>
+				</div>
+				<div class="function-container">
+					<iframe src="about:blank" class="function-panel" src="about:blank" scrolling="no" border=0 frameborder=0 height="0"></iframe>
+					<div id="selectPanel">
+						<div class="split-panel">
+							<i class="layout split1" data-layout="1" title="1分屏"></i>
+							<i class="layout split4 permission permission-four-channel permission-nine-channel permission-sixteen-channel" data-layout="4" title="4分屏"></i>
+							<i class="layout split9 permission permission-nine-channel permission-sixteen-channel" data-layout="9" title="9分屏"></i>
+							<i class="layout split16 permission permission-sixteen-channel" data-layout="16" title="16分屏"></i>
+						</div>
+
+						<div class="add-inspect">
+							<form id="addinspectsubmitbtn" onsubmit="return false;" autoComplete="off">
+								<p>
+									<label>监 巡 名 称：</label>
+									<input type="text" name="groupName" id="addgroupName"/>
+								</p>
+								<p>
+									<label>启 动 时 间：</label>
+									<input type="text" name="startTime" id="addstartTime"/>
+								</p>
+								<p>
+									<label>结 束 时 间：</label>
+									<input type="text" name="endTime" id="addendTime"/>
+								</p>
+								<p>
+									<label>监 巡 等 级：</label>
+									<select name="level" id="addlevel">
+										<option value="1">1(最高)</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+										<option value="4">4</option>
+										<option value="5">5</option>
+									</select>
+								</p>
+								<p>
+									<label>停 留 时 间：</label>
+									<input type="text" name="stopTime" id="addstopTime" placeholder="单位：秒"/>
+								</p>
+								<p class="clearfix">
+									<span>
+										<a id="addsubmitbtn">确定</a>
+										<a id="addcancelbtn">取消</a>
+									</span>
+								</p>
+								<input id="resetInspectInfo" type="reset" value="重置" style="display:none"/>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="body">
+				<div class="screen" data-isMaximize="0">
+
+					<div id="videoControl" class="video-control">
+						<iframe id="upBlock" class="up-block" src="about:blank" scrolling="no" border=0 frameborder=0 height="40"></iframe>
+						<div id="upBlockContent">
+							<span class="video-title"></span>
+							<span id="streamMonitor"></span>
+							<span class="tools-up">
+								<i class="gpu startGPU" title="开启GPU硬解"></i>
+								<i class="location-play" title="地图定位播放"></i>
+								<i class="ptz-control permission permission-ptz-control" title="云台预置位巡航"></i>
+								<i class="color-adjust" title="色彩调节"></i>
+								<i class="frame-mark" title="帧标记"></i>
+								<i class="grab" title="抓图" id="printScreen"></i>
+								<i class="ratio" title="画面比例"></i>
+								<i class="zoom" title="放大"></i>
+								<i class="share" title="发送到"></i>
+								<i class="multi permission permission-ptz-engross permission-ptz-lock" title="多功能"></i>
+								<i class="close" title="关闭"></i>
+							</span>
+							<!-- <i class="flag"></i>-->
+						</div>
+						<iframe id="downBlock" class="down-block" src="about:blank" scrolling="no" border=0 frameborder=0 ></iframe>
+						<div id="downBlockContent">
+							<span class="video-type">
+								<i class="real active permission permission-real-time-view" title="实时">实时</i>
+								<i class="record permission permission-view-history" title="历史" target="historyProxy" href="javascript:void(0)">历史</i>
+							</span>
+							<span class="alarm">
+								<i class="manual-alarm">手动报警</i>
+							</span>
+							<span class="times-play" title="倍速">x1</span>
+							<span class="video-btn">
+								<i class="slow-play" title="慢放"></i>
+								<i class="toggle toggle-pause" title="暂停/播放"></i>
+								<i class="single-frame" title="单帧播放"></i>
+								<i class="quick-play" title="快放"></i>
+							</span>
+							<span class="videoProgress">
+								<span class="played">&nbsp;</span>
+								<div class="frameMarkcontent"></div>
+								<img class="ctrlbar" src="/module/common/images/icons/ctrlbar.png"/>
+							</span>
+							<!--<span class="ctrlbar"></span>-->
+							<span class="tools-dwon">
+								<i class="history-record" title="历史调阅"></i>
+								<i class="lockunlock lock-channel" title="锁定/解锁"></i>
+								<i class="local-video" title="启动服务器录像"></i>
+								<i class="add-preset-point permission permission-set-preset" title="设置预置位"></i>
+								<i class="real-sound" title="开启声音"></i>
+								<i class="real-talk" title="开启对讲"></i>
+							</span>
+						</div>
+
+						<div class="select-wrap">
+							<iframe id="selectBlock" class="select-block hidden" src="about:blank" scrolling="no" border=0 frameborder=0 class="select-block" ></iframe>
+							<div id="selectBlockContent">
+								<div id="ratio" class="set ratio">
+									<p data-type="1" class="proportion">
+										<i></i>
+										<span>原始</span>
+									</p>
+									<p data-type="2" class="proportion">
+										<i></i>
+										<span>拉伸</span>
+									</p>
+									<p data-type="3" class="proportion">
+										<i></i>
+										<span>4:3</span>
+									</p>
+									<p data-type="4" class="proportion">
+										<i></i>
+										<span>16:9</span>
+									</p>
+									<p data-type="5" class="proportion">
+										<i></i>
+										<span>16:10</span>
+									</p>
+									<p class="line"></p>
+									<p data-type="6" class="definition">
+										<i></i>
+										<span>高清</span>
+									</p>
+									<p data-type="7" class="definition">
+										<i></i>
+										<span>标清</span>
+									</p>
+								</div>
+
+								<div id="zoom" class="set zoom">
+									<p data-type="0">
+										<i></i>
+										<span>局部放大</span>
+									</p>
+									<!--<p data-type="1"><i></i><span>数字放大</span></p>
+									   如果加上数字放大注意type值
+										<p data-type="1" class="disabled">
+											<i></i>
+											<span>3D放大</span>
+										</p>
+								     -->
+								</div>
+
+								<div id="share" class="set share">
+									<p data-type="0" class="permission permission-sendto-tvwall">
+										<i></i>
+										<span>
+											<a target="tvwallcamera" name="tvwallcamera">电视墙</a>
+										</span>
+									</p>
+									<p data-type="1" class="">
+										<i></i>
+										<span>
+											<a target="screen">扩展屏</a>
+										</span>
+									</p>
+									<!-- <p data-type="2">
+										<i></i>
+										<span><a href="/works/medialib/update_video.html" target="newfileName">视图库</a></span>
+									</p> -->
+								</div>
+
+								<div id="multi" class="set multi permission permission-ptz-engross permission-ptz-lock">
+									<p data-type="0" id="engrossPtz" class="permission permission-ptz-engross">
+										<i></i>
+										<span>云台独占</span>
+									</p>
+									<p data-type="1" id="lockPtz" class="permission permission-ptz-lock">
+										<i></i>
+										<span>云台锁定</span>
+									</p>
+									<p data-type="2" style="display: none">
+										<i></i>
+										<span>语音对讲</span>
+									</p>
+									<p data-type="3" id="mute" style="display: none">
+										<i></i>
+										<span>声音</span>
+									</p>
+									<!-- <p data-type="4" id="imageShield">
+										<i></i>
+										<span>图像屏蔽</span>
+									</p> -->
+								</div>
+
+								<div id="close" class="set close"></div>
+							</div>
+						</div>
+
+						<!--添加预置位面板-->
+						<div class="input-pannel">
+							<iframe src="about:blank"></iframe>
+							<div class="preHeader"><span class="preTitle">预置位设置</span><a class="close" data-event="click" data-handler="PresetCancelEvent"></a></div>
+							<div class="add-presets">
+								<p class="wrap">
+									<label>预置位名称：</label>
+									<input type="text" id="presetName" placeholder="预置位名称" maxlength="30" data-event="keydown" data-handler="PresetNameKeyEvent"/>
+								</p>
+								<p class="wrap">
+									<label>是否设为归位点：</label>
+									<span><i class="radio active" data-flag ="0" data-event="click" data-handler="RadioEvent"></i>否</span>
+									<span><i class="radio"  data-flag ="1" data-event="click" data-handler="RadioEvent"></i>是</span>
+								</p>
+							</div>
+							<div class="preFotter">
+								<span class="saveBtn" id="addPresets" data-event="click" data-handler="PresetAddEvent"><i class="icon_save"></i>保存</span>
+								<span class="cancleBtn" id="cancelPresets" data-event="click" data-handler="PresetCancelEvent"><i class="icon_cancle"></i>取消</span>
+							</div>
+						</div>
+						
+						<!-- 帧标记信息 -->
+						<div class="marker-pannel" data-event="click" data-handler="MarkerPannelClickEvent">
+							<iframe src="about:blank"></iframe>
+							<div class="frame-marker">
+								<div class="header">
+									<h3 class="title">帧标记</h3>
+									<span class="close-frame" data-event="click" data-handler="FrameMarkerCloseEvent"></span>
+								</div>
+								<div class="content">
+									<p class="frametitle">
+										<span class="textHead"><label>标&nbsp;记&nbsp;名：</label></span><input class="Title" id="markerTitle" maxlength="15" data-event="focus" data-handler="MarkerTitleFocusEvent"/>&nbsp;<label>等级：</label><input id="markerLevel" data-event="click keydown" data-handler="MarkerLevelEvents"/>
+									</p>
+									<p class="descripe">
+										<span class="textHead"><label>详细描述：</label></span><textarea class="info" id="markerInfo"></textarea>
+									</p>
+									<p class="hideimage" style="display:none;">
+										<label>图片：</label>
+										<input type="hidden" class="image" id="markerimage"/>
+									</p>
+								</div>
+								<div class="footer">
+									<a class="ui button blue save-frame"  data-event="click" data-handler="SaveFrameEvent">保存</a>
+								</div>
+							</div>
+						</div>
+						<!-- 抓图 start-->
+						<div class="screenshot-preview"  style="display:none;">
+						<!-- id为preview_img_big的这段html代码好像没什么用处,可以删去，同样可以将相关的css和js删去
+							<div id="preview_img_big" style="display:none;">
+								<div class="preview-big" >
+									<ul id="preview_img" class="jcarousel-skin-default"></ul>
+								</div>
+							</div>
+							-->
+							<div class="preview-panel">
+								<div class="forward">
+									<i data-event="click" data-handler="ForwardEvent"></i>
+								</div>
+
+								<div class="visual-area clearfix">
+									<div class="pic-box " id="picbox"></div>
+								</div>
+
+								<div class="exit">
+									<i data-event="click" data-handler="ExitPrintScreenEvent"></i>
+								</div>
+								<div class="afterward">
+									<i data-event="click" data-handler="AfterwardEvent"></i>
+								</div>
+
+							</div>
+						</div>
+						<!-- 抓图 end-->
+					</div>
+
+
+					<!-- 为了解决在谷歌下弹出框被遮挡的问题，重新设置一个在ocx上的iframe -->
+					<div id="layout">
+						<iframe id="layoutFrame" class="up-block" src="about:blank" scrolling="no" border=0 frameborder=0 height="" width=""></iframe>
+					</div>
+					<!-- 为了解决拖拽按钮被ocx遮挡 -->
+					<div id="side">
+						<iframe id="sideFrame" class="up-block" src="about:blank" scrolling="no" border=0 frameborder=0 height="" width=""></iframe>
+					</div>
+
+					<span id="UIOCXLeftTop"></span>
+
+					<object id="UIOCX" class="UIOCX" type="applicatin/x-firebreath" width = "" height = "">
+						<param name="onload" value="pluginLoaded"/>
+					</object>
+					<!-- <object id="UIOCX" classid="clsid:294EEBEC-7677-4EBA-B2D7-3FD669FBF2A2" align="center" width="" height=""></object> -->
+					<!-- <object id="COREOCX" classid="clsid:824A37F4-5B27-4304-AE2A-BB5CA877347A" data-aa="test"></object>-->
+				</div>
+			</div>
+		</div>
+		<div id="label-manage" data-tabor="label-manage">
+			<div id="major-label-manage">
+				<div class="markHeader">
+					<div class="mark-model">帧标记</div>
+					<div class="change-mode">
+						<span id="listMode">
+							<span class="list" id="list"></span>
+							<label for="list">列表模式</label>
+						</span>
+
+						<span id="imageMode">
+							<span class="icon" id="icon"></span>
+							<label for="icon">图片模式</label>
+						</span>
+					</div>
+				</div>
+				<div id="rightContent">
+					<div id="frameMarkList" class="modelcontent">
+						<table id="frameMarkResult" cellspacing="0" cellpadding="0">
+							<tr class="thead">
+								<th class="cell0">序号</th>
+								<th class="cell1">标记名称</th>
+								<th class="cell2">标记时间</th>
+								<!-- <th class="cell3">摄像机编号</th> -->
+								<th class="cell4">摄像机名称</th>
+								<th class="cell5">所属组织</th>
+								<th class="cell6">创建人</th>
+								<th class="cell7">操作</th>
+							</tr>
+					   </table>
+					</div>
+
+					<div id="frameImageList">
+						<div class="markImage" markid="0">
+							<span class="title">闯红灯</span>
+							<div class="image">
+								<!--<img class="thumbnail"  src="http://127.0.0.1:9092/service/frame/frameTag/image/17"/>-->
+								<div class="buttons">
+									<span class="imgbtn edit"></span>
+									<span class="imgbtn play"></span>
+									<span class="imgbtn saveto"></span>
+									<span class="imgbtn delete"></span>
+								</div>
+							</div>
+							<div class="cameraName">大华高清测试</div>
+							<div class="time">2014-12-20 22:30:25</div>
+						</div>
+					</div>
+
+					<div id="Pagination" class="pagination">
+					</div>
+
+					<div id="timeline">
+						<div id="frameList">
+							<span class="framepoint level0"></span>
+							<span class="framepoint level1"></span>
+							<span class="framepoint level2"></span>
+							<span class="framepoint level3"></span>
+						</div>
+						<span class="arrow toLeft"></span>
+						<div id="canvas" class="canvas"></div>
+						<span class="arrow toRight"></span>
+					</div>
+			   </div>
+			</div>
+		</div>
+		<!--#include file="/module/inspect/common/inc/tvwallInsert.html" -->
+	</div>
+</div>
+</div>
+
+
+<div class="map-mask" id="mapMask">正在生成打印文件，请稍后...</div>
+<div id="manual">
+	<div class="title">
+		<p>手动报警设置</p>
+		<i></i>
+	</div>
+	<div class="pic">
+		<img scr="" class="alarm-pic"/>
+	</div>
+	<div class="alarm-info">
+		<div class="form-item">
+			<span class="item-label">
+				<label for="time">报警时间</label>
+			</span>
+			<div class="item-box ui input">
+				<input id="time" class="input-text " type="text"  name="time" readonly= "true">
+			</div>
+		</div>
+		<div class="form-item">
+			<span class="item-label">
+				<label for="place">报警地点</label>
+			</span>
+			<div class="item-box ui input">
+				<input id="place" class="input-text " type="text"  name="place">
+			</div>
+		</div>
+		<div class="form-item alarm-cause">
+			<span class="item-label">
+				<label for="cause">报警原因</label>
+			</span>
+			<div class="item-box ui input" id="season" style="display:none">
+				<input id="cause" class="input-text " type="text"  name="cause">
+			</div>
+			<div class="item-box selectinput "><span>打架</span><i class="down"></i></div>
+			<ul><li class="active"><span>打架</span></li>
+				<li><span>偷盗</span></li>
+				<li><span>抢劫</span></li>
+				<li><span>翻越</span></li>
+				<li><span>聚集</span></li>
+				<li><span>起火</span></li>
+				<li><span>车辆事故</span></li>
+			</ul>
+            <a class="other">其他</a>
+		</div>
+		<div class="form-item level">
+			<span class="item-label">
+				<label for="level">报警级别</label>
+			</span>
+			<div class="item-box selectinput"><span>一般</span><i class="down"></i></div>
+			<ul>
+				<li class="active"><span>一般</span></li>
+				<li><span>重要</span></li>
+				<li><span>严重</span></li>
+			</ul>
+		</div>
+	</div>
+	<div class="foot">
+		<a class="give">确定</a>
+	</div>
+</div>
+</body>
+</html>
+<script type="text/javascript" data-main="/require-conf.js" src="/libs/requirejs/require.js"></script>
+<script type="text/javascript">
+	require(["/module/inspect/monitor/js/main.js"]);
+</script>

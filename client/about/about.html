@@ -1,0 +1,35 @@
+{{#if aboutModel}}
+{{#if isBaselineAbout}}
+<div class="commonLayer"></div>
+<div class="aboutDialog baseline">
+    <div class="aboutHeader">
+        <i class="aboutBadges"></i>
+        <span class="aboutTitle">{{title}}</span>
+    </div>
+    <div class="cancleDialog"></div>
+    <div class="aboutBody">
+        <div class="aboutVersion">版本：V{{data.version}}正式版</div>
+        <div class="aboutIntroduction">
+            绿森管理平台是订货单，销售单为主，以用户体验为中心的应用管理平台。
+        </div>
+    </div>
+    <div class="aboutFooter">
+        <span class="copyRight">©2015-2016 NetPosa Technologies Ltd.All Rights Reserved</span>
+    </div>
+</div>
+{{else}}
+<div class="commonLayer"></div>
+<div class="aboutDialog project">
+    <div class="aboutHeader">
+        <i class="aboutBadges"></i>
+        <div class="aboutTitle">
+            {{title}}
+        </div>
+    </div>
+    <div class="cancleDialog"></div>
+    <div class="aboutBody">
+        <div class="aboutVersion">版本：V{{data.version}}正式版</div>
+    </div>
+</div>
+{{/if}}
+{{/if}}

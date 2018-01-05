@@ -1,0 +1,94 @@
+<div class="items-panel">
+	
+	<ul class="items-list auto-adapt clearfix">
+		{{#list}}
+		<li data-id="{{id}}"  data-showType ="{{displaytype name incidentName}}">
+				<!-- 缩略图显示 start-->
+				<div class="thumb-figure ease">
+
+					<a class="thumb-anchor">
+						<span class="vbox"><img src="{{showImage ctm_PICTURE}}" alt="" /></span>
+					</a>
+				</div>
+				<!-- 缩略图显示 end-->
+
+			<!-- 文案信息显示 start-->
+				<div class="synopsis">
+					{{#eq name 'car'}}
+					<span title="{{showTrueNameln 'car' licenseNumber licenseTypeCodeName carColorCodeName}}">
+						{{#isTrail ctm_INCIDENT_ID}}
+						{{else}}
+							<em class="statue {{classstatue auditFlag}}">{{statue auditFlag}}</em>
+						{{/isTrail}}
+						<a class="name">{{{casecar licenseNumber licenseTypeCodeName carColorCodeName}}}</a>
+					</span>
+					{{/eq}}
+					{{#eq name 'person'}}
+					<span title="{{showTrueNameln 'person' personName genderCodeName jacketColorCodeName trousersColorCodeName}}">
+						{{#isTrail ctm_INCIDENT_ID}}
+						{{else}}
+							<em class="statue {{classstatue auditFlag}}">{{statue auditFlag}}</em>
+						{{/isTrail}}
+						<a class="name">{{{caseperson personName genderCodeName jacketColorCodeName trousersColorCodeName}}}</a>
+					</span>
+					{{/eq}}
+					{{#eq name 'exhibit'}}
+					<span title="{{showTrueNameln 'exhibit' exhibitName exhibitShape exhibitColorCodeName}}">
+						{{#isTrail ctm_INCIDENT_ID}}
+						{{else}}
+							<em class="statue {{classstatue auditFlag}}">{{statue auditFlag}}</em>
+						{{/isTrail}}
+						<a class="name">{{{caseexhibit exhibitName exhibitShape exhibitColorCodeName}}}</a>
+					</span>
+					{{/eq}}
+					{{#eq name 'scene'}}
+					<span title="{{showTrueNameln 'scene' categoryMain subcategoryMain weatherCodeName}}">
+						{{#isTrail ctm_INCIDENT_ID}}
+						{{else}}
+							<em class="statue {{classstatue auditFlag}}">{{statue auditFlag}}</em>
+						{{/isTrail}}
+						<a class="name">{{{casesence categoryMain subcategoryMain weatherCodeName}}}</a>
+					</span>
+					{{/eq}}
+					{{#eq name 'moving'}}
+					<span title="{{showTrueNameln 'moving' movingObjectTypeCodeName movingObjectColorCodeName movingObjectHeight movingObjectGrayCodeName}}">
+						{{#isTrail ctm_INCIDENT_ID}}
+						{{else}}
+							<em class="statue {{classstatue auditFlag}}">{{statue auditFlag}}</em>
+						{{/isTrail}}
+						<a class="name">{{{casemove movingObjectTypeCodeName movingObjectColorCodeName movingObjectHeight movingObjectGrayCodeName}}}</a>
+					</span>
+					{{/eq}}
+					{{#eq name 'rest'}}
+					<span title="{{showTrueNameln 'rest' restName}}">
+						{{#isTrail ctm_INCIDENT_ID}}
+						{{else}}
+							<em class="statue {{classstatue auditFlag}}">{{statue auditFlag}}</em>
+						{{/isTrail}}
+						<a class="name">{{{caseothers restName}}}</a>
+					</span>
+					{{/eq}}
+
+					<!-- 如果是线索时 start -->
+					{{#isTrail ctm_INCIDENT_ID}}
+					<span title="{{incidentName}}">
+						<a class="casename" data-incidentid="{{ctm_INCIDENT_ID}}" data-incidentname="{{incidentName}}">({{incidentName}})</a>
+					</span>
+					{{/isTrail}}
+					<!-- 如果是线索时 end -->
+					<span class="related" title="{{location}}">
+						{{location}}
+					</span>
+					<span class="time">
+						{{mills2str std_APPEAR_TIME}}
+					</span>
+				</div>
+			<!-- 文案信息显示 end-->
+		</li>
+	{{else}}
+	<h2 style="padding:10px; text-align:center;">暂无数据</h2>
+	{{/list}}
+
+
+	</ul>
+</div>

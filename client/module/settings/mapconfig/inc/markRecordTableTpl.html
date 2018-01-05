@@ -1,0 +1,18 @@
+{{#if dataList}}
+{{#if data}}
+{{#each data}}
+<tr class="tdTitle">
+    <td data-name="createTime" data-value="{{createTime}}" title="{{createTime}}">{{createTime}}</td>
+    <td data-name="ip" data-value="{{ip}}" title="{{ip}}">{{ip}}</td>
+    <td data-name="userName" data-value="{{userName}}" title="{{userName}}">{{userName}}</td>
+    <td data-name="orgName" data-value="{{orgName}}" title="{{orgName}}">{{orgName}}</td>
+    <td data-name="type" data-value="{{changeType type}}" title="{{changeType type}}">{{changeType type}}</td>
+    <td data-name="info" data-value="{{info}}" title="{{info}}">{{info}}</td>
+</tr>
+{{/each}}
+{{else}}
+    <tr class="noTitle" >
+        <td class="noData" colspan="6">暂无数据</td>
+    </tr>
+{{/if}}
+{{/if}}

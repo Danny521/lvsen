@@ -1,0 +1,538 @@
+/*系统配置模块的表格样式*/
+
+table{
+    table-layout: fixed;
+}
+
+.common-table {
+	width: 100%;
+}
+
+.common-table tr {
+	height: 35px;
+	border-bottom: 1px solid #E6EBF0;
+	color: #555555;
+}
+
+.common-table tr.title {
+	border-top: 1px solid #DADEE3;
+	border-bottom: 1px solid #DADEE3;
+	background-color: #EBF0F4;
+	color: #333333;
+}
+
+.common-table td, .common-table th {
+	vertical-align: middle;
+	text-align: center;
+	max-width: 150px;
+    overflow: hidden;
+ 	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.common-table tr.out-of-date td ,
+.common-table tr.out-of-date td a{
+	color: #9D9D9D;
+}
+
+.common-table tr.even td {
+	background-color: #FAFCFF;
+}
+
+.common-table tr:hover td {
+	background-color: #EBF0F4;
+}
+.common-table  td a:hover {
+	color: #1A6ABB;
+}
+tr.deleted {
+    opacity:0.5;
+    display:none;
+}
+.common-table tr.deleted a:hover {
+    color: #555555;
+}
+
+/*定义各种字段的最小宽*/
+
+/*用户表的各个字段最小宽*/
+.common-table .checkbox {
+	padding-left:20px;
+	width: 30px;
+	/*min-width: 30px;*/
+	max-width: 40px;
+}
+.common-table .id {
+	padding-left:20px;
+	width: 30px;
+	/*min-width: 30px;*/
+	max-width: 40px;
+}
+
+.common-table .name, .common-table .loginname {
+	min-width: 60px;
+	max-width: 100px;
+   	overflow: hidden;
+   	text-overflow: ellipsis;
+  	white-space: nowrap;
+  	width:100px;
+}
+.common-table .name a {
+	color: #555555;
+	cursor: default;
+}
+/* 已删除的登录名颜色变化 */
+.common-table .del a,.common-table .del span,.common-table .del td{
+	color: #c4c6c7;
+}
+
+/*.common-table .name a:hover,.common-table .buiid-name a:hover {
+	color: #1A6ABB;
+}
+*/
+.common-table .numid {
+	min-width: 130px;
+	width: 130px;
+}
+.common-table .orgname {
+	min-width: 180px;
+	width: 180px;
+}
+.common-table .sex, .common-table .rank{
+	min-width: 80px;
+	width:80px;
+}
+
+.common-table .resourceRole {
+	min-width: 190px;
+	width:190px;
+}
+.common-table .score {
+	width: 50px;
+}
+.common-table .officenum {
+	min-width: 80px;
+}
+
+.common-table .belong-depart {
+	min-width: 100px;
+}
+
+.common-table .expiry-date {
+	min-width: 160px;
+}
+
+.common-table .status {
+	min-width: 50px;
+	width: 50px;
+}
+.common-table .status .deleted{
+	color: #c4c6c7;
+	font-weight: 500;
+}
+/*部门表各个字段的最小宽*/
+.common-table .depart {
+	min-width: 170px;
+}
+
+.common-table .number {
+	min-width: 80px;
+	width: 120px;
+}
+
+.common-table .end-date {
+	min-width: 80px;
+	width:80px;
+}
+
+.common-table .oprate1 {
+	width: 180px;
+	min-width: 180px;
+	max-width: 180px;
+}
+.common-table .sort-oprate{
+    text-align: right;
+}
+.common-table .operate1 {
+	width: 180px;
+	min-width: 180px;
+	max-width: 180px;
+}
+
+/*角色表各个字段的最小宽*/
+.common-table .authority {
+	min-width: 500px;
+}
+
+/*视频设备表各个字段最小宽*/
+.common-table .videoName {
+	min-width: 80px;
+	cursor: pointer;
+}
+
+.common-table .videoIp {
+	min-width: 80px;
+}
+
+.common-table .version{
+	min-width: 80px;
+}
+
+
+.common-table .describe, .common-table .describe1 {
+	line-height: 17px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.operate-icon-switch-off{
+	margin: auto 5px;
+	cursor: pointer;
+	display: inline-block;
+	width: 35px;
+	height: 20px;
+	background-image: url('/module/settings/usermgr/images/alloperate.png');
+	background-position: 0px 0px;
+	background-repeat: no-repeat;
+}
+.operate-icon-switch-off.disabled{
+	background-position: -180px -32px;
+}
+.operate-icon-switch-on{
+	margin: auto 5px;
+	cursor: pointer;
+	display: inline-block;
+	width: 35px;
+	height: 20px;
+	background-image: url('/module/settings/usermgr/images/alloperate.png');
+	background-position: -1px -48px;
+	background-repeat: no-repeat;
+}
+.operate-icon-switch-on.disabled{
+	background-position: -134px -32px;
+}
+
+.operate-icon-edit{
+	margin: auto 5px;
+	cursor: pointer;
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	background-image: url('/module/settings/usermgr/images/alloperate.png');
+	background-position: -9px -88px;
+	background-repeat: no-repeat;
+}
+.operate-icon-up{
+	margin: auto 0px;
+	cursor: pointer;
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	background-image: url('/module/settings/usermgr/images/alloperate.png');
+	background-position: -5px -239px;
+	background-repeat: no-repeat;
+	display: none;
+}
+.operate-icon-up:hover{
+	background-position: -46px -239px;
+}
+.operate-icon-down{
+	margin: auto 5px;
+	cursor: pointer;
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	background-image: url('/module/settings/usermgr/images/alloperate.png');
+	background-position: -87px -239px;
+	background-repeat: no-repeat;
+	display: none;
+}
+.operate-icon-down:hover{
+	background-position: -128px -239px;
+}
+.operate-icon-sync{
+	margin: auto 5px;
+	cursor: pointer;
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	background-image: url('/module/settings/usermgr/images/alloperate.png');
+	background-position: -91px -208px;
+	background-repeat: no-repeat;
+}
+.operate-icon-sync:hover{
+	background-position: -52px -208px;
+}
+.deleted .operate-icon-sync:hover {
+    background-position: -97px -217px;
+}
+.cant-be-sync {
+    visibility: hidden!important;
+}
+.operate-icon-edit.disable,
+.operate-icon-edit.disable:hover{
+	background-position: -179px -95px;
+}
+.operate-icon-edit-restore{
+	margin: auto 5px;
+	cursor: pointer;
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	background-image: url('/module/settings/usermgr/images/alloperate.png');
+	background-position: -210px -97px;
+	background-repeat: no-repeat;
+}
+.operate-icon-edit-restore.disable,
+.operate-icon-edit-restore.disable:hover{
+	background-position: -250px -97px;
+}
+a.operate-icon-edit-restore:hover{
+	background-position: -72px -97px;
+}
+.operate-icon-delete{
+	margin: auto 5px;
+	cursor: pointer;
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	background-image: url('/module/settings/usermgr/images/alloperate.png');
+	background-position: -10px -130px;
+	background-repeat: no-repeat;
+}
+.operate-icon-delete.disable,
+.operate-icon-delete.disable:hover{
+	background-position: -179px -139px;
+}
+.operate-icon-delete-forever{
+	margin: auto 5px;
+	cursor: pointer;
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	background-image: url('/module/settings/usermgr/images/alloperate.png');
+	background-position: -211px -139px;
+	background-repeat: no-repeat;
+}
+a.operate-icon-delete-forever:hover{
+	background-position: -73px -139px;
+}
+.operate-icon-user{
+	margin: auto 5px;
+	cursor: pointer;
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	background-image: url('/module/settings/usermgr/images/alloperate.png');
+	background-position: -10px -170px;
+	background-repeat: no-repeat;
+}
+.operate-icon-user:hover{
+	background-position: -139px -172px;
+}
+.deleted .operate-icon-user:hover {
+    background-position: -13px -179px;
+}
+
+.operate-icon-user.disable,
+.operate-icon-user.disable:hover{
+	background-position: -181px -180px;
+}
+.operate-icon-device{
+	margin: auto 5px;
+	cursor: pointer;
+	/*display: inline-block;*/
+	display: none;
+	width: 20px;
+	height: 20px;
+	background-image: url('/module/settings/usermgr/images/alloperate.png');
+	background-position: -13px -218px;
+	background-repeat: no-repeat;
+}
+
+.operate-icon-relation{
+	margin: auto 5px;
+	cursor: pointer;
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	background-image: url('/module/settings/usermgr/images/alloperate.png');
+	background-position: -72px -58px;
+	background-repeat: no-repeat;
+}
+
+.operate-icon-view{
+	margin: auto 5px;
+	cursor: pointer;
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	background-image: url('/module/settings/usermgr/images/alloperate.png');
+	background-position: -67px 2px;
+	background-repeat: no-repeat;
+}
+
+.operate-icon-switch-off:hover{
+	/*background-position: -134px -9px;*/
+}
+
+.operate-icon-switch-on:hover{
+	/*background-position: -134px -57px;*/
+}
+
+.operate-icon-edit:hover{
+	background-position: -139px -88px;
+}
+.deleted .operate-icon-edit:hover {
+    background-position: -12px -97px;
+}
+
+.operate-icon-delete:hover{
+	background-position: -140px -130px;
+}
+.deleted .operate-icon-delete:hover {
+    background-position: -13px -139px;
+}
+
+.operate-icon-person:hover{
+	background-position: -143px -180px;
+}
+
+.operate-icon-video:hover{
+	background-position: -143px -218px;
+}
+
+/*.common-table .oprate a,
+.common-table .status .switch-on,
+.common-table .status .switch-off,
+.common-table .oprate .edit,
+.common-table .operate1 a,
+.common-table .oprate .delete,
+.common-table .oprate .delete-depart {
+	float: left;
+	margin-right: 10px;
+	display: block;
+	width: 35px;
+	height: 35px;
+	cursor: pointer;
+}
+
+.common-table .oprate a, .common-table .status a, .common-table .operate1 a {
+	line-height: 35px;
+	background: url('/images/icons/alloperate.png') no-repeat scroll 0px 0px;
+}
+
+.common-table .status .switch-off {
+	background-position: -5px -3px;
+	margin-left: 7px;
+}
+
+.switch-off{
+	background: url('/images/icons/alloperate.png');
+	background-image: url('/images/icons/alloperate.png');
+	background-size: 317px 244px;
+	background-position: -11px -98px;
+	background-repeat: no-repeat;
+}
+
+.common-table .status .switch-on {
+	background-position: -4px -52px;
+	margin-left: 7px;
+}
+
+.common-table .oprate .check-user {
+	background-position: -6px -172px;
+}
+
+.common-table .oprate .check-device {
+	background-position: -5px -211px;
+	display: none;
+}
+
+.common-table .oprate .edit {
+	background-position: -5px -92px;
+}
+
+.common-table .oprate .delete {
+	background-position: -5px -133px;
+}
+
+.common-table .operate1 .edit {
+	background-position: -5px -92px;
+}
+
+.common-table .operate1 .delete {
+	background-position: -5px -133px;
+}
+
+.common-table .oprate .delete-depart {
+	background-position: -5px -133px;
+}
+
+*//*服务器的操作*//*
+.common-table .oprate .viwe {
+	background-position: -65px 0;
+}
+
+.common-table .oprate .concern {
+	background-position: -65px -50px;
+}*/
+/*分页的扩展*/
+.pagepart {
+	height: 20px;
+	line-height: 20px;
+	margin-top: 30px;
+}
+
+.pagepart div {
+	float: left;
+}
+
+.pagepart .num {
+	margin-left: 15px;
+	*margin-left: 20px;
+}
+
+.pagepart .pagebar {
+	margin-left: 390px;
+}
+
+.pagepart .pagebar ul li {
+	float: left;
+	margin-left: 10px;
+	margin-top: 10px;
+	width: 15px;
+	height: 15px;
+	line-height: 15px;
+	color: #7a7979;
+	text-align: center;
+	cursor: pointer;
+}
+
+.pagepart .pagebar ul li.middle {
+	background-color: #FFFFFF;
+}
+
+.pagepart .pagebar ul li.page.active, .pagepart .pagebar ul li.page:hover {
+	background-color: #c4cbcf;
+	color: #ffffff;
+}
+
+.pagepart .pagebar ul li.up {
+	background: transparent url('/images/icons/up.png') no-repeat scroll 0px 0px;
+	display: none;
+}
+
+.pagepart .pagebar ul li.up:hover {
+	background: transparent url('/images/icons/pageup1.png') no-repeat scroll 0px 0px;
+	display: none;
+}
+
+.pagepart .pagebar ul li.down {
+	background: transparent url('/images/icons/pagedown.png') no-repeat scroll 0px 0px;
+}
+
+.pagepart .pagebar ul li.down:hover {
+	background: transparent url('/images/icons/pagedown1.png') no-repeat scroll 0px 0px;
+}

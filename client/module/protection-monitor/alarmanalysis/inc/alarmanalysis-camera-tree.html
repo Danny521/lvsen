@@ -1,0 +1,12 @@
+<ul  onselectstart="return false;">
+	{{#if init}}
+		{{#each cameras}}   
+				<li class="{{typeNameTransform type}} {{#isTree1 type}}root{{/isTree1}} {{hasNoRight score}}" data-camerascore="{{score}}"  data-tree-level="{{../level}}" data-type="{{typeNameTransform type}}" data-lat="{{latitude}}" data-lon="{{longitude}}" data-id="{{id}}"  data-name="{{name}}" >{{#isTree1 type}}<i class="fold"></i>{{/isTree1}}<i class="root"></i><span class="name" title="{{name}}">{{name}}</span></li>
+		{{/each}}
+	{{else}}
+		{{#each cameras}}
+			<li class="{{typeNameTransform type}} {{hasNoRight score}}" data-camerascore="{{score}}"  data-camera="{{camera_type}}" data-id="{{id}}"  data-name="{{name}}"  data-tree-level="{{../level}}"  data-lat="{{latitude}}" data-lon="{{longitude}}" data-type="{{typeNameTransform type}}">{{#isTree1 type}}<i class="fold"></i>{{/isTree1}}<i class="{{typeNameTransform type}} camera-style {{#eq camera_type 2}}dom{{/eq}} {{status  camera_type  camera_status hd_channel}}"></i><span class="name" title="{{name}}{{isCode cameraCode}}">{{name}}{{isCode cameraCode}}</span></li>
+		{{/each}}
+	{{/if}}
+
+</ul>	

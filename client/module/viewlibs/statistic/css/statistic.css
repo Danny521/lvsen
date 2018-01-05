@@ -1,0 +1,287 @@
+@charset "UTF-8";
+/* *
+*
+* @authors yuqiu (you@example.org)
+* @date    2014-10-09 15:23:15
+* @version $Id$ */
+button{
+	border: none;
+	outline: none;
+	cursor: pointer;
+}
+.push-left{
+	float: left;
+}
+
+.push-right{
+	float: right;
+}
+
+.inline-list {
+	font-size: 0px;
+	display: block;
+}
+
+.inline-list li{
+	display: inline-block;
+	font-size: 1rem;
+}
+
+.content-left {
+	margin-right: 220px;
+	padding: 0px 29px;
+}
+
+.data-filter .inline-list li {
+	margin-left: 15px;
+}
+
+.data-filter .inline-list li:first-child{
+	margin-left: 0;
+}
+
+.data-filter .inline-list label{
+	margin-right: 2px;
+}
+
+.data-filter  .inline-list .date-selector{
+	width: 110px;
+	height: 20px;
+	text-indent: 5px;
+	font-size: 12px;
+}
+
+.data-filter .inline-list .org-select{
+	width: 80px;
+	height: 18px;
+}
+.data-filter .inline-list select{
+	font-size: 12px;
+	width: 80px;
+	height: 24px;
+}
+
+.data-filter select.user-select{
+	width: 117px;
+	width: 115px\0;
+}
+
+.data-filter .search {
+	background: #89c344;
+	width: 98px;
+	height: 25px;
+	border: 1px solid #e3e2e2;
+	border-radius: 5px;
+	text-align: center;
+	color: #fff;
+}
+
+.data-show{
+	/*height: 580px;*/
+	margin-top: 5px;
+}
+
+.data-list{
+	border: 1px solid #dadbdf;
+	max-height: 550px;
+	position: relative;
+	display: none;
+}
+.data-list ul{
+	border-top: 1px solid #eff0f2;
+}
+
+.data-list .list-item{
+	width: 20%;
+	height: 35px;
+	text-align: center;
+	line-height: 35px;
+}
+
+.data-list-header{
+	background: #e6ebef;
+	position: relative;
+	height: 35px;
+}
+
+.list-header{
+	border-top-color: #fff;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	right: 16px;
+}
+
+.data-list-body{
+	overflow-y:auto; 
+	max-height: 500px;
+}
+
+.data-chart{
+	height: 100%;
+	position: relative;
+}
+
+.data-switch{
+	height: 35px;
+	background: #e2e2e2;
+	margin-top: 20px;
+	overflow: hidden;
+}
+.chart-type{
+	width: 180px;
+	height:20px;
+	line-height: 20px;
+	color: #FFF;
+	margin: 0 auto;
+	margin-top: 8px;
+	background-color: #C1C1C1;
+	overflow: hidden;
+	border-radius: 10px;
+}
+
+.data-show-switch{
+	position: relative;
+	top: -20px;
+	right: 10px;
+}
+
+.chart-data-type{
+	float:left;
+	width:50%;
+	height:100%;
+	background: transparent;
+	text-align: center;
+	cursor: pointer;
+}
+
+.chart-data-type.active{
+	background-color: #89c344;
+}
+
+.chart-item{
+	height: 560px;
+	width: 920px;
+}
+
+.save-icon, .save-icon-hover, .list-icon, .list-icon-hover, .chart-icon, .chart-icon-hover{
+	background: url(../images/icon-sprite.png) no-repeat;
+	margin-left: 10px;
+	width: 21px;
+	height: 21px;
+
+}
+
+.save-icon{
+	background-position: 0 0;
+}
+
+.save-icon:hover{
+	background-position: 0 -30px ;
+}
+
+.list-icon{
+	background-position: -100px 0;
+}
+
+.list-icon:hover,.list-icon-hover,{
+	background-position: -100px -30px ;
+}
+
+.chart-icon{
+	background-position: -50px 0;
+
+}
+
+.chart-icon:hover{
+	background-position: -50px -30px ;
+}
+
+button.button-icon-active{
+	background-position-y: -30px; 
+}
+
+
+/*弹窗树选择器样式*/
+.tree_select_dialog-bg {
+	display:none;
+	position:fixed;
+	width:100%;
+	height:100%;
+	background:#000;
+	z-index:10;
+	top:0;
+	left:0;
+	opacity:0.7;
+	filter:alpha(opacity=70);
+}
+.tree_select_dialog {
+	display: none;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 600px;
+	height: 380px;
+	margin-left: -300px;
+	margin-top: -190px;
+	border: 1px solid #c2cdd7;
+	background: #fff;
+	z-index: 11;
+}
+.tree_select_dialog .header {
+	height: 30px;
+	line-height: 30px;
+	padding:0 10px;
+	background:#f9f9f9;
+	border-bottom: 1px solid #eaeaea;
+}
+.tree_select_dialog .header a {
+	width: 30px;
+	height: 30px;
+	float: right;
+	background: url(/module/common/images/map/remove.png) center center no-repeat;
+}
+.tree_select_dialog .body {
+	height: 290px;
+	padding: 10px;
+}
+.tree_select_dialog .body .treecontain {
+	height: 280px;
+	border: 1px solid #ccc;
+	overflow: auto;
+}
+.tree_select_dialog .footer {
+	height: 40px;
+	line-height: 40px;
+	margin: 0 10px;
+}
+.tree_select_dialog .footer a {
+	float: right;
+	width: 58px;
+	height:28px;
+	margin-left: 10px;
+	text-align: center;
+	color: #666;
+	border: 1px solid #ccc;
+	line-height: 26px;
+}
+.tree_select_dialog .ensure {
+	background: url(/module/common/images/sprites/dialogbutton.png) 0 0 repeat-x;
+}
+.tree_select_dialog .cancel {
+	background: url(/module/common/images/sprites/dialogbutton.png) 0 29px repeat-x;
+}
+.ztree li span.button.root_ico_open, .ztree li span.button.root_ico_close, .ztree li span.button.root_ico_docu {
+	background: url("/module/common/images/icons/tree.png") no-repeat scroll -148px -13px transparent;
+	width: 20px;
+	height: 18px;
+	width: 16px;
+	height: 13px;
+}
+.ztree li span.button.org_ico_open, .ztree li span.button.org_ico_close, .ztree li span.button.org_ico_docu {
+	background: url("/module/common/images/icons/tree.png") no-repeat scroll -153px -551px transparent;
+	width: 20px;
+	height: 18px;
+	width: 16px;
+	height: 13px;
+}

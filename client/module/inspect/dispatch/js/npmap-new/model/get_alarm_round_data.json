@@ -1,0 +1,14 @@
+{
+	"code": 200,
+	"data": {
+		"message": "成功",
+		"alarms": [
+			{
+				"cameraName": "PTZ高清测试17_174_8",
+				"longitude": 121.38703837,
+				"cameraId": 6,
+				"latitude": 31.20811016
+			}
+		]
+	}
+}

@@ -1,0 +1,52 @@
+<div class="header">
+    <img src="/module/common/images/badges.png" width="40px" height="40px">
+    <h2>视云实战平台</h2>
+    <p>V {{version}} 正式版本</p>
+</div>
+<div class="authorization">
+    <h2>授权信息</h2>
+    <div class="items">
+        <div class="item">
+            <span class="title">服务器授权信息</span>
+        </div>
+        <table>
+            <tr>
+                <th>服务器编号</th>
+                <th>服务器IP</th>
+                <th>授权功能</th>
+            </tr>
+            {{#each appIPAddrs}}
+            <tr>
+                <td>{{indexN @index}}</td>
+                <td>{{this}}</td>
+                <!--// 此处的顺序请和 js 中 moduleNameToString 方法的顺序保持一致-->
+                <td>{{license ../videoDirector ../deploymentControl ../vimManagement ../viewLibrary ../imageJudgement ../maintenanceManagement}}</td>
+            </tr>
+            {{/each}}
+            <!--<tr>
+                <td>01</td>
+                <td>192.168.60.1</td>
+                <td>视频指挥、视频指挥、视频指挥、视频指挥、视频指挥、视频指挥</td>
+            </tr>
+            <tr>
+                <td>01</td>
+                <td>192.168.60.1</td>
+                <td>视频指挥、视频指挥、视频指挥、视频指挥、视频指挥、视频指挥</td>
+            </tr>-->
+        </table>
+        <div class="item">
+            <span class="title">基本信息</span>
+            <span>授权申请时间：{{mills2str keyRequestedTime}}</span>
+            <span>授权授予时间：{{mills2str keyGrantedTime}}</span>
+            <span>授权有效期限：{{dateLast validTime keyGrantedTime}}</span>
+        </div>
+        <div class="item">
+            <span class="title">申请人信息</span>
+            <span>姓名：{{applicant}}</span>
+            <span>公司：{{corp}}</span>
+            <span>部门：{{department}}</span>
+            <span>手机号：{{tel}}</span>
+        </div>
+    </div>
+    <a href="#" id="updateAuthorization">更新授权信息</a>
+</div>

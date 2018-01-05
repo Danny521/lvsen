@@ -1,0 +1,158 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<!--[if lt IE 9]>
+	<script src="/libs/html5/html5.js"></script>
+	<![endif]-->
+	<meta http-equiv="X-UA-Compatible" content="IE=10,chrome=1"/>
+
+	<link type="text/css" rel="stylesheet" href="/module/common/css/base.css" />
+	<link type="text/css" rel="stylesheet" href="/libs/semantic/semantic.css" />
+	<!-- 全局样式Global -->
+	<link href="css/Global.css" rel="stylesheet" type="text/css" />
+	<!-- 公共样式index -->
+	<link href="/module/common/addPlayer/new-player.css" rel="stylesheet" type="text/css" />
+	<link href="css/milit-play.css" rel="stylesheet" type="text/css" />
+	<link href="css/index.css" rel="stylesheet" type="text/css" />
+	<link href="css/details.css" rel="stylesheet" type="text/css" />
+	<!-- 图标、背景icon -->
+	<link href="css/icon.css" rel="stylesheet" type="text/css" />
+	<link type="text/css" rel="stylesheet" href="/libs/jquery/jquery-ui.css">
+	<link type="text/css" rel="stylesheet" href="/libs/jquery/jquery.datetimepicker.css">
+	<link type="text/css" rel="stylesheet" href="/libs/jquery/jquery.pagination.css"/>
+	<link type="text/css" rel="stylesheet" href="/module/common/resource-import/resource_import.css"/>
+	<link type="text/css" rel="stylesheet" href="/component/panel/main.css"/>
+	<script type="text/javascript" src="/libs/requirejs/require.js"></script>
+	<script type="text/javascript" src="/require-conf.js"></script>
+	<title>视云实战平台</title>
+</head>
+<body>
+	<!-- 外层容器_Wrapper_@Start -->
+	<div class="wrapper">
+		<!-- 页面主体_main_@Start -->
+		<div class="main">
+			<!-- 页面主体左侧_main_left_@Start -->
+			<div class="main_left">
+				<!-- 侧边栏_sidebar_@Start -->
+				<div class="sidebar">
+					<!-- <a href='javascript:void(0)' class='local-upload permission permission-import'>本地导入</a> -->
+					<ul class='r-siderbar'>
+						<li data-cat="0" class='a0 r-li-item'>
+							<h6 class="current"><i class="icon_file icon_file_blue"></i>全部文件</h6>
+						</li>
+						<li data-cat="4" class='a4 r-li-item' style="display:none;">
+							<h6><i class="icon_event"></i>案事件</h6>
+						</li>
+						<li data-cat="1" class='a1 r-li-item'>
+							<h6><i class="icon_video"></i>视频</h6>
+						</li>
+						<li data-cat="2" class='a2 r-li-item'>
+							<h6><i class="icon_pic"></i>图片</h6>
+						</li>
+						<li data-cat="3" class='a3 r-li-item'>
+							<h6><i class="icon_structured"></i>结构化信息/线索</h6>
+							<div class='s-menu'>
+								<a href="javascript:void(0);" class="s1 li-inner-item" data-type='1'><i class="icon_personnel"></i>人员</a>
+								<a href="javascript:void(0);" class="s2 li-inner-item" data-type='2'><i class="icon_car"></i>车辆</a>
+								<a href="javascript:void(0);" class="s3 li-inner-item" data-type='3'><i class="icon_items"></i>物品</a>
+								<a href="javascript:void(0);" class="s4 li-inner-item" data-type='4'><i class="icon_scenario"></i>场景</a>
+								<a href="javascript:void(0);" class="s5 li-inner-item" data-type='5'><i class="icon_movement"></i>运动目标</a>
+								<a href="javascript:void(0);" class="s6 li-inner-item" data-type='6'><i class="icon_rest"></i>其他</a>
+							</div>
+						</li>
+					</ul>
+					<div id="space">
+						<div id="awardSpace">
+							<div id="remainingSpace"></div>
+						</div>
+						<p><q id="occupied">0</q>G/<q id="capacity">0</q>G</p>
+					</div>
+				</div>
+				<!-- 侧边栏_sidebar_@Start -->
+			</div>
+			<!-- 页面主体左侧_main_left_@End -->
+			<!-- 页面主体右侧_main_right_@Start -->
+			<div class="main_right">
+				<div class="screening search-area">
+					<div id="fornormal" class="active">
+						<p>
+							<button class='local-upload permission permission-import'>上传</button>
+						</p>
+						<p>
+							<button class="creat_new_floder">新建文件夹</button>
+						</p>
+						<p>
+							<label>名称：</label>
+							<input type="text" placeholder='文件名称' name="fileName" id="fileName">
+						</p>
+						<p>
+							<label>开始时间：</label>
+							<input type="text" class="datepicker" placeholder='开始时间' name="beginTime" id="beginTime">
+						</p>
+						<p>
+							<label>结束时间：</label>
+							<input type="text" class="datepicker" placeholder='结束时间' name="endTime" id="endTime">
+							<button class="icon_search" id="submitBtn">查询</button>
+							<!-- <a href="javascript:void(0)" title="查询" class="icon_search" id="submitBtn"></a> -->
+						</p>
+						<p>
+							<a href="javascript:void(0)" title="列表" class="listpic listpic_current"></a>
+							<a href="javascript:void(0)" title="缩略图" class="thumbnail"></a>
+						</p>
+					</div>
+					<div id="forstructure">
+						<span id='s_style'>
+							<label>创建方式：</label>
+							<span href="javascript:void(0)" class="current s-style" data-cat=''>全部</span>
+							<span href="javascript:void(0)" class='s-style' data-cat='0'>人工标注</span>
+							<span href="javascript:void(0)" class='s-style' data-cat='1'>智能标注</span>
+						</span>
+						<p>
+							<a href="javascript:void(0)" title="列表" class="listpic listpic_current"></a>
+							<a href="javascript:void(0)" title="缩略图" class="thumbnail"></a>
+						</p>
+						<!--<em title="批量删除" class="btn_delect"><i class="icon_delete"></i>批量删除</em>-->
+					</div>
+				</div>
+				<div class="tools">
+					<div class="model">
+						<span>共计 <em id="total"><b>--</b> 个</em></span>
+					</div>
+
+					<div class="location">
+						<a href="javascript:void(0)">全部文件</a>
+					</div>
+				</div>
+
+
+				<!-- 条件筛选_screening_@End -->
+				<div class="content" id="content">
+					<dl class="team_list list-title">
+						<dt>
+							<label class='list-title-checkbox'><input type="checkbox" class="checkall" data-type="0"/></label>
+							<h6 class='list-title-header'>文件名</h6>
+							<span class='list-title-opration'></span>
+							<em class='list-title-size'>大小</em>
+							<p class='list-title-date'>日期</p>
+						</dt>
+					</dl>
+					<div class="overview">
+						<div class='no-data' style='text-align:center;padding:30px;'><i class='loading-img'></i>正在加载…</div>
+					</div>
+					<div class="pagination" id='pagination'></div>
+				</div>
+			</div>
+			<!-- 页面主体右侧_main_right_@End -->
+		</div>
+		<!-- 页面主体_main_@End -->
+	</div>
+
+	<div class="bg-wrap">
+		<div class="bg-close"></div>
+		<div class="inner-wrap"></div>
+	</div>
+	<!-- 外层容器_Wrapper_@End -->
+	<script>require(['js/main.js'])</script>
+</body>
+</html>

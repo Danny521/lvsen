@@ -1,0 +1,1010 @@
+{{#if regionSelect}}
+<div class="map-tool-item">
+	<a>
+		<span>
+			<b class="map-text">上海市</b>
+			<i class="map-arrowdown permission permission-view-edefense" style="display:none"></i>
+		</span>
+	</a>
+	<div class="map-region-info map-left-top-info">
+		<div class="ui input action search search-form map-left-top-info">
+			<input type="text" name="q_d" placeholder="区域搜索" class="map-left-top-info">
+			<button class="search action map-left-top-info" title="搜索">搜索</button>
+		</div>
+		<div class="defense map-left-top-info">
+			<span class="map-left-top-info">电子防线</span>
+		</div>
+		<div class="con-defense map-left-top-info">
+			<div class="scrollbar map-left-top-info disable">
+				<div class="track map-left-top-info">
+					<div class="thumb map-left-top-info"></div>
+				</div>
+			</div>
+			<div class="viewport map-left-top-info">
+				<div class="overview map-left-top-info">
+					<ul id="defense-line-list" class="map-left-top-info clearfix">
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<iframe scroll="none" src="about:blank" class="map-region-info map-region-info-iframe"></iframe>
+</div>
+{{/if}}
+{{#if defenseLine}}
+	{{#each defenseLine.eledefenseline}}
+		<li class="conLi map-left-top-info search-use-for-bind-event" data-id='{{id}}' data-code='{{code}}' data-type='{{type}}' data-name='{{name}}' data-description='{{description}}' data-pointinfo='{{pointinfo}}' data-area='{{area}}' data-userId='{{userId}}' data-color='{{color}}' data-zoom='{{zoom}}'><a class="conLia map-left-top-info">{{name}}</a></li>
+	{{/each}}
+{{/if}}
+
+{{#if taskFuc}}
+<div class="map-tool-item" >
+	<a title="业务功能" class="map-func"></a>
+	<ul class="map-select-list ui tabular">
+		{{#if taskFuc.policeSchedule}}
+		<li><a class="map-police-scheduling search-use-for-bind-event" id="policeScheduling">警力调度</a></li>
+		{{/if}}
+		{{#if taskFuc.guardRoute}}
+		<li><a class="map-guard-route search-use-for-bind-event" id="guardRoute" data-tab="guard-route">警卫路线</a></li>
+		{{/if}}
+		{{#if taskFuc.defenceCicle}}
+		<li><a class="map-defense-circle search-use-for-bind-event" id="defenseCircle" data-tab="defense-circle">防&nbsp;控&nbsp;圈</a></li>
+		{{/if}}
+		{{#if taskFuc.myAttention}}
+		<li><a class="map-my-attention search-use-for-bind-event" id="myAttention" data-tab="my-attention">我的关注</a></li>
+		{{/if}}
+	</ul>
+	<iframe class="map-select-list map-task-func" scroll="none" src="about:blank"></iframe>
+</div>
+{{/if}}
+{{#if select}}
+<div class="map-tool-item">
+	<!-- <div class="tool-select">
+		<i class="select-img"></i>
+	</div> -->
+	<a title="选择" class="map-select rect"></a>
+	<ul class="map-select-list">
+		{{#if select.rectSelect}}
+		<li class="camera-select"><a class="map-rectangle-select search-use-for-bind-event">框选</a></li>
+		{{/if}}
+		{{#if select.circleSelect}}
+		<li class="camera-select"><a class="map-circle-select search-use-for-bind-event">圈选</a></li>
+		{{/if}}
+	</ul>
+	<iframe class="map-select-list map-select-iframe" scroll="none" src="about:blank"></iframe>
+</div>
+{{/if}}
+{{#if mapShowInfo}}
+	<div class="map-tool-item">
+		<a title="显示报警信息" class="map-showInfo" onclick=""></a>
+	</div>
+{{/if}}
+{{#if rangeSearch}}
+<div class="map-tool-item">
+	<a title="视野内搜索" class="map-groups"></a>
+	<div class="map-searcharound-content" id="mapSearchAroundContent">
+
+	</div>
+	<iframe class="map-searcharound-content" scroll="none" src="about:blank"></iframe>
+</div>
+{{/if}}
+{{#if tools}}
+<div class="map-tools-a">
+	<a title="工具" class="map-tools"></a>
+	<ul class="map-tools-list">
+		{{#if tools.max}}
+		<li><a class="map-max">放大</a></li>
+		{{/if}}
+		{{#if tools.min}}
+		<li><a class="map-min">缩小</a></li>
+		{{/if}}
+		{{#if tools.measureLength}}
+		<li><a class="map-measure">测距</a></li>
+		{{/if}}
+		{{#if tools.screenshot}}
+		<li><a class="map-screenshot">截图</a></li>
+		{{/if}}
+		{{#if tools.print}}
+		<li><a target="print" class="map-print" id="mapPrint">打印</a></li>
+		{{/if}}
+		{{#if tools.mapclear}}
+		<li><a class="map-clear search-use-for-bind-event" id="mapClear">清除</a></li>
+		{{/if}}
+	</ul>
+	<iframe class="map-tools-list" scroll="none" src="about:blank"></iframe>
+</div>
+{{/if}}
+{{#if fullScreen}}
+<div class="map-tool-item">
+	<a title="全屏" class="map-fullscreen"></a>
+</div>
+{{/if}}
+{{#if modeSwitch}}
+<div class="map-tool-item">
+	<button class="ui button tiny npplay">经典模式</button>
+</div>
+{{/if}}
+{{#if switchLayer}}
+<a class="map-layer-satellite" title="显示卫星图层" layer="normal"></a>
+{{/if}}
+{{#if resourceClassic}}
+<div class="map-resource-layers">
+	<h2 class="layers-head"><span class="title">资源</span><span class="contract-btn up"></span></h2>
+	<ul class="resource-layers">
+		<li class="clearfix active" id="ResourceIndoor">
+			<i class="checkbox"></i><i class="ico indoor"></i><span class="name">室内</span>
+		</li>
+		<li class="clearfix active" id="ResourceHiShpomt">
+			<i class="checkbox"></i><i class="ico hishpomt"></i><span class="name">制高点</span>
+		</li>
+		<li class="clearfix active" id="ResourceElevated">
+			<i class="checkbox"></i><i class="ico elevated"></i><span class="name">高架</span>
+		</li>
+		<li class="clearfix active" id="ResourceWater">
+			<i class="checkbox"></i><i class="ico water"></i><span class="name">水面</span>
+		</li>
+		<li class="clearfix active" id="ResourceGround">
+			<i class="checkbox"></i><i class="ico ground"></i><span class="name">路面</span>
+		</li>
+		<li class="clearfix" id="GpsCar">
+			<i class="checkbox"></i><i class="ico gpscar"></i><span class="name">GPS</span>
+		</li>
+	</ul>
+</div>
+{{/if}}
+{{#if streetMap}}
+<div class="map-fullview-img"></div>
+<a class="map-street" id="openStreetMap"></a>
+{{/if}}
+
+{{#if mapSearchResult}}
+	{{#if mapSearchResult.cameras}}
+	<h3 class="map-search-result-title">
+	<span>共<b>{{mapSearchResult.count}}</b>条记录</span>
+	<div class="opreate"><input class="checkCamera" type="checkBox" data-id=""><div class="more-opreate">批量操作
+		<div class="more">
+	<ul>
+	<li class="permission permission-real-time-view"><a>实时播放</a></li>
+	<li style="display:none;"><a target="historyProxy" id="history">历史调阅</a></li>
+	<li><a>新建分组</a></li>
+	</ul>
+	</div>
+	</div></div>
+	</h3>
+	<div  id= "group" class="active" data-tab="customize">
+			<div class="group1">
+				<div class="ui input small">
+					<label for="name">分组名称：</label>
+					<input type="text" name="name" placeholder="输入组名" class="group-name" maxlength="15">
+				</div>
+			</div>
+			<div class="buttons left" id="gruopbutton">
+				<input type="submit" class="ui button blue" value="确定" id = "give">
+				<input type="reset" class="ui button" value="取消" id="cancel">
+			</div>
+	</div>
+	<ul class="map-search-result">
+		{{#each mapSearchResult.cameras}}
+		<li class="map-search-result-item clearfix" item_id="{{num}}" Index="{{index}}" data-id="{{id}}" data-name="{{name}}" data-status="{{camera_status}}"  data-cameratype="{{camera_type}}" data-code="{{#cameraCodeShow cameraCode}}{{/cameraCodeShow}}" data-longitude="{{longitude}}" data-latitude="{{latitude}}" data-hdchannel="{{translate hd_channel}}" data-sdchannel="{{translate sd_channel}}" data-type='camera'>
+			<div class="left">
+				<input class="check-mark" type="checkBox" data-id="{{id}}">
+				<span class="map-result-ico-red">{{#numToLetter @index}}{{/numToLetter}}</span>
+			</div>
+			<div class="left search-result" data-id="{{id}}" data-name="{{name}}" data-status="{{camera_status}}"  data-cameratype="{{camera_type}}" data-code="{{#cameraCodeShow cameraCode}}{{/cameraCodeShow}}" data-longitude="{{longitude}}" data-latitude="{{latitude}}" data-hdchannel="{{translate hd_channel}}" data-sdchannel="{{translate sd_channel}}">
+				<span class="first-line">
+					<a title='{{name}}{{#cameraCodeShow cameraCode}}{{/cameraCodeShow}}' class="name">{{name}}{{#cameraCodeShow cameraCode}}{{/cameraCodeShow}}</a>
+					{{#isOnline hd_channel sd_channel}}
+						{{#if data}}
+							<span class="blue">(在线)</span>
+						{{else}}
+							<span>(离线)</span>
+						{{/if}}
+					{{/isOnline}}
+					<a title="发送到电视墙" class="map-result-sendtotvwall permission permission-sendto-tvwall" target="tvwallcamera" name="tvwallcamera">发送到电视墙</a>
+					<a title="布防设置" class="map-result-defend permission permission-set-defence-task">布防设置</a>
+					<a title="历史调阅" class="map-result-history permission permission-view-history" target="historyProxy">历史调阅</a>
+					<a title="播放" class="map-result-play permission permission-real-time-view">播放</a>
+				</span>
+				<span class="second-line">
+					<p>地址：{{installAddress}}</p>
+					<p>分类：{{#cameraInstallType installType}}{{/cameraInstallType}}</p>
+					{{!--<a class="map-result-img"><img src="{{ picture imageUrl}}"/></a>--}}
+				</span>
+				<span class="third-line">
+					<a class="map-add-group">加入分组</a>
+					<a class="map-add-inspect">加入监巡</a>
+				</span>
+			</div>
+		</li>
+		{{/each}}
+	</ul>
+	{{else}}
+		<div class="no-result">
+			暂无搜索结果
+		</div>
+	{{/if}}
+{{/if}}
+{{#if cameraInfo}}
+	<div class="infowindow-title">
+		<span class="text" title="{{cameraInfo.name}}{{#cameraCodeShow cameraInfo.cameraCode}}{{/cameraCodeShow}}">{{cameraInfo.name}}{{#cameraCodeShow cameraInfo.cameraCode}}{{/cameraCodeShow}}</span>
+		<span class="btns">
+			<i class="sendtoextendBtn permission permission-sendto-extended-screen permission-real-time-view" title="发送至扩展屏"></i>
+			<i class="sendtotvwallBtn permission permission-sendto-tvwall" title="发送至电视墙"></i>
+			<i class="historyBtn permission permission-view-history" title="历史调阅"></i>
+			<i class="closeBtn" title="关闭"></i>
+		</span>
+	</div>
+	<table class="map-camera-info" data-id="{{cameraInfo.id}}" data-name="{{cameraInfo.name}}" data-status="{{cameraInfo.camera_status}}"  data-cameratype="{{cameraInfo.camera_type}}" data-code="{{#cameraCodeShow cameraInfo.cameraCode}}{{/cameraCodeShow}}" data-longitude="{{cameraInfo.longitude}}" data-latitude="{{cameraInfo.latitude}}" data-hdchannel="{{translate cameraInfo.hd_channel}}" data-sdchannel="{{translate cameraInfo.sd_channel}}" data-score={{cameraInfo.score}}>
+		<tr class="head">
+			<td><span class="{{#cameraStatusAndTypeByChannels cameraInfo.hd_channel cameraInfo.sd_channel cameraInfo.camera_type cameraInfo.score}}{{/cameraStatusAndTypeByChannels}}"></span></td>
+			<td class="camera-status">
+				{{#isOnline cameraInfo.hd_channel cameraInfo.sd_channel}}
+					{{#if data}}
+						<span class="camera-status-online permission permission-real-time-view" title="点击播放视频">实时视频</span>
+					{{else}}
+						离线
+					{{/if}}
+				{{/isOnline}}
+			</td>
+		</tr>
+		<tr class="even">
+			<td class="label">分类：</td><td>{{#cameraInstallType cameraInfo.installType}}{{/cameraInstallType}}</td>
+		</tr>
+		<tr class="odd">
+			<td class="label">地址：</td><td>{{cameraInfo.installAddress}}</td>
+		</tr>
+		<tr class="even">
+			<td class="label">坐标：</td><td>{{cameraInfo.longitude}}</td>
+		</tr>
+		<tr class="even">
+			<td class="label"></td><td>{{cameraInfo.latitude}}</td>
+		</tr>
+	</table>
+{{/if}}
+{{#if ocx}}
+	<div class="infowindow-title">
+		<span class="text" title="{{ocx.name}}{{#cameraCodeShow ocx.cameraCode}}{{/cameraCodeShow}}">{{ocx.name}}{{#cameraCodeShow ocx.cameraCode}}{{/cameraCodeShow}}</span>
+		<span class="btns">
+			<i class="sendtoextendBtn permission permission-sendto-extended-screen permission-real-time-view" title="发送到扩展屏"></i>
+			<i class="sendtotvwallBtn permission permission-sendto-tvwall" title="发送到电视墙"></i>
+			<i class="historyBtn permission permission-view-history" title="历史"></i>
+			<i class="closeBtn" title="关闭"></i>
+		</span>
+	</div>
+	<div class="map-video-container">
+	</div>
+{{/if}}
+{{#if mapocx}}
+	<div class="infowindow-title">
+		<span class="text" title="{{mapocx.name}}{{#cameraCodeShow mapocx.cameraCode}}{{/cameraCodeShow}}">{{mapocx.name}}{{#cameraCodeShow mapocx.cameraCode}}{{/cameraCodeShow}}</span>
+		<span class="btns">
+			<i class="sendtoextendBtn permission permission-sendto-extended-screen permission-real-time-view" title="发送到扩展屏"></i>
+			<i class="sendtotvwallBtn permission permission-sendto-tvwall" title="发送到电视墙"></i>
+			<i class="historyBtn permission permission-view-history" title="历史"></i>
+			<i class="closeBtn" title="关闭"></i>
+		</span>
+	</div>
+	<div class="map-video-container">
+	</div>
+{{/if}}
+{{#if viewCameras}}
+	<h3 class="map-title">在屏幕范围内搜索</h3>
+	<a class="map-arrowup"><i></i></a>
+	<div id="viewSearch" >
+		<div class="scrollbar disable">
+			<div class="track">
+				<div class="thumb"></div>
+			</div>
+		</div>
+		<div class="viewport">
+			<div class="overview">
+				<ul class="map-around-search-container clearfix">
+					{{#if viewCameras.customGroups}}
+						<li class="clearfix">
+							<span class="label">我的分组：</span>
+							<span class="content">
+							{{#each viewCameras.customGroups}}
+								<a groupType="custom" class="groups search-use-for-bind-event" groupId={{id}}>{{groupName}}</a>
+							{{/each}}
+							</span>
+						</li>
+					{{/if}}
+						<li class="clearfix">
+							<span class="label">GPS：</span>
+							<span class="content">
+								<a  class="others search-use-for-bind-event" data-type="gps">警力</a>
+							</span>
+						</li>
+						<li class="clearfix">
+							<span class="label">资源：</span>
+							<span class="content">
+								<a  class="others search-use-for-bind-event" data-type="lightbar">灯杆</a>
+							</span>
+						</li>
+					{{!--<li class="clearfix">
+						<span class="label">报警信息：</span>
+						<span class="content">
+							<a class="alarm-info">全部</a><a class="alarm-info">设备报警</a><a class="alarm-info">事件报警</a>
+						</span>
+					</li>
+					<li class="clearfix">
+						<span class="label">警力资源：</span>
+						<span class="content">
+							<a class="police-res">全部</a><a class="police-res">警车</a><a class="police-res">警员</a>
+						</span>
+					</li>--}}
+				</ul>
+			</div>
+		</div>
+	</div>
+{{/if}}
+
+{{#if fullscreen}}
+	<a title="全屏" class="map-fullscreen"></a>
+{{/if}}
+
+{{#if exitfullscreen}}
+	<a title="退出全屏" class="map-exitfullscreen"></a>
+{{/if}}
+
+{{#if guardrouteGroupList}}
+	<ul class="map-guard-routes-groups">
+		{{#if guardrouteGroupList.grouplist}}
+		{{#each guardrouteGroupList.grouplist}}
+			<li class="map-guard-route-group-item ui tabular" data-id='{{id}}' data-routecount='{{policeLines.length}}' data-lines='{{policeLines}}' data-name='{{groupName}}'>
+				{{#checkDefualtGroup id}}
+				<p class="head-title">
+					<span class="img-left">
+						<a class="up" title='展开'></a>
+					</span>
+					<span class="text" title='{{groupName}}'>{{groupName}}&nbsp;(<span>{{policeLines.length}}</span>条)</span>
+					<span class="img">
+						<a class="group-edit edit" title="编辑"></a>
+						<a class="group-delete delete" title="删除"></a>
+					</span>
+				</p>
+				{{else}}
+				<p class="head-title default-group">
+					<span class="img-left">
+						<a class="up" title='展开'></a>
+					</span>
+					<span class="text" title='{{groupName}}-默认分组'>{{groupName}}&nbsp;(<span>{{policeLines.length}}</span>条)</span>
+				</p>
+				{{/checkDefualtGroup}}
+				<div class="no-route-message">该分组下暂没有路线数据。</div>
+				<div class="route-loading-message"></div>
+				<div class="route-list hidden"></div>
+			</li>
+		{{/each}}
+		{{else}}
+			<li class="map-guard-route-group-item">当前没有分组数据！</li>
+		{{/if}}
+	</ul>
+{{/if}}
+
+{{#if guardrouteList}}
+	<ul class="{{#if guardrouteList.isSearch}} map-guard-routes {{else}}map-guard-routes displaynone{{/if}}">
+		{{#if guardrouteList.policeline}}
+		{{#each guardrouteList.policeline}}
+		<!--<div class="policeline-list-line"></div>-->
+		<li class="{{#if isSearch}} map-guard-route-item guard-route-search {{else}} map-guard-route-item {{#categoryFliter categories}}{{/categoryFliter}}{{/if}}" data-id='{{id}}' data-pointinfo='{{pointinfo}}' data-bufferpoint='{{bufferpoint}}' data-startpoint='{{startpoint}}' data-stoppoint='{{stoppoint}}' data-zoom='{{zoom}}' data-name='{{name}}' data-code='{{code}}' data-gpsid='{{gpsId}}' data-startname='{{startname}}' data-stopname='{{stopname}}' data-distance='{{distance}}' data-score='{{score}}'>
+			<p class="head clearfix">
+				<i class="checkbox"></i>
+				<span class="text showGuardRoute" title='{{name}}'>{{#if isSearch}}路线名称{{else}}路线<i class="num">{{#formatIndex categories}}{{/formatIndex}}</i>{{/if}}：{{name}}</span>
+				<span class="img">
+					<i class="startPlayGuardRoute start-polling permission permission-real-time-view" title="播放"></i>
+					<i class="stopPlayGuardRoute stop-polling-disable permission permission-real-time-view"></i>
+					<i class="config configPlay" title="配置"></i>
+					<i class="edit editGuardRoute" title="编辑" data-tab="guard-route-edit"></i>
+					<i class="del delGuardRoute" title="删除"></i>
+				</span>
+			</p>
+			<div class="time-config" class="buttons">
+				<div class="time">
+					<i class="arrow"></i>
+					<span class="label">间隔时间:</span>
+					<input class="input-text guard-route-config-time" type="text" name="time" placeholder="请输入间隔时间" value="5"/>
+					<span class="text">&nbsp;秒 </span>
+				</div>
+				<div class="gpscar clearfix">
+					<span class="label">车队代号:</span>
+					<input class="input-text guard-route-gps-code" type="text" name="code" placeholder="请输入车队代号" value="{{code}}"/>
+					<span class="text"> </span>
+				</div>
+				<div class="gps clearfix">
+					<span class="label">GPS编号:</span>
+					<input class="input-text guard-route-gps-id" type="text" name="gpsId" placeholder="请输入GPS编号" value="{{gpsId}}"/>
+					<span class="text"> </span>
+					<input type="button" class="ui button blue confirm-interval-time confirmIntervalTime" value="确定"/>
+				</div>
+			</div>
+			<p class="play displaynone">
+				<span class="img clearfix">
+					<i class="play-prev" title="上一个"></i>
+					<i class="play-next" title="下一个"></i>
+				</span>
+			</p>
+			<div class="content displaynone">
+				<div class="start clearfix">
+					<span class='start-img'></span>
+					<span class="text">{{startname}}</span>
+				</div>
+				<ul class="cameras-list">
+					<li class="camera-item"><div class="style-info-loading"></div></li>
+				</ul>
+				<div class="end clearfix">
+					<span class='end-img'></span>
+					<span class="text">{{stopname}}</span>
+				</div>
+			</div>
+		</li>
+		{{/each}}
+		{{else}}
+		<li class="no-guardroute">暂无数据！</li>
+		{{/if}}
+	</ul>
+{{/if}}
+
+{{#if policelineCameras}}
+	{{#if policelineCameras.cameras}}
+	{{#each policelineCameras.cameras}}
+	<li class="camera-item"  data-id='{{id}}' data-name='{{name}}' data-type='{{type}}' data-camerastatus='{{camera_status}}' data-cameracode='{{#cameraCodeShow cameraCode}}{{/cameraCodeShow}}' data-installsddress='{{installAddress}}'  data-cameratype='{{camera_type}}' data-latitude='{{latitude}}' data-longitude='{{longitude}}' data-hdchannel='{{translate hd_channel}}' data-sdchannel='{{translate sd_channel}}' data-score='{{score}}'><span class="camera-type {{#cameraStatusAndTypeByChannels hd_channel sd_channel camera_type score}}{{/cameraStatusAndTypeByChannels}}"></span><span class="camera-name" title="{{name}}{{#cameraCodeShow cameraCode}}{{/cameraCodeShow}}">{{name}}{{#cameraCodeShow cameraCode}}{{/cameraCodeShow}}</span>
+		<a class="sendToTvwall permission permission-sendto-tvwall" target="tvwallcamera" title="添加到电视墙"></a>
+		<i class="play-single permission permission-real-time-view" title="播放"></i>
+	</li>
+	{{/each}}
+	{{else}}
+		<li class="camera-item style-text-info">此路线暂无摄像机。</li>
+	{{/if}}
+{{/if}}
+
+{{#if guardrouteGroupAdd}}
+	<div class="map-guard-route-group-add">
+		<div class="group-add-top">
+			<input type="text" value="{{guardrouteGroupAdd.categoryname}}" />
+		</div>
+		<div class="group-add-checkall">
+			<input type='checkbox' class="checkbox-all" {{#checkboxAllFliter guardrouteGroupAdd.policeline.length }}{{/checkboxAllFliter}} />全选
+		</div>
+		<div class="group-add-content">
+			<ul>
+				{{#if guardrouteGroupAdd.policeline}}
+				{{#each guardrouteGroupAdd.policeline}}
+				<div class="group-add-line"></div>
+				<li class="group-item-li">
+					<span>
+						<input type='checkbox' data-id={{id}} {{#checkboxFliter categories}}{{/checkboxFliter}} class="checkbox-item" />
+					</span>
+					<span title='{{name}}'>路线名称：{{name}}</span>
+				</li>
+				{{/each}}
+				{{else}}
+					<li class="group-item-li">暂无路线数据！</li>
+				{{/if}}
+			</ul>
+		<div>
+	</div>
+{{/if}}
+
+{{#if guardrouteAdd}}
+	<div class="map-guard-route-add">
+		<form onsubmit="return false;" class="guard-route-add-form" id="guardRouteForm">
+			<table class="buttons">
+				<tr class="form-item">
+					<td class="label">
+						<label><span class="required">*</span>路线:</label>
+					</td>
+					<td>
+						<div class="item-box ui input">
+							<input class="input-text" type="text" name="name" placeholder="请输入路线名称" id='gruardroute-addform-name' value="{{routedata.name}}"/>
+                            <input type="hidden" name="id" value="{{routedata.id}}"/>
+                            <input type="hidden" name="pointinfo" value="{{routedata.pointinfo}}"/>
+                            <input type="hidden" name="startPoint" value="{{routedata.startpoint}}"/>
+                            <input type="hidden" name="stopPoint" value="{{routedata.stoppoint}}"/>
+                            <input type="hidden" name="bufferPoint" value="{{routedata.bufferpoint}}"/>
+                            <input type="hidden" name="cameras" value="{{routedata.cameras}}"/>
+                            <input type="hidden" name="sorts" value="{{routedata.sorts}}"/>
+						</div>
+					</td>
+				</tr>
+				<tr class="form-item">
+					<td class="label">
+						<label><span class="required">*</span>起点:</label>
+					</td>
+					<td>
+						<div class="item-box ui input">
+							<input class="input-text" type="text" name="startName" placeholder="请输入起点名称" id='gruardroute-addform-startName' value="{{routedata.startname}}"/>
+							<span class="start-point-mark" title="标注" id="startDrawGuardRoute"></span>
+						</div>
+					</td>
+				</tr>
+				<tr class="form-item">
+					<td class="label">
+						<label><span class="required">*</span>终点:</label>
+					</td>
+					<td>
+						<div class="item-box ui input">
+							<input class="input-text" type="text" name="stopName" placeholder="请输入终点名称" id='gruardroute-addform-stopName' value="{{routedata.stopname}}"/>
+						</div>
+					</td>
+				</tr>
+				<tr class="form-item">
+					<td class="label">
+						<label><span class="required"> </span>GPS编号:</label>
+					</td>
+					<td>
+						<div class="item-box ui input">
+							<input class="input-text" type="text" name="gpsId" placeholder="请输入GPS编号" id='gruardroute-addform-gpsid' value="{{routedata.gpsid}}"/>
+						</div>
+					</td>
+				</tr>
+				<tr class="form-item">
+					<td class="label">
+						<label><span class="required"> </span>车队代号:</label>
+					</td>
+					<td>
+						<div class="item-box ui input">
+							<input class="input-text" type="text" name="code" placeholder="请输入车队代号" id='gruardroute-addform-gpscode' value="{{routedata.code}}"/>
+						</div>
+					</td>
+				</tr>
+				<tr class="form-item">
+					<td class="label">
+						<label><span class="required">*</span>搜索范围:</label>
+					</td>
+					<td>
+						<div class="item-box ui input">
+							<input class="input-text" type="text" name="distance" placeholder="请输入搜索范围" id='gruardroute-addform-distance' value="{{#filterDistance routedata.distance}}{{/filterDistance}}"/> 米
+						</div>
+					</td>
+				</tr>
+			</table>
+		</form>
+		<div class="guard-route-cameras">
+
+		</div>
+	</div>
+{{/if}}
+
+{{#if policelineSelectedCameras}}
+	<ul class="self-camera-list">
+		<li class="camera-item-first">
+			<span>点位：</span>
+			<div class="buttons left guard-route-button ui tabular">
+				<input type="button" class="ui button blue tree" id="AddTreeCamerasToGuardRouteBtn" value="勾选"/>
+				<input type="button" class="ui button blue" id="AddCamerasToGuardRouteBtn" value="框选"/>
+			</div>
+		</li>
+		{{#each policelineSelectedCameras.cameras}}
+			<li class="camera-item clearfix" data-id='{{id}}' data-name='{{name}}' data-type='{{type}}' data-camerastatus='{{camera_status}}' data-cameracode='{{#cameraCodeShow cameraCode}}{{/cameraCodeShow}}' data-installsddress='{{installAddress}}'  data-cameratype='{{camera_type}}' data-latitude='{{latitude}}' data-longitude='{{longitude}}' data-hdchannel='{{translate hd_channel}}' data-sdchannel='{{translate sd_channel}}' data-score='{{score}}'>
+				<span class="del-ico" title="删除"></span><span class="camera-img {{#cameraStatusAndTypeByChannels hd_channel sd_channel camera_type score}}{{/cameraStatusAndTypeByChannels}}"></span><span class="text" title="{{name}}{{#cameraCodeShow cameraCode}}{{/cameraCodeShow}}">{{name}}{{#cameraCodeShow cameraCode}}{{/cameraCodeShow}}</span><span class="camera-up-down"><i class="down" title="向下移动"></i><i class="up" title="向上移动"></i></span>
+			</li>
+		{{/each}}
+	</ul>
+{{/if}}
+
+{{#if camerasToGuardroute}}
+	{{#each camerasToGuardroute.cameras}}
+		<li class="camera-item clearfix" data-id='{{id}}' data-name='{{name}}' data-type='{{type}}' data-camerastatus='{{camera_status}}' data-cameracode='{{#cameraCodeShow cameraCode}}{{/cameraCodeShow}}' data-installsddress='{{installAddress}}'  data-cameratype='{{camera_type}}' data-latitude='{{latitude}}' data-longitude='{{longitude}}' data-hdchannel='{{translate hd_channel}}' data-sdchannel='{{translate sd_channel}}' data-score='{{score}}'>
+			<span class="del-ico" title="删除"></span><span class="camera-img {{#cameraStatusAndTypeByChannels hd_channel sd_channel camera_type score}}{{/cameraStatusAndTypeByChannels}}"></span><span class="text" title="{{name}}{{#cameraCodeShow cameraCode}}{{/cameraCodeShow}}">{{name}}{{#cameraCodeShow cameraCode}}{{/cameraCodeShow}}</span><span class="camera-up-down"><i class="down" title="向下移动"></i><i class="up" title="向上移动"></i></span>
+		</li>
+	{{/each}}
+{{/if}}
+
+{{#if treeCamerasToGuardroute}}
+	{{#each treeCamerasToGuardroute.cameras}}
+		<li class="camera-item clearfix" data-id='{{id}}' data-name='{{name}}' data-type='{{type}}' data-camerastatus='{{camera_status}}' data-cameracode='{{#cameraCodeShow cameraCode}}{{/cameraCodeShow}}' data-installsddress='{{installAddress}}'  data-cameratype='{{camera_type}}' data-latitude='{{latitude}}' data-longitude='{{longitude}}' data-hdchannel='{{translate hdchannel}}' data-sdchannel='{{translate sdchannel}}' data-score='{{score}}'>
+			<span class="del-ico" title="删除"></span><span class="camera-img {{#cameraStatusAndTypeByChannels hdchannel sdchannel camera_type score}}{{/cameraStatusAndTypeByChannels}}"></span><span class="text" title="{{name}}{{#cameraCodeShow cameraCode}}{{/cameraCodeShow}}">{{name}}{{#cameraCodeShow cameraCode}}{{/cameraCodeShow}}</span><span class="camera-up-down"><i class="down" title="向下移动"></i><i class="up" title="向上移动"></i></span>
+		</li>
+	{{/each}}
+{{/if}}
+
+
+
+
+{{#if addMark}}
+	<div class="infowindow-title">
+		<span class="text">添加标注</span>
+		<span class="btns">
+			<span class="my-attention-ico" id="AddToMyAttention" title="加入关注"></span>
+			<i class="closeBtn"></i>
+		</span>
+	</div>
+	<div class="map-police-schuduling">
+		<div class="ui input">
+			<label for="name">名称：</label>
+			<input type="text" name="markerName" id="markerName" placeholder="我的标记" maxlength="15">
+			<input type="hidden" name="markerX" id='markerX'/>
+			<input type="hidden" name="markerY" id='markerY'/>
+			<input type="hidden" name="markerIndex" id='markerIndex'/>
+			<input type="hidden" name="markerId" id='markerId'/>
+			<input type="hidden" name="isMyAttention" id='isMyAttention' value='false'/>
+		</div>
+		<div class="ui form">
+			<div class="ui field">
+				<label for="name">备注：</label>
+		    	<textarea name="markerDescription" id="markerDescription" maxlength="200" placeholder="我的备注"></textarea>
+		  	</div>
+		</div>
+		<div class="ui buttons">
+			<div class="ui blue small button" id="saveMarker">保存</div>
+			<div class="ui small button" id="deleteMarker">删除</div>
+		</div>
+	</div>
+{{/if}}
+
+{{#if editMarkfalse}}
+{{#with  editMarkfalse.attributes}}
+	<div class="infowindow-title">
+		<span class="text">{{name}}</span>
+		<span class="btns">
+			<span class="my-attention-ico" id="AddToMyAttention" title="加入关注"></span>
+			<i class="closeBtn"></i>
+		</span>
+	</div>
+	<div class="map-police-schuduling">
+		<div class="ui input">
+			<label for="name">名称：</label>
+			<input type="text" name="markerName" id="markerName" placeholder="我的标记" maxlength="15" value="{{name}}">
+			<input type="hidden" name="markerName" id="markerName" value="{{name}}"/>
+	        <input type="hidden" name="markerX" id='markerX' value="{{lon}}"/>
+			<input type="hidden" name="markerY" id='markerY' value="{{lat}}"/>
+			<input type="hidden" name="markerIndex" id='markerIndex' value="{{index}}"/>
+			<input type="hidden" name="markerId" id='markerId' value="{{markerId}}"/>
+			<input type="hidden" name="isMyAttention" id='isMyAttention' value="{{isMyAttention}}"/>
+		</div>
+		<div class="ui form">
+			<div class="ui field">
+				<label for="name">备注：</label>
+		    	<textarea name="markerDescription" id="markerDescription" maxlength="200" placeholder="我的备注">{{remark}}</textarea>
+		  	</div>
+		</div>
+		<div class="ui buttons">
+			<div class="ui blue small button" id="saveMarker">保存</div>
+			<div class="ui small button" id="deleteMarker">删除</div>
+		</div>
+	</div>
+	{{/with}}
+{{/if}}
+
+{{#if editMarktrue}}
+{{#with  editMarktrue.attributes}}
+	<div class="infowindow-title">
+		<span class="text">{{name}}</span>
+		<span class="btns">
+			<span class="my-attention-ico-cancel" id="cancelFromMyAttention" title="取消关注"></span>
+			<i class="closeBtn"></i>
+		</span>
+	</div>
+	<div class="map-police-schuduling">
+		<div class="ui input">
+			<label for="name">名称：</label>
+			<input type="text" name="markerName" id="markerName" placeholder="我的标记" maxlength="15" value="{{name}}">
+			<input type="hidden" name="markerName" id="markerName" value="{{name}}"/>
+	        <input type="hidden" name="markerX" id='markerX' value="{{lon}}"/>
+			<input type="hidden" name="markerY" id='markerY' value="{{lat}}"/>
+			<input type="hidden" name="markerIndex" id='markerIndex' value="{{index}}"/>
+			<input type="hidden" name="markerId" id='markerId' value="{{markerId}}"/>
+			<input type="hidden" name="isMyAttention" id='isMyAttention' value="{{isMyAttention}}"/>
+		</div>
+		<div class="ui form">
+			<div class="ui field">
+				<label for="name">备注：</label>
+		    	<textarea name="markerDescription" id="markerDescription" maxlength="200" placeholder="我的备注">{{nullToremark remark}}</textarea>
+		  	</div>
+		</div>
+		<div class="ui buttons">
+			<div class="ui blue small button" id="saveMarker">保存</div>
+			<div class="ui small button" id="deleteMarker">删除</div>
+		</div>
+	</div>
+	{{/with}}
+{{/if}}
+
+{{#if MyAttentiontrue}}
+	{{#with MyAttentiontrue.attributes}}
+	<div class="infowindow-title">
+	<span class="mark-name">{{nullToName name}}</span>
+	<span class="btns">
+			<span class="my-attention-ico-cancel" id="cancelFromMyAttention" title="取消关注"></span>
+			<i class="closeBtn"></i>
+		</span>
+	</div>
+	<div class="map-marker-business">
+        <div class="marker-remark">
+            <span title="{{nullToremark remark}}">{{nullToremark remark}}</span>
+            <span class="marker-edit" title="编辑"></span>
+        </div>
+        <div class="marker-bussiness">
+            <span>在附近找：</span>
+            <span>
+	            <a id="markerBusinessCamera">摄像机</a>
+	            <a id="markerBusinessAlarm">报警</a>
+	            <a id="markerBusinessGps">GPS</a>
+                 <a id="markerBusinessPolice">350M</a>
+            </span>
+        </div>
+        <input type="hidden" name="markerName" id="markerName" value="{{name}}"/>
+        <input type="hidden" name="markerX" id='markerX' value="{{lon}}"/>
+		<input type="hidden" name="markerY" id='markerY' value="{{lat}}"/>
+		<input type="hidden" name="markerIndex" id='markerIndex' value="{{index}}"/>
+		<input type="hidden" name="markerId" id='markerId' value="{{markerId}}"/>
+		<input type="hidden" name="isMyAttention" id='isMyAttention' value="{{isMyAttention}}"/>
+		<input type="hidden" name="markerDescription" id="markerDescription" value="{{remark}}"/>
+	</div>
+	{{/with}}
+{{/if}}
+
+{{#if MyAttentionfalse}}
+	{{#with  MyAttentionfalse.attributes}}
+	<div class="infowindow-title">
+	<span class="mark-name">{{nullToName name}}</span>
+	<span class="btns">
+			<span class="my-attention-ico" id="AddToMyAttention" title="加入关注"></span>
+			<i class="closeBtn"></i>
+		</span>
+	</div>
+	<div class="map-marker-business">
+	        <div class="marker-remark">
+	            <span title="{{nullToremark remark}}">{{nullToremark remark}}</span>
+	            <span class="marker-edit" title="编辑"></span>
+	        </div>
+	        <div class="marker-bussiness">
+	            <span>在附近找：</span>
+	            <span>
+		            <a id="markerBusinessCamera">摄像机</a>
+		            <a id="markerBusinessAlarm">报警</a>
+                    <a id="markerBusinessGps">GPS</a>
+		            <a id="markerBusinessPolice">350M</a>
+	            </span>
+	        </div>
+	        <input type="hidden" name="markerName" id="markerName" value="{{name}}"/>
+	        <input type="hidden" name="markerX" id='markerX' value="{{lon}}"/>
+			<input type="hidden" name="markerY" id='markerY' value="{{lat}}"/>
+			<input type="hidden" name="markerIndex" id='markerIndex' value="{{index}}"/>
+			<input type="hidden" name="markerId" id='markerId' value="{{markerId}}"/>
+			<input type="hidden" name="isMyAttention" id='isMyAttention'  value="{{isMyAttention}}"/>
+			<input type="hidden" name="markerDescription" id="markerDescription" value="{{remark}}"/>
+		</div>
+	{{/with}}
+{{/if}}
+
+
+{{#if attentionList}}
+	<ul class="my-attention-list">
+		{{#if attentionList.attention}}
+		{{#each attentionList.attention}}
+		<li class="clearfix" data-id='{{id}}' data-name='{{name}}' data-description='{{description}}' data-x='{{x}}' data-y='{{y}}' data-zoom='{{zoom}}'><span class="text">{{name}}</span><span class="time">{{mills2str createTime}}</span></li>
+		{{/each}}
+		{{else}}
+		<li>暂无数据</li>
+		{{/if}}
+	</ul>
+{{/if}}
+
+{{#if fullviewCameras}}
+	{{#if fullviewCameras.cameras}}
+		{{#each fullviewCameras.cameras}}
+			<li class="leaf" data-id="{{id}}" data-name="{{name}}" data-status="{{camera_status}}"  data-cameratype="{{camera_type}}" data-code="{{cameraCode}}" data-longitude="{{longitude}}" data-latitude="{{latitude}}" data-hdchannel="{{translate hd_channel}}" data-sdchannel="{{translate sd_channel}}" data-score="{{score}}">
+				<i class="leaf {{#cameraStatusAndTypeByChannels hd_channel sd_channel camera_type score}}{{/cameraStatusAndTypeByChannels}}"></i>
+				<span class="name" title="{{name}}{{#cameraCodeShow cameraCode}}{{/cameraCodeShow}}（{{meter}}m）">{{name}}{{#cameraCodeShow cameraCode}}{{/cameraCodeShow}}<span class="distance">（{{meter}}m）</span></span>
+				<span class="play"></span>
+				<!-- <span class="setCenter">设为中心</span> -->
+			</li>
+		{{/each}}
+	{{else}}
+		<li class="grey-text">该方位暂无摄像机</li>
+	{{/if}}
+{{/if}}
+
+
+{{#if alarmInfo}}
+{{#with alarmInfo.info}}
+	<div class="infowindow-title">
+		<i id="alarm-event-top" data-cameraId="{{event.deployEvent.cameraId}}">{{event.deployEvent.cameraName}}</i>
+		<a title="报警处理" class="alarm-mark-deal"></a>
+		<!-- <a href="/inspect/history/1#cId={{event.deployEvent.cameraChannelId}}&begintime={{beginTime event.deployEvent.absTime}}&endtime={{enTime event.deployEvent.absTime}}"
+		hisdata="{{cameraChannelId}},{{beginTime deployEvent.absTime}},{{enTime deployEvent.absTime}}"
+		title="历史调阅" id="checkV" class="alarm-video-play" style="display:none" data-time="{{deployEvent.absTime}}" data-id="{{deployEvent.cameraChannelId}}" target="historyProxy"></a> -->
+		<span class="btns">
+			<i class="closeBtn" title="关闭"></i>
+		</span>
+	</div>
+	<div id="alarm-events-content" class="clearfix" data-id="{{event.deployEvent.id}}" data-time="{{event.deployEvent.absTime}}" data-type="{{event.deployEvent.eventTypeName}}">
+		<div class="operate">
+			<div class="alarm-event-mark" style="display:none">
+				<div class="alarm-event-level">
+					<span class="text" level-type="{{event.deployEvent.level}}">{{intToAllLevel event.deployEvent.level}}</span>
+					<span class="down"></span>
+					<div class="level-list1">
+						<ul>
+							<li level-type="1">报警级别--一般</li>
+							<li level-type="2">报警级别--重要</li>
+							<li level-type="3">报警级别--严重</li>
+						</ul>
+					</div>
+				</div>
+				<textarea class="event-mark-text">{{event.deployEvent.comment}}</textarea>
+				<a id = "dealAlarm" class="deal-btn save deal-alarm"  data-level="1">有效</a>
+				<a id = "cancelAlarm" class="deal-btn cancel cancel-alarm"  data-level="2">无效</a>
+			</div>
+			<div class="alarm-event-detail">
+				<div class="event-image">
+					<img src="{{event.deployEvent.imgInfo}}" />
+				</div>
+				<!-- <div class="event-status">
+					<span>状态：</span><span id="status" class="status{{event.deployEvent.dealStatus}}" title="intTostatus event.deployEvent.dealStatus">{{intTostatus event.deployEvent.dealStatus}}</span>
+				</div> -->
+
+				<div class="event-time">
+					<span>报警时间：</span><span title="{{mills2datatime event.deployEvent.absTime}}">{{mills2datatime event.deployEvent.absTime}}</span>
+				</div>
+				<div class="event-palce">
+					<span>报警地点：</span><span title="{{event.deployEvent.reportPlace}}">{{event.deployEvent.reportPlace}}</span>
+				</div>
+				<div class="event-reason">
+					<span>报警原因：</span><span title="{{event.deployEvent.reportReason}}">{{event.deployEvent.reportReason}}</span>
+				</div>
+
+				<div class="event-level">
+					<span>报警级别：</span><span class="level level{{event.deployEvent.level}}" title="{{intTolevel event.deployEvent.level}}">{{intTolevel event.deployEvent.level}}</span>
+				</div>
+				<div class="event-type">
+					<span>报警类型：</span><span title="手动报警">手动报警</span>
+				</div>
+				<div class="event-person">
+					<span>报警人：</span><span title="{{event.deployEvent.reportPerson}}">{{event.deployEvent.reportPerson}}</span>
+			</div>
+		</div>
+		<i class="pre" title="上一个报警信息" data-disc="pre" data-currentpage="{{currentPage}}" data-id="{{event.deployEvent.id}}"></i>
+		<i class="next" title="下一个报警信息" data-disc ="next" data-currentpage="{{currentPage}}" data-id="{{event.deployEvent.id}}"></i>
+	</div>
+	{{/with}}
+{{/if}}
+
+{{#if defenseCircleGroups}}
+	{{#if defenseCircleGroups.defenseCircleGroups}}
+	<ul class="circle-group-ul">
+		{{#each defenseCircleGroups.defenseCircleGroups}}
+		<li class="group-item" data-id="{{id}}" data-nam="{{name}}">
+			<p class="group-head clearfix">
+				<a class="contract up"></a>
+				<span class="group-name" title="{{name}}">{{name}}</span>
+				<span class="group-items">({{count}}条)</span>
+				<i class="circle-group-del" title="删除"></i>
+				<i class="circle-group-edit" title="编辑"></i>
+				<i class="circle-group-add" title="新增"></i>
+			</p>
+			<ul class="circles">
+			</ul>
+		</li>
+		{{/each}}
+	</ul>
+	{{else}}
+		<div class="no-circlegroups">暂无防控圈组！</div>
+	{{/if}}
+{{/if}}
+{{#if defenseCircles}}
+	{{#if defenseCircles.defenseCircles}}
+	{{#each defenseCircles.defenseCircles}}
+	<li class="circle-item" data-id="{{id}}" data-name="{{name}}" data-pointinfo="{{pointInfo}}" data-description="{{description}}" data-color="{{color}}" data-zoom="{{zoom}}" data-distance="{{distance}}" data-bufferpoint="{{bufferPoint}}">
+		<p class="circle-head">
+			<i class="checkbox"></i>
+			<span class="circle-item-name" title="{{name}}">{{name}}</span>
+			<i class="circle-del" title="删除"></i>
+			<i class="set-circle" title="设置" data-id="{{id}}"></i>
+		</p>
+		<ul class="circle-cameras">
+		</ul>
+		{{/each}}
+	</li>
+	{{else}}
+		<li class="no-circles">暂无防控圈！</li>
+	{{/if}}
+{{/if}}
+{{#if defenseCircle}}
+	{{#if defenseCircle.defenseCircle}}
+		{{#each defenseCircle.defenseCircle.cameras}}
+			<li class="circle-camera-item" data-latitude ="{{latitude}}" data-longitude="{{longitude}}" data-sdchannel="{{translate sd_channel}}" data-hdchannel="{{translate hd_channel}}" data-type="{{camera_type}}" data-name="{{name}}" data-code="{{cameraCode}}" data-cstatus="{{camera_status}}" data-id="{{id}}" data-score='{{score}}'>
+				<i class="camera-ico {{#cameraStatusAndTypeByChannels hd_channel sd_channel  camera_type score}}{{/cameraStatusAndTypeByChannels}}"></i>
+				<span title = {{name}}>{{name}}</span>
+				<span class = "operate-wrapper">
+					<i class="play permission permission-real-time-view" title="播放实时视频"></i>
+					<i class="defense permission permission-set-defence-task" title="布防设置"></i>
+					<i class="tvwall permission permission-sendto-tvwall" title="发送到电视墙"></i>
+				</span>
+			</li>
+		{{/each}}
+		{{else}}
+		<li class="no-cameras">暂无摄像机！</li>
+	{{/if}}
+{{/if}}
+{{#if defenseSearchCircles}}
+	{{#if defenseSearchCircles.defenseCircles}}
+	<ul class="circles">
+		{{#each defenseSearchCircles.defenseCircles}}
+		<li class="circle-item" data-id="{{id}}" data-name="{{name}}" data-pointinfo="{{pointInfo}}" data-description="{{description}}" data-color="{{color}}" data-zoom="{{zoom}}" data-distance="{{distance}}" data-bufferpoint="{{bufferPoint}}">
+			<p class="circle-head">
+				<i class="checkbox"></i>
+				<span class="circle-item-name">{{name}}</span>
+				<i class="circle-del" title="删除"></i>
+				<i class="set-circle" title="设置" data-id="{{id}}" data-groupid="{{groupId}}"></i>
+			</p>
+			<ul class="circle-cameras">
+			</ul>
+			{{/each}}
+		</li>
+		{{else}}
+			<li class="no-circles">无搜索条件下的防控圈！</li>
+
+		{{/if}}
+	</ul>
+{{/if}}
+{{#if editCircleGroup}}
+	<form class="CircleGroupEditFrom" onsubmit="return false">
+		<input type="text" class="group-edit-name" name="groupname" value="{{editCircleGroup.name}}"/>
+		<input type="hidden" class="group-edit-id" name="id" value="{{editCircleGroup.id}}">
+		<div class="btns clearfix">
+			<input type="button" class="cancel" value="取消"/>
+			<input type="button" class="save" value="保存"/>
+		</div>
+	</form>
+{{/if}}
+{{#if AddOrEditCircle}}
+	<form class="CircleForm">
+		<table class="form">
+			<tr>
+				<td class="name"><label>名称：</label></td>
+				<td>
+					<input type="text" name="name" value="{{AddOrEditCircle.name}}" class="circle-form-name"/>
+					<input type="hidden" name="zoom" value="{{AddOrEditCircle.zoom}}"/>
+					<input type="hidden" name="pointInfo" value="{{AddOrEditCircle.pointInfo}}"/>
+					<input type="hidden" name="bufferPoint" value="{{AddOrEditCircle.bufferPoint}}"/>
+					<input type="hidden" name="color" value="{{AddOrEditCircle.color}}"/>
+					<input type="hidden" name="cameraIds" value="{{AddOrEditCircle.cameraIds}}"/>
+					<input type="hidden" name="id" value="{{AddOrEditCircle.id}}"/>
+					<input type="hidden" name="groupId" value="{{AddOrEditCircle.groupId}}"/>
+				</td>
+			</tr>
+			<tr class="description">
+				<td class="name"><label>描述：</label></td>
+				<td><textarea name="description" value="{{AddOrEditCircle.description}}" class="circle-form-description">{{AddOrEditCircle.description}}</textarea></td>
+			</tr>
+			<tr>
+				<td class="name"><label>搜索范围：</label></td>
+				<td><input type="text" name="distance" value="{{#fiterDistance AddOrEditCircle.distance}}{{/fiterDistance}}" class="circle-form-distance"/> 米</td>
+			</tr>
+			<tr>
+				<td class="name"><label>工具：</label></td>
+				<td><input class="color-select" title="选择颜色"/><i class="circle-draw-tool" title="绘制防控圈"></i></td>
+			</tr>
+			<tr>
+				<td class="name"><label>框选摄像机：</label></td>
+				<td><i class="camera-select-tool" title="框选摄像机"></i></td>
+			</tr>
+		</table>
+		<ul class="circle-cameras">
+			<li class="list-head">摄像机列表：</li>
+			{{#if AddOrEditCircle.cameras}}
+			{{#each AddOrEditCircle.cameras}}
+				<li class="camera-item clearfix" data-id="{{id}}" data-latitude ="{{latitude}}" data-longitude="{{longitude}}" data-sdchannel="{{translate sd_channel}}" data-hdchannel="{{translate hd_channel}}" data-type="{{camera_type}}" data-name="{{name}}" data-code="{{cameraCode}}" data-cstatus="{{camera_status}}" data-score='{{score}}'>
+					<i class="ico {{#cameraStatusAndTypeByChannels hd_channel sd_channel  camera_type score}}{{/cameraStatusAndTypeByChannels}}"></i>
+					<span class="name" title = {{name}}>{{name}}</span>
+					<i class="del" title="删除"></i>
+				</li>
+			{{/each}}
+			{{/if}}
+		</ul>
+	</form>
+{{/if}}
+{{#if circleCameras}}
+	{{#if circleCameras.cameras}}
+	{{#each circleCameras.cameras}}
+		<li class="camera-item clearfix" data-id="{{id}}" data-latitude ="{{latitude}}" data-longitude="{{longitude}}" data-sdchannel="{{translate sd_channel}}" data-hdchannel="{{translate hd_channel}}" data-type="{{camera_type}}" data-name="{{name}}" data-code="{{cameraCode}}" data-cstatus="{{camera_status}}" data-score='{{score}}'>
+			<i class="ico {{#cameraStatusAndTypeByChannels hd_channel sd_channel  camera_type score}}{{/cameraStatusAndTypeByChannels}}"></i>
+			<span class="name">{{name}}</span>
+			<i class="del" title="删除"></i>
+		</li>
+	{{/each}}
+	{{/if}}
+{{/if}}

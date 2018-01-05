@@ -1,0 +1,88 @@
+{{#if searchResult}}
+<div class="search-result np-camera-search-result">
+    {{#if showHeader}}
+    <div class="search-result-header">
+        <i class="sidebar-home-icon" data-mark="{{homeBreadUrl}}"></i>
+        <span class="search-result-header-nearby"> <b> > </b> {{searchPlace}}“
+                        <strong>{{searchTypeName}}</strong>”
+                    </span>
+        <span class="search-result-number">共{{count}}个</span>
+    </div>
+    <div class="sidebar-div-line"></div>
+    {{/if}}
+    <div class="search-result-content np-range-circle-select-content">
+        <ul class="search-result-content-list np-roll-play np-range-circle-search-list" data-type="{{dataType}}" data-fromtype="{{searchFrom}}">
+            {{#if data.items.length}}
+                {{#if police}}
+                    {{#each data.items}}
+                    <li class="search-result-content-list-item clearfix np-range-circle-search-item" data-event="click mouseenter mouseleave" data-handler="LeftResultItemClick"data-index="{{index}}" data-key="{{key}}" data-lon="{{lon}}" data-lat="{{lat}}" data-type="{{type}}" data-subtype="{{subType}}" data-time="{{time}}">
+                        <div class="list-item-div">
+                            <span class="list-icon">{{num}}</span>
+                            <span class="list-text" title="{{gpsName}}">{{gpsName}}</span>
+                        </div>
+                    </li>
+                    {{/each}}
+                {{/if}}
+
+                {{#if lightbar}}
+                    {{#each data.items}}
+                    <li class="search-result-content-list-item clearfix np-range-circle-search-item" data-event="click mouseenter mouseleave" data-handler="LeftResultItemClick" data-index="{{index}}" data-key="{{code}}" data-lon="{{longitude}}" data-lat="{{latitude}}" data-type="{{type}}" data-subtype="{{subType}}" data-description="{{description}}">
+                        <div class="list-item-div">
+                            <span class="list-icon">{{num}}</span>
+                            <span class="list-text" title="{{code}}">{{code}}</span>
+                        </div>
+                    </li>
+                    {{/each}}
+                {{/if}}
+
+                {{#if policeman}}
+                    {{#each data.items}}
+                    <li class="search-result-content-list-item clearfix np-range-circle-search-item" data-event="click mouseenter mouseleave" data-handler="LeftResultItemClick" data-index="{{index}}" data-key="{{key}}" data-lon="{{lon}}" data-lat="{{lat}}" data-type="{{type}}" data-subtype="{{subType}}" data-time="{{time}}">
+                        <div class="list-item-div">
+                            <span class="list-icon">{{num}}</span>
+                            <span class="list-text" title="{{key}}">{{key}}</span>
+                        </div>
+                    </li>
+                    {{/each}}
+                {{/if}}
+
+                {{#if alarm}}
+                    {{#each data.items}}
+                    <li class="search-result-content-list-item clearfix np-range-circle-search-item" data-event="click mouseenter mouseleave" data-handler="LeftResultItemClick" data-id="{{cameraId}}" data-name="{{cameraName}}" data-index="{{index}}" data-lon="{{longitude}}" data-lat="{{latitude}}">
+                        <div class="list-item-div">
+                            <span class="list-icon">{{num}}</span>
+                            <span class="list-text" title="{{cameraName}}">{{cameraName}}</span>
+                        </div>
+                    </li>
+                    {{/each}}
+                {{/if}}
+
+                {{#if bayonet}}
+                    {{#each data.items}}
+                    <li class="search-result-content-list-item clearfix np-range-circle-search-item" data-event="click mouseenter mouseleave" data-handler="LeftResultItemClick" data-index="{{index}}" data-lon="{{x}}" data-lat="{{y}}" data-subtype="{{subType}}" data-type="{{type}}">
+                        <div class="list-item-div">
+                            <span class="list-icon">{{num}}</span>
+                            <span class="list-text" title="{{name}}">{{name}}</span>
+                        </div>
+                    </li>
+                    {{/each}}
+                {{/if}}
+
+                {{#if route}}
+                    {{#each data.items}}
+                    <li class="search-result-content-list-item clearfix np-range-circle-search-item" data-event="click mouseenter mouseleave" data-handler="LeftResultItemClick" data-index="{{index}}" data-lon="{{lon}}" data-lat="{{lat}}">
+                        <div class="list-item-div">
+                            <span class="list-icon">{{num}}</span>
+                            <span class="list-text" title="{{key}}">{{key}}</span>
+                        </div>
+                    </li>
+                    {{/each}}
+                {{/if}}
+
+            {{else}}
+                <p class="no-result-style">暂无数据。</p>
+            {{/if}}
+        </ul>
+    </div>
+</div>
+{{/if}}

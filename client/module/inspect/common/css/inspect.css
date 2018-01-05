@@ -1,0 +1,669 @@
+#content .wrapper {
+	position: absolute;
+	top: 0;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	background-color: #FEFEFE;
+	overflow: hidden
+}
+#sidebar {
+	width: 280px;
+	position: absolute;
+	top: 10px;
+	left: 0px;
+	bottom: 0px;
+	background-color: #F6FBFF
+}
+#sidebar:after {
+	content: ' ';
+	width: 0px;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0px;
+	border-right: 1px solid #DFDFDF
+}
+#sidebar>.header {
+	height: 34px;
+	background-color: #FFFFFF;
+	border-top: 1px solid #DFDFDF;
+	border-bottom: 1px solid #DFDFDF
+}
+#sidebar>.header .menus li {
+	position: relative;
+	float: left
+}
+#sidebar>.header .menus li .nav {
+	float: left;
+	padding: 0 30px;
+	line-height: 34px;
+	background: transparent url("") 8px center no-repeat;
+	color: #333333
+}
+#sidebar>.header .menus li .nav:hover {
+	color: #005EAC;
+	text-decoration: underline
+}
+#sidebar>.header .menus li.active .nav {
+	color: #005EAC
+}
+#sidebar>.header .menus li.camera .nav {
+	background-image: url(../../../common/images/icons/camera.png)
+}
+#sidebar>.header .menus li.patrol .nav {
+	background-image: url(../../../common/images/icons/patrol.png)
+}
+#sidebar>.header .menus li.camera:hover .nav, #sidebar>.header .menus li.camera.active .nav {
+	background-image: url(../../../common/images/icons/camera_hover.png)
+}
+#sidebar>.header .menus li.patrol:hover .nav, #sidebar>.header .menus li.patrol.active .nav {
+	background-image: url(../../../common/images/icons/patrol_hover.png)
+}
+#sidebar>.header .menus li.camera .icon {
+	background: transparent url(../../../common/images/sprites/sideicons.png) -1178px -42px no-repeat;
+	vertical-align: text-top;
+	width: 30px;
+	height: 34px;
+	position: absolute;
+	top: 0;
+	right: 0
+}
+
+/* #sidebar .camera .ui.dropdown .ui.menu {
+	position: absolute;
+	top: 28px;
+	left: auto;
+	right: 0;
+	z-index: 100;
+	width: 106px
+} */
+
+#sidebar>.header .menus .action {
+	float: right;
+	width: 16px;
+	height: 16px;
+	margin: 9px 5px;
+	cursor: pointer;
+	background: transparent url(../../../common/images/sprites/tree_bg.png) 0 0 no-repeat
+}
+#sidebar>.header .menus .action.train {
+	background-position: -134px 0
+}
+#sidebar>.header .menus .action.group {
+	background-position: -117px 0;
+	margin-right: 8px
+}
+#sidebar>.header .menus .train:hover {
+	background-position: -251px 0
+}
+#sidebar>.header .menus .train.active {
+	background-position: -271px 0
+}
+#sidebar>.header .menus .group:hover {
+	background-position: -291px 0
+}
+#sidebar>.header .menus .group.active {
+	background-position: -311px 0
+}
+#treePanel {
+	width: 100%;
+	position: absolute;
+	top: 36px;
+	bottom: 0
+}
+#treePanel.overflow {
+	background: transparent url(../../../common/images/bg/track_line.png) right 0 repeat-y
+}
+#sidebar .ui.tab .filter {
+	position: relative;
+	padding: 8px 0 8px 35px;
+	border-bottom: 1px solid #FFFFFF;
+	background: #F6FBFF
+}
+#sidebar .ui.tab .filter:after {
+	content: ' ';
+	width: 100%;
+	border-bottom: 1px solid #D7DFE8;
+	position: absolute;
+	left: 0;
+	bottom: 0
+}
+#sideExpand {
+	border-left: 1px solid #D7DFE8;
+	position: absolute;
+	top: 36px;
+	right: 1px;
+	z-index: 10;
+	cursor: pointer;
+	width: 25px;
+	height: 45px;
+	font-size: 0;
+	overflow: hidden
+}
+#sideExpand span {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 24px;
+	height: 45px;
+	z-index: 300;
+	background: #f6fbff url(../../../common/images/icons/left-arrow.png) center center no-repeat
+}
+#sideExpand span:hover {
+	background-image: url(../../../common/images/icons/left-arrow-hover.png)
+}
+#sideExpand:before {
+	display: block;
+	content: ' ';
+	height: 100%;
+	width: 0;
+	border-left: 1px solid #FFFFFF
+}
+#sideResize {
+	position: absolute;
+	left: 100%;
+	top: 50%;
+	cursor: w-resize;
+	margin-top: -1px;
+	z-index: 100;
+	font-size: 0;
+	width: 9px;
+	height: 38px;
+	overflow: hidden;
+}
+#sideExpand iframe, #sideResize iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	opacity: 0;
+	filter: alpha(opacity=0);
+	z-index: -1;/*200*/
+}
+#sideResize span {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 9px;
+	height: 38px;
+	z-index: 300;
+	background: transparent url(../../../common/images/bg/resizable.png) right 0 no-repeat
+}
+#switchPanel {
+	position: absolute;
+	right: 0;
+	top: 36px;
+	bottom: 0;
+	z-index: 100;
+	width: 15px;
+	font-size: 0;
+	background: #EFF7FE
+}
+#switchPanel .toggle {
+	position: absolute;
+	left: -9px;
+	top: 50%;
+	margin-top: -19px;
+	width: 9px;
+	height: 38px;
+	overflow: hidden
+}
+#switchPanel iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	opacity: 0;
+	filter: alpha(opacity=0);
+	z-index: 200
+}
+#switchPanel span {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 300;
+	background: transparent url(../../../common/images/bg/resizable.png) left 0 no-repeat
+}
+#major {
+	position: absolute;
+	top: 10px;
+	left: 280px;
+	bottom: 0;
+	right: 0;
+	z-index:0;
+}
+#major .header {
+	padding: 0 10px;
+	height: 34px;
+	border-top: 1px solid #DFDFDF;
+	border-bottom: 1px solid #DFDFDF
+}
+#major .header .title {
+	float: left;
+	font-weight: normal;
+	font-size: 12px;
+	line-height: 34px
+}
+#major .header .ui.menu {
+	float: right;
+	margin-top: 6px;
+	position: relative
+}
+#major .header .ui.menu .item {
+	padding: 0
+}
+#major .header .ui.menu .item .icon {
+	display: block;
+	width: 24px;
+	height: 24px;
+	margin: 0 0 0 10px;
+	background: transparent url(../../../common/images/icons/function_btn.png) no-repeat scroll 0 0
+}
+#major .header .ui.menu .item .icon.blank {
+	background-position: 0 0;
+	background: transparent url(../../../common/images/icons/jiont.png) no-repeat scroll 0 0
+}
+#major .header .ui.menu .item .icon.sendto {
+	background-position: -25px 0
+}
+#major .header .ui.menu .item .icon.fullscreen {
+	background-position: -97px 0
+}
+#major .header .ui.menu .item .icon.close {
+	background-position: -50px 0
+}
+#major .header .ui.menu .item .icon.split4 {
+	background-position: -75px 0
+}
+#major .body {
+	position: absolute;
+	top: 36px;
+	left: 0px;
+	bottom: 0px;
+	right: 0px;
+	background-color: #F9F9F9
+}
+#major .body .screen {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	bottom: 0px;
+	right: 0px
+}
+#content.fullscreen #sidebar {
+	left: -280px
+}
+#content.fullscreen #major {
+	left: 0 !important
+}
+#content.fullscreen #sideExpand {
+	border: 1px solid #D7DFE8;
+	border-top: none;
+	right: -25px;
+	z-index: 100
+}
+#content.fullscreen #sideExpand span {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 25px;
+	height: 45px;
+	z-index: 300;
+	background: #f6fbff url(../../../common/images/icons/right-arrow.png) center center no-repeat
+}
+#content.fullscreen #sideResize {
+	display: none
+}
+#masklayer {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	opacity: 0.2;
+	z-index: 1000;
+	display: none;
+	background-color: #000000;
+	filter: alpha(opacity=20)
+}
+#masklayer iframe {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	opacity: 0;
+	filter: alpha(opacity=0)
+}
+.input-time, .input-date {
+	cursor: pointer
+}
+#domPanel {
+	*position: relative;
+	*z-index: -10
+}
+#npplay, #gismap,#label-manage {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0
+}
+.infinity {
+	top: -9999px !important;
+	bottom: 9999px !important
+}
+.history {
+	border: 1px solid #DCDDDE;
+	background: #FCFCFC;
+	margin-bottom: 10px
+}
+.history .head {
+	height: 32px
+}
+.history .paper {
+	height: 200px
+}
+.history .synchronized {
+	float: left;
+	margin: 5px 0px 0 5px;
+	padding-right: 20px;
+	height: 22px;
+	line-height: 22px;
+	border-right: 1px solid #C7CFD2;
+	width: 185px
+}
+.history .synchronized ul, .history .synchronized span {
+	float: left
+}
+.history .head li {
+	float: left;
+	width: 20px;
+	height: 22px;
+	cursor: pointer;
+	margin-right: 10px;
+	background: transparent url(../../../common/images/sprites/history.png) 0 0 no-repeat
+}
+.history .synchronized li.back {
+	background-position: 0 0
+}
+.history .synchronized li.toggle {
+	background-position: -30px 0
+}
+.history .synchronized li.front {
+	background-position: -60px 0
+}
+.history .head li:active {
+	opacity: 0.9
+}
+.history .actions {
+	float: left;
+	margin: 5px 0 0 5px
+}
+.history .actions li.cut {
+	background-position: -90px 0
+}
+.history .actions li.down {
+	background-position: -120px 0
+}
+.history .unit {
+	float: right;
+	margin: 5px 5px 0 0
+}
+.history .unit select {
+	width: 60px
+}
+.history .body {
+	position: relative;
+	border-top: 1px solid #CDD7E0;
+	overflow: hidden
+}
+.history .body .panel {
+	width: 9999px
+}
+.history .body .panel.moved {
+	cursor: move
+}
+.history .scale {
+	padding-top: 32px;
+	height: 6px;
+	position: relative;
+	border-bottom: 1px solid #CDD7E0
+}
+.history .scale a {
+	float: left;
+	width: 24px;
+	height: 6px;
+	color: #8A9CB3;
+	position: relative;
+	border-right: 1px solid #CDD7E0;
+	cursor: default
+}
+.history .scale i {
+	position: absolute;
+	top: -16px;
+	left: -6px;
+	font-size: 9px
+}
+.history .records {
+	background: #fff url(../../../common/images/bg/records.png) 0 0 repeat
+}
+.history .records dd {
+	height: 18px;
+	padding: 1px 0;
+	border-bottom: 1px solid #E7EAEB
+}
+.history .records dd p {
+	height: 18px;
+	opacity: 0.8;
+	filter: alpha(opacity=80);
+	float: left;
+	background-color: #A5C4C3
+}
+.history .records dd p.blank {
+	opacity: 0.2;
+	filter: alpha(opacity=20)
+}
+.history .records dd:nth-child(4n+0) p {
+	background-color: #C4BAA5
+}
+.history .records dd:nth-child(4n+1) p {
+	background-color: #99ACC1
+}
+.history .records dd:nth-child(4n+2) p {
+	background-color: #A5C4C3
+}
+.history .records dd:nth-child(4n+3) p {
+	background-color: #9CC59C
+}
+.history .salver {
+	position: relative
+}
+.history .pointer {
+	width: 9px;
+	height: 120%;
+	position: absolute;
+	top: 32px;
+	left: 632px;
+	z-index: 100;
+	cursor: w-resize;
+	background: transparent url(../../../common/images/bg/pointer.png) center 0 no-repeat
+}
+#paper.moved {
+	cursor: move
+}
+#paper text {
+	cursor: default
+}
+#UIOCX {
+	display: block;
+	height: 100%;
+	width: 100%;
+}
+#COREOCX {
+	position: absolute;
+	top: -9999px
+}
+body.raphael {
+	background: #FCFCFC
+}
+body.raphael #content .wrapper {
+	width: 960px;
+	margin: 0 auto;
+	position: static
+}
+body.raphael #npplay {
+	min-height: 540px;
+	background: #F0F0F0;
+	position: relative;
+	margin: 10px 0;
+	border: 1px solid #DCDDDE
+}
+#rsidebar {
+	position: absolute;
+	right: 0;
+	background-color: #ebf0f4;
+	z-index: 999;
+	width: 0px;
+	top: 45px;
+	bottom: 0px
+}
+#rsidebar .ocxwrapper {
+	position: absolute;
+	top: 0px;
+	bottom: 0px;
+	margin: 6px 10px 6px 12px;
+	width: 238px
+}
+#rsidebar .mixBlock {
+	position: absolute;
+	top: 10000px;
+	width: 238px;
+	height: 25px
+}
+#rsidebar .mixBlock iframe#mixiframe {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	opacity: 0;
+	filter: alpha(opacity=0)
+}
+#rsidebar .mixBlock .block {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	background-color: #1e1e1e
+}
+#rsidebar .mixBlock .block .video-title {
+	font-size: 12px
+}
+#rsidebar .mixBlock .block a.sendTo {
+	display: inline-block;
+	width: 15px;
+	height: 14px;
+	float: right;
+	background: transparent url(../../../common/images/bg/mix-send.png) 0 0 no-repeat;
+	margin: 6px 6px 0 0
+}
+#rsidebar .shadow {
+	position: absolute;
+	right: 100%;
+	display: inline-block;
+	width: 6px;
+	height: 100%;
+	background: transparent url(../../../common/images/bg/r-shadow.png) 0 0 repeat-y
+}
+#rsidebtn {
+	display: none;
+	width: 18px;
+	height: 70px;
+	background: transparent url(../../../common/images/bg/r-open.png) 0 0 no-repeat;
+	position: absolute;
+	right: 100%;
+	top: 50%;
+	margin-top: -55px;
+	cursor: hand
+}
+#rsidebtn:hover, #rsidebtn:active {
+	background: transparent url(../../../common/images/bg/r-open-active.png) 0 0 no-repeat
+}
+#rsidebtn.active {
+	background: transparent url(../../../common/images/bg/r-close.png) 0 0 no-repeat
+}
+#rsidebtn.active:hover, #rsidebtn.active:active {
+	background: transparent url(../../../common/images/bg/r-close-active.png) 0 0 no-repeat
+}
+
+
+
+/*******************扩展屏中为兼容谷歌再写一个iframe by wangxiaojun 2015.01.22********************************/
+
+#layout,#inspectDiv{
+	position: absolute;
+	top: 0px;
+	display: none;
+}
+
+#layoutFrame,#inspectFrame{
+	background-color: #1e1e1e;
+	width: 100%;
+	height: 100%;
+	/*background-color: red;*/
+	position: absolute;
+	filter: alpha(opacity=0);
+   /*ie低版本 透明iframe*/
+	opacity: 0;
+   /*标准w3透明iframe*/
+}
+
+#layout{
+	top:-3px;
+}
+
+#inspectDiv{
+	height: 105px;
+	width: 44px;
+	right: 90px;
+}
+
+
+
+#side{
+	position: absolute;
+	width: 9px;
+	height: 38px;
+	top:50%;
+	margin-top: -14px;
+    display: none;
+}
+#sideFrame{
+	background-color: #1e1e1e;
+	width: 100%;
+	height: 100%;
+	/*background-color: red;*/
+	position: absolute;
+	filter: alpha(opacity=0);
+   /*ie低版本 透明iframe*/
+	opacity: 0;
+   /*标准w3透明iframe*/
+}
+
+/************************************ end ******************************************/

@@ -1,0 +1,21 @@
+{{#if this}}
+	{{#each this}}
+	<ul class="mag-list {{get-num @index}}" data-id={{id}}>
+		<li>
+			<input type="checkbox" class="eachcheck">
+		</li>
+		<li>{{nid}}</li>
+		<li>{{get-manufacture manufacture}}</li>
+		<li>{{deviceType}}</li>
+		<li>{{get-model model}}</li>
+		<li>{{checkTime}}</li>
+		<li class="mag-operate">
+			<span class="btn-mng-look">查看</span>
+			<span class="btn-mng-export">导出</span>
+			<span class="btn-delete">删除</span>
+		</li>
+	</ul>
+	{{/each}}
+{{else}}
+	<div class="no-Data">没有相关数据！</div>
+{{/if}}

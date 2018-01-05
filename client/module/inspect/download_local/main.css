@@ -1,0 +1,30 @@
+#download-local{
+
+}
+#download-local p{
+	margin-bottom: 10px;
+}
+#download-local label{
+	display: inline-block;
+	margin-right: 10px;
+	width: 60px;
+	text-align: right;
+}
+#download-local input{
+	width: 220px;
+	border-radius: 2px;
+	padding:4px;
+	border:1px solid #ccc;
+	font-size: 14px;
+	color:#424141;
+}
+#download-local .folder-icon{
+	margin-left:10px;
+	margin-top:5px;
+	display: inline-block;
+	cursor: pointer;
+	height: 20px;
+	width: 20px;
+	vertical-align: middle;
+	background:url('img/folder-y.png') no-repeat;
+}

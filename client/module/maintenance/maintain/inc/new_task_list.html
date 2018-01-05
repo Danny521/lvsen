@@ -1,0 +1,50 @@
+
+<ul>
+	{{#if loadData}}
+		{{#each loadData}}					
+		<li class="taskitem" data-id="{{taskId}}" data-name="{{taskName}}" data-sdate="{{created}}" data-edate="{{endTime}}" data-status="{{taskStatus}}">
+		    <h6><span>{{taskName}}</span><p class="edit" title="编辑任务"></p><p class="cls" title="删除任务"></p></h6>
+		    <div class="progressBar">
+				<div class="currPro"></div>
+				<span class="processHelper"></span>
+			</div>
+			<div class="statuslist">
+				<p>
+					<span>状态：</span><span class="taskstatus {{isred taskStatus}}">{{taskStatu taskStatus}}</span>
+					<span class="errorInfo {{iserrorHidden taskStatus}}">原因:<em>{{taskerroinfo taskStatus}}</em></span>
+				</p>
+				
+				<ul class="total online clearfix">
+					<li><span>完好：</span><span>{{isShowLine intact_num}}</span></li>
+					<li style="margin-left:-5px"><span>故&nbsp;&nbsp;&nbsp;障：</span><span>{{isShowLine unintact_num}}</span></li>
+					
+				</ul>
+				
+				<ul class="total intact clearfix">
+					<li><span>在线：</span><span>{{isShowLine online_num}}</span></li>
+					<li style="margin-left:-5px"><span>未在线：</span><span>{{isShowLine unonline_num}}</span></li>
+					<li style="margin-left:10px"><span>总数：</span><span>{{isShowLine all_num}}</span></li>
+				</ul>
+			</div>
+			
+			
+			<ul class="edittask">
+				<li><lebel>任务名称：</lebel><input type="text" class="tname input" value="{{taskName}}" placeholder="{{taskName}}"></li>
+				
+				<li><lebel>开始时间：</lebel><input type="text" class="input-time starttime input " value="{{taskDate}}" placeholder="{{taskDate}}"></li>
+				<li>
+					<button class="ui button blue save">保存</button>
+					<button class="ui button exit">取消</button>
+				</li>
+
+			</ul>
+			
+		</li>
+		
+		{{/each}}
+	{{else}}
+	<p class="style-text-info">暂无内容，请先新建任务！</p>	
+	{{/if}}
+							
+</ul>
+<div class="pagination"></div>

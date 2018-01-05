@@ -1,0 +1,540 @@
+/*平台*/
+.point-control .judge-enter-library ul {
+    overflow: hidden;
+    height: 40px;
+    background-color: #F7F7F7;
+}
+.point-control .judge-enter-library ul li{
+    cursor: pointer;
+}
+.point-control .judge-enter-library ul li.enter-select {
+    margin-left: 5px;
+    height: 37px;
+    line-height: 37px;
+    float:left;
+    font-size: 14px;
+    color: #666666;
+    width:120px;
+    text-align: center;
+}
+.point-control .judge-enter-library ul li.current{
+    color: #1E8AE5;
+    border-bottom: solid 3px #1E8AE5;
+    font-weight: bold;
+}
+.point-control .icon-cut-off{
+    margin-left:10px; 
+    width:1px;
+    height:37px;
+    float: left;
+    background: url(../images/loading-upload.gif) no-repeat -75px -80px;
+}
+
+/*各种操作，查询，添加等*/
+.point-control .point-controlpart {
+    padding-left: 10px;
+    padding-right: 24px;
+}
+.point-control .point-search-add {
+    margin-top: 5px;
+    margin-bottom: 5px; 
+    height: 45px; 
+    line-height: 45px;
+}
+.point-control .select_container{
+    height: 25px; 
+}
+.point-control .searchPointstatus{
+    margin-left: 10px;
+}
+
+.point-control .select-input-key{
+    display: inline-block;
+    border:solid 1px #999999;
+}
+.point-control .arrow-down{
+    height: 13px;
+    width: 10px;
+    cursor: pointer;
+    float: right;
+    margin-right: 5px;
+    margin-top: 7px;
+    background: url('../images/icon.png') -2px -65px no-repeat;
+}
+/*.point-control .arrow-down:hover{
+    background: url('../images/icon.png') -89px -185px no-repeat;
+}*/
+.point-control .icon-question{
+    position: relative;
+    top: 14px;
+    display: inline-block;
+    width: 26px;
+    height: 26px;
+    background: url(../images/editReminder.png) no-repeat;
+}
+.point-control .icon-question:hover{
+    background: url(../images/editReminderHide.png) no-repeat;
+}
+.point-control .icon-search{
+    position: relative;
+    top: 9px;
+    left:22px;
+    display: inline-block;
+    width: 26px;
+    height: 26px;
+    background: url(../images/icon1.png) no-repeat 0px -125px;
+}
+.point-control #search-key{
+    position: relative;
+    top:2px;
+    height: 14px;
+    line-height: 14px; 
+    vertical-align: baseline;
+}
+
+.point-control ul.search-select {
+    position: absolute;
+    top: 36px;
+    left: 56px;
+    background-color: #EAEAEF;
+    width: 170px;
+    border-left: solid 1px #ddd;
+    border-right: solid 1px #ddd;
+}
+.point-control ul.search-select li {
+    border-bottom: solid 1px #ddd;
+    padding-left: 3px;
+    height: 27px;
+    line-height: 27px;
+}
+
+
+.point-control .right-add{
+    float: right;
+}
+
+/*点位表格*/
+.point-control .point-library {
+    width: 98.6%;
+    border-collapse: collapse;
+}
+
+.point-control .pagination{
+    text-align: center;
+    width: 100%;
+    height: 20px;
+    line-height: 20px;
+    margin-top: 10px
+}
+.point-control .point-library tr:first-child{
+    border-right: #ddd 1px solid !important;
+    background-color: #f3F3F3;
+}
+.point-control .point-library tr {
+    border-bottom: #ddd 1px solid;
+
+}
+.point-control .point-library tr:hover {
+    background-color: #eaeaea;
+    cursor: default;
+}
+
+.point-control .point-library td,
+.point-control .point-library th {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    text-align: center;
+}
+.point-control .point-library th {
+    color: #333;
+    font-weight: bold;
+}
+.point-control .point-library td {
+    text-align: center;
+    color: #666;
+    font-family: "Microsoft Yahei", "微软雅黑", "宋体";
+}
+.point-control .point-library td span {
+    cursor: pointer;
+}
+
+.point-control i{
+    cursor: pointer;
+}
+.point-control .icon-sort{
+    display: inline-block;
+    width: 10px;
+    height: 11px;
+    background:url(../images/sort.png) no-repeat 0 0;
+}
+.point-control .icon-edit{
+    position: relative;
+    top: 8px;
+    display: inline-block;
+    width: 17px;
+    height: 20px;
+    background: url(../images/operate-ico.png) no-repeat 0 0;
+}
+.point-control .icon-edit:hover{
+    background: url(../images/operate-ico.png) no-repeat -17px 0;
+}
+.point-control .icon-delete{
+    position: relative;
+    top: 8px;
+    display: inline-block;
+    width: 13px;
+    height: 20px;
+    background: url(../images/logout.png) no-repeat 0px 0px;
+}
+.point-control .icon-delete:hover{
+    background: url(../images/logout.png) no-repeat -13px 0px;
+}
+.point-control .checkbox-h,.checkbox{
+    cursor: pointer;
+}
+.point-control .icon-nochecked{
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    background: url(../images/pic.png) no-repeat 0px -20px;
+}
+.point-control .icon-checked{
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    background: url(../images/pic.png) no-repeat -18px -20px;
+}
+
+
+/*详情表格*/
+.point-control tr.want-show-details{
+    border-bottom: none;
+    border-left: #ddd 1px solid;
+    border-right: #ddd 1px solid;
+}
+.point-control .showdetails-table{
+    border-left: #ddd 1px solid;
+    border-right: #ddd 1px solid;
+}
+.point-control .showdetails-table table{
+    width: 90%;
+    margin: auto;
+    border:  #ddd 1px solid;
+}
+
+
+/*注销后样式*/
+.point-control .logout{
+    opacity:0.7; 
+
+}
+
+/**********新建点位******************/
+.point-control .pointDialog {
+    position: absolute;
+    left: 50%;
+    margin-left: -485px;
+    top: 50%;
+    margin-top: -200px;
+    width: 650px;
+    height: 325px;
+    background-color: #fff;
+    border: 1px solid #aaa;
+    border-radius: 7px;
+    z-index: 200;
+
+}
+.point-control .pointDialogTitle {
+    display: block;
+    float: left;
+    width: 100%;
+    vertical-align: middle;
+    background-color: #f3f3f3;
+    border-bottom: solid #ccc 1px;
+    border-radius: 7px 7px 0 0;
+    /*overflow: hidden;*/
+}
+.point-control .pointDialogTitle h2 {
+    display: block;
+    float: left;
+    font-size: 16px;
+    line-height: 2.7em;
+    padding-left: 10px;
+    text-align: left;
+    border: none;
+}
+
+
+
+.point-control .inputLatitude {
+            display: block;
+            float: right;
+            position: relative;
+            right: 23px;
+            top: 7px;
+            width: 16px;
+            height: 16px;.input-number input
+            /*
+                        position: relative;
+                        left: -16px;*/
+            cursor: pointer;
+
+            background-image: url("../images/positionSet.png");
+            background-position: 0px 0;
+        }
+
+        .important {
+            /*
+                        display: inline;*/
+            line-height: 30px;
+            margin-top: 3px;
+            color: red;
+        }
+
+        .important:after {
+            content: " ";
+        }
+
+
+
+
+
+.point-control .formEditOutter {
+    display: block;
+    float: left;
+    background-color: #fff;
+    padding: 12px 20px 0px 20px;
+}
+
+.point-control .formEdit {
+    display: block;
+    float: left;
+    /*padding: 10px;*/
+}
+
+.point-control .formEdit fieldset {
+    display: block;
+    float: left;
+    border: none;
+    /*margin: 15px 20px 20px 20px;*/
+}
+.point-control .formEdit fieldset:first-child {
+    margin-right: 20px;
+}
+.point-control .formEdit fieldset:last-child {
+    margin-top: 6px;
+    clear: both;
+    width: 100%;
+    text-align: center;
+    /*background-color: #00a3f5;*/
+}
+.point-control .formEdit label {
+    display: inline-block;
+    width: 110px;
+    font-size: 1em;
+    height: 30px;
+    /*float: left;*/
+
+    line-height: 30px;
+    text-align: right;
+}
+.point-control .formEdit label + input[type=text],
+.point-control .formEdit label + span {
+    display: inline-block;
+    width: 155px;
+    height: 27px;
+    margin-bottom: 10px;
+    padding: 2px 3px;
+    border: 1px #ddd solid;
+    border-radius: 2px;
+    color: #666;
+}
+.point-control .formEdit label + select {
+    width: 162px;
+    height: 33px;
+}
+.point-control .formEdit .radioBox {
+    float: left;
+    width: 155px;
+}
+.point-control .errorDataInput {
+    border-color: #f5252d;
+}
+.point-control .formEdit .primaryBtn {
+    margin-right: 10px;
+}
+.point-control .primaryBtn {
+   /* display: block; 加了会换行*/
+    padding: 3px 9px;
+    background-color: #4FA6FF;
+    border: 1px #dddddd solid;
+    border-radius: 4px;
+    /*margin: 5px 9px;*/
+    color: #ffffff;
+    cursor: pointer;
+}
+.point-control .cancleBtn {
+    background-color: #F2F2F2;
+    color: #555;
+}
+.point-control .primaryBtn:hover {
+    -webkit-box-shadow:1px 1px 2px #bbb;
+    -moz-box-shadow:1px 1px 2px #bbb;
+    box-shadow:1px 1px 2px #bbb;
+}
+
+.point-control .pointmapPos{
+    width: 315px;
+    height: 325px;
+    position: absolute;
+    right: -329px;
+    margin-right: 5px;
+    top: 50%;
+    margin-top: -165px;
+    border-radius: 5px;
+    border: 1px solid #e1e1e1;
+    display: none;
+    z-index: 200;
+}
+.point-control .pointmapPos .cancalMap{
+    width: 14px;
+    height: 14px;
+    background: url("../images/icon_close.png") no-repeat;
+    display: inline-block;
+    cursor: pointer;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    z-index:1;
+}
+.point-control .pointmapPos .cancalMap:hover{
+    background-position: -14px 0
+}
+
+.point-control #mapSetPanel{
+    position: absolute;
+    left:0;
+    bottom: 0;
+    top:0;
+    right: 0
+}
+.point-control .select_wrapper{
+    cursor: pointer;
+}
+.point-control .tablePanel{
+  position: absolute;
+    margin-left: 20px;
+    overflow: auto;
+    top: 134px;
+    left: 0;
+    right: 0;
+    bottom: 0px;
+}
+.point-control .icon-showDetail {
+    display: inline-block;
+    line-height: 25px;
+    width: 16px;
+    height: 15px;
+    margin-right: 10px;
+    cursor: pointer;
+    background: url("../images/icon1.png") no-repeat scroll -352px 0;
+}
+.point-control .icon-showDetail:hover{
+    background-position: -188px 0;
+}
+
+.point-control .tablePanel .loading{
+    width: 58px;
+    height: 100px;
+    background: transparent url('../../../common/images/animate/horizontal-loading.gif') center no-repeat;
+    margin: 0 auto;
+}
+
+.point-control .limitLen{
+    padding-left:15px;
+    padding-right: 15px; 
+    max-width: 100px;
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.icon-equipType{
+    display: block;
+    width:15px;
+    height:15px;
+    margin: auto;
+} 
+.typeImg00{
+    background: url("../images/devicetype.png") no-repeat scroll -634px 0;
+}
+.typeImg01{
+    background: url("../images/devicetype.png") no-repeat scroll -655px 0;
+}
+.typeImg02{
+    background: url("../images/devicetype.png") no-repeat scroll -634px 0;
+}
+.typeImg03{
+    background: url("../images/devicetype.png") no-repeat scroll -634px 0;
+}
+.typeImg04{
+    background: url("../images/devicetype.png") no-repeat scroll -634px 0;
+}
+.typeImg99{
+    background: url("../images/devicetype.png") no-repeat scroll -634px 0;
+}
+.icon-cameraDetail{
+    display: block;
+    width:26px;
+    height:15px;
+    margin: auto;
+    background: url("../images/icon1.png") no-repeat scroll -352px 0;
+}
+.icon-cameraDetail:hover{
+    background: url("../images/icon1.png") no-repeat scroll -188px 0;
+}
+
+
+.question-span{
+    position: relative;
+    display: none;
+}
+.question-answer{
+    position: absolute;
+    top:-87px;
+    left:37px;
+    width: 200px;
+    height: auto;
+    background-color: #FFF2C0;
+    z-index: 100;
+    padding:7px;
+    border-radius: 10px;
+}
+.questionTitle{
+    font-size: 14px;
+}
+.answerContent{
+    font-size: 10px;
+    line-height: 1.5em
+}
+
+.left-search-panel label{
+    margin-left: 34px;
+}
+
+.formEdit .noEdit{
+    color: #A9A1A1 !important;
+}
+
+.editReminderSpan{
+    display: block;
+    border-width: 11px;
+    position: absolute;
+    bottom: 42px;
+    left: -22px;
+    border-style: dashed dashed dashed solid;
+    border-color: transparent #FFF2C0 transparent transparent;
+    font-size: 0;
+    line-height: 0;
+}
+

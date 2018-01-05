@@ -1,0 +1,43 @@
+<div class="path-planning">
+    <div class="route-header">
+        <div class="route-header-title">
+            <i class="sidebar-home-icon np-map-overlay home-enable-click" data-mark="business"></i>
+            <b> > </b><span >路径规划</span>
+        </div>
+    </div>
+</div>
+<div class="left-route-planning">
+	<ul class="planning-ways">
+		<li data-type="car" class="active" data-handler="SelectWays" data-event="click">
+			<div class="ways-container">
+				<i class="drive"></i>
+				<span>驾车</span>
+			</div>
+		</li>
+		<li data-type="walk" class="" data-handler="SelectWays" data-event="click">
+			<div  class="ways-container">
+				<i class="walk"></i>
+				<span>步行</span>
+			</div>
+		</li>
+	</ul>
+	<form class="route-search-container clearfix">
+		<div class="route-switch" data-event="click" data-handler="SwitchPoints"><a></a></div>
+		<div class="route-input-box">
+			<div class="route-input-start clearfix">
+				<i></i>
+				<input type="text" name="start-point" placeholder="请输入起点"/>
+				<i class="start-point-mark" title="在地图上选择起点" data-type="start" data-event="click" data-handler="GetPointOnMap"></i>
+			</div>
+			<div class="route-input-end clearfix">
+				<i></i>
+				<input type="text" name="end-point" placeholder="请输入终点"/>
+				<i class="end-point-mark" title="在地图上选择终点" data-type="end" data-event="click" data-handler="GetPointOnMap"></i>
+			</div>
+		</div>
+		<input class="route-submit" value="搜索" id="routeSearchBtn" type="button" data-handler="SearchPath" data-event="click"/>
+	</form>
+	<div class="route-search-result">
+	
+	</div>
+</div>

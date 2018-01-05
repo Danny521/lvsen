@@ -1,0 +1,188 @@
+<!--巡检列表-->
+{{#if taskList}}
+<ul>
+	{{#if taskListItem}} {{#each taskListItem}}
+	<li class="taskitem" data-taskStatus={{taskStatus}} data-taskid={{taskId}} data-taskTime="{{taskDate}}"
+	task-jobkey={{jobKey}}>
+		<h6><span class="taskTitle" alt={{taskName}} title={{taskName}}>{{taskName}}</span><p class="status {{isHidden taskStatus}}" title="重新启动" alt="重新启动"></p><p class="cls"  title="删除任务" alt="删除任务"></p></h6>
+		<div class="progressBar">
+			<div class="currPro"></div>
+			<span class="processHelper"></span>
+		</div>
+		<div class="statuslist">
+			<p class="statusInfo {{isHasPad taskStatus}}">
+				<span>状态:</span><span class="taskstatus inspecting {{isred taskStatus}}">{{taskNamehlp taskStatus}}</span>
+				<span class="errorInfo {{iserrorHidden taskStatus}}">失败原因:<em>{{taskerroinfo taskStatus}}</em></span>
+			</p>
+
+		</div>
+	</li>
+	{{/each}} {{else}}
+	<p class="style-text-info">暂无内容，请先新建实时巡检任务！</p>
+	{{/if}}
+</ul>
+{{/if}} 
+
+{{#if pagebar}}
+<div class="pagination"></div>
+{{/if}} 
+
+
+{{#if totalResult}}
+
+<h3 class="title">实时巡检结果：
+  <span>在线数量：<em>{{totalResult.online}}</em></span>
+  <span>巡检总数：<em>{{totalResult.total}}</em></span>
+  <span>在线率：<em>{{totalResult.online_rate}}</em></span>
+  
+  <span>巡检时间：<em>（{{totalResult.start_time}} - {{totalResult.end_time}}）</em></span>
+  </h3> {{/if}} 
+  
+ 
+
+
+{{#if planResult}}
+
+ {{/if}} 
+  
+
+
+  
+ {{#if camList}}
+<table class="examinetable">
+	<tr>
+		<th>摄像机名称</th>
+
+		<th>巡检时间</th>
+		<th>巡检状态</th>
+		<th>状态类型</th>
+		<th>查看</th>
+	</tr>
+	{{#each camList}}
+	<tr>
+		<td>{{cameraName}}</td>
+		<td>{{inspectDate}}</td>
+		<td>{{insResult status}}</td>
+		<td>{{instype exceptInfoName}}</td>
+		<td><span class="img-view" data-src="/service/pfsstorage/image?filePath={{exceptUrl}}"></span></td>
+	</tr>
+	{{/each}}
+</table>
+{{/if}} 
+
+
+
+{{#if taskSet}}
+<div class="taskset-top">
+	<span title="返回" class="return-back-rules" id="returnBackToInspect"></span>
+	<div class="buttons  task-rule-button">
+		<input class="ui button blue" id="RuleDetailSave" type="button" value="保存">
+		<input class="ui button blue hidden" id="RuleDetailDel" type="button" value="删除">
+	</div>
+
+</div>
+<p class="ui input small inspectNameSet">
+	<label>任务名称：</label>
+	<input type="text" class="taskNameSet" placeholder="请输入任务名称" maxlength="20" />
+</p>
+<p class="treeSelect">请选择组织机构：</p>
+<div class="tree-container">
+	<div class="statScrollbarPanel">
+
+		<div class="viewport">
+			<div class="overview">
+				<div class="treePanel statTree">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{{/if}}
+ 
+{{#if planSet}}
+<div class="planset-top">
+	<span title="返回" class="return-back-rules" id="returnBackToInspect"></span>
+	<div class="buttons  task-rule-button">
+		<input class="ui button blue" id="RuleDetailSave" type="button" value="保存">
+		<input class="ui button blue hidden" id="RuleDetailDel" type="button" value="删除">
+	</div>
+
+</div>
+
+<div class="ui input small inspectNameSet">
+	<label>计划名称：</label>
+	<input type="text" class="taskNameSet" placeholder="请输入任务名称" maxlength="20" />
+</div>
+
+<div class="plan-date">
+	<span>计划频率：</span>
+	<select id="planFre" name="planFre">
+		<option value="1">每天</option>
+		<option value="2">每周</option>
+		<option value="3">每月</option>		
+	</select>
+</div>
+	
+<div id="weekOrMonth"></div>
+	
+
+<p class="org-tree-sel">请选择组织机构：</p>
+<div class="tree-overflow">	
+<div class="treePanel statTree"></div>
+</div>			
+{{/if}}
+
+
+
+
+
+{{#if planWeek}}
+<span>计划日期：</span>
+	<select id="planWeek" name="planWeek">
+		<option value="1">每周一</option>
+		<option value="2">每周二</option>
+		<option value="3">每周三</option>
+		<option value="4">每周四</option>
+		<option value="5">每周五</option>
+		<option value="6">每周六</option>
+		<option value="7">每周日</option>
+	</select>
+{{/if}}
+
+
+{{#if planMonth}}
+<span>计划日期：</span>
+	<select id="planMonth" name="planMonth">
+		<option value="1">每月1号</option>
+		<option value="2">每月2号</option>
+		<option value="3">每月3号</option>
+		<option value="4">每月4号</option>
+		<option value="5">每月5号</option>
+		<option value="6">每月6号</option>
+		<option value="7">每月7号</option>
+		<option value="8">每月8号</option>
+		<option value="9">每月9号</option>
+		<option value="10">每月10号</option>
+		<option value="11">每月11号</option>
+		<option value="12">每月12号</option>
+		<option value="13">每月13号</option>
+		<option value="14">每月14号</option>
+		<option value="15">每月15号</option>
+		<option value="16">每月16号</option>
+		<option value="17">每月17号</option>
+		<option value="18">每月18号</option>
+		<option value="19">每月19号</option>
+		<option value="20">每月20号</option>
+		<option value="21">每月21号</option>
+		<option value="22">每月22号</option>
+		<option value="23">每月23号</option>
+		<option value="24">每月24号</option>
+		<option value="25">每月25号</option>
+		<option value="26">每月26号</option>
+		<option value="27">每月27号</option>
+		<option value="28">每月28号</option>
+		<option value="29">每月29号</option>
+		<option value="30">每月30号</option>
+		<option value="31">每月31号</option>
+	</select>	
+	{{/if}}

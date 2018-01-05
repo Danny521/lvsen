@@ -1,0 +1,65 @@
+{{#if taskListInit}}
+<ul>
+	{{#if taskList}}
+		{{#each taskList}}
+		<li class="taskitem" data-taskid="{{task_id}}" data-frequency ="{{frequency}}" data-valid="{{is_valid}}" data-startime="{{start_hour}}" data-endtime="{{end_hour}}" data-startday ="{{start_day}}" data-endday="{{end_day}}">
+			<h6>
+				<span class="taskTitle" alt="{{task_name}}" title="{{task_name}}">{{task_name}}</span>
+				
+				<p class="{{isAct is_valid}} permission permission-plan-cruise-start-task" title="{{isActName is_valid}}" alt="{{isActName is_valid}}"></p>
+				<p class="editTask permission permission-plan-cruise-edit-task" title="编辑任务" alt="编辑任务"></p>
+				<p class="cls permission permission-plan-cruise-delete-task" title="删除任务" alt="删除任务"></p>
+			</h6>
+			<div class="progressBar">
+				<div class="currPro"></div>
+			</div>
+			<div class="statuslist">
+				<p class="statusInfo">
+					<span>执行时段：</span><span class="taskstatus timePart">{{start_hour}} ~ {{end_hour}}</span>
+					<span class="taskSatusHel {{isRun is_valid}}">巡航中</span>
+				</p>
+				<p class="statusInfo">
+					<span>执行日期：</span><span class="taskstatus dayPart">{{start_day}} ~ {{end_day}}</span>
+				</p>
+			</div>
+		</li>
+		{{/each}}
+	{{else}}
+	    <p class="style-text-info">暂无内容，请先建任务！</p>
+	{{/if}}
+</ul>
+{{/if}}
+
+{{#if taskListDetail}}
+<ul>
+	{{#if taskListDetailList}}
+		{{#each taskListDetailList}}
+		<li data-taskid="{{task_id}}" data-cameraname ="{{camera_name}}" data-presetname="{{preset_name}}" data-presetid="{{preset_id}}">
+			<div class="listPic"><img src="{{formateImgPath image_url}}"/></div>
+			<div class="listDetail">
+				<span title="{{camera_name}}" alt="{{camera_name}}">{{camera_name}}</span>
+				<span title="{{preset_name}}" alt="{{preset_name}}">{{preset_name}}</span>
+			</div>
+		</li>
+		{{/each}}
+	{{/if}}
+</ul>
+{{/if}}
+
+{{#if middlePosition}}
+<ul>
+{{#if inspectList}}
+{{#each inspectList}}
+	<li data-cameraId="{{cameraId}}"  data-id="{{id}}">
+		<span><i class="radio {{isActiveSel cameraId id}}"></i><em class="inspectName" title="{{name}}">{{name}}</em></span>
+		<span><img src="{{formateImgPath imageUrl}}" /></span>
+	</li>
+{{/each}}
+{{/if}}
+</ul>
+{{/if}}
+
+
+{{#if pagebar}}
+<div class="pagination"></div>
+{{/if}} 

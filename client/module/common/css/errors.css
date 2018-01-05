@@ -1,0 +1,73 @@
+#content {
+	padding: 80px 0;
+	font-size: 26px;
+	background-color: #ffffff;
+}
+
+#content .error-content {
+	margin: 0 auto;
+	width: 606px;
+	height: 260px;
+	background-color: #f7f7f7;
+	border: 1px solid #e7e7e7;
+}
+
+.e403 {
+    float: left;
+    margin-left: 85px;
+    margin-top: 70px;
+    width: 132px;
+    height: 122px;
+    background-image: url(/module/common/images/403_icon.png);
+}
+
+.e404 {
+	float: left;
+	margin-left: 60px;
+	margin-top: 70px;
+	width: 132px;
+	height: 122px;
+	background-image: url(/module/common/images/404_icon.png);
+}
+
+.e500 {
+	float: left;
+	margin-left: 40px;
+	margin-top: 70px;
+	width: 90px;
+	height: 108px;
+	background-image: url(/module/common/images/500_icon.png);
+}
+
+.e500-message {
+	margin-top: 85px;
+	margin-left: 182px;
+}
+
+.error-message {
+	margin-top: 85px;
+	margin-left: 244px;
+}
+
+.error-message a,.e500-message a {
+	display: inline-block;
+	margin-top: 35px;
+	font-size: 14px;
+	margin-right: 300px;
+}
+
+#footer {
+	border-top: 1px solid #E4E4E4;
+}
+
+.construct{
+	position: absolute;
+	left: 50%;
+	top:50%;
+	z-index: -1;
+	width:192px;
+	height: 162px;
+	margin-left: -96px;
+	margin-top: -81px;
+	background: url(/module/common/images/construct.png) no-repeat center center transparent;
+}

@@ -1,0 +1,65 @@
+
+<div id="aside" class="user-org" onselectstart="return false;" >
+	<div class="tab-panel ">
+			<div class="tab-header">
+				<div data-hview = "tvwall" class="active"><i class="icons-stvwall"></i><span>电视墙配置</span></div>
+				<div data-hview = "sync" class="active"><i class="icons-scameraMan"></i>同步设置<i class="icons-add" title="增加分组"></i></div>
+				
+			</div>
+			<div class="tabs">
+				<ul>
+					<li data-tab="tvwall" class="active tvwallsetting"><i class="icons-tvwall" title="电视墙配置"></i></li>
+					<li data-tab="sync" class="sync"><i class="icons-cameraMan" title="系统分组"></i></li>
+				</ul>
+			</div>
+		<div class="tab-content">
+			<!-- <span class="title">所有机构</span> -->
+				<!-- <div class="cameraTree">
+					<div id ="cameraTreeScrollBar" class="scrollbarPanel" >
+						<div class="scrollbar"><div class="track"><div class="thumb"><div class="end"></div></div></div></div>
+						<div class="viewport">
+							<div class="overview">
+								<div class="treePanel">
+									<div class="groupList">
+											
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div> -->
+			
+
+				<div class="tab-tvwall" data-view="tvwall" class="active">
+					<!-- <div id="tvLayout"></div> -->
+					<div id="treePanel" class="treeTV">
+						<div class="ui tab active">
+							<div class="form-panel">
+								<div id="camerasPanel" class="loading">
+									
+									<div class="viewport" id="tv">
+										<div class="">
+											<div class="deviceMenu"></div>
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- 组织树 -->
+				<div data-view="sync">
+					<div class="tree-search">
+						<input id="searchInput" type="text" placeholder="全局搜索..." name="q" autocomplete="off">
+						<button id="searchBtn" title="搜索"></button>
+					</div>
+					<div class="tree-container">
+						<div class="treePanel"></div>
+					</div>
+
+				</div>
+		</div>
+	</div>
+</div>

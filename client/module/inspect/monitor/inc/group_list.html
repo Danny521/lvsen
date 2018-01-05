@@ -1,0 +1,30 @@
+<div id="groupwrap">
+	<i class="triangle"></i>
+	<div class="grouplist">
+		{{#if cameras}}
+		<div class="groupbox">
+		<div class="scrollbar disable">
+			<div class="track">
+				<div class="thumb">
+					<div class="end"></div>
+				</div>
+			</div>
+		</div>
+		<div class="viewport">
+			<div class="overview ">
+				<ul >
+					{{#each cameras}}
+					<li data-id='{{id}}' title="{{groupName}}{{name}}" data-idlepositons='{{idlePositons}}'><i class="small-checkbox"></i><span>{{groupName}}{{name}}</span></li>
+					{{/each}}
+				</ul>
+			</div>
+		</div>
+		</div>
+	<div class="buttons">
+		<button class='ui button blue save-append'>确定</button>
+		<button class='ui button cancel-append'>取消</button>
+	</div>
+	{{else}}
+	<h2 class="no-data-groupwrap" title="暂无可用数据">暂无可用数据！</h2>{{/if}}
+</div>
+</div>

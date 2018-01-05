@@ -1,0 +1,11 @@
+{{#if eledefenseLines}}
+	{{#each eledefenseLines}}
+	<div class="item" data-id="{{id}}" data-name="{{name}}" data-code="{{code}}" data-type="{{type}}" data-pointinfo="{{pointinfo}}">
+		<div class="name"><a title="删除" class="del-defense permission permission-delete-edefense" data-id="{{id}}" data-name="{{name}}"></a><a title="{{name}}" class="showline" data-pointinfo="{{pointinfo}}" data-color="{{color}}" data-zoom="{{zoom}}">{{name}}</a></div>
+		<div class="area"><span class="name">面积：</span>{{area}}&nbsp;m<sup>2</sup></div>
+		<div class="description"><span class="name">描述：</span><p>{{description}}</p></div>
+	</div>
+	{{/each}}
+{{else}}
+		<div class="no-item">暂无数据</div>
+{{/if}}

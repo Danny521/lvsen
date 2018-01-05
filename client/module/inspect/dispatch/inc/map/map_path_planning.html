@@ -1,0 +1,179 @@
+{{#if SearchResult}}
+	{{#isCar SearchResult.trafficModel}}
+		<ul class="search-result-select clearfix">
+			<li class="{{#isActive SearchResult.routeType 1}}{{/isActive}}" data-type="1" data-handler="SelectRoute" data-event="click">最短时间</li>
+			<li class="{{#isActive SearchResult.routeType 2}}{{/isActive}}" data-type="2" data-handler="SelectRoute" data-event="click">最短距离</li>
+			<li class="{{#isActive SearchResult.routeType 3}}{{/isActive}}" data-type="3" data-handler="SelectRoute" data-event="click">不走高速</li>
+		</ul>
+	{{/isCar}}
+	<ul class="search-result">
+		<li class="search-result-item" data-routelength="{{SearchResult.routeLength}}" data-time="{{SearchResult.time}}" data-startpointname="{{SearchResult.startPointName}}" data-startpointlonlat="{{SearchResult.startPointLonlat}}" data-endpointname="{{SearchResult.endPointName}}" data-endpointlonlat="{{SearchResult.endPointLonlat}}" data-route="{{SearchResult.routeData}}" data-routetype="{{SearchResult.routeType}}" data-trafficmodel="{{SearchResult.trafficModel}}" data-routelonlat="{{SearchResult.routeLonlat}}">
+			<div class="item-title clearfix">
+				<span class="route-describe">共{{#distanceConvert SearchResult.routeLength}}{{/distanceConvert}}，{{#timeConvert SearchResult.time}}{{/timeConvert}}</span>
+				<a href="#" class="up" data-handler="ContentContract" data-event="click"></a>
+			</div>
+			<div>
+				<table class="search-result-table" cellpadding="0" cellspacing="1">
+					<tr data-coordinate='{{SearchResult.startPointLonlat}}'>
+						<td><i class="start-point"></i></td>
+						<td class="start-address">{{SearchResult.startPointName}}</td>
+					</tr>
+					{{#each SearchResult.route}}
+					<tr data-coordinate='{{routelatlon}}' class="search-result-tr" data-event="click" data-handler="HighLightRoute">
+						<td><i class="{{turnAction}}"></i></td>
+						<td>{{strguide}}</td>
+					</tr>
+					{{/each}}
+					<tr data-coordinate='{{SearchResult.endPointLonlat}}'>
+						<td><i class="end-point"></i></td>
+						<td class="end-address">{{SearchResult.endPointName}}</td>
+					</tr>
+				</table>
+				<!-- <ul class="route-deal clearfix">
+					<li class="favorite" data-handler="CollectRoute" data-event="click">
+						<div>
+							<i></i>
+							<span>收藏路线</span>	
+						</div>
+					</li>
+					<li class="to-phone" data-handler="SendToPhone" data-event="click">
+						<div>
+							<i></i>
+							<span>发送至手机</span>
+						</div>
+					</li>
+				</ul> -->
+			</div>	
+		</li>
+	</ul>
+{{/if}}
+{{#if historyAddress}}
+	{{#if historyAddress.features.length}}
+		<div class="address-list">
+			<ul class="address-ul">
+				{{#each historyAddress.features}}
+					{{#if name}}
+					<li class="address-li" data-event="click" data-handler="MarkPointOnMap" data-geometry="{{geometry}}" data-name="{{name}}" data-address="{{address}}" data-districtname="{{districtName}}" data-gid="{{gid}}" title="{{name}}({{address}}) {{districtName}}">{{name}}({{address}}) <span class="grey">{{districtName}}</span></li>
+					{{/if}}
+				{{/each}}
+			</ul>
+			<p class="opera clearfix">
+				<a href="#" class="clear-history" data-event="click" data-handler="ClearHistoryAddress">清空历史</a>
+				<a href="#" class="close-address" data-event="click" data-handler="CloseAddressWin">关闭</a>
+			</p>
+		</div>
+	{{/if}}
+{{/if}}
+{{#if resourceArroundPolyline}}
+	<div class="intermediate-stop">
+		<p class="header">
+			<span>途经点</span>
+			<i class="contract up" data-event="click" data-handler="ListContract"></i>
+		</p>
+		<ul class="resource-list">
+			<li class="resource-item clearfix">
+				<i class="checkbox" data-type="camera" data-event="click" data-handler="ShowOrHideStops"></i>
+				<span>摄像机({{resourceArroundPolyline.num}})</span>
+				<i class="camera-icon"></i>
+			</li>
+			<li class="resource-item clearfix">
+				<i class="checkbox" data-type="bayonet" data-event="click" data-handler="ShowOrHideStops"></i>
+				<span>卡口</span>
+				<i class="bayonet-icon"></i>
+			</li>
+		</ul>
+	</div>
+{{/if}}
+{{#if CheckFavoriteRoute}}
+	<div class="path-planning">
+	    <div class="route-header">
+	        <div class="route-header-title">
+	            <i class="sidebar-home-icon np-map-overlay" data-mark="business"></i>
+	            <!-- <b> > </b> -->
+	            <!-- <a id="ReturnToFavorite">收藏夹</a> -->
+	            <b> > </b><span >路线</span>
+	        </div>
+	    </div>
+	</div>
+	<div class="left-route-planning">
+		<ul class="planning-ways">
+			<li data-type="car" class="{{#isActive CheckFavoriteRoute.favoriteRoute.trafficModel 'car'}}{{/isActive}}" data-handler="SelectWays" data-event="click">
+				<div class="ways-container">
+					<i class="drive"></i>
+					<span>驾车</span>
+				</div>
+			</li>
+			<li data-type="walk" class="{{#isActive CheckFavoriteRoute.favoriteRoute.trafficModel 'walk'}}{{/isActive}}" data-handler="SelectWays" data-event="click">
+				<div  class="ways-container">
+					<i class="walk"></i>
+					<span>步行</span>
+				</div>
+			</li>
+		</ul>
+		<form class="route-search-container clearfix">
+			<div class="route-switch" data-event="click" data-handler="SwitchPoints"><a></a></div>
+			<div class="route-input-box">
+				<div class="route-input-start clearfix">
+					<i></i>
+					<input type="text" name="start-point" placeholder="请输入起点" data-event="click keyup" data-handler="GetAddressByNameOrHistory" value="{{CheckFavoriteRoute.favoriteRoute.startPointName}}"/>
+					<i class="start-point-mark" title="在地图上选择起点" data-type="start" data-event="click" data-handler="GetPointOnMap"></i>
+				</div>
+				<div class="route-input-end clearfix">
+					<i></i>
+					<input type="text" name="end-point" placeholder="请输入终点" data-event="click keyup" data-handler="GetAddressByNameOrHistory" value="{{CheckFavoriteRoute.favoriteRoute.endPointName}}"/>
+					<i class="end-point-mark" title="在地图上选择终点" data-type="end" data-event="click" data-handler="GetPointOnMap"></i>
+				</div>
+			</div>
+			<input class="route-submit" value="搜索" id="routeSearchBtn" type="button" data-handler="SearchPath" data-event="click"/>
+		</form>
+		<div class="route-search-result">
+			{{#isCar CheckFavoriteRoute.favoriteRoute.trafficModel}}
+				<ul class="search-result-select clearfix">
+					<li class="{{#isActive CheckFavoriteRoute.favoriteRoute.routeType 1}}{{/isActive}}" data-type="1" data-handler="SelectRoute" data-event="click">最短时间</li>
+					<li class="{{#isActive CheckFavoriteRoute.favoriteRoute.routeType 2}}{{/isActive}}" data-type="2" data-handler="SelectRoute" data-event="click">最短距离</li>
+					<li class="{{#isActive CheckFavoriteRoute.favoriteRoute.routeType 3}}{{/isActive}}" data-type="3" data-handler="SelectRoute" data-event="click">不走高速</li>
+				</ul>
+			{{/isCar}}
+			<ul class="search-result">
+				<li class="search-result-item" data-routelength="{{CheckFavoriteRoute.favoriteRoute.routeLength}}" data-time="{{CheckFavoriteRoute.favoriteRoute.time}}" data-startpointname="{{CheckFavoriteRoute.favoriteRoute.startPointName}}" data-startpointlonlat="{{CheckFavoriteRoute.favoriteRoute.starPointLonlat}}" data-endpointname="{{CheckFavoriteRoute.favoriteRoute.endPointName}}" data-endpointlonlat="{{CheckFavoriteRoute.favoriteRoute.endPointLonlat}}" data-route="{{CheckFavoriteRoute.favoriteRoute.routeData}}" data-routetype="{{CheckFavoriteRoute.favoriteRoute.routeType}}" data-trafficmodel="{{CheckFavoriteRoute.favoriteRoute.trafficModel}}" data-routelonlat="{{CheckFavoriteRoute.favoriteRoute.routeLonlat}}" data-id="{{CheckFavoriteRoute.favoriteRoute.id}}">
+					<div class="item-title clearfix">
+						<span class="route-describe">共{{#distanceConvert CheckFavoriteRoute.favoriteRoute.routeLength}}{{/distanceConvert}}，{{#timeConvert CheckFavoriteRoute.favoriteRoute.time}}{{/timeConvert}}</span>
+						<a href="#" class="up" data-handler="ContentContract" data-event="click"></a>
+					</div>
+					<div>
+						<table class="search-result-table" cellpadding="0" cellspacing="1">
+							<tr data-coordinate='{{CheckFavoriteRoute.favoriteRoute.startPointLonlat}}'>
+								<td><i class="start-point"></i></td>
+								<td class="start-address">{{CheckFavoriteRoute.favoriteRoute.startPointName}}</td>
+							</tr>
+							{{#each CheckFavoriteRoute.favoriteRoute.route}}
+							<tr data-coordinate='{{routelatlon}}' class="search-result-tr" data-event="click" data-handler="HighLightRoute">
+								<td><i class="{{turnAction}}"></i></td>
+								<td>{{strguide}}</td>
+							</tr>
+							{{/each}}
+							<tr data-coordinate='{{CheckFavoriteRoute.favoriteRoute.endPointLonlat}}'>
+								<td><i class="end-point"></i></td>
+								<td class="end-address">{{CheckFavoriteRoute.favoriteRoute.endPointName}}</td>
+							</tr>
+						</table>
+						<!-- <ul class="route-deal clearfix">
+							<li class="favorite" data-handler="CollectRoute" data-event="click">
+								<div>
+									<i class="{{#if CheckFavoriteRoute.favoriteRoute.id}}active{{/if}}"></i>
+									<span>收藏路线</span>	
+								</div>
+							</li>
+							<li class="to-phone" data-handler="SendToPhone" data-event="click">
+								<div>
+									<i></i>
+									<span>发送至手机</span>
+								</div>
+							</li>
+						</ul> -->
+					</div>	
+				</li>
+			</ul>
+		</div>
+	</div>
+{{/if}}

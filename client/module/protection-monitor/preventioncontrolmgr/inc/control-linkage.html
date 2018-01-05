@@ -1,0 +1,76 @@
+<div id="linkageChooseContent">
+	<nav>
+		<ul id="linkageNav" class="clearfix">
+			<li class="item telephone active" data-tab="telephone"><a href="#"><i class="icon"></i><span>短信通知</span></a></li>
+			<li class="item email" data-tab="email"><a href="#"><i class="icon"></i><span>邮箱通知</span></a></li>
+			<li class="item message" data-tab="message"><a href="#"><i class="icon"></i><span>消息通知</span></a></li>
+		</ul>
+	</nav>
+	<div class="linkage-content">
+		<div class="telephone-content content">
+			<div class="add-area">
+				<input class="add-input" type="text" placeholder="请输入您要接收通知的手机号码" /><button data-type="telephone" class="button ui blue add-btn">增加</button>
+				<i class="tips telephone-tips disnone">输入有误</i>
+			</div>
+			<div class="add-result">
+				{{#if telephones}}
+				<ul class="result-list clearfix">
+					{{#each telephones}}
+						<li>
+							<span class="element-name" title="{{this}}">{{this}}</span>
+							<i class="delete"  data-type="telephone" data-value="{{this}}"></i>
+						</li>
+					{{/each}}
+				</ul>
+				<p class="no-result disnone">您还没有增加手机号码！如报警发生，您所增加的手机号码将会在选择时间段内收到实时报警信息提醒！</p>
+				{{else}}
+				<p class="no-result">您还没有增加手机号码！如报警发生，您所增加的手机号码将会在选择时间段内收到实时报警信息提醒！</p>
+				{{/if}}
+			</div>
+			<div class="add-footer">
+				短信通知时间：
+				<span class="whole-day time-type"><i class="{{smsTimeType startTime endTime 1}}"></i><span>全天</span></span>
+				<span class="time-area time-type"><i class="{{smsTimeType startTime endTime 2}}"></i><span>时间段&nbsp;&nbsp;</span></span>
+				<span class="begintime time-group time-input-ctrl">
+				<!-- <input class="time start-hour" type="text" placeholder="08">：
+				<input class="time start-minute" type="text" placeholder="00">-
+				<input class="time end-hour" type="text" placeholder="23">：
+				<input class="time end-minute" type="text" placeholder="59"> -->
+				</span>
+				<span class="endtime time-group time-input-ctrl">
+				<!-- <input class="time start-hour" type="text" placeholder="08">：
+				<input class="time start-minute" type="text" placeholder="00">-
+				<input class="time end-hour" type="text" placeholder="23">：
+				<input class="time end-minute" type="text" placeholder="59"> -->
+				</span>
+			</div>
+		</div>
+		<div class="email-content content disnone">
+			<div class="add-area">
+				<input class="add-input" type="text" placeholder="请输入您要接收通知的邮箱"/><button data-type="email" class="button ui blue add-btn">增加</button>
+				<i class="tips email-tips disnone"></i>
+			</div>
+			<div class="add-result">
+				{{#if emails}}
+				<ul class="result-list clearfix">
+					{{#each emails}}
+						<li>
+							<span class="element-name" title="{{this}}">{{this}}</span>
+							<i class="delete"  data-type="email" data-value="{{this}}"></i>
+						</li>
+					{{/each}}
+				</ul>
+				<p class="no-result disnone">您还没有增加邮箱！如报警发生，您所增加的邮箱将会收到实时报警信息提醒！</p>
+				{{else}}
+				<p class="no-result">您还没有增加邮箱！如报警发生，您所增加的邮箱将会收到实时报警信息提醒！</p>
+				{{/if}}
+			</div>
+			<div class="add-footer"></div>
+		</div>
+		<div class="message-content content disnone">
+			<span class="header">{{#if sendMessage}}<i class="checkbox active"></i>{{else}}<i class="checkbox"></i>{{/if}}<span>有报警时发消息给我</span></span>
+			<p>注：如勾选，表示有报警信息时在系统页面右下角有消息框提示；反之，不提示。</p>
+			<div class="add-footer"></div>
+		</div>
+	</div>
+</div>

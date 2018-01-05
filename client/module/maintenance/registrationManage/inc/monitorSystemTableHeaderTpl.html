@@ -1,0 +1,41 @@
+{{#if header}}
+<div class="page">
+    <div class="content">
+        <div class="pageContentTitle">
+            <div class="monitorSystemPageTitle">
+                <h3>监控系统列表</h3>
+            </div>
+            <div class="createBtnBox">
+                <button id="createBtnBox" class="ui button blue" data-event="click" data-handler="showCreateBox">新建系统
+                </button>
+            </div><!--primaryBtn-->
+        </div>
+        <div class="tableP">
+            <table border="1" id="contentTable">
+                <tr>
+                    <th width="10%">系统编号</th><!--
+                    <th>管理单位代码</th>-->
+                    <th width="10%">管理单位名称-组织结构</th>
+                    <th width="20%">监控系统名称</th>
+                    <th width="10%">系统所在地</th>
+                    <th width="10%">承载网络</th>
+                    <th width="4%">联网</th>
+                    <th width="4%">符合国标</th>
+                    <th width="10%">录像存储周期(天)</th>
+                    <th width="4%">联系人</th>
+                    <th width="10%">联系电话</th>
+                    <th width="18%">单位地址</th>
+                    <th width="4%">状态</th>
+                    <th width="10%">操作</th>
+                </tr>
+                <tr class="load">
+                    <td colspan="13">
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <!--end content-->
+</div>
+<!--end page-->
+{{/if}}

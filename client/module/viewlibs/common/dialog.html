@@ -1,0 +1,18 @@
+{{#if chooseIncidentTemplate}}
+	<div class="associate-panel">
+		<div class="associate-title">同时将关联所属视频和该视频生成的所有结构化信息</div>
+		<span>关联案事件：</span>
+		<div class="new-incident choose-item">
+			<input type="radio" name="associate" data-id="1" value="0" id="newIncident" checked="checked" />
+			<label for="newIncident">新建案件</label>
+		</div>
+		<div class="has-incident choose-item">
+			<input type="radio" data-id="2" name="associate" value="1" id="hasIncident" />
+			<label for="hasIncident">添加到已有案事件</label>
+			<p class="search-incident">
+				<input id="associate" type="text" class="input-text" autocomplete="off" name="incident" disabled placeholder="输入案事件名称..."  />
+			</p>
+			
+		</div>
+	</div>
+{{/if}}

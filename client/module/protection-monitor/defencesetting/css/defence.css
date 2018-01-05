@@ -1,0 +1,3741 @@
+.disnone {
+    display: none;
+}
+.text-ellipis: {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    word-wrap: normal;
+}
+
+/*引用 pub.css*/
+@charset "utf-8";
+/* CSS Document */
+/*
+ * 东方网力 CSS Library 2.0.0
+ * Copyright(c)  2014, 东方网力 CSS
+ * @url http://www.netposa.com
+ * 布防布控模块通用样式
+ */
+/*========================================== 样式开始@Start ==========================================*/
+#defence-setting-major {
+    bottom: 0;
+    left: 280px;
+    position: absolute;
+    right: 0;
+    top: 10px;
+    /*overflow: hidden;*/
+}
+
+#content .wrapper {
+    background-color: #FEFEFE;
+    bottom: 0;
+    left: 0;
+    /*overflow: hidden;*/
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+#defence-setting-sidebar {
+    background-color: #F6FBFF;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    top: 10px;
+    width: 280px;
+}
+
+#sideResize {
+    cursor: w-resize;
+    font-size: 0;
+    height: 38px;
+    left: 100%;
+    margin-top: -1px;
+    overflow: hidden;
+    position: absolute;
+    top: 50%;
+    width: 9px;
+    z-index: 100;
+}
+
+#sideExpand iframe, #sideResize iframe {
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 200;
+}
+
+#sideResize span.resize {
+    background: url("../../../common/images/bg/resizable.png") no-repeat scroll right 0 transparent;
+    bottom: 0;
+    height: 38px;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 9px;
+    z-index: 300;
+}
+
+.tab-panel {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+}
+
+.tab-panel .tab-header {
+    height: 38px;
+    line-height: 38px;
+    background-color: #FFFFFF;
+    font-size: 14px;
+    border: 1px solid #CCCCCC;
+}
+
+.tab-panel .tabs {
+    position: absolute;
+    top: 40px;
+    bottom: 0;
+    width: 50px;
+    background-color: #4d83ac;
+    float: left;
+}
+
+.tab-panel .tabs li {
+    /*text-align: center;*/
+    height: 50px;
+    line-height: 50px;
+    cursor: pointer;
+    padding-top: 2px;
+}
+
+.tab-panel .tab-content > div, .tab-panel .tab-header > div {
+    display: none;
+}
+
+.tab-panel .tab-content > div.active, .tab-panel .tab-header > div.active {
+    display: block;
+}
+
+.tab-panel .tab-header i {
+    width: 20px;
+    height: 18px;
+    margin: 10px 10px;
+    display: inline-block;
+    background: url('../../defencesetting/images/icon.png') no-repeat;
+    float: left;
+}
+
+.tab-panel .tabs i {
+    width: 30px;
+    height: 30px;
+    margin-top: 5px;
+    display: inline-block;
+    background: url('../../defencesetting/images/icon.png') no-repeat;
+}
+
+/**
+*   左侧tab的选中状态
+**/
+.tab-panel .tabs li.active {
+    background-color: #3D9DE0;
+}
+
+/**
+* 面包屑样式
+**/
+.breadcrumb {
+    display: block;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    padding-left: 15px;
+    font-size: 13px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.breadcrumb span.section {
+    cursor: pointer;
+    line-height: 38px;
+}
+
+/**
+*   模拟下拉列表的箭头
+**/
+.arrow-down {
+    background: url('../images/icon.png') -2px -65px no-repeat;
+    height: 13px;
+    width: 10px;
+    cursor: pointer;
+}
+
+.arrow-down:hover {
+    background-position: -2px -65px;
+}
+
+/*模拟选择控件的样式*/
+.select_container {
+    height: 20px;
+    line-height: 20px;
+    width: 170px;
+    background-color: white;
+    border: solid 1px #D9D9D9;
+    margin-left: 2px;
+    display: inline-block;
+    border-radius: 2px;
+    font-size: 0;/*解决ie8下谷歌插件字体不兼容问题*/
+    -webkit-transition: background-color .2s ease-out, box-shadow .2s ease, border-color .2s ease;
+    -os-transition: background-color .2s ease-out, box-shadow .2s ease, border-color .2s ease;
+    -moz-transition: background-color .2s ease-out, box-shadow .2s ease, border-color .2s ease;
+    -mstransition: background-color .2s ease-out, box-shadow .2s ease, border-color .2s ease;
+    transition: background-color .2s ease-out, box-shadow .2s ease, border-color .2s ease;
+}
+
+.select_container:hover {
+    border-color: #78A8D5;
+}
+
+.select_container .arrow-down {
+    float: right;
+    margin-right: 5px;
+    margin-top: 5px;
+    display: inline-block;
+}
+
+.select_container .text {
+    text-indent: 5px;
+    display: inline-block;
+    cursor: default;
+    font-size: 12px;/*解决ie8下谷歌插件字体不兼容问题*/
+}
+
+/*模拟checkbox控件样式*/
+.checkbox_ctrl {
+    height: 15px;
+    position: relative;
+    width: 15px;
+    cursor: pointer;
+    background: url("../../../common/images/sprites/tree_bg.png") no-repeat scroll -32px 0 transparent;
+}
+
+.checkbox_ctrl_active {
+    background: url("../../../common/images/sprites/tree_bg.png") no-repeat scroll -47px 0 transparent;
+}
+
+/*
+*   下拉列表弹出层的样式
+*/
+.pubdiv {
+    display: none;
+    position: absolute;
+    z-index: 5000;
+    background-color: white;
+    border: solid 1px #becad4;
+    moz-box-shadow: 2px 2px 10px #909090; /*firefox*/
+    -webkit-box-shadow: 2px 2px 10px #909090; /*safari或chrome*/
+    box-shadow: 2px 2px 10px #909090; /*opera或ie9*/
+}
+
+.pubdiv li {
+    height: 25px;
+    line-height: 25px;
+    padding-left: 5px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    cursor: pointer;
+}
+
+.pubdiv li:hover {
+    background-color: #edf2f8;
+}
+
+/*
+*   多行文本框的样式
+*/
+textarea {
+    border: solid 1px #D9D9D9;
+    border-radius: 2px;
+    -webkit-transition: background-color .2s ease-out, box-shadow .2s ease, border-color .2s ease;
+    -os-transition: background-color .2s ease-out, box-shadow .2s ease, border-color .2s ease;
+    -moz-transition: background-color .2s ease-out, box-shadow .2s ease, border-color .2s ease;
+    -mstransition: background-color .2s ease-out, box-shadow .2s ease, border-color .2s ease;
+    transition: background-color .2s ease-out, box-shadow .2s ease, border-color .2s ease;
+}
+
+textarea:hover {
+    border-color: #78A8D5;
+}
+
+/*
+*   按钮的样式
+*/
+.alarm-btn {
+    height: 20px;
+    line-height: 20px;
+    width: 30px;
+    padding: 0 8px;
+    color: #fff /*333*/;
+    background: #39afed /*#dde1e6*/;
+    border: 1px solid #2da5ec /*#d0d2d4*/;
+    margin: -2px 3px;
+    text-align: center;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -webkit-transition: background-color .2s ease-out, box-shadow .2s ease, border-color .2s ease;
+    -os-transition: background-color .2s ease-out, box-shadow .2s ease, border-color .2s ease;
+    -moz-transition: background-color .2s ease-out, box-shadow .2s ease, border-color .2s ease;
+    -mstransition: background-color .2s ease-out, box-shadow .2s ease, border-color .2s ease;
+    transition: background-color .2s ease-out, box-shadow .2s ease, border-color .2s ease;
+}
+
+.alarm-btn:hover {
+    color: white;
+    background-color: #429cd1;
+    border: 1px solid #429cd1
+}
+
+.alarm-btn.cancel {
+    background: red;
+    border: 1px solid red /*#d0d2d4*/;
+}
+
+.alarm-btn.cancel:hover {
+    color: white;
+    background-color: #d32626;
+    border: 1px solid #d32626
+}
+
+.alarm-btn.cancel-gray {
+    background: #8A8989;
+    border: 1px solid #8A8989;
+}
+
+.alarm-btn.cancel-gray:hover {
+    color: white;
+    background-color: #808080;
+    border: 1px solid #808080
+}
+
+/*按大中小定义按钮样式*/
+.ui.button.middle {
+    width: 35px;
+    height: 22px;
+    line-height: 20px;
+    padding: 0 0;
+}
+
+.ui.button.big {
+    width: 45px;
+    height: 25px;
+    line-height: 23px;
+    padding: 0 0;
+}
+
+.ui.button.small {
+    width: 30px;
+    height: 20px;
+    line-height: 18px;
+    padding: 0 0;
+}
+
+/*批量导出的弹出框样式*/
+.bulk-import .wrapper section {
+    padding: 0 0;
+}
+
+.bulk-import .thead.ui.tabular.import {
+    border-bottom: 1px solid #E5E5E5;
+    padding-left: 15px;
+    padding-top: 3px;
+    height: 45px;
+    line-height: 45px;
+}
+
+em.success {
+    color: rgba(107, 174, 53, 1);
+}
+
+em.fail {
+    color: red;
+}
+
+#suceessTable table {
+    width: 100%;
+    table-layout: fixed;
+    margin-bottom: 20px;
+}
+
+#suceessTable tbody td, #suceessTable tr.title th {
+    text-align: center;
+    line-height: 32px;
+    padding-left: 4px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 13px;
+}
+
+#suceessTable tr.title th {
+    background: #e6ebf0;
+}
+
+#suceessTable tbody td {
+    border-bottom: 1px solid #f0f2f5;
+    font-size: 12px;
+}
+
+#suceessTable table tr:hover {
+    background-color: #EBF0F4;
+}
+
+#suceessTable {
+    max-height: 280px;
+    overflow-y: auto;
+}
+
+#suceessTable .name, #suceessTable .car-type {
+    width: 100px;
+}
+
+#suceessTable .threshold {
+    width: 50px;
+}
+
+#suceessTable .number {
+    width: 170px;
+}
+
+/**
+* 页面接口比较慢的情况，需要用户进行同步等待，需要在窗口中间显示过渡提示
+*/
+.process-cover-layout {
+    background: #000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 999;
+    opacity: 0.05;
+    filter: alpha(opacity=5);
+}
+
+.process-msg {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin: -30px 0 0 -150px;
+    width: 300px;
+    height: 60px;
+    padding: 0 15px;
+    z-index: 1000;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 8px #666666;
+    background-color: #FFFFFF;
+    background-clip: padding-box;
+    border-radius: 5px;
+}
+
+.process-msg .text {
+    display: inline-block;
+    height: 40px;
+    line-height: 50px;
+}
+
+.process-msg .process-bar {
+    height: 12px;
+    background-color: #d3d3d3;
+    display: block;
+    border-radius: 5px;
+}
+
+.process-msg .process-rate {
+    height: 100%;
+    width: 10%;
+    background-color: #5b9fea;
+    border-radius: 5px;
+}
+
+/**
+* 公共样式
+*/
+.common-hidden {
+    display: none !important;
+}
+
+
+/*布防主体框架样式*/
+.setting-content-hide {
+    position: absolute;
+    margin-left: -9999px;
+}
+#defence-setting-content {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	padding: 15px 0;
+	background-color: #f4f4f4;
+    z-index: 999;
+}
+/*布防顶部导航样式*/
+#defence-setting-nav {
+	width: 613px;
+	height: 31px;
+	margin: 0 auto 10px;
+}
+#defence-setting-nav ul li {
+	float: left;
+	height: 31px;
+	line-height: 31px;
+}
+#defence-setting-nav ul li * {
+	vertical-align: middle;
+}
+#defence-setting-nav ul li .bar {
+	display: inline-block;
+	width: 50px;
+	height: 7px;
+	background: url("../images/bar.png") repeat-x 0 0;
+}
+#defence-setting-nav ul li a {
+	display: inline-block;
+	width: 110px;
+	height: 31px;
+}
+#defence-setting-nav ul li .bar.active {
+	background-image: url("../images/bar-active.png");
+}
+#defence-setting-nav ul li.first-step a {
+	width: 120px;
+	background: url("../images/defence-first-step.png") no-repeat -120px 0;
+}
+#defence-setting-nav ul li.first-step.active a {
+	background-position: 0 0;
+}
+#defence-setting-nav ul li.second-step a {
+	background: url("../images/defence-second-step.png") no-repeat -110px 0;
+}
+#defence-setting-nav ul li.second-step.active a {
+	background-position: 0 0;
+}
+#defence-setting-nav ul li.third-step a {
+	background: url("../images/defence-third-step.png") no-repeat -110px 0;
+}
+#defence-setting-nav ul li.third-step.active a {
+	background-position: 0 0;
+}
+#defence-setting-nav ul li.complete-step a {
+	background: url("../images/complete-step.png") no-repeat -110px 0;
+}
+#defence-setting-nav ul li.complete-step.active a {
+	background-position: 0 0;
+}
+/*布控关闭按钮样式*/
+#defence-setting-close {
+	position: absolute;
+	top: 15px;
+	right: 5px;
+	width: 22px;
+	height: 22px;
+	background: url("../images/close.png") no-repeat 0 0;
+}
+/*关闭按钮hover样式*/
+#defence-setting-close:hover {
+	background-image: url("../images/close-hover.png");
+}
+/*内容区样式*/
+#defence-main-content {
+	position: absolute;
+	top: 56px;
+	left: 60px;
+	right: 60px;
+	bottom: 46px;
+	border: 1px solid #E1E1E1;
+}
+/*第一步 摄像机样式*/
+#defence-setting-sidebar, 
+#defence-setting-major {
+	top: 0;
+}
+#defence-setting-sidebar {
+	border-right: 1px solid #E1E1E1;
+	width: 279px;
+}
+#defence-setting-aside {
+	margin: 0 14px;
+}
+#defence-setting-aside .step-left-title {
+	margin: 10px 0 15px 0;
+	font-weight: bold;
+}
+#defence-setting-aside .camera-search-container .ui.search input {
+	border-radius: 4px;
+	width: 230px;
+}
+#defence-setting-aside .rule-camera-tree {
+    position: absolute;
+    overflow-y: auto;
+    overflow-x: hidden;
+    top: 67px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 10px 0 0 15px;
+}
+
+/*
+*   右侧样式
+*/
+#defence-setting-gismap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+}
+
+/*地图工具栏*/
+#defence-setting-gismap .map-tool a {
+    cursor: pointer
+}
+
+#defence-setting-gismap .map-region {
+    width: 150px;
+    margin-top: 9px;
+    float: left;
+    display: none;
+}
+
+#defence-setting-gismap .map-tool-item, 
+#defence-setting-gismap .map-tools-a {
+    position: relative;
+    float: left;
+}
+
+#defence-setting-gismap .map-operator a, 
+#defence-setting-gismap .map-region a {
+    color: #333333;
+    display: inline-block;
+    margin: 0 0 0 16px;
+}
+
+#defence-setting-gismap .map-region a span b.map-text, 
+#defence-setting-gismap .map-operator a span b.map-text {
+    font-weight: normal;
+    float: left;
+}
+
+#defence-setting-gismap .map-operator {
+    margin: 6px 10px 0 0;
+    float: right;
+}
+
+#defence-setting-gismap .map-tool, 
+.video-play-frame .video-top {
+    position: absolute;
+    width: 100%;
+    height: 36px;
+    border-left: none !important;
+    background: url("/module/common/images/map/map-tool-bg.png") repeat-x;
+    z-index: 100
+}
+#defence-setting-gismap .map-tool {
+	display: none;
+}
+#defence-setting-gismap .map-tools-a a.map-tools {
+    width: 62px;
+    height: 25px;
+    background: url('/module/common/images/map/map-tools-func.png') 0 -125px no-repeat;
+}
+
+#defence-setting-gismap .map-tools-a:hover .map-tools-list {
+    top: 23px;
+}
+
+#defence-setting-gismap .map-tools-list {
+    position: absolute;
+    left: 18px;
+    top: -2000px;
+    z-index: 100;
+    border: 1px solid #dfdfdf;
+    background-color: #FFFFFF
+}
+
+#defence-setting-gismap .map-tools-list li {
+    padding: 2px 8px
+}
+
+#defence-setting-gismap .map-tools-list li a {
+    padding: 0 0 0 16px;
+    margin: 0;
+    background: url('../../../common/images/map/map-tools.png') no-repeat
+}
+
+#defence-setting-gismap .map-tools-list li:hover {
+    background-color: #EBF4F9
+}
+
+#defence-setting-gismap .map-tools-list li a.map-max {
+    padding: 0 0 0 16px;
+    margin: 0;
+    background: url('../../../common/images/map/max-min.png') no-repeat -2px 1px;
+}
+
+#defence-setting-gismap .map-tools-list li a.map-min {
+    padding: 0 0 0 16px;
+    margin: 0;
+    background: url('../../../common/images/map/max-min.png') no-repeat -2px -18px;
+}
+
+#defence-setting-gismap .map-tools-list li a.map-measure {
+    background-position: 0 -140px
+}
+
+#defence-setting-gismap .map-tools-list li a.map-screenshot {
+    background-position: 0 -160px
+}
+
+#defence-setting-gismap .map-tools-list li a.map-mark {
+    background-position: 0 -180px
+}
+
+#defence-setting-gismap .map-tools-list li a.map-print {
+    background-position: 0 -200px
+}
+
+#defence-setting-gismap .map-tools-list li a.map-clear {
+    background-position: 0 -480px
+}
+
+#defence-setting-gismap .map-tool-item a.map-fullscreen {
+    width: 60px;
+    height: 25px;
+    background: url('../../../common/images/map/map-tools-func.png') 0 -75px no-repeat;
+}
+
+#defence-setting-gismap .map-tool-item a.map-exitfullscreen {
+    width: 88px;
+    height: 25px;
+    background: url('../../../common/images/map/map-tools-func.png') 0 -100px no-repeat;
+}
+
+/*地图内容*/
+.gismap, .video-play-frame .video-down {
+    position: absolute;
+    top: 0px;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.video-play-frame .video-down {
+    background-color: #F9F9F9;
+}
+
+/*卫星图层*/
+#defence-setting-gismap .map-layer-normal {
+    display: block;
+    height: 51px;
+    width: 49px;
+    position: absolute;
+    top: 36px;
+    right: 20px;
+    background: url('../../../common/images/map/map-layer.gif') no-repeat;
+    background-position: 0 -51px !important;
+    z-index: 1000;
+    cursor: pointer
+}
+
+#defence-setting-gismap .map-layer-normal:hover {
+    background-position: -49px -51px !important
+}
+
+#defence-setting-gismap .map-layer-satellite {
+    display: block;
+    height: 51px;
+    width: 49px;
+    position: absolute;
+    top: 36px;
+    right: 20px;
+    background: url('../../../common/images/map/map-layer.gif') 0 0 no-repeat;
+    z-index: 1000;
+    cursor: pointer
+}
+
+#defence-setting-gismap .map-layer-satellite:hover {
+    background-position: -49px 0
+}
+
+/*
+*   右侧视频播放层的样式
+*/
+.video-play-frame {
+    position: absolute;
+    z-index: 6000;
+    display: none;
+    background-color: #000000;
+    /*opacity:0.80;
+    filter:alpha(opacity=80);*/
+}
+
+.video-play-frame .video-top {
+    z-index: 6000;
+    background-color: white;
+    line-height: 36px;
+}
+
+.video-play-frame .fullscreen-videotop {
+    height: 74px;
+    line-height: 74px;
+    background: white;
+    border-bottom: 1px solid #B7B7B7;
+}
+
+.video-play-frame .fullscreen-video-down {
+    top: 75px;
+}
+
+.video-top .video-win-close {
+    display: inline-block;
+    padding-right: 20px;
+    float: right;
+}
+
+.video-top .video-camera-info {
+    display: inline-block;
+    padding-left: 20px;
+    float: left;
+}
+
+#UIOCX_HIS {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+/*右侧地图上显示视频视频的样式*/
+#defence-setting-gismap .video-play-close {
+    float: right;
+    margin-right: 5px;
+    margin-top: 6px;
+}
+
+#defence-setting-gismap .map-video-container {
+    height: 300px;
+    width: 400px
+}
+
+.hidden {
+    display: none !important;
+}
+/*资源图层控制样式*/
+#defence-setting-mapId {
+    background-color: #fff;
+}
+#defence-setting-mapId .defence-map-resource-layers {
+    width: 48px;
+    height: auto;
+    border: 1px solid #AAA79E;
+    position: absolute;
+    top: 40px;
+    right: 20px;
+    z-index: 1000;
+    background-color: #fff;
+    display: none;
+}
+
+#defence-setting-mapId .defence-map-resource-layers h2.layers-head {
+    height: 26px;
+    line-height: 26px;
+}
+
+#defence-setting-mapId .defence-map-resource-layers h2.layers-head span.title {
+    padding-left: 7px;
+    display: inline-block;
+}
+
+#defence-setting-mapId .defence-map-resource-layers h2.layers-head span.contract-btn {
+    display: inline-block;
+    height: 12px;
+    width: 12px;
+    background: url('../../../common/images/map/map-tools.png') 0 3px no-repeat;
+    cursor: pointer;
+    float: right;
+    margin: 5px 3px 5px 0;
+}
+
+#defence-setting-mapId .defence-map-resource-layers h2.layers-head span.contract-btn:hover {
+    background-position: 0 -117px;
+}
+
+#defence-setting-mapId .defence-map-resource-layers h2.layers-head span.contract-btn.down {
+    background-position: 0 -257px;
+}
+
+#defence-setting-mapId .defence-map-resource-layers h2.layers-head span.contract-btn.down:hover {
+    background-position: 0 -277px;
+}
+
+#defence-setting-mapId .defence-map-resource-layers ul {
+    display: none;
+    border-top: 1px solid #AAA79E;
+}
+
+#defence-setting-mapId .defence-map-resource-layers ul.hide {
+    display: none;
+}
+
+#defence-setting-mapId .defence-map-resource-layers ul li {
+    cursor: pointer;
+    height: 26px;
+    line-height: 26px;
+}
+
+#defence-setting-mapId .defence-map-resource-layers ul li i.checkbox {
+    float: left;
+    display: inline-block;
+    height: 15px;
+    margin: 6px 6px 0 5px;
+    padding: 0;
+    position: relative;
+    width: 15px;
+    cursor: pointer;
+    background: url("../../../common/images/sprites/tree_bg.png") no-repeat scroll -32px 0 transparent;
+}
+
+#defence-setting-mapId .defence-map-resource-layers ul li.active i.checkbox {
+    background: url("../../../common/images/sprites/tree_bg.png") no-repeat scroll -47px 0 transparent;
+}
+
+#defence-setting-mapId .defence-map-resource-layers ul li i.ico {
+    height: 20px;
+    width: 18px;
+    display: inline-block;
+    background: url("../../../common/images/map/map-resource-ico.png") no-repeat;
+    margin: 5px 3px 0 0;
+    float: left;
+}
+
+#defence-setting-mapId .defence-map-resource-layers ul li i.ico.indoor {
+    background-position: 0 0;
+}
+
+#defence-setting-mapId .defence-map-resource-layers ul li i.ico.hishpomt {
+    background-position: 0 -20px;
+}
+
+#defence-setting-mapId .defence-map-resource-layers ul li i.ico.elevated {
+    background-position: 0 -40px;
+}
+
+#defence-setting-mapId .defence-map-resource-layers ul li i.ico.water {
+    background-position: 0 -60px;
+}
+
+#defence-setting-mapId .defence-map-resource-layers ul li i.ico.ground {
+    background-position: 0 -80px;
+}
+
+/*信息窗样式*/
+/*npmap 窗口样式*/
+#defence-setting-content .map-camera-info {
+    width: 258px
+}
+
+#defence-setting-content .map-camera-info tr {
+    height: 26px;
+    line-height: 26px
+}
+
+#defence-setting-content .map-camera-info tr.head {
+    background-color: #E7ECF2
+}
+
+#defence-setting-content .map-camera-info tr.odd {
+    background-color: #FAFCFF
+}
+
+#defence-setting-content .map-camera-info tr.even {
+    background-color: #FFFFFF;
+    border-top: 1px solid #EFF3F6;
+    border-bottom: 1px solid #EFF3F6
+}
+
+#defence-setting-content .map-camera-info tr td.label {
+    width: 45px;
+    text-align: right
+}
+
+#defence-setting-content .map-camera-info tr td.camera-status {
+    text-align: right;
+    padding-right: 10px
+}
+
+#defence-setting-content .map-camera-info tr td span.camera-status-online {
+    color: #1480FF;
+    cursor: pointer
+}
+
+#defence-setting-content .map-camera-info tr td span.camera-ball-online {
+    width: 13px;
+    height: 14px;
+    margin-top: 6px;
+    background: url('../../../common/images/sprites/tree_bg.png') no-repeat -352px 0;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+#defence-setting-content .map-camera-info tr td span.camera-ball-offline {
+    width: 13px;
+    height: 14px;
+    margin-top: 6px;
+    background: url('../../../common/images/sprites/tree_bg.png') no-repeat -156px 0;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+#defence-setting-content .map-camera-info tr td span.camera-gun-online {
+    background: url('../../../common/images/sprites/tree_bg.png') no-repeat -85px 0;
+    width: 15px;
+    height: 14px;
+    margin-right: 4px;
+    margin-top: 9px;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+#defence-setting-content .map-camera-info tr td span.camera-gun-offline {
+    background: url('../../../common/images/sprites/tree_bg.png') no-repeat 0 0;
+    width: 15px;
+    height: 14px;
+    margin-right: 4px;
+    margin-top: 9px;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+#defence-setting-content .icon_close{
+    width: 62px;
+    height: 62px;
+    position: absolute;
+    right: 0px;
+    top:0;
+    z-index: 1000000;
+    background: url('../images/close-bg.png') no-repeat center center;
+    cursor: pointer;
+    display: none;
+    
+   
+}
+#defence-setting-content .icon_close:hover{
+    background: url('../images/close-bg-hover.png') no-repeat center center;
+}
+#defence-setting-content .toolbar{
+    display: none;
+    height: 35px;
+    line-height: 30px;
+    font-weight: bolder;
+    position: absolute;
+    left: 50%;
+    z-index: 20;
+    bottom: 0px;
+    z-index: 100000000;
+    background-color: #7F7F7F;
+    border-radius: 5px 5px 0px 0px;
+    overflow: hidden;
+    cursor: pointer;
+}
+#defence-setting-content .toolbar>div{
+    width: 45px;
+    height: 35px;
+    float: left;
+    text-align: center;
+    transition: background-color 0.2s ease;
+    -moz-transition: background-color 0.2s ease;
+    -o-transition: background-color 0.2s ease;
+    -webkit-transition: background-color 0.2s ease;
+}
+#defence-setting-content .toolbar>div:hover{
+    background-color:#46A6DB;   
+}
+#defence-setting-content .toolbar>div.active{
+    background-color:#46A6DB;    
+}
+#defence-setting-content .toolbar span{
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    vertical-align: middle;
+}
+#defence-setting-content .toolbar .image-viewer-tool-realsize{
+    background: url('../images/realSize.png') no-repeat;
+
+}
+#defence-setting-content .toolbar .image-viewer-tool-rotate{
+  background: url('../images/rotateRight.png') no-repeat;
+
+}
+#defence-setting-content .toolbar .image-viewer-tool-horizontalturn{
+    background: url('../images/horizontalTurn.png') no-repeat;
+
+}
+#defence-setting-content .toolbar .image-viewer-tool-verticalturn{
+    background: url('../images/verticalTurn.png') no-repeat;
+
+}
+/*
+*   信息窗样式
+*/
+#defence-setting-content .infowindow-alarm-mgr {
+    background-color: #f6f6f6;
+    height: 100%;
+    overflow: hidden;
+}
+
+#defence-setting-content .infowindow-top {
+    height: 38px;
+    line-height: 38px;
+    border-bottom: solid 1px #DFDFDF;
+}
+
+#defence-setting-content .infowindow-top.video-play {
+    height: 30px;
+    line-height: 30px;
+}
+
+#defence-setting-content .infowindow-top .infowindow-title, .infowindow-top.infowindow-title .text {
+    display: inline-block;
+    text-indent: 10px;
+    width: 72%;
+    float: left;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+#defence-setting-content .infowindow-top .infowindow-operator, .infowindow-top.infowindow-title .infowindow-operator {
+    display: inline-block;
+    width: 28%;
+    height: 100%;
+    float: right;
+}
+
+#defence-setting-content .icon_mark_close {
+    background: url('../../common/images/icon.png') -15px -62px no-repeat;
+}
+#defence-setting-content .infowindow-top .infowindow-operator a {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    margin: 9px 4px 0 0;
+    float: right;
+}
+/*底部 上一步 下一步 完成的样式*/
+#defence-setting-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    line-height: 46px;
+    text-align: center;
+}
+#defence-setting-footer button {
+    display: none;
+    margin: 0 2px;
+    padding: 0;
+    width: 70px;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+}
+
+
+/*****布防报警信息的头部样式******/
+#defence-setting-content .alarm-info-list, .alarm-event-set, .alarm-event-rule {
+    padding: 10px 10px 10px 0;
+    z-index: 1
+}
+
+#defence-setting-content .alarm-info-list .alarm-info-list-top, .alarm-event-set .alarm-event-set-top, .alarm-event-rule .alarm-event-rule-top {
+    height: 24px;
+    line-height: 24px;
+}
+
+#defence-setting-content .alarm-event-rule-top {
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 1px solid #D2E6F7;
+}
+
+#defence-setting-content .return-back-close, .return-back-rules {
+    display: inline-block;
+    width: 10px;
+    height: 14px;
+    background: url('/common/images/map/guard-route.png') -50px -50px no-repeat;
+    cursor: pointer;
+    margin-left: 6px;
+}
+
+#defence-setting-content .alarm-info-list .alarm-info-list-top .set-rule-btn {
+    display: inline-block;
+    height: 100%;
+    width: 22px;
+    float: right;
+    background: url("../images/icon.png") -120px -154px no-repeat;
+    cursor: pointer;
+}
+
+/*********报警信息的内容顶部事件列表*********/
+#defence-setting-content .alarmInfoPanel .alarm-event-type {
+    cursor: default;
+    height: 28px;
+    width: 50%;
+    /*border: solid 1px #becad4;*/
+    margin-top: 5px;
+    line-height: 28px;
+    display: inline-block;
+}
+
+#defence-setting-content .alarmInfoPanel .alarm-event-type .text {
+    height: 26px;
+    display: inline-block;
+}
+
+#defence-setting-content .pubdiv {
+    display: none;
+    width: 180px;
+    position: absolute;
+    z-index: 1000;
+    background-color: white;
+    border: solid 1px #becad4;
+    moz-box-shadow: 2px 2px 10px #909090; /*firefox*/
+    -webkit-box-shadow: 2px 2px 10px #909090; /*safari或chrome*/
+    box-shadow: 2px 2px 10px #909090; /*opera或ie9*/
+}
+
+#defence-setting-content .pubdiv li {
+    height: 25px;
+    line-height: 25px;
+    padding-left: 5px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    cursor: pointer;
+}
+
+#defence-setting-content .pubdiv li:hover {
+    background-color: #edf2f8;
+}
+
+#defence-setting-content .content-rule-list li i {
+    display: inline-block;
+    width: 14px;
+    height: 20px;
+    margin-top: 3px;
+    float: left;
+}
+
+#defence-setting-content .content-rule-list li a {
+    display: inline-block;
+    padding-left: 2px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 69px;
+}
+
+#defence-setting-content .alarmInfoPanel .alarm-event-style {
+    cursor: default;
+    height: 28px;
+    width: 50%;
+    display: inline-block;
+    float: right;
+    margin-top: 5px;
+    line-height: 28px;
+}
+
+#defence-setting-content .alarm-event-style span {
+    display: inline-block;
+    float: right;
+    background: url('../images/icon.png') no-repeat;
+    height: 20px;
+    width: 20px;
+    margin-top: 4px;
+    cursor: pointer;
+}
+
+#defence-setting-content .alarm-event-style span.left {
+    background-position: -20px -21px;
+    margin-right: 3px;
+}
+
+#defence-setting-content .alarm-event-style span.left_click {
+    background-position: -20px -40px;
+    margin-right: 3px;
+}
+
+#defence-setting-content .alarm-event-style span.right {
+    background-position: -1px -21px;
+}
+
+#defence-setting-content .alarm-event-style span.right_click {
+    background-position: -1px -40px;
+}
+
+#defence-setting-content .alarm-event-style span.refresh {
+    background-position: -166px -157px;
+    margin-right: 3px;
+}
+
+/*****报警信息内容展现*****/
+#defence-setting-content .alarmInfoPanel .alarm-list {
+    width: 98%;
+}
+
+#defence-setting-content .alarmInfoPanel .alarm-events-content {
+    margin-top: 5px;
+    width: 100%;
+    border: solid 1px #becad4;
+}
+
+#defence-setting-content .alarm-events-content .alarm-event-top {
+    height: 30px;
+    background-color: #e9eef2;
+    line-height: 30px;
+}
+
+#defence-setting-content .alarm-events-content .alarm-event-top .title-text {
+    width: 68%;
+    display: inline-block;
+    float: left;
+    text-indent: 5px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+#defence-setting-content .alarm-events-content .alarm-event-top .img {
+    /*width: 50px;*/
+    height: 100%;
+    display: inline-block;
+    float: right;
+}
+
+#defence-setting-content .alarm-events-content .alarm-event-top .img a {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-top: 5px;
+}
+
+#defence-setting-content .alarm-events-content .alarm-event-mark {
+    height: 150px;
+    background-color: #dff2ff;
+    display: none;
+    padding-top: 5px;
+}
+
+#defence-setting-content .alarm-events-content .alarm-event-mark .event-mark-text {
+    height: 80px;
+    margin-top: 5px;
+    width: 96%;
+    margin-left: 3px;
+    resize: none;
+    border: solid 1px rgb(224, 224, 224);
+    background-color: white;
+}
+
+#defence-setting-content .alarm-events-content .alarm-event-mark a.deal-btn {
+    margin: 3px 0 3px 10px;
+    width: 50px;
+    height: 22px;
+    line-height: 22px;
+    float: left;
+    color: #fff;
+    border: 1px solid #2e65ad;
+    background: #3a7fda;
+    display: inline;
+    text-align: center;
+}
+
+#defence-setting-content .alarm-events-content .alarm-event-mark a.cancel {
+    color: #d63939;
+    border: 1px solid #d63939;
+    background: #fff;
+}
+
+#defence-setting-content .alarm-event-mark .alarm-event-level {
+    height: 28px;
+    line-height: 28px;
+    width: 96.5%;
+    background-color: white;
+    border: solid 1px rgb(224, 224, 224);
+    margin-left: 3px;
+}
+
+#defence-setting-content .text {
+    text-indent: 5px;
+    display: inline-block;
+}
+
+#defence-setting-content .alarm-events-content .alarm-event-detail {
+    margin-bottom: 5px;
+}
+
+#defence-setting-content .alarm-events-content .alarm-event-detail div {
+    height: 20px;
+    margin-top: 2px;
+    width: 100%;
+    line-height: 20px;
+    display: inline-block;
+    text-indent: 5px;
+}
+
+#defence-setting-content .alarm-events-content .alarm-event-detail div.event-image {
+    text-align: center;
+    height: auto;
+    text-indent: 0;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+#defence-setting-content .alarm-events-content .alarm-event-detail div.event-image img {
+    width: 239px;
+}
+
+#defence-setting-content .events-no-record-info {
+    padding: 5px 0;
+    width: 100%;
+    /*  border: solid 1px #becad4;*/
+    color: #999;
+    text-indent: 3px;
+}
+
+/*
+*新弹窗的样式
+*/
+#defence-setting-content #maskLayer {
+    opacity: 0.5;
+}
+
+#defence-setting-content #defenceWindow .left {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    border-right: 1px solid #E1E1E1;
+    width: 279px;
+    background-color: #F6FBFF;
+}
+
+#defence-setting-content #defenceWindow .right {
+    top: 0;
+    position: absolute;
+    left: 280px;
+    bottom: 0;
+    right: 0;
+}
+
+#defence-setting-content #defenceWindow .alarm-events-content-video {
+    width: 100%;
+    height: 100%;
+}
+
+#defence-setting-content #defenceWindow .alarm-events-content-video .content-top-video-tool {
+    height: 36px;
+    boder-left: none;
+    width: 100%;
+    background-image: url("/module/common/images/map/map-tool-bg.png");
+    position: absolute;
+    border-left: 1px solid #e3e3e3;
+}
+
+#defence-setting-content #defenceWindow .alarm-events-content-video .content-top-video-tool .camera-name-text {
+    height: 36px;
+    width: 50%;
+    display: inline-block;
+    line-height: 36px;
+    text-indent: 5px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+#defence-setting-content #defenceWindow .alarm-events-content-video .content-top-video-tool .video-operation-tool {
+    height: 36px;
+    float: right;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+#defence-setting-content #defenceWindow .alarm-events-content-video .content-top-video-tool a {
+    height: 20px;
+    width: 20px;
+    display: inline-block;
+    margin-right: 2px;
+    margin-top: 8px;
+    cursor: pointer;
+}
+
+#defence-setting-content #defenceWindow .alarm-events-content-video .content-top-video-tool .intercept {
+    height: 24px;
+    width: 24px;
+    display: none;
+    cursor: pointer;
+    margin-top: 6px;
+    float: left;
+}
+
+#defence-setting-content #defenceWindow .alarm-events-content-video .content-down-video {
+    top: 36px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    overflow: hidden
+}
+
+/***********布防规则列表样式******************/
+#defence-setting-content .rules_set {
+    padding: 0 0 9px 0;
+    background: #fff
+}
+
+#defence-setting-content .rules_set dt {
+    height: 36px;
+    line-height: 36px;
+    padding: 0 10px;
+    background: #fff;
+    /*border-top:1px solid #9bb3d4;*/
+    border-bottom: 1px solid #e8ebef;
+    position: relative;
+    cursor: pointer;
+    font-size:12px;
+    color:#444444;
+}
+#defence-setting-content .rules_set dt.blue-color{
+    color:#188DFB;
+    font-weight: bold
+}
+
+#defence-setting-content .rules_set dt i {
+    width: 12px;
+    height: 12px;
+    display: block;
+    position: absolute;
+    top: 12px;
+    right: 10px;
+    z-index: 1;
+
+}
+
+#defence-setting-content .rules_set dd {
+    border-bottom: 1px solid #F6FBFF;
+    overflow: hidden;
+    padding: 3px 0 3px 10px;
+}
+
+#defence-setting-content .rules_set dd span {
+    width: 64px;
+    height: 64px;
+    float: left;
+    overflow: hidden;
+    margin: 15px 9px 9px 9px;
+    border:1px solid #D8E1E9;
+    cursor: pointer;
+    background: #f6fbff;
+    border-radius: 3px
+}
+#defence-setting-content .rules_set dd span:hover {
+    background-color: #ECF2F9;
+    border-color:#ABBBD2;
+    box-shadow:0px 0px 5px #EfF2Ff 
+}
+#defence-setting-content .rules_set dd span:hover em{
+    color:#188fb;
+}
+#defence-setting-content .rules_set dd span.active {
+background-image: url("../images/hasTask.png");
+background-position: 51px 0;
+background-repeat: no-repeat;
+}
+#defence-setting-content .rules_set dd span:first-child {
+   /** margin: 15px 25px 15px 25px;**/
+}
+
+#defence-setting-content .rules_set dd span i {
+    width: 30px;
+    height: 33px;
+    display: block;
+    overflow: hidden;
+    margin:5px 0 0 15px;
+}
+#defence-setting-content .rules_set dd span.checked {
+    border-color: #ffc292;
+    background-color: #fffcf9;
+    color: #000;
+}
+#defence-setting-content .rules_set dd span i.checked {
+    background-image: url("../images/iconMath-active.png");
+}
+#defence-setting-content .rules_set dd span.checked em a {
+    color: #444;
+}
+#defence-setting-content .rules_set dd span em {
+    width: 64px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    display: block;
+    overflow: hidden;
+
+}
+
+#defence-setting-content .rules_set dd span em a {
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color:#6F88AB;
+}
+
+#defence-setting-content .rules_set dd span em a:link {
+    color: #4b4b4b;
+}
+
+#defence-setting-content .rules_set dd span em a:hover {
+    color: #4b4b4b;
+}
+
+#defence-setting-content .rules_set dd span em a:active {
+    color: #4b4b4b;
+}
+
+#defence-setting-content .rules_set dd span em a:visited {
+    color: #4b4b4b;
+}
+
+#defence-setting-content .alarm-events-rule-list, .alarmRuleDetailPanel, .alarm-events-rule-detail {
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    width: 100%;
+}
+
+#defence-setting-content .alarmRuleDetailPanel {
+    display: none;
+}
+
+#defence-setting-content .rule_list_title, .rules_title {
+    border-bottom: 1px solid #dee6f7;
+    height: 30px;
+    display: block;
+}
+
+#defence-setting-content .rule_list_title a, .rules_title a {
+    width: 50%;
+    height: 30px;
+    line-height: 30px;
+    text-align: left;
+    text-indent: 14px;
+    float: left;
+    background: #EAF2F9;
+    position: relative;
+    box-sizing: border-box;
+    border-left: 1px solid #dee6f7;
+    border-bottom: 1px solid #dee6f7;
+    border-right: 1px solid #dee6f7;
+}
+
+#defence-setting-content .rule_list_title a.current, .rules_title a.current {
+    background: #F6FBFF;
+    border-left: 0px;
+    border-bottom: 0px; 
+    border-right: 0px; 
+}
+
+#defence-setting-content .default-rule-list, .others-rule-list, .other-data {
+    position: absolute;
+    top: 30px;
+    bottom: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    width: 100%;
+}
+
+#defence-setting-content .default-rule-list {
+    top: 31px;
+}
+
+#defence-setting-content .others-rule-list {
+    padding-top: 10px;
+}
+
+#defence-setting-content .alarm-event-mark .alarm-event-level {
+    height: 28px;
+    line-height: 28px;
+    width: 96.5%;
+    background-color: white;
+    border: solid 1px rgb(224, 224, 224);
+    margin-left: 3px;
+}
+
+/**
+*   模拟下拉列表的箭头
+**/
+#defence-setting-content #defenceWindow .arrow-down {
+    background: url('../images/icon.png') -87px -185px no-repeat;
+    height: 13px;
+    width: 10px;
+    cursor: pointer;
+}
+
+#defence-setting-content #defenceWindow .arrow-down {
+    float: right;
+    margin-right: 5px;
+    margin-top: 5px;
+    display: inline-block;
+}
+
+#defence-setting-content #defenceWindow .arrow-down:hover {
+    background-position: -87px -185px;
+}
+/********************布防规则参数设置样式**************************/
+#defence-setting-content #manyData ul.defence li {
+    padding: 2px 1px 2px 2px;
+    border-top: 1px dashed #d7dce0;
+}
+
+#defence-setting-content #manyData ul.defence li:first-child {
+    border-top: none;
+}
+
+#defence-setting-content #manyData ul.defence li h6 {
+    width: 180px;
+    height: 32px;
+    line-height: 32px;
+    padding-left: 5px;
+    float: left;
+    white-space: normal;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+#defence-setting-content #manyData ul.defence li a.set {
+    height: 32px;
+    line-height: 32px;
+    padding-right: 5px;
+    float: right;
+}
+
+#defence-setting-content .alarm-event-rule-button {
+    position: absolute;
+    top: 0;
+    right: 5px;
+    float: right;
+    padding-right: 0 !important;
+    margin-left: 0 !important;
+    text-align: right !important;
+}
+
+#defence-setting-content .alarm-event-rule-button input {
+    min-width: 42px !important;
+    height: 24px !important;
+    line-height: 23px !important;
+    margin-bottom: 1px !important;
+    padding: 0 !important;
+}
+
+#defence-setting-content .defence-text-input {
+    min-width: 42px !important;
+    height: 22px !important;
+    line-height: 21px !important;
+    margin-left: 2px !important;
+    margin-bottom: 1px !important;
+    padding: 0 !important;
+}
+
+/******滑块的样式*****/
+#defence-setting-content .slider_bar {
+    padding: 6px 0;
+    overflow: hidden;
+}
+
+#defence-setting-content .slider_bar em {
+    /*height:20px;
+    line-height:20px;
+    float:left;*/
+    display: inline-block;
+    text-indent: 3px;
+}
+
+#defence-setting-content .slider_bar .bar {
+    display: inline-block;
+    width: 52px;
+    height: 25px;
+    line-height: 25px;
+    border: 1px solid #E0E1E2;
+    text-align: center;
+    cursor: pointer;
+}
+
+#defence-setting-content .slider_bar .bar.one {
+    margin-left: 2px;
+    border-right: none;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+#defence-setting-content .slider_bar .bar.two {
+    border-right: none;
+    margin-left: -4px;
+}
+
+#defence-setting-content .slider_bar .bar.three {
+    margin-left: -4px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+#defence-setting-content .slider_bar .bar.one.active {
+    background: #4ba5ff;
+    border: 1px solid #4ba5ff;
+    color: #fff;
+}
+
+#defence-setting-content .slider_bar .bar.two.active {
+    background: #ff8d33;
+    border: 1px solid #ff8d33;
+    color: #fff;
+}
+#defence-setting-content .slider_bar .bar.three.active {
+    background: #e53d09;
+    border: 1px solid #e53d09;
+    color: #fff;
+}
+
+#defence-setting-content .li-item {
+    /*border-top:1px dashed #d7dce0;*/
+    width: 260px;
+    padding: 10px 0 6px 3px;
+    overflow: hidden;
+    display: block !important;
+}
+.speedSlider{
+    width: 170px;
+    display: inline-block;
+}
+.speedSlider1{
+    width: 138px;
+    display: inline-block;
+}
+.ruler{
+    width:180px;
+    height:21px;
+    margin-left:72px;
+}
+.ruler1{
+    width:144px;
+    height:21px;
+    margin-left:81px;
+}
+#defence-setting-content .rule-time-template {
+    padding: 0 0 50px 3px;
+    background: url("../images/time-bar.png") no-repeat 38px 50px;
+}
+
+#defence-setting-content .people-density input {
+    width: 154px !important;
+    padding: 2px 0 !important;
+    text-indent: 5px !important;
+}
+
+#defence-setting-content .event-alarm-time input {
+    width: 154px !important;
+    padding: 2px 0 !important;
+    text-indent: 5px !important;
+}
+
+#defence-setting-content .people-car-stream-rate input {
+    width: 154px !important;
+    padding: 2px 0 !important;
+    text-indent: 5px !important;
+}
+
+#defence-setting-content .region input[type='text'] {
+    width: 96px !important;
+    text-align: left !important;
+    padding: 2px 0 !important;
+    text-indent: 5px !important;
+}
+
+#defence-setting-content .alarm-speed input {
+    width: 124px !important;
+    padding: 2px 0 !important;
+    text-indent: 5px !important;
+}
+
+#defence-setting-content .fight-speed input {
+    width: 160px !important;
+    padding: 2px 0 !important;
+    text-indent: 5px !important;
+}
+
+#defence-setting-content .fight-chaotic-rate input {
+    width: 151px !important;
+    padding: 2px 0 !important;
+    text-indent: 5px !important;
+}
+
+#defence-setting-content .car-flag-info {
+    width: 41px !important;
+    margin-left: 4px !important;
+    color: gray !important;
+    text-align: center !important;
+    padding: 2px 0 !important;
+    text-indent: 2px !important;
+}
+
+#defence-setting-content .level_container, .area_container, .level-container-target, .direction_container {
+    height: 20px;
+    line-height: 20px;
+    width: 170px;
+    background-color: white;
+    border: solid 1px #D9D9D9;
+    margin-left: 2px;
+    display: inline-block;
+    -webkit-transition: background-color .2s ease-out, box-shadow .2s ease, border-color .2s ease;
+    -os-transition: background-color .2s ease-out, box-shadow .2s ease, border-color .2s ease;
+    -moz-transition: background-color .2s ease-out, box-shadow .2s ease, border-color .2s ease;
+    -mstransition: background-color .2s ease-out, box-shadow .2s ease, border-color .2s ease;
+    transition: background-color .2s ease-out, box-shadow .2s ease, border-color .2s ease;
+}
+
+#defence-setting-content .level_container:focus, .area_container:focus, .level-container-target, .direction_container:focus {
+    border-color: #78A8D5;
+}
+
+#defence-setting-content .level_container ul, .area_container ul, .level-container-target ul, .direction_container ul {
+    border: none;
+
+}
+
+#defence-setting-content .level_container .level-list li, .area_container .area-list li, .level-container-target .level-target li, .direction_container .direction-list li {
+    height: 20px;
+    line-height: 20px;
+}
+
+#defence-setting-content .area_container {
+    width: 96px;
+}
+
+/****过滤器相关****/
+#defence-setting-content .event-rect-filter input.filter-info {
+    width: 42.5px !important;
+    margin-left: 4px !important;
+    color: gray !important;
+    text-align: center !important;
+    padding: 2px 0 !important;
+    text-indent: 2px !important;
+}
+
+#defence-setting-content .event-rect-filter span, .event-picture-store span {
+    display: inline-block;
+    height: 25px;
+    line-height: 25px;
+    width: 100%;
+}
+#defence-setting-content .event-rect-filter .demarcate,
+#defence-setting-content .car-flag-set .demarcate {
+    display: inline-block;
+    margin-left: 5px;
+    height: 16px;
+    width: 16px;
+    background: url("../images/sign-default.png") no-repeat 0 0;
+    vertical-align: middle;
+    cursor: pointer;
+}
+#defence-setting-content .event-rect-filter .demarcate:hover, 
+#defence-setting-content .event-rect-filter .demarcate.active,
+#defence-setting-content .car-flag-set .demarcate:hover,
+#defence-setting-content .car-flag-set .demarcate.active {
+    background-image: url("../images/sign-active.png");
+}
+
+#defence-setting-content .event-rect-filter span {
+    position: relative;
+}
+
+#defence-setting-content .event-rect-filter span label {
+    float: left;
+    height: 100%;
+
+}
+
+#defence-setting-content .event-rect-filter span label input {
+    margin: 5px 2px 0 0;
+}
+
+#defence-setting-content .event-rect-filter span.top, .event-picture-store span.top {
+    margin-bottom: 10px;
+}
+
+#defence-setting-content .event-rect-filter em, 
+#defence-setting-content .event-picture-store em, 
+#defence-setting-content .region em {
+    display: inline-block;
+}
+
+#defence-setting-content .filter_min_layout, 
+#defence-setting-content .filter_max_layout {
+    background: #eaf2f9;
+    position: absolute;
+    top: -2px;
+    left: 15px;
+    right: 0;
+    bottom: 0;
+    z-index: 999;
+    opacity: 0.5;
+    height: 30px;
+    filter: alpha(opacity=30);
+}
+
+#defence-setting-content .filter_target_layout {
+    background: #fff;
+    position: absolute;
+    top: 706px;
+    left: 0;
+    /*bottom: 600px;*/
+    z-index: 999;
+    opacity: 0.5;
+    height: 350px;
+    width: 280px;
+    filter: alpha(opacity=30);
+}
+
+#defence-setting-content .filter_data_layout {
+    background: #fff;
+    position: absolute;
+    top: 225px;
+    left: 0;
+    /*bottom: 600px;*/
+    z-index: 999;
+    opacity: 0.5;
+    height: 449px;
+    width: 280px;
+    filter: alpha(opacity=30);
+}
+#defence-setting-content .alarm-events-rule-detail #time-tips {
+    display: none;
+    position: absolute;
+    width: 75px;
+    height: 21px;
+    background: url("../images/time-tips.png") no-repeat 0 0;
+    text-align: center;
+    color: #fff;
+}
+/****时间模板****/
+#defence-setting-content .time_info {
+    width:260px;
+    text-align: center;
+    height: 30px;
+    position: relative;
+    margin-top: 6px;
+}
+
+#defence-setting-content .time_info label {
+    float: left;
+    height: 32px;
+    line-height: 32px;
+}
+
+#defence-setting-content .time_info label input[type='checkbox'] {
+    float: left;
+    margin: 9px 5px 0 0;
+}
+
+#defence-setting-content .time_info dfn {
+    float: left;
+    height: 32px;
+    line-height: 32px;
+    margin-left: 10px;
+}
+
+#defence-setting-content .time_info span {
+    width: 170px;
+    height: 3px;
+    /*padding-top: 20px;
+    background: url('../images/icon.png') -52px -356px no-repeat;*/
+    float: left;
+    position: relative;
+    margin-left: 10px;
+}
+
+#defence-setting-content .time_info em {
+    height: 3px;
+    display: block;
+    background: #a8d490;
+    position: absolute;
+    top: 14px;
+    left: 0;
+    right: 0;
+    cursor: pointer;
+}
+
+#defence-setting-content .time_info i {
+    width: 20px;
+    height: 26px;
+    background: url('../images/icon.png') -6px -350px no-repeat;
+    float: left;
+    margin-left: 14px;
+}
+
+#defence-setting-content .time_info i.active {
+    background: url('../images/icon.png') -27px -350px no-repeat;
+    cursor: pointer;
+}
+/*.time_info_bar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 174px;
+    height: 250px;
+    background: url("../images/time-bar.png") no-repeat 0 0;
+}*/
+#defence-setting-content .time_layout, 
+#defence-setting-content .process-layout {
+    background: #000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 999;
+    opacity: 0.75;
+    filter: alpha(opacity=75);
+}
+
+#defence-setting-content .time_layout_ifr, 
+#defence-setting-content .events_layout_ifr {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 90;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+#defence-setting-content .content-rule-list-ifr, 
+#defence-setting-content .video-tool-ifr {
+    position: absolute;
+    display: none;
+    z-index: 90;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+#defence-setting-content .process-tip-ifr {
+    position: fixed;
+    width: 300px;
+    height: 60px;
+    z-index: 1000;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+#defence-setting-content .process-layout {
+    opacity: 0.05;
+    filter: alpha(opacity=5);
+}
+
+#defence-setting-content .process-tips {
+    position: fixed;
+    width: 300px;
+    height: 60px;
+    line-height: 60px;
+    padding: 0 5px;
+    font-size: 14px;
+    background-color: white;
+    z-index: 1000;
+}
+
+/****时间模板对话框样式***/
+#defence-setting-content .dialog {
+    width: 460px;
+    height: 240px;
+    border: 1px solid #c2cdd7;
+    background: #fff;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin: -120px 0 0 -230px;
+    z-index: 9999;
+}
+
+#defence-setting-content .dialog_title {
+    height: 30px;
+    border-bottom: 1px solid #eaeaea;
+    background: #f9f9f9;
+    position: relative;
+}
+
+#defence-setting-content .dialog_title h6 {
+    height: 30px;
+    line-height: 30px;
+    float: left;
+    padding: 0 10px;
+    font-weight: bold;
+}
+
+#defence-setting-content .dialog_title a.close {
+    width: 12px;
+    height: 12px;
+    display: block;
+    position: absolute;
+    top: 9px;
+    right: 10px;
+    background: url('../images/icon.png') -148px -161px no-repeat;
+}
+
+#defence-setting-content .dialog_body {
+    padding: 0 10px;
+}
+
+#defence-setting-content .select_time {
+    height: 24px;
+    padding: 10px 0;
+}
+
+#defence-setting-content .select_time em {
+    width: 20px;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+    float: left;
+}
+
+#defence-setting-content .select_time a.btn {
+    background: #DDE1E6;
+    border: 1px solid #D0D2D4;
+    color: #333333;
+    float: left;
+    height: 24px;
+    line-height: 24px;
+    margin: 0 10px;
+    padding: 0 8px;
+}
+
+#defence-setting-content .time_list {
+    overflow: hidden;
+}
+
+#defence-setting-content .time_list dt {
+    height: 30px;
+    line-height: 30px;
+    padding: 0 10px;
+    border-top: 1px solid #afbfd0;
+    border-bottom: 1px solid #c7ccd1;
+    background: #fafafa;
+}
+
+#defence-setting-content .time_list dd {
+    height: 93px;
+    overflow: auto;
+}
+
+#defence-setting-content .time_list dd p {
+    height: 30px;
+    border-bottom: 1px solid #ededed;
+}
+
+#defence-setting-content .time_list dd p span {
+    height: 30px;
+    line-height: 30px;
+    float: left;
+}
+
+#defence-setting-content .time_list dd p a {
+    float: right;
+    height: 20px;
+    margin: 5px;
+    width: 20px;
+}
+
+#defence-setting-content .dialog_foot {
+    height: 28px;
+    padding: 6px 0;
+    text-align: center;
+}
+
+#defence-setting-content .dialog_foot input[type='button'] {
+    height: 28px !important;
+    line-height: 28px !important;
+    vertical-align: top !important;
+}
+
+/***********摄像机截图时的遮罩层样式***********/
+#defence-setting-content .video-screen-shot {
+    top: 0;
+    position: absolute;
+}
+
+#defence-setting-content #TempSnapCover {
+    -moz-user-select: none; /*火狐*/
+    -webkit-user-select: none; /*webkit浏览器*/
+    -ms-user-select: none; /*IE10*/
+    -khtml-user-select: none; /*早期浏览器*/
+    user-select: none;
+}
+
+/***********通用样式***********/
+#defence-setting-content .hidden {
+    display: none !important;
+}
+
+#defence-setting-content .hidden_normal {
+    display: none;
+}
+
+#defence-setting-content .color-green {
+    color: green;
+}
+
+#defence-setting-content .color-black {
+    color: black;
+}
+
+#defence-setting-content .color-perple {
+    color: #a32442;
+}
+
+#defence-setting-content .color-blue {
+    color: #0088cc !important;
+}
+
+/*报警信息列表中，级别处理为重要时的颜色*/
+#defence-setting-content .color-severe {
+    color: #d1862d;
+}
+
+/*报警信息列表中，级别处理为严重时的颜色*/
+#defence-setting-content .color-urgent {
+    color: #d12d2d;
+}
+
+#defence-setting-content .style-text-info, 
+#defence-setting-content .color-gray {
+    color: gray;
+}
+
+/***css hack ，ie9+兼容xp***/
+@media all and (min-width: 0) {
+    #defence-setting-content .event-rect-filter input.filter-info {
+        width: 38px\9 !important;
+    }
+
+    #defence-setting-content .people-density input {
+        width: 155px !important;
+        margin-left: 2px !important;
+    }
+
+    #defence-setting-content .event-alarm-time input {
+        width: 166px !important;
+        margin-left: 2px !important;
+    }
+
+    #defence-setting-content .people-car-stream-rate input {
+        width: 173px !important;
+        margin-left: 2px !important;
+    }
+
+    #defence-setting-content .region input[type='text'] {
+        width: 111px !important;
+        text-align: left !important;
+        margin-left: 2px !important;
+    }
+
+    #defence-setting-content .alarm-speed input {
+        width: 131px !important;
+        margin-left: 2px !important;
+    }
+
+    #defence-setting-content .fight-speed input {
+        width: 164px !important;
+        margin-left: 2px !important;
+    }
+
+    #defence-setting-content .fight-chaotic-rate input {
+        width: 152px !important;
+        margin-left: 2px !important;
+    }
+
+    #defence-setting-content .level_container, 
+    #defence-setting-content .direction_container {
+        width: 186px !important;
+    }
+
+    #defence-setting-content .area_container {
+        width: 111px !important;
+    }
+
+    #defence-setting-content .car-flag-info {
+        width: 45.5px !important;
+    }
+}
+
+/***********时间段设置控件的样式***********/
+#defence-setting-content .time-input-ctrl {
+    position: relative;
+    border: 1px solid black;
+    width: 80px;
+    height: 24px;
+    line-height: 24px;
+    display: inline-block;
+  /*  float: left;*/
+}
+
+#defence-setting-content .time-input-ctrl .text-select {
+    position: absolute;
+    width: 28px;
+    height: 100%;
+    margin: 0;
+    border: 0;
+    text-align: center;
+}
+
+#defence-setting-content .time-input-ctrl .text1 {
+    left: 0;
+}
+
+#defence-setting-content .time-input-ctrl .text2 {
+    left: 34px;
+}
+
+#defence-setting-content .time-input-ctrl .dot {
+    position: absolute;
+    left: 29px;
+}
+
+#defence-setting-content .time-input-ctrl .ctrl {
+    position: absolute;
+    right: 0;
+    display: inline-block;
+    font-size: 8px;
+    width: 15px;
+    height: 8px;
+    border: 1px solid #7E8083;
+    border-radius: 2px;
+}
+
+#defence-setting-content .time-input-ctrl .ctrl1 {
+    top: 1px;
+    cursor: pointer;
+    background: url('../images/icon.png') -20px -185px no-repeat;
+}
+
+#defence-setting-content .time-input-ctrl .ctrl1-active {
+    background-position: -67px -185px;
+}
+
+#defence-setting-content .time-input-ctrl .ctrl2 {
+    top: 13px;
+    cursor: pointer;
+    background: url('../images/icon.png') -5px -185px no-repeat;
+}
+
+#defence-setting-content .time-input-ctrl .ctrl2-active {
+    background-position: -52px -185px;
+}
+
+#defence-setting-content .alarm-info-list .alarm-info-list-top .set-rule-btn {
+    display: inline-block;
+    height: 100%;
+    width: 22px;
+    float: right;
+    background: url("../images/icon.png") -120px -154px no-repeat;
+    cursor: pointer;
+}
+
+#defence-setting-content #defenceWindow .texttitle {
+    height: 36px;
+    width: 280px;
+    line-height: 36px;
+    padding-left: 10px;
+    font-size: 13px;
+    background-image: url("/module/common/images/map/map-tool-bg.png");
+    position: absolute;
+}
+
+#defence-setting-content .rule-set {
+    margin-left: -14px;
+    border-top: 1px solid #D2E6F7;
+    width: 280px;
+    top: 36px;
+    bottom: 0;
+    position: absolute;
+    overflow: hidden;
+}
+
+#defence-setting-content .data-set-target, .data-set {
+    text-align: center;
+    height: 32px;
+    position: relative;
+    border-bottom: 1px solid #f5f5f5;
+    margin-top: 6px;
+    background: #EAF2F9;
+}
+
+#defence-setting-content .data-set-target label, .data-set label {
+    float: left;
+    height: 32px;
+    line-height: 32px;
+}
+
+#defence-setting-content .data-set-target label input[type='checkbox'], .data-set label input[type='checkbox'] {
+    float: left;
+    margin: 9px 5px 0 0;
+}
+
+#defence-setting-content #manyData {
+    padding: 5px;
+}
+
+/*人脸检测布控设置*/
+#defence-setting-content #manyData .rule-title-tab {
+    height: 30px;
+    line-height: 30px;
+    padding: 0 0 0 3px;
+    border-bottom: 1px solid #e8ebef;
+    background-color: #fff;
+    width: 100%;
+    cursor: pointer;
+}
+
+#defence-setting-content #manyData .rule-title-tab {
+    margin-top: 0;
+}
+
+#defence-setting-content #manyData.contain-protect > ul {
+    background-color: #eaf2f9;
+    border-bottom: 1px solid #e8ebef;
+}
+
+#defence-setting-content #manyData.contain-protect ul.protect {
+    padding-bottom: 30px;
+}
+
+#defence-setting-content #manyData.contain-protect ul.defence {
+    position: absolute;
+    top: 34px;
+    bottom: 31px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    right: 0;
+    left: 0;
+}
+
+#defence-setting-content #manyData.contain-protect .rule-title-tab.protect {
+    position: absolute;
+    bottom: 0;
+}
+
+#defence-setting-content #manyData.contain-protect .rule-title-tab.protect.active {
+    position: absolute;
+    top: 36px;
+}
+
+#defence-setting-content #manyData.contain-protect ul.protect {
+    position: absolute;
+    top: 67px;
+    width: 100%;
+    bottom: 0;
+    right: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#defence-setting-content #manyData .rule-title-tab i {
+    float: right;
+    width: 12px;
+    height: 12px;
+    margin: 12px 5px 0 0;
+}
+
+#defence-setting-content #manyData .rule-title-tab.protect i {
+    margin-right: 15px;
+}
+
+#defence-setting-content ul.protect > li:first-child {
+    border-bottom: 1px dashed #d7dce0;
+}
+
+#defence-setting-content ul.protect .add-protect {
+    text-align: center;
+}
+
+#defence-setting-content ul.protect .add-protect i {
+    display: inline-block;
+    margin: 0 5px;
+    height: 9px;
+    width: 9px;
+    background: url('../images/icon.png') no-repeat scroll -149px -187px transparent;
+}
+
+#defence-setting-content ul.protect .add-protect a:hover {
+    text-decoration: underline;
+}
+
+#defence-setting-content ul.protect .protect-task-list .protect-task-item {
+    border: solid 1px #C3CFDA;
+}
+
+#defence-setting-content ul.protect .protect-task-list .protect-task-item  .item-title em{
+    display: inline-block;
+    width: 190px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+#defence-setting-content ul.protect .protect-task-list .protect-task-item:hover {
+    border: solid 1px #a3adb6;
+}
+
+#defence-setting-content .protect-task-list ul li {
+    padding: 5px 10px 2px 10px;
+    /*height: 32px;*/
+}
+
+#defence-setting-content .protect-task-item i {
+    display: none;
+    width: 24px;
+    height: 20px;
+    margin: 5px 5px 0 5px;
+    float: right;
+    cursor: pointer;
+}
+
+#defence-setting-content .protect-task-item:hover i {
+    display: inline-block;
+}
+
+#defence-setting-content .protect-task-item .item-title {
+    height: 30px;
+    line-height: 30px;
+    text-indent: 5px;
+    background-color: #e6ebef;
+}
+
+#defence-setting-content .protect-task-item .item-content {
+    padding: 10px 2px;
+    display: none;
+}
+
+#defence-setting-content .protect-task-item .item-content .item-details {
+    display: block;
+    height: 26px;
+    line-height: 26px;
+    text-indent: 5px;
+}
+
+#defence-setting-content .item-details.min-face label, 
+#defence-setting-content .item-details.max-face label, 
+#defence-setting-content .item-details.modify-rect label {
+    float: left;
+    height: 100%;
+}
+
+#defence-setting-content .item-details.min-face label input, 
+#defence-setting-content .item-details.max-face label input {
+    margin: 8px 0 0 0;
+}
+
+#defence-setting-content input.face-protect-info {
+    width: 33px !important;
+    margin-left: 4px !important;
+    color: gray !important;
+    text-align: center !important;
+    padding: 2px 0 !important;
+    text-indent: 2px !important;
+}
+
+#defence-setting-content .item-details.lib {
+    height: auto !important;
+}
+
+#defence-setting-content .item-details.lib > em {
+    display: inline-block;
+    float: left;
+}
+
+#defence-setting-content .item-details.lib span {
+    width: 170px;
+    height: 150px;
+    display: inline-block;
+    overflow: auto;
+    border-radius: 2px;
+    background-color: #ffffff;
+}
+
+#defence-setting-content .item-details.lib span em {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#defence-setting-content .item-details.save-protect {
+    margin-left: 184px;
+}
+
+
+#defence-setting-content .cover_layout {
+    background: #eaf2f9;
+    position: relative;
+    top: -26px;
+    left: 18px;
+    bottom: 0;
+    z-index: 999;
+    opacity: 0.5;
+    height: 30px;
+    width: 235px;
+    filter: alpha(opacity=30);
+}
+
+#defence-setting-content .item-details.save-protect .cover_layout {
+    left: 0;
+    width: 55px;
+}
+
+#defence-setting-content .pub-select-libs {
+    width: 150px;
+    text-align: left;
+    left: 80px;
+    padding: 5px 0 10px 5px
+}
+
+#defence-setting-content .pub-select-libs ul {
+    height: 120px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+#defence-setting-content .pub-select-libs label {
+    float: left;
+    height: 100%;
+}
+
+#defence-setting-content .pub-select-libs label input {
+    margin: 6px 5px 0 0;
+}
+
+#defence-setting-content .pub-select-libs .select-operators {
+    display: inline-block;
+    margin-top: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+/*联动规则设置*/
+#defence-setting-content .other-ganged {
+}
+
+#defence-setting-content .other-ganged ul li {
+    padding: 10px 0 6px 3px;
+}
+
+#defence-setting-content .other-ganged ul li span {
+    display: inline-block;
+    float: left;
+}
+
+#defence-setting-content .other-ganged ul li span input {
+    margin-top: 1px;
+}
+
+#defence-setting-content .other-ganged ul li p {
+    display: inline-block;
+    margin-left: 5px;
+}
+
+/*等待层的样式*/
+#defence-setting-content .defence-loading {
+    display: none;
+    height: 30px;
+    background: url('../images/loading.gif') center no-repeat;
+}
+
+#defence-setting-content .alarm-event-rule-button .cover {
+    background: #eaf2f9;
+    position: relative;
+    top: -40px;
+    left: 0;
+    bottom: 0;
+    z-index: 999;
+    opacity: 0.5;
+    height: 40px;
+    filter: alpha(opacity=30);
+}
+
+
+/*
+ * 实时标注样式_video_info_@Start
+ */
+#defence-setting-content .video_info {
+    padding:0px;
+    position: absolute;
+    top: 40px;
+    right: 0;
+    bottom: 0;
+    width:100%
+}
+/*
+ * 视频表单_video_form_@Start
+ */
+#defence-setting-content .video_form {
+    overflow:hidden;
+    border:1px solid #ededed;
+    border-top:2px solid #1974bd;
+    border-bottom:none;
+}
+#defence-setting-content .video_form dt {
+    height:18px;
+    display:block;
+    position:relative;
+    padding:0 10px;
+    
+}
+#defence-setting-content .video_form dt i {
+    width:18px;
+    height:18px;
+    float:left;
+}
+#defence-setting-content .video_form dt h6 {
+    height:18px;
+    line-height:18px;
+    float:left;
+}
+#defence-setting-content .video_form dt a {
+    width:85px;
+    height:24px;
+    line-height:24px;
+    color:#475767;
+    background:#dce1e5;
+    display:block;
+    position:absolute;
+    top:7px;
+    right:5px;
+}
+#defence-setting-content .video_form dt a b {
+    width:18px;
+    height:18px;
+    float:left;
+    margin:3px 5px;
+}
+#defence-setting-content .video_form dd {
+    padding:0 10px 10px;
+    overflow:hidden;
+    text-align:center;
+}
+#defence-setting-content .video_form dd span {
+    width:220px;
+    height:114px;
+    overflow:hidden;
+    text-align:center;
+    display:block;
+}
+#defence-setting-content .video_form dd span img {
+    max-width:210px;
+    max-height:114px;
+}
+#defence-setting-content .video_form dd p {
+    width:220px;
+    height:22px;
+    padding:5px 0;
+    display:block;
+}
+#defence-setting-content .video_form dd p label {
+    width:60px;
+    height:24px;
+    line-height:24px;
+    float:left;
+}
+#defence-setting-content .video_form dd p input[type='text'] {
+    width:146px;
+    height:22px;
+    line-height:22px;
+    font-size:12px;
+    float:left;
+    padding:0 5px;
+    border:1px solid #ededed;
+}
+#defence-setting-content .video_form dd select {
+    width:220px;
+    border:1px solid #ededed;
+}
+
+#defence-setting-content .video_form dd textarea {
+    width:210px;
+    height:60px;
+    line-height:22px;
+    font-size:12px;
+    float:left;
+    padding:5px;
+    border:1px solid #ededed;
+    resize:none;
+}
+#defence-setting-content .video_form em {
+    height:28px;
+    padding:0 10px 10px;
+    display:block;
+    text-align:center;
+}
+#defence-setting-content .video_form dd a.btn {
+    width: 60px;
+    height: 28px;
+    line-height: 28px;
+    color:#333;
+    text-align: center;
+    display: inline-block;
+}
+#defence-setting-content .video_form dd a.btn_ok {
+    color:#fff;
+}
+
+#defence-setting-content .video_edit .image_struct {
+    /*background: url("/images/cloudmanagement/video_pic.png") 0 0;*/
+    width: 702px;
+    height: 425px;
+    display: inline-block;
+}
+#defence-setting-content .wrapper {
+    min-width: 0px;
+}
+/*
+ * 视频表单_video_form_@End
+ */
+/*
+ * 视频内容查看_video_look_@End
+ */
+#defence-setting-content .video_mark,.image_mark {
+    display: none;
+}
+/*
+*
+*智能标注相关
+*/
+#defence-setting-content #smartMarkform .video_form dd.last {
+    padding: 5px 0;
+}
+#defence-setting-content #smartMarkform .stMli{
+    border-bottom: 1px dotted #ccc;
+    padding-bottom:15px;
+    padding-top:18px;
+}
+#defence-setting-content #smartMarkform .stMli li:first-child{
+    margin-top:0px; 
+}
+#defence-setting-content #smartMarkform .stMli li {
+    margin-top:15px; 
+    padding: 0 10px;
+    text-align:left;
+}
+#defence-setting-content #smartMarkform .stMli li.type > label {
+    vertical-align: middle;
+    cursor: pointer;
+}
+#defence-setting-content #smartMarkform .stMli li.type input {
+    vertical-align: middle;
+    margin-right: 3px;
+}
+#defence-setting-content #smartMarkform .stMli li.type a {
+    float: right;
+    margin-right:8px;
+}
+#defence-setting-content #smartMarkform .stMli li.type-params {
+    border: 1px solid #DDD;
+    display: none;
+    position: relative;
+    background:#fff;
+    margin-top:5px;
+    border-radius: 3px
+}
+#defence-setting-content #smartMarkform .stMli li.type-params .type-params-item {
+    margin: 5px 0;
+}
+#defence-setting-content #smartMarkform .stMli li.type-params .type-params-item label {
+    display: inline-block;
+    height: 24px;
+    line-height: 24px;
+    width: 65px;
+}
+#defence-setting-content #smartMarkform .stMli li.type-params .type-params-item label.resetReminder {
+    width: 85px;
+    margin-left:7px;
+}
+#defence-setting-content #smartMarkform .stMli li.type-params .type-params-item label input {
+    vertical-align: sub;
+}
+#defence-setting-content #smartMarkform .stMli li.type-params .type-params-item input.text {
+    display: inline-block;
+    width: 128px;
+    height: 22px;
+    line-height: 22px;
+    border: 1px solid #ededed;
+}
+#defence-setting-content #smartMarkform .stMli li.type-params .type-params-item span.ui-spinner {
+    display: inline-block;
+    width: auto;
+    height: auto;
+}
+#defence-setting-content #smartMarkform .stMli li.type-params .type-params-item a.ui-spinner-button {
+}
+#defence-setting-content #smartMarkform .stMli li.type-params .type-params-item select {
+    display: inline-block;
+    width: 65px;
+    height: 22px;
+    line-height: 22px;
+    border: 1px solid #ededed;
+    vertical-align: middle;
+}
+#defence-setting-content #smartMarkform .stMli li.type-params .type-params-item button {
+    height: 20px;
+    line-height: 18px;
+    padding: 0 5px;
+}
+#defence-setting-content #look-mark-result {
+    display: inline-block;
+    float: right;
+    width: 60px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    background: url(/module/imagejudge/resource-process/images/icon.png) -67px -70px no-repeat;
+    color: #fff;
+    margin-right: 0;
+}
+#defence-setting-content #smartMarkform .stMli li .ui-button {
+    width: 20px;
+    height: auto;
+}
+#defence-setting-content #smartMarkform .type-region{
+    margin-top:10px!important;
+}
+#defence-setting-content #smartMarkform .type-region .ui-button {
+    width: 20px!important;
+    height: 20px!important;
+}
+#defence-setting-content #smartMarkform .stMli li .ui-icon {
+    width: 20px;
+    height: 20px;
+    left: 2px;
+}
+#defence-setting-content #smartMarkform .stMli li .ui-button .ui-button-text {
+    width: auto;
+    height: auto;
+}
+#defence-setting-content .icon_import {
+    background:url(/module/imagejudge/resource-process/images/icon.png) -139px -48px no-repeat;
+}
+#defence-setting-content .ui-helper-hidden-accessible {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+#defence-setting-content .ui-state-default .ui-icon {
+    background-image: url(/module/common/images/jquery.ui/ui-icons_888888_256x240.png);
+}
+#defence-setting-content .operate-icon-view-open {
+    margin: auto 5px;
+    cursor: pointer;
+    display: none;
+    width: 20px;
+    height: 20px;
+    background-image: url('/module/common/images/icons/alloperate.png');
+    background-position: -72px -7px;
+    background-repeat: no-repeat;
+}
+
+#defence-setting-content .operate-icon-view-close{
+    margin: auto 5px;
+    cursor: pointer;
+    display: none;
+    width: 20px;
+    height: 20px;
+    background-image: url('/module/imagejudge/resource-process/images/eye_close.png');
+    background-position: 0px 0px;
+    background-repeat: no-repeat;
+}
+
+#defence-setting-content .video_form .dataPicker{
+    width:100%;
+    height:85px;
+    border-bottom:1px dotted #ccc;
+    margin-top:10px;
+
+}
+#defence-setting-content .video_form .dataPicker li{
+    display: inline-block;
+    margin:5px 0;
+}
+#defence-setting-content .video_form .dataPicker li label,
+#defence-setting-content .video_form .dataPicker li span {
+    display: inline-block; 
+    width:180px;
+    height:30px;
+    vertical-align: middle
+}
+#defence-setting-content .video_form .dataPicker li input[type="text"]{
+    width: 160px;
+    margin-right: 5px;
+    background: url(../images/date.png) 150px 5px no-repeat;
+    background-color: #fff
+}
+#defence-setting-content .icon_set {
+    width:16px;
+    height:16px;
+    display: inline-block;
+    background:url(../images/set.png) 0px 0px no-repeat;
+}
+#defence-setting-content .videdoRight_advancedSet i.active {
+    background-position: -16px 0
+}
+#defence-setting-content #smartMarkform .stMli li.type-params .arrow {
+    position: absolute;
+    right: 20px;
+    top: -7px;
+    width: 12px;
+    height: 7px;
+    z-index: 10;
+    margin-left: 83px;
+    background: url(../images/arrow-up-guide.png) no-repeat;
+}
+#defence-setting-content #smartMarkform .stMli li.type-params .delicacyLevel{
+    display: inline-block;
+    height:24px;
+    vertical-align: middle;
+    border-radius: 3px;
+    border: 1px solid #ddd;
+}
+#defence-setting-content #smartMarkform .stMli li.type-params .delicacyLevel span{
+    height:24px;
+    display: inline-block;
+    width:50px;
+    line-height: 24px;
+    border-right:1px solid #ccc;
+    text-align:center;
+}
+#defence-setting-content #smartMarkform .stMli li.type-params .delicacyLevel span.active{
+    background: #44A0FF;
+    color:#fff;
+    border-color:#44A0FF;
+}
+#defence-setting-content #smartMarkform .stMli li.type-params .delicacyLevel span:last-child{
+    border-right:0;
+}
+#defence-setting-content .video_form dt .showDraw{
+
+    width:60px;
+    display: inline-block;
+    float:right;
+    position:relative;
+}
+#defence-setting-content .video_form dt .showDraw .helperdiv{
+    width: 120px;
+    height: auto;
+    display: block;
+    padding: 5px;
+    border: 1px solid #ccc;
+    position: absolute;
+    top: 22px;
+    right: 0;
+    display: none;
+    background: #fff
+}
+#defence-setting-content .video_form dt .showDraw .arrow{
+    position: absolute;
+    right: 20px;
+    top: 16px;
+    width: 12px;
+    height: 7px;
+    z-index: 10;
+    margin-left: 83px;
+    display: none;
+    background: url(../images/arrow-up-guide.png) no-repeat;
+}
+#defence-setting-content .video_form dt .showDraw i:first-child{
+    
+    width:17px;
+    height:16px;
+     display: inline-block;
+    background: url(../images/eye.png) no-repeat;
+}
+#defence-setting-content .video_form dt .showDraw i.icon_eyes-open{
+    background-position:0 0 ;
+   
+}
+#defence-setting-content .video_form dt .showDraw i.icon_eyes-close{
+    background-position:-17px 0 ;
+}
+#defence-setting-content .video_form dt .showDraw i.icon_alert{
+    width: 17px;
+    height: 16px;
+    background: url(../images/info_1.png) no-repeat;
+    display: inline-block;
+    float: right;
+    margin-right: 17px;
+}
+#defence-setting-content .video_form dt .showDraw i.icon_alert.active{
+    background-position: -17px 0; 
+}
+#defence-setting-content .video_form .stMli #type-region-proc{
+    width:30px;
+    height:30px;
+    border:0;
+    background: url(../images/range.png) no-repeat;
+    vertical-align: middle;
+    cursor: pointer;
+}
+#defence-setting-content .video_form .stMli #type-region-proc.disabled{
+  background-position:-30px 0px;
+}
+#defence-setting-content .video_form .stMli #type-region-shield{
+    width:30px;
+    height:30px;
+    border:0;
+    background: url(../images/range.png) no-repeat;
+    vertical-align: middle;
+    background-position:0px -30px;
+    cursor:pointer;
+}
+#defence-setting-content .video_form .stMli #type-region-shield.disabled{
+    background-position:-30px -30px;
+}
+
+#defence-setting-content .strutsPosRenew{
+    left:50px!important;
+}
+#defence-setting-content .mgt{
+    border-top:1px solid #d7dfe8;
+    box-shadow: 0px 0px 1px #fff
+}
+
+@charset "utf-8";
+/* CSS Document */
+/*
+ * 东方网力 CSS Library 2.0.0
+ * Copyright(c)  2014, 东方网力 CSS
+ * @url http://www.netposa.com
+ */
+#defence-setting-content .icon_line {
+    background:url(../images/icon.png) -46px 2px no-repeat;
+}
+#defence-setting-content .icon_line_gray {
+    background:url(../images/icon.png) -210px 2px no-repeat
+}
+#defence-setting-content .icon_line:hover {
+    background-position:-46px -40px;
+}
+#defence-setting-content .icon_dbline {
+    background:url(../images/icon.png) -69px 2px no-repeat;
+}
+#defence-setting-content .icon_dbline_gray {
+    background:url(../images/icon.png) -233px 2px no-repeat
+}
+#defence-setting-content .icon_dbline:hover {
+    background-position:-69px -40px;
+}
+#defence-setting-content .icon_rec {
+    background:url(../images/icon.png) -93px 2px no-repeat;
+}
+#defence-setting-content .icon_rec_gray {
+    background:url(../images/icon.png) -257px 2px no-repeat
+}
+#defence-setting-content .icon_rec:hover {
+    background-position:-93px -40px;
+}
+#defence-setting-content .icon_pol {
+    background:url(../images/icon.png) -116px 2px no-repeat;
+}
+#defence-setting-content .icon_pol_gray {
+    background:url(../images/icon.png) -280px 2px no-repeat
+}
+#defence-setting-content .icon_pol:hover {
+    background-position:-116px -40px;
+}
+#defence-setting-content .icon_remove {
+    background:url(../images/icon.png) -139px 2px no-repeat;
+}
+#defence-setting-content .icon_remove_gray {
+    background:url(../images/icon.png) -303px 2px no-repeat
+}
+#defence-setting-content .icon_remove:hover {
+    background-position:-139px -40px;
+}
+#defence-setting-content .icon_removeall {
+    background:url(../images/icon.png) -163px 2px no-repeat;
+}
+#defence-setting-content .icon_removeall_gray {
+    background:url(../images/icon.png) -327px 2px no-repeat
+}
+#defence-setting-content .icon_removeall:hover {
+    background-position:-163px -40px;
+}
+#defence-setting-content .icon_eye {
+    background:url(../images/icon.png) -186px 2px no-repeat;
+}
+#defence-setting-content .icon_eye_gray {
+    background:url(../images/icon.png) -350px 2px no-repeat
+}
+#defence-setting-content .icon_eye:hover, 
+#defence-setting-content .icon_eye_active {
+    background:url(../images/icon.png) -186px 2px no-repeat;
+    background-position:-186px -40px;
+}
+#defence-setting-content .icon_pause{
+    background:url(../images/icon.png) -25px -82px no-repeat;
+}
+#defence-setting-content .icon_play{
+    background-position: -1px -82px;
+}
+#defence-setting-content .icon_expand{
+    background:url(../images/plist.png) 0px 5px no-repeat; 
+    width:15px!important;
+}
+#defence-setting-content .icon_expand:hover{
+    background:url(../images/plist.png) -16px 5px no-repeat;   
+
+}
+#defence-setting-content .icon_look {
+    background:url(../images/linespacing.png) 0px 0px no-repeat;
+}
+#defence-setting-content .icon_scope {
+    background:url(../images/icon.png) -35px -157px no-repeat;
+}
+#defence-setting-content .icon_edit {
+    background:url(../images/icon.png) -63px -157px no-repeat;
+}
+#defence-setting-content .icon_edit:hover {
+    background-position: -257px -156.5px;
+}
+#defence-setting-content .icon_delete {
+    background: url(../images/icon.png) -95px -157px no-repeat;
+}
+#defence-setting-content .icon_show {
+    background:url(../images/icon.png) -186px 2px no-repeat;
+
+}
+#defence-setting-content .icon_show:hover,
+#defence-setting-content .icon_show:active{
+    background-position:-186px -40px;
+}
+#defence-setting-content .icon_delete:hover {
+    background-position: -281px -157px;
+}
+#defence-setting-content .icon_moveto {
+    background: url(../images/icon.png) -214px -157px no-repeat;
+}
+#defence-setting-content .icon_moveto:hover {
+    background-position: -237px -157px;
+}
+
+#defence-setting-content .icon_video {
+    background:url(../images/icon.png) -151px -64px no-repeat;
+}
+#defence-setting-content .icon_editing {
+    background:url(../images/icon.png) -175px -64px no-repeat;
+}
+#defence-setting-content .icon_save {
+    background:url(../images/icon.png) -197px -64px no-repeat;
+    display:none;
+}
+
+#defence-setting-content .icon_uparrow {
+    background:url(../images/show.png) 0px 0px no-repeat;
+    cursor: pointer;
+}
+#defence-setting-content .icon_uparrow:hover {
+    background-position:-13px 0px;
+}
+
+#defence-setting-content .icon_downarrow {
+    background:url(../images/show.png) -2px -10px no-repeat;
+    cursor: pointer;
+}
+#defence-setting-content .icon_downarrow:hover {
+    background-position:-15px -10px;
+}
+
+#defence-setting-content .icon_selected {
+    background:url(../images/icon.png) -193px -156px no-repeat;
+}
+#defence-setting-content .icon_none {
+    background:url(../images/icon.png) 100px 100px no-repeat;
+}
+
+#defence-setting-content .icon_invasion {
+    background:url(../images/iconMath.png) 0px 0px no-repeat;
+}
+
+#defence-setting-content .icon_parking {
+    background:url(../images/iconMath.png) -30px 0px no-repeat;
+}
+#defence-setting-content .icon_detection {
+    background:url(../images/iconMath.png) -60px 0px no-repeat;
+}
+#defence-setting-content .icon_wandering {
+    background:url(../images/iconMath.png) 0px -32px no-repeat;
+}
+#defence-setting-content .icon_legacy {
+    background:url(../images/iconMath.png) -33px -30px no-repeat;
+}
+#defence-setting-content .icon_checkdoor {
+    background:url(../images/iconMath.png) -63px -30px no-repeat;
+}
+
+#defence-setting-content .icon_lost {
+    background:url(../images/iconMath.png) 0px -62px no-repeat;
+}
+#defence-setting-content .icon_leftchair {
+    background:url(../images/iconMath.png) -30px -62px no-repeat;
+}
+#defence-setting-content .icon_gathered {
+    background:url(../images/iconMath.png) -64px -62px no-repeat;
+}
+
+
+#defence-setting-content .icon_fight {
+    background:url(../images/iconMath.png) 0px -92px no-repeat;
+}
+
+#defence-setting-content .icon_congestion {
+    background:url(../images/iconMath.png) -30px -95px no-repeat;
+}
+#defence-setting-content .icon_follow {
+    background:url(../images/iconMath.png) -65px -92px no-repeat;
+}
+#defence-setting-content .icon_run {
+    background:url(../images/iconMath.png) 0px -123px no-repeat;
+}
+
+#defence-setting-content .icon_per_count {
+    background:url(../images/iconMath.png) -30px -123px no-repeat;
+}
+#defence-setting-content .icon_car_count {
+    background:url(../images/iconMath.png) -63px -123px no-repeat;
+}
+#defence-setting-content .icon_car_logo {
+    background:url(../images/iconMath.png) 0px -155px no-repeat;
+}
+#defence-setting-content .icon_car_logo_active{
+    background:url(../images/iconMath.png) 0px -155px no-repeat;
+}
+#defence-setting-content .icon_fireworks {
+    background:url(../images/iconMath.png) 0px -186px no-repeat;
+}
+#defence-setting-content .icon_face {
+    background:url(../images/iconMath.png) -32px -155px no-repeat;
+}
+#defence-setting-content .icon_mark{
+    background:url(../images/iconMath.png) -62px -153px no-repeat;
+}
+#defence-setting-content .icon_invasion:hover, 
+#defence-setting-content .icon_invasion_active {
+    background:url(../images/iconMath.png) 0px 0px no-repeat;
+}
+
+#defence-setting-content .icon_parking:hover, 
+#defence-setting-content .icon_parking_active {
+    background:url(../images/iconMath.png) -30px 0px no-repeat;
+}
+
+#defence-setting-content .icon_detection:hover, 
+#defence-setting-content .icon_detection_active {
+    background:url(../images/iconMath.png) -60px 0px no-repeat;
+}
+
+#defence-setting-content .icon_wandering:hover, 
+#defence-setting-content .icon_wandering_active {
+    background:url(../images/iconMath.png) 0px -32px no-repeat;
+}
+
+#defence-setting-content .icon_legacy:hover, 
+#defence-setting-content .icon_legacy_active {
+    background:url(../images/iconMath.png) -33px -30px no-repeat;
+}
+
+#defence-setting-content .icon_lost:hover, 
+#defence-setting-content .icon_lost_active {
+    background:url(../images/iconMath.png) 0px -62px no-repeat;
+}
+
+#defence-setting-content .icon_gathered:hover, 
+#defence-setting-content .icon_gathered_active {
+    background:url(../images/iconMath.png) -64px -62px no-repeat;
+}
+
+#defence-setting-content .icon_checkdoor:hover, 
+#defence-setting-content .icon_checkdoor_active {
+    background:url(../images/iconMath.png) -63px -30px no-repeat;
+}
+
+#defence-setting-content .icon_fight:hover, 
+#defence-setting-content .icon_fight_active {
+    background:url(../images/iconMath.png) 0px -92px no-repeat;
+}
+
+#defence-setting-content .icon_leftchair:hover, 
+#defence-setting-content .icon_leftchair_active {
+    background:url(../images/iconMath.png) -30px -62px no-repeat;
+}
+
+#defence-setting-content .icon_congestion:hover, 
+#defence-setting-content .icon_congestion_active {
+    background:url(../images/iconMath.png) -30px -95px no-repeat;
+}
+#defence-setting-content .icon_follow:hover, 
+#defence-setting-content .icon_follow_active {
+    background:url(../images/iconMath.png) -65px -92px no-repeat;
+}
+#defence-setting-content .icon_run:hover, 
+#defence-setting-content .icon_run_active {
+    background:url(../images/iconMath.png) 0px -123px no-repeat;
+}
+
+#defence-setting-content .icon_per_count:hover, 
+#defence-setting-content .icon_per_count_active {
+    background:url(../images/iconMath.png) -30px -123px no-repeat;
+}
+
+#defence-setting-content .icon_car_count:hover, 
+#defence-setting-content .icon_car_count_active {
+    background:url(../images/iconMath.png) -63px -123px no-repeat;
+}
+
+#defence-setting-content .icon_car_logo:hover, 
+#defence-setting-content .icon_car_logo_active {
+    background:url(../images/iconMath.png) -0px -155px no-repeat;
+}
+
+#defence-setting-content .icon_fireworks:hover, 
+#defence-setting-content .icon_fireworks_active {
+    background:url(../images/iconMath.png) 0px -186px no-repeat;
+}
+
+#defence-setting-content .icon_face:hover, 
+#defence-setting-content .icon_face_active {
+    background:url(../images/iconMath.png) -32px -155px no-repeat;
+}
+#defence-setting-content .icon_mark:hover,
+#defence-setting-content .icon_mark_active{
+    background:url(../images/iconMath.png) -62px -153px no-repeat;
+}
+
+#defence-setting-content .icon_add_lib{
+    background:url(../images/icon.png) -218px -62px no-repeat;
+}
+#defence-setting-content .icon_video_play{
+    background:url(../images/icon.png) -149px -62px no-repeat;
+}
+#defence-setting-content .icon_mark_deal{
+    background:url(../images/icon.png) -174px -62px no-repeat;
+}
+.strutsPosRenew{
+    left:107px!important;
+}
+/**联动规则设置**/
+#defence-setting-content .li-item .linkBtn{
+    background: #e6f4ff;
+    color: #44A0FF;
+    border: 1px solid #44A0FF;
+    padding: 2px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+
+#defence-setting-content .li-item .showHelp{
+    width: 35px;
+    display: inline-block;
+    float: right;
+    vertical-align: middle;
+    height: 25px;
+    line-height: 25px;  
+    cursor: pointer;
+}
+#defence-setting-content .li-item .showHelp .arrow {
+    position: absolute;
+    right: 20px;
+    top: 16px;
+    width: 12px;
+    height: 7px;
+    z-index: 10;
+    margin-left: 110px;
+    display: none;
+    background: url(../images/arrow-up-guide.png) no-repeat;
+}
+#defence-setting-content .li-item .showHelp .helperdiv {
+    width: 120px;
+    height: auto;
+    display: block;
+    padding: 5px;
+    border: 1px solid #ccc;
+    color:#333;
+    position: absolute;
+    display: none;
+    top: 22px;
+    left:0;
+    background: #fff;
+}
+#defence-setting-content .li-item .showHelp i.icon_alert {
+    width: 17px;
+    height: 16px;
+    background: url(../images/info_1.png) no-repeat;
+    display: inline-block;
+    margin-left: 13px;
+    vertical-align: middle;
+}
+#defence-setting-content .li-item .showHelp i.icon_alert.active {
+    background-position: -17px 0
+
+}
+#linkagedContent{
+    padding:10px 20px;
+}
+#linkagedContent ul li{
+    cursor: pointer;
+    position: relative;
+}
+
+#linkagedContent li .mainInfo{
+    height: 45px;
+    line-height: 45px;
+} 
+#linkagedContent li .mainInfo .listName{
+    color:#000;
+    font-size: 14px
+}
+
+#linkagedContent li .mainInfo .warnInfo{
+    color:red;
+}
+#linkagedContent li .mainInfo .slecetMode{
+    border: 1px solid #ccc;
+    padding: 0px 5px;
+    border-radius: 3px;
+    cursor: pointer;
+    width: 90px;
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    position:relative;
+
+}
+#linkagedContent li .mainInfo .slecetMode em{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 80px;
+    white-space: nowrap;
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    vertical-align: middle;  
+}
+
+#linkagedContent li .mainInfo .slecetMode.disabled{
+    border: 1px solid #ccc;
+    color:#cecece;
+    background: #f7f7f7;
+    cursor: pointer;
+}
+#linkagedContent li .mainInfo .icon_arrow{
+    background: url('../images/icon.png') -87px -186px no-repeat;
+    height: 9px;
+    width: 12px;
+    display: inline-block;
+    cursor: pointer;
+    margin: 0px 0 0 8px;
+    position: absolute;
+    top: 10px;
+    right: 5px;
+}
+#linkagedContent li .mainInfo .icon_arrow.active{
+    background-position:-100px -185px;
+    
+}
+#linkagedContent li input[type="checkbox"]{
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: -3px;
+}
+#linkagedContent li .addInfo{
+    height: 35px;
+    line-height: 35px;
+    border: 1px solid #ccc;
+    padding: 0 0 0 10px;  
+    color:#b1b1b1;  
+    border-radius: 3px;
+    display:inline-block;
+}
+.currpanel{
+    position: absolute;
+    height:auto;
+    z-index:10;
+    display: none
+}
+.presetPanel{
+    left: 175px;
+    top: 38px; 
+    width:110px;
+}
+.modlePanel{
+    left: 147px;
+    top: 38px; 
+    width:110px;
+}
+.chanelPanel{
+    left: 217px;
+    top: 38px; 
+    width:110px;
+}
+.presetPanel li,.modlePanel li,.chanelPanel li{
+    height:30px;
+    line-height: 30px;
+    text-align: center;
+    background: #fff;
+    border-bottom:1px dotted #ccc;
+    border-left:1px dotted #ccc;
+    border-right:1px dotted #ccc;
+    width:99%;
+    cursor: pointer;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+.presetPanel li:first-child,.modlePanel li:first-child,.chanelPanel li:first-child{
+    border-top:1px dotted #ccc; 
+    border-bottom:1px dotted #ccc;
+}

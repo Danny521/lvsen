@@ -1,0 +1,105 @@
+
+<ul id="orgExamine" class="orgexamine clearfix" >
+  <li class="active" data-type="result">
+      <span>视频考核结果</span>
+      <div class="line"></div>
+  </li>
+ 
+  <li class="ml15" data-type="detail"><span>考核结果详情</span></li>
+  <div class="helper">
+    <i class="icon-helper"></i> 
+    <div class="resultHelper">
+        <img src="images/lastHelper.png" />
+    </div>
+     <div class="detailHelper ">
+        <img src="images/firstHelper.png" />
+    </div>
+  </div>
+
+</ul>
+	<div id="cont">
+    <div class="content year">
+        <ul id="org" class="chronological clearfix">
+          <li>
+             <label>选择时间：</label>
+             <ul class="timesSelect">
+             
+            </ul>
+          </li>
+          <div class="exportXls permission permission-export-inspect-result" data-page="#org">导出</div>
+        </ul>
+        <div class="tabLayout">
+          <table id="examinetable" class="examinetable">
+            <tr>
+                <td rowspan="2" class="minw">年/月</td>
+                <td colspan="6">联网指标</td>
+                <td colspan="3">在线率</td>
+                <td colspan="3">完好率</td>
+                <td rowspan="2" class="minw">图像质量得分</td>
+                <td colspan="3">坐标信息采集</td>
+                <td rowspan="2" class="minw1">坐标采集得分</td>
+                <td rowspan="2" class="minw">月得分</td>
+
+            </tr>
+            <tr>
+              <td class="f9 minw">实有县区数量</td>
+              <td class="f9 minw">符合要求县区数量</td>
+              <td class="f9 minw">应上联监控数</td>
+              <td class="f9 minw">实有上联监控数</td>
+              <td class="f9">联网系数</td>
+              <td class="f9">联网指标</td>
+
+              <td class="f9">在线数</td>
+              <td class="f9">检测总数</td>
+              <td class="f9">实测在线率</td>
+
+              <td class="f9">检测合格数</td>
+              <td class="f9">检测总数</td>
+              <td class="f9">完好率</td>
+
+              <td class="f9">GIS采集数</td>
+              <td class="f9 minw">实际上联监控数</td>
+              <td class="f9">GIS采集率</td>
+            </tr>
+            
+            {{#each data}}
+          
+            <tr class="{{isVer month_name}}">
+              <td >{{month_name}}</td>
+
+              <td class="canSet">{{actual_city_num}}</td>
+              <td>{{quality_city_num}}</td>
+              <td>{{need_camera_num}}</td>
+              <td>{{actual_camera_num}}</td>
+              <td>{{net_ratio}}</td>    
+              <td>{{net_measure}}</td>
+
+              <td>{{actual_online_num}}</td>
+              <td>{{actual_camera_num}}</td>
+              <td>{{changeType online_rate}}</td>
+
+              <td>{{intact_camera_num}}</td>
+              <td>{{actual_online_num}}</td>
+              <td>{{changeType intact_rate}}</td>
+              
+              <td>{{quality_point}}</td>
+
+              <td>{{coor_collect_num}}</td>
+              <td>{{actual_camera_num}}</td>
+              <td>{{changeType coor_rate}}</td>
+
+              <td>{{coor_point}}</td>
+              <td>{{final_point}}</td>
+              
+            </tr>
+          {{/each}}
+          
+          </table>
+        </div>
+        
+    </div>
+
+  
+    <div class="content month"></div>
+
+</div>

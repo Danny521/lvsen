@@ -1,0 +1,320 @@
+#tv{
+  margin-left: 50px;
+  margin-top: 15px;
+}
+#camerasPanel{
+  margin-left: -70px;
+  margin-top: -50px;
+}
+#treePanel.treeTV {
+  top:40px;
+}
+#major {
+	bottom: 0;
+	left: 280px;
+	position: absolute;
+	right: 0;
+	top: 10px;
+	overflow-x: hidden;
+}
+/*摄像机树添加图标*/
+/*.treePanel li.leaf i.camera0{
+	display: inline-block;
+	height: 13px;
+	margin-right: 6px;
+	padding: 0;
+	position: relative;
+	top: 0;
+	width: 16px;
+  background:url(/assets/images/sprites/tree_bg.png) no-repeat -85px 0;
+   
+}*/
+
+
+i.camera0, i.camera2{
+  background: url("/assets/images/sprites/tree_bg.png") no-repeat scroll -85px 0 transparent;
+  display: inline-block;
+	height: 13px;
+	margin-right: 3px;
+	padding: 0;
+	position: relative;
+	top: 1px;
+	width: 16px;
+}
+
+i.camera1{
+  background: url("/assets/images/sprites/tree_bg.png") no-repeat scroll -353px 0 transparent;
+  display: inline-block;
+	height: 15px;
+	margin-right: 3px;
+	padding: 0;
+	position: relative;
+	top: -1px;
+	width: 16px;
+}
+/*#major .tvList {
+  position: absolute;
+  top:122px;
+  bottom: 0px;
+  right: 0px;
+  left: 0px;
+  background-color: #FFFDF9;
+  overflow: hidden;
+}*/
+
+/*#cameraTreeScrollBar {
+  top: 0px;
+  margin-left: -40px;
+}*/
+
+#major .tvHeader {
+  height: 38px;
+}
+
+
+.tab-content .cameraTree .groupList li{
+  display: block;
+  height: 26px;
+  line-height: 26px;
+  cursor: pointer;
+  width: 10000px;
+  margin-left: -20px;
+  /*width: 100%;*/
+}
+.cameraTree .groupList ul li.active,.cameraTree .groupList ul li:hover{
+  cursor: pointer;
+  background-color: #d0e4f5; 
+}
+
+ .tab-content .cameraTree .groupList li span{
+  display: block;
+  padding-left:20px; 
+  height: 26px;
+  line-height: 26px;
+  width: 100%;
+}
+
+.cameraTree #cameraTreeScrollBar{
+  top:0;
+  margin-left: -15px;
+}
+
+#major .tvHeader .tv-model{
+  margin: 9px auto;
+}
+.deviceMenu .tree .active .deslist {
+  width: 205px;
+}
+
+.childeslist {
+  width: 190px;
+}
+
+.childeslist span{
+  width: 130px;
+}
+#aside .tabs {
+  z-index: 9999;
+}
+#camerasPanel .scrollbar{
+  /*margin-right: 15px;*/
+}
+
+ #group .overview,#editGroup .overview{
+  margin-top: 10px;
+  margin-left: 10px;
+  padding-bottom: 50px;
+ }
+.form-item {
+  margin-left: 40px;
+  margin-top:15px;
+}
+
+
+.form-item .selectTree{
+  width: 280px;
+  height: 360px;
+  margin-top: -20px;
+  margin-left: 70px;
+  border:2px solid #f5f5f7;
+}
+
+.form-item .selectTree.taskMgr {
+	border:1px solid #D9D9D9;
+}
+
+.form-item #save{
+  margin-left: 70px;
+}
+
+.deletegroup{
+  display: inline-block;
+  float: right;
+  margin-right: 15px;
+  margin-top: 6px;
+  width: 75px;
+  height: 20px;
+  line-height: 20px;
+  cursor: pointer;
+  border:1px solid #cfd2d4;
+  background-color:#dce1e6;
+}
+
+.deletegroup .icons-plus{
+  float: left;
+  display: block;
+  width: 20px;
+  height: 30px;
+  margin-top: -3px;
+  background:url('/assets/images/bg/delete.png') no-repeat scroll 0px 0px;
+}
+
+.editgroup{
+  display: inline-block;
+  float: right;
+  margin-right: 30px;
+  margin-top: 6px;
+  width: 50px;
+  height: 20px;
+  line-height: 20px;
+  cursor: pointer;
+  border:1px solid #cfd2d4;
+  background-color:#dce1e6;
+}
+
+.editgroup i{
+  float: left;
+  display: block;
+  width: 15px;
+  height: 30px;
+  margin-top: -8px;
+  padding-left: 2px;
+  background: url("/assets/images/icons/groupoperate.png") no-repeat scroll 0 4px transparent;
+}
+
+
+
+#noData div span {
+  display: block;
+  text-align: center;
+  font-size: 16px;
+  margin-top: 15px;
+
+}
+
+.pagination a, .pagination span.current {
+	width: 30px;
+}
+
+
+/* 2014/6/25 For630 */
+.form-item {
+	margin: 15px auto 0 auto;
+	/*width: 400px;*/
+	width: 550px;
+}
+.form-item .item-box.ui.input input.input-text {
+	width:270px;
+}
+.common-table td.servername {
+	padding-left:33%;
+	text-align:left;
+}
+.common-table th.name {
+	padding-left:36%;
+	text-align:left;
+}
+/* 2014/6/25 For630 */
+
+/*  同步时间设置  */
+.tree-search{
+	left:-13px;
+}
+
+#syncSetting{
+  display: none;
+}
+#syncSetting .sync-title{
+	line-height: 36px;
+	padding-left: 15px;
+	background-color: #F2F2F2;
+	border-bottom: 1px solid #e3e2e2;
+}
+#syncSetting .sync-content{
+	margin: 20px 0 0 30px;
+
+}
+#syncSetting .sync-content .switch-panel{
+  margin-top:25px; 
+  margin-right: 15px;
+}
+
+#syncSetting .sync-content .switch-panel .switch{
+    position: relative;
+    top:5px;
+    display: inline-block;
+    height: 20px;
+    margin: auto 5px;
+    width: 35px;
+    background-image: url("/module/settings/usermgr/images/alloperate.png");
+    background-position: -4px -57px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+#syncSetting .sync-content .switch-panel .switch.on{
+  background-position: -4px -57px;
+}
+#syncSetting .sync-content .switch-panel .switch.off{
+  background-position: -4px -9px;
+}
+
+#syncTime,#savePlan{
+	margin:0 8px;
+}
+#frequence{
+	height: 24px;
+	width: 70px;
+	margin: 0 10px 0 4px;
+	border: 1px solid #D9D9D9;
+	border-radius: 3px;
+	font-size:12px;
+}
+#syncTime{
+	position: relative;
+	top:-2px;
+	margin-right: 10px;
+	padding: 1px 5px;
+	color: #999;
+	font-size: 12px;
+	width: 80px;
+	height: 22px;
+	line-height: 22px;
+	vertical-align: middle;
+	border-radius: 3px;
+	border: 1px solid #D9D9D9;
+	background-color: #FFFFFF;
+	-webkit-transition: background-color .2s ease-out,box-shadow .2s ease,border-color .2s ease;
+	-os-transition: background-color .2s ease-out,box-shadow .2s ease,border-color .2s ease;
+	-moz-transition: background-color .2s ease-out,box-shadow .2s ease,border-color .2s ease;
+	-mstransition: background-color .2s ease-out,box-shadow .2s ease,border-color .2s ease;
+	transition: background-color .2s ease-out,box-shadow .2s ease,border-color .2s ease;
+}
+#savePlan{
+	display: inline-block;
+	height: 25px;
+	line-height: 22px;
+	padding:0 10px;
+  margin-left: 20px;
+}
+
+ .tvinner1 div{
+   background: url('/module/common/images/bg/camera1.png') no-repeat scroll center center #444 !important;
+   background-size: 8% !important;
+ }
+ 
+ .hover_class_cort {
+   display: block!important;
+ }
+ #major .tvList .tv .tv-channel .screen-sp {
+   display: none;
+ }

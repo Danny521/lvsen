@@ -1,0 +1,124 @@
+/*简洁主题*/
+.commonpage-theme-simple .page-wrap{
+	text-align:center; 
+}
+.commonpage-theme-simple .page-wrap li{
+	display:inline-block;
+}
+.commonpage-theme-simple .page-item{
+	display: inline-block;
+	height: 24px;
+	line-height: 24px;
+	margin-right: 5px;
+	text-align: center;
+	vertical-align: middle;
+	cursor: pointer;
+	min-width:24px;
+}
+.commonpage-theme-simple .page-button{
+	color: #000;
+	cursor: pointer;
+}
+.commonpage-theme-simple .page-active{
+	background-color: #C4CBCF;
+	color: #FFFFFF;
+}
+.commonpage-theme-simple .page-prev>span{
+	width: 20px; 
+	height: 20px;
+	background-size: 15px 15px;
+	background-color: transparent;
+	background-image: url("icon/up.png");
+	background-repeat: no-repeat;
+	background-position: 3px 2px;
+}
+.commonpage-theme-simple .page-next>span{
+	width: 20px; 
+	height: 20px;
+	background-size: 15px 15px;
+	background-color: transparent;
+	background-image: url("icon/pagedown.png");
+	background-repeat: no-repeat;
+	background-position: 3px 2px;
+}
+.commonpage-theme-simple .page-goto-input{
+	width:35px;
+	margin: 0px 3px;
+	text-align: center;
+}
+.commonpage-theme-simple .left-span{
+	display: none;
+	margin-left: 10px;
+	float:left;
+}
+.commonpage-theme-simple .right-span{
+	margin-right: 10px;
+	float:right;
+}
+.commonpage-theme-simple .right-span .goto{
+	background-color: #f7f9f8;
+	border: 1px solid #e1e1e1;
+	height: 24px;
+	width: 54px;
+	border-radius: 4px;
+	margin-left: 10px;
+}
+.commonpage-theme-simple .right-span .goto .icon-jump{
+	background: url(/module/maintenance/sipdetection/src/images/jump.png) 0 0 no-repeat scroll;
+	padding: 6px 16px 7px 10px;
+	margin-left: -15px;
+}
+/*深蓝主题*/
+.commonpage-theme-blue .page-wrap{
+	text-align:center; 
+}
+.commonpage-theme-blue .page-wrap li{
+	display:inline-block;
+}
+.commonpage-theme-blue .page-item{
+	border: 1px solid #e9e9e9;
+	display: inline-block;
+	height: 24px;
+	line-height: 24px;
+	margin-right: 5px;
+	text-align: center;
+	vertical-align: middle;
+	cursor: pointer;
+	min-width:24px;
+}
+.commonpage-theme-blue .page-button{
+	color: #0088cc;
+	padding:0px 5px;
+}
+.commonpage-theme-blue .page-item:hover{
+	background-color:#0088cc;
+	color:#FFF;
+}
+.commonpage-theme-blue .page-active{
+	background-color:#0088cc;
+	color:#FFF;
+}
+.commonpage-theme-blue .page-current{
+	margin-right: 5px;
+}
+.commonpage-theme-blue .page-goto-input{
+	width:35px;
+	height:18px;
+	border: 1px solid #E6E6E6;
+	border-radius: 1px;
+	margin:0px 5px;
+	text-align: center;
+}
+.commonpage-theme-blue .page-goto-input{
+	width:35px;
+	margin: 0px 3px;
+	text-align: center;
+}
+.commonpage-theme-blue .left-span{
+	margin-left: 10px;
+	float:left;
+}
+.commonpage-theme-blue .right-span{
+	margin-right: 10px;
+	float:right;
+}

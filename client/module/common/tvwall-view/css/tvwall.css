@@ -1,0 +1,110 @@
+	 html,
+	 body {
+         height:100%;
+         margin:0;
+        }
+       
+       
+	.tv-container ul,
+	.tv-container li {
+		list-style: none;
+	}
+	.tv-container ul,
+	.tv-container li,
+	.tv-container div,
+	.tv-container p,
+	.tv-container table,
+	.tv-container tr,
+	.tv-container td {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+		
+	}
+	
+	
+	.clearfix{
+		overflow:auto;
+		_height:1%;
+		}
+	.tv-container {
+		padding: 0;
+		margin: 0;
+		height: 100%;
+		overflow: hidden;
+	}
+	.tv-title {
+		position: relative;
+		background-color: #DEDEE0;
+		height: 36px;
+		line-height: 36px;
+	}
+	.tv-title > p {		
+		display: inline-block;
+		padding: 0 0 0 10px;		
+		font-weight: bold;
+	}
+	.tv-menu {
+		position: absolute;
+		right: 0;
+		top: 0;
+		z-index: 10;
+		text-align: center;
+		line-height: 36px;
+	}
+	.tv-menu > div {		
+		width: 50px;
+		height: 36px;
+		background: url(../img/layout-hover.png) no-repeat center 10px;
+		transition: background .5s;
+		-moz-transition: background .5s;
+		-ms-transition: background .5s;
+	}
+	.tv-menu ul {
+		display: none;
+		list-style: none;
+		border: #ddd solid;
+		border-width: 0 1px 1px 1px;
+	}
+	.tv-menu:hover ul{
+		display: block;	
+		background: #fff;
+	}
+	.tv-menu ul li {		
+		list-style: none;
+		cursor: pointer;
+		width: 48px;
+		height: 30px;		
+	}
+	.screen1 {background: url(../img/layout.png) no-repeat center 2px;}
+	.screen4 {background: url(../img/layout.png) no-repeat center -30px;}
+	.screen9 {background: url(../img/layout.png) no-repeat center -62px;}
+	.screen16 {background: url(../img/layout.png) no-repeat center -95px;}
+	
+	.screen1:hover {background: url(../img/layout-hover.png) no-repeat center 2px;}
+	.screen4:hover {background: url(../img/layout-hover.png) no-repeat center -30px;}
+	.screen9:hover {background: url(../img/layout-hover.png) no-repeat center -62px;}
+	.screen16:hover {background: url(../img/layout-hover.png) no-repeat center -95px;}
+	
+
+	.tv-screen {
+		border-spacing: 0px;
+		border-collapse:collapse;
+		width: 100%;		
+	}	
+	.tv-screen tr td {
+		border: 1px solid #fff;
+		background: url('../img/camera1.png') no-repeat scroll center center #444;
+		background-size: 16%;	
+	}
+	
+	.tv-screen tr td.active {
+		background: url('../img/camera1.png') no-repeat scroll center center , url('../img/active.png') no-repeat 95% 8% , #444;
+		background-size: 16%,20px;	
+	}
+	.tv-screen td .tdbox {		
+		width: 100%;
+		height: 100%;
+		display: block;
+	}
+	

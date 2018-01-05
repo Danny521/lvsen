@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=10,chrome=1">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<title>视云实战平台</title>
+	<!--[if lt IE 9]>
+	<script src="/libs/html5/html5.js"></script>
+	<![endif]-->
+
+	<link type="text/css" rel="stylesheet" href="/module/common/css/base.css" />
+	<link type="text/css" rel="stylesheet" href="/libs/semantic/semantic.css" />
+	<link type="text/css" rel="stylesheet"  href="/libs/jquery/jquery-ui.css">
+	<link type="text/css" rel="stylesheet" href="/libs/jquery/jquery.datetimepicker.css"/>
+	<link type="text/css" rel="stylesheet" href="/libs/jquery/jquery.Jcrop.css"/>
+	<link type="text/css" rel="stylesheet" href="/module/viewlibs/caselib/css/entity.css"/>
+	<link type="text/css" rel="stylesheet" href="/module/viewlibs/caselib/css/icon.css" />
+	<link type="text/css" rel="stylesheet" href="/module/viewlibs/caselib/css/video.css"/>
+	<link type="text/css" rel="stylesheet" href="/module/viewlibs/caselib/css/localhost.css"/>
+	<link type="text/css" rel="stylesheet" href="/module/viewlibs/caselib/css/dialog_video.css"/>
+</head>
+<body>
+	<div id="content">
+		<div class="libbanner">
+			<span>
+				<a href="javascript:void(0)" onclick="return false;" class="already">选择结构化信息</a>
+				<a href="javascript:void(0)" onclick="return false;" class="current">填写结构化信息表单</a>
+				<a href="javascript:void(0)" onclick="return false;" class="already">填写所属视图表单</a>
+				<a href="javascript:void(0)" onclick="return false;" class="already">创建案事件</a>
+				<a href="javascript:void(0)" onclick="return false;">完成入库操作</a>
+			</span>
+		</div>
+		<div class="wrapper clearfix">
+
+			<!-- <iframe id="medialibIframe" src="/assets/works/medialib/medialibIframe.html" style="display: none" name="medialibIframe"></iframe> -->
+			<ul class="breadcrumb">
+				<li>
+					<a href="/module/viewlibs/workbench/index">视图库</a>
+					<span class="divider">&gt;</span>
+				</li>
+				<li>
+					<a>人员信息</a>
+					<span class="divider">&gt;</span>
+				</li>
+				<li class="active">编辑人员信息</li>
+			</ul>
+
+			<div class="main modify">
+
+				<div class="resources tabview">
+					<form autocomplete="off" id="form">
+						<div class="fieldset">
+							<div class="module active">
+								<div class="module-head">
+									<h3>基本属性</h3> <i class="fix-png"></i>
+								</div>
+								<div class="module-body">
+									<div class="scrollbar disable">
+										<div class="track">
+											<div class="thumb"></div>
+										</div>
+									</div>
+									<div class="viewport person-view">
+										<div class="overview">
+											<div class="group">
+												<div class="form-item">
+													<span class="item-label">
+														<label for="appearTime">来源视频绝对时间：</label>
+													</span>
+													<div class="item-box">
+														<input type="text" class="input-text input-time" id="appearTime" maxlength="50" name="appearTime" value=""/>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="sourceId">来源：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="sourceId" name="sourceId" data-default="">
+															<option value="">--请选择--</option>
+															<option value="01">政府机关监控</option>
+															<option value="02">社会治安监控</option>
+															<option value="03">交通监控</option>
+															<option value="04">出入境监控</option>
+															<option value="05">港口监控</option>
+															<option value="06">金融系统监控</option>
+															<option value="07">旅馆监控</option>
+															<option value="08">互联网营业场所监控</option>
+															<option value="09">娱乐服务场所监控</option>
+															<option value="10">其它企业/事业单位监控</option>
+															<option value="11">居民自建监控</option>
+															<option value="12">移动拍摄</option>
+															<option value="13">网络获取</option>
+															<option value="99">其他</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="cardtype">证件类型：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="cardtype" name="cardtype" data-default="">
+															<option value="">--请选择--</option>
+															<option value="01">身份证</option>
+															<option value="02">临时身份证</option>
+															<option value="03">军官证</option>
+															<option value="04">驾驶证</option>
+															<option value="05">护照</option>
+															<option value="06">其他</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="cardnumb">证件号码：</label>
+													</span>
+													<div class="item-box">
+														<input type="text" class="input-text" maxlength="50" id="cardnumb" name="cardnumb" value=""/>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="name">姓名：</label>
+													</span>
+													<div class="item-box">
+														<input type="text" class="input-text" maxlength="20" name="name" id="name" value=""/>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="formerName">曾用名：</label>
+													</span>
+													<div class="item-box">
+														<input type="text" class="input-text" maxlength="20" name="formerName" id="formerName" value=""/>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="nickname">绰号：</label>
+													</span>
+													<div class="item-box">
+														<input type="text" class="input-text" maxlength="20" name="nickname" id="nickname" value=""/>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="ageUpper">年龄上限：</label>
+													</span>
+													<div class="item-box">
+														<input type="text" class="input-text" maxlength="10" name="ageUpper" id="ageUpper" value=""/>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="ageLower">年龄下限：</label>
+													</span>
+													<div class="item-box">
+														<input type="text" class="input-text" maxlength="10" name="ageLower" id="ageLower" value=""/>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="nation">民族：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="nation" name="nation" data-default=""></select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="native">籍贯：</label>
+													</span>
+													<div class="item-box">
+														<select id="nativeMain" name="nativeMain" class="input-select input-select-second" data-default=""></select>
+														<select id="nativeSub"  name="nativeSub" class="input-select" data-default=""></select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="residence">居住地：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select input-select-second" id="residenceProvince" name="residenceProvince" data-default=""></select>
+														<select class="input-select input-select-second" id="residenceCity" name="residenceCity" data-default=""></select>
+														<select class="input-select input-select-second" id="residenceCountry" name="residenceCountry" data-default=""></select>
+														<input class="input-text" maxlength="200" name="residenceStreets" id="residenceStreets" value=""/>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="voice">口音：</label>
+													</span>
+													<div class="item-box">
+														<input class="input-text" maxlength="50" name="voice" id="voice" value=""/>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="profession">职业：</label>
+													</span>
+													<div class="item-box">
+														<select id="professionMain" name="professionMain" class="input-select profession input-select-second" data-default=""></select>
+														<select id="professionSub" name="professionSub" class="input-select profession" data-default=""></select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="industryCount">同行人数：</label>
+													</span>
+													<div class="item-box">
+														<input class="input-text" maxlength="10" name="industryCount" id="industryCount" value=""/>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="gender">性别：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="gender" name="gender" data-default="gender">
+															<option value="">--请选择--</option>
+															<option value="0">未知的性别</option>
+															<option value="1">男</option>
+															<option value="2">女</option>
+															<option value="9">未说明的性别</option>
+														</select>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="module">
+								<div class="module-head">
+									<h3>身体</h3> <i class="fix-png"></i>
+								</div>
+								<div class="module-body">
+									<div class="scrollbar disable">
+										<div class="track">
+											<div class="thumb"></div>
+										</div>
+									</div>
+									<div class="viewport person-view">
+										<div class="overview">
+											<div class="group">
+												<div class="form-item">
+													<span class="item-label">
+														<label for="heightUpper">身高上限(cm)：</label>
+													</span>
+													<div class="item-box">
+														<input type="text" class="input-text" maxlength="10" name="heightUpper" id="heightUpper" value=""/>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="heightLower">身高下限(cm)：</label>
+													</span>
+													<div class="item-box">
+														<input type="text" class="input-text" maxlength="10" name="heightLower" id="heightLower" value=""/>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="physique">体型：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="physique" name="physique" data-default="">
+															<option value="">--请选择--</option>
+															<option value="0111">特胖</option>
+															<option value="0112">较胖</option>
+															<option value="0113">中等</option>
+															<option value="0114">较瘦</option>
+															<option value="0115">特瘦</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="complexion">肤色：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="complexion" name="complexion" data-default="">
+															<option value="">--请选择--</option>
+															<option value="2011">白肤</option>
+															<option value="2012">黑肤</option>
+															<option value="2013">黄肤</option>
+															<option value="2014">棕肤</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="hairstyle">发型：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="hairstyle" name="hairstyle" data-default="">
+															<option value="">--请选择--</option>
+															<option value="01">平头</option>
+															<option value="02">中分</option>
+															<option value="03">偏分</option>
+															<option value="04">额秃</option>
+															<option value="05">项秃</option>
+															<option value="06">全秃</option>
+															<option value="07">卷发</option>
+															<option value="08">波浪发</option>
+															<option value="09">麻花辫</option>
+															<option value="10">盘发</option>
+															<option value="11">披肩</option>
+															<option value="12">其它</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="haircolor">发色：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="haircolor" name="haircolor" data-default="">
+															<option value="">--请选择--</option>
+															<option value="01">黑</option>
+															<option value="02">白</option>
+															<option value="03">灰</option>
+															<option value="04">红</option>
+															<option value="05">蓝</option>
+															<option value="06">黄</option>
+															<option value="07">橙</option>
+															<option value="08">棕</option>
+															<option value="09">绿</option>
+															<option value="10">多种</option>
+															<option value="11">其它</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="posture">姿势：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="posture" name="posture" data-default="">
+															<option value="">--请选择--</option>
+															<option value="01">站</option>
+															<option value="02">蹲</option>
+															<option value="03">其它</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="mindstate">状态：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="mindstate" name="mindstate" data-default="">
+															<option value="">--请选择--</option>
+															<option value="01">醉酒</option>
+															<option value="02">亢奋</option>
+															<option value="03">正常</option>
+															<option value="04">其他</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="face">脸型：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="face" name="face" data-default="">
+															<option value="">--请选择--</option>
+															<option value="0311">椭圆脸</option>
+															<option value="0312">圆脸</option>
+															<option value="0313">长方脸</option>
+															<option value="0314">方脸</option>
+															<option value="0315">倒大脸</option>
+															<option value="0316">三角脸</option>
+															<option value="0317">狭长脸</option>
+															<option value="0318">菱形脸</option>
+															<option value="0319">畸形脸</option>
+															<option value="0331">平形脸</option>
+															<option value="0332">凹形脸</option>
+															<option value="0333">凸形脸</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="faceFeature">脸部特征：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="faceFeature" name="faceFeature" data-default="">
+															<option value="">--请选择--</option>
+															<option value="10">头</option>
+															<option value="11">前额</option>
+															<option value="12">眉间</option>
+															<option value="13">左眉</option>
+															<option value="14">右眉</option>
+															<option value="15">左太阳穴</option>
+															<option value="16">右太阳穴</option>
+															<option value="17">左眼</option>
+															<option value="18">右眼</option>
+															<option value="19">鼻</option>
+															<option value="20">唇</option>
+															<option value="21">左脸</option>
+															<option value="22">右脸</option>
+															<option value="23">下巴</option>
+															<option value="25">左耳</option>
+															<option value="26">右耳</option>
+															<option value="27">颈</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="bodyFeature">体貌特征：</label>
+													</span>
+													<div class="item-box">
+														<input type="text" class="input-text" maxlength="20" name="bodyFeature" id="bodyFeature" value=""/>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="surfaceFeature">体表特征：</label>
+													</span>
+													<div class="item-box">
+														<input type="text" class="input-text" maxlength="7" name="surfaceFeature" id="surfaceFeature" value=""/>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="habitAction">习惯动作：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="habit_action" name="habitAction" id="habitAction" value="">
+															<option value="">--请选择--</option>
+															<option value="01">翻眼</option>
+															<option value="02">眨眼</option>
+															<option value="03">皱眉</option>
+															<option value="04">挑眉</option>
+															<option value="05">推镜</option>
+															<option value="06">抓头</option>
+															<option value="07">挖鼻</option>
+															<option value="08">摸下巴</option>
+															<option value="09">打手势</option>
+															<option value="10">左撇子</option>
+															<option value="11">缩颈</option>
+															<option value="12">走路摇摆</option>
+															<option value="13">外八字</option>
+															<option value="14">内八字</option>
+															<option value="15">面肌抽搐</option>
+															<option value="16">说话歪嘴</option>
+															<option value="17">摆头</option>
+															<option value="18">手抖</option>
+														</select>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="module">
+								<div class="module-head">
+									<h3>着装</h3>
+									<i class="fix-png"></i>
+								</div>
+								<div class="module-body">
+									<div class="scrollbar disable">
+										<div class="track">
+											<div class="thumb"></div>
+										</div>
+									</div>
+									<div class="viewport person-view">
+										<div class="overview">
+											<div class="group">
+												<div class="form-item">
+													<span class="item-label">
+														<label for="jacketStyle">上衣款式：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="jacketStyle" name="jacketStyle" data-default="">
+															<option value="">--请选择--</option>
+															<option value="01">西装</option>
+															<option value="02">民族服</option>
+															<option value="03">T恤</option>
+															<option value="04">衬衫</option>
+															<option value="05">卫衣</option>
+															<option value="06">夹克</option>
+															<option value="07">皮夹克</option>
+															<option value="08">大衣</option>
+															<option value="09">风衣</option>
+															<option value="10">毛衣</option>
+															<option value="11">棉衣</option>
+															<option value="12">羽绒服</option>
+															<option value="13">运动服</option>
+															<option value="14">工作服</option>
+															<option value="15">牛仔服</option>
+															<option value="16">睡衣</option>
+															<option value="17">连衣裙</option>
+															<option value="18">其他</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="jacketColor">上衣颜色：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="jacketColor" name="jacketColor" data-default="">
+															<option value="">--请选择--</option>
+															<option value="01">黑</option>
+															<option value="02">白</option>
+															<option value="03">灰</option>
+															<option value="04">红</option>
+															<option value="05">蓝</option>
+															<option value="06">黄</option>
+															<option value="07">橙</option>
+															<option value="08">棕</option>
+															<option value="09">绿</option>
+															<option value="10">多种</option>
+															<option value="11">其它</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="trousersStyle">裤子款式：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="trousersStyle" name="trousersStyle" data-default="">
+															<option value="">--请选择--</option>
+															<option value="01">牛仔裤</option>
+															<option value="02">西裤</option>
+															<option value="03">工装裤</option>
+															<option value="04">皮裤</option>
+															<option value="05">短裤</option>
+															<option value="06">沙滩裤</option>
+															<option value="07">运动裤</option>
+															<option value="08">睡裤</option>
+															<option value="09">其它</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="trousersColor">裤子颜色：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="trousersColor" name="trousersColor" data-default="">
+															<option value="">--请选择--</option>
+															<option value="01">黑</option>
+															<option value="02">白</option>
+															<option value="03">灰</option>
+															<option value="04">红</option>
+															<option value="05">蓝</option>
+															<option value="06">黄</option>
+															<option value="07">橙</option>
+															<option value="08">棕</option>
+															<option value="09">绿</option>
+															<option value="10">多种</option>
+															<option value="11">其它</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="shoesStyle">鞋子款式：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="shoesStyle" name="shoesStyle" data-default="">
+															<option value="">--请选择--</option>
+															<option value="01">板鞋</option>
+															<option value="02">皮鞋</option>
+															<option value="03">运动鞋</option>
+															<option value="04">拖鞋</option>
+															<option value="05">凉鞋</option>
+															<option value="06">休闲鞋</option>
+															<option value="07">高筒靴</option>
+															<option value="08">中筒靴</option>
+															<option value="09">低筒靴</option>
+															<option value="10">登山靴</option>
+															<option value="11">军装靴</option>
+															<option value="12">其它</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="shoeColor">鞋子颜色：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="shoesColor" name="shoesColor" data-default="">
+															<option value="">--请选择--</option>
+															<option value="01">黑</option>
+															<option value="02">白</option>
+															<option value="03">灰</option>
+															<option value="04">红</option>
+															<option value="05">蓝</option>
+															<option value="06">黄</option>
+															<option value="07">橙</option>
+															<option value="08">棕</option>
+															<option value="09">绿</option>
+															<option value="10">多种</option>
+															<option value="11">其它</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="hatStyle">帽子款式：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="hatStyle" name="hatStyle" data-default="">
+															<option value="">--请选择--</option>
+															<option value="01">毛线帽</option>
+															<option value="02">贝雷帽</option>
+															<option value="03">棒球帽</option>
+															<option value="04">平项帽</option>
+															<option value="05">渔夫帽</option>
+															<option value="06">套头帽</option>
+															<option value="07">鸭舌帽</option>
+															<option value="08">头巾</option>
+															<option value="09">围脖</option>
+															<option value="10">围巾</option>
+															<option value="11">披肩</option>
+															<option value="12">其它</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="hatColor">帽子颜色：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="hatColor" name="hatColor" data-default="">
+															<option value="">--请选择--</option>
+															<option value="01">黑</option>
+															<option value="02">白</option>
+															<option value="03">灰</option>
+															<option value="04">红</option>
+															<option value="05">蓝</option>
+															<option value="06">黄</option>
+															<option value="07">橙</option>
+															<option value="08">棕</option>
+															<option value="09">绿</option>
+															<option value="10">多种</option>
+															<option value="11">其它</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="glassesStyle">眼镜款式：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="glassesStyle" name="glassesStyle" data-default="">
+															<option value="">--请选择--</option>
+															<option value="01">全框</option>
+															<option value="02">半框</option>
+															<option value="03">无框</option>
+															<option value="04">眉线框</option>
+															<option value="05">多功能框</option>
+															<option value="06">变色镜</option>
+															<option value="07">太阳镜</option>
+															<option value="08">其他</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="glassesColor">眼镜颜色：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="glassesColor" name="glassesColor" data-default="">
+															<option value="">--请选择--</option>
+															<option value="01">黑</option>
+															<option value="02">白</option>
+															<option value="03">灰</option>
+															<option value="04">红</option>
+															<option value="05">蓝</option>
+															<option value="06">黄</option>
+															<option value="07">橙</option>
+															<option value="08">棕</option>
+															<option value="09">绿</option>
+															<option value="10">多种</option>
+															<option value="11">其它</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="scarfColor">围巾颜色：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="scarfColor" name="scarfColor" data-default="">
+															<option value="">--请选择--</option>
+															<option value="01">黑</option>
+															<option value="02">白</option>
+															<option value="03">灰</option>
+															<option value="04">红</option>
+															<option value="05">蓝</option>
+															<option value="06">黄</option>
+															<option value="07">橙</option>
+															<option value="08">棕</option>
+															<option value="09">绿</option>
+															<option value="10">多种</option>
+															<option value="11">其它</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="bagStyle">包款式：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="bagStyle" name="bagStyle" data-default="">
+															<option value="">--请选择--</option>
+															<option value="01">单肩包</option>
+															<option value="02">手提包</option>
+															<option value="03">双肩包</option>
+															<option value="04">钱包</option>
+															<option value="05">手拿包</option>
+															<option value="06">腰包</option>
+															<option value="07">钥匙包</option>
+															<option value="08">卡包</option>
+															<option value="09">手拉箱</option>
+															<option value="10">旅行包</option>
+															<option value="11">牛仔包</option>
+															<option value="12">斜挎包</option>
+															<option value="13">其它</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="bagColor">包颜色：</label>
+													</span>
+													<div class="item-box">
+														<select class="input-select" id="bagColor" name="bagColor" data-default="">
+															<option value="">--请选择--</option>
+															<option value="01">黑</option>
+															<option value="02">白</option>
+															<option value="03">灰</option>
+															<option value="04">红</option>
+															<option value="05">蓝</option>
+															<option value="06">黄</option>
+															<option value="07">橙</option>
+															<option value="08">棕</option>
+															<option value="09">绿</option>
+															<option value="10">多种</option>
+															<option value="11">其它</option>
+														</select>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="module">
+								<div class="module-head">
+									<h3>人员类型</h3>
+									<i class="fix-png"></i>
+								</div>
+								<div class="module-body">
+									<div class="scrollbar disable">
+										<div class="track">
+											<div class="thumb"></div>
+										</div>
+									</div>
+									<div class="viewport person-view">
+										<div class="overview">
+											<div class="group">
+												<div class="form-item">
+													<span class="item-label">
+														<label for="isDriver">是否驾驶员：</label>
+													</span>
+													<div class="item-box ">
+														<input type="checkbox" class="input-check" maxlength="50" name="isDriver" id="isDriver" value=""/>
+													</div>
+												</div>
+												<div class="enablewrap">
+													<div class="form-item ">
+														<span class="item-label">
+															<label for="driverLicense">驾驶证种类：</label>
+														</span>
+														<div class="item-box">
+															<input type="text" class="input-text" maxlength="10" name="driverLicense" id="driverLicense" disabled="disabled" value=""/>
+														</div>
+													</div>
+													<div class="form-item">
+														<span class="item-label">
+															<label for="driverStatus">驾驶员状态：</label>
+														</span>
+														<div class="item-box">
+															<input type="text" class="input-text" maxlength="20" name="driverStatus" id="driverStatus" disabled="disabled" value=""/>
+														</div>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="isForeigner">是否涉外：</label>
+													</span>
+													<div class="item-box">
+														<input type="checkbox"  class="input-check" maxlength="50" name="isForeigner" id="isForeigner" value=""/>
+													</div>
+												</div>
+												<div class="enablewrap">
+													<div class="form-item">
+														<span class="item-label">
+															<label for="passportCategory">护照证件种类：</label>
+														</span>
+														<div class="item-box">
+															<select class="input-select" id="passportCategory" name="passportCategory" disabled="disabled" data-default=""></select>
+														</div>
+													</div>
+													<div class="form-item">
+														<span class="item-label">
+															<label for="foreignerCategory">入出境人员类别：</label>
+														</span>
+														<div class="item-box">
+															<input type="text" class="input-text" maxlength="20" name="foreignerCategory" id="foreignerCategory" disabled="disabled" value=""/>
+														</div>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="isTerrorist">是否涉恐：</label>
+													</span>
+													<div class="item-box">
+														<input type="checkbox" class="input-check" name="isTerrorist" id="isTerrorist" value=""/>
+													</div>
+												</div>
+												<div class="enablewrap">
+													<div class="form-item">
+														<span class="item-label">
+															<label for="terroristNumber">涉恐人员编号：</label>
+														</span>
+														<div class="item-box">
+															<input type="text" class="input-text" maxlength="50" name="terroristNumber" id="terroristNumber" disabled="disabled" value=""/>
+														</div>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="isWorker">是否工作人员：</label>
+													</span>
+													<div class="item-box">
+														<input type="checkbox" class="input-check" name="isWorker" id="isWorker" value=""/>
+													</div>
+												</div>
+												<div class="enablewrap">
+													<div class="form-item">
+														<span class="item-label">
+															<label for="workCategory">职务类别：</label>
+														</span>
+														<div class="item-box">
+															<select class="input-select" id="workCategory" name="workCategory" disabled="disabled" data-default=""></select>
+														</div>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="isCriminal">是否犯罪人员：</label>
+													</span>
+													<div class="item-box">
+														<input type="checkbox" class="input-check" name="isCriminal" id="isCriminal" value=""/>
+													</div>
+												</div>
+												<div class="enablewrap">
+													<div class="form-item">
+														<span class="item-label">
+															<label for="criminalSkilled">犯罪专长：</label>
+														</span>
+														<div class="item-box">
+															<select class="input-select" id="criminalSkilled" name="criminalSkilled" disabled="disabled" data-default=""></select>
+														</div>
+													</div>
+													<div class="form-item">
+														<span class="item-label">
+															<label for="criminalMark">体表特殊标记：</label>
+														</span>
+														<div class="item-box">
+															<select class="input-select" id="criminalMark" name="criminalMark" disabled="disabled" data-default=""></select>
+														</div>
+													</div>
+													<div class="form-item">
+														<span class="item-label">
+															<label for="criminalMethod">作案手段：</label>
+														</span>
+														<div class="item-box">
+															<select class="input-select" name="criminalMethod" id="criminalMethod" disabled="disabled" data-default=""></select>
+														</div>
+													</div>
+													<div class="form-item">
+														<span class="item-label">
+															<label for="criminalFeature">作案特点：</label>
+														</span>
+														<div class="item-box">
+															<select class="input-select" name="criminalFeature" id="criminalFeature" disabled="disabled" data-default=""></select>
+														</div>
+													</div>
+													<div class="form-item">
+														<span class="item-label">
+															<label for="criminalNumber">在逃人员编码：</label>
+														</span>
+														<div class="item-box">
+															<input type="text" class="input-text" maxlength="50" name="criminalNumber" id="criminalNumber" disabled="disabled" value=""/>
+														</div>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="isDetain">是否在押人员：</label>
+													</span>
+													<div class="item-box">
+														<input type="checkbox" class="input-check" maxlength="50" name="isDetain" id="isDetain" value=""/>
+													</div>
+												</div>
+												<div class="enablewrap">
+													<div class="form-item">
+														<span class="item-label">
+															<label for="detainPrison">看守所编码：</label>
+														</span>
+														<div class="item-box">
+															<input type="text" class="input-text" maxlength="50" name="detainPrison" id="detainPrison" disabled="disabled" value=""/>
+														</div>
+													</div>
+													<div class="form-item">
+														<span class="item-label">
+															<label for="detainIdentity">在押人员身份：</label>
+														</span>
+														<div class="item-box">
+															<select class="input-select" id="detainIdentity" name="detainIdentity" disabled="disabled" data-default="">
+																<option value="">--请选择--</option>
+																<option value="01">国家公务员</option>
+																<option value="02">企事业管理人员</option>
+																<option value="03">企事业职员</option>
+																<option value="04">工人</option>
+																<option value="05">农民</option>
+																<option value="06">个体工商业者</option>
+																<option value="07">在校学生</option>
+																<option value="08">离退休人员</option>
+																<option value="09">无业人员</option>
+																<option value="10">军人</option>
+																<option value="99">其他</option>
+															</select>
+														</div>
+													</div>
+													<div class="form-item">
+														<span class="item-label">
+															<label for="detainSpecial">在押人员特殊身份：</label>
+														</span>
+														<div class="item-box">
+															<select class="input-select" id="detainSpecial" name="detainSpecial" disabled="disabled" data-default="">
+																<option value="">--请选择--</option>
+																<option value="01">人大代表</option>
+																<option value="02">政协委员</option>
+																<option value="03">民主党首</option>
+																<option value="04">中高干部</option>
+																<option value="05">高知高工</option>
+																<option value="06">公安民警</option>
+																<option value="07">其他民警</option>
+																<option value="08">检法干部</option>
+																<option value="09">工商税务</option>
+																<option value="10">海关稽查</option>
+																<option value="11">保安警卫</option>
+																<option value="12">外交官员</option>
+																<option value="13">外交家属</option>
+																<option value="14">外商职员</option>
+																<option value="15">华侨人士</option>
+																<option value="16">侨眷侨属</option>
+																<option value="17">留学人员</option>
+																<option value="18">外籍人员</option>
+																<option value="19">港澳台人员</option>
+																<option value="20">宗教界人士</option>
+																<option value="21">邪教人员</option>
+																<option value="22">民族分裂分子</option>
+																<option value="23">民运人员</option>
+																<option value="24">未成年人</option>
+															</select>
+														</div>
+													</div>
+													<div class="form-item">
+														<span class="item-label">
+															<label for="detainCategory">成员类型：</label>
+														</span>
+														<div class="item-box">
+															<select class="input-select" id="detainCategory" name="detainCategory" disabled="disabled" data-default="">
+																<option value="">--请选择--</option>
+																<option value="10">首犯</option>
+																<option value="11">主犯</option>
+																<option value="12">从犯</option>
+																<option value="13">胁从犯</option>
+																<option value="20">集团头目</option>
+																<option value="21">集团成员</option>
+																<option value="31">团伙头目</option>
+																<option value="32">团伙骨干</option>
+																<option value="33">团伙成员</option>
+																<option value="99">其他</option>
+															</select>
+														</div>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="isVictim">是否被害人：</label>
+													</span>
+													<div class="item-box">
+														<input type="checkbox" class="input-check" maxlength="50" name="isVictim" id="isVictim" value=""/>
+													</div>
+												</div>
+												<div class="enablewrap">
+													<div class="form-item">
+														<span class="item-label">
+															<label for="victim_category">被害人种类：</label>
+														</span>
+														<div class="item-box">
+															<select id="victimCategoryMain" name="victimCategoryMain" class="input-select  input-select-second" disabled="disabled" data-default=""></select>
+															<select id="victimCategorySub" name="victimCategorySub" class="input-select " disabled="disabled" data-default=""></select>
+														</div>
+													</div>
+													<div class="form-item">
+														<span class="item-label">
+															<label for="victimHarmful">受伤害程度：</label>
+														</span>
+														<div class="item-box">
+															<select class="input-select" id="victimHarmful" name="victimHarmful" disabled="disabled" data-default="">
+																<option value="">--请选择--</option>
+																<option value="1">死亡</option>
+																<option value="2">重伤</option>
+																<option value="3">轻伤</option>
+																<option value="4">轻微伤</option>
+																<option value="9">其他</option>
+															</select>
+														</div>
+													</div>
+													<div class="form-item">
+														<span class="item-label">
+															<label for="victimCorpse">尸体状况：</label>
+														</span>
+														<div class="item-box">
+															<input type="text" class="input-text" maxlength="20" name="victimCorpse" id="victimCorpse" disabled="disabled" value=""/>
+														</div>
+													</div>
+												</div>
+												<div class="form-item">
+													<span class="item-label">
+														<label for="infomationSource">信息来源：</label>
+													</span>
+													<div class="item-box">
+														<input type="text" class="input-text" maxlength="50" name="infomationSource" id="infomationSource" value=""/>
+													</div>
+												</div>
+												<div class="form-item" style="display: none">
+													<span class="item-label">
+														<label for="points">标记坐标 ：</label>
+													</span>
+													<div class="item-box">
+														<input type="text" class="input-text" maxlength="50" name="points"  id="points" value=""/>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-item submit-area">
+							<div class="item-box submit-wrapper">
+								<input class="input-submit permission permission-create" type="submit" value="保存信息" />
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="entity-preview" data-id="">
+
+					<div class="markwrap clearfix">
+						<!-- <div class="video_edit">
+						-->
+						<div class="video_tool"></div>
+						<!-- </div>
+						-->
+						<div class="display-format tab-title">
+							<ul class="menus">
+								<li data-tab="picture" data-anchor="picture" class="tab-title-item active"><a class="btn">特征图片</a></li>
+								<li data-tab="ocxbody" data-anchor="ocxbody" class=" tab-title-item"><a class="btn" id="videoid">视频片段</a></li>
+							</ul>
+
+						</div>
+
+					</div>
+
+					<div class="entity-box tab-content">
+                 	    <div class="video tab-content-item" data-target="ocxbody" data-tab="ocxbody" data-videopath="">
+							<object id="UIOCX" type="applicatin/x-firebreath" align="center" width="800" height="520">
+								<param name="onload" value="pluginLoaded"/>
+							</object>
+							<div class="video-block">
+								<div class="progress-bg"></div>
+								<div class="progress-bar">
+									<div class="bullet">
+										<i class="play-point"></i>
+									</div>
+									<i class='start-mark'></i>
+									<i class='end-mark'></i>
+								</div>
+								<div class="panel" onselectstart="return false">
+									<span class="time">
+										<span class="nowtime" nowtime-ms="0">00:00:00</span>&nbsp;/
+										<span class="alltime" alltime-ms="0">00:00:00</span>
+									</span>
+									<span class="speed">倍速：<em></em></span>
+									<span class="fullwin" title="全屏"></span>
+									<!-- <span class="grab" title="抓图"></span> -->
+									<span class="stop" title="停止"></span>
+									<span class="forward" title="快进"></span>
+									<span class="switch" title="播放"></span>
+									<span class="rewind" title="慢放"></span>
+								</div>
+
+							</div>
+						</div>
+
+						<div class="picture tab-content-item active" data-tab="picture" id="image_struct" data-target="picture">
+				        </div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<!--<script type="text/javascript" src="/component/base/base.self.js"></script>
+	<script type="text/javascript" src="/libs/jquery/jquery-ui-1.10.1.custom.min.js"></script>
+	<script type="text/javascript" src="/libs/jquery/jquery-ui-timepicker-addon.js"></script>
+	<script type="text/javascript" src="/libs/scrollbar/scrollbar.js"></script>
+	<script type="text/javascript" src="/component/cascade/common.cascade.js"></script>
+	<script type="text/javascript" src="/libs/jquery/jquery.validate.js"></script>
+	<script type="text/javascript" src="/libs/jquery/jquery.pagination.js"></script>
+	<script type="text/javascript" src="/module/common/js/nativePlayer.js"></script>
+	<script type="text/javascript" src="/module/imagejudge/js/player.js"></script>
+	<script type="text/javascript" src="/module/viewlibs/caselib/js/video.js"></script>
+	<script type="text/javascript" src="/module/viewlibs/caselib/js/medialib_link.js"></script>
+	<script type="text/javascript" src="/module/viewlibs/caselib/js/create_person_bak.js"></script>
+	<script type="text/javascript" src="/module/common/permission/permission.js"></script>-->
+	<script type="text/javascript" src="/libs/requirejs/require.js"></script>
+	<script type="text/javascript">
+		require(['/require-conf.js'],function(){
+			require(['/module/viewlibs/caselib/js/create_person_bak.js']);
+		});
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+ {
+     "mapOpts": {
+         "minZoom": 10,
+         "defaultZoom": 12,
+         "maxZoom": 19,
+         "centerPoint": [119.05918,33.544],
+         "projection": "EPSG:4326"
+     },
+     "vectorLayer": [{
+         "layerName": "shanghaiBaseMap1",
+         "layerType": "NPMapLib.Layers.TDMapLayer",
+         "layerOpt": {
+             "url": ["http://10.37.129.122/EzMapServer/Maps/HASL/EzMap?Service=getImage&Type=RGB&ZoomOffset=0&Col=${x}&Row=${y}&Zoom=${z}&V=1.0.0"],             
+             "isBaseLayer": true,
+             "mapType": "EMap"
+         }
+     }],
+     "sattilateLayer": [
+     {
+         "layerName": "shanghaiBaseMap2",
+         "layerType": "NPMapLib.Layers.TDMapLayer",
+         "layerOpt": {
+             "url": ["http://10.37.129.122/EzMapServer/Maps/HASLYX/EzMap?Service=getImage&Type=RGB&ZoomOffset=0&Col=${x}&Row=${y}&Zoom=${z}&V=1.0.0"],             
+             "isBaseLayer": true,
+             "mapType": "EMap"
+         }
+     }]
+ }

@@ -1,0 +1,293 @@
+#sidePage{
+	background-color: #FFFFFF;
+	width:300px;
+	z-index: 101;
+	position: absolute;
+	margin-left: 280px;
+	top: 10px;
+	bottom: 0px;
+}
+
+#sidePage .bod{
+	padding: 0 10px 0 10px;
+}
+
+#sidePage .nativ{
+	height: 30px;
+	line-height: 30px;
+	font-size: 12px;
+	color: #444444;
+	background-color: #F4F4F4;
+}
+
+#sidePage .nativ h6{
+	float: left;
+	padding-left: 10px;
+}
+
+#sidePage .nativ .close,
+#exportPanel .title .close{
+	margin-top: 10px;
+	margin-right: 10px;
+	width: 12px;
+	height: 12px;
+	float: right;
+	background: transparent url(../images/close.png) no-repeat;
+	cursor: pointer;
+}
+#sidePage .nativ .close:hover,
+#exportPanel .title .close:hover{
+	background: transparent url(../images/close.png) no-repeat -12px 0;
+}
+
+#sidePage .step .tip{
+	font-size: 14px;
+	font-weight: bold;
+	color: #666666;
+	display: inline-block;
+}
+
+#sidePage .step ul{
+/*	height: 60px;
+	line-height: 60px;*/
+}
+
+#sidePage .step .tip  li{
+	padding-top: 11px;
+	float: left;
+}
+#sidePage .step .tip li:last-child{
+	margin-left: 51px;
+	padding-top: 9px!important;
+}
+.export{
+	float: right;
+	height: 25px !important;
+	line-height: 25px !important;
+	/*margin: 0 10px !important;*/
+	padding: 0 10px !important;
+}
+
+#sidePage .step .temptip{
+	display: inline-block;
+}
+
+#sidePage .step .temp{
+	height: 217px;
+	width: 100%;
+	margin-top: 10px;
+	background-color: red;
+	background: url(../images/angle.png) no-repeat -260px;
+}
+.backg1{
+	width: 15px;
+	height: 29px;
+	padding-left: 10px; 
+	background: url(../images/step1.png) no-repeat 0px;
+}
+.backg2{
+	width: 15px;
+	height: 29px;
+	padding-left: 10px; 
+	background: url(../images/step2.png) no-repeat 0px;
+}
+
+.exp_input{
+	display: inline-block;
+	padding-bottom: 15px;
+
+}
+
+.exp_input li{
+	float: left;
+}
+
+
+.exp_input .excel_input{
+	height: 14px !important;
+	width: 197px !important;
+}
+
+.exp_input li .chooseButton{
+	height: 25px !important;
+	line-height: 25px !important;
+	margin: 0 6px !important;
+	padding: 0 15px !important;
+	margin-top: 1px !important;
+}
+
+#sidePage .step .buttons{
+	padding-top: 10px;
+	border-top: 1px dashed #DFDFDF;
+	text-align: center;
+}
+
+#sidePage .step .buttons li{
+	display: inline-block;
+}
+
+
+#exportPanel{
+	height: 445px;
+	margin: -10px -15px;
+	font-size: 12px;
+}
+
+.font-solid{
+	font-weight: bold;
+}
+
+#exportPanel .inner{
+	height: 94%;
+}
+
+#exportPanel .inner-left{
+	width: 355px;
+	float: left;
+}
+
+#exportPanel .inner-right{
+	float: left;
+	margin-top: -10px;
+}
+
+#exportPanel .inputli{
+	width: 340px;
+}
+
+.left-camera-search{
+	margin-top: 6px !important;
+	width: 320px !important;
+	height: 34px !important;
+	line-height: 34px !important;
+	padding: 0 10px !important;
+}
+
+#exportPanel .inner-right p{
+	width: 240px;
+	padding-top: 10px;
+}
+
+#exportPanel .buttons{
+	text-align: center;
+}
+
+
+#exportPanel .inner-left .org-tree{
+	border: 1px solid #DFDFDF;
+	width: 340px;
+	height: 323px;
+	margin-top: 10px;
+	border-radius: 3px;
+}
+
+.searchbox{
+	width: 40px;
+	height: 30px;
+	cursor: pointer;
+	border: none;
+	position: absolute;
+	z-index: 2;
+	right: 0;
+	top: 10px;
+	background: transparent url(../images/web_icon.png) 0 -16px no-repeat;
+}
+
+#exportTreePanel{
+	padding-top: 5px;
+	padding-left: 10px;
+	width: 97%;
+	height: 98%;
+}
+
+.upload-status{
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	left: 0px;
+	bottom: 0px;
+	z-index: 999;
+	/*background-color: #4C4C4C;*/
+	display: none;
+	background-color: #000;
+	opacity: 0.5;
+}
+
+.upload-loading {
+	width: 100%;
+	height: 100%;
+	background:url(../images/loading.gif) no-repeat center 45%;
+}
+
+.upload-success {
+	width: 100%;
+	height: 100%;
+	background:url(../images/success.png) no-repeat center 45%;
+}
+
+.upload-faliure {
+	width: 161px;
+	height: 140px;
+	margin-top: 20%;
+	margin-left: 44%;
+	background:url(../images/failure.png) no-repeat center 0;
+}
+
+.reloadBtn{
+	margin-top: 60% !important;
+	margin-left: 25% !important;
+}
+
+
+/****修复原有页面样式****/
+.tip-lab{
+	height: 30px;
+	line-height: 30px;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.tip-pic{
+	width: 100%;
+	height: 28px;
+	margin-top: 5px;
+	background: url(../images/tips-left.png) no-repeat;
+}
+
+.batchImport{
+	float: right;
+	margin-top: 4px !important;
+	padding: 0px 10px !important;
+	margin: 4px 2px !important;
+	height: 23px !important;
+	line-height: 22px !important;
+}
+
+.disabled{
+/*	background: #CCC;
+	color: #DDD;*/
+}
+
+.markStatus{
+	/*border-radius: 3px;*/
+	height: 30px;
+	border: 1px solid #DFDFDF;
+	position: absolute;
+	left: -2px;
+	border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    cursor:	pointer;
+    color: #444444;
+}
+
+/*.markStatus option{
+	color: #444444;
+}*/
+
+.hidNav{
+	display: none!important;
+}
+
+.treePanel li span{
+	width: 170px;
+}

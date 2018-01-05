@@ -1,0 +1,57 @@
+<div class="gps-monitor">
+    <div class="route-header">
+        <div class="route-header-title">
+            <i class="sidebar-home-icon np-map-overlay home-enable-click" data-mark="business"></i>
+            <b> > </b><span >GPS监控</span>
+        </div>
+    </div>
+</div>
+<div class="gps-control-track">
+<div class="gps-control-track-operation"> 
+	<form>
+		<ul>
+			<li>
+				<span class="label"> GPS编号：</span>
+				<span class="content"><input class="gps-control-track-text" id="GPSCode" placeholder="请输入GPS编号" type="text" name="GPSCode"></span>
+			</li>
+			<li>
+				<span class="label"> 车牌号码：</span>
+				<span class="content"><input class="gps-control-track-text" id="CarCode" type="text" name="CarCode"></span>
+			</li>
+			<li>
+				<span class="label"> 起始时间：</span>
+				<span class="content">
+					<input id="beginTime" class="time input-time">
+					<span class="color"></span>
+				</span>
+			</li>
+			<li>
+				<span class="label"> 终止时间：</span>
+				<span class="content">
+					<input id="endTime" class="time input-time">
+					<span class="color"></span>
+				</span>
+			</li>
+			<li>
+				<span class="label"> 资源类型：</span>
+				<span class="content">
+					<div class="select_container" data-init="true" data-type="fast-deal-list">
+					    <span class="text" data-value="0">摄像机</span>
+					    <!-- <span class="arrow-down"></span> -->
+					</div>
+				</span>
+			</li>
+			<li>
+				<span class="label"> 查询范围：</span>
+				<span class="content"><input class="gps-control-track-text" id="bufferDistance" type="text" name="bufferDistance"><strong style="position:absolute;right:10px;top:0px; font-size:14px;color:#a5a5a5;">米</strong></span>
+			</li>
+			<li>
+				<!-- <span class="messageLable" id="messageLable"></span> -->
+				<button class="ui button blue" id="queryGPS" type="button">查询</button>
+			</li>
+		</ul>
+	</form>
+	</div>
+	<div class="gps-control-track-line"></div>
+	<div class="gps-control-track-result" id="gps-control-track-result"></div>
+</div>

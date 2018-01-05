@@ -1,0 +1,72 @@
+	{
+		"code": 200,
+		"data": {
+			"totalRecords":"123",
+				"recods": [{
+					"path": "/image/yy.jpg",
+					"showType": "incident",
+					"storageTime": 13456783344,
+					"timeLower": 13456783344,
+					"timeUpper": 13456783344,
+					"location": "太湖",
+					"gbtId": "12nl99009AA",
+					"originalName": "案事件",
+					"category": "刑事案件",
+					"description": "snackjbsacbwiq你看把汽车尾气",
+					"clue": "1",
+					"incidentId": "kbdcjkadbckjabckjA"
+				}, {
+					"path": "/image/yy.jpg",
+					"showType": "video",
+					"storageTime": 13456783344,
+					"timeLower": 13456783344,
+					"timeUpper": 13456783344,
+					"location": "太湖",
+					"gbtId": "",
+					"originalName": "视频",
+					"category": "",
+					"description": "为各位各位个",
+					"clue": "1",
+					"incidentId": ""
+				},{
+					"path": "/image/yy.jpg",
+					"showType": "person",
+					"storageTime": 13456783344,
+					"timeLower": 13456783344,
+					"timeUpper": 13456783344,
+					"location": "太湖",
+					"gbtId": "",
+					"originalName": "结构化信息",
+					"category": "",
+					"description": "为各位各位各位",
+					"clue": "",
+					"incidentId": ""
+				},{
+					"path": "/image/yy.jpg",
+					"showType": "car",
+					"storageTime": 13456783344,
+					"timeLower": 13456783344,
+					"timeUpper": 13456783344,
+					"location": "太湖",
+					"gbtId": "",
+					"originalName": "结构化信息",
+					"category": "",
+					"description": "t43t342t个人wegwegrfr",
+					"clue": "",
+					"incidentId": ""
+				},{
+					"path": "/image/yy.jpg",
+					"showType": "scene",
+					"storageTime": 13456783344,
+					"timeLower": 13456783344,
+					"timeUpper": 13456783344,
+					"location": "太湖",
+					"gbtId": "",
+					"originalName": "结构化信息",
+					"category": "",
+					"description": "342qt234t",
+					"clue": "",
+					"incidentId": ""
+				}]
+		}
+	}

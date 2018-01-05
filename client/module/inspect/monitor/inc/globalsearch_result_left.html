@@ -1,0 +1,43 @@
+{{#if globalSearchResultContainer}}
+<div id="globalSearchResult"></div>
+<div class="pagination"></div>
+{{/if}}
+
+{{#if globalSearchResult}}
+<h3 class="global-search-result-title"><span>共<b>{{data.count}}</b>条记录</span></h3>
+<ul class="global-search-result">
+    {{#each data.items}}
+    <li active="false" data-key="{{#if isGps}}{{key}}{{/if}}{{#if is350M}}{{key}}{{/if}}" class="global-search-result-item  {{#if isMap}}global-search-result-item-map{{/if}}" item_id="{{num}}" Index="{{index}}" pointx="{{feature.geometry.x}}" pointy="{{feature.geometry.y}}" name="{{value}}" dataType="{{type}}" pos="{{pos}}" id="{{id}}">
+        <div class="global-search-item-mark">
+            <span>{{num}}</span>
+        </div>
+        <div class="global-search-item-content">
+            {{#if is350M}}
+            <div class='global-search-item-name make-name-incenter'>{{key}}</div>
+            {{/if}}
+            {{#if isLightBar}}
+            <div class='global-search-item-name make-name-incenter'>{{code}}</div>
+            {{/if}}
+            {{#if isGps}}
+            <div class='global-search-item-name make-name-incenter'>{{key}}</div>
+            {{/if}}
+            {{#if isRoute}}
+            <div class='global-search-item-name make-name-incenter'>{{value}}</div>
+            {{/if}}
+            {{#if isAlarm}}
+            <div class='global-search-item-name make-name-incenter'>{{cameraName}}</div>
+            {{/if}}
+            {{#if isMap}}
+            <div class='global-search-item-name'>{{value}}</div>
+            <div class='global-search-item-addr'>地址：{{feature.attributes.R_ADDR}}</div>
+            {{/if}}
+        </div>
+    </li>
+
+    {{/each}}
+</ul>
+{{/if}}
+
+{{#if noResult}}
+<h3 class="global-search-result-title"><span>暂无搜索结果</span></h3>
+{{/if}}

@@ -1,0 +1,64 @@
+<div class="items-panel">
+	
+	<ul class="items-list auto-adapt clearfix">
+		{{#list}}	
+		<li data-id="{{id}}" data-showType ="{{displaytype name}}">
+				<!-- 缩略图显示 start-->
+				<div class="thumb-figure ease">
+					<a class="thumb-anchor">
+						<span class="vbox"><img src="{{showImage ctm_PICTURE}}" alt="" /></span>
+					</a>
+				</div>
+				<!-- 缩略图显示 end-->
+
+			<!-- 文案信息显示 start-->
+			<!-- 结构化信息 start-->
+				<div class="synopsis isTrack">
+				    {{#eq name '车辆'}}
+					<span title="{{showTrueNameln 'car' licenseNumber licenseTypeCodeName carColorCodeName}}">
+						<a class="name">{{{casecar licenseNumber licenseTypeCodeName carColorCodeName}}}</a>
+					</span>
+					{{/eq}}
+					{{#eq name '人员'}}
+					<span title="{{showTrueNameln 'person' personName genderCodeName jacketColorCodeName trousersColorCodeName}}">
+						<a class="name">{{{caseperson personName genderCodeName jacketColorCodeName trousersColorCodeName}}}</a>
+					</span>
+					{{/eq}}
+					{{#eq name '场景'}}
+					<span title="{{showTrueNameln 'scene' categoryMain subcategoryMain weatherCodeName}}">
+						<a class="name">{{{casesence categoryMain subcategoryMain weatherCodeName}}}</a>
+					</span>
+					{{/eq}}
+					{{#eq name '物品'}}
+					<span title="{{showTrueNameln 'exhibit' exhibitName exhibitShape exhibitColorCodeName}}">
+						<a class="name">{{{caseexhibit exhibitName exhibitShape exhibitColorCodeName}}}</a>
+					</span>
+					{{/eq}}
+					{{#eq name '运动目标'}}
+					<span title="{{showTrueNameln 'moving' movingObjectTypeCodeName movingObjectColorCodeName movingObjectHeight movingObjectGrayCodeName}}">
+						<a class="name">{{{casemove movingObjectTypeCodeName movingObjectColorCodeName movingObjectHeight movingObjectGrayCodeName}}}</a>
+					</span>
+					{{/eq}}
+					{{#eq name '其他'}}
+					<span title="{{showTrueNameln 'rest' restName}}">
+						<a class="name">{{{caseothers restName}}}</a>
+					</span>
+					{{/eq}}
+					<span class="related" title="{{location imageLocation videoLocation}}">
+						{{{location imageLocation videoLocation}}}
+					</span>
+					<span class="time">
+						{{{mills2str std_APPEAR_TIME}}}
+					</span>
+				</div>
+
+			<!-- 结构化信息 end-->
+			<!-- 文案信息显示 end-->
+		</li>
+	{{else}}
+	<h2 style="padding:10px; text-align:center;">暂无数据</h2>
+	{{/list}}
+
+
+	</ul>
+</div>

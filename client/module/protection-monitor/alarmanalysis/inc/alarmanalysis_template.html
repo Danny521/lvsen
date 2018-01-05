@@ -1,0 +1,386 @@
+<!-- 历史报警 -->
+{{#if historyList}}
+<div class="breadcrumb">
+	
+</div>
+<div class="content">
+	<div class="conditions">
+		<label>开始时间：</label>
+		<span class="ui input"><input type="text" class="begin-time input-time" readonly="true" placeholder="请选择开始时间"/></span>
+
+		<label>结束时间：</label>
+		<span class="ui input"><input type="text" class="end-time input-time" readonly="true" placeholder="请选择结束时间"/></span>
+		<!-- <label>报警类型：</label>
+		<span class="select_container" data-type="defence-type">
+            <span class="text" data-value="">全部</span>
+            <span class="arrow-down"></span>
+        </span> -->
+		<label>处理状态：</label>
+        <span class="select_container" data-type="deal-status">
+            <span class="text" data-value="">全部</span>
+            <span class="arrow-down"></span>
+        </span>
+		<a href="javascript:void(0);" title="查询" class="hisSearch"></a>
+		<span>
+			<a href="javascript:void(0);" class="export permission permission-export-alarm-msg">导出</a>
+		</span>
+	</div>
+	<div class="table_lists_wrap">
+		<div id="historyTable"></div>
+			{{!-- 分页条 --}}
+		<div class="pagepart">
+		</div>
+	</div>
+</div>
+{{/if}}
+{{#if pagebar}}
+	<div class ="pagination"></div>
+{{/if}}
+
+<!-- 历史查询面包屑 -->
+{{#if historyBread}}
+	{{#each historyBread}}
+	<a class="section" data-id="{{id}}" data-type="{{type}}" data-recursion = "{{this.recursion}}">{{name}}</a>
+	<span class="divider arrow">></span>
+	{{/each}}
+<span class="active section">历史报警</span>
+{{/if}}
+
+{{!--历史查询列表项--}}
+{{#if historySearchItems}}
+	<table cellpadding="0" cellspacing="0" border="0">
+		<thead>
+			<tr class="title">
+				<th style="width:250px">报警时间</th>
+				<th style="width:300px">报警地点</th>
+				<th>报警级别</th>
+				<th>报警类型</th>
+				<th>处理人</th>
+				<th>处理状态</th>
+				<th>操作</th>
+			</tr>
+		</thead>
+		{{#each historySearchItems.historySearch}}
+			<tbody data-id="{{id}}" data-name="{{cameraName}}" data-eventtype="{{eventType}}" data-abstime="{{absTime}}" data-time="{{mills2datatime absTime}}" data-eventtypename="{{eventTypeName}}" class="{{even @index}} up">
+				<tr class="table_lists_cont">				
+					<td>{{mills2datatime absTime}}</td>
+					<!-- 如果是手动报警，cameraName显示为手动报警地点 -->
+					<td class="cameraName" title="{{cameranameOrReportplace cameraName reportPlace eventType}}">{{cameranameOrReportplace cameraName reportPlace eventType}}</td>
+					<!-- <td class="cameraName" title="{{isPlace reportPlace}}">{{isPlace reportPlace}}</td> -->
+					<td class="level level{{level}}">{{int2level level}}</td>
+					<td class="alarm-type" title="{{eventTypeName}}">{{eventTypeName}}</td>
+					<td class="name" title="{{null2unkown handleAuthor}}">{{null2unkown handleAuthor}}</td>
+					<td class="status status{{dealStatus}}">{{int2status dealStatus}}</td>
+					<td class="tools">
+						<a title="历史调阅"  class="icon_video" data-cameraid="{{cameraChannelId}}" target="historyProxy"></a>
+						<a href="javascript:void(0)" title="报警处理" class="icon_editing" data-id="{{id}}"></a>
+					</td>
+				</tr>
+				<tr class="table_lists_details"></tr>
+				<tr>
+					<td>
+						<div class="deal_layout"></div>
+					</td>
+				</tr>
+			</tbody>
+		{{/each}}
+	</table>
+{{/if}}
+
+{{!--历史调阅播放窗口--}}
+{{#if videoplay}}
+    <div class="video-top" data-alarmid="{{data.alarmid}}" data-cameraid="{{data.cameraid}}">
+        <span class="video-camera-info">
+            {{data.playtype}}-<em class="alarm-label">{{data.name}}</em>
+        </span>
+        <a class="video-win-close" title="关闭视频播放窗口">关闭</a>
+    </div>
+    <div class="video-down">
+
+        <object id="UIOCX_HIS" class="UIOCX" type="applicatin/x-firebreath" width = "400" height = "300">
+        	<param name="onload" value="pluginLoaded"/>
+        	<!-- <param value="pluginLoaded"/> -->
+        </object>
+    </div>
+{{/if}}
+
+{{!--查看布控弹出框--}}
+{{#if alarmDetails}}
+{{#with alarmDetails}}
+	<td colspan="7" class="detailTd">
+		<div class="icon_look_details control" data-id="{{deployEvent.id}}">
+			<ul>
+				<li class="pic">
+					<img src="{{list1 deployEvent.imgInfo}}">
+				</li>
+				<li class="inf">
+					<span class="infItem" data-id="{{deployEvent.id}}">报警类型：{{eventType2eventName deployEvent.eventType}}</span>
+					<span class="infItem">报警时间：{{mills2datatime deployEvent.absTime}}</span>
+					<span class="infItem" title="{{deployEvent.taskName}}">任务名称：{{deployEvent.taskName}}</span>
+					<span class="infItem handlerAuthor">处理人：{{null2unkown deployEvent.handleAuthor}}</span>
+					<span class="infItem">处理时间：{{mills2datatime  deployEvent.handleTime}}</span>
+				</li>
+				<li class="imgList">
+					<span class="infItem">布控级别：{{int2level deployEvent.level}}</span>
+					<div class="imgs">
+						<span class="infItem candidate">候选人：</span>
+						<span class="personList">
+							{{#each targetPersons}}
+							<span class="imgWraper">
+								<img src="{{list1 featureImagePath}}" data-index="{{@index}}" data-path="{{featureImagePath}}"data-targetpersonname="{{targetPersonName}}" data-comparescore="{{score}}" data-libname="{{libName}}" data-description="{{description}}" data-handlestatus="{{handleStatus}}">
+								<i class="{{rightORwrong handleStatus}}"></i>
+							</span>
+							{{/each}}
+						</span>
+					</div>
+				</li>
+				<li class="person">					
+				</li>
+			</ul>
+		</div>
+	</td>
+{{/with}}
+{{/if}}
+{{#if clickPerson}}
+{{#with clickPerson}}
+	<span class="infItem" title="{{targetpersonname}}">姓名：{{targetpersonname}}</span>
+	<span class="infItem">比分：{{comparescore}}</span>
+	<span class="infItem" title="{{libname}}">所在库：{{libname}}</span>
+	<span class="infItem description" title="{{description}}">备注信息：{{description}}</span>
+{{/with}}
+{{/if}}
+
+{{!--查看布防时的弹出框--}}
+{{#if otherAlarmDetails}}
+{{#with otherAlarmDetails}}
+	<td colspan="7" class="detailTd">
+		<div class="icon_look_details" data-id="{{deployEvent.id}}">
+			<ul>
+				<li class="pic">
+					<a class="analysis" href="{{list1 deployEvent.imgInfo}}">
+						<img src="{{list1 deployEvent.imgInfo}}">
+					</a>
+				</li>
+				<li class="infor">
+					<span class="infItem" data-id="{{deployEvent.id}}">报警类型：{{eventType2eventName deployEvent.eventType}}</span>
+					<span class="infItem">报警时间：{{mills2datatime deployEvent.absTime}}</span>	
+					{{#if deployEvent.lprValue}}
+						<span class="infItem">车牌号码：{{null2unkown deployEvent.lprValue}}</span>
+					{{else}}
+						<span class="infItem" title="{{deployEvent.areaName}}">区域名称：{{deployEvent.areaName}}</span>
+					{{/if}}				
+					<span class="infItem" title="{{null2unkown deployEvent.handleAuthor}}">处理人：{{null2unkown deployEvent.handleAuthor}}</span>
+					<span class="infItem">处理时间：{{mills2datatime deployEvent.handleTime}}</span>
+				</li>
+				<li class="infor">
+                    {{#if deployEvent.count}}
+                    <span class="infItem">当前计数：<em class="num" title="{{deployEvent.count}}">{{deployEvent.count}}</em></span>
+                    {{/if}}
+					<span class="infItem level"><lable>报警级别：</lable>{{int2level deployEvent.level}}</span>
+					<span class="infItem" id='remark' title="{{deployEvent.comment}}"><label>备注信息：</label><span class='{{overflowText deployEvent.comment deployEvent.eventType}}'>{{deployEvent.comment}}</span></span>
+				</li>
+			</ul>
+		</div>
+	</td>
+{{/with}}
+{{/if}}
+
+<!-- 手动报警的模板 by wangxiaojun 2014-10-30 -->
+{{!--查看布防时的弹出框(手动报警)--}}
+{{#if handAlarmDetails}}
+{{#with handAlarmDetails}}
+	<td colspan="7" class="detailTd">
+		<div class="icon_look_details" data-id="{{deployEvent.id}}">
+			<ul>
+				<li class="pic">
+					<a class="analysis" href="{{list1 deployEvent.imgInfo}}">
+						<img src="{{list1 deployEvent.imgInfo}}">
+					</a>
+				</li>
+				<li class="infor">
+					<span class="infItem" data-id="{{deployEvent.id}}">报警类型：{{eventType2eventName deployEvent.eventType}}</span>
+					<span class="infItem">报警时间：{{mills2datatime deployEvent.absTime}}</span>
+					<span class="infItem" title="{{deployEvent.reportPlace}}">报警地点：{{ deployEvent.reportPlace}}</span>
+					<span class="infItem" title="{{deployEvent.reportReason}}">报警原因：{{deployEvent.reportReason}}</span>
+					<span class="infItem" title="{{null2unkown deployEvent.reportPerson}}">报警人：{{null2unkown deployEvent.reportPerson}}</span>
+				</li>
+				<li class="infor">
+					<span class="infItem" title="{{null2unkown deployEvent.handleAuthor}}">处理人：{{null2unkown deployEvent.handleAuthor}}</span>
+					<span class="infItem">处理时间：{{mills2datatime deployEvent.handleTime}}</span>
+					<span class="infItem">报警级别：{{int2level deployEvent.level}}</span>
+					<span class="infItem" id='remark' title="{{deployEvent.comment}}"><label>备注信息：</label><span class='{{overflowText deployEvent.comment deployEvent.eventType}}'>{{deployEvent.comment}}</span></span>
+				</li>
+
+			</ul>
+		</div>
+	</td>
+{{/with}}
+{{/if}}
+
+
+<!-- 统计分析 -->
+{{#if countAnalysisList}}
+<div class="breadcrumb">
+	
+</div>
+<div class="content">
+ 	<div class="conditions">
+ 		<label>开始时间：</label>
+ 		<span class="ui input"><input type="text" class="begin-time input-time" readonly="true" placeholder="请选择开始时间" /></span>
+ 		<label>结束时间：</label>
+ 		<span class="ui input"><input type="text" class="end-time input-time" readonly="true" placeholder="请选择结束时间"/></span>
+ 		<label>事件类型：</label>
+ 		<span class="select_container" data-type="event-type">
+            <span class="text" data-value="">全部</span>
+            <span class="arrow-down"></span>
+        </span>
+ 		<a href="javascript:void(0);" title="查询" class="countSearch"></a>
+ 		<span>
+ 			<a href="javascript:void(0);" class="dataExport permission permission-export-stat">导出</a>
+ 		</span>
+ 	</div>
+
+ 	<div class="table_lists_chat">
+ 		<div id="countAnalysisTable"></div>
+ 	</div>
+ 	<div class="count_chat">
+ 		<div class="chatBar">
+ 			<span class="tabWaper">
+ 				<i class="chat_tab active" data-tab="denfenceType">防控类型</i>
+ 				<i class="chat_tab" data-tab="alarmLevel">报警级别</i>
+ 			</span>
+ 		</div>
+ 		<div class="chatTable" id="bar"></div>
+ 	</div>
+</div>
+{{/if}}
+<!-- 统计分析面包屑 -->
+{{#if countAnalysisBread}}
+	{{#each countAnalysisBread}}
+		<a class="section" data-id="{{this.id}}">{{this.name}}</a>
+		<span class="divider arrow">></span>
+	{{/each}}
+	<span class="active section">统计分析</span>
+{{/if}}
+<!-- 统计分析列表内容 -->
+{{#if countAnalysisItems}}
+<div class="fix">
+	<table>
+	    <tr>
+	      <th class="select check"></th>
+	      <th class="thitem_small"></th>
+	      <th class="thitem_small"></th>
+	      <th colspan="3" class="thitem leftborder bottomborder">按防控类型</th>
+	      <th colspan="3" class="thitem leftborder bottomborder">按报警级别</th>
+	      <th class="empty bottomborder"></th>
+	    </tr>
+	    <tr>
+	     <th class="select check">
+	        <input type="checkbox"/>
+	      </th>
+	      <th>月份</th>
+	      <th>总报警数</th>
+	      <th class="leftborder">人员布控</th>
+	      <th>车辆布控</th>
+	      <th>事件布防</th>
+	      <th class="leftborder">一般</th>
+	      <th>重要</th>
+	      <th>严重</th>
+	      <th></th>
+	    </tr>
+	</table>
+</div>
+<div class="scroll">
+	<table>	
+		<tbody>	
+		{{#each countAnalysisItems.countAnalysis}}
+			<tr class="table_lists_cont {{even @index}}">
+				<td class="select check">
+					<input type="checkbox" class="checkinfo" data-time="{{time}}"/>
+				</td>
+				<td title="{{time}}"class="tbitem">{{time}}</td>
+				<td title="{{total}}"class="tbitem">{{total}}</td>
+				<td title="{{list1s types}}"class="tbitem">{{list1s types}}</td>
+				<td title="{{list2 types}}"class="tbitem">{{list2 types}}</td>
+				<td title="{{list3 types}}"class="tbitem">{{list3 types}}</td>
+				<td title="{{list1s levels}}"class="tbitem">{{list1s levels}}</td>
+				<td title="{{list2 levels}}"class="tbitem">{{list2 levels}}</td>
+				<td title="{{list3 levels}}"class="tbitem">{{list3 levels}}</td>
+			</tr>
+		{{/each}}
+		</tbody>
+	</table>
+</div>
+{{/if}}
+
+{{#if dealstatus}}
+    <li data-value="">全部</li>
+    <li data-value="0">未处理</li>
+    <li data-value="1">有效</li>
+    <li data-value="2">无效</li>
+    <li data-value="3">未知</li>
+{{/if}}
+
+{{#if defencetype}}
+    <li data-value="">全部</li>
+    {{#each data}}
+    <li data-value="{{evType}}">{{name}}</li>
+    {{/each}}
+{{/if}}
+
+{{#if alarmlevel}}
+    <li data-value="1">一般</li>
+    <li data-value="2">重要</li>
+    <li data-value="3">严重</li>
+{{/if}}
+<!-- 点击目标人时弹出层 -->
+{{#if checkAimPerson}}
+    {{#if turnPage}}{{else}}
+       <div class="pop_top">
+           <span class="top_text">目标人</span>
+           <span class="top_text">候选人</span>
+       </div>
+       <div class="pop_pic">
+            <div class="imgItem">
+                <img src="{{data.targetSrc}}">
+            </div>
+            <div class="imgItem">
+                <i class="turnPrev" title="上一张"></i>
+                <img class="cadidate" src="{{data.src}}">
+                <i class="turnNex" title="下一张"></i>
+            </div>
+        </div>
+    {{/if}}
+    <div class="pop_bottom">
+    	<div class="pop_bottom_all">
+	        <span class="infor_item">所属库：{{data.libname}}</span>
+	        <span class="infor_item">比分阈值：{{data.comparescore}}</span>
+	        <div class="toolsBar">
+	        	<span>报警处理状态：</span>
+	            <i class="right"></i>
+	            <i class="wrong"></i>
+	            <i class="unknow"></i>
+	        </div>
+        </div>
+        <!--<a class="pop_close">关闭</a>-->
+    </div>
+{{/if}}
+
+{{#if alarmCountList}}
+<ul >
+	{{#if alarmListDetail}}
+	{{#each alarmListDetail}}
+	<li class="countListDetail {{isFirstLi event_type}}"   data-orgId ={{id}}  data-eventType={{event_type}} data-resouceType={{type}}>
+		<span class="countTitle">{{countTitle event_type}}：</span>
+		<span class="countBar">
+			<p class="bar" style="background:{{barColor color}}"></p>
+			<p class="prograss" style="background:{{proColor color}};width:{{withCtr total_count curr_day_count}}"></p>
+		</span>
+		<span class="count"><em class="now">{{formCount curr_day_count}}</em>/<em class="tot">{{formCount total_count}}</em></span>
+	</li>
+	{{/each}}
+	{{else}}
+	<li class="style-text-info "></li>
+	{{/if}}
+</ul>
+{{/if}}

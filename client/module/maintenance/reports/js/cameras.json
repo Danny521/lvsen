@@ -1,0 +1,187 @@
+{
+    "code": 200,
+    "data": {
+        "statisticsInfos": [
+            {
+                "orgId": 47,
+                "orgName": "上海市公安局",
+                "totalCnt": 0,
+                "hdCnt": 0,
+                "sdCnt": 0,
+                "ptzAbleCnt": 0,
+                "ptzUnableCnt": 0
+            },
+            {
+                "orgId": 1,
+                "orgName": "市局1楼",
+                "totalCnt": 129,
+                "hdCnt": 0,
+                "sdCnt": 129,
+                "ptzAbleCnt": 129,
+                "ptzUnableCnt": 0
+            },
+            {
+                "orgId": 2,
+                "orgName": "市局2楼",
+                "totalCnt": 129,
+                "hdCnt": 0,
+                "sdCnt": 129,
+                "ptzAbleCnt": 129,
+                "ptzUnableCnt": 0
+            },
+            {
+                "orgId": 3,
+                "orgName": "市局2楼",
+                "totalCnt": 129,
+                "hdCnt": 0,
+                "sdCnt": 129,
+                "ptzAbleCnt": 129,
+                "ptzUnableCnt": 0
+            },
+            {
+                "orgId": 3,
+                "orgName": "市局2楼",
+                "totalCnt": 129,
+                "hdCnt": 0,
+                "sdCnt": 129,
+                "ptzAbleCnt": 129,
+                "ptzUnableCnt": 0
+            },
+            {
+                "orgId": 3,
+                "orgName": "市局2楼",
+                "totalCnt": 129,
+                "hdCnt": 0,
+                "sdCnt": 129,
+                "ptzAbleCnt": 129,
+                "ptzUnableCnt": 0
+            },
+            {
+                "orgId": 3,
+                "orgName": "市局2楼",
+                "totalCnt": 129,
+                "hdCnt": 0,
+                "sdCnt": 129,
+                "ptzAbleCnt": 129,
+                "ptzUnableCnt": 0
+            },
+            {
+                "orgId": 3,
+                "orgName": "市局2楼",
+                "totalCnt": 129,
+                "hdCnt": 0,
+                "sdCnt": 129,
+                "ptzAbleCnt": 129,
+                "ptzUnableCnt": 0
+            },
+            {
+                "orgId": 3,
+                "orgName": "市局2楼",
+                "totalCnt": 129,
+                "hdCnt": 0,
+                "sdCnt": 129,
+                "ptzAbleCnt": 129,
+                "ptzUnableCnt": 0
+            },
+            {
+                "orgId": 3,
+                "orgName": "市局2楼",
+                "totalCnt": 129,
+                "hdCnt": 0,
+                "sdCnt": 129,
+                "ptzAbleCnt": 129,
+                "ptzUnableCnt": 0
+            },
+            {
+                "orgId": 3,
+                "orgName": "市局2楼",
+                "totalCnt": 129,
+                "hdCnt": 0,
+                "sdCnt": 129,
+                "ptzAbleCnt": 129,
+                "ptzUnableCnt": 0
+            },
+            {
+                "orgId": 3,
+                "orgName": "市局2楼",
+                "totalCnt": 129,
+                "hdCnt": 0,
+                "sdCnt": 129,
+                "ptzAbleCnt": 129,
+                "ptzUnableCnt": 0
+            },
+            {
+                "orgId": 3,
+                "orgName": "市局2楼",
+                "totalCnt": 129,
+                "hdCnt": 0,
+                "sdCnt": 129,
+                "ptzAbleCnt": 129,
+                "ptzUnableCnt": 0
+            },
+            {
+                "orgId": 3,
+                "orgName": "市局2楼",
+                "totalCnt": 129,
+                "hdCnt": 0,
+                "sdCnt": 129,
+                "ptzAbleCnt": 129,
+                "ptzUnableCnt": 0
+            },
+            {
+                "orgId": 3,
+                "orgName": "市局2楼",
+                "totalCnt": 129,
+                "hdCnt": 0,
+                "sdCnt": 129,
+                "ptzAbleCnt": 129,
+                "ptzUnableCnt": 0
+            },
+            {
+                "orgId": 3,
+                "orgName": "市局2楼",
+                "totalCnt": 129,
+                "hdCnt": 0,
+                "sdCnt": 129,
+                "ptzAbleCnt": 129,
+                "ptzUnableCnt": 0
+            },
+            {
+                "orgId": 3,
+                "orgName": "市局2楼",
+                "totalCnt": 129,
+                "hdCnt": 0,
+                "sdCnt": 129,
+                "ptzAbleCnt": 129,
+                "ptzUnableCnt": 0
+            },
+            {
+                "orgId": 3,
+                "orgName": "市局2楼",
+                "totalCnt": 129,
+                "hdCnt": 0,
+                "sdCnt": 129,
+                "ptzAbleCnt": 129,
+                "ptzUnableCnt": 0
+            },
+            {
+                "orgId": 3,
+                "orgName": "市局2楼",
+                "totalCnt": 129,
+                "hdCnt": 0,
+                "sdCnt": 129,
+                "ptzAbleCnt": 129,
+                "ptzUnableCnt": 0
+            },
+            {
+                "orgId": 3,
+                "orgName": "市局2楼",
+                "totalCnt": 129,
+                "hdCnt": 0,
+                "sdCnt": 129,
+                "ptzAbleCnt": 129,
+                "ptzUnableCnt": 0
+            }
+        ]
+    }
+}

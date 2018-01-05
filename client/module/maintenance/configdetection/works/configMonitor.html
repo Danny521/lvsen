@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=10,chrome=1"/>
+	<title>视云实战平台</title>
+
+	<link type="text/css" rel="stylesheet" href="../../../common/css/base.css" />
+	<link type="text/css" rel="stylesheet" href="../../../../libs/semantic/semantic.css" />
+	<link rel="stylesheet" type="text/css" href="../../../../libs/jquery/jquery-ui.css">
+	<link type="text/css" rel="stylesheet" href="../css/configMonitor.css" />
+	<script type="text/javascript" src="/libs/requirejs/require.js"></script>
+	<script type="text/javascript" src="/require-conf.js"></script>
+	<script type="text/javascript">
+		require(['base.self'],function(){
+			require(['/module/maintenance/configdetection/js/main.js']);
+		})
+	</script>
+</head>
+<body>
+	<div class="main">
+		<div class="deroction"></div>
+		<div id="check-lists" class="">
+			<div class="head clearfix">
+				<div class="head-title push-left">PVG状态检测</div>
+				<div class="head-button push-right">
+					<button class="btn-start">开始检测</button>
+					<button class="btn-stop btn-gray" disabled="disabled">停止检测</button>
+				</div>
+			</div>
+			<div class="content">
+				<div class="content-title">
+					<ul class="inline-list inline-title">
+						<li>组织机构</li>
+						<li>IP地址</li>
+						<li>PVG编号</li>
+						<li>PVG类型</li>
+						<li>域名</li>
+						<li>检测状态</li>
+						<li class="last">变更数目(设备/通道)</li>
+					</ul>
+				</div>
+				<div id="content-lists" class="content-lists">
+				</div>
+			</div>
+		</div>
+		<div id="check-result" class="hide">
+			<div class="result-header clearfix">
+				<span class="push-left">PVG 6.7(NVR)</span>
+				<button class="btn-back push-right">返回</button>
+			</div>
+			<div class="tabs">
+				<span data-tab="video" class="current push-left">视频设备</span>
+				<span data-tab="camera" class="push-left">摄像机通道</span>
+			</div>
+			<div class="result-title clearfix">
+				<div class="push-left">
+					<input type="checkbox" class="check-all">
+					<span>全选</span>
+				</div>
+				<span class="push-left">PM配置</span>
+				<div class="push-left">
+					<a class="image"></a>
+					<button class="btn-update">数据同步</button>
+				</div>
+				<span class="push-left">实战数据库</span>
+			</div>
+			<div id="infos" class="infos">
+			</div>
+		</div>
+	</div>
+</body>
+</html>

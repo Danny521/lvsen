@@ -1,0 +1,91 @@
+/*��Ƶ�ڵ�����ʽ*/
+.video_content .video_edit .video-block{
+    height: 60px;
+    /*background: url(/assets/images/playerbtn/bg.png) repeat-x;*/
+    overflow: hidden;
+    margin-top: -3px;
+	width:700px;
+}
+.video_content .video_edit .video-block .progress-bg{
+	height:5px;
+	background-color:#222426;
+}
+.video_content .video_edit .video-block .progress-bar{
+	position: relative;
+    height: 5px;
+    background: #9199A1;
+    cursor: pointer;
+}
+.video_content .video_edit .video-block .progress-bar .bullet{
+	position: relative;
+    height: 5px;
+    background-color: #58636E;
+    width: 0px;
+    overflow: visible !important;
+
+    /*background-image: url(/assets/images/playerbtn/point.png);
+    background-size:  19px 18px;
+    background-repeat: no-repeat;*/
+}
+.video_content .video_edit .video-block .progress-bar .bullet i.play-point{
+	position: absolute;
+	right: -10px;
+	height: 18px;
+	width: 19px;
+	/*background: url(/assets/images/playerbtn/point-imagejude.png) no-repeat;*/
+    background: url(/module/common/images/playerbtn/point.png) no-repeat;
+	top: -6px;
+	z-index:10;
+}
+.video_content .video_edit .video-block .progress-bar i.start-mark{
+	position: absolute;
+	height: 15px;
+	left: 0px;
+	width: 6px;
+	background: url(/module/common/images/playerbtn/imagejude-before.png) no-repeat;
+	top: -4px;
+    display: none;
+	z-index:9;
+}
+.video_content .video_edit .video-block .progress-bar i.start-mark:hover{
+	background: url(/module/common/images/playerbtn/imagejude-beforehover.png) no-repeat;
+}
+.video_content .video_edit .video-block .progress-bar i.end-mark{
+	position: absolute;
+	height: 15px;
+	left: 50px;
+	width: 6px;
+	background: url(/module/common/images/playerbtn/imagejude-after.png) no-repeat;
+	top: -4px;
+    display: none;
+	z-index:8;
+}
+.video_content .video_edit .video-block .progress-bar i.end-mark:hover{
+	background: url(/module/common/images/playerbtn/imagejude-afterhover.png) no-repeat;
+}
+.video_content .video_edit .video-block .panel{
+    height: 50px;
+    background: url(/module/common/images/playerbtn/bg.png) repeat-x;
+}
+
+.video_content .video_edit .video-block .speed{
+    display: none;
+}
+.video_content .video_edit .video-block .time,.video_content .video_edit .video-block .speed{
+    line-height: 50px;
+    font-size: 13px;
+    color: #ffffff;
+    margin-left: 10px;
+	width:50px;
+}
+
+
+.video_content .video_edit .video-block .editing{
+    background: url(/module/common/images/playerbtn/editing.png);
+	width: 45px;
+    float: right;
+}
+.video_content .video_edit .video-block .editing:hover{
+    background: url(/module/common/images/playerbtn/editing-hover.png);
+}
+

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=10,chrome=1"/>
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<title>视云实战平台</title>
+	<!--[if lt IE 9]>
+	<script src="/libs/html5/html5.js"></script>
+	<![endif]-->
+
+	<link type="text/css" rel="stylesheet" href="/module/common/css/base.css" />
+	<link type="text/css" rel="stylesheet" href="/libs/semantic/semantic.css" />
+	<link type="text/css" rel="stylesheet"  href="/libs/jquery/jquery-ui.css">
+	<link type="text/css" rel="stylesheet" href="/libs/jquery/jquery.datetimepicker.css"/>
+	<link type="text/css" rel="stylesheet" href="/module//viewlibs/common/medialib.css"/>
+	<link type="text/css" rel="stylesheet" href="/module/viewlibs/common/aside.css"/>
+	<link type="text/css" rel="stylesheet" href="/module/viewlibs/search/css/search.css"/>
+	<link type="text/css" rel="stylesheet" href="/component/panel/main.css"/>
+	<link type="text/css" rel="stylesheet" href="/module/viewlibs/common/panel_import.css"/>
+</head>
+<body>
+	<div id="gsheader">
+		<div class="wrapper">
+			<div class="content">
+				<input type="text" value="" name="" class="input-text search" /><input class="confirm" readonly />
+			</div>
+
+		</div>
+	</div>
+	<div id="content">
+		<div class="wrapper">
+			<!--#include file="/module/viewlibs/common/sidebar.html" -->
+			<div class="main">
+				<!--#include file="/module/viewlibs/search/inc/search_filter.html" -->
+				<div class="order-cases clearfix">
+					<span class="type">排序：</span>
+					<ul class="cases">
+						<li class="active" data-key="1" data-filter='o'>
+							<a>
+								创建时间<i class="dir_down"></i>
+							</a>
+						</li>
+						<!--<li class="" data-key="1" data-filter='m' style="display:none;">
+							<a>
+								<span class='name'>目标出现时间</span><i class="dir_down"></i>
+							</a>
+						</li>-->
+					</ul>
+					<div class="total">
+						共<span class="count"> 0 </span><span class="infotype">个资源信息</span>
+						<span class="curpage"> </span>
+						<span class="totalpage"> </span>
+					</div>
+				</div>
+				<div class="box searchlist">
+					<div class="content clearfix" >
+						<div class="loading"></div>
+					</div>
+					<div class="pagepart itempager pagination"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript" data-main="/module/viewlibs/search/js/main.js" src="/libs/requirejs/require.js"></script>
+	<!--<script type="text/javascript" src="/component/base/base.self.js"></script>
+	<script type="text/javascript" src="/libs/jquery/jquery-ui-1.10.1.custom.min.js"></script>
+	<script type="text/javascript" src="/libs/jquery/jquery-ui-timepicker-addon.js"></script>
+	<script type="text/javascript" src="/component/cascade/common.cascade.js"></script>
+	<script type="text/javascript" src="/libs/echart/echarts-plain-original.js"></script>
+	<script type="text/javascript" src="/libs/scrollbar/scrollbar.js"></script>
+	<script type="text/javascript" src="/libs/jquery/jquery.pagination.js"></script>
+	<script type="text/javascript" src="/component/panel/main.js"></script>
+	<script type="text/javascript" src="/module/viewlibs/common/panel_import.js"></script>
+	<script type="text/javascript" src="/module/viewlibs/common/tool.js"></script>
+	<script type="text/javascript" src="/libs/highcharts/highcharts.js"></script>
+	<script type="text/javascript" src="/module/viewlibs/common/filterData.js"></script>
+	<script type="text/javascript" src="/module/viewlibs/search/js/search.js"></script>
+	<script type="text/javascript" src="/module/common/permission/permission.js"></script>-->
+</body>
+</html>

@@ -1,0 +1,394 @@
+.olFramedCloudPopupContent {
+    overflow: visible;
+    background-color: white;
+    border-width: 1px;
+    border-style: solid;
+    border-color: gray;
+    cursor: default;
+    border-radius: 4px;
+    border: solid 1px #c9c9c9 !important;
+    moz-box-shadow: 0px 1px 8px #C2C2C2; /*firefox*/
+    -webkit-box-shadow: 0px 1px 8px #C2C2C2; /*safari或chrome*/
+    box-shadow: 0px 1px 8px #C2C2C2; /*opera或ie9*/
+}
+/*信息窗标题*/
+.infowindow-title{
+    height: 35px;
+    line-height: 35px;
+    border-bottom: 1px solid #ddd;
+    background-color: #F9F9F9;
+    color: #333333;
+    border-radius: 4px 4px 0 0;
+}
+.infowindow-title span.text{
+    float: left;
+    padding-left: 10px;
+    display: inline-block;
+    width: auto;
+    max-width: 230px;
+    font-size: 14px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.infowindow-title span.camera-install-type {
+    float: left;
+    color: #999;
+    text-indent: 4px;
+}
+.infowindow-title span.btns{
+    width: 90px;
+    margin: 0px 22px 0px 10px;
+    height: 30px;
+    display: inline-block;
+    float: right;
+}
+.infowindow-title span.btns i {
+    cursor: pointer;
+    display: inline-block;
+    float: right;
+    margin-right: 3px;
+}
+.infowindow-title span.btns i.historyBtn, .infowindow-title span.btns i.sendtotvwallBtn, .infowindow-title span.btns i.sendtoextendBtn,.infowindow-title span.btns i.recoveryBtn{
+    margin-top: 9px;
+    width: 17px;
+    height: 17px;
+    background: url("../images/map/map-operator.png") no-repeat;
+}
+/*手动报警*/
+.infowindow-title span.btns i.manaualBtn{
+    margin-top: 9px;
+    width: 17px;
+    height: 17px;
+    background: url("../images/map/manaual.png") no-repeat;
+
+}
+.infowindow-title span.btns i.manaualBtn{
+    background-position: 0 2px;
+}
+.infowindow-title span.btns i.manaualBtn:hover{
+    background-position: -21px 2px;
+}
+.infowindow-title span.btns i.sendtoextendBtn{
+    background-position: 0 -125px;
+}
+.infowindow-title span.btns i.sendtoextendBtn:hover{
+    background-position: -19px -125px;
+}
+.infowindow-title span.btns i.historyBtn{
+    background-position: 0 -20px;
+}
+.infowindow-title span.btns i.historyBtn:hover{
+    background-position: -19px -20px;
+}
+.infowindow-title span.btns i.sendtotvwallBtn{
+    background-position: 0 -83px;
+}
+.infowindow-title span.btns i.sendtotvwallBtn:hover{
+    background-position: -19px -83px;
+}
+.infowindow-title span.btns i.recoveryBtn{
+    margin-right: 10px;
+    background-position: 0 -104px;
+}
+.infowindow-title span.btns i.recoveryBtn:hover{
+    background-position: -19px -104px;
+}
+.infowindow-title .btns .passBtn,.infowindow-title .btns .frequencyBtn,.infowindow-title .btns .flowBtn{
+    height: 16px;
+    width: 16px;
+    background: url("../images/map/gate.png") 0 0 no-repeat;
+    margin: 10px 5px;
+    float: left;
+}
+.infowindow-title .btns .passBtn:hover {
+    background-position: -19px 0;
+}
+.infowindow-title .btns .frequencyBtn{
+    background-position: 0px -21px;
+}
+.infowindow-title .btns .frequencyBtn:hover {
+    background-position: -19px -21px;
+}
+.infowindow-title .btns .flowBtn{
+    background-position: 0px -42px;
+}
+.infowindow-title .btns .flowBtn:hover {
+    background-position: -19px -42px;
+}
+.infowindow-title .btns .closeBtn{
+    height: 12px;
+    width: 12px;
+    background: url("../images/map/infowin-close.png") 0 0 no-repeat;
+    margin: 0;
+    position: absolute;
+    top: 12px;
+    right: 10px;
+}
+.infowindow-title span.btns i.closeBtn:hover {
+    background-position: -12px 0;
+}
+
+.infowindow-title .mark-name {
+    margin-left: 5px;
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 59%;
+}
+/*信息窗内容区样式*/
+.infowindow-content {
+
+}
+.infowindow-content .map-video-container {
+    height: 240px !important;
+    width: 398px !important;
+}
+.infowindow-content .map-camera-info {
+    width: 398px !important;
+    padding: 0 10px;
+    font-size: 0px;
+}
+.infowindow-content .map-camera-info .camera-addr {
+    width: 199px;
+    font-size: 12px;
+    display: inline-block;
+    text-align: left;
+}
+.infowindow-content .map-camera-info .camera-position {
+    width: 199px;
+    font-size: 12px;
+    display: inline-block;
+    text-align: right;
+}
+.infowindow-content .map-camera-info i, .infowindow-content .info-item i.resource-addr-i {
+    width: 13px;
+    height: 13px;
+    margin: 0 4px -2px 0;
+    display: inline-block;
+    background: url("../images/map/infowindow-content.png") no-repeat;
+}
+.infowindow-content .map-camera-info i.camera-address, .infowindow-content .info-item i.resource-addr-i {
+    background-position: 0 0;
+}
+.infowindow-content .map-camera-info i.camera-pos {
+    background-position: -11px 0;
+}
+.infowindow-content.lightbar,.infowindow-content.gps {
+    padding: 10px 0 0 0;
+    font-size: 0px;
+}
+
+.infowindow-content .info-item {
+    padding: 0 0 5px 15px;
+    display: block;
+    font-size: 12px;
+}
+.infowindow-content .info-item.gps-item {
+    display: inline-block;
+    width: 45%;
+}
+.infowindow-content .resource-code {
+    font-weight: bold;
+}
+.infowindow-content .info-item i.resource-code-i {
+    width: 13px;
+    height: 13px;
+    margin: 0 4px -2px 0;
+    display: inline-block;
+    background: url("../images/map/map-resource.png") no-repeat;
+}
+.infowindow-content .info-item i.lightbar {
+    background-position: -118px -34px;
+}
+.infowindow-content .info-item i.police {
+    width: 15px;
+    background-position: -62px -34px;
+}
+.infowindow-content .info-item i.policeman {
+    background-position: -91px -34px;
+}
+/*信息窗底部样式*/
+.infowindow-footer .footer-tabs {
+    width: 100%;
+    margin-top: 5px;
+    border-top: solid 1px lightgray;
+    font-size: 0px;
+}
+.infowindow-footer .footer-tabs li{
+    display: inline-block;
+    cursor: pointer;
+    height: 30px;
+    line-height: 30px;
+    width: 138px;
+    text-align: center;
+    border-left: solid 1px lightgray;
+    border-bottom: solid 1px lightgray;
+    font-size: 12px;
+}
+.infowindow-footer .footer-tabs li:first-child {
+    border-left: none;
+    width: 139px;
+}
+.infowindow-footer .footer-tabs li.active {
+    border-bottom: none;
+}
+.infowindow-footer .footer-tabs li i {
+    width: 13px;
+    height: 13px;
+    margin: 0 4px -2px 0;
+    display: inline-block;
+    background: url("../images/map/infowindow-content.png") no-repeat;
+}
+.infowindow-footer .footer-tabs li i.around {
+    background-position: -55px 0;
+}
+.infowindow-footer .footer-tabs li i.endhere {
+    background-position: -25px 0;
+}
+.infowindow-footer .footer-tabs li i.gothere {
+    background-position: -37px 0;
+}
+.infowindow-footer .footer-tabs-content {
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+}
+.infowindow-footer .footer-tabs-content div {
+    display: none;
+}
+.infowindow-footer .footer-tabs-content div.active {
+    display: block;
+}
+.infowindow-footer .footer-tabs-content .destination input,
+.infowindow-footer .footer-tabs-content .origination input {
+    width: 270px !important;
+    height: 11px !important;
+    line-height: 11px !important;
+}
+.infowindow-footer .footer-tabs-content input.best-route-origin,
+.infowindow-footer .footer-tabs-content input.best-route-dest,
+.infowindow-footer .footer-tabs-content input.search {
+    height: 26px !important;
+    line-height: 24px !important;
+    padding: 0 10px;
+}
+.infowindow-footer .footer-tabs-content .search-content input{
+    width: 75px !important;
+    height: 11px !important;
+    line-height: 11px !important;
+    margin-right: 2px;
+}
+.infowindow-footer .footer-tabs-content .resource-links {
+    margin-right: 15px;
+}
+.infowindow-footer .footer-tabs-content .resource-links a {
+    margin-left: 6px;
+    color: #188dfb;
+}
+
+/*业务相关的css*/
+#markerName {
+    width: 326px !important;
+}
+.map-police-schuduling{
+    padding: 5px 15px !important;
+    width: auto !important;
+}
+.map-police-schuduling div.ui.form {
+    margin-top: 10px !important;
+}
+.map-police-schuduling div.ui.form .field {
+    margin-bottom: 10px;
+}
+.map-police-schuduling div.ui.input {
+    margin-top: 5px !important;
+}
+.map-police-schuduling .ui.form textarea {
+    margin-left: 0 !important;
+    width: 340px !important;
+    min-height: 6em;
+    font-size: 12px;
+    padding: 6px;
+    font-family: inherit;
+    color: #333333;
+    border: 1px solid #D9D9D9;
+}
+.map-police-schuduling .ui.buttons {
+    margin-left: 273px !important;
+}
+.map-marker-business {
+    padding-bottom: 0 !important;
+    width: auto !important;
+}
+.map-marker-business .marker-remark {
+    height: 30px !important;
+    line-height: 30px !important;
+    padding: 0 0 !important;
+    border-bottom: none !important;
+    text-indent: 10px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.infowindow-title .btns .marker-edit {
+    top: 10px;
+    right: 49px;
+    display: inline-block;
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    background-image: url('../images/map/map-edit.png');
+    background-position: 0 0;
+    background-repeat: no-repeat
+}
+.infowindow-title .btns .marker-edit:hover {
+    background-position: -15px 0;
+}
+.infowindow-title .btns .marker-del {
+    top: 11px;
+    right: 69px;
+    display: inline-block;
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    background-image: url('../images/map/map-del.png');
+    background-position: 1 0;
+    background-repeat: no-repeat
+}
+.infowindow-title .btns .marker-del:hover {
+    background-position: -15px 0;
+}
+.infowindow-title .btns .my-attention-ico {
+    top: 11px;
+    right: 30px;
+    display: inline-block;
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    background: url('../images/map/map-attention.png') no-repeat;
+    background-position: 0 0;
+    cursor: pointer
+}
+.infowindow-title .btns .my-attention-ico:hover {
+    background-position: -14px 0;
+}
+
+.infowindow-title .btns .my-attention-ico-cancel {
+    top: 11px;
+    right: 30px;
+    display: inline-block;
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    background: url('../images/map/map-attention.png') no-repeat;
+    background-position: -14px 0;
+    cursor: pointer
+}
+
+.infowindow-title .btns .my-attention-ico-cancel:hover {
+    background-position: 0 0;
+}

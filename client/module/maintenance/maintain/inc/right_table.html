@@ -1,0 +1,45 @@
+﻿<!-- <ul id="swTable" class="swtable">
+  <li >任务名称：<em></em></li>
+</ul>
+ -->
+<table class="intacttable">
+  <tr class="tabletitle">
+    <td width="350px">县区名称</td>
+    <td width="200px">开始时间</td>
+    <td width="200px">结束时间</td>
+    <td>在线数</td>
+    <td>离线数</td>
+    <td>完好数</td>
+    <td>故障数</td>
+    <td>摄像机总数</td>
+  </tr>
+</table>
+<div class="tabLayout">
+  <table id="onlineTable" class="onlinetable">
+  <tr class="tabletitle">
+    <td width="350px">县区名称</td>
+    <td width="200px">开始时间</td>
+    <td width="200px">结束时间</td>
+    <td>在线数</td>
+    <td>离线数</td>
+    <td>完好数</td>
+    <td>故障数</td>
+    <td>摄像机总数</td>
+  </tr>
+  {{#each loadData}} 
+  <tr>
+    <td>{{orgName}}</td>
+    <td>{{isShowLine created}}</td>
+    <td>{{isShowLine endTime}}</td>
+    <td>{{isShowLine online_num}}</td>
+    <td>{{isShowLine unonline_num}}</td>
+    <td>{{isShowLine intact_num}}</td>
+
+    <td>{{isShowLine unintact_num}}</td>
+    <td>{{isShowLine all_num}}</td>
+
+  </tr>
+ {{/each}}  
+
+  </table>
+</div>

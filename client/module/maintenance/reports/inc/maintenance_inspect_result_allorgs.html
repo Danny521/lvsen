@@ -1,0 +1,22 @@
+<tr class="orgscheckedinfo">
+    <td class="orgscheckedinfotd">
+        <table class="ui five column table inverted segment">
+            <tr class="fontweight">
+                <td>巡检单位</td>
+                <td>巡检人</td>
+                <td>巡检时间</td>
+                <td>手动巡检结果</td>
+                <td>状态类型</td>
+            </tr>
+            {{#each records}}
+            <tr>
+                <td>{{orgName}}</td>
+                <td>{{userName}}</td>
+                <td>{{newDate inspectDate}}</td>
+                <td>{{checkedStatus status}}</td>
+                <td>{{exception exceptionInfos}}</td>
+            </tr>
+            {{/each}}
+        </table>
+    </td>
+</tr>

@@ -1,0 +1,242 @@
+/*右侧手风琴效果*/
+.basic_editing .module{
+	display: none;
+}
+.basic_editing .module.active{
+	display: block;
+}
+.basic_editing .module-head.active b{
+	background-position: -228px -3px;
+}
+
+/*横向菜单效果*/
+.control_panel .general > div,
+.control_panel .senior > div,
+.sub_nav li{
+	display: none;
+}
+.control_panel .general > div.active,
+.control_panel .senior > div.active,
+.sub_nav li.active{
+	display: block;
+}
+
+
+/*slider插件 start*/
+
+/*图片缩放*/
+.view_control span .ui-slider-handle{
+	width:20px;
+	height:20px;
+	display:block;
+	cursor:pointer;
+	position:absolute;
+	top:-8px;
+	left:0px;
+	z-index:99;
+	background:url(../images/icon.png) -181px -160px no-repeat;
+	border: none;
+}
+
+/*旋转角度*/
+.sliding_bar .ui-slider{
+	width:170px;
+	height:8px;
+	margin:0 auto;
+	display:block;	
+	background:url(../images/icon.png) -2px -166px no-repeat;
+	position:relative;
+	border: none;
+}
+
+.sliding_bar .ui-slider .ui-slider-range {
+	height:8px;
+}
+
+.sliding_bar .ui-slider .ui-slider-handle{
+	width:20px;
+	height:20px;
+	display:block;
+	cursor:pointer;
+	position:absolute;
+	top:-5px;
+	left:0px;
+	z-index:99;
+	background:url(../images/icon.png) -181px -160px no-repeat;
+	border: none;
+}
+/*slider插件 end*/
+
+
+/*滚动条样式*/
+.history_image_list .scrollbar {
+	position: relative;
+	float: left;
+	width: 12px;
+	margin-right: 4px;
+	top: 80px;
+	left: 10px;
+}
+.history_image_list .scrollbar .track {
+	height: 100%;
+	width: 12px;
+	position: relative;
+	cursor: pointer;
+	background: transparent url(/module/common/images/bg/track_line.png) center 0 repeat-y;
+}
+
+.history_image_list .scrollbar .thumb {
+	height: 72px;
+	width: 12px;
+	background: transparent url(/module/common/images/bg/scroll1.png) 0 0 no-repeat;
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+}
+.history_image_list .disable {
+	display: none;
+}
+
+/*缩略图*/
+.image_small_area{
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 160px;
+	height: 180px;
+	display: none;
+}
+
+
+#smallpicture{
+	width: 160px;
+	height: 180px;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+}
+
+#mask{
+	-moz-opacity:0.5;opacity: 0.5;
+	filter:apha(opacity=50);
+	background-color:black;
+	border:solid 1px yellow;
+	width:100px;
+	height:50px;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+}
+/*
+	ocx换小图标，样式从/module/common/css/base里取
+ */
+/*  .switch{
+ 	display: inline-block;
+ 	float: left;
+ 	background: url('/module/common/images/icons/equipment-switch.png') no-repeat 0 -23px;
+ 	width: 48px;
+ 	height: 22px;
+ 	margin-left: 0px;
+ 	cursor: pointer;
+ 	margin-top: 1px;
+ }  
+
+.switch.off{
+	background-position: 0 -23px;
+}
+.switch.on{
+	background-position: 0 0;
+}*/
+
+
+#loading{
+	display: none;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-top: -5px;
+	margin-left: -29px;
+}
+/*遮罩层*/
+
+#masklayer {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	opacity: 0.5;
+	z-index: 1000;
+	display: none;
+	background-color: #FFFFFF;
+	filter: alpha(opacity=50);
+	_position: absolute;
+	_width: 100%;
+	_height: expression(function(){return Math.max(document.documentElement.clientHeight,document.documentElement.scrollHeight);
+}());
+}
+
+#masklayer iframe {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	opacity: 0;
+	filter: alpha(opacity=0);
+}
+
+#hiddenImg{
+	display: none;
+}
+
+#orginImg{
+	display: none;
+	position: absolute;
+}
+
+.image_main_right{
+	/*display: none;*/
+}
+
+/*弹框样式*/
+.dialogContent {
+	height: 150px;
+	margin-top: 18px;
+}
+.dialogContent .icon {
+	background: url(/module/common/images/bg/media_video.png) 0 0 no-repeat;
+	width: 63px;
+	height: 63px;
+	margin-left: 100px;
+	margin-right: 10px;
+	float: left;
+}
+
+.dialogContent .icon1 {
+	background: url(/module/common/images/bg/media_video1.png) 0 0 no-repeat;
+	padding: 15px 11px 14px 19px; 
+	margin-bottom: 5px;
+	margin-top: -2px;
+	margin-left: -57px;
+	margin-right: 40px;
+}
+
+.dialogContent .detail {
+	margin-top: 12px;
+	display: inline-block;
+}
+
+.dialogContent .detail .opera {
+	font-size: 16px;
+}
+.dialogContent .detail .detail_word {
+	color: #CCCCCC;
+	margin: 10px 0 0 0;
+}
+.dialogContent .dialog_btn {
+	margin-top: 25px;
+	text-align: center;
+}

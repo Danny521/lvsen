@@ -1,0 +1,17 @@
+{{#if rows}}
+{{#each rows}}
+<ul class="inline-list content-list {{isRead status}} {{even @index}} clearfix {{isAllCheckedBg}}" data-url="{{url}}" data-moduleId="{{moduleId}}" data-msgId="{{id}}" data-taskid="{{taskid}}" data-msgContent="{{description}}" data-msgStatus="{{status}}" data-createdTime="{{mills2datetime createDate}}" data-msgContentUrl="{{url}}">
+	<li class="each-description push-left">
+		<div class="checkbox each-checkbox push-left {{isAllChecked}}"></div>
+		<div class="message{{status}} push-left"></div>
+		<span class="des-content push-left" data-url="{{url}}" title="{{description}}">{{description}}</span>
+    </li>
+    <li  class="each-time push-left">{{mills2datetime createDate}}</li>
+    <li class="push-left  delete-wrapper">
+        <div class="delete" title="删除"></div>
+    </li>
+</ul>
+{{/each}}
+{{else}}
+<p style='text-align:center;padding:10px;color:#888;'>暂无数据!</p>
+{{/if}}

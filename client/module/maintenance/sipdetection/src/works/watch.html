@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>视云实战平台</title>
+	<!--[if lte IE 9]><script src="/assets/js/lib/html5.js"></script><![endif]-->
+	<!--[if IE]><script src="/assets/js/lib/excanvas.js"></script><![endif]-->
+	<meta http-equiv="X-UA-Compatible" content="IE=10,chrome=1"/>
+
+	<link type="text/css" rel="stylesheet" href="../../../../common/css/base.css" />
+	<link type="text/css" rel="stylesheet" href="../../../../../libs/semantic/semantic.css" />
+	<link type="text/css" rel="stylesheet" href="../../../../../libs/jquery/jquery-ui.css">
+	<link type="text/css" rel="stylesheet" href="../../../../../libs/jquery/jquery.datetimepicker.css">
+	<link type="text/css" rel="stylesheet" href="../../../../../libs/semantic/collections/form.css" />
+	<link rel="stylesheet" type="text/css" href="../css/watch-new.css">
+	<script type="text/javascript" src="/libs/requirejs/require.js"></script>
+	<script type="text/javascript" src="/require-conf.js"></script>
+	<script type="text/javascript">
+		require(['base.self'],function(){
+			require(['/module/maintenance/sipdetection/src/js/main.js']);
+		})
+	</script>
+</head>
+<body>
+	<div class="header"></div>
+	<div class="wrap">
+		<div class="aside">
+			<ul class="inline-list">
+				<li class="current" data-tab="access"><a></a>入网检测</li>
+				<li class="btn-manager" data-tab="manager"><a class="hide"></a>检测管理</li>
+			</ul>
+		</div>
+		<div id="main">
+			<div  data-content="access" class="access">
+				<!-- 首页 -->
+				<div class="main">
+					<div class="wrap-title">基本信息 （带
+						<span>  *  </span>为必填项）
+					</div>
+					<div class="back"></div>
+					<form id="content" class="content">
+						<ul class="item">
+							<li><span class="flag">*</span><span>国标ID</span></li>
+							<li>
+								<input type="text" placeholder="--请输入国标ID--" name="id" class="sip-id">
+								<span class="validate hide">该ID已注册，请重新设置</span>
+							</li>
+						</ul>
+						<ul class="item">
+							<li><span class="flag">*</span><span>密码</span></li>
+							<li><input type="password" placeholder="--请输入密码--" name="password" class="sip-password"></li>
+						</ul>
+						<ul class="item">
+							<li><span class="flag">*</span><span>注册最长等待时长(秒)</span></li>
+							<li><input type="text" value="3600" name="expires" class="sip-expires"></li>
+						</ul>
+						<ul class="item">
+							<li><span>待检设备类型</span></li>
+							<li class="device-type">
+								<input type="text" value="IPC" name="deviceType" disabled="disabled">
+							</li>
+						</ul>
+						<ul class="item">
+							<li><span>视频通道ID</span></li>
+							<li><input type="text" placeholder="请输入" name="video" class="video-id"></li>
+						</ul>
+						<ul class="item">
+							<li><span>报警通道ID</span></li>
+							<li><input type="text" placeholder="请输入" name="alarm" class="alarm-id"></li>
+						</ul>
+						<ul class="item">
+							<li><span>录像起止时间</span></li>
+							<li>
+								<input type="text" name="start-time" class="video-start-time input-time input-datetime" placeholder="请输入起始时间">
+								<label class="line"></label>
+								<input type="text" name="end-time" class="video-end-time input-time input-datetime" placeholder="请输入截止时间">
+							</li>
+						</ul>
+						<ul class="item">
+							<li><span>厂商</span></li>
+							<li>
+								<select id="manufacture">
+									<option>海康</option>
+									<option>大华</option>
+								</select>
+								<input type="text" placeholder="请输入" class="manufacture hide" type="text" name="manufacture">
+								<span class="other">其他</span>
+							</li>
+						</ul>
+						<ul class="item">
+							<li><span>型号</span></li>
+							<li><input type="text" placeholder="请输入" name="model" class="choice-item"></li>
+						</ul>
+						<ul class="item">
+							<li><span>固件版本</span></li>
+							<li><input type="text" placeholder="请输入" name="fireware" class="choice-item"></li>
+						</ul>
+						<ul class="item">
+							<li><span>软件版本</span></li>
+							<li><input type="text" placeholder="请输入" name="soft" class="choice-item"></li>
+						</ul>
+						<ul class="item">
+							<li class="access-title push-left"><span>待检测功能项</span></li>
+							<li>
+								<div class='access-list clearfix'>
+									<div class="check-all">
+										<label><input type="checkbox" value="checkbox">全选</label>
+									</div>
+									<div class="check-type">
+										<label data-tab="registkind"><input type="checkbox" value="checkbox">注册/注销</label>
+										<label data-tab="controlkind"><input type="checkbox" value="checkbox">控制类命令</label>
+										<label data-tab="historykind"><input type="checkbox" value="checkbox">历史回放命令</label>
+										<label data-tab="alarmkind"><input type="checkbox" value="checkbox">报警命令</label>
+										<label data-tab="otherkind"><input type="checkbox" value="checkbox">其他命令</label>
+									</div>
+									<div class="access-item clearfix">
+										<div class="register-cmd push-left" data-tab="registkind">
+											<label><input type="checkbox" value="checkbox" name="register" checked="ture" disabled="disabled" data-index="1" data-describe="检测设备能否注册到上级平台">注册</label>
+											<label><input type="checkbox" value="checkbox" name="expiry" data-index="22" data-describe="检测设备在注册到期之前是否刷新注册">注册有效期</label>
+											<label><input type="checkbox" value="checkbox" name="unregister" data-index="24" data-describe="检测设备能否向上级平台注销">注销</label>
+											<label><input type="checkbox" value="checkbox" name="keepalive" data-index="3" data-describe="检测设备是否向上级平台发送心跳状态信息">心跳</label>
+											<label><input type="checkbox" value="checkbox" name="time" data-index="2" data-describe="检测设备能否进行SIP方式校时">校时</label>
+										</div>
+										<div class="controll-cmd push-left" data-tab="controlkind">
+											<label><input type="checkbox" value="checkbox" name="openstream"  data-index="5" data-describe="检测设备实时点播图像是否正常">实时点播</label>
+											<label><input type="checkbox" value="checkbox" name="ptz" data-index="6" data-describe="检测设备是否支持云台控制功能">云台控制</label>
+											<label><input type="checkbox" value="checkbox" name="ptzstop" data-index="7" data-describe="检测设备是否支持云台控制停止功能">云台控制停止</label>
+											<label><input type="checkbox" value="checkbox" name="remoterun" data-index="23" data-describe="检测设备是否支持远程启动控制">设备远程启动</label>
+											<label><input type="checkbox" value="checkbox" name="download" data-index="11" data-describe="检测已录制文件是否支持网络下载">视音频文件下载</label>
+										</div>
+										<div class="history-cmd push-left" data-tab="historykind">
+											<label><input type="checkbox" value="checkbox" name="queryfile" data-index="8" data-describe="检测设备录像检索应答是否正确">录像文件检索</label>
+											<label><input type="checkbox" value="checkbox" name="play" data-index="9" data-describe="检测设备录像回放是否正常">视频文件回放</label>
+											<label><input type="checkbox" value="checkbox" name="playctrl" data-index="10" data-describe="检测设备是否支持录像回放控制">视频文件回放控制</label>
+											<label><input type="checkbox" value="checkbox" name="rec" data-index="12" data-describe="检测设备是否支持开始手动录像">开始手动录像</label>
+											<label><input type="checkbox" value="checkbox" name="stoprec" data-index="13" data-describe="检测设备是否支持停止手动录像">停止手动录像</label>
+										</div>
+										<div class="alarm-cmd push-left" data-tab="alarmkind">
+											<label><input type="checkbox" value="checkbox" name="guard" data-index="14" data-describe="检测设备是否支持报警布防控制">报警布防</label>
+											<label><input type="checkbox" value="checkbox" name="unguard" data-index="17" data-describe=" 检测设备是否支持报警撤防控制">报警撤防</label>
+											<label><input type="checkbox" value="checkbox" name="alarm" data-index="15" data-describe="检测设备能否向上级平台发送报警通知">设备报警</label>
+											<label><input type="checkbox" value="checkbox" name="resetalarm" data-index="16" data-describe="检测设备是否支持报警复位控制">报警复位</label>
+										</div>
+										<div class="other-cmd push-left" data-tab="otherkind">
+											<label><input type="checkbox" value="checkbox" name="querycatalog"  data-index="4" data-describe="检测设备目录信息查询应答是否正确">设备目录查询</label>
+											<label><input type="checkbox" value="checkbox" name="queryinfo" data-index="18" data-describe="检测设备信息查询应答是否正确">设备信息查询</label>
+											<label><input type="checkbox" value="checkbox" name="querystatus" data-index="19" data-describe="检测设备状态查询应答是否正确">设备状态查询</label>
+											<label><input type="checkbox" value="checkbox" name="subscribe" data-index="20" data-describe="检测设备是否支持目录订阅">订阅通知</label>
+											<label><input type="checkbox" value="checkbox" name="broadcast" data-index="21" data-describe="检测是否支持语音广播">语音广播</label>
+										</div>
+									</div>
+								</div>
+							</li>
+						</ul>
+						<ul>
+							<li class="last-btn"><input class="btn-start" type="button" value="开始检测"></li>
+						</ul>
+					</form>
+				</div>
+				<!-- 点击开始检测之后检测页面 -->
+				<div class="check-process hide baground">
+					<div class="check-status">
+						<div class="check-static clearfix">
+							<div class="check-logo push-left"></div>
+							<div class="static push-left">
+								<ul>
+									<li class="check-percent">
+										<span>正在检测&nbsp&nbsp</span>
+										<span class="percent">0%</span>
+									</li>
+									<li class="static-items">已通过
+										<span class="pass-sum">0</span>&nbsp项 &nbsp&nbsp未通过
+										<span  class="unpass-sum">0</span>&nbsp项
+									</li>
+									<li class="sum-static hide">已检测
+										<span>0</span>&nbsp项 &nbsp&nbsp请选择
+										<span class="goOn-check">继续检测</span>&nbsp或
+										<span class="exit-operate">&nbsp终止检测</span>
+									</li>
+									<li class="items-time hide">已检测项
+										<span>0</span>&nbsp项 &nbsp&nbsp检测时间
+										<span>0</span>&nbsp秒
+									</li>
+									<li class="error-situation hide">
+										<span>由于网关已关闭，设备检测失败，请选择</span>&nbsp
+										<span class="agina-operate">重新检测</span>&nbsp或
+										<span class="exit-operate">&nbsp退出</span>
+									</li>
+									<li class="checked-time">检测时间：
+										<span>0</span>秒
+									</li>
+									<li class="operate-tip hide">请选择
+										<span class="save-operate">保存</span>
+										<span class="agina-operate hide">重新检测</span>&nbsp或
+										<span class="exit-operate">&nbsp退出</span>
+									</li>
+								</ul>
+							</div>
+							<div class="btn-operate push-right">
+								<button class="btn-open push-left" title="暂停"></button>
+								<button class="btn-stop push-left" title="停止"></button>
+								<button class="btn-exit hide push-left" title="退出"></button>
+							</div>
+						</div>
+						<div class="check-slide"></div>
+						<div class="check-progress"></div>
+					</div>
+					<!-- 检测项表头 -->
+					<div class="check-kind">
+						<ul class="check-kind-title">
+							<li>检测项目</li>
+							<li class="push-right">详情显示</li>
+						</ul>
+					</div>
+					<div class="check-lists">
+						<!-- 检测项 -->
+						<div id="check-items" class="check-items">
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 检测管理页面 -->
+			<div class="manager hide baground" data-content="manager">
+				<div class="wrap-title">检测管理</div>
+				<div class="manager-content">
+					<div class="filter clearfix">
+						<div class="div-id push-left">
+							<span>国标ID</span>
+							<input type="text" class="input-id" placeholder="请输入国标ID">
+							<span class="span-manufacture">设备厂商</span>
+							<input type="text" class="input-manufacture" placeholder="请输入设备厂商">
+						</div>
+						<div class="search push-left">
+							<span>时间段</span>
+							<input type="text" class="start-time input-time input-datetime" placeholder="请输入起始时间">
+							<input type="text" class="end-time input-time input-datetime" placeholder="请输入结束时间">
+						</div>
+						<!-- <div>
+							<span>厂商</span>
+							<input type="text">
+						</div>
+						<div>
+							<span>型号</span>
+							<input type="text">
+						</div> -->
+						<div class="advance push-left hide">
+							<span>高级>></span>
+						</div>
+						<div class="select push-left">
+							<button class="btn-select">查询</button>
+						</div>
+						<div class="delete push-left">
+							<button class="btn-delete-all">删除</button>
+						</div>
+					</div>
+					<div class="mag-content">
+						<ul class="mag-title">
+							<li>
+								<input type="checkbox" class="checkall">
+							</li>
+							<li>国标ID</li>
+							<li>设备厂商</li>
+							<li>设备类型</li>
+							<li>设备型号</li>
+							<li>检测时间</li>
+							<li>操作</li>
+						</ul>
+						<div id="mag-lists" class="mag-lists">
+						</div>
+						<div class="noData hide">没有相关数据！</div>
+						<div id="pager" class="pager"></div>
+					</div>
+
+				</div>
+				<div class="div-mng hide">
+					<div class="mng-result-content">
+						<div class="mng-result-title">
+							<div class="result-title">国标检测报告</div>
+							<div class="result-time">
+								<span>检测时间：</span>
+								<span  class="check-time">2014.12.15 09:00</span>
+							</div>
+						</div>
+						<div class="result-basic-infos">
+							<div class="basic-title">基本信息</div>
+							<div id="basic-content" class="basic-content clearfix">
+							</div>
+						</div>
+						<div class="result-check-Items">
+							<div class="check-title">自动检测功能项</div>
+							<div id="result-check-content" class="result-check-content">
+							</div>
+						</div>
+						<div>
+							<div class="result-summary">总结</div>
+							<div class="summary-content">共24项检测项，通过
+								<input class="sum-pass" value="0"> 项，
+								<input class="sum-unpass" value="0"> 项未通过，
+								<input class="sum-uncheck" value=""> 项未检测
+							</div>
+						</div>
+					</div>
+					<div class="mng-operate">
+						<button class="btn-export">导出</button>
+						<button class="btn-back">返回</button>
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<div class="shade hide"></div>
+	<div class="result hide">
+		<div class="result-header">
+			<span>结果查看</span>
+			<a class="result-close push-right"></a>
+		</div>
+		<div id="result-content" class="result-content"></div>
+	</div>
+	<div class="operate-cmd hide">
+		<div class="operate-header clearfix">
+			<span>手动操作</span>
+			<a class="btn-close push-right"></a>
+		</div>
+		<div class="operate-section clearfix">
+			<span class="warning">请手动操作请手动</span>
+		</div>
+		<button class="btn-ok" style="display:block;">忽略</button>
+	</div>
+	<div class="register-unpass hide">
+		<div class="register-uspass-tip">提示</div>
+		<div class="register-unpass-content">注册已失败，是否查看信令交互过程？</div>
+		<div class="register-unpass-btn">
+			<button class="btn-register push-left">是</button>
+			<button class="btn-unregister">否</button>
+		</div>
+	</div>
+</body>
+</html>

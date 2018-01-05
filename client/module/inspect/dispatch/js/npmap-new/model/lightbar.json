@@ -1,0 +1,230 @@
+{
+	"code": 200,
+	"data": {
+		"message": "成功",
+		"pageCount": 0,
+		"count": 0,
+		"lampposts": [
+			{
+				"id": 1,
+				"code": "hla101001",
+				"latitude": 31.2600776,
+				"longitude": 121.45907894,
+				"orgid": null,
+				"description": "那吉镇第一派出所",
+				"name": "热力公司东坡南侧",
+				"type": "路灯杆"
+			},
+			{
+				"id": 2,
+				"code": "hla101002",
+				"latitude": 31.26441773,
+				"longitude": 121.46147744,
+				"orgid": null,
+				"description": "那吉镇第一派出所",
+				"name": "热力公司东坡北侧",
+				"type": "路灯杆"
+			},
+			{
+				"id": 3,
+				"code": "hla101003",
+				"latitude": 31.26664491,
+				"longitude": 121.4651894,
+				"orgid": null,
+				"description": "那吉镇第一派出所",
+				"name": "热力公司东坡南侧",
+				"type": "路灯杆"
+			},
+			{
+				"id": 4,
+				"code": "hla101004",
+				"latitude": 31.26887208,
+				"longitude": 121.46770211,
+				"orgid": null,
+				"description": "那吉镇第一派出所",
+				"name": "热力公司东坡北侧",
+				"type": "路灯杆"
+			},
+			{
+				"id": 5,
+				"code": "hla101005",
+				"latitude": 31.27115637,
+				"longitude": 121.46998639,
+				"orgid": null,
+				"description": "那吉镇第一派出所",
+				"name": "热力公司东坡南侧",
+				"type": "路灯杆"
+			},
+			{
+				"id": 6,
+				"code": "hla101006",
+				"latitude": 31.27361197,
+				"longitude": 121.47224212,
+				"orgid": null,
+				"description": "那吉镇第一派出所",
+				"name": "热力公司东坡北侧",
+				"type": "路灯杆"
+			},
+			{
+				"id": 7,
+				"code": "hla101007",
+				"latitude": 31.27535374,
+				"longitude": 121.47309873,
+				"orgid": null,
+				"description": "那吉镇第一派出所",
+				"name": "热力公司东坡南侧",
+				"type": "路灯杆"
+			},
+			{
+				"id": 8,
+				"code": "hla101008",
+				"latitude": 31.27755236,
+				"longitude": 121.47375546,
+				"orgid": null,
+				"description": "那吉镇第一派出所",
+				"name": "热力公司东坡北侧",
+				"type": "路灯杆"
+			},
+			{
+				"id": 9,
+				"code": "hla101009",
+				"latitude": 31.27955111,
+				"longitude": 121.47549723,
+				"orgid": null,
+				"description": "那吉镇第一派出所",
+				"name": "热力公司东坡南侧",
+				"type": "路灯杆"
+			},
+			{
+				"id": 10,
+				"code": "hla101010",
+				"latitude": 31.281093,
+				"longitude": 121.47766729,
+				"orgid": null,
+				"description": "那吉镇第一派出所",
+				"name": "热力公司东坡北侧",
+				"type": "路灯杆"
+			},
+			{
+				"id": 11,
+				"code": "hla101011",
+				"latitude": 31.28269199,
+				"longitude": 121.47829547,
+				"orgid": null,
+				"description": "那吉镇第一派出所",
+				"name": "热力公司东坡南侧",
+				"type": "路灯杆"
+			},
+			{
+				"id": 12,
+				"code": "hla101012",
+				"latitude": 31.2847764,
+				"longitude": 121.47838113,
+				"orgid": null,
+				"description": "那吉镇第一派出所",
+				"name": "热力公司东坡北侧",
+				"type": "路灯杆"
+			},
+			{
+				"id": 13,
+				"code": "hla101013",
+				"latitude": 31.28757465,
+				"longitude": 121.47926629,
+				"orgid": null,
+				"description": "那吉镇第一派出所",
+				"name": "热力公司东坡南侧",
+				"type": "路灯杆"
+			},
+			{
+				"id": 14,
+				"code": "hla101014",
+				"latitude": 31.2900017,
+				"longitude": 121.48035133,
+				"orgid": null,
+				"description": "那吉镇第一派出所",
+				"name": "热力公司东坡北侧",
+				"type": "路灯杆"
+			},
+			{
+				"id": 15,
+				"code": "hla101015",
+				"latitude": 31.29248586,
+				"longitude": 121.48254995,
+				"orgid": null,
+				"description": "那吉镇第一派出所",
+				"name": "热力公司东坡南侧",
+				"type": "路灯杆"
+			},
+			{
+				"id": 16,
+				"code": "hla101016",
+				"latitude": 31.29428473,
+				"longitude": 121.48517687,
+				"orgid": null,
+				"description": "那吉镇第一派出所",
+				"name": "综合执法西段北侧",
+				"type": "路灯杆"
+			},
+			{
+				"id": 17,
+				"code": "hla101017",
+				"latitude": 31.29554108,
+				"longitude": 121.48820355,
+				"orgid": null,
+				"description": "那吉镇第一派出所",
+				"name": "热力公司东坡南侧",
+				"type": "路灯杆"
+			},
+			{
+				"id": 18,
+				"code": "hla101018",
+				"latitude": 31.29616926,
+				"longitude": 121.49074481,
+				"orgid": null,
+				"description": "那吉镇第一派出所",
+				"name": "综合执法西段北侧",
+				"type": "路灯杆"
+			},
+			{
+				"id": 19,
+				"code": "hla101019",
+				"latitude": 31.29708297,
+				"longitude": 121.49408557,
+				"orgid": null,
+				"description": "那吉镇第一派出所",
+				"name": "热力公司东坡南侧",
+				"type": "路灯杆"
+			},
+			{
+				"id": 20,
+				"code": "hla101020",
+				"latitude": 31.29799669,
+				"longitude": 121.49802596,
+				"orgid": null,
+				"description": "那吉镇第一派出所",
+				"name": "综合执法西段北侧",
+				"type": "路灯杆"
+			},
+			{
+				"id": 21,
+				"code": "hla101022",
+				"latitude": 31.2989104,
+				"longitude": 121.50085276,
+				"orgid": null,
+				"description": "那吉镇第一派出所",
+				"name": "综合执法西段北侧",
+				"type": "路灯杆"
+			},
+			{
+				"id": 22,
+				"code": "gk10101010",
+				"latitude": 31.09,
+				"longitude": 131.09,
+				"orgid": null,
+				"description": "那吉镇第一派出所",
+				"name": "综合执法西段北侧",
+				"type": "路灯杆"
+			}
+		]
+	}
+}

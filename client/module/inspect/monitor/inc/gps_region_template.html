@@ -1,0 +1,30 @@
+{{#if GroupGps}}
+<div class="map-gps-layers">
+    <h2 class="layers-head"><span class="title">警力</span><span class="switch off" title="开启GPS信号动态刷新"
+            ></span><span class="contract-btn up"></span></h2>
+    <div id="gpsScrollbar">
+        <div class="scrollbar">
+            <div class="track">
+                <div class="thumb"></div>
+            </div>
+        </div>
+        <div class="viewport">
+            <div class="overview">
+                <ul class="gps-layers">
+                    <li class="clearfix all" data-id="00">
+                        <i class="checkbox"></i><span class="name">全部</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{{/if}}
+
+{{#if arealist}}
+{{#each data}}
+<li class="clearfix one" data-id="{{unioncode}}">
+    <i class="checkbox"></i><span class="name" title="{{name}}">{{name}}</span>
+</li>
+{{/each}}
+{{/if}}

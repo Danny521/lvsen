@@ -1,0 +1,326 @@
+{{!-- 历史查询--}}
+{{#if historyList}}
+<div class="breadcrumb">
+	{{#each historyList.bread}}
+	<a class="section" data-id="{{this.id}}" data-type="{{this.type}}">{{this.name}}</a>
+	<span class="divider arrow">></span>
+	{{/each}}
+	<span class="active section">历史报警</span>
+</div>
+<div class="content" id="content_list">    
+<div class="conditions">
+	<label for="">开始时间：</label>
+	<input type="text" class="begin-time input-time" readonly="true" placeholder="请选择开始时间"/>
+
+	<label for="">结束时间：</label>
+	<input type="text" class="end-time input-time" readonly="true" placeholder="请选择结束时间"/>
+	<label for="">事件类型：</label>
+	<select class="alarmtype" >
+		
+	</select>
+	<label for="">处理状态：</label>
+	<select class="status" >
+		<option data-type="">全部</option>
+		<option data-type="0">未处理</option>
+		<option data-type="1">已处理</option>
+		<option data-type="2">已撤销</option>
+	</select>
+
+	<a href="javascript:void(0);" title="查询" class="conditions_btn" id="search"></a>
+	<span>
+		<a href="javascript:void(0);" class="btn" id="export">导出</a>
+	</span>
+</div>
+<div class="table_lists_wrap">
+	<div id="historyTable">
+	
+	{{!-- 列表内容在下边 --}}</div>
+		{{!-- 分页条 --}}
+		{{#if pagebar}}
+	<div class="pagepart">
+		<div class ="pagination"></div>
+	</div>
+		{{/if}}
+</div>
+</div>
+{{/if}}
+
+{{!--历史查询列表项--}}
+{{#if historySearchItems}}
+	<table cellpadding="0" cellspacing="0" border="0" class="table_lists">
+		<thead>
+			<tr class="title">
+				<th class="select check">
+					<input type="checkbox" />
+				</th>
+				<th class="">报警时间</th>
+				<th class="">报警地点</th>
+				<th class="">报警级别</th>
+				<th class="">报警类型</th>
+				<th class="">处理人</th>
+				<th class="">处理状态</th>
+				<th class="">操作</th>
+			</tr>
+		</thead>
+		{{#each historySearchItems.historySearch}}
+			<tbody data-id="{{id}}" class="onealarminfo {{even @index}}">
+				<tr class="table_lists_cont">
+					<td class="select check" >
+						<input type="checkbox" class="checkinfo" data-id="{{id}}" />
+					</td>
+					<td class="show" title="{{mills2datatime absTime}}">{{mills2datatime absTime}}</td>
+					<td class="show reportPlace" title="{{nullTounkown reportPlace}}">{{nullTounkown reportPlace}}</td>
+					<td class="level show level{{level}}" title="{{intTolevel level}}" >{{intTolevel level}}</td>
+					<td class="show alarm-type" title="{{eventTypeName}}">{{eventTypeName}}</td>
+					<td class="name show" title="{{nullTounkown handleAuthor}}">{{nullTounkown handleAuthor}}</td>
+					<td id="status" class="status{{dealStatus}}  show" title="{{intTostatus dealStatus}}">{{intTostatus dealStatus}}</td>
+					<td class="tools">
+						<!-- <a href="javascript:void(0);" title="查看" class="icon_look" data-id="{{id}}"></a> -->
+						<a href="/inspect/history/1#cId={{cameraChannelId}}&begintime={{beginTime absTime}}&endtime={{enTime absTime}}" title="历史调阅" class="icon_video hidden"  data-id="{{cameraChannelId}}" target="historyProxy"></a>
+						<a href="javascript:void(0)" title="报警处理" class="icon_editing" data-id="{{id}}"></a>
+					</td>
+				</tr>
+				<tr class="table_lists_details">
+				 </tr>
+			</tbody>
+		{{/each}}
+	</table>
+{{/if}}
+
+
+{{#if alarmDetails}}
+{{#with alarmDetails}}
+		<td colspan="9">
+			<div class="icon_look_details" data-id="{{id}}">
+				<span class="details_pic">
+					
+				</span>
+				<span class="details_list">
+					<p> <em>事件类型：</em> <i>{{eventTypeName}}</i>
+					</p>
+					<p> <em>报警时间：</em> <i>{{mills2datatime absTime}}</i>
+					</p>
+					<p>
+						<em>区域名称：</em>
+						<i>{{nullTounkown areaName}}</i>
+					</p>
+					<p>
+						<em>处&nbsp;理&nbsp;人：</em>
+						<i id="handlename">{{nullTounkown handleAuthor}}</i>
+					</p>
+					<p>
+						<em>处理时间：</em>
+						<i>{{mills2datatime handleTime}}</i>
+					</p>
+				</span>
+				<span class="details_note">
+                    <span>
+                        <h6>报警级别：</h6>
+                        <em>{{intTolevel level}}</em>
+                        <select id="alarmLevel">
+                            <option value="1" {{selected level 1}}>一般</option>
+                            <option value="2" {{selected level 2}}>重要</option>
+                            <option value="3" {{selected level 3}}>严重</option>
+                        </select>
+                    </span>
+                    <span>
+                        <h6>处理信息：</h6>
+                        <p>{{comment}}</p>
+                        <textarea>{{comment}}</textarea>
+                    </span>
+                    <span>
+                        <a href="javascript:void(0)" class="btn save" data-type="1" data-id="{{id}}">确定</a>
+                        <a href="javascript:void(0)" class="btn cancel" data-type="2" data-id="{{id}}">撤销</a>
+                    </span>
+				</span>
+				<span class="details_btn">
+					
+				</span>
+			</div>
+		</td>
+{{/with}}
+{{/if}}
+
+{{#if alarmDetails2}}
+{{#with alarmDetails2}}
+		<td colspan="9">
+			<div class="icon_look_details" data-id="{{id}}">
+				<span class="details_pic">
+					
+				</span>
+				<span class="details_list">
+					<p> <em>事件类型：</em> <i>{{eventTypeName}}</i>
+					</p>
+					<p> <em>报警时间：</em> <i>{{mills2datatime absTime}}</i>
+					</p>
+					<!-- <p>
+						<em>区域名称：</em>
+						<i>{{nullTounkown areaName}}</i>
+					</p> -->
+					<p>
+						<em>报警原因：</em>
+						<i id="reportReason" title="{{reportReason}}">{{reportReason}}</i>
+					</p>
+					<p>
+						<em>报&nbsp;警&nbsp;人：</em>
+						<i id="reportname">{{nullTounkown reportPerson}}</i>
+					</p>
+					<p>
+						<em>处理时间：</em>
+						<i>{{mills2datatime handleTime}}</i>
+					</p>
+				</span>
+				<span class="details_note">
+                    <span>
+                        <h6>报警级别：</h6>
+                        <em>{{intTolevel level}}</em>
+                        <select id="alarmLevel">
+                            <option value="1" {{selected level 1}}>一般</option>
+                            <option value="2" {{selected level 2}}>重要</option>
+                            <option value="3" {{selected level 3}}>严重</option>
+                        </select>
+                    </span>
+                    <span>
+                        <h6>处理信息：</h6>
+                        <p>{{comment}}</p>
+                        <textarea>{{comment}}</textarea>
+                    </span>
+                    <span>
+                        <a href="javascript:void(0)" class="btn save" data-type="1" data-id="{{id}}">确定</a>
+                        <a href="javascript:void(0)" class="btn cancel" data-type="2" data-id="{{id}}">撤销</a>
+                    </span>
+				</span>
+				<span class="details_btn">
+					
+				</span>
+			</div>
+		</td>
+{{/with}}
+{{/if}}
+
+
+{{#if alarmDetailsCar}}
+{{#with alarmDetailsCar}}
+		<td colspan="9">
+			<div class="icon_look_details" data-id="{{id}}">
+				<span class="details_pic">
+					
+				</span>
+				<span class="details_list">
+					<p> <em>事件类型：</em> <i>{{eventTypeName}}</i>
+					</p>
+					<p> <em>报警时间：</em> <i>{{mills2datatime absTime}}</i>
+					</p>
+					<p>
+						<em>车&nbsp;&nbsp;&nbsp;牌：</em>
+						<i>{{nullTounkown lprValue}}</i>
+					</p>
+					<p>
+						<em>处&nbsp;理&nbsp;人：</em>
+						<i id="handlename">{{nullTounkown handleAuthor}}</i>
+					</p>
+					<p>
+						<em>处理时间：</em>
+						<i>{{mills2datatime handleTime}}</i>
+					</p>
+				</span>
+				<span class="details_note">
+                    <span>
+                        <h6>报警级别：</h6>
+                        <em>{{intTolevel level}}</em>
+                        <select id="alarmLevel">
+                            <option value="1" {{selected level 1}}>一般</option>
+                            <option value="2" {{selected level 2}}>重要</option>
+                            <option value="3" {{selected level 3}}>严重</option>
+                        </select>
+                    </span>
+                    <span>
+                        <h6>处理信息：</h6>
+                        <p>{{comment}}</p>
+                        <textarea>{{comment}}</textarea>
+                    </span>
+                    <span>
+                        <a href="javascript:void(0)" class="btn save" data-type="1" data-id="{{id}}">确定</a>
+                        <a href="javascript:void(0)" class="btn cancel" data-type="2" data-id="{{id}}">撤销</a>
+                    </span>
+				</span>
+				<span class="details_btn">
+					
+				</span>
+			</div>
+		</td>
+{{/with}}
+{{/if}}
+
+
+{{!--统计分析--}}
+{{#if countAnalysisList}}
+<div class="breadcrumb">
+	{{#each countAnalysisList.bread}}
+	<a class="section" data-id="{{this.id}}">{{this.name}}</a>
+	<span class="divider arrow">></span>
+	{{/each}}
+	<span class="active section">统计分析</span>
+</div>
+<div class="content" id="content_list">
+ 	<div class="conditions">
+ 		<label for="">开始时间：</label>
+ 		<input type="text" class="begin-time input-time" readonly="true" placeholder="请选择开始时间" /> 
+ 		<label for="">结束时间：</label>
+ 		<input type="text" class="end-time input-time" readonly="true" placeholder="请选择结束时间"/> 
+ 		<label for="">事件类型：</label>
+ 		<select id="typeList">
+ 			
+ 		</select>
+
+ 		<a href="javascript:void(0);" title="查询" class="conditions_btn" id="countSearch"></a>
+ 		<span>
+ 			<a href="javascript:void(0);" class="btn" id="dataExport">导出</a>
+ 		</span>
+ 	</div>
+
+ 	<div class="table_lists_chat">
+ 		<div id="countAnalysisTable">{{!-- 列表内容在下边 --}}</div>
+ 	</div>
+ 	<div class="count_chat" id="bar">
+ 		<span >请选择上面列表中的一条数据以展示柱形图</span>
+ 	</div>
+ </div>
+{{/if}}
+
+{{!--统计分析表项--}}
+{{#if countAnalysisItems}}
+<table cellpadding="0" cellspacing="0" border="0" class="table_lists">
+	<thead>
+		<tr class="title">
+			<th class="select check">
+				<input type="checkbox" />
+			</th>
+			<th>月份</th>
+			<th>总报警数</th>
+			<th>事件</th>
+			<th>一般</th>
+			<th>重要</th>
+			<th>严重</th>
+		</tr>
+	</thead>
+	{{#each countAnalysisItems.countAnalysis}}
+	<tbody class="{{even @index}}">
+		<tr class="table_lists_cont">
+			<td class="select check">
+				<input type="checkbox" class="checkinfo" data-time="{{time}}"/>
+			</td>
+			<td class="info time" title="{{time}}">{{time}}</td>
+			<td class="info" title="{{summary}}">{{summary}}</td>
+			<td class="info" title="{{eventCount}}">{{eventCount}}</td>
+			<td class="info" title="{{normal}}">{{normal}}</td>
+			<td class="info" title="{{importance}}">{{importance}}</td>
+			<td class="info" title="{{serious}}">{{serious}}</td>
+		</tr>
+	</tbody>
+	{{/each}}
+</table>
+{{/if}}
+
+
+

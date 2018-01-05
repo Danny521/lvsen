@@ -1,0 +1,179 @@
+{{!-- 分组摄像机列表 --}}
+{{#if groupCameraList}}
+	<div class="breadcrumb">
+		<a class="section">系统分组</a>
+		<span class="divider arrow">></span>
+	{{#with  groupCameraList.bread}}
+		<span class="active section" data-id="{{sysId}}">{{groupName}}</span>
+	{{/with}}
+
+	</div>
+	<div class="search-form">
+		<a class="deletegroup" id ="delete"  title="删除分组"> <i class="icons-plus"></i>
+			删除分组
+		</a>
+		<a class="editgroup" id ="edit"  title="编辑"> <i class="icons-plus"></i>
+			编辑
+		</a>
+	</div>
+	<div class="content-panel">
+	<div id="groupCameraTable">{{!-- 列表内容在下边 --}}</div>
+	</div>
+{{/if}}
+
+{{!--分组摄像机列表项--}}
+{{#if groupCameraTable}}
+	<table class="common-table">
+		<tbody>
+			<tr class="title">
+				<th class="id">序号</th>
+				<th class="name">名称</th>
+			</tr>
+			{{#each groupCameraTable.groupCamera}}
+			<tr {{even @index}} data-id="{{sysId}}">
+				<td class="id">{{list @index}}</td>
+				<td class="servername">{{cameraName}}{{#if cameraCode}}({{cameraCode}}){{/if}}</td>
+			</tr>
+			{{/each}}
+		</tbody>
+	</table>
+{{/if}}
+
+
+
+
+{{!-- 新建分组 --}}
+{{#if creatGroup}}
+	<div class="breadcrumb">
+	<a class="section">系统分组</a>
+	<span class="divider arrow">></span>
+	<span class="active section">新增分组</span>
+	</div>
+	<div class="form-item">
+	<span class="item-label">
+		<label for="name">
+			<span class="required">*</span>
+			分组名称:
+		</label>
+	</span>
+	<div class="item-box ui input">
+		<input id="name" class="input-text" type="text"  name="name" placeholder="请输入分组名称"></div>
+	</div>
+	<div class="form-item">
+	<span class="item-label">
+		<label for="name">选择摄像头:</label>
+	</span>
+	<div class="item-box">
+		<div class="selectTree taskMgr">
+			<div id='group' class="scrollbarPanel">
+				<div class="scrollbar">
+					<div class="track">
+						<div class="thumb">
+							<div class="end"></div>
+						</div>
+					</div>
+				</div>
+				<div class="viewport">
+					<div class="overview">
+						<div id="group1" class="treePanel"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+	<div class="form-item">
+	<span class="item-label">
+		<label></label>
+	</span>
+	<div class="item-box submit-wrapper">
+		<button type="button" class="ui button blue" id="save">保存</button>
+	</div>
+	</div>
+{{/if}}
+
+{{!-- 编辑分组 --}}
+{{#if editGroup}}
+	<div class="breadcrumb">
+		<a class="section">系统分组</a>
+		<span class="divider arrow">></span>
+		<span class="active section">编辑分组</span>
+	</div>
+	{{#with editGroup.group}}
+	<div class="form-item">
+		<span class="item-label">
+			<label for="name">
+				<span class="required">*</span>
+				分组名称:
+			</label>
+		</span>
+		<div class="item-box ui input">
+			<input id="name" class="input-text" type="text" data-id="{{sysId}}" name="name" value="{{groupName}}">
+		</div>
+	</div>
+	{{/with}}
+	<div class="form-item">
+		<span class="item-label">
+			<label for="name">选择摄像头:</label>
+		</span>
+		<div class="item-box">
+			<div class="selectTree">
+				<div id='editgroup' class="scrollbarPanel">
+					<div class="scrollbar">
+						<div class="track">
+							<div class="thumb">
+								<div class="end"></div>
+							</div>
+						</div>
+					</div>
+					<div class="viewport">
+						<div class="overview">
+							<div id="editgroup1" class="treePanel"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="form-item">
+		<span class="item-label">
+			<label></label>
+		</span>
+		<div class="item-box submit-wrapper">
+			<button type="button" class="ui button blue" id="save">保存</button>
+		</div>
+	</div>
+{{/if}}
+
+
+{{!-- 分组列表 --}}
+{{#if group}}
+	<ul>
+		{{#each group.groupList}}
+		<li class="user-select" data-id="{{sysId}}" title="{{groupName}}">
+			<span>{{groupName}}</span>
+		</li>
+		{{/each}}
+	</ul>
+{{/if}}
+
+
+{{!-- 分页条 --}}
+{{#if pagebar}}
+	<div class="pagepart">
+	<div class ="pagination"></div>
+	</div>
+{{/if}}
+
+{{!-- 没有分组 --}}
+{{#if notGroup}}
+	<div class="breadcrumb">
+		<a class="section">系统分组</a>
+	</div>
+	<div>
+		<span>系统分组下没有数据，请创建分组</span>
+	</div>
+{{/if }}
+
+
+

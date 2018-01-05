@@ -1,0 +1,541 @@
+@charset "utf-8";
+/* CSS Document */
+/*
+ * 东方网力 CSS Library 2.0.0
+ * Copyright(c)  2014, 东方网力 CSS
+ * @url http://www.netposa.com
+ */
+/*========================================== 样式开始@Start ==========================================*/
+/**
+ * 工具样式
+ */
+#UIOCXOuter{
+    background-color: #000000;
+    position: absolute;
+}
+.operate-icon-view-open {
+    margin: auto 5px;
+    cursor: pointer;
+    display: none;
+    width: 20px;
+    height: 20px;
+    background-image: url('/module/common/images/icons/alloperate.png');
+    background-position: -72px -7px;
+    background-repeat: no-repeat;
+}
+
+.operate-icon-view-close{
+    margin: auto 5px;
+    cursor: pointer;
+    display: none;
+    width: 20px;
+    height: 20px;
+    background-image: url('/module/imagejudge/resource-process/images/eye_close.png');
+    background-position: 0px 0px;
+    background-repeat: no-repeat;
+}
+.imageJudge-videoFileImage{
+    background-image: url('/module/imagejudge/resource-process/images/videoIcon.png');
+    background-repeat: no-repeat;
+    width: 17px;
+    background-size: 100% 100%;
+    height: 16px;
+    margin-top: -1px;
+    float: left;
+ }
+.videoFile:hover .imageJudge-videoFileImage{
+    background-image: url('/module/imagejudge/resource-process/images/videoHoverIcon.png');
+}
+.active .imageJudge-videoFileImage{
+    background-image: url('/module/imagejudge/resource-process/images/videoHoverIcon.png');
+}
+.videoFile:hover .videoFileTitle{
+    color: #005EAB;
+}
+.active .videoFileTitle{
+    color: #005EAB;
+}
+.imageJudge-imageFileImage{
+    background-image: url('/module/imagejudge/resource-process/images/imageIcon.png');
+    background-repeat: no-repeat;
+    width: 17px;
+    background-size: 100% 100%;
+    height: 16px;
+    margin-top: -1px;
+    float: left;
+}
+.imageFile:hover .imageJudge-imageFileImage{
+    background-image: url('/module/imagejudge/resource-process/images/imageHoverIcon.png');
+}
+.active .imageJudge-imageFileImage{
+    background-image: url('/module/imagejudge/resource-process/images/imageHoverIcon.png');
+}
+.imageFile:hover .imageFileTitle{
+    color: #005EAB;
+}
+.active .imageFileTitle{
+    color: #005EAB;
+}
+.resetReminder {
+    margin-left: 2px;
+    color:#999;
+}
+.hidden {
+	display: none;
+}
+
+
+.location {
+	height:40px;
+	border-top:1px solid #e0e4e8;
+	border-bottom:1px solid #e0e4e8;
+	padding:0 10px;
+}
+.location h6 {
+	height: 40px;
+	line-height: 40px;
+	float: left;
+	padding-left: 30px;
+	padding-right: 12px;
+}
+.location .active{
+	font-weight: bold;
+}
+
+/*
+*智能标注相关
+*/
+#smartMarkform .video_form dd {
+	padding: 0 0 15px;
+}
+#smartMarkform .video_form dd.last {
+	padding: 5px 0;
+}
+#smartMarkform .stMli li {
+	margin-top: 15px;
+	padding: 0 10px;
+	text-align:left;
+}
+#smartMarkform .stMli li.type > label {
+	vertical-align: middle;
+	cursor: pointer;
+}
+#smartMarkform .stMli li.type input {
+	vertical-align: middle;
+	margin-right: 3px;
+}
+#smartMarkform .stMli li.type a {
+	float: right;
+}
+#smartMarkform .stMli li.type-params {
+	border: 1px solid #ededed;
+	border-left: 0;
+	border-right: 0;
+	display: none;
+}
+#smartMarkform .stMli li.type-params .type-params-item {
+	margin: 5px 0;
+}
+#smartMarkform .stMli li.type-params .type-params-item label {
+	display: inline-block;
+	height: 24px;
+	line-height: 24px;
+	width: 65px;
+}
+#smartMarkform .stMli li.type-params .type-params-item label input {
+	vertical-align: sub;
+}
+#smartMarkform .stMli li.type-params .type-params-item input.text {
+	display: inline-block;
+	width: 128px;
+	height: 22px;
+	line-height: 22px;
+	border: 1px solid #ededed;
+}
+#smartMarkform .stMli li.type-params .type-params-item span.ui-spinner {
+	display: inline-block;
+	width: auto;
+	height: auto;
+}
+#smartMarkform .stMli li.type-params .type-params-item a.ui-spinner-button {
+}
+#smartMarkform .stMli li.type-params .type-params-item select {
+	display: inline-block;
+	width: 65px;
+	height: 22px;
+	line-height: 22px;
+	border: 1px solid #ededed;
+	vertical-align: middle;
+}
+#smartMarkform .stMli li.type-params .type-params-item button {
+	height: 20px;
+	line-height: 18px;
+	padding: 0 5px;
+}
+#look-mark-result {
+	display: inline-block;
+	float: right;
+	width: 60px;
+	height: 28px;
+	line-height: 28px;
+	text-align: center;
+	background: url(/module/imagejudge/resource-process/images/icon.png) -67px -70px no-repeat;
+	color: #fff;
+	margin-right: 0;
+}
+#smartMarkform .stMli li .ui-button {
+	width: 20px;
+	height: auto;
+}
+#smartMarkform .type-region .ui-button {
+	width: 20px!important;
+	height: 20px!important;
+}
+#smartMarkform .stMli li .ui-icon {
+	width: 20px;
+	height: 20px;
+	left: 2px;
+}
+#smartMarkform .stMli li .ui-button .ui-button-text {
+	width: auto;
+	height: auto;
+}
+/*
+ * 视频内容_video_content_@Start
+ */
+.video_content {
+	position:absolute;
+	top:42px;
+	left:20px;
+	right:0px;
+	bottom:0px;
+	overflow-y:scroll;
+}
+#video-imagebg{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	right: 250px;
+	bottom: 0px;
+	margin-top: 10px;
+	margin-right: 10px;
+	background: url(../images/select.png) center center no-repeat;
+}
+/*
+ * 视频内容查看_video_look_@Start
+ */
+
+.video_edit {
+	position:absolute;
+	top:0px;
+	left:0px;
+	right:250px;
+	bottom:0px;
+	margin-top: 10px;
+	margin-right: 10px;
+}
+.video_edit dt {
+	display: block;
+	height: 32px;
+	margin-bottom: 8px;
+}
+.video_edit dt a {
+	width:84px;
+	height:32px;
+	line-height:24px;
+	background:url(../images/icon.png) -303px -6px no-repeat;
+	text-align:center;
+	float:left;
+	margin-right:10px;
+	color:#333;
+	text-decoration:none;
+}
+ .video_edit .beginhide {
+} 
+.video_edit dt a.current {
+	color:#fff;
+	background:url(../images/icon.png) -389px -6px no-repeat;
+}
+.draw_tools {
+	height:24px;
+	padding:3px;
+	float:right;
+	border:1px solid #cfd2d4;
+}
+.draw_tools span {
+	float:left;
+	cursor:pointer;
+	position:relative;
+	margin:0 5px;
+}
+.draw_tools span i {
+	width:24px;
+	height:24px;
+	float:left;
+	cursor:pointer;
+	position:relative;
+}
+.draw_tools span ul {
+	position:absolute;
+	top:22px;
+	left:-5px;
+	right:0px;
+	width:24px;
+	z-index:9999;
+	background:#fff;
+	text-align:center;
+	padding-top:4px;
+	border:1px solid #cfd2d4;
+	display:none;
+}
+.draw_tools span ul li {
+	width:14px;
+	height:14px;
+	display:inline-block;
+	border:2px solid #fff;
+}
+
+.draw_tools .icon_Color {
+	background:red 14px 14px no-repeat;
+	margin-top:5px;
+	width:14px;
+	height:14px;
+}
+
+.draw_tools span ul li:hover,.draw_tools span ul li.current {
+	border:2px solid #000;
+}
+.video_edit dd {
+	overflow:hidden;
+}
+.video_edit dd.image-container {
+	display: block;
+	width: 100%;
+	height: 565px;
+	padding: 0;
+}
+.video_edit dd.image-container .image-container-inner {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+.video_edit dd.file-name {
+	margin:10px 0;	
+}
+
+.video_edit dd div {
+	position:relative;
+}
+.video_edit dd div.image-container-inner {
+	overflow: none;
+}
+
+
+
+
+/*
+ * 视频内容查看_video_look_@End
+ */
+ 
+ 
+/*
+ * 视频内容编辑_video_info_@Start
+ */
+.video_info {
+    padding: 10px;
+    position: absolute;
+    top: 0;
+	right: 0;
+	bottom: 0;
+    width: 240px;
+}
+/*
+ * 视频表单_video_form_@Start
+ */
+.video_form {
+	overflow:hidden;
+	border:1px solid #ededed;
+	border-top:2px solid #1974bd;
+	border-bottom:none;
+}
+.video_form dt {
+	height:18px;
+	padding:10px 5px;
+	display:block;
+	background:#f9f9f9;
+	border-bottom:1px solid #ededed;
+	position:relative;
+	
+}
+.video_form dt i {
+	width:18px;
+	height:18px;
+	float:left;
+}
+.video_form dt h6 {
+	height:18px;
+	line-height:18px;
+	float:left;
+}
+.video_form dt a {
+	width:85px;
+	height:24px;
+	line-height:24px;
+	color:#475767;
+	background:#dce1e5;
+	display:block;
+	position:absolute;
+	top:7px;
+	right:5px;
+}
+.video_form dt a b {
+	width:18px;
+	height:18px;
+	float:left;
+	margin:3px 5px;
+}
+.video_form dd {
+	padding:10px;
+	overflow:hidden;
+	text-align:center;
+	border-bottom:1px solid #ededed;
+}
+.video_form dd span {
+	width:220px;
+	height:114px;
+	overflow:hidden;
+	text-align:center;
+	display:block;
+}
+.video_form dd span img {
+	max-width:210px;
+	max-height:114px;
+}
+.video_form dd p {
+	width:220px;
+	height:22px;
+	padding:5px 0;
+	display:block;
+}
+.video_form dd p label {
+	width:60px;
+	height:24px;
+	line-height:24px;
+	float:left;
+}
+.video_form dd p input[type='text'] {
+	width:146px;
+	height:22px;
+	line-height:22px;
+	font-size:12px;
+	float:left;
+	padding:0 5px;
+	border:1px solid #ededed;
+}
+.video_form dd select {
+	width:220px;
+	border:1px solid #ededed;
+}
+
+.video_form dd textarea {
+	width:210px;
+	height:60px;
+	line-height:22px;
+	font-size:12px;
+	float:left;
+	padding:5px;
+	border:1px solid #ededed;
+	resize:none;
+}
+.video_form em {
+	height:28px;
+	padding:0 10px 10px;
+	display:block;
+	text-align:center;
+}
+.video_form dd a.btn {
+	width: 60px;
+	height: 28px;
+	line-height: 28px;
+	color:#333;
+	text-align: center;
+	display: inline-block;
+}
+.video_form dd a.btn_ok {
+	color:#fff;
+}
+
+.video_edit .image_struct {
+	/*background: url("/assets/images/cloudmanagement/video_pic.png") 0 0;*/
+}
+.wrapper {
+	min-width: 0px;
+}
+/*
+ * 视频表单_video_form_@End
+ */
+/*
+ * 视频内容查看_video_look_@End
+ */
+.video_mark,.image_mark {
+	display: none;
+}
+
+
+
+
+.video_content .video_edit .video-block .panel .center {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	width: 170px;
+	margin-left: -60px;
+	float: right;
+}
+.video_content .video_edit .video-block .stop {
+	margin-right: 0px!important;
+}
+
+.video_content .video_edit .video-block {
+	width: 100%!important;
+}
+
+#UIOCX_Paper {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 100;
+}
+#UIOCX_Paper iframe {
+	position: absolute; 
+	width: 100%; 
+	height: 100%; 
+	top: 0; 
+	left: 0; 
+	right: 0; 
+	bottom: 0; 
+	opacity: 0; 
+	filter: alpha(opacity=0);
+	z-index: -1;
+}
+#frame-img {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+#maskLayer {
+	z-index: 2001!important;
+}
+.common-dialog {
+	z-index: 2002!important;
+}
+
+/*
+ * ocx上的“截图”和“全屏”样式
+ */
+.vbar-right{float:right;}
+
+/*
+ * 视频内容_video_content_@End
+ */
+/*========================================== 样式开始@End ==========================================*/

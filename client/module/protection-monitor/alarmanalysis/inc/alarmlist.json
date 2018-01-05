@@ -1,0 +1,28 @@
+{
+    "code": 200,
+    "data": {
+        "total": 1,
+        "count": 2,
+        "events": [{
+            "id": 4630,
+            "absTime": 1411644144000,
+            "handleAuthor": null,
+            "handleTime": null,
+            "level": 1,
+            "eventType":134217728,
+            "cameraChannelId": 106144,
+            "dealStatus": 0,
+            "cameraName": "公交五公司"
+        }, {
+            "id": 4629,
+            "absTime": 1411644144000,
+            "handleAuthor": null,
+            "handleTime": null,
+            "level": 1,
+            "eventType":4,
+            "cameraChannelId": 106144,
+            "dealStatus": 0,
+            "cameraName": "物品丢失测试测试测试测试测试测试测试测试测试_公文包丢失"
+        }]
+    }
+}

@@ -1,0 +1,108 @@
+body {
+	background: none repeat scroll 0 0 #F8F8F8;
+	color: #333333;
+	font-size: 12px;
+	line-height: normal;
+}
+
+#content {
+	margin-top: 12px;
+}
+
+#content .wrapper {
+	margin: 0 auto;
+	padding: 0;
+	width: 980px;
+}
+
+.platform {
+	background: none repeat scroll 0 0 #FFFFFF;
+	border: 1px solid #EEEEEE;
+	border-radius: 5px;
+	box-shadow: 0 2px 3px #E8E8E8;
+	margin-bottom: 10px;
+	padding: 40px 60px;
+}
+
+.platform .proimg {
+	background: #FFFFFF url(/module/common/images/product/product.png) 0 0 no-repeat;
+}
+
+.platform .source {
+	float: left;
+	width: 355px;
+}
+
+.platform .source h3 {
+	font-size: 18px;
+	height: 40px;
+	margin-bottom: 20px;
+	padding-left: 50px;
+	line-height: 40px;
+}
+
+.platform .source .download {
+	display: block;
+	height: 62px;
+	width: 189px;
+	background-position: 0 0;
+}
+
+.platform .intro {
+	margin-left: 355px;
+}
+
+.platform .intro h3 {
+	font-size: 16px;
+	font-weight: bold;
+	margin-bottom: 15px;
+}
+
+.platform .intro li {
+	font-size: 14px;
+	line-height: 24px;
+	list-style: disc inside none;
+}
+
+.platform .flash h3 {
+	background-position: 5px -396px;
+	width:25%;
+}
+.platform .pdf h3 {
+	background: url("/module/common/images/product/pdf.png") no-repeat;
+}
+.platform .player h3 {
+	background-position: 4px -700px;
+}
+
+.platform .Visual_cloud_flash h3 {
+	background: url("/module/common/images/product/VisualCloud.png") no-repeat;
+}
+
+.platform .iphone h3 {
+	background-position: 5px -500px;
+}
+
+.platform .android h3 {
+	background-position: 5px -600px;
+}
+
+.platform .explorer8 h3 {
+	background-position: 5px -800px;
+}
+
+.platform .explorer10 h3 {
+	background-position: 5px -900px;
+}
+
+.platform .yahei h3 {
+	background-position: 5px -1000px;
+}
+
+.platform .chrome h3 {
+    background-position: -128px -393px;
+}
+
+.platform .chromium h3 {
+    background-position: -128px -500px;
+}

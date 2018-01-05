@@ -1,0 +1,19 @@
+{{#data}}
+<li class="home-link">
+	<a href="{{showHomeHref home}}">{{showHome home}}</a>
+	<span class="divider">&gt;</span>
+</li>
+{{#showInc this}}
+<li class="incident-link">
+	<a href="{{showIncHref this}}">{{incidentname}}</a>
+	<span class="divider">&gt;</span>
+</li>
+{{/showInc}}
+{{#showfile filetype}}
+<li class="file-link">
+	<a href="{{showFileHref this}}">{{filename}}</a>
+	<span class="divider">&gt;</span>
+</li>
+{{/showfile}}
+<li class="name">{{showName pagetype}}</li>
+{{/data}}

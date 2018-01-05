@@ -1,0 +1,16 @@
+{{#each this}}
+<div class="result-each-content">
+	<div class="check-Item-kind">
+		<span>{{kindtitle}}</span>
+	</div>
+	<div class="kind-content clearfix">
+		{{#each kinditems}}
+		<div class="each-Item push-left">
+			<span class="basic-Item-title">{{title}}：</span>
+			<span class="basic-Item-value {{get-check-value value}}">{{value}}</span>
+			{{{get-unpass-detail value name}}}
+		</div>
+		{{/each}}
+	</div>
+</div>
+{{/each}}
