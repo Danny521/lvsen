@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50628
 File Encoding         : 65001
 
-Date: 2018-01-04 18:58:21
+Date: 2018-01-05 18:00:51
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -41,7 +41,7 @@ DROP TABLE IF EXISTS `client`;
 CREATE TABLE `client` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `client_number` varchar(32) DEFAULT '',
-  `category` int(8) DEFAULT NULL COMMENT '客户种类',
+  `category_id` int(8) DEFAULT NULL COMMENT '客户种类ID(如:超市,网吧等)',
   `name` varchar(32) DEFAULT '',
   `pinyin` varchar(64) DEFAULT NULL,
   `acronym` varchar(16) DEFAULT NULL,
@@ -49,8 +49,7 @@ CREATE TABLE `client` (
   `status` tinyint(1) DEFAULT NULL,
   `phone` varchar(20) DEFAULT NULL,
   `phone2` varchar(20) DEFAULT NULL,
-  `type` varchar(8) DEFAULT '' COMMENT '客户类型(供货商，营销商)',
-  `default_price_category` int(8) DEFAULT NULL COMMENT '默认的销售适用价格',
+  `type` varchar(8) DEFAULT '' COMMENT '客户范畴(1-供货商，2-营销商)',
   `remark` varchar(200) DEFAULT NULL COMMENT '备注信息',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='客户信息';
@@ -65,7 +64,7 @@ CREATE TABLE `client` (
 DROP TABLE IF EXISTS `client_category`;
 CREATE TABLE `client_category` (
   `id` int(8) NOT NULL AUTO_INCREMENT,
-  `name` varchar(16) DEFAULT NULL,
+  `category_name` varchar(16) DEFAULT NULL COMMENT '客户种类名称(如:超市,网吧等)',
   `status` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -82,8 +81,11 @@ CREATE TABLE `goods` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `goods_number` varchar(32) NOT NULL DEFAULT '' COMMENT '商品编号',
   `name` varchar(64) NOT NULL DEFAULT '',
+  `alias` varchar(30) DEFAULT NULL COMMENT '商品别名',
   `pinyin` varchar(100) DEFAULT NULL,
   `acronym` varchar(20) DEFAULT NULL,
+  `alias_pinyin` varchar(60) DEFAULT NULL,
+  `alias_acronym` varchar(10) DEFAULT NULL,
   `category_id` int(8) DEFAULT NULL,
   `specification` varchar(32) DEFAULT '' COMMENT '商品规格（例如:1x4x25）',
   `status` int(4) DEFAULT '1' COMMENT '状态 1:启用，0:禁用',
@@ -111,7 +113,8 @@ DROP TABLE IF EXISTS `goods_assist_unit`;
 CREATE TABLE `goods_assist_unit` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `goods_id` int(11) DEFAULT NULL,
-  `assist_unit` varchar(30) DEFAULT NULL,
+  `unit_name` varchar(30) DEFAULT NULL COMMENT '单位名称',
+  `unit_level` int(4) DEFAULT NULL COMMENT '单位级别(1为最小单位，数字越大单位内的最小单位数量越多）',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -159,10 +162,10 @@ CREATE TABLE `goods_category` (
 DROP TABLE IF EXISTS `goods_price_catetory`;
 CREATE TABLE `goods_price_catetory` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `goods_id` int(11) DEFAULT NULL,
-  `price_category` int(11) DEFAULT NULL,
-  `price` float(16,0) DEFAULT NULL,
-  `status` tinyint(1) DEFAULT NULL,
+  `goods_id` int(11) DEFAULT NULL COMMENT '商品ID',
+  `client_category_id` int(11) DEFAULT NULL COMMENT '客户种类ID',
+  `price` float(16,0) DEFAULT NULL COMMENT '商品价格',
+  `status` tinyint(1) DEFAULT NULL COMMENT '状态(0-禁用,1-启用)',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -277,7 +280,7 @@ CREATE TABLE `order_goods` (
   `discount_sum` float(20,0) DEFAULT '0' COMMENT '折后金额',
   `is_largess` varchar(20) DEFAULT '' COMMENT '是否为赠品：1-是,0-不是',
   `storage_id` varchar(255) DEFAULT NULL,
-  `comment` varchar(50) DEFAULT '' COMMENT '备注信息',
+  `remark` varchar(50) DEFAULT '' COMMENT '备注信息',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -331,7 +334,7 @@ CREATE TABLE `storage` (
   `manager` varchar(20) DEFAULT '' COMMENT '仓库管理员',
   `status` int(4) DEFAULT '1' COMMENT '状态 1:可用，0:禁用',
   `capacity` varchar(20) DEFAULT NULL,
-  `area_number` int(11) DEFAULT NULL,
+  `remark` varchar(200) DEFAULT NULL COMMENT '备注信息',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='仓库信息';
 
