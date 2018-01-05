@@ -48,7 +48,7 @@ public class OrderController extends BaseController {
 		return res;
 	}
 
-	@ApiOperation(value = "添加进货订单单据信息", httpMethod = "POST", notes = "添加新增单据的详细信息")
+	@ApiOperation(value = "添加进货订单单据信息", httpMethod = "POST", notes = "添加单据的详细信息")
 	@PostMapping(path = "/add")
 	@ResponseBody
 	public ApiResponseInfo add(HttpServletRequest request,
@@ -64,7 +64,7 @@ public class OrderController extends BaseController {
 		return res;
 	}
 
-	@ApiOperation(value = "修改单据信息", httpMethod = "POST", notes = "修改新增单据的详细信息")
+	@ApiOperation(value = "修改单据信息", httpMethod = "POST", notes = "修改单据的详细信息")
 	@PostMapping(path = "/edit/{id}")
 	@ResponseBody
 	public ApiResponseInfo edit(HttpServletRequest request,

@@ -1,13 +1,12 @@
 package com.danny.web.vo;
 
+import io.swagger.annotations.ApiModel;
+
+@ApiModel(value = "仓库对象", description = "仓库的详细信息")
 public class StorageVo {
     private Integer id;
 
     private String name;
-
-    private String pinyin;
-
-    private String acronym;
 
     private String address;
 
@@ -33,22 +32,6 @@ public class StorageVo {
 
     public void setName(String name) {
         this.name = name == null ? null : name.trim();
-    }
-
-    public String getPinyin() {
-        return pinyin;
-    }
-
-    public void setPinyin(String pinyin) {
-        this.pinyin = pinyin == null ? null : pinyin.trim();
-    }
-
-    public String getAcronym() {
-        return acronym;
-    }
-
-    public void setAcronym(String acronym) {
-        this.acronym = acronym == null ? null : acronym.trim();
     }
 
     public String getAddress() {

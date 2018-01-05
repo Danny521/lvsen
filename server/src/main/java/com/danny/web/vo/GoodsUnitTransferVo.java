@@ -1,18 +1,29 @@
 package com.danny.web.vo;
 
-public class GoodsUnitTransferVo {
-    private Integer id;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
+@ApiModel(value="商品单位转换对象", description = "商品单位转换信息")
+public class GoodsUnitTransferVo {
+    @ApiModelProperty(hidden = true)
+    private Integer id;
+    
+    @ApiModelProperty(value = "商品ID", required = true)
     private Integer goodsId;
 
+    @ApiModelProperty(value = "商品单位ID", required = true)
     private Integer unitId;
 
+    @ApiModelProperty(value = "商品单位规格(该商品最小单位的个数)", required = true)
     private Integer capacity;
 
+    @ApiModelProperty(value = "商品单位转换(如1箱=9瓶)", required = true)
     private String transform;
 
+    @ApiModelProperty(value = "该单位商品的条码号", required = true)
     private String serialNumber;
 
+    @ApiModelProperty(value = "该单位商品的零售价格", required = true)
     private Float retailPrice;
 
     public Integer getId() {

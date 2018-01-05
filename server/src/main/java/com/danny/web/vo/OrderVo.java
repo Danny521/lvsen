@@ -2,9 +2,12 @@ package com.danny.web.vo;
 
 import java.util.Date;
 
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
+@ApiModel(value = "单据对象", description = "单据的详细信息")
 public class OrderVo {
+    @ApiModelProperty(hidden = true)
     private Long id;
 
     @ApiModelProperty(value = "单据编号", position = 1)
@@ -13,7 +16,7 @@ public class OrderVo {
     @ApiModelProperty(value = "单据条形码")
     private String code;
 
-    @ApiModelProperty(value = "制单人ID")
+    @ApiModelProperty(value = "制单人ID", required= true)
     private Integer createUserId;
 
     @ApiModelProperty(value = "货单来源方式ID(比如：微信下单，电话下单)")
@@ -34,7 +37,7 @@ public class OrderVo {
     @ApiModelProperty(value = "单据类别")
     private Integer categoryId;
 
-    @ApiModelProperty(value = "客户ID")
+    @ApiModelProperty(value = "客户ID", required= true)
     private Integer clientId;
 
     @ApiModelProperty(value = "单据处理人ID")

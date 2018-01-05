@@ -7,17 +7,15 @@ import io.swagger.annotations.ApiModelProperty;
 public class GoodsVo {
 	@ApiModelProperty(hidden = true)
 	private Integer id;
+	
 	@ApiModelProperty(value = "商品编码", position = 1)
 	private String goodsNumber;
 
 	@ApiModelProperty(value = "商品名称", required = true)
 	private String name;
-
-	@ApiModelProperty(hidden = true)
-	private String pinyin;
-
-	@ApiModelProperty(hidden = true)
-	private String acronym;
+	
+	@ApiModelProperty(value = "商品别名", required = true)
+	private String alias;
 
 	@ApiModelProperty(value = "所属分类ID", required = true)
 	private Integer categoryId;
@@ -28,7 +26,7 @@ public class GoodsVo {
 	@ApiModelProperty(value = "状态(0-禁用，1-启用)", allowableValues="0,1")
 	private Integer status;
 
-	@ApiModelProperty(value = "商品最小单位价格")
+	@ApiModelProperty(value = "商品最小单位价格", required = true)
 	private Float minPrice;
 
 	@ApiModelProperty(value = "容量")
@@ -80,22 +78,6 @@ public class GoodsVo {
 
 	public void setName(String name) {
 		this.name = name == null ? null : name.trim();
-	}
-
-	public String getPinyin() {
-		return pinyin;
-	}
-
-	public void setPinyin(String pinyin) {
-		this.pinyin = pinyin == null ? null : pinyin.trim();
-	}
-
-	public String getAcronym() {
-		return acronym;
-	}
-
-	public void setAcronym(String acronym) {
-		this.acronym = acronym == null ? null : acronym.trim();
 	}
 
 	public Integer getCategoryId() {

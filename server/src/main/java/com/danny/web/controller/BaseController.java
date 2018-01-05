@@ -11,11 +11,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.danny.commons.exception.BusinessException;
 import com.danny.commons.utils.ApiResponseInfo;
 
-/**   
-* @Description: TODO
-* @author zhangtao
-* @date 2018年1月4日 下午10:06:47 
-*/
+/**
+ * @Description: TODO
+ * @author zhangtao
+ * @date 2018年1月4日 下午10:06:47
+ */
 public class BaseController {
 
     private static final Logger LOG = LoggerFactory.getLogger(BaseController.class);
@@ -31,16 +31,13 @@ public class BaseController {
     @ResponseBody
     @ExceptionHandler(Exception.class)
     public ApiResponseInfo handlerException(HttpServletRequest request, HttpServletResponse response, Exception ex) {
-        LOG.error("服务器内部错误", ex);
-        ex.printStackTrace();
+        LOG.error("服务器内部错误  Request URL=" + request.getRequestURL(), ex);
         ApiResponseInfo info = new ApiResponseInfo();
-        
         if (ex instanceof BusinessException) {
-        	info.setContent(500, ex.getMessage());
+            info.setContent(500, ex.getMessage());
         } else {
-        	info.setContent(500, ex.getMessage());
+            info.setContent(500, ex.getMessage());
         }
-        
         return info;
     }
 }

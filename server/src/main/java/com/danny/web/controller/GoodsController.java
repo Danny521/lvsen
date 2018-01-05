@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -46,15 +47,15 @@ public class GoodsController extends BaseController{
     @GetMapping(path = "/search")
     @ResponseBody
     public ApiResponseInfo search(HttpServletRequest request, @ApiParam(name = "key", value = "商品名称关键字", required = false) String key,
-            @ApiParam(name = "currentPage", value = "当前页码", required = false) Integer currentPage,
-            @ApiParam(name = "pageSize", value = "每页数量", required = false) Integer pageSize,
-            @ApiParam(name = "status", value = "状态", required = false, defaultValue = "1") Integer status) {
+            @ApiParam(name = "currentPage", value = "当前页码", required = false) @RequestParam Integer currentPage,
+            @ApiParam(name = "pageSize", value = "每页数量", required = false) @RequestParam Integer pageSize,
+            @ApiParam(name = "status", value = "状态", required = false, defaultValue = "1") @RequestParam Integer status) {
         // TODO
         ApiResponseInfo res = new ApiResponseInfo(HttpStatus.OK.value(), HttpStatus.OK.name());
         return res;
     }
 
-    @ApiOperation(value = "添加商品信息", httpMethod = "POST", notes = "添加新增商品的详细信息")
+    @ApiOperation(value = "添加商品信息", httpMethod = "POST", notes = "添加商品的详细信息")
     @PostMapping(path = "/add")
     @ResponseBody
     public ApiResponseInfo add(HttpServletRequest request, @ApiParam GoodsVo goods) {
@@ -63,7 +64,7 @@ public class GoodsController extends BaseController{
         return res;
     }
 
-    @ApiOperation(value = "修改商品信息", httpMethod = "POST", notes = "修改新增商品的详细信息")
+    @ApiOperation(value = "修改商品信息", httpMethod = "POST", notes = "修改商品的详细信息")
     @PostMapping(path = "/edit/{id}")
     @ResponseBody
     public ApiResponseInfo edit(HttpServletRequest request, @PathVariable @ApiParam(name = "id", value = "商品ID", required = true) Integer id,
@@ -73,10 +74,10 @@ public class GoodsController extends BaseController{
         return res;
     }
 
-    @ApiOperation(value = "获取商品详细信息", httpMethod = "GET", notes = "根据指定ID获取商品的详细信息")
+    @ApiOperation(value = "获取商品详细信息", httpMethod = "GET", notes = "根据指定ID获取商品的详细信息", response = GoodsVo.class)
     @GetMapping(path = "/{id}")
     @ResponseBody
-    public ApiResponseInfo get(HttpServletRequest request, @PathVariable @ApiParam(name = "id", value = "商品ID", required = true) Integer id) {
+    public ApiResponseInfo get(HttpServletRequest request, @PathVariable @ApiParam(name = "id", value = "商品ID", required = true, type="Integer") @RequestParam Integer id) {
         // TODO
         ApiResponseInfo res = new ApiResponseInfo(HttpStatus.OK.value(), HttpStatus.OK.name());
         res.data.put("goodsInfo", new GoodsVo());

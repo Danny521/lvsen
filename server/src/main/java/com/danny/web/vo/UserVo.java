@@ -24,12 +24,6 @@ public class UserVo {
 
     @ApiModelProperty(value = "工作描述")
     private String jobDesc;
-
-    @ApiModelProperty(hidden = true)
-    private String pinyin;
-
-    @ApiModelProperty(hidden = true)
-    private String acronym;
     
     @ApiModelProperty(value = "性别(1-男,2-女)", allowableValues="1,2")
     private Boolean sex;
@@ -103,22 +97,6 @@ public class UserVo {
 
     public void setJobDesc(String jobDesc) {
         this.jobDesc = jobDesc == null ? null : jobDesc.trim();
-    }
-
-    public String getPinyin() {
-        return pinyin;
-    }
-
-    public void setPinyin(String pinyin) {
-        this.pinyin = pinyin == null ? null : pinyin.trim();
-    }
-
-    public String getAcronym() {
-        return acronym;
-    }
-
-    public void setAcronym(String acronym) {
-        this.acronym = acronym == null ? null : acronym.trim();
     }
 
     public String getPhone2() {

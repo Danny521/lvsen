@@ -1,5 +1,7 @@
 package com.danny.web.controller;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 
 import javax.servlet.http.Cookie;
@@ -26,24 +28,25 @@ public class TestController extends BaseController {
         logger.info("----old cookie=" + ck);
         String jessionString = "123456"+RandomUtils.nextInt(0, 100);
         logger.info("----new cookie=" + jessionString);
-//        Cookie cookie = new Cookie("JSESSIONID", jessionString);
-//        Cookie token = new Cookie("tokenId", jessionString);
-//        cookie.setPath("/");
-//        cookie.setMaxAge(-1);// 设置24小时生存期，当设置为负值时，则为浏览器进程Cookie(内存中保存)，关闭浏览器就失效。
-//        response.addCookie(cookie);
-//        response.addCookie(token);
-        response.setHeader("tokenId", jessionString);
+        Cookie token = new Cookie("tokenId", jessionString);
+        token.setPath("/");
+        token.setMaxAge(-1);// 设置24小时生存期，当设置为负值时，则为浏览器进程Cookie(内存中保存)，关闭浏览器就失效。
+        response.addCookie(token);
         return jessionString;
     }
 
     @ResponseBody
     @GetMapping(path = "/hello")
     public String hello(HttpServletRequest request) {
-        String cookie = request.getHeader("cookie");
-        String token = request.getHeader("tokenId");
-//        request.getCookies()[0].getName();
-        logger.info("----cookie=" + cookie);
-        logger.info("----token=" + token);
-        return cookie + request.getCookies();
+        Cookie[] cookies = request.getCookies();
+        String tokenId = null;
+        if(cookies.length > 0){
+            for (Cookie cookie : cookies) {
+                if("tokenId".equals(cookie.getName())){
+                    tokenId = cookie.getValue();
+                }
+            }
+        }
+        return tokenId;
     }
 }

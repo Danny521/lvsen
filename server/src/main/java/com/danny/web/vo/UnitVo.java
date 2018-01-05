@@ -1,13 +1,15 @@
 package com.danny.web.vo;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
+@ApiModel(value = "商品单位对象", description = "商品单位的信息")
 public class UnitVo {
+    @ApiModelProperty(hidden = true)
     private Integer id;
 
+    @ApiModelProperty(value = "商品单位名称", required = true)
     private String name;
-
-    private String pinyin;
-
-    private String acronym;
 
     private Integer type;
 
@@ -27,22 +29,6 @@ public class UnitVo {
 
     public void setName(String name) {
         this.name = name == null ? null : name.trim();
-    }
-
-    public String getPinyin() {
-        return pinyin;
-    }
-
-    public void setPinyin(String pinyin) {
-        this.pinyin = pinyin == null ? null : pinyin.trim();
-    }
-
-    public String getAcronym() {
-        return acronym;
-    }
-
-    public void setAcronym(String acronym) {
-        this.acronym = acronym == null ? null : acronym.trim();
     }
 
     public Integer getType() {

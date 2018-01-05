@@ -6,7 +6,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.alibaba.fastjson.JSON;
-import com.danny.lvsen.pojo.User;
 import com.danny.web.vo.UserVo;
 
 public class UserTools {

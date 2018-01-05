@@ -1,11 +1,21 @@
 package com.danny.web.vo;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
+@ApiModel(value = "商品辅助单位对象", description = "商品辅助单位信息")
 public class GoodsAssistUnitVo {
+    @ApiModelProperty(hidden = true)
     private Integer id;
 
+    @ApiModelProperty(value = "商品ID", required = true)
     private Integer goodsId;
 
-    private String assistUnit;
+    @ApiModelProperty(value = "商品单位名称", required = true)
+    private String unitName;
+
+    @ApiModelProperty(value = "商品单位级别(1为最小单位，数字越大单位内的最小单位数量越多,例如:啤酒1瓶的级别是1，一件的级别是2)", allowableValues = "1,2,3,4,5", required = true)
+    private Integer unitLevel;
 
     public Integer getId() {
         return id;
@@ -23,11 +33,19 @@ public class GoodsAssistUnitVo {
         this.goodsId = goodsId;
     }
 
-    public String getAssistUnit() {
-        return assistUnit;
+    public String getUnitName() {
+        return unitName;
     }
 
-    public void setAssistUnit(String assistUnit) {
-        this.assistUnit = assistUnit == null ? null : assistUnit.trim();
+    public void setUnitName(String unitName) {
+        this.unitName = unitName;
+    }
+
+    public Integer getUnitLevel() {
+        return unitLevel;
+    }
+
+    public void setUnitLevel(Integer unitLevel) {
+        this.unitLevel = unitLevel;
     }
 }
