@@ -3,9 +3,6 @@ package com.danny.commons.utils;
 import java.util.HashMap;
 import java.util.Map;
 
-import io.swagger.annotations.ApiResponse;
-import io.swagger.annotations.ApiResponses;
-
 public class ApiResponseInfo {
     public int code;
 

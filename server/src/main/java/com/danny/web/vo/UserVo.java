@@ -2,7 +2,9 @@ package com.danny.web.vo;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
 
+@Data
 @ApiModel(value = "User对象", description = "用户信息")
 public class UserVo {
     @ApiModelProperty(hidden = true)
@@ -43,107 +45,4 @@ public class UserVo {
     @ApiModelProperty(value = "状态(0-禁用,1-启用)")
     private Boolean status;
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name == null ? null : name.trim();
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone == null ? null : phone.trim();
-    }
-
-    public String getAccount() {
-        return account;
-    }
-
-    public void setAccount(String account) {
-        this.account = account == null ? null : account.trim();
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password == null ? null : password.trim();
-    }
-
-    public String getBirthday() {
-        return birthday;
-    }
-
-    public void setBirthday(String birthday) {
-        this.birthday = birthday == null ? null : birthday.trim();
-    }
-
-    public String getJobDesc() {
-        return jobDesc;
-    }
-
-    public void setJobDesc(String jobDesc) {
-        this.jobDesc = jobDesc == null ? null : jobDesc.trim();
-    }
-
-    public String getPhone2() {
-        return phone2;
-    }
-
-    public void setPhone2(String phone2) {
-        this.phone2 = phone2 == null ? null : phone2.trim();
-    }
-
-    public String getDepartment() {
-        return department;
-    }
-
-    public void setDepartment(String department) {
-        this.department = department == null ? null : department.trim();
-    }
-
-    public Boolean getStatus() {
-        return status;
-    }
-
-    public void setStatus(Boolean status) {
-        this.status = status;
-    }
-
-    public Boolean getSex() {
-        return sex;
-    }
-
-    public void setSex(Boolean sex) {
-        this.sex = sex;
-    }
-
-    public Integer getScore() {
-        return score;
-    }
-
-    public void setScore(Integer score) {
-        this.score = score;
-    }
-
-    public String getRoleId() {
-        return roleId;
-    }
-
-    public void setRoleId(String roleId) {
-        this.roleId = roleId;
-    }
 }

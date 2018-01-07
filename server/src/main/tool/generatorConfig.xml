@@ -16,7 +16,7 @@
 
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
                         connectionURL="jdbc:mysql://127.0.0.1:3306/lvsen?generateSimpleParameterMetadata=true"
-                        userId="root" password="root">
+                        userId="root" password="1234">
         </jdbcConnection>
 
         <javaTypeResolver>
@@ -62,23 +62,11 @@
         	<property name="useActualColumnNames" value="false"/>
             <generatedKey column="id" sqlStatement="JDBC"/>
         </table>
-        <table tableName="goods_assist_unit" domainObjectName="GoodsAssistUnit">
-        	<property name="useActualColumnNames" value="false"/>
-            <generatedKey column="id" sqlStatement="JDBC"/>
-        </table>
         <table tableName="goods_bar_code" domainObjectName="GoodsBarCode">
         	<property name="useActualColumnNames" value="false"/>
             <generatedKey column="id" sqlStatement="JDBC"/>
         </table>
         <table tableName="goods_category" domainObjectName="GoodsCategory">
-        	<property name="useActualColumnNames" value="false"/>
-            <generatedKey column="id" sqlStatement="JDBC"/>
-        </table>
-        <table tableName="goods_price_catetory" domainObjectName="GoodsPriceCatetory">
-        	<property name="useActualColumnNames" value="false"/>
-            <generatedKey column="id" sqlStatement="JDBC"/>
-        </table>
-        <table tableName="goods_unit_transfer" domainObjectName="GoodsUnitTransfer">
         	<property name="useActualColumnNames" value="false"/>
             <generatedKey column="id" sqlStatement="JDBC"/>
         </table>
@@ -111,10 +99,6 @@
             <generatedKey column="id" sqlStatement="JDBC"/>
         </table>
         <table tableName="storage_partition" domainObjectName="StoragePartition">
-        	<property name="useActualColumnNames" value="false"/>
-            <generatedKey column="id" sqlStatement="JDBC"/>
-        </table>
-        <table tableName="unit" domainObjectName="Unit">
         	<property name="useActualColumnNames" value="false"/>
             <generatedKey column="id" sqlStatement="JDBC"/>
         </table>

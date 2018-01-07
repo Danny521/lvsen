@@ -9,7 +9,6 @@ import javax.servlet.http.HttpSessionBindingEvent;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.util.StringUtils;
@@ -139,7 +138,7 @@ public class UserListener implements HttpSessionAttributeListener, ServletReques
     @Override
     public void onApplicationEvent(ContextRefreshedEvent event) {
         try {
-            ApplicationContext context = event.getApplicationContext();
+//            ApplicationContext context = event.getApplicationContext();
 //            logService = context.getBean("logService", ILogService.class);
 //            resourceService = context.getBean("resourceService", IResourceService.class);
         } catch (Exception ex) {

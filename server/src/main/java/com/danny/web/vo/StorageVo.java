@@ -1,76 +1,29 @@
 package com.danny.web.vo;
 
 import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
 
+@Data
 @ApiModel(value = "仓库对象", description = "仓库的详细信息")
 public class StorageVo {
     private Integer id;
 
+    @ApiModelProperty(value = "仓库名称", required = true)
     private String name;
 
+    @ApiModelProperty(value = "仓库地址", required = true)
     private String address;
 
+    @ApiModelProperty(value = "仓库管理员")
     private String manager;
 
+    @ApiModelProperty(value = "仓库状态")
     private Integer status;
 
+    @ApiModelProperty(value = "仓库容量")
     private String capacity;
 
-    private Integer areaNumber;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name == null ? null : name.trim();
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address == null ? null : address.trim();
-    }
-
-    public String getManager() {
-        return manager;
-    }
-
-    public void setManager(String manager) {
-        this.manager = manager == null ? null : manager.trim();
-    }
-
-    public Integer getStatus() {
-        return status;
-    }
-
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
-
-    public String getCapacity() {
-        return capacity;
-    }
-
-    public void setCapacity(String capacity) {
-        this.capacity = capacity == null ? null : capacity.trim();
-    }
-
-    public Integer getAreaNumber() {
-        return areaNumber;
-    }
-
-    public void setAreaNumber(Integer areaNumber) {
-        this.areaNumber = areaNumber;
-    }
+    @ApiModelProperty(value = "备注信息")
+    private String remark;
 }
