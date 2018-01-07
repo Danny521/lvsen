@@ -2,7 +2,9 @@ package com.danny.web.vo;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
 
+@Data
 @ApiModel(value = "账单对象", description = "账单的详细信息")
 public class BillVo {
     @ApiModelProperty(hidden = true)
@@ -25,52 +27,4 @@ public class BillVo {
 
     @ApiModelProperty(value = "生成时间", hidden = true)
     private String createTime;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Integer getClientId() {
-        return clientId;
-    }
-
-    public void setClientId(Integer clientId) {
-        this.clientId = clientId;
-    }
-
-    public Long getOrderIdId() {
-        return orderId;
-    }
-
-    public void setOrderIdId(Long orderId) {
-        this.orderId = orderId;
-    }
-
-    public Float getPayableAmount() {
-        return payableAmount;
-    }
-
-    public void setPayableAmount(Float payableAmount) {
-        this.payableAmount = payableAmount;
-    }
-
-    public Float getPaidAmount() {
-        return paidAmount;
-    }
-
-    public void setPaidAmount(Float paidAmount) {
-        this.paidAmount = paidAmount;
-    }
-
-    public Boolean getStatus() {
-        return status;
-    }
-
-    public void setStatus(Boolean status) {
-        this.status = status;
-    }
 }
