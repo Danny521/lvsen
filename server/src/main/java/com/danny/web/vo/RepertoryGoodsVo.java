@@ -2,7 +2,9 @@ package com.danny.web.vo;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
 
+@Data
 @ApiModel(value = "库存商品对象", description = "库存商品的详细信息")
 public class RepertoryGoodsVo {
 
@@ -31,7 +33,7 @@ public class RepertoryGoodsVo {
     private Integer defaultUnitId;
 
     @ApiModelProperty(value = "库位编号")
-    private String storagePartitionNumber;
+    private String storePositionNumber;
 
     @ApiModelProperty(value = "是否需要扫描", required = true)
     private Boolean isScan;
@@ -53,133 +55,8 @@ public class RepertoryGoodsVo {
 
     @ApiModelProperty(value = "库存金额")
     private Float money;
-
-    public String getGoodsNumber() {
-        return goodsNumber;
-    }
-
-    public void setGoodsNumber(String goodsNumber) {
-        this.goodsNumber = goodsNumber;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getCategoryName() {
-        return categoryName;
-    }
-
-    public void setCategoryName(String categoryName) {
-        this.categoryName = categoryName;
-    }
-
-    public String getSpecification() {
-        return specification;
-    }
-
-    public void setSpecification(String specification) {
-        this.specification = specification;
-    }
-
-    public Float getMinPrice() {
-        return minPrice;
-    }
-
-    public void setMinPrice(Float minPrice) {
-        this.minPrice = minPrice;
-    }
-
-    public Integer getCapacity() {
-        return capacity;
-    }
-
-    public void setCapacity(Integer capacity) {
-        this.capacity = capacity;
-    }
-
-    public String getMiniUnit() {
-        return miniUnit;
-    }
-
-    public void setMiniUnit(String miniUnit) {
-        this.miniUnit = miniUnit;
-    }
-
-    public Integer getDefaultUnitId() {
-        return defaultUnitId;
-    }
-
-    public void setDefaultUnitId(Integer defaultUnitId) {
-        this.defaultUnitId = defaultUnitId;
-    }
-
-    public String getStoragePartitionNumber() {
-        return storagePartitionNumber;
-    }
-
-    public void setStoragePartitionNumber(String storagePartitionNumber) {
-        this.storagePartitionNumber = storagePartitionNumber;
-    }
-
-    public Boolean getIsScan() {
-        return isScan;
-    }
-
-    public void setIsScan(Boolean isScan) {
-        this.isScan = isScan;
-    }
-
-    public String getSingleCode() {
-        return singleCode;
-    }
-
-    public void setSingleCode(String singleCode) {
-        this.singleCode = singleCode;
-    }
-
-    public Float getWeight() {
-        return weight;
-    }
-
-    public void setWeight(Float weight) {
-        this.weight = weight;
-    }
-
-    public Float getVolume() {
-        return volume;
-    }
-
-    public void setVolume(Float volume) {
-        this.volume = volume;
-    }
-
-    public Integer getTotalNum() {
-        return totalNum;
-    }
-
-    public void setTotalNum(Integer totalNum) {
-        this.totalNum = totalNum;
-    }
-
-    public Float getCostPrice() {
-        return costPrice;
-    }
-
-    public void setCostPrice(Float costPrice) {
-        this.costPrice = costPrice;
-    }
-
-    public Float getMoney() {
-        return money;
-    }
-
-    public void setMoney(Float money) {
-        this.money = money;
-    }
+    
+    @ApiModelProperty(value = "商品排序")
+    private Integer sort;
 
 }

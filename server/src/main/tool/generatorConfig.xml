@@ -62,10 +62,6 @@
         	<property name="useActualColumnNames" value="false"/>
             <generatedKey column="id" sqlStatement="JDBC"/>
         </table>
-        <table tableName="goods_assist_unit" domainObjectName="GoodsAssistUnit">
-        	<property name="useActualColumnNames" value="false"/>
-            <generatedKey column="id" sqlStatement="JDBC"/>
-        </table>
         <table tableName="goods_bar_code" domainObjectName="GoodsBarCode">
         	<property name="useActualColumnNames" value="false"/>
             <generatedKey column="id" sqlStatement="JDBC"/>
@@ -74,11 +70,7 @@
         	<property name="useActualColumnNames" value="false"/>
             <generatedKey column="id" sqlStatement="JDBC"/>
         </table>
-        <table tableName="goods_price_catetory" domainObjectName="GoodsPriceCatetory">
-        	<property name="useActualColumnNames" value="false"/>
-            <generatedKey column="id" sqlStatement="JDBC"/>
-        </table>
-        <table tableName="goods_unit_transfer" domainObjectName="GoodsUnitTransfer">
+        <table tableName="goods_unit" domainObjectName="GoodsUnit">
         	<property name="useActualColumnNames" value="false"/>
             <generatedKey column="id" sqlStatement="JDBC"/>
         </table>
@@ -106,19 +98,19 @@
         	<property name="useActualColumnNames" value="false"/>
             <generatedKey column="id" sqlStatement="JDBC"/>
         </table>
-        <table tableName="storage" domainObjectName="Storage">
+        <table tableName="warehouse" domainObjectName="Warehouse">
         	<property name="useActualColumnNames" value="false"/>
             <generatedKey column="id" sqlStatement="JDBC"/>
         </table>
-        <table tableName="storage_partition" domainObjectName="StoragePartition">
-        	<property name="useActualColumnNames" value="false"/>
-            <generatedKey column="id" sqlStatement="JDBC"/>
-        </table>
-        <table tableName="unit" domainObjectName="Unit">
+        <table tableName="store_position" domainObjectName="storePosition">
         	<property name="useActualColumnNames" value="false"/>
             <generatedKey column="id" sqlStatement="JDBC"/>
         </table>
         <table tableName="sys_user" domainObjectName="User">
+        	<property name="useActualColumnNames" value="false"/>
+            <generatedKey column="id" sqlStatement="JDBC"/>
+        </table>
+        <table tableName="sys_user_role" domainObjectName="UserRole">
         	<property name="useActualColumnNames" value="false"/>
             <generatedKey column="id" sqlStatement="JDBC"/>
         </table>

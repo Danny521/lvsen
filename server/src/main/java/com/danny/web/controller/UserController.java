@@ -63,8 +63,8 @@ public class UserController extends BaseController {
 			@PathVariable @ApiParam(name = "id", value = "用户ID", required = true) Integer id) {
 		// TODO
 		ApiResponseInfo res = new ApiResponseInfo(HttpStatus.OK.value(), HttpStatus.OK.name());
-
-		res.data.put("userInfo", new UserVo());
+		UserVo userVo = new UserVo();
+		res.data.put("userInfo", userVo);
 		return res;
 	}
 
