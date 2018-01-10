@@ -1,5 +1,7 @@
 package com.danny.web.vo;
 
+import java.util.List;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -16,10 +18,10 @@ public class GoodsVo {
 	@ApiModelProperty(value = "商品名称", required = true)
 	private String name;
 	
-	@ApiModelProperty(value = "商品别名", required = true)
+	@ApiModelProperty(value = "商品别名")
 	private String alias;
 
-	@ApiModelProperty(value = "所属分类ID", required = true)
+	@ApiModelProperty(value = "所属分类ID")
 	private Integer categoryId;
 
 	@ApiModelProperty(value = "商品规格(比如:1x4x20)")
@@ -29,9 +31,12 @@ public class GoodsVo {
 	private Integer status;
 
 	@ApiModelProperty(value = "库位编号")
-	private String storagePartitionNumber;
+	private String storePositionNumber;
 
 	@ApiModelProperty(value = "备注信息")
 	private String ext;
+	
+	@ApiModelProperty(value = "计量单位信息列表")
+	private List<GoodsUnitVo> goodsUnitList;
 
 }

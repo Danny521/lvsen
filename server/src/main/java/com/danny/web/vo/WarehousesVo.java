@@ -6,7 +6,7 @@ import lombok.Data;
 
 @Data
 @ApiModel(value = "仓库对象", description = "仓库的详细信息")
-public class StorageVo {
+public class WarehousesVo {
     private Integer id;
 
     @ApiModelProperty(value = "仓库名称", required = true)

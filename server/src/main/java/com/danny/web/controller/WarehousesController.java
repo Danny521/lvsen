@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.danny.commons.utils.ApiResponseInfo;
-import com.danny.web.vo.StoragePartitionVo;
+import com.danny.web.vo.StorePositionVo;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -22,9 +22,9 @@ import io.swagger.annotations.ApiParam;
 
 @RestController
 @Api(tags = { "仓库" })
-@RequestMapping({ "/storage" })
-public class StorageController extends BaseController {
-	private static Logger logger = LoggerFactory.getLogger(StorageController.class);
+@RequestMapping({ "/warehouse" })
+public class WarehousesController extends BaseController {
+	private static Logger logger = LoggerFactory.getLogger(WarehousesController.class);
 
 	@ApiOperation(value = "获取仓库列表", httpMethod = "GET", notes = "获取全部仓库的列表")
 	@GetMapping(path = "/list")
@@ -101,9 +101,9 @@ public class StorageController extends BaseController {
 	}
 
 	@ApiOperation(value = "获取仓库库位列表", httpMethod = "GET", notes = "获取全部仓库库位列表")
-	@GetMapping(path = "/partition/list")
+	@GetMapping(path = "/storePosition/list")
 	@ResponseBody
-	public ApiResponseInfo listStoragePartition(HttpServletRequest request,
+	public ApiResponseInfo listStorePosition(HttpServletRequest request,
 			@ApiParam(name = "key", value = "任意关键字", required = false) String key,
 			@ApiParam(name = "currentPage", value = "当前页码", required = false) Integer currentPage,
 			@ApiParam(name = "pageSize", value = "每页数量", required = false) Integer pageSize,
@@ -114,30 +114,30 @@ public class StorageController extends BaseController {
 	}
 
 	@ApiOperation(value = "添加仓库库位信息", httpMethod = "POST", notes = "添加仓库库位的详细信息")
-	@PostMapping(path = "/partition/add")
+	@PostMapping(path = "/storePosition/add")
 	@ResponseBody
-	public ApiResponseInfo addStoragePartition(HttpServletRequest request,
-			@ApiParam StoragePartitionVo storagePartition) {
+	public ApiResponseInfo addStorePosition(HttpServletRequest request,
+			@ApiParam StorePositionVo StorePosition) {
 		ApiResponseInfo res = new ApiResponseInfo(HttpStatus.OK.value(), HttpStatus.OK.name());
 		// TODO
 		return res;
 	}
 
 	@ApiOperation(value = "修改仓库库位信息", httpMethod = "POST", notes = "修改仓库库位的详细信息")
-	@PostMapping(path = "/partition/edit/{id}")
+	@PostMapping(path = "/storePosition/edit/{id}")
 	@ResponseBody
-	public ApiResponseInfo editStoragePartition(HttpServletRequest request,
+	public ApiResponseInfo editStorePosition(HttpServletRequest request,
 			@PathVariable @ApiParam(name = "id", value = "仓库库位ID", required = true) Integer id,
-			@ApiParam StoragePartitionVo storagePartition) {
+			@ApiParam StorePositionVo StorePosition) {
 		ApiResponseInfo res = new ApiResponseInfo(HttpStatus.OK.value(), HttpStatus.OK.name());
 		// TODO
 		return res;
 	}
 
 	@ApiOperation(value = "获取仓库库位详细信息", httpMethod = "GET", notes = "根据指定ID获取仓库库位的详细信息")
-	@GetMapping(path = "/partition/{id}")
+	@GetMapping(path = "/storePosition/{id}")
 	@ResponseBody
-	public ApiResponseInfo getStoragePartition(HttpServletRequest request,
+	public ApiResponseInfo getStorePosition(HttpServletRequest request,
 			@PathVariable @ApiParam(name = "id", value = "仓库库位ID", required = true) Integer id) {
 		ApiResponseInfo res = new ApiResponseInfo(HttpStatus.OK.value(), HttpStatus.OK.name());
 		// TODO
@@ -145,9 +145,9 @@ public class StorageController extends BaseController {
 	}
 
 	@ApiOperation(value = "获取仓库库位的商品", httpMethod = "GET", notes = "根据ID获取指定仓库库位的商品")
-	@GetMapping(path = "/partition/{id}/goods")
+	@GetMapping(path = "/storePosition/{id}/goods")
 	@ResponseBody
-	public ApiResponseInfo getPartitionGoods(HttpServletRequest request,
+	public ApiResponseInfo getStorePositionGoods(HttpServletRequest request,
 			@PathVariable @ApiParam(name = "id", value = "仓库库位ID", required = true) Integer id) {
 		ApiResponseInfo res = new ApiResponseInfo(HttpStatus.OK.value(), HttpStatus.OK.name());
 		// TODO
@@ -155,9 +155,9 @@ public class StorageController extends BaseController {
 	}
 
 	@ApiOperation(value = "删除仓库库位", httpMethod = "DELETE", notes = "根据指定ID删除仓库库位")
-	@DeleteMapping(path = "/partition/{id}")
+	@DeleteMapping(path = "/storePosition/{id}")
 	@ResponseBody
-	public ApiResponseInfo deleteStoragePartition(HttpServletRequest request,
+	public ApiResponseInfo deleteStorePosition(HttpServletRequest request,
 			@PathVariable @ApiParam(name = "id", value = "仓库库位ID", required = true) Integer id) {
 		ApiResponseInfo res = new ApiResponseInfo(HttpStatus.OK.value(), HttpStatus.OK.name());
 		// TODO

@@ -6,14 +6,14 @@ import lombok.Data;
 
 @Data
 @ApiModel(value = "库位对象", description = "库位的详细信息")
-public class StoragePartitionVo {
+public class StorePositionVo {
     private Integer id;
     
     @ApiModelProperty(value = "库位编号", required= true)
-    private String partitionNumber;
+    private String positionNumber;
     
     @ApiModelProperty(value = "仓库ID", required= true)
-    private Integer storageId;
+    private Integer warehouseId;
 
     @ApiModelProperty(value = "分区号", required= true)
     private String area;

@@ -52,7 +52,7 @@ public class OrderVo {
     private String digest;
 
     @ApiModelProperty(value = "收货仓库ID")
-    private Integer storageId;
+    private Integer warehouseId;
 
     @ApiModelProperty(value = "收货仓库ID")
     private String remark;

@@ -1,8 +1,12 @@
 package com.danny.web.vo;
 
+import java.util.Map;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
 
+@Data
 @ApiModel(value="商品价格种类对象", description = "商品价格种类信息")
 public class GoodsUnitVo {
     @ApiModelProperty(hidden = true)
@@ -37,5 +41,8 @@ public class GoodsUnitVo {
 
     @ApiModelProperty(value = "是否(0-不扫描，1-扫描)")
     private Boolean isScan;
+    
+    @ApiModelProperty(value = "其它价格信息")
+    private Map<Integer, Float> extraPrice;
 
 }

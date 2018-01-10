@@ -33,7 +33,7 @@ public class RepertoryGoodsVo {
     private Integer defaultUnitId;
 
     @ApiModelProperty(value = "库位编号")
-    private String storagePartitionNumber;
+    private String storePositionNumber;
 
     @ApiModelProperty(value = "是否需要扫描", required = true)
     private Boolean isScan;

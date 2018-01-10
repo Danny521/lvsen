@@ -56,7 +56,7 @@ public class OrderController extends BaseController {
 			@ApiParam(name = "clientId", value = "客户ID", required = true) Integer clientId,
 			@ApiParam(name = "discount", value = "整单折扣", required = false, defaultValue = "1") Float discount,
 			@ApiParam(name = "digest", value = "摘要信息", required = false) String digest,
-			@ApiParam(name = "storageId", value = "收货仓库ID", required = false) Integer storageId,
+			@ApiParam(name = "warehouseId", value = "收货仓库ID", required = false) Integer warehouseId,
 			@ApiParam(name = "comment", value = "备注说明", required = true) String comment,
 			@ApiParam(name = "deliveryDate", value = "交货日期", required = true) String deliveryDate,
 			@ApiParam(name = "goodsList", value = "商品列表", required = true) List<OrderGoodsVo> goodsList) {
@@ -73,7 +73,7 @@ public class OrderController extends BaseController {
 			@ApiParam(name = "clientId", value = "客户ID", required = true) Integer clientId,
 			@ApiParam(name = "discount", value = "整单折扣", required = false, defaultValue = "1") Float discount,
 			@ApiParam(name = "digest", value = "摘要信息", required = false) String digest,
-			@ApiParam(name = "storageId", value = "收货仓库ID", required = false) Integer storageId,
+			@ApiParam(name = "warehouseId", value = "收货仓库ID", required = false) Integer warehouseId,
 			@ApiParam(name = "comment", value = "备注说明", required = true) String comment,
 			@ApiParam(name = "deliveryDate", value = "交货日期", required = true) String deliveryDate,
 			@ApiParam(name = "goodsList", value = "商品列表", required = true) List<OrderGoodsVo> goodsList) {

@@ -18,6 +18,7 @@ import com.danny.commons.utils.ApiResponseInfo;
 import com.danny.web.vo.GoodsCategoryVo;
 import com.danny.web.vo.GoodsUnitVo;
 import com.danny.web.vo.GoodsVo;
+import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -33,7 +34,6 @@ public class GoodsController extends BaseController{
     @GetMapping(path = "/list")
     @ResponseBody
     public ApiResponseInfo list(HttpServletRequest request, @ApiParam(name = "key", value = "商品名称", required = false, format = "") String key,
-            @ApiParam(name = "number", value = "商品编号", required = false) String number,
             @ApiParam(name = "categoryId", value = "所属分类ID", required = false) Integer categoryId,
             @ApiParam(name = "place", value = "摆放位置(库位编号)", required = false) String place,
             @ApiParam(name = "isScan", value = "是否扫描", required = false) Boolean isScan, @ApiParam(name = "code", value = "条形码", required = false) String code,
@@ -97,8 +97,8 @@ public class GoodsController extends BaseController{
     @PostMapping(path = "/add")
     @ResponseBody
     public ApiResponseInfo addGoods(HttpServletRequest request, @ApiParam GoodsVo goods) {
-
         ApiResponseInfo res = new ApiResponseInfo(HttpStatus.OK.value(), HttpStatus.OK.name());
+        
         return res;
     }
 

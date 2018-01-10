@@ -62,10 +62,10 @@ public class OrderGoodsVo {
     private String isLargess;
 
     @ApiModelProperty(value = "仓库ID", required = true)
-    private String storageId;
+    private String warehouseId;
 
     @ApiModelProperty(value = "仓库名称")
-    private String storageName;
+    private String warehouseName;
 
     @ApiModelProperty(value = "备注信息")
     private String remark;
