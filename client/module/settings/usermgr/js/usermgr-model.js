@@ -10,21 +10,21 @@ define(["ajaxModel","pvaConfig"],function(ajaxModel){
 
 		urls: {
 			/* 获取用户详情信息 */ 
-			get_user_info: window.projectMode === "develop" ? window.mockDataUrl + "/service/usr/get_usr" : "/service/usr/get_usr",
+			get_user_info: window.projectMode === "develop" ? window.mockDataUrl + "/service/usr/get_usr" : "/service/user/get_usr",
 			/* 获取组织下的用户 包含分页 搜索 */ 
-			get_org_users: window.projectMode === "develop" ? window.mockDataUrl + "/service/list_user" : "/service/usr/list_user",
+			get_org_users: window.projectMode === "develop" ? window.mockDataUrl + "/service/list_user" : "/service/user/list",
 			/* 永久删除用户 */
-			delete_user_completely:"/service/usr/completely_delete_user",
+			delete_user_completely:"/service/user/completely_delete_user",
 			/* 恢复已删除的用户 */
-			restore_user:"/service/usr/restore_user",
+			restore_user:"/service/user/restore_user",
 			/* 修改用户的状态 */
-			update_user_status:"/service/usr/update_status",
+			update_user_status:"/service/user/update_status",
 			/* 删除用户 */
-			delete_user:"/service/usr/delete_usr",
+			delete_user:"/service/user/delete",
 			/* 修改用户 */
-			update_user:"/service/usr/edit_usr",
+			update_user:"/service/user/edit",
 			/* 添加用户 */
-			create_user:"/service/usr/add_usr"
+			create_user:"/service/user/add"
 		},
 		/**
 		 * 获取组织的角色列表al

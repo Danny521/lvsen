@@ -21,7 +21,7 @@ define(["jquery","jquery.pagination"], function(){
 
 		orgLevel: 8,	// by chencheng on 2014-11-6 配置组织树的最大层级(用于控制组织添加按钮) 但是搜索会改变树的深度，这个需要后端支持(暂未实现)
 
-		templateUrl: "/module/settings/usermgr/inc/usermgr-template.html",		// by chencheng on 2014-11-6 用户管理 handlebars 模板
+		templateUrl: "/module/settings/devicemgr/inc/devicemgr-template.html",		// by chencheng on 2014-11-6 用户管理 handlebars 模板
 
 		errorMessage: "网络或服务器异常！",
 

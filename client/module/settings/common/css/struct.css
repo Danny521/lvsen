@@ -277,6 +277,37 @@ label.error.ip.integer{
 	height: 50px;
 	background: url("/module/settings/common/images/icons.png") no-repeat scroll -5px -66px transparent;
 }
+
+.icons-sstorehouse{
+	display: inline-block;
+	float: left;
+	width: 50px;
+	height: 40px;
+	background: url("/module/settings/common/images/icons.png") no-repeat scroll -50px -68px transparent;
+}
+
+.icons-storehouse{
+	display: inline-block;
+	float: left;
+	width: 50px;
+	height: 40px;
+	background: url("/module/settings/common/images/icons.png") no-repeat scroll -50px -68px transparent;
+}
+.icons-sgoods{
+	display: inline-block;
+	float: left;
+	width: 50px;
+	height: 40px;
+	background: url("/module/settings/common/images/icons.png") no-repeat scroll -50px -166px transparent;
+}
+
+.icons-goods{
+	display: inline-block;
+	float: left;
+	width: 50px;
+	height: 40px;
+	background: url("/module/settings/common/images/icons.png") no-repeat scroll -50px -166px transparent;
+}
 .icons-jzuser{
 	display: inline-block;
 	width: 41px;

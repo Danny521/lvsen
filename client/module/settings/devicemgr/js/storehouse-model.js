@@ -12,13 +12,13 @@ define(["ajaxModel","pvaConfig"],function(ajaxModel){
 			/* 获取仓库详情信息 */ 
 			get_storehouse_info: window.projectMode === "develop" ? window.mockDataUrl + "/service/usr/get_storehouse_info" : "/service/usr/get_storehouse_info",
 			/* 获取仓库 包含分页 搜索 */ 
-			list_storehouses: window.projectMode === "develop" ? window.mockDataUrl + "/service/list_storehouses" : "/service/usr/list_storehouses",
+			list_storehouses: window.projectMode === "develop" ? window.mockDataUrl + "/service/list_storehouse" : "/service/usr/list_storehouse",
 			/* 删除仓库 */
 			delete_storehouse:"/service/usr/delete_storehouse",
 			/* 修改仓库 */
 			update_storehouse:"/service/usr/edit_storehouse",
 			/* 添加仓库 */
-			create_storehouse:"/service/usr/add_storehouse"
+			create_storehouse: window.projectMode === "develop" ? window.mockDataUrl + "/service/add_storehouse" : "/service/add_storehouse"
 		},
 		/**
 		 * 获取组织的角色列表al

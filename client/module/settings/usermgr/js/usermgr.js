@@ -433,36 +433,8 @@ define(['./config',
 		 */
 		bindCreateUser: function() {
 			var self = this;
-				self.isRoleChanged = 0; // 0 未进行权限微调   1 已微调并发送了临时数据
-			jQuery("#createUser #authExpire1").val(Toolkit.getCurDate());
-			jQuery("#createUser #authExpire2").val(Toolkit.mills2str(new Date().getTime() + 24*60*60*1000));
-			jQuery("#createUser #smallChangePanel").hide();
 			// 验证表单并向后端发送数据
 			self.volidateUserForm("#createUser", function() {
-				var cameraResourceMedifyList =  [];
-				var strJson={};
-				for(var i=0;i<jQuery("#createUser #userForm").find(".ip_address").length;i++){
-					strJson[i]=0;
-					var ipStr='';
-					var ip_address_temp=jQuery("#createUser #userForm").find(".ip_address")[i],
-						inputList=$(ip_address_temp).find('input');
-					for(var j=0;j<4;j++){
-						if(!ipStr){
-							ipStr=$(inputList[j]).val();
-						}else{
-							ipStr+=('.'+$(inputList[j]).val());
-						}
-					}
-					strJson[i]=ipStr;
-				}
-				var ipString="";
-				for(item in strJson){
-					if(!ipString){
-						ipString=strJson[item];
-					}else{
-						ipString+=(','+strJson[item]);
-					}
-				}			
 				var user = {
 					loginName: jQuery("#createUser #username").val().trim(),
 					password: jQuery("#createUser #password").val().trim(),
@@ -494,23 +466,6 @@ define(['./config',
 				    policeNum:jQuery("#createUser #policeNum").val().trim(),
 				    ipAddress: ipString
 				};
-				if(jQuery("input[name='cacheSet']:checked").val()==="1"){
-					if(user.cloud_limit===""){
-						notify.warn("储存容量大小不能为空！");
-						return;
-					}
-					if(!/^([1-9]\d*|[0]{1,1})$/.test(parseFloat(user.cloud_limit))){
-						notify.warn("储存容量大小必须为正整数！");
-						return;
-					}
-				}
-				if (user.beginTime === "" || user.endTime === "") {
-					notify.warn("开始日期和截止日期必须都不为空！");
-					return;
-				}
-				if(user.endTime !== ""){
-					user.endTime += " 23:59:59";
-				}
 				user.password = md5(user.password);
                 	userModel.createUser(user, {
 						beforeSend: function() {

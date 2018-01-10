@@ -9,11 +9,12 @@
 define(["domReady",
 	"js/tabpanel",
 	"js/storehousemgr",
+	"js/goodmgr",
 	"js/config",
 	"ajaxModel",
 	"js/hbs-helpers",
 	"base.self"
-	], function(domReady,TabPanel,StoreHouseMgr,settings,ajaxModel) {
+	], function(domReady,TabPanel,StoreHouseMgr,GoodMgr,settings,ajaxModel) {
 
 	domReady(function() {
 
@@ -31,9 +32,11 @@ define(["domReady",
 					};
 
 					var storeHouseMgr = new StoreHouseMgr(opt);
+					var goodMgr = new GoodMgr(opt);
 
 					var tabPanel = new TabPanel({
-						"storeHouseMgr": storeHouseMgr
+						"storeHouseMgr": storeHouseMgr,
+						"goodMgr": goodMgr
 					});
 
 					updateThirdNav && updateThirdNav();

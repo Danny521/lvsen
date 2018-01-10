@@ -1,15 +1,15 @@
 /**
  * @authors chencheng (chencheng@netposa.com)
  * @date    2014-12-02 
- * @description  仓库管理
+ * @description  商品管理
  */
 define(['./config',
-	'js/storehouse-model',
+	'js/good-model',
 	"md5",
 	'jquery.validate',
 	"base.self"
-	], function(settings,storeHouseModel,md5){
-	var StoreHouseMgr = new Class({
+	], function(settings,goodModel,md5){
+	var GoodMgr = new Class({
 		Implements: [Options],
 		options: {
 			template: null,
@@ -20,92 +20,92 @@ define(['./config',
 			this.setOptions(options);
 		},
 		/*
-		 *	功能:获取该部门的仓库
+		 *	功能:获取该部门的商品
 		 *	@departId : 部门ID
-		 *	@q :查询字符串 (仓库真实姓名)
+		 *	@q :查询字符串 (商品真实姓名)
 		 */
-		listStorehouses: function(departId, q) {
+		listGoods: function(departId, q) {
 			var self = this;
-			jQuery("div#departStoreHouse").empty().show().siblings(".main").hide();
-			storeHouseModel.listStorehouses({
+			jQuery("div#departGood").empty().show().siblings(".main").hide();
+			goodModel.listGoods({
 				current_page: 1,
 				page_size: self.options.itemsPerPage,
 				name: q
 			}).then(function(tem) {
-				if (tem.code === 200 && tem.data.storehouses) {
+				if (tem.code === 200 && tem.data.goods) {
 					debugger
 					var hasMorePages = tem.data.total > 1 ? true : false;
 					var html = self.options.template({
-						"storeHouseList": {
+						"goodList": {
 							"q": q
 						},
 						"pagebar": hasMorePages
 					});
-					jQuery("#departStoreHouse").html(html);
-					jQuery("#departStoreHouse .content-panel #storehouseform").html(self.options.template({
-						storehouseItems: {
-							storehouses: tem.data.storehouses
+					jQuery("#departGood").html(html);
+					jQuery("#departGood .content-panel #goodform").html(self.options.template({
+						goodItems: {
+							goods: tem.data.goods
 						}
 					}));
-					self.binddepartStoreHouse();
+					self.binddepartGood();
 					if (tem.data.total > 1) {
-						self.options.setPagination(tem.data.count, "#departStoreHouse .pagination", self.options.itemsPerPage, function(nextPage) {
-							storeHouseModel.listStorehouses({
+						self.options.setPagination(tem.data.count, "#departGood .pagination", self.options.itemsPerPage, function(nextPage) {
+							goodModel.listGoods({
 								current_page: nextPage,
 								page_size: self.options.itemsPerPage,
 								name: q
 							}).then(function(res) {
-								if (res.code === 200 && res.data.storehouses) {
-									jQuery("#departStoreHouse .content-panel #storehouseform").html(self.options.template({
-										storehouseItems: {
-											storehouses: res.data.storehouses
+								if (res.code === 200 && res.data.goods) {
+									jQuery("#departGood .content-panel #goodform").html(self.options.template({
+										goodItems: {
+											goods: tem.data.goods
 										}
 									}));
 									jQuery(".pagepart .current").html(nextPage);
-									self.binddepartStoreHouse();
+									self.binddepartGood();
 
 								} else {
-									notify.warn("获取组织仓库列表失败！");
+									notify.warn("获取组织商品列表失败！");
 								}
 							});
 						});
 					}
 				} else {
-					notify.warn("获取组织仓库列表失败！");
+					notify.warn("获取组织商品列表失败！");
 				}
 			});
 		},
 		/*
-		 *	仓库列表相关事件
+		 *	商品列表相关事件
 		 */
-		binddepartStoreHouse: function() {
+		binddepartGood: function() {
 			var self = this;
-			//点击搜索按钮查询仓库
-			jQuery('#departStoreHouse .go').unbind('click').bind('click', function() {
-				self.listStorehouses(1, jQuery('#departStoreHouse .selectUsers').val().trim());
+			//点击搜索按钮查询商品
+			jQuery('#departGood .go').unbind('click').bind('click', function() {
+				self.listGoods(1, jQuery('#departGood .selectUsers').val().trim());
 				return false;
 			});
-			jQuery("#departStoreHouse input.selectUsers").unbind("keypress").bind("keypress", function(event) {
+			jQuery("#departGood input.selectUsers").unbind("keypress").bind("keypress", function(event) {
 				if (event.keyCode === 13) {
-					jQuery("#departStoreHouse .go").click();
+					jQuery("#departGood .go").click();
 					return false;
 				}
 			});
 			// 启用和禁用
-			jQuery('#departStoreHouse a.switch:not(.disable)').unbind('click').bind('click', function() {
+			jQuery('#departGood a.switch:not(.disable)').unbind('click').bind('click', function() {
 				var el = jQuery(this);
 				var status = el.attr("data-mark") === "1" ? 0 : 1;
 				self.setUserStatus(el.closest("tr").attr("data-id"), status, el);
 			});
-			// 删除仓库
-			jQuery('#departStoreHouse .delete-user:not(.disable)').unbind('click').bind('click', function() {
+			// 删除商品
+			jQuery('#departGood .delete-user:not(.disable)').unbind('click').bind('click', function() {
 				var el = jQuery(this).closest("tr"),
 					userId = el.attr("data-id"),
 					userName = el.attr("data-username");
 				new ConfirmDialog({
-					title: '删除仓库',
+					title: '删除商品',
 					confirmText: '确定',
-					message: "<p>确定要删除该仓库吗？</p>",
+					message: "<p>确定要删除该商品吗？</p>",
 					callback: function() {
 						var cfmDialog = this;
 							self.deleteUser(userId, el);
@@ -113,22 +113,22 @@ define(['./config',
 				});
 			});
 			// 彻底删除
-			jQuery('#departStoreHouse .delete-user-forever:not(.disable)').unbind('click').bind('click', function() {
+			jQuery('#departGood .delete-user-forever:not(.disable)').unbind('click').bind('click', function() {
 				var trEl = jQuery(this).closest("tr");
 					new ConfirmDialog({
-						title: '永久删除仓库',
+						title: '永久删除商品',
 						confirmText: '确定',
-						message: "<p>确定要永久删除该仓库吗？</p>",
+						message: "<p>确定要永久删除该商品吗？</p>",
 						callback: function() {
 							var cfmDialog = this;
-							storeHouseModel.deleteUserCompletely({
+							goodModel.deleteUserCompletely({
 								userId: trEl.attr("data-id")
 							}).then(function(res) {
 								if (res.code === 200) {
-									notify.success("仓库删除成功！");
-									self.listStorehouses(1, "");
+									notify.success("商品删除成功！");
+									self.listGoods(1, "");
 								} else {
-									notify.warn('永久删除仓库失败！');
+									notify.warn('永久删除商品失败！');
 								}
 								cfmDialog.hide();
 							});
@@ -137,24 +137,24 @@ define(['./config',
 					});
 			});
 			// 删除->恢复
-			jQuery('#departStoreHouse .operate-icon-edit-restore:not(.disable)').unbind('click').bind('click', function() {
+			jQuery('#departGood .operate-icon-edit-restore:not(.disable)').unbind('click').bind('click', function() {
 				var trEl = jQuery(this).closest("tr"),
 					userId = trEl.attr("data-id"),
 					userName = trEl.attr("data-username"),
 					status = 1;
 
 				new ConfirmDialog({
-					title: '恢复仓库',
+					title: '恢复商品',
 					confirmText: '确定',
-					message: "<p>确定要恢复该仓库吗？</p>",
+					message: "<p>确定要恢复该商品吗？</p>",
 					callback: function() {
 						var cfmDialog = this;
-							storeHouseModel.restoreUser({
+							goodModel.restoreUser({
 								userId: userId
 							}).then(function(res) {
 								if (res.code === 200) {
-									notify.success("仓库恢复成功！");
-									self.listStorehouses(1, "");
+									notify.success("商品恢复成功！");
+									self.listGoods(1, "");
 								} else {
 									notify.warn(res.data.message);
 								}
@@ -162,26 +162,26 @@ define(['./config',
 					}
 				});
 			});
-			// 编辑仓库
-			jQuery('#departStoreHouse .edit-user:not(.disable)').unbind('click').bind('click', function() {
+			// 编辑商品
+			jQuery('#departGood .edit-user:not(.disable)').unbind('click').bind('click', function() {
 				var id = jQuery(this).closest("tr").attr("data-id");
-				storeHouseModel.getStorehouseInfo({
+				goodModel.getGoodInfo({
 					id: id
 				}).then(function(res) {
 					if (res.code === 200) {
-						jQuery("#editStoreHouse").show().html(self.options.template({
-							editStoreHouse: {
-								storeHouse: res.usr
+						jQuery("#editUser").show().html(self.options.template({
+							editUser: {
+								user: res.usr
 							}
 						})).siblings(".main").hide();
-						self.bindEditStoreHouse(res.usr.id);
+						self.bindEditUser(res.usr.id);
 					} else {
-						notify.warn("获取仓库信息失败！");
+						notify.warn("获取商品信息失败！");
 					}
 				});
 			});
-			// 添加仓库
-			jQuery('#departStoreHouse #addStorehouse:not(.disable)').unbind('click').bind('click', function() {
+			// 添加商品
+			jQuery('#departGood #addGood:not(.disable)').unbind('click').bind('click', function() {
 				jQuery("#createStoreHouse").show().html(self.options.template({
 					createStoreHouse: {}
 				})).siblings(".main").hide();
@@ -189,14 +189,14 @@ define(['./config',
 			});
 		},
 		/*
-		 *	功能:启用和禁用某个仓库
-		 *	@id:仓库ID
+		 *	功能:启用和禁用某个商品
+		 *	@id:商品ID
 		 *	@status : [0 禁用 1 启用]
 		 *	@el:当前元素
 		 */
 		setUserStatus: function(id, status, el) {
 			var action = status === 0 ? "禁用" : "启动",
-				msg = status === 0 ? "确定要禁用该仓库吗?" : "确定要启用该仓库吗?",
+				msg = status === 0 ? "确定要禁用该商品吗?" : "确定要启用该商品吗?",
 				self = this,
 				usernamelog;
 
@@ -207,54 +207,54 @@ define(['./config',
 			}
 
 			new ConfirmDialog({
-				title: '仓库 [ 启用 | 禁用 ]',
+				title: '商品 [ 启用 | 禁用 ]',
 				confirmText: '确定',
 				message: "<p>" + msg + "</p>",
 				callback: function() {
 					var cfmDialog = this;
-						storeHouseModel.updateUserStatus({
+						goodModel.updateUserStatus({
 							"id": id,
 							"status": status
 						}).then(function(res) {
 							if (res.code === 200) {
 								
-								logDict.insertMedialog("m3", action + usernamelog + "仓库信息", "f6");
+								logDict.insertMedialog("m3", action + usernamelog + "商品信息", "f6");
 								if (status === 1) {
 									el.removeClass('operate-icon-switch-off').addClass('operate-icon-switch-on').attr('data-mark', 1);
 								} else {
 									el.removeClass('operate-icon-switch-on').addClass('operate-icon-switch-off').attr('data-mark', 0);
 								}
 							} else {
-								notify.warn("修改仓库状态失败！");
+								notify.warn("修改商品状态失败！");
 							}
 						});
 				}
 			});
 		},
 		/*
-		 *	功能:删除仓库
-		 *	@id:仓库ID
+		 *	功能:删除商品
+		 *	@id:商品ID
 		 *	@el:当前元素(tr)
 		 */
 		deleteUser: function(id, el) {
 			var self = this;
-			storeHouseModel.deleteUser({"id": id}).then(function(res) {
+			goodModel.deleteUser({"id": id}).then(function(res) {
 				if (res.code === 200) {
-					notify.success("仓库删除成功！");
-					logDict.insertMedialog("m3", "删除" + el.attr("data-username") + "仓库信息", "f6", "o3");
-					self.listStorehouses(1, '');
+					notify.success("商品删除成功！");
+					logDict.insertMedialog("m3", "删除" + el.attr("data-username") + "商品信息", "f6", "o3");
+					self.listGoods(1, '');
 				} else {
-					notify.warn("仓库删除失败！");
+					notify.warn("商品删除失败！");
 				}
 			});
 		},
 		/*
-		 *	功能:仓库表单验证
+		 *	功能:商品表单验证
 		 *	@selector:"#createUser" or "#editUser"
 		 *	@sendData:验证成功之后的回调函数(向后端发送数据)
 		 */
 		volidatestorehouseform: function(selector, sendData) {
-			// 先获取仓库的比分  
+			// 先获取商品的比分  
 			var userScore = 100;
 			jQuery.validator.setDefaults({
 				invalidHandler: function() {
@@ -310,9 +310,9 @@ define(['./config',
 				// 对于验证失败的字段都给出相应的提示信息
 				messages: {
 					username: {
-						required: "请输入仓库名！",
-						maxlength:"仓库名最多50个字符！"
-					//	remote: "该仓库名已被使用，请重新输入！"
+						required: "请输入商品名！",
+						maxlength:"商品名最多50个字符！"
+					//	remote: "该商品名已被使用，请重新输入！"
 					},
 					desctiption: {
 						required: false
@@ -324,11 +324,11 @@ define(['./config',
 			});
 		},
 		/*
-		 *	功能: 编辑仓库页面相关事件
-		 *	@id:该仓库ID
-		 *	@extraData:该仓库权限相关的数据
+		 *	功能: 编辑商品页面相关事件
+		 *	@id:该商品ID
+		 *	@extraData:该商品权限相关的数据
 		 */
-		bindEditStoreHouse: function(id) {
+		bindEditUser: function(id) {
 			var self = this;
 			//验证密码是否修改及密码强度
 		    jQuery("body").on("change","#editUser #password",function () {
@@ -339,7 +339,7 @@ define(['./config',
 					jQuery("#mypwd").attr("class","");
 				}
 			});
-			// 保存仓库信息
+			// 保存商品信息
 			self.volidatestorehouseform("#editUser", function() {
 				var user = {
 					id: jQuery("#editUser #id").val().trim(),
@@ -359,8 +359,8 @@ define(['./config',
 				if (jQuery("#password").attr("data-change") === "change") {
 					user.password = md5(user.password);					
 				}
-				//pva编辑仓库
-				storeHouseModel.updateUser(user, {
+				//pva编辑商品
+				goodModel.updateUser(user, {
 					beforeSend: function() {
 						jQuery("#editUser #saveUser").attr("disabled", "disabled");						
 						
@@ -371,8 +371,8 @@ define(['./config',
 				}).then(function(res) {
 					if (res.code === 200) {
 						var fingerData , param = {};
-						notify.success("仓库编辑成功！");
-						self.listStorehouses(1, '');
+						notify.success("商品编辑成功！");
+						self.listGoods(1, '');
 					} else {
 						notify.warn(res.data.message);
 					}
@@ -380,12 +380,12 @@ define(['./config',
 			});
 			// 取消
 			jQuery("#editUser #cancel").unbind("click").bind("click", function() {
-				self.listStorehouses(1, '');
+				self.listGoods(1, '');
 			});
 		},
 
 		/*
-		 *	功能:创建仓库页面相关事件
+		 *	功能:创建商品页面相关事件
 		 */
 		bindCreateStoreHouse: function() {
 			var self = this;
@@ -397,10 +397,10 @@ define(['./config',
 					status: 1
 				};
 				user.password = md5(user.password);
-                	storeHouseModel.createStorehouses(user, null).then(function(res) {
+                	goodModel.createGoods(user, null).then(function(res) {
 						if (res.code === 200) {
-	                        notify.success("仓库创建成功！");
-	                        self.listStorehouses(1, '');
+	                        notify.success("商品创建成功！");
+	                        self.listGoods(1, '');
 	                        jQuery("#createStoreHouse").html("");
 	                    } else {
 	                        notify.warn(res.data.message);
@@ -409,9 +409,9 @@ define(['./config',
 			});
 			// 取消
 			jQuery("#createStoreHouse #cancel").unbind("click").bind("click", function() {
-				self.listStorehouses(1, '');
+				self.listGoods(1, '');
 			});
 		}
 	});
-	return StoreHouseMgr ;
+	return GoodMgr ;
 });

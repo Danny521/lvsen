@@ -9,6 +9,7 @@ define(['./config',"ajaxModel",'pubsub',"base.self"], function(settings,ajaxMode
 		Implements: [Events, Options],
 		options: {
 			storeHouseMgr: null,
+			goodMgr: null,
 			active: "storehouse"
 		},
 		initialize: function(options) {
@@ -34,6 +35,9 @@ define(['./config',"ajaxModel",'pubsub',"base.self"], function(settings,ajaxMode
 				if (el.attr("data-tab") === "storehouse") {
 					opt.active = "storehouse";
 					opt.storeHouseMgr.listStorehouses(1, '');
+				}else if(el.attr("data-tab") === "goods"){
+					opt.active = "goods";
+					opt.goodMgr.listGoods(1, '');
 				}
 			});
 		}

@@ -1,56 +1,44 @@
-﻿
-{{!-- 部门用户列表 --}}
-{{#if userList}}
+﻿{{!-- 仓库列表 --}}
+{{#if storeHouseList}}
 <div class="breadcrumb">
-	<span class="active section">用户列表</span>
+	<span class="active section">仓库列表</span>
 </div>
 <div class="search-form">
-	<a class="add permission permission-new-user" id ="addUser" title="添加用户"><i class="icons-plus"></i>新增</a>
+	<a class="add permission permission-new-storehouse" id ="addStorehouse" title="添加仓库"><i class="icons-plus"></i>新增</a>
 	<div>
-		<div class="content"><input class="input-text selectUsers" value="{{userList.q}}" type="text" placeholder="用户搜索"/><button class="go" title="搜索" type="button"></button></div>
+		<div class="content"><input class="input-text selectStorehouse" value="{{storeHouseList.q}}" type="text" placeholder="仓库搜索"/><button class="go" title="搜索" type="button"></button></div>
 	</div>
 </div>
 <div class="content-panel">
-	<div id="userform">
-		{{!-- 部门用户列表项见 userItems --}}
+	<div id="storehouseform">
+		{{!-- 仓库列表项见 storehouseItems --}}
 	</div>
 </div>
 {{/if}}
-{{!-- END of 部门用户列表 --}}
+{{!-- END of仓库列表 --}}
 
-{{!-- 部门用户列表项 --}}
-{{#if userItems}}
+{{!-- 部门仓库列表项 --}}
+{{#if storehouseItems}}
 <table class="common-table">
 	<tbody>
 		<tr class="title">
 			<th class="id">序号</th>
-			<th class="name">用户</th>
-			<th class="name">登录名</th>
-			<th class="sex">性别</th>
-			<th class="status">状态</th>
-			<th class="operate1">操作</th>
+			<th class="name">仓库名称</th>
+			<th class="name">描述信息</th>
+			<th class="name">状态</th>
+			<th class="name">操作</th>
 		</tr>
-		{{#each userItems.users}}
-		<tr class="{{even @index}} {{#if endTime}}  {{isAvailable currentDate endTime}} {{/if}}" data-id="{{id}}" data-username="{{loginName}}" >
+		{{#each storehouseItems.storehouses}}
+		<tr class="{{even @index}} {{#if endTime}}  {{isAvailable currentDate endTime}} {{/if}}" data-id="{{id}}" >
 			<td class="id">{{list @index}}</td>
-			<td class="name" ><a data-id="{{id}}" data-name="{{name}}">{{name}}</a></td>
-			<td class="name" ><a data-id="{{id}}" data-name="{{loginName}}">{{loginName}}</a></td>
-			<td  class="sex" >{{genderName gender}}</td>
-			<td  class="status">
-			{{#eq status 2}}
-			<span class="deleted">已删除</span>
-			{{else}}
-				{{#isSelf ../id  ../score ../isSynced}}
-				<i class="{{#switch ../../status}}switch-off disabled switch operate-icon-switch-off{{else}}switch-on switch disabled operate-icon-switch-on{{/switch}} permission permission-edit-user"  style="cursor: default"></i>
-				{{else}}<a  class="{{#switch ../../status}}switch-off switch operate-icon-switch-off{{else}}switch-on switch operate-icon-switch-on{{/switch}} permission permission-edit-user" title="禁用/启用"  data-mark='{{../../status}}'></a>
-				{{/isSelf}}
-			{{/eq}}
+			<td class="name" ><a>{{name}}</a></td>
+			<td class="name" ><a>{{description}}</a></td>
+			<td>
+				<a  class="{{#switch ../../status}}switch-off switch operate-icon-switch-off{{else}}switch-on switch operate-icon-switch-on{{/switch}} permission permission-edit-user" title="禁用/启用"></a>
 			</td>
 			<td  class="operate1">
-			{{#isSelf id score isSynced}}{{else}}
-				{{#eq ../status 2}}<a title="恢复" class="operate-icon-edit-restore permission permission-restore-user"></a>{{else}}<a title="编辑" class="edit edit-user operate-icon-edit permission permission-edit-user"></a>{{/eq}}
-				{{#eq ../status 2}}<a  class="delete delete-user-forever operate-icon-delete-forever permission permission-delete-user-forever"  title="永久删除"></a>{{else}}<a  class="delete delete-user operate-icon-delete permission permission-delete-user"  title="删除"></a>{{/eq}}
-			{{/isSelf}}
+				<a title="编辑" class="edit edit-user operate-icon-edit permission permission-edit-user"></a>
+				<a  class="delete delete-user operate-icon-delete permission permission-delete-user"  title="删除"></a>
 			</td>
 		</tr>
 		{{/each}}
@@ -58,77 +46,43 @@
 </table>
 {{/if}}
 
-{{!-- 分页条 --}}
-{{#if pagebar}}
-<div class="pagepart">
-	<div class ="pagination">
-	</div>
-</div>
-{{/if}}
-
-{{#if createUser}}
+{{#if createStoreHouse}}
 <div class="content-panel user-info">
 <form id="userForm" method="post" onsubmit="return false;">
 	<div class="base-info">
 		<div class="header">
-			<span class="title"><i></i>新增用户</span>
+			<span class="title"><i></i>新增仓库</span>
 		</div>
 
 		<div class="content ">
 			<table>
-				<tr><td class="name"><span class="required">*</span><span>登录名：</span></td><td><div class="ui input"><input id="username" name="username" type="text" placeholder=""></div></td></tr>
-				<tr><td class="name"><span class="required">*</span><span>初始密码：</span></td><td><div class="ui input"><input class="disable" id="password" name="password" value="123456" type="password" placeholder="" disabled></div></td></tr>
-				<tr><td class="name"><span class="required">*</span><span>真实姓名：</span></td><td><div class="ui input"><input id="realname" name="realname" type="text" placeholder=""></div></td></tr>
-				<tr><td class="name"><span class="required">*</span><span>性别：</span></td><td><input id="male" class="radio sex" value="1" name="sex" checked type="radio"/><label class="radio-label" for="male">男</label><input id="female" class="radio sex" value="2" name="sex" type="radio"/><label class="radio-label" for="female">女</label></td></tr>
+				<tr><td class="name"><span class="required">*</span><span>名称：</span></td><td><div class="ui input"><input id="username" name="username" type="text" placeholder=""></div></td></tr>
+				<tr><td class="name"><span>描述信息：</span></td><td><textarea name="desctiption" id="desctiption" cols="50" rows="6"></textarea></td></tr>
 				<tr><td class="name"><span class="required">*</span><span>状态：</span></td><td><input id="on" class="radio status" value="1" name="status" checked type="radio"/><label class="radio-label" for="on">启用</label><input id="off" class="radio status" value="2" name="status" type="radio"/><label class="radio-label" for="off">禁用</label></td></tr>
-				<tr><td class="name"><span class="required">*</span><span>所属部门：</span></td><td><div class="ui input"><input id="belong" name="belong"  readonly value="{{location2str}}" type="text" placeholder=""></div></td></tr>
-				<tr><td class="name"><span class="required">*</span><span>级别：</span></td><td><div class="ui input"><input id="score" name="score" maxlength="3" type="text" placeholder="市局(60) 分局(40) 派出所(20)"></div></td></tr>
-				<tr>
-				<td class="name">
-					<span>&nbsp;手机号码：</span>
-				</td>
-				<td>
-					<div class="ui input"><input name="cellphone" maxlength="11" id="cellphone" type="text" placeholder=""></div>
-				</td>
-				</tr>
 			</table>
 		</div>
 		<div class="tree-group">
-			<button id="saveUser" class="ui button blue btn-blue" type="submit">确定</button> <button type="button" id="cancel" class="ui button">取消</button>
+			<button id="createStoreHouse" class="ui button blue btn-blue" type="submit">确定</button> <button type="button" id="cancel" class="ui button">取消</button>
 		</div>
 	</div>
-
-
 </form>
-
 </div>
 {{/if}}
 
-{{#if editUser}}
-{{#with editUser.user}}
+{{#if editStoreHouse}}
+{{#with editStoreHouse.storeHouse}}
 <div class="content-panel user-info">
 <form id="userForm" method="post" onsubmit="return false;">
 	<div class="base-info">
 		<div class="header">
-			<span class="title"><i></i>编辑用户</span>
+			<span class="title"><i></i>编辑仓库</span>
 		</div>
 
 		<div class="content">
-
 			<table>
-				<tr><td class="name"><span class="required">*</span><span>登录名：</span></td><td><div class="ui input"><input class="disable" disabled name="username" id="username" value="{{loginName}}" data-default="{{loginName}}" readonly type="text" placeholder=""></div></td></tr>
-				<tr><td class="name"><span class="required">*</span><span>密码：</span></td><td><div class="ui input"><span id="mypwd"></span><input name="password" id="password" value="{{password}}" type="password" placeholder="" data-change=""></div></td></tr>
-				<tr><td class="name"><span class="required">*</span><span>真实姓名：</span></td><td><div class="ui input"><input name="realname" id="realname" value="{{name}}" type="text" placeholder=""></div></td></tr>
-				<tr><td class="name"><span class="required">*</span><span>性别：</span></td><td><input id="male" class="radio sex" value="1" {{selected gender 1 "radio"}} name="sex" type="radio"/><label class="radio-label" for="male">男</label><input id="female" class="radio sex" value="2" {{selected gender 2 "radio"}} name="sex" type="radio"/><label class="radio-label" for="female">女</label></td></tr>
+				<tr><td class="name"><span class="required">*</span><span>名称：</span></td><td><div class="ui input"><input id="username" name="username" type="text" placeholder="" value="{{name}}"></div></td></tr>
+				<tr><td class="name"><span>描述信息：</span></td><td><textarea name="desctiption" id="desctiption" cols="50" rows="6" value="{{description}}"></textarea></td></tr>
 				<tr><td class="name"><span class="required">*</span><span>状态：</span></td><td><input id="on" class="radio status" value="1" name="status" checked type="radio"/><label class="radio-label" for="on">启用</label><input id="off" class="radio status" value="2" name="status" type="radio"/><label class="radio-label" for="off">禁用</label></td></tr>
-				<tr><td class="name"><span class="required">*</span><span>所属部门：</span></td><td><div class="ui input"><input name="belong" id="belong" data-default="{{orgID}}" value="{{allOrgName}}" type="text" placeholder=""></div></td></tr>
-				<tr><td class="name"><span class="required">*</span><span>级别：</span></td><td><div class="ui input"><input id="score" name="score" maxlength="3" type="text" value="{{score}}" placeholder="市局(60) 分局(40) 派出所(20)"></div></td></tr>
-				<tr>
-				<td class="name"><span>&nbsp;手机号码：</span></td>
-				<td>
-				<div class="ui input"><input name="cellphone" id="cellphone" maxlength="11" value="{{phoneNo}}" type="text" placeholder="">	
-				</div>
-				</td></tr>
 			</table>
 		</div>
 		<div class="tree-group">
@@ -142,3 +96,60 @@
 {{/if}}
 
 
+
+{{!-- 商品列表 --}}
+{{#if goodList}}
+<div class="breadcrumb">
+	<span class="active section">商品列表</span>
+</div>
+<div class="search-form">
+	<a class="add permission permission-new-good" id ="addGood" title="添加商品"><i class="icons-plus"></i>新增</a>
+	<div>
+		<div class="content"><input class="input-text selectGood" value="{{goodList.q}}" type="text" placeholder="商品搜索"/><button class="go" title="搜索" type="button"></button></div>
+	</div>
+</div>
+<div class="content-panel">
+	<div id="goodform">
+		{{!-- 商品列表项见 goodItems --}}
+	</div>
+</div>
+{{/if}}
+{{!-- END of商品列表 --}}
+
+{{!-- 商品列表项 --}}
+{{#if goodItems}}
+<table class="common-table">
+	<tbody>
+		<tr class="title">
+			<th class="id">序号</th>
+			<th class="name">商品名称</th>
+			<th class="name">描述信息</th>
+			<th class="name">状态</th>
+			<th class="name">操作</th>
+		</tr>
+		{{#each goodItems.goods}}
+		<tr class="{{even @index}} {{#if endTime}}  {{isAvailable currentDate endTime}} {{/if}}" data-id="{{id}}" >
+			<td class="id">{{list @index}}</td>
+			<td class="name" ><a>{{name}}</a></td>
+			<td class="name" ><a>{{description}}</a></td>
+			<td>
+				<a  class="{{#switch ../../status}}switch-off switch operate-icon-switch-off{{else}}switch-on switch operate-icon-switch-on{{/switch}} permission permission-edit-user" title="禁用/启用"></a>
+			</td>
+			<td  class="operate1">
+				<a title="编辑" class="edit edit-user operate-icon-edit permission permission-edit-user"></a>
+				<a  class="delete delete-user operate-icon-delete permission permission-delete-user"  title="删除"></a>
+			</td>
+		</tr>
+		{{/each}}
+	</tbody>
+</table>
+{{/if}}
+
+
+{{!-- 分页条 --}}
+{{#if pagebar}}
+<div class="pagepart">
+	<div class ="pagination">
+	</div>
+</div>
+{{/if}}
