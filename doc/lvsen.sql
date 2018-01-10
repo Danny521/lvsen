@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : Localhost
-Source Server Version : 50505
+Source Server         : localhost
+Source Server Version : 50628
 Source Host           : localhost:3306
 Source Database       : lvsen
 
 Target Server Type    : MYSQL
-Target Server Version : 50505
+Target Server Version : 50628
 File Encoding         : 65001
 
-Date: 2018-01-07 21:27:52
+Date: 2018-01-10 10:29:14
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -25,7 +25,7 @@ CREATE TABLE `bills` (
   `order_id` bigint(20) DEFAULT NULL COMMENT '单据ID',
   `payable_amount` float(20,0) DEFAULT NULL COMMENT '账单应付金额',
   `paid_amount` float(20,0) DEFAULT NULL COMMENT '已结算金额',
-  `status` tinyint(1) DEFAULT 0 COMMENT '结算状态，0-未完成，1-已完成',
+  `status` tinyint(1) DEFAULT '0' COMMENT '结算状态，0-未完成，1-已完成',
   `create_time` datetime DEFAULT NULL COMMENT '账单生成时间',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -88,8 +88,8 @@ CREATE TABLE `goods` (
   `alias_acronym` varchar(10) DEFAULT NULL,
   `category_id` int(8) DEFAULT NULL COMMENT '商品类别',
   `specification` varchar(32) DEFAULT '' COMMENT '商品规格（例如:1x4x25）',
-  `storage_partition_number` varchar(20) DEFAULT '' COMMENT '库位编号',
-  `status` int(4) DEFAULT 1 COMMENT '状态 1:启用，0:禁用',
+  `store_position_number` varchar(20) DEFAULT '' COMMENT '库位编号',
+  `status` int(4) DEFAULT '1' COMMENT '状态 1:启用，0:禁用',
   `ext` varchar(200) DEFAULT '',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='商品信息';
@@ -125,7 +125,7 @@ CREATE TABLE `goods_category` (
   `acronym` varchar(10) DEFAULT NULL,
   `parent_id` int(11) DEFAULT NULL,
   `sort` int(8) DEFAULT NULL COMMENT '排序',
-  `status` tinyint(1) DEFAULT 1 COMMENT '状态: 1-启用，0-禁用',
+  `status` tinyint(1) DEFAULT '1' COMMENT '状态: 1-启用，0-禁用',
   `remark` varchar(200) DEFAULT '' COMMENT '备注',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -199,7 +199,7 @@ CREATE TABLE `orders` (
   `total_money` float(20,0) DEFAULT NULL COMMENT '单据总额',
   `paid_money` float(20,0) DEFAULT NULL COMMENT '已付金额',
   `is_changed` tinyint(1) DEFAULT NULL COMMENT '是否进行过修改0-未修改,1-被修改过',
-  `print_count` int(8) DEFAULT 1 COMMENT '打印次数',
+  `print_count` int(8) DEFAULT '1' COMMENT '打印次数',
   `bar_code` varchar(30) DEFAULT '' COMMENT '条形码编号',
   `pay_status` tinyint(1) DEFAULT NULL COMMENT '结算状态，0-未完成，1-已完成',
   `remark` varchar(100) DEFAULT '' COMMENT '备注信息',
@@ -239,13 +239,13 @@ CREATE TABLE `order_goods` (
   `sort` int(8) DEFAULT NULL COMMENT '排序',
   `goods_unit_id` int(11) DEFAULT NULL COMMENT '商品单位ID',
   `spec` varchar(20) DEFAULT '' COMMENT '规格',
-  `total_number` int(11) DEFAULT 0 COMMENT '单据预期数量',
+  `total_number` int(11) DEFAULT '0' COMMENT '单据预期数量',
   `real_number` int(11) DEFAULT NULL COMMENT '实际数量',
   `unit_tranfer` varchar(32) DEFAULT '' COMMENT '单位换算',
   `discount` float(10,0) DEFAULT NULL COMMENT '折扣',
-  `sum` float(20,0) DEFAULT 0 COMMENT '金额',
-  `discount_price` float(20,0) DEFAULT 0 COMMENT '折后价格',
-  `discount_sum` float(20,0) DEFAULT 0 COMMENT '折后金额',
+  `sum` float(20,0) DEFAULT '0' COMMENT '金额',
+  `discount_price` float(20,0) DEFAULT '0' COMMENT '折后价格',
+  `discount_sum` float(20,0) DEFAULT '0' COMMENT '折后金额',
   `is_largess` varchar(20) DEFAULT '' COMMENT '是否为赠品：1-是,0-不是',
   `storage_id` varchar(255) DEFAULT NULL,
   `remark` varchar(50) DEFAULT '' COMMENT '备注信息',
@@ -291,44 +291,23 @@ CREATE TABLE `repertory` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for storage
+-- Table structure for store_position
 -- ----------------------------
-DROP TABLE IF EXISTS `storage`;
-CREATE TABLE `storage` (
+DROP TABLE IF EXISTS `store_position`;
+CREATE TABLE `store_position` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(20) DEFAULT '',
-  `pinyin` varchar(64) DEFAULT NULL,
-  `acronym` varchar(10) DEFAULT '' COMMENT '仓库名称缩写',
-  `address` varchar(100) DEFAULT NULL,
-  `manager` varchar(20) DEFAULT '' COMMENT '仓库管理员',
-  `status` int(4) DEFAULT 1 COMMENT '状态 1:可用，0:禁用',
-  `capacity` varchar(20) DEFAULT NULL,
-  `remark` varchar(200) DEFAULT NULL COMMENT '备注信息',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='仓库信息';
-
--- ----------------------------
--- Records of storage
--- ----------------------------
-
--- ----------------------------
--- Table structure for storage_partition
--- ----------------------------
-DROP TABLE IF EXISTS `storage_partition`;
-CREATE TABLE `storage_partition` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `partition_number` varchar(32) DEFAULT '' COMMENT '库位编号',
-  `storage_id` int(11) DEFAULT NULL COMMENT '仓库ID',
+  `position_number` varchar(32) DEFAULT '' COMMENT '库位编号',
+  `warehouse_id` int(11) DEFAULT NULL COMMENT '仓库ID',
   `area` varchar(4) DEFAULT '' COMMENT '区域编号',
   `row` int(4) DEFAULT NULL COMMENT '区域的行号',
   `layer` int(4) DEFAULT NULL COMMENT '层号',
-  `place` int(8) DEFAULT 0 COMMENT '一层的位置',
+  `place` int(8) DEFAULT '0' COMMENT '一层的位置',
   `status` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='仓库划分';
 
 -- ----------------------------
--- Records of storage_partition
+-- Records of store_position
 -- ----------------------------
 
 -- ----------------------------
@@ -403,7 +382,7 @@ CREATE TABLE `sys_user` (
   `job_desc` varchar(64) DEFAULT '' COMMENT '职位描述',
   `phone2` varchar(20) DEFAULT '',
   `department` varchar(20) DEFAULT '' COMMENT '所属部门',
-  `status` tinyint(1) DEFAULT 1 COMMENT '状态，0-禁用，1-启用',
+  `status` tinyint(1) DEFAULT '1' COMMENT '状态，0-禁用，1-启用',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='用户信息';
 
@@ -425,4 +404,25 @@ CREATE TABLE `sys_user_role` (
 
 -- ----------------------------
 -- Records of sys_user_role
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for warehouse
+-- ----------------------------
+DROP TABLE IF EXISTS `warehouse`;
+CREATE TABLE `warehouse` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(20) DEFAULT '',
+  `pinyin` varchar(64) DEFAULT NULL,
+  `acronym` varchar(10) DEFAULT '' COMMENT '仓库名称缩写',
+  `address` varchar(100) DEFAULT NULL,
+  `manager` varchar(20) DEFAULT '' COMMENT '仓库管理员',
+  `status` int(4) DEFAULT '1' COMMENT '状态 1:可用，0:禁用',
+  `capacity` varchar(20) DEFAULT NULL,
+  `remark` varchar(200) DEFAULT NULL COMMENT '备注信息',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='仓库信息';
+
+-- ----------------------------
+-- Records of warehouse
 -- ----------------------------

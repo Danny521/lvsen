@@ -23,8 +23,8 @@ import io.swagger.annotations.ApiParam;
 @RestController
 @Api(tags = { "仓库" })
 @RequestMapping({ "/warehouse" })
-public class WarehousesController extends BaseController {
-	private static Logger logger = LoggerFactory.getLogger(WarehousesController.class);
+public class WarehouseController extends BaseController {
+	private static Logger logger = LoggerFactory.getLogger(WarehouseController.class);
 
 	@ApiOperation(value = "获取仓库列表", httpMethod = "GET", notes = "获取全部仓库的列表")
 	@GetMapping(path = "/list")
