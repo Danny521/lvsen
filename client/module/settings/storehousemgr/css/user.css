@@ -1,0 +1,1389 @@
+
+/************用户创建页面的样式***************/
+span.date-tip{
+	color: #ccc;
+	display: inline-block;
+}
+
+.radio-label{
+	margin-right: 25px;
+}
+.user-type{
+	position: relative;
+	top:2px;
+}
+.radio{
+	margin-right: 10px;
+}
+.select{
+	margin: 0 0 0 -4px;
+/*	padding-left: 6px;
+	padding-top: 5px;*/
+	padding: 3px 0 3px 6px; 
+	width: 180px;
+	height: 28px;
+	line-height: 28px;
+	font-size: 12px;
+	vertical-align: middle;
+}
+.select option{
+	padding: 3px 0 3px 6px; 
+}
+
+#authType{
+	display: inline-block;
+}
+
+.btn-gray{
+	width: 180px;
+}
+.btn-blue{
+	width: 70px;
+
+}
+
+
+/* 视图库授权 */
+#auth-cameras,
+#auth-pvd{
+	display: none;
+	position: absolute;
+	width: 282px;
+	height:290px;
+	top:-290px;
+	left:0;
+	border:1px solid #E3E2E2;
+	border-radius: 3px;
+	z-index: 1200;
+	background-color:#F5F5F7;
+}
+#auth-cameras .location,
+#auth-pvd .location{
+	height: 22px;
+	padding: 5px 0 5px 12px;
+}
+
+#auth-cameras .action,
+#auth-pvd .action{
+	position: relative;
+	top:-3px;
+	left: -1px;
+	height: 30px;
+	width: 178px;
+	border:1px solid #E3E2E2;
+	border-top: none;
+	background-color:#F5F5F7;
+	border-radius: 3px;
+}
+#auth-cameras .action span.tip,
+#auth-pvd .action span.tip{
+	display: inline-block;
+	width: 84px;
+	margin-left: 14px;
+	margin-top: 7px;
+	text-align: left;
+	float: left;
+}
+
+#auth-cameras .action .check,
+#auth-cameras .action .close,
+#auth-pvd .action .check,
+#auth-pvd .action .close {
+	display: inline-block;
+	width: 30px;
+	height: 20px;
+	line-height: 20px;
+	float: left;
+	margin-left: 6px;
+	margin-top: 4px;
+	text-align: center;
+	cursor: pointer;
+	background-color: #44ADEF;
+    background-image: linear-gradient(#69B4FF, #3499FF);
+    border: 1px solid #2DA5EC;
+    border-radius: 3px;
+    box-shadow: 0 1px #94CAFF inset;
+    color: #FFFFFF;
+     -moz-user-select: none
+}
+
+#auth-cameras .action a.check:hover,
+#auth-cameras .action a.close:hover,
+#auth-pvd .action a.check:hover,
+#auth-pvd .action a.close:hover{
+	background-color: #39AFED;
+    background-image: linear-gradient(#5EC5FF, #39AFED);
+    border: 1px solid #2DA5EC;
+    box-shadow: 0 1px #94CAFF inset;
+    color: #FFFFFF
+}
+/*  end 视图库授权 */
+
+.user-info .base-info .header{
+	margin-top: 0;
+	border-top: 1px solid #e7f1fc;
+}
+.user-info .base-info .content{
+	padding: 15px 0; 
+}
+
+.user-info .content td{
+	padding-top:2px;
+	padding-bottom:2px;
+}
+.user-info .content td.name{
+	text-align: right;
+	width: 132px;
+	padding-right: 5px;
+	vertical-align: middle;
+}
+.user-info .content td.name.ip{
+	vertical-align: middle;
+}
+.user-info .content td .select{
+	margin:0;
+}
+
+.user-info .content i.add-role{
+	display: inline-block;
+	position: relative;
+	cursor: pointer;
+	top:4px;
+	height: 16px;
+	width: 16px;
+	margin-left: 15px;
+	background: url("/module/settings/usermgr/images/add.png") no-repeat scroll 0 0 transparent;
+}
+.user-info .content i.add-ip{
+	display: inline-block;
+	position: relative;
+	cursor: pointer;
+	top:4px;
+	height: 30px;
+	width: 16px;
+	margin-left: 15px;
+	background: url("/module/settings/usermgr/images/add.png") no-repeat scroll 0 8px transparent;
+	float:left;
+}
+.user-info .content i.remove-ip{
+	display: inline;
+	position: relative;
+	cursor: pointer;
+	top:4px;
+	width: 16px;
+	margin-left: 15px;
+	background: url("/module/settings/usermgr/images/remove.png") no-repeat scroll 0 8px transparent;
+	height: 30px;
+	float:left;
+}
+.ip_address_ul{
+	width:250px;
+	height: 40px;
+	margin-top: 8px;
+	float: left;
+}
+.ip_address_ul li{
+	width: 374px;
+
+	display: inline-block;
+	position: relative;
+	margin-top: -8px;
+}
+
+.user-info .content div.special{
+	padding-top:4px;
+	padding-bottom:4px;
+	margin-left: 55px;
+}	
+.user-info .content div.special .sname{
+	display: inline-block;
+	width: 120px;
+	text-align: right;
+	padding-right: 5px;
+}
+
+/*.user-info .fields>li{
+	display: block;
+	position: relative;
+	height: 30px;
+	line-height: 30px;
+	margin:5px 0;
+}
+
+.user-info .fields>li>span{
+	display:inline-block;
+	height: 30px;
+	line-height: 30px; 
+	width: 95px;
+	text-align: right;
+}*/
+
+.user-info  .input-text{
+	width: 176px;
+}
+
+
+.user-info .auth-info .content{
+	padding: 0 5px 35px 26px; 
+}
+/* 重写树形插件类的样式 */
+
+
+.smallTreePanel li{
+	padding-top: -5px;
+}
+
+
+/* 保存模板 */
+.save-template{
+	display: inline-block;
+	margin-left: 30px;
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.template{
+	position: relative;
+	display: inline-block;
+	height: 30px;
+}
+.template-panel{
+	display: none;
+	position: absolute;
+	top:-115px;
+	left: 16px;
+	width: 280px;
+	height: 79px;
+	border:1px solid #E3E2E2;
+	border-radius: 3px;
+	padding-top: 25px;
+	padding-left: 14px;
+	z-index: 1000;
+	background-color: #fff;
+}
+.template-panel span{
+	display: inline-block;
+	width: 60px;
+	height: 30px;
+}
+.template-panel .tmp-action{
+	text-align: center;
+	margin-top: 11px;
+}
+.template-panel i.arrow-down{
+	position: absolute;
+	top: 104px;
+	left: 30px;
+	width: 20px;
+	height: 13px;
+	background: url("/module/settings/usermgr/images/arrow_down.png") no-repeat scroll 0 0 transparent;
+}
+
+
+.tree-group{
+	position: relative;
+	margin: 6px 0 3px 202px;
+}
+
+/******************END*******************/
+
+
+
+
+/***************用户详情页面*************/
+/*.user-info {
+	font-size: 12px;
+}
+.user-info .header{
+	background-color: #F5F5F7;
+	height: 30px;
+	line-height: 30px;
+	border-bottom: 1px solid #E3E2E2;
+	border-top: 1px solid #E3E2E2;
+}
+
+.user-info .header span{
+	position: relative;
+	display: inline-block;
+	margin-left: 15px;
+	font-size: 13px;
+}
+.user-info .header span i{
+	position:absolute;
+	display: inline-block;
+	height: 8px;
+	width: 16px;
+	left: 12px;
+	top: 23px;
+	background: url("/images/safety/arrow.png") no-repeat scroll 0 0 transparent;
+}
+
+.user-info .base-info .header{
+	margin-top: -1px;
+}
+
+.user-info .base-info .content{
+	padding: 5px 0; 
+
+}*/
+
+.user-info .base-info table{
+	border-collapse: collapse;
+	margin-left: 43px;
+}
+
+.user-info .base-info table tr{
+	height: 33px;
+	line-height: 33px;
+}
+
+.user-info .base-info table .col1,
+.user-info .base-info table .col3{
+	width: 90px;
+	text-align: right;
+}
+.user-info .base-info table .col2{
+	width: 300px;
+	padding-left: 5px;
+}
+.user-info .base-info table .col4{
+	width: auto;
+}
+.user-info .base-info .action {
+	float: right;
+	margin-right: 15px;
+}
+
+.user-info .base-info .action a{
+	vertical-align: top;
+	margin-top: 4px;
+}
+
+/*.user-info .base-info .action a {
+	display: inline-block;
+	width: 35px;
+	height: 30px;
+}*/
+/*.user-info i,
+.user-info a#changeStatus{
+	display: inline-block;
+	margin-right: 5px;
+	width: 35px;
+	height: 30px;
+	cursor: pointer;
+	background:  url('/images/icons/alloperate.png') no-repeat scroll 0 0 transparent;
+}
+
+.user-info a#changeStatus.switch-on{
+	background-position: -5px -52px;
+}
+.user-info a#changeStatus.switch-off{
+ 	background-position: -5px -3px; 
+}
+
+.user-info i.edit{
+	background-position: -5px -92px;
+}
+
+.user-info i.delete{
+	background-position: -5px -133px;
+}*/
+
+
+/* 修改  2014-12-24 */
+/*
+.user-info .auth-info .content{
+	padding: 5px 0; 
+}
+
+.user-info .auth>table{
+	max-width: 1024px;
+} 
+.user-info .auth>table .auth-col1{
+	width: 130px;
+	text-align: right;
+
+}
+.user-info .auth-info .auth-col2 .bold{
+	font-weight: 600;
+	margin-right: 5px;
+}
+
+.user-info .auth-info .auth-list{
+	padding-left: 63px;
+}
+.user-info .auth-info .auth-list .top{
+	vertical-align: top;
+	padding-top: -5px;
+	text-align: right;
+	min-width: 100px;
+}
+
+.auth-info .auth-list .cameras, 
+.auth-info .auth-list .pvl{
+	margin-top: 7px;
+	width: 280px; 
+	border:2px solid #F5F5F7;
+	
+}
+*/
+/*****************END*****************/
+
+#smallChangePanel{
+	/*display: none;*/
+}
+
+/* 权限微调 */
+#smallChange .container{
+	width: 887px;
+	height: 460px;
+	border: 1px solid #c7d0d9;
+	margin-left: 125px;
+	position: relative;
+}
+#smallChange #sure{
+	height: 29px;
+    position: absolute;
+    right: 411px;
+    top: 427px;
+    width: 68px;
+}
+
+#smallChange .tabs{
+	background-color: #d8e1eb;
+}
+
+#smallChange .tab-views span:not('.date-tip'){
+	display: inline-block;
+	position: relative;
+	width: 96px;
+	top:2px;
+	text-align: center;
+	cursor:pointer;
+	margin: 0;
+	padding: 2px 0;
+}
+#smallChange .tab-views span.date-tip{
+	display: inline-block;
+	position: absolute;
+	left: 463px;
+	top:36px;
+	text-align: center;
+	color:#acacac;
+}
+
+#smallChange .tab-views span.active{
+	background-color: #cedceb;
+	border-left: 1px solid #c7d0d9;
+	border-right: 1px solid #c7d0d9;
+}
+
+#smallChange .tab-views span[data-tab='formal']{
+	border-left: none;
+}
+
+#smallChange .tab-views span i.arrow{
+	display: none;
+}
+#smallChange .tab-views span.active i.arrow{
+	position:absolute;
+	display: inline-block;
+	height: 8px;
+	width: 16px;
+	left: 34px;
+	top: 27px;
+	background: url("/module/settings/usermgr/images/arrow.png") no-repeat scroll 0 0 transparent;
+}
+
+#smallChange .views{
+	padding-bottom: 5px;
+	background-color: #f5f6f7;
+} 
+#smallChange .views>div{
+	display: none;
+	margin-top: 3px;
+}
+#smallChange .views>div.active{
+	display: block;
+}
+#smallChange .views .name{
+	margin-left: 20px;
+}
+
+#smallChange .body{
+	position: relative;
+	top:40px;
+	background-color: #ccc;
+}
+#smallChange .body #funcTree,
+#smallChange .body #camerasTree,
+#smallChange .body #pvdTree{
+	float: left;
+	width:295px;
+	height: 350px;
+	border: 1px solid #E3E2E2;
+	border-left: none;
+	padding:0;
+}
+
+#smallChange .body  #pvdTree{
+	border-right:none;
+	padding: 0;
+	margin:0;
+}
+#smallChange .body .tree-name{
+	text-align: center;
+	background-color: #F5F6F7;
+	border-bottom: 1px solid #E3E2E2;
+	padding: 6px 0;
+}
+
+/* 用户详情*/
+ul.funcs{
+	width: 500px;
+	margin-left: 26px;
+}
+
+ul.funcs .funcs-item{
+	float: left;
+	width: 120px;
+	display: inline-block;
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+}
+
+/* end of 权限微调 */
+
+/* 这里是覆写smallTree.css里的内容*/
+
+.smallTreePanel li.leaf > span {
+    max-width: 160px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/*复写camera i图标*/
+.smallTreePanel li i.checkbox{
+	top:1px;
+}
+i.camera,
+i.camera0{
+	background: url("/module/settings/common/tool/tree_bg.png") no-repeat scroll -85px 0 transparent;
+	display: inline-block;
+    height: 13px;
+    margin-right: 3px;
+    padding: 0;
+    position: relative;
+    top: 1px;
+    width: 16px;
+}
+
+i.camera1{
+	background: url("/module/settings/common/tool/tree_bg.png") no-repeat scroll -353px 0 transparent;
+	display: inline-block;
+    height: 13px;
+    margin-right: 3px;
+    padding: 0;
+    position: relative;
+    top: -1px;
+    width: 16px;
+}
+
+.disabled i.camera0 {
+	background: url("/module/common/images/sprites/camera-disabled.png") no-repeat scroll 0 -126px transparent;
+}
+.disabled i.camera1 {
+	background: url("/module/common/images/sprites/camera-disabled.png") no-repeat scroll 0 -189px transparent;
+}
+
+#cameraGridTreePanel{
+	display: none;
+	padding-left: 137px;
+	margin-bottom: 15px;
+}
+#userDetail #cameraGridTreePanel{
+	padding-left: 0px;
+}
+
+#createRolePanel{
+	width: 700px;
+	height: 600px;
+	z-index: 1006;
+	position: relative;
+	border:1px solid #ccc;
+	background-color: #fff;
+	overflow-y:scroll;
+}
+
+
+
+#dropTree{
+	position: relative;
+	display: none;
+	width: 230px;
+	height: 180px;
+	z-index: 1000;
+	margin-left: 180px;
+	margin-top: -2px;
+	border:1px solid #ccc;
+	padding: 0 0 0 5px;
+	border-radius: 5px;
+}
+#departJZForm #dropTree{
+	margin-left:110px;
+}
+
+#dropTree .treePanel{
+	height: 180px;
+	overflow-x:hidden;
+	overflow-y:auto;
+}
+
+.close-drop-tree{
+	display: none;
+	position: relative;
+	background: url("/module/common/images/bg/close11.png") no-repeat scroll center center #D5D5D5;
+	width: 14px;
+	height: 14px;
+	left: 227px;
+	top:-13px;
+	border-radius: 10px;
+	cursor: pointer;
+	border:1px solid #ccc;
+}
+
+
+
+#dropTree .scrollbarPanel .track{
+	background-color:#F0F0F0;
+	background-image: none;
+	width: 5px;
+}
+#dropTree .scrollbarPanel .scrollbar{
+	width: 5px;
+}
+#dropTree .scrollbarPanel .thumb,
+#dropTree .scrollbarPanel .thumb .end{
+	background: url("/module/common/images/bg/scroll2.png") no-repeat scroll center center #D5D5D5;
+    cursor: pointer;
+    height: 100%;
+    position: relative;
+    width: 5px;
+}
+#dropTree span.active{
+	font-weight: bolder;
+	color: #188DFB;
+}
+
+
+.legend{
+	display: inline-block;
+	padding-left: 603px;
+}
+.legend i{
+	display: inline-block;
+    height: 15px;
+    margin-right: 6px;
+    padding: 0;
+    position: relative;
+    margin-left: 10px;
+    top: 3px;
+    width: 15px;
+    background: url("/module/settings/common/tool/tree_bg.png") no-repeat scroll -503px 0 transparent;
+}
+.legend .legend1{
+	background-position: -520px 0;
+}
+.legend .legend2{
+	background-position: -535px 0;
+}
+span.deleted{
+	color: #E24332;
+    font-weight: 500;
+}
+
+#userDetail .base-info .header .title{
+	margin-right: 10px;
+}
+#userDetail .auth-legend{
+	margin-left: 4px;
+	padding-left:5px;
+	padding-right: 5px;
+}
+#userDetail .auth-legend:before{
+	position: relative;
+	top:-2px;
+	left: -4px;
+	display: inline-block;
+	content: '';
+	width: 6px;
+	height: 6px;
+	background-color: #7ECEF4;
+	border-radius: 3px;
+}
+
+
+/* 进度条弹窗 */
+.process-container{
+	padding:5px 5px 10px;
+}
+.process-container ul{
+	display: block;
+	list-style: none;
+	padding: 13px;
+	margin:0 auto;
+}
+.process-container ul li{
+	width: 100px;
+	height: 100px;
+	display: inline-block;
+	/*border:1px solid red;*/
+	text-align: center;
+	margin-right: 10px;
+}
+.process-container ul li:last-child{
+	margin-right: 0;
+}
+.process-container ul li>div{
+	position: relative;
+	display: block;
+	width: 70px;
+	height: 70px;
+	margin:0 auto;
+	margin-bottom:3px;
+	text-align: center;
+	vertical-align: middle;
+	background: transparent url(/module/settings/usermgr/images/process.png) no-repeat scroll -3px 2px;
+}
+.process-container ul li>div i{
+	position: absolute;
+    top: 17px;
+    left: 17px;
+	height: 35px;
+    width: 35px;
+	/*border:1px solid red;*/
+	background: transparent url(/module/settings/usermgr/images/process_icon.png) no-repeat scroll 0 0;
+
+}
+.common-dialog.process-dialog .wrapper header .close:hover{
+	background: url("/module/settings/common/images/icons.png") no-repeat scroll -105px -393px transparent !important;
+}
+/* 外边的圆圈 */
+.process-container li>div.processing10{
+	background-position: -3px -74px;
+}
+.process-container li>div.processing20{
+	background-position: -3px -150px;
+}
+.process-container li>div.processing30{
+	background-position: -3px -226px;
+}
+.process-container li>div.processing40{
+	background-position: -3px -302px;
+}
+.process-container li>div.processing50{
+	background-position: -3px -378px;
+}
+.process-container li>div.processing60{
+	background-position: -3px -454px;
+}
+.process-container li>div.processing70{
+	background-position: -3px -530px;
+}
+.process-container li>div.processing80{
+	background-position: -3px -606px;
+}
+.process-container li>div.processing90{
+	background-position: -3px -682px;
+}
+
+.process-container ul li div.process-fail{
+	background-position: -5px -834px;
+	cursor:pointer;
+}
+.process-container ul li div.process-fail:hover{
+	background-position: -5px -911px;
+	cursor:pointer;
+}
+.process-container ul li div.process-success{
+	background-position: -3px -759px;
+}
+
+/* 组织同步图标 */
+.process-container li div[data-type='org'] i{
+	background-position: 0 0;
+}
+.process-container li div[data-type='org'].processing i{
+	background-position: -40px 0;
+}
+.process-container li div[data-type='org'].process-fail i{
+	background-position: -80px 0;
+}
+.process-container li div[data-type='org'].process-fail:hover i{
+	background-position: -120px 0;
+}
+.process-container li div[data-type='org'].process-success i{
+	background-position: -40px 0;
+}
+
+/* 用户同步图标 */
+.process-container li div[data-type='user'] i{
+	background-position: 0 -80px;
+}
+.process-container li div[data-type='user'].processing i{
+	background-position: -40px -80px;
+}
+.process-container li div[data-type='user'].process-fail i{
+	background-position: -80px -80px;
+}
+.process-container li div[data-type='user'].process-fail:hover i{
+	background-position: -120px -80px;
+}
+.process-container li div[data-type='user'].process-success i{
+	background-position: -40px -80px;
+}
+/* 摄像机同步图标 */
+.process-container li div[data-type='camera'] i{
+	background-position: 0 -40px;
+}
+.process-container li div[data-type='camera'].processing i{
+	background-position:  -40px -40px;
+}
+.process-container li div[data-type='camera'].process-fail i{
+	background-position:  -80px -40px;
+}
+.process-container li div[data-type='camera'].process-fail:hover i{
+	background-position: -120px -40px;
+}
+.process-container li div[data-type='camera'].process-success i{
+	background-position: -40px -40px;
+}
+/* 灯杆同步图标 */
+.process-container li div[data-type='light'] i{
+	background-position: 0 -120px;
+}
+.process-container li div[data-type='light'].processing i{
+	background-position: -40px -120px;
+}
+.process-container li div[data-type='light'].process-fail i{
+	background-position: -80px -120px;
+}
+.process-container li div[data-type='light'].process-fail:hover i{
+	background-position: -120px -120px;
+}
+.process-container li div[data-type='light'].process-success i{
+	background-position: -40px -120px;
+}
+
+.process-container .sync-tips{
+	display: none;
+	text-align: center;
+}
+.process-container .sync-tips .sync-items{
+	font-weight: bold;
+	margin-right: 3px;
+}
+/* end of 进度条弹窗 */
+
+/*xukai@netposa.com-2015-4-23*/
+.pass-easy {
+	width:80px!important;
+	height:8px;
+	background-color:#eee;
+	border-left:40px solid red;
+	position: absolute;
+    left: 190px;
+    top: 5px;
+}
+.pass-easy:before {
+    content:"弱";
+    position:absolute;
+	left:70px;
+	top: -6px;
+    width: 120px;
+    height: 20px;
+    line-height: 20px;
+	font-size:12px;
+	color:red;
+	padding-left: 20px;
+}
+.pass-easy:after {
+    content:"您的密码太简单了。";
+    position:absolute;
+	left:-36px;
+	top: 15px;
+    width: 120px;
+    height: 20px;
+    line-height: 20px;
+	font-size:12px;
+	color:#999;
+	background:url(../../../../login/images/login_ico.png) -10px -433px no-repeat;
+	padding-left: 35px;
+}
+
+.pass-mid {
+	width:60px!important;
+	height:8px;
+	background-color:#eee;
+	border-left:60px solid #ff8d33;
+	position: absolute;
+    left: 190px;
+    top: 5px;
+}
+.pass-mid:before {
+    content:"中";
+    position:absolute;
+	left:45px;
+	top: -6px;
+    width: 120px;
+    height: 20px;
+    line-height: 20px;
+	font-size:12px;
+	color:#ff8d33;
+	padding-left: 20px;
+}
+.pass-mid:after {
+    content:"您的密码可以更复杂。";
+    position:absolute;
+	left:-56px;
+	top: 15px;
+    width: 120px;
+    height: 20px;
+    line-height: 20px;
+	font-size:12px;
+	color:#999;
+	background:url(../../../../login/images/login_ico.png) -10px -335px no-repeat;
+	padding-left: 30px;
+}
+
+.pass-complex {
+    width:120px!important;
+	height:8px;
+	background-color:#8fc31f;
+	position: absolute;
+    left: 190px;
+    top: 5px;
+	
+}
+.pass-complex:before {
+    content:"强";
+    position:absolute;
+	left:105px;
+	top: -6px;
+    width: 120px;
+    height: 20px;
+    line-height: 20px;
+	font-size:12px;
+	color:#8fc31f;
+	padding-left: 20px;
+}
+.pass-complex:after {
+    content:"您的密码很安全。";
+    position:absolute;
+	left:0;
+	top: 15px;
+    width: 120px;
+    height: 20px;
+    line-height: 20px;
+	font-size:12px;
+	color:#999;
+	background:url(../../../../login/images/login_ico.png) -10px -335px no-repeat;
+	padding-left: 30px;
+}
+
+.pass-err {
+    width:120px!important;
+	height:8px;
+	background-color:red;
+	position: absolute;
+    left: 190px;
+    top: 5px;
+	
+}
+.pass-err:before {
+    content:"警告";
+    position:absolute;
+	left:105px;
+	top: -6px;
+    width: 120px;
+    height: 20px;
+    line-height: 20px;
+	font-size:12px;
+	color:red;
+	padding-left: 20px;
+}
+.pass-err:after {
+    content:"密码不能大于20位！";
+    position:absolute;
+	left:0;
+	top: 15px;
+    width: 120px;
+    height: 20px;
+    line-height: 20px;
+	font-size:12px;
+	color:#999;
+	background:url(../../../../login/images/login_ico.png) -10px -433px no-repeat;
+	padding-left: 30px;
+}
+/* 
+#password + .error {
+    position: relative;
+	left: -118px;
+	top: 2px;
+	background: #fff;
+	-webkit-animation: blink linear 2s infinite alternate;
+	-moz-animation: blink linear 2s infinite alternate;
+	-o-animation: blink linear 2s infinite alternate;
+	animation: blink linear 2s infinite alternate;
+} */
+.pass-len {
+position:relative;
+content:"密码不能大于20位！";
+}
+.pass-len:before {
+content:"密码不能大于20位！";
+position:absolute;
+display:block;
+right:-300px;
+top:0px;
+width:110px;
+color:red;
+}
+/*animation*/
+@-webkit-keyframes blink {
+	0% { -webkit-opacity:0;opacity:0;	}
+	100% { -webkit-opacity:1;opacity:1;	}
+}
+@-o-keyframes blink {
+	from { -o-opacity:0; }
+	to { -o-opacity:1; }
+}
+@-moz-keyframes blink {
+	from { -moz-opacity:0; }
+	to { -moz-opacity:1; }
+}
+@keyframes blink {
+	from { opacity:0; }
+	to { opacity:1; }
+}
+
+.fingerSet{
+	display: inline-block;
+}
+.fingerprint,.fingerVein{
+	width:100px;
+}
+.disabled{
+color:#cdcdcd;
+background: #ccc
+}
+.FingerMasker{
+	background: #000;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 8001;
+	opacity: 0.85;
+	display: none;
+	filter: alpha(opacity=85);
+}
+.FingerMasker i.myClose{
+	width: 28px;
+	height: 28px;
+	line-height: 28px;
+	text-align: center;
+	font-weight: bolder;
+	color: #FFF;
+	position: absolute;
+	right: 5px;
+	top: 5px;
+	z-index: 20;
+	background-color:none;
+	border:2px solid #333;
+	border-radius: 16px;
+	cursor: pointer;
+	transition: all .5s ease;
+	-moz-transition: all .5s ease;
+	-o-transition: all .5s ease;
+	-webkit-transition: all .5s ease;
+}
+.FingerMasker i.myClose:hover{
+background:red;
+}
+.mainpanel{
+	width:500px;
+	position: absolute;
+	margin:0 auto;
+	z-index:10000;
+	left:0;
+	top:0;
+	display: none
+}
+.hidden{
+	display: none
+}
+.alertInfo,.demoPanel,.myloading{
+text-align: center;
+vertical-align: middle
+}
+.bottomPanel{
+	text-align: center;
+	margin-top:50px;
+}
+.demoPanel{
+	padding: 30px 0 50px 0
+}
+.myloading{
+	margin-left:-25px;
+}
+.p20{
+	padding:50px 0!important;
+}
+.bottomPanel .fingerOver{
+	width:104px;
+	height:35px;
+	background: url("../images/finished.png") no-repeat;
+	display: inline-block;
+	cursor: pointer;
+}	
+.bottomPanel .errstep{
+	width:104px;
+	height:35px;
+	background: url("../images/resetFinger.png") no-repeat;
+	display: inline-block;
+	cursor: pointer;
+}
+
+/**
+ * pfs容量限制
+ */
+.mysets{
+	position: relative;
+}
+.mysets input{
+	margin: 0 4px 0 10px;
+	padding: 6px;
+	color: #333333;
+	font-size: 12px;
+	width: 55px;
+	height: 16px;
+	line-height: 16px;
+	vertical-align: middle;
+	border-radius: 3px;
+	border: 1px solid #D9D9D9;
+	background-color: #FFFFFF;
+	-webkit-transition: background-color .2s ease-out,box-shadow .2s ease,border-color .2s ease;
+	-os-transition: background-color .2s ease-out,box-shadow .2s ease,border-color .2s ease;
+	-moz-transition: background-color .2s ease-out,box-shadow .2s ease,border-color .2s ease;
+	-mstransition: background-color .2s ease-out,box-shadow .2s ease,border-color .2s ease;
+	transition: background-color .2s ease-out,box-shadow .2s ease,border-color .2s ease;
+}
+.mysets .setMG{
+	width: 50px;
+	display: inline-block;
+	height: 28px;
+	line-height: 28px;
+	vertical-align: middle;
+	
+}
+input[name="cacheSet"]{
+	width:auto!important;
+}
+.mysets .setMG .icon_arrow{
+	background: url('/module/settings/inspectPlanSet/images/icon.png') -2px -65px no-repeat;
+	height: 13px;
+	width: 10px;
+	cursor: pointer;
+	float: right;
+	margin-right: 5px;
+	margin-top: 9px;
+	display: inline-block;	
+}
+
+.mysets .setMG .icon_arrow.active{
+	background-position: -35px -65px;
+}
+.mysets .setMG .text{
+	text-indent: 5px;
+	display: inline-block;
+	cursor: default;
+	font-size: 12px;
+	color: #333;
+}
+#selectPanel{
+position: absolute;
+left: 138px;
+display: block;
+top: 33px;
+width: 50px;
+z-index: 5000;
+background-color: white;
+border: solid 1px #becad4;
+moz-box-shadow: 2px 2px 10px #909090;
+-webkit-box-shadow: 2px 2px 10px #909090;
+box-shadow: 2px 2px 10px #909090;
+display: none;
+}
+#selectPanel ul li {
+height: 25px;
+line-height: 25px;
+padding-left: 5px;
+overflow: hidden;
+white-space: nowrap;
+text-overflow: ellipsis;
+cursor: pointer;
+}
+#selectPanel ul li:hover{
+	background-color: #edf2f8;
+}
+
+/*******************************优化滚动条样式****************************************/
+.selectBoxPanel {
+	padding: 5px 0 10px;
+	margin: 0 auto;
+	z-index: 2;
+}
+
+.selectBoxPanel .rolePanel {
+	width: 110px;
+	overflow: hidden;
+	background: #fdfdfd;
+	border-radius: 3px;
+}
+.selectBoxPanel .resourceRolePanel {
+	width: 110px;
+	overflow: hidden;
+	background: #fdfdfd;
+	border-radius: 3px;
+}
+.selectBoxPanel .rolePanel > .no-data-selectBoxPanel {
+	text-align: center;
+	padding: 8px 0;
+	display: block;
+	cursor: default;
+}
+.selectBoxPanel .resourceRolePanel > .no-data-selectBoxPanel {
+	text-align: center;
+	padding: 8px 0;
+	display: block;
+	cursor: default;
+}
+.selectBoxPanel .groupbox{
+	margin:10px 0; 
+}
+.selectBoxPanel .viewport {
+	margin-right: 8px;
+	height: 300px;
+	overflow: hidden;
+	position: relative;
+}
+
+.selectBoxPanel .overview {
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+}
+
+.selectBoxPanel .scrollbar {
+	position: relative;
+	float: right;
+	width: 8px;
+	margin-right: 0;
+}
+
+.selectBoxPanel .thumb {
+	height: 12px;
+	width: 6px;
+	background: transparent url(/module/common/images/small-scroll.png) 0 0 no-repeat;
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+	padding-top: 10px;
+}
+
+.selectBoxPanel .thumb .end {
+	height: 2px;
+	width: 6px;
+	background: transparent url(/module/common/images/small-scroll.png) 0 0 no-repeat;
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+}
+
+.selectBoxPanel .track {
+	height: 100%;
+	width: 12px;
+	position: relative;
+	cursor: pointer;
+	background: #ffffff;
+}
+
+.selectBoxPanel .disable {
+	display: none;
+}
+
+.selectBoxPanel .buttons {
+	text-align: center;
+	background-color: #F2F2F2;
+	border-top: 1px solid #E4E4E4;
+	height: 31px;
+}
+
+.selectBoxPanel .rolePanel li {
+	width: 100%;
+	display: block;
+	height: 20px;
+	line-height: 20px;
+	padding: 0 10px 0 0;
+	margin-bottom: 1px;
+	vertical-align: middle;
+}
+.selectBoxPanel .resourceRolePanel li {
+	width: 100%;
+	display: block;
+	height: 20px;
+	line-height: 20px;
+	padding: 0 10px 0 0;
+	margin-bottom: 1px;
+	vertical-align: middle;
+}
+.selectBoxPanel .rolePanel li span{
+	width: 72%;
+	display: inline-block;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	vertical-align: middle;
+}
+.selectBoxPanel .resourceRolePanel li span{
+	width: 72%;
+	display: inline-block;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	vertical-align: middle;
+}
+
+.selectBoxPanel .rolePanel li:hover {
+	background-color: #f0f5f8;
+}
+.selectBoxPanel .resourceRolePanel li:hover {
+	background-color: #f0f5f8;
+}
+
+.selectBoxPanel .triangle {
+	display: block;
+	position: absolute;
+	width: 9px;
+	height: 6px;
+	background: url(/module/common/images/trangle.png) no-repeat 0 0;
+	/*left: 54px;*/
+	left: 69px;
+	top: 0;
+}

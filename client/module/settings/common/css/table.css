@@ -17,8 +17,9 @@ table{
 .common-table tr.title {
 	border-top: 1px solid #DADEE3;
 	border-bottom: 1px solid #DADEE3;
-	background-color: #EBF0F4;
-	color: #333333;
+	background-color: #80aad4;
+	color: #ffffff;
+	font-weight: bold;
 }
 
 .common-table td, .common-table th {

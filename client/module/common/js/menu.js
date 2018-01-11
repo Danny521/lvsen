@@ -8,6 +8,7 @@ define(["broadcast", "/component/base/self/toolkit.js", "/component/base/self/no
             options: {
                 url: "/service/usr/module?parentId=",
                 tpl: '{{#each modules}}<a class="item {{moduleName}} {{isCurrent current}} {{isDisplay}}" data-id="{{id}}" target="_self" href="{{url}}">{{name}}</a>{{/each}}',
+                thirdMenuTpl: '{{#each modules}}<li class="item" data-id="{{id}}" target="_self" data-href="{{url}}">{{name}}</li>{{/each}}',
                 callbacks: [
                     function(html) {
                         jQuery("#navigator .menu .right").siblings().remove();
@@ -120,6 +121,7 @@ define(["broadcast", "/component/base/self/toolkit.js", "/component/base/self/no
              * @author songxj
              */
             renderNavigator: function(params) {
+                debugger
                 var self = this,
                     currentNav = self.getCurrentNav(params);
                 // 显示一级导航 并且高亮当前一级导航
@@ -285,7 +287,7 @@ define(["broadcast", "/component/base/self/toolkit.js", "/component/base/self/no
                         jQuery(".iframe").css("top", "0");
                         jQuery("#navigator,#header").hide();
                     } else {
-                        jQuery(".iframe").css("top", "86px");
+                        jQuery(".iframe").css("top", "41px");
                         jQuery("#navigator,#header").show();
                     }
                 });
@@ -306,12 +308,7 @@ define(["broadcast", "/component/base/self/toolkit.js", "/component/base/self/no
                         "visibility": "visible"
                     });
                 }
-                //云空间权限控制
-                if(localStorage.getItem("cloudbox") === null){
-                    jQuery("#cloudbox").hide();
-                } else {
-                    jQuery("#cloudbox").show();
-                }
+                jQuery("#cloudbox").hide();
                 //删除后端返回的云空间数据 在右侧展示
                 jQuery(".inverted .cloud").remove();
                 // 高亮当前一级导航
@@ -332,34 +329,11 @@ define(["broadcast", "/component/base/self/toolkit.js", "/component/base/self/no
              * @param  {[type]} secondNavName [二级导航名称]
              */
             showSecondNav: function(firstNavName, secondNavName, url) {
+                debugger
                 var self = this;
-                // 交通管理、视图库特殊处理：二级导航不显示
-                if (firstNavName === "gate" || firstNavName === "pvb") {
-                    jQuery(".iframe").css("top", "0");
-                    jQuery("#header").hide();
-                    return;
-                }
-                jQuery(".iframe").css("top", "86px");
+                jQuery(".iframe").css("top", "41px");
                 jQuery("#header").show();
-
-                // 图像研判特殊处理
-                if (firstNavName === "imagejudge" && secondNavName === "resource-process") {
-                    var param = Toolkit.paramOfUrl(url);
-                    secondNavName = url.split("?")[0] + "?type=" + param.type;
-                }
-
-                // 视图库特殊处理：让右侧的搜索框显示
-                if (firstNavName === "viewlibs") {
-                    jQuery(".viewlibs-search").show();
-                } else {
-                    jQuery(".viewlibs-search").hide();
-                }
-
                 jQuery("#header .menu .right").siblings().remove();
-                if (secondNavName && secondNavName.contains('create') && !secondNavName.contains('create_incident')) {
-                    return;
-                }
-
                 // 修改二级导航
                 jQuery("#header .menu .right").after(window.localStorage.getItem(firstNavName));
                 // 二级导航高亮
@@ -369,26 +343,9 @@ define(["broadcast", "/component/base/self/toolkit.js", "/component/base/self/no
                         jQuery(val).addClass('active').siblings().removeClass("active");
                         return false;
                     }
-                    // } else  {
-                    //     console.log("else");
-                    //     jQuery(val).removeClass('active');
-                    // }
                 });
                 // 修改二级模块名称
                 self.updateSecondModuleName(firstNavName);
-
-                // 视图库特殊处理 之前的
-                var hrefStr = window.location.href,
-                    menu = ['workbench', 'caselib', 'doubtlib', 'peoplelib', 'carlib', 'statistic'],
-                    i = menu.length;
-                while (i--) {
-                    if (hrefStr.indexOf(menu[i]) !== -1) {
-                        window.localStorage.setItem('activeMenu', JSON.stringify({
-                            "viewlibs": menu[i]
-                        }));
-                        break;
-                    }
-                };
             },
             /**
              * 修改iframe的src
@@ -463,7 +420,7 @@ define(["broadcast", "/component/base/self/toolkit.js", "/component/base/self/no
             bindNavClickEvent: function() {
                 var self = this;
                 jQuery(document)
-                .off("click", "#navigator a.item").on("click", "#navigator a.item", function(e) { // 一级导航事件(包括点击云空间、一二级导航)
+                .off("click", "#navigator a.item").on("click", "#navigator a.item", function(e) { // 一级导航事件
                     // 点击登陆用户
                     if (jQuery(this).attr("id") === "userEntry") {
                         return;
@@ -484,19 +441,32 @@ define(["broadcast", "/component/base/self/toolkit.js", "/component/base/self/no
                     if (jQuery(this).hasClass("navdisabled")) {
                         return false;
                     }
-
                     self.clickNavCommon(jQuery(this));
-                })
-                .off("click", "#badges").on("click", "#badges", function() { // 二级导航处左侧模块名称点击事件
-                    self.clickNavCommon(jQuery(this));
-                })
-                .off("click", "#notifyInfo a").on("click", "#notifyInfo a", function() { // 一级导航处右侧用户名下拉菜单点击事件
-                   self.userCenterPage(jQuery(this));
                 })
                 .off("click", "#navigator .about-icon").on("click", "#navigator .about-icon", function(e) { // 一级导航事件("关于"功能)
                     require(["/about/about.js"], function(About) {
                         About.showAbout();
                     });
+                });
+
+                jQuery(document)
+                .off("mouseenter", "#header a.item").on("mouseenter", "#header a.item", function(e) { // 二级导航鼠标悬停事件，渲染三级导航
+                    var id = jQuery(this).data("id");
+                        ThirdModule = window.localStorage.getItem('ThirdModule'),
+                        ThirdArray = [];
+                        ThirdModule = JSON.parse(ThirdModule);
+                    var Len = ThirdModule.length;
+                        if(Len >0){
+                            for(var i=0; i<Len; i++){
+                                if((ThirdModule[i]["id"]+"").indexOf(id) >-1){
+                                    ThirdArray.push(ThirdModule[i]);
+                                }
+                            }
+                        }
+                        //存在三级菜单
+                        if(ThirdArray.length>0){
+                            var ulString = "div"
+                        }
                 });
             },
 

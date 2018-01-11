@@ -1,21 +1,18 @@
 /*global FloatDialog:true,notify:true,OrgTree:true,FuncTree:true,RoleTable:true,CameraTree:true,AutoComplete:true,GridTree:true ,$jit:true*/
 /**
- * 用户管理主模块
+ * 设备管理主模块
  * @author chencheng
  * @date   2014-12-10
- * @param  {[type]}   domReady       [description]
- * @param  {[type]}   UserMgr        用户管理
- * @param  {[type]}   settings       全局变量
  * @param  {[type]}   ajaxModel    	 公共ajaxModel
  * @return {[type]}                  [description]
  */
 define(["domReady",
-	"js/usermgr",
+	"js/goodmgr",
 	"js/config",
 	"ajaxModel",
 	"js/hbs-helpers",
 	"base.self"
-	], function(domReady,UserMgr,settings,ajaxModel) {
+	], function(domReady,GoodMgr,settings,ajaxModel) {
 
 	domReady(function() {
 
@@ -31,11 +28,10 @@ define(["domReady",
 						"template": template,
 						"setPagination": settings.setPagination
 					};
-					var userMgr = new UserMgr(opt);
 
-					userMgr.getUsers(1, '');	
+					var goodMgr = new GoodMgr(opt);
 
-				//	updateThirdNav && updateThirdNav();
+					goodMgr.listGoods(1, "");
 
 				} else {
 					notify.warn(settings.errorMessage);

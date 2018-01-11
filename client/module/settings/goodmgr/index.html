@@ -27,23 +27,22 @@
 						<iframe src="about:blank"></iframe>
 						<span class="resize"></span>
 					</a> -->
-					<!--#include file="/module/settings/usermgr/inc/usermgr-aside.html" -->
+					<!--#include file="/module/settings/goodmgr/inc/goodmgr-aside.html" -->
 				</aside>
-
 				<div id="major">
 					<div class="layout_content_main">
 						<div class="layout_content_main_content">
-							<!-- 用户列表 -->
-							<div id="departUsers" class="main"  data-view="user" ></div>
+							<!-- 商品列表 -->
+							<div id="departGood" class="main"></div>
 					
-							<!-- 用户详情 -->
-							<div id="userDetail" class="main"></div>
+							<!-- 商品详情 -->
+							<div id="GoodDetail" class="main"></div>
 
-							<!-- 新增用户 -->
-							<div id="createUser" class="main"></div>
+							<!-- 新增商品 -->
+							<div id="createGood" class="main"></div>
 
-							<!-- 编辑用户 -->
-							<div id="editUser" class="main"></div>
+							<!-- 编辑商品 -->
+							<div id="editGood" class="main"></div>
 						</div>
 					</div>
 				</div>
@@ -52,7 +51,7 @@
 
 		<script type="text/javascript" src="/libs/requirejs/require.js" data-main="/require-conf"></script>
 		<script type="text/javascript">
-			require(['/module/settings/usermgr/js/main.js']);
+			require(['/module/settings/goodmgr/js/main.js']);
 		</script>
 
 	</body>

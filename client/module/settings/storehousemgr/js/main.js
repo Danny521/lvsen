@@ -7,13 +7,12 @@
  * @return {[type]}                  [description]
  */
 define(["domReady",
-	"js/tabpanel",
 	"js/storehousemgr",
 	"js/config",
 	"ajaxModel",
 	"js/hbs-helpers",
 	"base.self"
-	], function(domReady,TabPanel,StoreHouseMgr,settings,ajaxModel) {
+	], function(domReady,StoreHouseMgr,settings,ajaxModel) {
 
 	domReady(function() {
 
@@ -31,14 +30,9 @@ define(["domReady",
 					};
 
 					var storeHouseMgr = new StoreHouseMgr(opt);
+				
+					storeHouseMgr.listStorehouses(1,'');
 
-					var tabPanel = new TabPanel({
-						"storeHouseMgr": storeHouseMgr
-					});
-
-					updateThirdNav && updateThirdNav();
-
-					jQuery(".tab-panel  .tabs li:first").trigger("click");
 				} else {
 					notify.warn(settings.errorMessage);
 				}

@@ -9,6 +9,7 @@ define(["jquery"], function(jQuery) {
      * @description 用后端返回的所有菜单的权限来过滤并分离三级菜单的数据，并存储于 ThirdModule 的 localStorage 中。
      */
     var setThirdMenu = function(data) {
+        debugger
         var modules = data.data.modules,
             tmp = [];
         jQuery.each(modules, function(index, value) {
@@ -46,6 +47,7 @@ define(["jquery"], function(jQuery) {
      * @description 用后端返回的三级菜单的权限来控制三级菜单的显隐。
      */
     var updateThirdNav = function() {
+        debugger
         var modules = _getThirdMenu(),
             $stat = jQuery("#stat"),
             tabs;

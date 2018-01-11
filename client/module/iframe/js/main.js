@@ -28,9 +28,11 @@ define(["jquery", "pvaConfig", "menu", "/component/base/self/loginout.js"], func
 	window.showHideMasker = function(type) {
 		if (type === "hide") {
 			$(".nav-cover-layout").hide();
+			$(".nav-cover-layout2").hide();
 		} else {
 			if($("#navigator, #header").is(":visible")){
 				$(".nav-cover-layout").show();
+				$(".nav-cover-layout2").show();
 			}
 		}
 	};
