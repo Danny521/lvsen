@@ -2,13 +2,18 @@
 {{!-- 部门用户列表 --}}
 {{#if userList}}
 <div class="breadcrumb">
-	<span class="active section">用户列表</span>
+	<span class="nowLocation_ico"><img src="/module/settings/common/images/personal.png"></span>
+	<span class="nowLocation_content" style="color: rgb(69, 75, 76);">
+		<a style="cursor: default; color: rgb(69, 75, 76);">用户管理</a> &gt; 
+		<a class="hand" style="color: rgb(69, 75, 76);">用户列表</a>
+	</span>
 </div>
 <div class="search-form">
-	<a class="add permission permission-new-user" id ="addUser" title="添加用户"><i class="icons-plus"></i>新增</a>
-	<div>
-		<div class="content"><input class="input-text selectUsers" value="{{userList.q}}" type="text" placeholder="用户搜索"/><button class="go" title="搜索" type="button"></button></div>
-	</div>
+		<div class="content">
+			<input class="input-text selectUsers" value="{{userList.q}}" type="text" placeholder="用户搜索"/>
+			<button class="go" title="搜索" type="button"></button>
+			<a class="add permission permission-new-user" id ="addUser" title="添加用户"><i class="icons-plus"></i>新增</a>
+		</div>
 </div>
 <div class="content-panel">
 	<div id="userform">
@@ -70,11 +75,14 @@
 <div class="content-panel user-info">
 <form id="userForm" method="post" onsubmit="return false;">
 	<div class="base-info">
-		<div class="header">
-			<span class="title"><i></i>新增用户</span>
+		<div class="breadcrumb">
+				<span class="nowLocation_ico"><img src="/module/settings/common/images/personal.png"></span>
+				<span class="nowLocation_content" style="color: rgb(69, 75, 76);">
+					<a style="cursor: default; color: rgb(69, 75, 76);">用户管理</a> &gt; 
+					<a class="hand" style="color: rgb(69, 75, 76);">新增用户</a>
+				</span>
 		</div>
-
-		<div class="content ">
+		<div class="content">
 			<table>
 				<tr><td class="name"><span class="required">*</span><span>登录名：</span></td><td><div class="ui input"><input id="username" name="username" type="text" placeholder=""></div></td></tr>
 				<tr><td class="name"><span class="required">*</span><span>初始密码：</span></td><td><div class="ui input"><input class="disable" id="password" name="password" value="123456" type="password" placeholder="" disabled></div></td></tr>
@@ -109,12 +117,14 @@
 <div class="content-panel user-info">
 <form id="userForm" method="post" onsubmit="return false;">
 	<div class="base-info">
-		<div class="header">
-			<span class="title"><i></i>编辑用户</span>
-		</div>
-
+			<div class="breadcrumb">
+					<span class="nowLocation_ico"><img src="/module/settings/common/images/personal.png"></span>
+					<span class="nowLocation_content" style="color: rgb(69, 75, 76);">
+						<a style="cursor: default; color: rgb(69, 75, 76);">用户管理</a> &gt; 
+						<a class="hand" style="color: rgb(69, 75, 76);">编辑用户</a>
+					</span>
+			</div>
 		<div class="content">
-
 			<table>
 				<tr><td class="name"><span class="required">*</span><span>登录名：</span></td><td><div class="ui input"><input class="disable" disabled name="username" id="username" value="{{loginName}}" data-default="{{loginName}}" readonly type="text" placeholder=""></div></td></tr>
 				<tr><td class="name"><span class="required">*</span><span>密码：</span></td><td><div class="ui input"><span id="mypwd"></span><input name="password" id="password" value="{{password}}" type="password" placeholder="" data-change=""></div></td></tr>

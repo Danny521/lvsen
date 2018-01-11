@@ -7,14 +7,12 @@
  * @return {[type]}                  [description]
  */
 define(["domReady",
-	"js/tabpanel",
 	"js/storehousemgr",
-	"js/goodmgr",
 	"js/config",
 	"ajaxModel",
 	"js/hbs-helpers",
 	"base.self"
-	], function(domReady,TabPanel,StoreHouseMgr,GoodMgr,settings,ajaxModel) {
+	], function(domReady,StoreHouseMgr,settings,ajaxModel) {
 
 	domReady(function() {
 
@@ -32,16 +30,9 @@ define(["domReady",
 					};
 
 					var storeHouseMgr = new StoreHouseMgr(opt);
-					var goodMgr = new GoodMgr(opt);
+				
+					storeHouseMgr.listStorehouses(1,'');
 
-					var tabPanel = new TabPanel({
-						"storeHouseMgr": storeHouseMgr,
-						"goodMgr": goodMgr
-					});
-
-					updateThirdNav && updateThirdNav();
-
-					jQuery(".tab-panel  .tabs li:first").trigger("click");
 				} else {
 					notify.warn(settings.errorMessage);
 				}

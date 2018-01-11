@@ -6,9 +6,10 @@
 define(['./config',
 	'js/good-model',
 	"md5",
+	"selectBox",
 	'jquery.validate',
 	"base.self"
-	], function(settings,goodModel,md5){
+	], function(settings,goodModel,md5,selectBoxPlugin){
 	var GoodMgr = new Class({
 		Implements: [Options],
 		options: {
@@ -72,6 +73,52 @@ define(['./config',
 					}
 				} else {
 					notify.warn("获取组织商品列表失败！");
+				}
+			});
+		},
+		/**
+		 * 初始化下拉菜单
+		 */
+		initSelect: function(){
+			var self = this;
+			   self.storeHouseList = [];
+			   self.categoryList = [];
+			var getStoreHouses = goodModel.listStorehouses({
+				current_page: 1,
+				page_size: 1000,
+				name: ""
+			}),
+			getCategories = goodModel.listcategories({
+				current_page: 1,
+				page_size: 1000,
+				name: ""
+			});    
+			jQuery.when(getStoreHouses,getCategories).then(function(res1,res2) {
+				if (res1.code === 200 && res2.code === 200) {
+					var functionRoles = res1.data.roles,
+					    resourceRoles = res2.data.roles;
+					selectBoxPlugin.selectBox([
+						{
+							selector: "#deparJZUsers #deparRoleId",
+							data: functionRoles,
+							isMultiSelect: true, // 是否是多选
+							callback: function(data) { // 当关闭时执行的函数
+								var ids = _.pluck(data,"id");
+								self.deparFunctionRolesList = ids;
+							}
+						},
+						{
+							selector: "#deparJZUsers #deparResourceRoleId",
+							data: resourceRoles,
+							isMultiSelect: true, // 是否是多选
+							callback: function(data) { // 当关闭时执行的函数
+								var ids = _.pluck(data,"id");
+								self.deparResourceRolesList = ids;
+							}
+						}
+					]);
+				} else {
+
 				}
 			});
 		},
@@ -182,8 +229,8 @@ define(['./config',
 			});
 			// 添加商品
 			jQuery('#departGood #addGood:not(.disable)').unbind('click').bind('click', function() {
-				jQuery("#createStoreHouse").show().html(self.options.template({
-					createStoreHouse: {}
+				jQuery("#createGood").show().html(self.options.template({
+					createGood: {}
 				})).siblings(".main").hide();
 				self.bindCreateStoreHouse();
 			});
@@ -390,10 +437,10 @@ define(['./config',
 		bindCreateStoreHouse: function() {
 			var self = this;
 			// 验证表单并向后端发送数据
-			self.volidatestorehouseform("#createStoreHouse", function() {
+			self.volidatestorehouseform("#createGood", function() {
 				var user = {
-					loginName: jQuery("#createStoreHouse #username").val().trim(),
-					loginName: jQuery("#createStoreHouse #desctiption").val().trim(),
+					loginName: jQuery("#createGood #username").val().trim(),
+					loginName: jQuery("#createGood #desctiption").val().trim(),
 					status: 1
 				};
 				user.password = md5(user.password);
@@ -401,14 +448,14 @@ define(['./config',
 						if (res.code === 200) {
 	                        notify.success("商品创建成功！");
 	                        self.listGoods(1, '');
-	                        jQuery("#createStoreHouse").html("");
+	                        jQuery("#createGood").html("");
 	                    } else {
 	                        notify.warn(res.data.message);
 	                    }
 					});
 			});
 			// 取消
-			jQuery("#createStoreHouse #cancel").unbind("click").bind("click", function() {
+			jQuery("#createGood #cancel").unbind("click").bind("click", function() {
 				self.listGoods(1, '');
 			});
 		}

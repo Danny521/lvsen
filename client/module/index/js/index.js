@@ -15,7 +15,9 @@ define([
         //定义首页模块列表模板
         _indexTplString = '{{#each modules}}<li><a href="javascript:void(0);" class="icon_{{moduleName}}" data-target="{{moduleName}}" data-url="{{url}}"></a><span>{{name}}</span></li>{{/each}}',
         //定义一级导航模板
-        _firstNavTplString = '{{#each modules}}<a class="item {{moduleName}}" data-id="{{id}}" target="_self" data-url="{{url}}">{{name}}</a>{{/each}}';
+        _firstNavTplString = '{{#each modules}}<a class="item {{moduleName}}" data-id="{{id}}" target="_self" data-url="{{url}}">{{name}}</a>{{/each}}',
+         //定义二级导航模板
+         _secondNavTplString = '{{#each modules}}<a class="item {{moduleName}}" data-id="{{id}}" target="_self" data-url="{{url}}">{{name}}</a><a class="split-line"></a>{{/each}}';
 
     var /**
          * 额外加载
@@ -69,9 +71,10 @@ define([
         _saveFirstNav = function(modulesInfo) {
             //遍历模块列表
             $.each(modulesInfo, function(index, val) {
+                debugger
                 if (val.childModule) {
                     //存储各层级导航（二级导航）
-                    val.url && window.localStorage.setItem(val.url.split("/")[2], Handlebars.compile(_firstNavTplString)({
+                    val.url && window.localStorage.setItem(val.url.split("/")[2], Handlebars.compile(_secondNavTplString)({
                         "modules": val.childModule
                     }));
                 } else {

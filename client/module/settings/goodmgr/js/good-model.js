@@ -18,7 +18,9 @@ define(["ajaxModel","pvaConfig"],function(ajaxModel){
 			/* 修改商品 */
 			update_good:"/service/usr/edit_good",
 			/* 添加商品 */
-			create_good: window.projectMode === "develop" ? window.mockDataUrl + "/service/add_good" : "/service/add_good"
+			create_good: window.projectMode === "develop" ? window.mockDataUrl + "/service/add_good" : "/service/add_good",
+			/* 获取仓库 包含分页 搜索 */ 
+			list_storehouses: window.projectMode === "develop" ? window.mockDataUrl + "/service/list_storehouse" : "/service/usr/list_storehouse"
 		},
 		/**
 		 * 获取组织的角色列表al
@@ -52,6 +54,12 @@ define(["ajaxModel","pvaConfig"],function(ajaxModel){
 		 */
 		deleteGood:function(data,custom){
 			return ajaxModel.postData(this.urls.delete_good,data,custom);
+		},
+		/**
+		 * 分页获取组织下的仓库 包含搜索 分页
+		 */
+		listStorehouses:function(data,custom){
+			return ajaxModel.postData(this.urls.list_storehouses,data,custom);
 		}
 		
 	};

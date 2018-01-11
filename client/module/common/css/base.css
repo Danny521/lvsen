@@ -34,8 +34,9 @@ a { color: #005EAB; text-decoration: none; cursor: pointer }
 a:hover { color: #00BAFF }
 a:active { color: #009FDA }
 #logo { float: left; color: #FFFFFF; display: block; font-size: 14px; line-height: 34px; text-decoration: none }
-#navigator .wrapper, #header .wrapper { padding: 0 15px; min-width: 1280px; }
-#navigator .wrapper { height: 34px; background-color: #444444; border-top: 1px solid #636262; border-bottom: 1px solid #000000;overflow: hidden;}
+#navigator .wrapper { padding: 0 15px;/* min-width: 1280px;*/ }
+#header .wrapper {padding: 1px 0px;}
+#navigator .wrapper { height: 40px; background-color: #444444; border-top: 1px solid #636262; border-bottom: 1px solid #000000;overflow: hidden;}
 #navigator .ui.menu.nav { margin: 2px 0 0 145px; border: none }
 #navigator .ui.menu.nav .item { padding-left: 10px; padding-right: 10px }
 #navigator .ui.menu.nav .active.item { font-weight: bold }
@@ -56,13 +57,28 @@ display: inline-block;
 margin-right: 6px;
 float: left;
 }
-#badges { float: left; color: #FFFFFF; display: block; font-size: 24px; line-height: 50px; text-decoration: none; padding-left: 60px; background: transparent url(../images/badges.png) 0 center no-repeat }
-#header { /*position: relative; top: -5px; */}
-#header .wrapper { height: 50px; background: #2277c5 url(../images/bg/navigator.png) 0 0 repeat-x;}
-#header .ui.menu.nav { margin-left: 265px }
+#badges { float: left; color: #FFFFFF; display: none; font-size: 24px; line-height: 50px; text-decoration: none; padding-left: 60px; background: transparent url(../images/badges.png) 0 center no-repeat }
+#header {
+    position: absolute;
+    width: 86px;
+    left: 0px;
+    top: 41px;
+    bottom: 0px;
+    /* background: #2277c5 url(../images/bg/navigator.png) 0 0 repeat-x; */
+    background-color: rgba(0, 33, 73, 0.952941);
+ }
+#header .wrapper { /*height: 50px; background: #2277c5 url(../images/bg/navigator.png) 0 0 repeat-x;*/}
+#header .ui.menu.nav { /*margin-left: 265px*/ }
 #header .ui.menu.nav a.item {display:inline-block;}
 #header .ui.menu.nav .item { color: #FFFFFF; line-height: 30px; padding-left: 15px; padding-right: 15px }
-#header .ui.menu.nav .active.item { background: transparent url(../images/bg/nagigator-menu-active.png) 0 0 repeat-x; padding-left: 14px; padding-right: 14px; border-left: 1px solid #1661B2; border-right: 1px solid #1661B2 }
+#header .ui.menu.nav .split-line { 
+    display: inline-block;
+    width: 100%;
+    height: 1px;
+    overflow: hidden;
+    background:  #061930;
+}
+#header .ui.menu.nav .active.item { background-color: rgb(242, 125, 0); padding-left: 14px; padding-right: 14px; border-left: 1px solid #1661B2; border-right: 1px solid #f27d00 }
 #header .ui.menu.nav .menu .item { padding-right: 0; line-height: normal }
 #header .ui.input input { width: 163px;padding-right: 23px; }
 #footer { margin-top: 10px; border-top: 1px solid #DDDDDD }
@@ -82,9 +98,10 @@ float: left;
 .common-dialog .wrapper .default-text { font-size: 14px; padding: 20px 0 20px 30px; background: transparent url(../images/animate/loading.gif) 0 center no-repeat }
 .common-dialog .wrapper footer { text-align: right; border-radius: 0 0 5px 5px; background: #F9F9F9; border-top: 1px solid #E5E5E5; padding: 4px 13px }
 .common-dialog .wrapper footer input { margin-left: 10px }
-#maskLayer, .nav-cover-layout { position: fixed; top: 0; left: 0; right: 0; bottom: 0; opacity: 0.2; z-index: 1000; display: none; background-color: #000000; filter: alpha(opacity=20); _position: absolute; _width: 100% }
+#maskLayer, .nav-cover-layout { position: fixed; top: 0; left: 0; right: 0; bottom: 0; opacity: 0.3; z-index: 1000; display: none; background-color: #000000; filter: alpha(opacity=20); _position: absolute; _width: 100% }
+.nav-cover-layout2 { position: fixed; top: 41px; left: 0; width: 86px; bottom: 0; opacity: 0.3; z-index: 1000; display: none; background-color: #000000; filter: alpha(opacity=20); _position: absolute; _width: 100% }
 #maskLayer iframe { position: absolute; width: 100%; height: 100%; top: 0; left: 0; right: 0; bottom: 0; opacity: 0; filter: alpha(opacity=0) }
-.nav-cover-layout { height: 86px; bottom: auto;}
+.nav-cover-layout { height: 41px; bottom: auto;}
 #fDlgContainer { display: none; position: fixed; top: 0; left: 0; width: 180px; height: 50px; line-height: 50px; text-align: center; background-color: #fff; border: 1px solid #ccc; z-index: 9000 }
 .noSelect { user-select: none; -o-user-select: none; -moz-user-select: none; -khtml-user-select: none; -webkit-user-select: none }
 .permission { display: none }

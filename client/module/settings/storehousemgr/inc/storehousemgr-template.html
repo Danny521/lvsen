@@ -1,0 +1,116 @@
+﻿{{!-- 仓库列表 --}}
+{{#if storeHouseList}}
+<div class="breadcrumb">
+	<span class="nowLocation_ico"><img src="/module/settings/common/images/personal.png"></span>
+	<span class="nowLocation_content" style="color: rgb(69, 75, 76);">
+		<a style="cursor: default; color: rgb(69, 75, 76);">仓库管理</a> &gt; 
+		<a class="hand" style="color: rgb(69, 75, 76);">仓库列表</a>
+	</span>
+</div>
+<div class="search-form">
+	<div class="content">
+		<input class="input-text selectStorehouse" value="{{storeHouseList.q}}" type="text" placeholder="仓库搜索"/>
+		<button class="go" title="搜索" type="button"></button>
+		<a class="add permission permission-new-storehouse" id ="addStorehouse" title="添加仓库"><i class="icons-plus"></i>新增</a>
+	</div>
+</div>
+<div class="content-panel">
+	<div id="storehouseform">
+		{{!-- 仓库列表项见 storehouseItems --}}
+	</div>
+</div>
+{{/if}}
+{{!-- END of仓库列表 --}}
+
+{{!-- 部门仓库列表项 --}}
+{{#if storehouseItems}}
+<table class="common-table">
+	<tbody>
+		<tr class="title">
+			<th class="id">序号</th>
+			<th class="name">仓库名称</th>
+			<th class="name">描述信息</th>
+			<th class="name">状态</th>
+			<th class="name">操作</th>
+		</tr>
+		{{#each storehouseItems.storehouses}}
+		<tr class="{{even @index}} {{#if endTime}}  {{isAvailable currentDate endTime}} {{/if}}" data-id="{{id}}" >
+			<td class="id">{{list @index}}</td>
+			<td class="name" ><a>{{name}}</a></td>
+			<td class="name" ><a>{{description}}</a></td>
+			<td>
+				<a  class="{{#switch ../../status}}switch-off switch operate-icon-switch-off{{else}}switch-on switch operate-icon-switch-on{{/switch}} permission permission-edit-user" title="禁用/启用"></a>
+			</td>
+			<td  class="operate1">
+				<a title="编辑" class="edit edit-user operate-icon-edit permission permission-edit-user"></a>
+				<a  class="delete delete-user operate-icon-delete permission permission-delete-user"  title="删除"></a>
+			</td>
+		</tr>
+		{{/each}}
+	</tbody>
+</table>
+{{/if}}
+
+{{#if createStoreHouse}}
+<div class="content-panel user-info">
+<form id="userForm" method="post" onsubmit="return false;">
+	<div class="base-info">
+		<div class="breadcrumb">
+				<span class="nowLocation_ico"><img src="/module/settings/common/images/personal.png"></span>
+				<span class="nowLocation_content" style="color: rgb(69, 75, 76);">
+					<a style="cursor: default; color: rgb(69, 75, 76);">仓库管理</a> &gt; 
+					<a class="hand" style="color: rgb(69, 75, 76);">新增仓库</a>
+				</span>
+		</div>
+		<div class="content ">
+			<table>
+				<tr><td class="name"><span class="required">*</span><span>名称：</span></td><td><div class="ui input"><input id="username" name="username" type="text" placeholder=""></div></td></tr>
+				<tr><td class="name"><span>描述信息：</span></td><td><textarea name="desctiption" id="desctiption" cols="50" rows="6"></textarea></td></tr>
+				<tr><td class="name"><span class="required">*</span><span>状态：</span></td><td><input id="on" class="radio status" value="1" name="status" checked type="radio"/><label class="radio-label" for="on">启用</label><input id="off" class="radio status" value="2" name="status" type="radio"/><label class="radio-label" for="off">禁用</label></td></tr>
+			</table>
+		</div>
+		<div class="tree-group">
+			<button id="createStoreHouse" class="ui button blue btn-blue" type="submit">确定</button> <button type="button" id="cancel" class="ui button">取消</button>
+		</div>
+	</div>
+</form>
+</div>
+{{/if}}
+
+{{#if editStoreHouse}}
+{{#with editStoreHouse.storeHouse}}
+<div class="content-panel user-info">
+<form id="userForm" method="post" onsubmit="return false;">
+	<div class="base-info">
+		<div class="breadcrumb">
+				<span class="nowLocation_ico"><img src="/module/settings/common/images/personal.png"></span>
+				<span class="nowLocation_content" style="color: rgb(69, 75, 76);">
+					<a style="cursor: default; color: rgb(69, 75, 76);">仓库管理</a> &gt; 
+					<a class="hand" style="color: rgb(69, 75, 76);">编辑仓库</a>
+				</span>
+		</div>
+		<div class="content">
+			<table>
+				<tr><td class="name"><span class="required">*</span><span>名称：</span></td><td><div class="ui input"><input id="username" name="username" type="text" placeholder="" value="{{name}}"></div></td></tr>
+				<tr><td class="name"><span>描述信息：</span></td><td><textarea name="desctiption" id="desctiption" cols="50" rows="6" value="{{description}}"></textarea></td></tr>
+				<tr><td class="name"><span class="required">*</span><span>状态：</span></td><td><input id="on" class="radio status" value="1" name="status" checked type="radio"/><label class="radio-label" for="on">启用</label><input id="off" class="radio status" value="2" name="status" type="radio"/><label class="radio-label" for="off">禁用</label></td></tr>
+			</table>
+		</div>
+		<div class="tree-group">
+			<input type="hidden" id="id" value="{{id}}">
+			<button id="saveUser"class="ui button blue btn-blue" type="submit">确定</button> <button type="button" id="cancel" class="ui button">取消</button>
+		</div>
+	</div>
+</form>
+</div>
+{{/with}}
+{{/if}}
+
+
+{{!-- 分页条 --}}
+{{#if pagebar}}
+<div class="pagepart">
+	<div class ="pagination">
+	</div>
+</div>
+{{/if}}

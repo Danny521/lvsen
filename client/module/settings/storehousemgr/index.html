@@ -27,42 +27,32 @@
 						<iframe src="about:blank"></iframe>
 						<span class="resize"></span>
 					</a> -->
-					<!--#include file="/module/settings/devicemgr/inc/devicemgr-aside.html" -->
+					<!--#include file="/module/settings/storehousemgr/inc/storehousemgr-aside.html" -->
 				</aside>
 
 				<div id="major">
+					<div class="layout_content_main">
+						<div class="layout_content_main_content">
+							<!-- 仓库列表 -->
+							<div id="departStoreHouse" class="main"></div>
 					
-					<!-- 仓库列表 -->
-					<div id="departStoreHouse" class="main"  data-view="storehouse" ></div>
-			
-					<!-- 仓库详情 -->
-					<div id="storeHouseDetail" class="main"></div>
+							<!-- 仓库详情 -->
+							<div id="storeHouseDetail" class="main"></div>
 
-					<!-- 新增仓库 -->
-					<div id="createStoreHouse" class="main"></div>
+							<!-- 新增仓库 -->
+							<div id="createStoreHouse" class="main"></div>
 
-					<!-- 编辑仓库 -->
-					<div id="editStoreHouse" class="main"></div>
-
-					<!-- 商品列表 -->
-					<div id="departGood" class="main"  data-view="goods" ></div>
-			
-					<!-- 商品详情 -->
-					<div id="GoodDetail" class="main"></div>
-
-					<!-- 新增商品 -->
-					<div id="createGood" class="main"></div>
-
-					<!-- 编辑商品 -->
-					<div id="editGood" class="main"></div>
-
+							<!-- 编辑仓库 -->
+							<div id="editStoreHouse" class="main"></div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
 
 		<script type="text/javascript" src="/libs/requirejs/require.js" data-main="/require-conf"></script>
 		<script type="text/javascript">
-			require(['/module/settings/devicemgr/js/main.js']);
+			require(['/module/settings/storehousemgr/js/main.js']);
 		</script>
 
 	</body>

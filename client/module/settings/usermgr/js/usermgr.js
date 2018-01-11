@@ -27,6 +27,7 @@ define(['./config',
 		getUsers: function(departId, q) {
 			var self = this;
 			jQuery("div#departUsers").empty().show().siblings(".main").hide();
+			debugger
 			userModel.getOrgUsers({
 				current_page: 1,
 				page_size: self.options.itemsPerPage,

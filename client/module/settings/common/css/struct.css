@@ -77,12 +77,22 @@ label.error.ip.integer{
 }
 
 #major {
-	display: none;
+	/* display: none; */
     bottom: 0;
-    left: 50px;
+    left: 86px; 
     position: absolute;
     right: 0;
-    top: 10px;
+	top: 0px;
+	background-color: #f0f0f0;
+    overflow: auto;
+}
+#major .layout_content_main{
+	position: absolute;
+    bottom: 0;
+    left: 15px; 
+    right: 0;
+	top: 0px;
+	background-color: #FFFFFF;
     overflow: auto;
 }
 #content .wrapper {
@@ -96,6 +106,7 @@ label.error.ip.integer{
 }
 
 #sidebar {
+	display: none;
     background-color: #F6FBFF;
     bottom: 0;
     left: 0;
@@ -520,11 +531,18 @@ label.error.ip.integer{
 /*面包屑样式*/
 .breadcrumb{
 	display: block;
-	line-height: 33px;
-	border-top:1px solid #ccc;
-	border-bottom:1px solid #ccc;
-	padding-left: 15px;
+	line-height: 35px;
+	/* border-top:1px solid #ccc; */
+	/* border-bottom:1px solid #ccc; */
+	background-color: #f0f0f0;
 	font-size: 13px;
+}
+.breadcrumb .nowLocation_ico{
+	display: inline-block;
+	width: 28px;
+	height: 28px;
+	position: relative;
+	top: 8px;
 }
 
 .breadcrumb a{
@@ -533,7 +551,9 @@ label.error.ip.integer{
 }
 
 .search-form{
-	padding-left: 15px;
+	background-color: #f0f0f0;
+	padding-bottom: 10px;
+	/* padding-left: 15px; */
 	/*height: 34px;*/
 	/*position:relative;*/
 }
@@ -608,11 +628,10 @@ label.error.ip.integer{
 	height: 22px;
 	line-height: 22px;
 	width: 170px;
-	padding-left: 15px;
 	padding-right: 30px;
 	margin:4px 0;
 	border:1px solid #E2E5EA;
-	border-radius: 15px;
+	
 	font-size: 12px;
 }
 .search-form .input-text:focus{
@@ -627,12 +646,11 @@ label.error.ip.integer{
 	background: url("/module/common/images/search_small.png") no-repeat scroll 0 4px transparent;
 	width: 18px;
 	margin-top: 4px;
-	margin-left: -20px;
+	margin-left: -25px;
 }
 .search-form .add{
 	display: inline-block;
-	float: right;
-	margin-right: 15px;
+	margin-left: 15px;
 	margin-top: 6px;
 	width: 55px;
 	height: 20px;
@@ -921,7 +939,6 @@ li.tree span.active{
 .search-form .content{
 	/*display: inline-block;*/
 	position: relative;
-	width:500px;
 }
 .search-form.jz .content{
 	width: 100%;

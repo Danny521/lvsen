@@ -1,0 +1,305 @@
+#cameraGridTree{
+	width: 887px;
+	height: 288px;
+	border: 1px solid #CBD0D4;
+	background-color: #FDFDFD;
+	overflow: hidden;
+}
+.treegrid-container{
+	position: relative;
+}
+/*表头*/
+.treegrid-container .treegrid-head{
+	height: 30px;
+	width: 887px;
+}
+.treegrid-container .treegrid-head .tree-head{
+	float: left;
+	height: 30px;
+	width: 235px;
+	line-height: 30px;
+	background-color: #D8E0EB;
+	border-right: 1px solid #CBD0D4;
+	border-bottom: 1px solid #CBD0D4;
+	border-top: 1px solid #F4F9FD;
+}
+.treegrid-container .treegrid-head .tree-head span{
+	font-weight: bold;
+	padding-left: 10px;
+}
+.treegrid-container .treegrid-head .table-head{
+	overflow: hidden;
+	width: 651px;
+	float: left;
+	background-color: #D8E0EB;
+	border-top: 1px solid #F4F9FD;
+	border-bottom: 1px solid #CBD0D4;
+}
+.treegrid-container .treegrid-head .table-head table{
+	margin: 0;
+}
+.treegrid-container .treegrid-head .table-head table tr{
+	height: 30px;
+}
+.treegrid-container .treegrid-head .table-head table tr th{
+	width: 90px;
+	height: 30px;
+	line-height: 30px;
+	background-color: #D8E0EB;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	padding: 0px 2px;
+}
+
+/*表格树内容*/
+.treegrid-container .treegrid-body{
+	width: 887px;
+	height: 241px;
+	overflow-x: hidden;
+	overflow-y: scroll; 
+}
+.treegrid-container .treegrid-body .tree-body{
+	width: 235px;
+	min-height: 241px;
+	border-right: 1px solid #CBD0D4;
+	float: left;
+}
+.treegrid-container .treegrid-body .table-body{
+	overflow: hidden;
+	width: 633px;
+	float: left;
+}
+.treegrid-container .treegrid-body .table-body .table-scroll{
+	position: absolute;
+	top: 271px;
+	left: 235px;
+	width: 651px;
+	height: 17px;
+	overflow-x: scroll;
+	overflow-y: hidden;
+	border-left: 1px solid #CBD0D4;
+}
+.treegrid-container .treegrid-body .tree-body table{
+	width: 100%;
+}
+.treegrid-container .treegrid-body .tree-body table tr{
+	height: 20px;
+	line-height: 20px;
+}
+.treegrid-container .treegrid-body .tree-body table tr.odd{
+	background-color: #EFEFEF;
+}
+.treegrid-container .treegrid-body .tree-body table tr.even{
+	background-color: #F6F6F6;
+}
+.treegrid-container .treegrid-body .tree-body table tr td{
+	height: 20px;
+	padding: 2px;
+	width: 230px;
+}
+.treegrid-container .treegrid-body .tree-body table tr td .tree-item{
+	width: 210px;
+}
+.treegrid-container .treegrid-body .tree-body table tr td .tree-item i.folder{
+	display: inline-block;
+	position: relative;
+	height: 13px;
+    width: 13px;
+	cursor: pointer;  
+	margin-left: 5px;
+}
+.treegrid-container .treegrid-body .tree-body table tr td .tree-item i.open{
+	background: url("/module/common/images/open.png") no-repeat scroll 0 1px transparent;
+}
+.treegrid-container .treegrid-body .tree-body table tr td .tree-item i.close{
+	background: url("/module/common/images/close.png") no-repeat scroll 0 1px transparent;
+}
+
+.treegrid-container .treegrid-body .tree-body table tr td .tree-item i.root{
+	background: url("/module/common/images/icons/tree.png") no-repeat scroll -13px -551px transparent;
+    display: inline-block;
+    height: 13px;
+    margin-right: 3px;
+    padding: 0;
+    position: relative;
+    width: 16px
+
+}
+.treegrid-container .treegrid-body .tree-body table tr td .tree-item i.root.active{
+	background-position:  -152px -551px;
+}
+.treegrid-container .treegrid-body .tree-body table tr td .tree-item i.org{
+	display: inline-block;
+	position: relative;
+	width: 11px;
+	height: 13px;
+	padding: 0;
+	background: url("/module/common/images/sprites/tree_bg.png") no-repeat scroll -63px 0 transparent;
+}
+.treegrid-container .treegrid-body .tree-body table tr td .tree-item i.org.active{
+	background: url("/module/common/images/sprites/tree_bg.png") no-repeat scroll -74px 0 transparent;
+}
+.treegrid-container .treegrid-body .tree-body table tr td .tree-item i.name{
+	display: inline-block;
+	width: 100px;
+	cursor: pointer;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow:ellipsis;
+	vertical-align: text-bottom;
+	user-select: none; 
+	-o-user-select: none; 
+	-moz-user-select: none; 
+	-khtml-user-select: none; 
+	-webkit-user-select: none; 
+}
+.treegrid-container .treegrid-body .tree-body table tr td .tree-item i.leaf{
+	display: inline-block;
+	position: relative;
+	width: 16px;
+	height: 13px;
+	padding: 0;
+}
+.treegrid-container .treegrid-body .tree-body table tr td .tree-item i.camera,
+.treegrid-container .treegrid-body .tree-body table tr td .tree-item i.camera0{
+	display: inline-block;
+	position: relative;
+	width: 16px;
+	height: 13px;
+	top:2px;
+	padding: 0;
+	background: url("/module/common/images/sprites/tree_bg.png") no-repeat scroll -85px 0 transparent;
+}
+
+.treegrid-container .treegrid-body .tree-body table tr td .tree-item i.camera1{
+	display: inline-block;
+	position: relative;
+	width: 16px;
+	height: 13px;
+	left: -1px;
+	top:1px;
+	padding: 0;
+	background: url("/module/common/images/sprites/tree_bg.png") no-repeat scroll -352px 0 transparent;
+}
+
+.treegrid-container .treegrid-body .tree-body table tr td .tree-item span.name{
+	display: inline-block;
+	line-height: 13px;
+	min-width: 80px;
+	width: 140px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+.tree-level-0{
+	margin: 0px;
+	padding: 0px;
+}
+/*.tree-level-0>span{
+	width: 150px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}*/
+.tree-level-1{
+	margin: 0px;
+	padding: 0px 0px 0px 25px;
+}
+.tree-level-1>span.name{
+	max-width: 160px;
+}
+
+.tree-level-2{
+	margin: 0px;
+	padding: 0px 0px 0px 50px;
+}
+.tree-level-2 > span.name{
+	max-width: 150px;
+}
+.tree-level-3{
+	margin: 0px;
+	padding: 0px 0px 0px 75px;
+}
+.tree-level-3 > span.name{
+	max-width: 125px;
+}
+.tree-level-4{
+	margin: 0px;
+	padding: 0px 0px 0px 100px;
+}
+.tree-level-4 > span.name{
+	max-width: 95px;
+}
+.tree-level-5{
+	margin: 0px;
+	padding: 0px 0px 0px 125px;
+}
+.tree-level-5 > span.name{
+	max-width: 65px;
+}
+.tree-level-6{
+	margin: 0px;
+	padding: 0px 0px 0px 150px;
+}
+.tree-level-6 > span.name{
+	max-width: 35px;
+}
+
+.treegrid-container .treegrid-body .table-body table{
+	width: 1660px;
+}
+.treegrid-container .treegrid-body .table-body table tr{
+	height: 24px;
+	line-height: 20px;
+}
+.treegrid-container .treegrid-body .table-body table tr td{
+	width: 90px;
+	padding: 2px;
+	height: 20px;
+	text-align: center;
+}
+.treegrid-container .treegrid-body .table-body table tr td i.checkbox{
+	background: url(/module/common/images/sprites/tree_bg.png) no-repeat -32px 0;
+	display: block;
+	width: 15px;
+	height: 15px;
+	margin: 3px 0px 0px 35px;
+	cursor: pointer;
+}
+.treegrid-container .treegrid-body .table-body table tr td i.checked{
+	background: url(/module/common/images/sprites/tree_bg.png) no-repeat -47px 0;
+}
+.treegrid-container .treegrid-body .table-body table tr td i.checked_detail{
+	display: block;
+	width: 10px;
+	height: 9px;
+	margin: 5px 0px 0px 35px;
+	background: url('/module/common/images/icons/checked_detail.png') no-repeat;
+}
+.treegrid-container .treegrid-body .table-body table tr td .no{
+	display: block;
+	text-indent: -2000px;
+}
+.treegrid-container .treegrid-body .table-body table tr.odd{
+	background-color: #EFEFEF;
+}
+.treegrid-container .treegrid-body .table-body table tr.even{
+	background-color: #F6F6F6;
+}
+.treegrid-container #loading{
+	padding-left: 28px;
+}
+.treegrid-container i.loading-img {
+    background: url("/module/common/images/animate/mini-loading.gif") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    display: inline-block;
+    float: left;
+    height: 16px;
+    margin-right: 5px;
+    width: 16px;
+    position: relative;
+    top:2px;
+}
+
+
+
