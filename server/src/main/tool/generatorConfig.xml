@@ -122,7 +122,11 @@
         	<property name="useActualColumnNames" value="false"/>
             <generatedKey column="id" sqlStatement="JDBC"/>
         </table>
-        <table tableName="sys_role_privilege" domainObjectName="RolePrivilege">
+        <table tableName="sys_permission" domainObjectName="Permission">
+        	<property name="useActualColumnNames" value="false"/>
+            <generatedKey column="id" sqlStatement="JDBC"/>
+        </table>
+        <table tableName="sys_role_permission" domainObjectName="RolePermission">
         	<property name="useActualColumnNames" value="false"/>
             <generatedKey column="id" sqlStatement="JDBC"/>
         </table>

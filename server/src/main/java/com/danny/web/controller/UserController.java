@@ -21,7 +21,7 @@ import io.swagger.annotations.ApiParam;
 
 @RestController
 @Api(tags = { "用户" })
-@RequestMapping({ "/user" })
+@RequestMapping({ "/sys/user" })
 public class UserController extends BaseController {
 	private static Logger logger = LoggerFactory.getLogger(UserController.class);
 

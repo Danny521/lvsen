@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50628
 File Encoding         : 65001
 
-Date: 2018-01-10 10:29:14
+Date: 2018-01-10 10:49:33
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -333,6 +333,28 @@ INSERT INTO `sys_menu` VALUES ('2', '配置管理', '2', '0', null, null, null);
 INSERT INTO `sys_menu` VALUES ('3', null, null, null, null, null, null);
 
 -- ----------------------------
+-- Table structure for sys_permission
+-- ----------------------------
+DROP TABLE IF EXISTS `sys_permission`;
+CREATE TABLE `sys_permission` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(20) DEFAULT '',
+  `url` varchar(50) DEFAULT NULL COMMENT '链接地址，父菜单URL为空',
+  `order` int(8) DEFAULT NULL COMMENT '顺序，按升序方式展示',
+  `menu_id` int(11) DEFAULT NULL COMMENT '父菜单ID，顶级菜单默认0',
+  `code` varchar(16) DEFAULT NULL COMMENT '权限码',
+  `status` tinyint(1) DEFAULT NULL COMMENT '状态0-禁用，1-启用',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of sys_permission
+-- ----------------------------
+INSERT INTO `sys_permission` VALUES ('1', '单据管理', null, '1', '0', null, '1');
+INSERT INTO `sys_permission` VALUES ('2', '配置管理', null, '2', '0', null, null);
+INSERT INTO `sys_permission` VALUES ('3', null, null, null, null, null, null);
+
+-- ----------------------------
 -- Table structure for sys_role
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_role`;
@@ -350,10 +372,10 @@ CREATE TABLE `sys_role` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for sys_role_privilege
+-- Table structure for sys_role_permission
 -- ----------------------------
-DROP TABLE IF EXISTS `sys_role_privilege`;
-CREATE TABLE `sys_role_privilege` (
+DROP TABLE IF EXISTS `sys_role_permission`;
+CREATE TABLE `sys_role_permission` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `role_id` int(11) DEFAULT NULL COMMENT '角色ID',
   `menu_id` int(11) DEFAULT NULL COMMENT '权限ID',
@@ -361,7 +383,7 @@ CREATE TABLE `sys_role_privilege` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of sys_role_privilege
+-- Records of sys_role_permission
 -- ----------------------------
 
 -- ----------------------------
@@ -376,6 +398,7 @@ CREATE TABLE `sys_user` (
   `pinyin` varchar(36) DEFAULT '' COMMENT '姓名拼音',
   `acronym` varchar(10) DEFAULT '' COMMENT '姓名缩写',
   `sex` tinyint(1) DEFAULT NULL COMMENT '性别 1-男，2-女',
+  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
   `phone` varchar(20) DEFAULT '' COMMENT '联系电话',
   `birthday` varchar(20) DEFAULT NULL,
   `score` int(8) DEFAULT NULL COMMENT '权限分值',
@@ -389,7 +412,22 @@ CREATE TABLE `sys_user` (
 -- ----------------------------
 -- Records of sys_user
 -- ----------------------------
-INSERT INTO `sys_user` VALUES ('1', 'admin', '0192023a7bbd73250516f069df18b500', '管理员', 'chaojiguanliyuan', 'cjgly', null, '', null, '100', '超级管理员', '', '', '1');
+INSERT INTO `sys_user` VALUES ('1', 'admin', '0192023a7bbd73250516f069df18b500', '管理员', 'chaojiguanliyuan', 'cjgly', null, null, '', null, '100', '超级管理员', '', '', '1');
+
+-- ----------------------------
+-- Table structure for sys_user_menu
+-- ----------------------------
+DROP TABLE IF EXISTS `sys_user_menu`;
+CREATE TABLE `sys_user_menu` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) DEFAULT NULL,
+  `menu_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of sys_user_menu
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for sys_user_role
