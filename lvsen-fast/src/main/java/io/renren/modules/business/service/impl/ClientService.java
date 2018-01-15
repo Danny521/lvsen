@@ -3,9 +3,12 @@ package io.renren.modules.business.service.impl;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.stereotype.Service;
+
 import io.renren.modules.business.entity.ClientVo;
 import io.renren.modules.business.service.IClientService;
 
+@Service("clientService")
 public class ClientService implements IClientService {
 
 	@Override

@@ -16,6 +16,7 @@ import io.renren.common.utils.R;
 import io.renren.modules.business.entity.GoodsCategoryVo;
 import io.renren.modules.business.entity.GoodsUnitVo;
 import io.renren.modules.business.entity.GoodsVo;
+import io.renren.modules.business.service.IGoodsService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -24,6 +25,8 @@ import io.swagger.annotations.ApiParam;
 @Api(tags = { "商品" })
 @RequestMapping({ "/goods" })
 public class GoodsController extends BaseController{
+	
+	private IGoodsService goodsService;
 
     @ApiOperation(value = "获取(查找)商品列表", httpMethod = "GET", notes = "获取全部商品的列表")
     @GetMapping(path = "/list")

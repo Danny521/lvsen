@@ -2,10 +2,13 @@ package io.renren.modules.business.service.impl;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import io.renren.modules.business.entity.GoodsCategoryVo;
 import io.renren.modules.business.entity.GoodsVo;
 import io.renren.modules.business.service.IGoodsService;
 
+@Service("goodsService")
 public class GoodsService implements IGoodsService {
 
     @Override

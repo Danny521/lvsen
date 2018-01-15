@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import io.renren.common.annotation.SysLog;
 import io.renren.common.utils.R;
 import io.renren.modules.business.entity.OrderGoodsVo;
+import io.renren.modules.business.service.IOrderService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -25,6 +26,8 @@ import io.swagger.annotations.ApiParam;
 @RequestMapping({ "/order" })
 public class OrderController extends BaseController {
 
+	private IOrderService orderService;
+	
 	@ApiOperation(value = "获取单据列表", httpMethod = "GET", notes = "获取全部单据的列表")
 	@GetMapping(path = "/list")
 	@ResponseBody

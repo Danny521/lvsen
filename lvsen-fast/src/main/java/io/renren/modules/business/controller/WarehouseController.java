@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import io.renren.common.annotation.SysLog;
 import io.renren.common.utils.R;
 import io.renren.modules.business.entity.StorePositionVo;
+import io.renren.modules.business.service.IWarehouseService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -21,6 +22,8 @@ import io.swagger.annotations.ApiParam;
 @Api(tags = { "仓库" })
 @RequestMapping({ "/warehouse" })
 public class WarehouseController extends BaseController {
+	
+	private IWarehouseService warehouseService;
 
 	@ApiOperation(value = "获取仓库列表", httpMethod = "GET", notes = "获取全部仓库的列表")
 	@GetMapping(path = "/list")
