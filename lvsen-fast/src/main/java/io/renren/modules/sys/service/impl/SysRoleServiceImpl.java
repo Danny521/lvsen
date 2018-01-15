@@ -14,7 +14,6 @@ import io.renren.modules.sys.dao.SysRoleDao;
 import io.renren.modules.sys.entity.SysRoleEntity;
 import io.renren.modules.sys.service.SysRoleMenuService;
 import io.renren.modules.sys.service.SysRoleService;
-import io.renren.modules.sys.service.SysUserRoleService;
 import io.renren.modules.sys.service.SysUserService;
 
 
@@ -32,8 +31,6 @@ public class SysRoleServiceImpl implements SysRoleService {
 	private SysRoleDao sysRoleDao;
 	@Autowired
 	private SysRoleMenuService sysRoleMenuService;
-	@Autowired
-	private SysUserRoleService sysUserRoleService;
 	@Autowired
 	private SysUserService sysUserService;
 

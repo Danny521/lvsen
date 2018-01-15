@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.renren.common.annotation.SysLog;
 import io.renren.common.utils.R;
 import io.renren.modules.business.entity.GoodsCategoryVo;
 import io.renren.modules.business.entity.GoodsUnitVo;
@@ -89,6 +90,7 @@ public class GoodsController extends BaseController{
 
     @ApiOperation(value = "添加商品信息", httpMethod = "POST", notes = "添加商品的详细信息")
     @PostMapping(path = "/add")
+    @SysLog("添加商品信息")
     @ResponseBody
     public R addGoods(HttpServletRequest request, @ApiParam GoodsVo goods) {
         
@@ -97,6 +99,7 @@ public class GoodsController extends BaseController{
     }
 
     @ApiOperation(value = "修改商品信息", httpMethod = "POST", notes = "修改商品的详细信息")
+    @SysLog("修改商品信息")
     @PostMapping(path = "/edit/{id}")
     @ResponseBody
     public R editGoods(HttpServletRequest request, @PathVariable @ApiParam(name = "id", value = "商品ID", required = true) Integer id,
@@ -116,6 +119,7 @@ public class GoodsController extends BaseController{
     }
 
     @ApiOperation(value = "删除商品", httpMethod = "DELETE", notes = "根据指定ID删除商品")
+    @SysLog("删除商品")
     @DeleteMapping(path = "/{id}")
     @ResponseBody
     public R deleteGoods(HttpServletRequest request, @PathVariable @ApiParam(name = "id", value = "商品ID", required = true) Integer id) {
@@ -138,6 +142,7 @@ public class GoodsController extends BaseController{
     }
     
     @ApiOperation(value = "添加商品种类信息", httpMethod = "POST", notes = "添加商品种类信息")
+    @SysLog("添加商品种类信息")
     @PostMapping(path = "/category/add")
     @ResponseBody
     public R addGoodsCategory(HttpServletRequest request, @ApiParam GoodsCategoryVo goodsCategory) {
@@ -146,6 +151,7 @@ public class GoodsController extends BaseController{
     	return R.ok();
     }
     @ApiOperation(value = "编辑商品种类信息", httpMethod = "POST", notes = "编辑商品种类的信息")
+    @SysLog("编辑商品种类信息")
     @PostMapping(path = "/category/edit/{id}")
     @ResponseBody
     public R editGoodsCategory(HttpServletRequest request, @ApiParam GoodsCategoryVo goodsCategory,
@@ -179,6 +185,7 @@ public class GoodsController extends BaseController{
     }
     
     @ApiOperation(value = "添加商品价格种类信息", httpMethod = "POST", notes = "添加商品价格种类信息")
+    @SysLog("添加商品价格种类信息")
     @PostMapping(path = "/price/category/add")
     @ResponseBody
     public R addGoodsPriceCategory(HttpServletRequest request, @ApiParam GoodsUnitVo goodsUnit) {

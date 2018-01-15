@@ -47,7 +47,7 @@ public class SysLogController {
 		int total = sysLogService.queryTotal(query);
 		
 		PageUtils pageUtil = new PageUtils(sysLogList, total, query.getLimit(), query.getPage());
-		return R.ok().put("page", pageUtil);
+		return R.ok().putData(pageUtil);
 	}
 	
 }

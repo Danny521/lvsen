@@ -49,7 +49,7 @@ public class SysConfigController extends AbstractController {
 		
 		PageUtils pageUtil = new PageUtils(configList, total, query.getLimit(), query.getPage());
 		
-		return R.ok().put("page", pageUtil);
+		return R.ok().putData(pageUtil);
 	}
 	
 	
@@ -62,7 +62,7 @@ public class SysConfigController extends AbstractController {
 	public R info(@PathVariable("id") Long id){
 		SysConfigEntity config = sysConfigService.queryObject(id);
 		
-		return R.ok().put("config", config);
+		return R.ok().appendData("config", config);
 	}
 	
 	/**

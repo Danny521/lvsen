@@ -2,7 +2,6 @@ package io.renren.modules.sys.controller;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.util.Map;
 
 import javax.imageio.ImageIO;
 import javax.servlet.ServletException;
@@ -70,7 +69,7 @@ public class SysLoginController extends AbstractController {
 	 */
 	@ApiOperation(value = "登录", httpMethod = "POST", notes = "登录")
 	@RequestMapping(value = "/sys/login", method = RequestMethod.POST)
-	public Map<String, Object> login(String username, String password, String captcha)throws IOException {
+	public R login(String username, String password, String captcha)throws IOException {
 		//本项目已实现，前后端完全分离，但页面还是跟项目放在一起了，所以还是会依赖session
 		//如果想把页面单独放到nginx里，实现前后端完全分离，则需要把验证码注释掉(因为不再依赖session了)
 		String kaptcha = ShiroUtils.getKaptcha(Constants.KAPTCHA_SESSION_KEY);

@@ -56,10 +56,8 @@ public class SysRoleController extends AbstractController {
         Query query = new Query(params);
         List<SysRoleEntity> list = sysRoleService.queryList(query);
         int total = sysRoleService.queryTotal(query);
-
         PageUtils pageUtil = new PageUtils(list, total, query.getLimit(), query.getPage());
-
-        return R.ok().put("page", pageUtil);
+        return R.ok().putData(pageUtil);
     }
 
     /**
@@ -77,7 +75,7 @@ public class SysRoleController extends AbstractController {
         }
         List<SysRoleEntity> list = sysRoleService.queryList(map);
 
-        return R.ok().put("list", list);
+        return R.ok().putList(list);
     }
 
     /**
@@ -93,7 +91,7 @@ public class SysRoleController extends AbstractController {
         List<Long> menuIdList = sysRoleMenuService.queryMenuIdList(roleId);
         role.setMenuIdList(menuIdList);
 
-        return R.ok().put("role", role);
+        return R.ok().appendData("role", role);
     }
 
     /**

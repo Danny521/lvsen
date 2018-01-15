@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import io.renren.common.annotation.SysLog;
@@ -71,7 +70,7 @@ public class SysUserController extends AbstractController {
 		
 		PageUtils pageUtil = new PageUtils(userList, total, query.getLimit(), query.getPage());
 		
-		return R.ok().put("page", pageUtil);
+		return R.ok().putData(pageUtil);
 	}
 	
 	/**
@@ -80,7 +79,7 @@ public class SysUserController extends AbstractController {
 	@ApiOperation(value = "获取登录的用户信息", httpMethod = "GET", notes = "获取登录的用户信息")
 	@RequestMapping("/info")
 	public R info(){
-		return R.ok().put("user", getUser());
+		return R.ok().putData(getUser());
 	}
 	
 	/**
@@ -119,7 +118,7 @@ public class SysUserController extends AbstractController {
 		List<Long> roleIdList = sysUserRoleService.queryRoleIdList(userId);
 		user.setRoleIdList(roleIdList);
 		
-		return R.ok().put("user", user);
+		return R.ok().putData(user);
 	}
 	
 	/**

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.renren.common.annotation.SysLog;
 import io.renren.common.utils.R;
 import io.renren.modules.business.entity.StorePositionVo;
 import io.swagger.annotations.Api;
@@ -35,6 +36,7 @@ public class WarehouseController extends BaseController {
 	}
 
 	@ApiOperation(value = "添加仓库信息", httpMethod = "POST", notes = "添加仓库的详细信息")
+	@SysLog("添加仓库信息")
 	@PostMapping(path = "/add")
 	@ResponseBody
 	public R add(HttpServletRequest request,
@@ -50,6 +52,7 @@ public class WarehouseController extends BaseController {
 	}
 
 	@ApiOperation(value = "修改仓库信息", httpMethod = "POST", notes = "修改仓库的详细信息")
+	@SysLog("修改仓库信息")
 	@PostMapping(path = "/edit/{id}")
 	@ResponseBody
 	public R edit(HttpServletRequest request,
@@ -86,6 +89,7 @@ public class WarehouseController extends BaseController {
 	}
 
 	@ApiOperation(value = "删除仓库", httpMethod = "DELETE", notes = "根据指定ID删除仓库")
+	@SysLog("删除仓库")
 	@DeleteMapping(path = "/{id}")
 	@ResponseBody
 	public R delete(HttpServletRequest request,
@@ -109,6 +113,7 @@ public class WarehouseController extends BaseController {
 	}
 
 	@ApiOperation(value = "添加仓库库位信息", httpMethod = "POST", notes = "添加仓库库位的详细信息")
+	@SysLog("添加仓库库位信息")
 	@PostMapping(path = "/storePosition/add")
 	@ResponseBody
 	public R addStorePosition(HttpServletRequest request,
@@ -119,6 +124,7 @@ public class WarehouseController extends BaseController {
 	}
 
 	@ApiOperation(value = "修改仓库库位信息", httpMethod = "POST", notes = "修改仓库库位的详细信息")
+	@SysLog("修改仓库库位信息")
 	@PostMapping(path = "/storePosition/edit/{id}")
 	@ResponseBody
 	public R editStorePosition(HttpServletRequest request,
@@ -150,6 +156,7 @@ public class WarehouseController extends BaseController {
 	}
 
 	@ApiOperation(value = "删除仓库库位", httpMethod = "DELETE", notes = "根据指定ID删除仓库库位")
+	@SysLog("删除仓库库位")
 	@DeleteMapping(path = "/storePosition/{id}")
 	@ResponseBody
 	public R deleteStorePosition(HttpServletRequest request,

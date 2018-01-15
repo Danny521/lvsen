@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.renren.common.annotation.SysLog;
 import io.renren.common.utils.R;
 import io.renren.modules.business.entity.OrderGoodsVo;
 import io.swagger.annotations.Api;
@@ -45,6 +46,7 @@ public class OrderController extends BaseController {
 	}
 
 	@ApiOperation(value = "添加进货订单单据信息", httpMethod = "POST", notes = "添加单据的详细信息")
+	@SysLog("添加进货订单单据信息")
 	@PostMapping(path = "/add")
 	@ResponseBody
 	public R addOrder(HttpServletRequest request,
@@ -61,6 +63,7 @@ public class OrderController extends BaseController {
 	}
 
 	@ApiOperation(value = "修改单据信息", httpMethod = "POST", notes = "修改单据的详细信息")
+	@SysLog("修改单据信息")
 	@PostMapping(path = "/edit/{id}")
 	@ResponseBody
 	public R editOrder(HttpServletRequest request,
@@ -88,6 +91,7 @@ public class OrderController extends BaseController {
 	}
 
 	@ApiOperation(value = "删除单据", httpMethod = "DELETE", notes = "根据指定ID删除单据")
+	@SysLog("删除单据")
 	@DeleteMapping(path = "/{id}")
 	@ResponseBody
 	public R deleteOrder(HttpServletRequest request,
@@ -110,6 +114,7 @@ public class OrderController extends BaseController {
 	}
 	
 	@ApiOperation(value = "添加单据来源途径", httpMethod = "POST", notes = "添加单据来源途径")
+	@SysLog("添加单据来源途径")
 	@PostMapping(path = "/orderWay/add")
 	@ResponseBody
 	public R addOrderWay(HttpServletRequest request,
@@ -120,6 +125,7 @@ public class OrderController extends BaseController {
 	}
 
 	@ApiOperation(value = "编辑单据来源途径", httpMethod = "POST", notes = "根据指定ID编辑单据来源途径")
+	@SysLog("编辑单据来源途径")
 	@PostMapping(path = "/orderWay/edit/{id}")
 	@ResponseBody
 	public R editOrderWay(HttpServletRequest request,

@@ -63,8 +63,9 @@ public class SysUserTokenServiceImpl implements SysUserTokenService {
 			//更新token
 			update(tokenEntity);
 		}
+		
 
-		R r = R.ok().put("token", token).put("expire", EXPIRE);
+		R r = R.ok().appendData("token", token).appendData("expire", EXPIRE);
 
 		return r;
 	}
