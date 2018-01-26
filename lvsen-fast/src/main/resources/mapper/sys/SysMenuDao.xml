@@ -13,6 +13,7 @@
 			`menu_id`, 
 			`parent_id`, 
 			`name`, 
+			`menu_name`, 
 			`url`, 
 			`perms`, 
 			`type`, 
@@ -25,6 +26,7 @@
 			#{menuId}, 
 			#{parentId}, 
 			#{name}, 
+			#{menuName}, 
 			#{url}, 
 			#{perms}, 
 			#{type}, 
@@ -76,6 +78,7 @@
 		<set> 
 			<if test="parentId != null">`parent_id` = #{parentId}, </if>
 			<if test="name != null">`name` = #{name}, </if>
+			<if test="menuName != null">`menu_name` = #{menuName}, </if>
 			<if test="url != null">`url` = #{url}, </if>
 			<if test="perms != null">`perms` = #{perms}, </if>
 			<if test="type != null">`type` = #{type}, </if>

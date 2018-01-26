@@ -33,6 +33,10 @@ public class SysMenuEntity implements Serializable {
 	 * 菜单名称
 	 */
 	private String name;
+	/**
+	 * 菜单英文名称
+	 */
+	private String meanName;
 
 	/**
 	 * 菜单URL
@@ -205,5 +209,13 @@ public class SysMenuEntity implements Serializable {
 
     public void setStatus(Integer status) {
         this.status = status;
+    }
+
+    public String getMeanName() {
+        return meanName;
+    }
+
+    public void setMeanName(String meanName) {
+        this.meanName = meanName;
     }
 }
