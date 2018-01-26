@@ -1,5 +1,6 @@
 package io.renren.modules.sys.service;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -72,4 +73,6 @@ public interface SysMenuService {
 	 * 查询用户的权限列表
 	 */
 	List<SysMenuEntity> queryUserList(Long userId);
+
+    List<SysMenuEntity> getTreeList(Long userId);
 }

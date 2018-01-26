@@ -1,6 +1,6 @@
 version: '2'
 services:
-  renren-fast:
+  lvsen-server:
     image: renren/fast
     ports:
       - "8080:8080"

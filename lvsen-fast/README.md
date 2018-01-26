@@ -1,5 +1,5 @@
 **项目说明** 
-- renren-fast是一个轻量级的Java快速开发平台，能快速开发项目并交付【接私活利器】
+- lvsen-server是一个轻量级的Java快速开发平台，能快速开发项目并交付【接私活利器】
 <br> 
  
 
@@ -20,7 +20,7 @@
 
 **项目结构** 
 ```
-renren-fast
+lvsen-server
 ├─doc  项目SQL语句
 │
 ├─common 公共模块
@@ -48,8 +48,8 @@ renren-fast
 <br> 
 
 **如何交流、反馈、参与贡献？** 
-- 开发文档：http://www.renren.io/open/renren-fast/
-- Git仓库：http://git.oschina.net/babaio/renren-fast
+- 开发文档：http://www.renren.io/open/lvsen-server/
+- Git仓库：http://git.oschina.net/babaio/lvsen-server
 - 其他项目：http://www.renren.io/open/
 - [编程入门教程](http://www.renren.io)：http://www.renren.io   
 - 官方QQ群：324780204、145799952
@@ -75,13 +75,13 @@ renren-fast
 - 执行doc/db.sql文件，初始化数据
 - 修改application-dev.yml，更新MySQL账号和密码
 - Eclipse、IDEA运行RenrenApplication.java，则可启动项目
-- 项目访问路径：http://localhost:8080/renren-fast
+- 项目访问路径：http://localhost:8080/lvsen-server
 - 账号密码：admin/admin
-- Swagger路径：http://localhost:8080/renren-fast/swagger/index.html
+- Swagger路径：http://localhost:8080/lvsen-server/swagger/index.html
 
 
  **项目演示**
-- 演示地址：http://demo.open.renren.io/renren-fast
+- 演示地址：http://demo.open.renren.io/lvsen-server
 - 账号密码：admin/admin
 <br> 
 

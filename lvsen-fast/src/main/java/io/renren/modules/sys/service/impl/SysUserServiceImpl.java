@@ -74,7 +74,7 @@ public class SysUserServiceImpl implements SysUserService {
 		user.setCreateTime(new Date());
 		//sha256加密
 		String salt = RandomStringUtils.randomAlphanumeric(20);
-		user.setPassword(new Sha256Hash(user.getPassword(), salt).toHex());
+		user.setPassword(user.getPassword());
 		user.setSalt(salt);
 		sysUserDao.save(user);
 		
@@ -91,7 +91,7 @@ public class SysUserServiceImpl implements SysUserService {
 		if(StringUtils.isBlank(user.getPassword())){
 			user.setPassword(null);
 		}else{
-			user.setPassword(new Sha256Hash(user.getPassword(), user.getSalt()).toHex());
+			user.setPassword(user.getPassword());
 		}
 		sysUserDao.update(user);
 		

@@ -59,6 +59,17 @@ public class SysMenuController extends AbstractController {
 		List<SysMenuEntity> menuList = sysMenuService.queryList(new HashMap<String, Object>());
 		return R.ok().putList(menuList);
 	}
+	
+	/**
+	 * 所有菜单列表
+	 */
+	@ApiOperation(value = "获取所有菜单列表", httpMethod = "GET", notes = "获取所有菜单列表")
+	@RequestMapping("/treeList")
+	@RequiresPermissions("sys:menu:list")
+	public R treeList() {
+	    List<SysMenuEntity> menuList = sysMenuService.getTreeList(getUserId());
+	    return R.ok().putList(menuList);
+	}
 
 	/**
 	 * 选择菜单(添加、修改菜单)

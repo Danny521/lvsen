@@ -4,8 +4,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.codec.digest.Md5Crypt;
 import org.apache.commons.lang.ArrayUtils;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
+import org.apache.shiro.crypto.hash.Md5Hash;
 import org.apache.shiro.crypto.hash.Sha256Hash;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -91,11 +93,10 @@ public class SysUserController extends AbstractController {
 	public R password(String password, String newPassword){
 		Assert.isBlank(newPassword, "新密码不为能空");
 		
-		//sha256加密
-		password = new Sha256Hash(password, getUser().getSalt()).toHex();
-		//sha256加密
-		newPassword = new Sha256Hash(newPassword, getUser().getSalt()).toHex();
-				
+		//md5加密
+//		password = new Md5Hash(password).toHex();
+		//md5加密
+//		newPassword = new Md5Hash(password).toHex();
 		//更新密码
 		int count = sysUserService.updatePassword(getUserId(), password, newPassword);
 		if(count == 0){

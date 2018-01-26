@@ -15,12 +15,12 @@ import org.springframework.scheduling.annotation.Scheduled;
 @EnableScheduling
 public class SchedulingConfig {
     private static final Logger LOG = LoggerFactory.getLogger(SchedulingConfig.class);
-	@Scheduled(cron = "0/10 * * * * *")
+//	@Scheduled(cron = "0/10 * * * * *")
 	public void testJob() {
 	    LOG.info("------>THIS IS A SCHEDULE TASK");
 	}
 	
-	@Scheduled(fixedRate=10000)
+//	@Scheduled(fixedRate=10000)
     public void testJob2() {
 //        System.out.println("=========>");
 //        LOG.info("-########>");
