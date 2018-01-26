@@ -35,15 +35,15 @@
 	</insert>
 	
 	<select id="queryListParentId" resultType="io.renren.modules.sys.entity.SysMenuEntity">
-		select * from sys_menu where parent_id = #{parentId} order by order_num asc 
+		select * from sys_menu where parent_id = #{parentId} and status =1 order by order_num asc 
 	</select>
 	
 	<select id="queryNotButtonList" resultType="io.renren.modules.sys.entity.SysMenuEntity">
-		select * from sys_menu where type != 2 order by order_num asc 
+		select * from sys_menu where type != 2 and status =1 order by order_num asc 
 	</select>
 	
 	<select id="queryList" resultType="io.renren.modules.sys.entity.SysMenuEntity">
-		select m.*,(select p.name from sys_menu p where p.menu_id = m.parent_id) as parentName 
+		select m.*,(select p.name from sys_menu p where p.menu_id = m.parent_id and p.status =1) as parentName 
 			from sys_menu m
 		<choose>
 			<when test="sidx != null and sidx.trim() != ''">
@@ -60,7 +60,7 @@
 	
 	<!-- 查询用户的权限列表 --> 
 	<select id="queryUserList" resultType="io.renren.modules.sys.entity.SysMenuEntity">
-		select distinct m.*,(select p.name from sys_menu p where p.menu_id = m.parent_id) as parentName
+		select distinct m.*,(select p.name from sys_menu p where p.menu_id = m.parent_id and p.status =1) as parentName
 			from sys_user_role ur 
 			LEFT JOIN sys_role_menu rm on ur.role_id = rm.role_id 
 			LEFT JOIN sys_menu m on rm.menu_id = m.menu_id 
@@ -68,7 +68,7 @@
 	</select>
 	
 	<select id="queryTotal" resultType="int">
-		select count(*) from sys_menu
+		select count(*) from sys_menu where status =1
 	</select>
 	 
 	<update id="update" parameterType="io.renren.modules.sys.entity.SysMenuEntity">

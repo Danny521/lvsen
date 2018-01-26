@@ -50,7 +50,6 @@ public class WarehouseController extends BaseController {
 			@ApiParam(name = "remark", value = "备注说明", required = false) String remark,
 			@ApiParam(name = "status", value = "仓库状态", required = false) String status) {
 		
-		// TODO
 		return R.ok();
 	}
 
