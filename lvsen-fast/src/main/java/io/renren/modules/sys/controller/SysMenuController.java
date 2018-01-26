@@ -68,7 +68,7 @@ public class SysMenuController extends AbstractController {
 	@RequiresPermissions("sys:menu:list")
 	public R treeList() {
 	    List<SysMenuEntity> menuList = sysMenuService.getTreeList(getUserId());
-	    return R.ok().putList(menuList);
+	    return R.ok().putData(menuList);
 	}
 
 	/**
