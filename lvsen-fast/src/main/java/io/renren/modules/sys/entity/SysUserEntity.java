@@ -51,6 +51,16 @@ public class SysUserEntity implements Serializable {
 	private String salt;
 	
 	/**
+	 * 用户名称拼音
+	 */
+	private String pinyin;
+	
+	/**
+	 * 用户名称拼音所写
+	 */
+	private String acronym;
+	
+	/**
      * 性别 1-男，2-女
      */
     private Integer sex;
@@ -237,5 +247,21 @@ public class SysUserEntity implements Serializable {
 
     public void setSex(Integer sex) {
         this.sex = sex;
+    }
+
+    public String getPinyin() {
+        return pinyin;
+    }
+
+    public void setPinyin(String pinyin) {
+        this.pinyin = pinyin;
+    }
+
+    public String getAcronym() {
+        return acronym;
+    }
+
+    public void setAcronym(String acronym) {
+        this.acronym = acronym;
     }
 }

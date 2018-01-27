@@ -4,15 +4,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.commons.codec.digest.Md5Crypt;
 import org.apache.commons.lang.ArrayUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
-import org.apache.shiro.crypto.hash.Md5Hash;
-import org.apache.shiro.crypto.hash.Sha256Hash;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import io.renren.common.annotation.SysLog;
@@ -54,15 +53,21 @@ public class SysUserController extends AbstractController {
 	@RequestMapping("/list")
 	@RequiresPermissions("sys:user:list")
 	public R list(
-            @ApiParam(name = "key", value = "用户名称或者帐号", required = false) String key,
-            @ApiParam(name = "currentPage", value = "当前页码", required = false) Integer currentPage,
-            @ApiParam(name = "pageSize", value = "每页数量", required = false) Integer pageSize,
-            @ApiParam(name = "orderKey", value = "排序属性", required = false) String orderKey,
-            @ApiParam(name = "status", value = "状态", required = false, defaultValue = "1") Integer status){
+            @ApiParam(name = "key", value = "用户名称或者帐号", required = false) @RequestParam(value = "key", required = false) String key,
+            @ApiParam(name = "currentPage", value = "当前页码", required = true) @RequestParam(value = "currentPage", defaultValue = "1") Integer currentPage,
+            @ApiParam(name = "pageSize", value = "每页数量", required = true) @RequestParam(value = "pageSize", defaultValue = "20") Integer pageSize,
+            @ApiParam(name = "orderKey", value = "排序属性", required = false) @RequestParam(value = "orderKey", defaultValue = "username", required = false) String orderKey,
+            @ApiParam(name = "status", value = "状态", required = false) @RequestParam(value = "status", required = false, defaultValue = "1") Integer status){
 	    Map<String, Object> params = new HashMap<>();
 		//只有超级管理员，才能查看所有管理员列表
 		if(getUserId() != Constant.SUPER_ADMIN){
 			params.put("createUserId", getUserId());
+		}
+		params.put("page", currentPage);
+		params.put("limit", pageSize);
+		params.put("order", orderKey);
+		if(!StringUtils.isBlank(key)){
+		    params.put("key", key);
 		}
 		
 		//查询列表数据

@@ -14,6 +14,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import io.renren.common.exception.RRException;
 import io.renren.common.utils.Constant;
+import io.renren.common.utils.PinYinUtil;
+import io.renren.common.utils.PinYinUtil.PinYinMsg;
 import io.renren.modules.sys.dao.SysUserDao;
 import io.renren.modules.sys.entity.SysUserEntity;
 import io.renren.modules.sys.service.SysRoleService;
@@ -76,6 +78,9 @@ public class SysUserServiceImpl implements SysUserService {
 		String salt = RandomStringUtils.randomAlphanumeric(20);
 		user.setPassword(user.getPassword());
 		user.setSalt(salt);
+		PinYinMsg pinYin = PinYinUtil.getPinYinString(user.getUsername());
+		user.setPinyin(pinYin.pinyin);
+		user.setAcronym(pinYin.acronym);
 		sysUserDao.save(user);
 		
 		//检查角色是否越权

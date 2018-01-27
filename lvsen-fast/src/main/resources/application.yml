@@ -4,14 +4,14 @@ server:
         uri-encoding: UTF-8
         max-threads: 1000
         min-spare-threads: 30
-    port: 8085
+    port: 8086
     connection-timeout: 5000
     context-path: /lvsen-server
 
 spring:
-    # 环境 dev|test|pro
+    # 环境 pro|test
     profiles:
-        active: dev
+        active: pro
     # jackson时间格式化
     jackson:
         time-zone: GMT+8
@@ -21,8 +21,8 @@ spring:
             max-file-size: 100MB
             max-request-size: 100MB
             enabled: true
-    resources: # 指定静态资源的路径
-        static-locations: classpath:/static/,classpath:/views/
+#    resources: # 指定静态资源的路径
+#        static-locations: classpath:/static/,classpath:/views/
     redis:
         open: false  # 是否开启redis缓存  true开启   false关闭
         database: 0

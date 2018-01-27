@@ -1,7 +1,7 @@
 package io.renren.modules.sys.service.impl;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -128,6 +128,7 @@ public class SysMenuServiceImpl implements SysMenuService {
             }
             subMenuList.add(entity);
         }
+        
 
         return subMenuList;
     }
@@ -152,7 +153,12 @@ public class SysMenuServiceImpl implements SysMenuService {
         List<SysMenuEntity> menuList = queryListParentId(0L, menuIdList);
         // 递归获取子菜单
         getMenuTreeList(menuList, menuIdList);
-
+        reOrderedBySort(menuList);
         return menuList;
+    }
+    
+    static List<SysMenuEntity> reOrderedBySort(List<SysMenuEntity> in) {
+        Collections.sort(in, new SysMenuEntity.ComparatorWithSort());
+        return in;
     }
 }

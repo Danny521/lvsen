@@ -2,6 +2,7 @@ package io.renren.modules.sys.entity;
 
 
 import java.io.Serializable;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -11,7 +12,7 @@ import java.util.List;
  * @email sunlightcs@gmail.com
  * @date 2016年9月18日 上午9:26:39
  */
-public class SysMenuEntity implements Serializable {
+public class SysMenuEntity implements Serializable, Comparable<SysMenuEntity>  {
 	private static final long serialVersionUID = 1L;
 	
 	/**
@@ -217,5 +218,22 @@ public class SysMenuEntity implements Serializable {
 
     public void setMenuName(String menuName) {
         this.menuName = menuName;
+    }
+    
+    public static class ComparatorWithSort implements Comparator<SysMenuEntity> {
+        @Override
+        public int compare(SysMenuEntity o1, SysMenuEntity o2) {
+            return o1.orderNum - o2.orderNum;
+        }
+
+    }
+
+    @Override
+    public int compareTo(SysMenuEntity o) {
+        assert o != null;
+        if (orderNum == null || o.orderNum == null) {
+            return -1;
+        }
+        return orderNum.compareTo(o.orderNum);
     }
 }
