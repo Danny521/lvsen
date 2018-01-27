@@ -26,7 +26,7 @@ public class SysUserRoleServiceImpl implements SysUserRoleService {
 
 	@Override
 	public void saveOrUpdate(Long userId, List<Long> roleIdList) {
-		if(roleIdList.size() == 0){
+		if(roleIdList == null || roleIdList.size() == 0){
 			return ;
 		}
 		
