@@ -6,11 +6,10 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.io.IOUtils;
-import org.apache.shiro.crypto.hash.Md5Hash;
-import org.apache.shiro.crypto.hash.Sha256Hash;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -70,7 +69,7 @@ public class SysLoginController extends AbstractController {
 	 */
 	@ApiOperation(value = "登录", httpMethod = "POST", notes = "登录")
 	@RequestMapping(value = "/sys/login", method = RequestMethod.POST)
-	public R login(String username, String password)throws IOException {
+	public R login(String username, String password, HttpServletResponse response)throws IOException {
 
 		//用户信息
 		SysUserEntity user = sysUserService.queryByUserName(username);
@@ -84,9 +83,10 @@ public class SysLoginController extends AbstractController {
 		if(user.getStatus() == 0){
 			return R.error("账号已被锁定,请联系管理员");
 		}
-
+		
 		//生成token，并保存到数据库
-		R r = sysUserTokenService.createToken(user.getUserId());
+		R r = sysUserTokenService.createToken(user.getUserId(), response);
+		
 		return r;
 	}
 	
@@ -95,7 +95,7 @@ public class SysLoginController extends AbstractController {
 	 */
 	@ApiOperation(value = "验证码登录", httpMethod = "POST", notes = "验证码登录(若为前后端分离则不需采用此方式登录)")
 	@RequestMapping(value = "/sys/login_code", method = RequestMethod.POST)
-	public R loginWithCaptcha(String username, String password, String captcha)throws IOException {
+	public R loginWithCaptcha(String username, String password, String captcha, HttpServletResponse response)throws IOException {
 	    //本项目已实现，前后端完全分离，但页面还是跟项目放在一起了，所以还是会依赖session
 	    //如果想把页面单独放到nginx里，实现前后端完全分离，则需要把验证码注释掉(因为不再依赖session了)
 	    String kaptcha = ShiroUtils.getKaptcha(Constants.KAPTCHA_SESSION_KEY);
@@ -117,9 +117,11 @@ public class SysLoginController extends AbstractController {
 	    }
 	    
 	    //生成token，并保存到数据库
-	    R r = sysUserTokenService.createToken(user.getUserId());
+	    R r = sysUserTokenService.createToken(user.getUserId(), response);
 	    return r;
 	}
+	
+	
 
 
 	/**

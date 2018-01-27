@@ -2,6 +2,9 @@ package io.renren.modules.sys.service.impl;
 
 import java.util.Date;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +20,7 @@ public class SysUserTokenServiceImpl implements SysUserTokenService {
 	@Autowired
 	private SysUserTokenDao sysUserTokenDao;
 	//12小时后过期
-	private final static int EXPIRE = 3600 * 12;
+	private final static int EXPIRE = 3600 * 24;
 
 	@Override
 	public SysUserTokenEntity queryByUserId(Long userId) {
@@ -35,7 +38,7 @@ public class SysUserTokenServiceImpl implements SysUserTokenService {
 	}
 
 	@Override
-	public R createToken(long userId) {
+	public R createToken(long userId, HttpServletResponse response) {
 		//生成一个token
 		String token = TokenGenerator.generateValue();
 
@@ -64,6 +67,12 @@ public class SysUserTokenServiceImpl implements SysUserTokenService {
 			update(tokenEntity);
 		}
 		
+		Cookie tokenCookie = new Cookie("token", token);
+		Cookie expire = new Cookie("expire", EXPIRE+"");
+//        cookie.setPath("/");
+//        cookie.setMaxAge(-1);// 设置24小时生存期，当设置为负值时，则为浏览器进程Cookie(内存中保存)，关闭浏览器就失效。
+        response.addCookie(tokenCookie);
+        response.addCookie(expire);
 
 		R r = R.ok().appendData("token", token).appendData("expire", EXPIRE);
 

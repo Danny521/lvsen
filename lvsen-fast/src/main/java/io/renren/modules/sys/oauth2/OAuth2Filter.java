@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -28,10 +29,10 @@ public class OAuth2Filter extends AuthenticatingFilter {
 
     @Override
     protected AuthenticationToken createToken(ServletRequest request, ServletResponse response) throws Exception {
-        //获取请求token
+        // 获取请求token
         String token = getRequestToken((HttpServletRequest) request);
 
-        if(StringUtils.isBlank(token)){
+        if (StringUtils.isBlank(token)) {
             return null;
         }
 
@@ -45,9 +46,9 @@ public class OAuth2Filter extends AuthenticatingFilter {
 
     @Override
     protected boolean onAccessDenied(ServletRequest request, ServletResponse response) throws Exception {
-        //获取请求token，如果token不存在，直接返回401
+        // 获取请求token，如果token不存在，直接返回401
         String token = getRequestToken((HttpServletRequest) request);
-        if(StringUtils.isBlank(token)){
+        if (StringUtils.isBlank(token)) {
             HttpServletResponse httpResponse = (HttpServletResponse) response;
             String json = new Gson().toJson(R.error(HttpStatus.SC_UNAUTHORIZED, "invalid token"));
             httpResponse.getWriter().print(json);
@@ -63,7 +64,7 @@ public class OAuth2Filter extends AuthenticatingFilter {
         HttpServletResponse httpResponse = (HttpServletResponse) response;
         httpResponse.setContentType("application/json;charset=utf-8");
         try {
-            //处理登录失败的异常
+            // 处理登录失败的异常
             Throwable throwable = e.getCause() == null ? e : e.getCause();
             R r = R.error(HttpStatus.SC_UNAUTHORIZED, throwable.getMessage());
 
@@ -79,17 +80,24 @@ public class OAuth2Filter extends AuthenticatingFilter {
     /**
      * 获取请求的token
      */
-    private String getRequestToken(HttpServletRequest httpRequest){
-        //从header中获取token
+    private String getRequestToken(HttpServletRequest httpRequest) {
+        // 从header中获取token
         String token = httpRequest.getHeader("token");
+        if (httpRequest.getCookies() != null && httpRequest.getCookies().length > 0) {
+            for (Cookie cookie : httpRequest.getCookies()) {
+                if ("token".equals(cookie.getName())) {
+                    token = cookie.getValue();
+                    break;
+                }
+            }
+        }
 
-        //如果header中不存在token，则从参数中获取token
-        if(StringUtils.isBlank(token)){
+        // 如果header中不存在token，则从参数中获取token
+        if (StringUtils.isBlank(token)) {
             token = httpRequest.getParameter("token");
         }
 
         return token;
     }
-
 
 }

@@ -1,18 +1,27 @@
 package io.renren.modules.business.controller;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import io.renren.common.annotation.SysLog;
+import io.renren.common.utils.PageUtils;
+import io.renren.common.utils.Query;
 import io.renren.common.utils.R;
 import io.renren.modules.business.entity.StorePositionVo;
+import io.renren.modules.business.entity.WarehouseVo;
 import io.renren.modules.business.service.IWarehouseService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -29,13 +38,28 @@ public class WarehouseController extends BaseController {
 	@GetMapping(path = "/list")
 	@ResponseBody
 	public R list(HttpServletRequest request,
-			@ApiParam(name = "key", value = "任意关键字", required = false) String key,
-			@ApiParam(name = "currentPage", value = "当前页码", required = false) Integer currentPage,
-			@ApiParam(name = "pageSize", value = "每页数量", required = false) Integer pageSize,
-			@ApiParam(name = "status", value = "状态", required = false, defaultValue = "1") Integer status) {
+			@ApiParam(value = "任意关键字") @RequestParam(value = "key", required = false)  String key,
+			@ApiParam(value = "当前页码") @RequestParam(value = "currentPage", required = false) Integer currentPage,
+			@ApiParam(value = "每页数量") @RequestParam(value = "pageSize", required = false) Integer pageSize,
+			@ApiParam(value = "状态",defaultValue = "1") @RequestParam(value = "status", required = false) Integer status) {
 		
-		// TODO
-		return R.ok();
+	    Map<String, Object> params = new HashMap<>();
+        params.put("page", currentPage);
+        params.put("limit", pageSize);
+//        if(!isAdmin()){
+//            params.put("status", 1);
+//        }else{
+//            params.put("status", status);
+//        }
+        if(!StringUtils.isBlank(key)){
+            params.put("key", key);
+        }
+        //查询列表数据
+        Query query = new Query(params);
+        List<WarehouseVo> userList = warehouseService.queryList(query);
+        int total = warehouseService.queryTotal(query);
+        PageUtils pageUtil = new PageUtils(userList, total, query.getLimit(), query.getPage());
+        return R.ok().putData(pageUtil);
 	}
 
 	@ApiOperation(value = "添加仓库信息", httpMethod = "POST", notes = "添加仓库的详细信息")

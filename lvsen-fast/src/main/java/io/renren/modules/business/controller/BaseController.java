@@ -28,6 +28,10 @@ public class BaseController {
     protected Long getUserId() {
         return getUser().getUserId();
     }
+    
+    protected boolean isAdmin() {
+        return "admin".equals(getUser().getAccount());
+    }
     /**
      * @Title: handlerException
      * @Description: 全局的控制层异常处理器

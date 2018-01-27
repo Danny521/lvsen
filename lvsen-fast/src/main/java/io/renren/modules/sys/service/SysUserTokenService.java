@@ -1,5 +1,7 @@
 package io.renren.modules.sys.service;
 
+import javax.servlet.http.HttpServletResponse;
+
 import io.renren.common.utils.R;
 import io.renren.modules.sys.entity.SysUserTokenEntity;
 
@@ -22,7 +24,7 @@ public interface SysUserTokenService {
 	 * 生成token
 	 * @param userId  用户ID
 	 */
-	R createToken(long userId);
+	R createToken(long userId, HttpServletResponse response);
 
 	/**
 	 * 退出，修改token值

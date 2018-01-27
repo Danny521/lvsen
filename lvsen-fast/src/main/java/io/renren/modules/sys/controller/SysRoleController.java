@@ -101,7 +101,7 @@ public class SysRoleController extends AbstractController {
     @SysLog("保存角色")
     @RequestMapping("/save")
     @RequiresPermissions("sys:role:save")
-    public R save(@RequestBody SysRoleEntity role) {
+    public R save( SysRoleEntity role) {
         ValidatorUtils.validateEntity(role);
 
         role.setCreateUserId(getUserId());
@@ -117,7 +117,7 @@ public class SysRoleController extends AbstractController {
     @SysLog("修改角色")
     @RequestMapping("/update")
     @RequiresPermissions("sys:role:update")
-    public R update(@RequestBody SysRoleEntity role) {
+    public R update( SysRoleEntity role) {
         ValidatorUtils.validateEntity(role);
 
         role.setCreateUserId(getUserId());
@@ -133,7 +133,7 @@ public class SysRoleController extends AbstractController {
     @SysLog("删除角色")
     @RequestMapping("/delete")
     @RequiresPermissions("sys:role:delete")
-    public R delete(@RequestBody Long[] roleIds) {
+    public R delete( Long[] roleIds) {
         sysRoleService.deleteBatch(roleIds);
 
         return R.ok();

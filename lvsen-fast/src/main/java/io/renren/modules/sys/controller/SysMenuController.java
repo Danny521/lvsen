@@ -110,7 +110,7 @@ public class SysMenuController extends AbstractController {
     @SysLog("保存菜单")
     @RequestMapping("/save")
     @RequiresPermissions("sys:menu:save")
-    public R save(@RequestBody SysMenuEntity menu) {
+    public R save( SysMenuEntity menu) {
         // 数据校验
         verifyForm(menu);
         sysMenuService.save(menu);
@@ -124,7 +124,7 @@ public class SysMenuController extends AbstractController {
 	@SysLog("修改菜单")
 	@RequestMapping("/update")
 	@RequiresPermissions("sys:menu:update")
-	public R update(@RequestBody SysMenuEntity menu) {
+	public R update( SysMenuEntity menu) {
 		// 数据校验
 		verifyForm(menu);
 
