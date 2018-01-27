@@ -23,6 +23,9 @@ public class UserVo {
     private String password;
 
     private String birthday;
+    
+    @ApiModelProperty(value = "创建时间", hidden = true)
+    private String createTime;
 
     @ApiModelProperty(value = "工作描述")
     private String jobDesc;

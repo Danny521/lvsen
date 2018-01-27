@@ -18,7 +18,6 @@ import com.danny.commons.utils.ApiResponseInfo;
 import com.danny.web.vo.GoodsCategoryVo;
 import com.danny.web.vo.GoodsUnitVo;
 import com.danny.web.vo.GoodsVo;
-import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

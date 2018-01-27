@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.danny.lvsen.mapper.GoodsMapper" >
+  <resultMap id="BaseResultMap" type="com.danny.lvsen.pojo.Goods" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="lvsen_code" property="lvsenCode" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="alias" property="alias" jdbcType="VARCHAR" />
+    <result column="pinyin" property="pinyin" jdbcType="VARCHAR" />
+    <result column="acronym" property="acronym" jdbcType="VARCHAR" />
+    <result column="alias_pinyin" property="aliasPinyin" jdbcType="VARCHAR" />
+    <result column="alias_acronym" property="aliasAcronym" jdbcType="VARCHAR" />
+    <result column="category_id" property="categoryId" jdbcType="INTEGER" />
+    <result column="specification" property="specification" jdbcType="VARCHAR" />
+    <result column="store_position_number" property="storePositionNumber" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="ext" property="ext" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, lvsen_code, name, alias, pinyin, acronym, alias_pinyin, alias_acronym, category_id, 
+    specification, store_position_number, status, ext
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.danny.lvsen.pojo.GoodsExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from goods
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from goods
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from goods
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.danny.lvsen.pojo.GoodsExample" >
+    delete from goods
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.danny.lvsen.pojo.Goods" useGeneratedKeys="true" keyProperty="id" >
+    insert into goods (lvsen_code, name, alias, 
+      pinyin, acronym, alias_pinyin, 
+      alias_acronym, category_id, specification, 
+      store_position_number, status, ext
+      )
+    values (#{lvsenCode,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{alias,jdbcType=VARCHAR}, 
+      #{pinyin,jdbcType=VARCHAR}, #{acronym,jdbcType=VARCHAR}, #{aliasPinyin,jdbcType=VARCHAR}, 
+      #{aliasAcronym,jdbcType=VARCHAR}, #{categoryId,jdbcType=INTEGER}, #{specification,jdbcType=VARCHAR}, 
+      #{storePositionNumber,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, #{ext,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.danny.lvsen.pojo.Goods" useGeneratedKeys="true" keyProperty="id" >
+    insert into goods
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="lvsenCode != null" >
+        lvsen_code,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="alias != null" >
+        alias,
+      </if>
+      <if test="pinyin != null" >
+        pinyin,
+      </if>
+      <if test="acronym != null" >
+        acronym,
+      </if>
+      <if test="aliasPinyin != null" >
+        alias_pinyin,
+      </if>
+      <if test="aliasAcronym != null" >
+        alias_acronym,
+      </if>
+      <if test="categoryId != null" >
+        category_id,
+      </if>
+      <if test="specification != null" >
+        specification,
+      </if>
+      <if test="storePositionNumber != null" >
+        store_position_number,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="ext != null" >
+        ext,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="lvsenCode != null" >
+        #{lvsenCode,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="alias != null" >
+        #{alias,jdbcType=VARCHAR},
+      </if>
+      <if test="pinyin != null" >
+        #{pinyin,jdbcType=VARCHAR},
+      </if>
+      <if test="acronym != null" >
+        #{acronym,jdbcType=VARCHAR},
+      </if>
+      <if test="aliasPinyin != null" >
+        #{aliasPinyin,jdbcType=VARCHAR},
+      </if>
+      <if test="aliasAcronym != null" >
+        #{aliasAcronym,jdbcType=VARCHAR},
+      </if>
+      <if test="categoryId != null" >
+        #{categoryId,jdbcType=INTEGER},
+      </if>
+      <if test="specification != null" >
+        #{specification,jdbcType=VARCHAR},
+      </if>
+      <if test="storePositionNumber != null" >
+        #{storePositionNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="ext != null" >
+        #{ext,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.danny.lvsen.pojo.GoodsExample" resultType="java.lang.Integer" >
+    select count(*) from goods
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update goods
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.lvsenCode != null" >
+        lvsen_code = #{record.lvsenCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.name != null" >
+        name = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.alias != null" >
+        alias = #{record.alias,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pinyin != null" >
+        pinyin = #{record.pinyin,jdbcType=VARCHAR},
+      </if>
+      <if test="record.acronym != null" >
+        acronym = #{record.acronym,jdbcType=VARCHAR},
+      </if>
+      <if test="record.aliasPinyin != null" >
+        alias_pinyin = #{record.aliasPinyin,jdbcType=VARCHAR},
+      </if>
+      <if test="record.aliasAcronym != null" >
+        alias_acronym = #{record.aliasAcronym,jdbcType=VARCHAR},
+      </if>
+      <if test="record.categoryId != null" >
+        category_id = #{record.categoryId,jdbcType=INTEGER},
+      </if>
+      <if test="record.specification != null" >
+        specification = #{record.specification,jdbcType=VARCHAR},
+      </if>
+      <if test="record.storePositionNumber != null" >
+        store_position_number = #{record.storePositionNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.status != null" >
+        status = #{record.status,jdbcType=INTEGER},
+      </if>
+      <if test="record.ext != null" >
+        ext = #{record.ext,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update goods
+    set id = #{record.id,jdbcType=INTEGER},
+      lvsen_code = #{record.lvsenCode,jdbcType=VARCHAR},
+      name = #{record.name,jdbcType=VARCHAR},
+      alias = #{record.alias,jdbcType=VARCHAR},
+      pinyin = #{record.pinyin,jdbcType=VARCHAR},
+      acronym = #{record.acronym,jdbcType=VARCHAR},
+      alias_pinyin = #{record.aliasPinyin,jdbcType=VARCHAR},
+      alias_acronym = #{record.aliasAcronym,jdbcType=VARCHAR},
+      category_id = #{record.categoryId,jdbcType=INTEGER},
+      specification = #{record.specification,jdbcType=VARCHAR},
+      store_position_number = #{record.storePositionNumber,jdbcType=VARCHAR},
+      status = #{record.status,jdbcType=INTEGER},
+      ext = #{record.ext,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.danny.lvsen.pojo.Goods" >
+    update goods
+    <set >
+      <if test="lvsenCode != null" >
+        lvsen_code = #{lvsenCode,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="alias != null" >
+        alias = #{alias,jdbcType=VARCHAR},
+      </if>
+      <if test="pinyin != null" >
+        pinyin = #{pinyin,jdbcType=VARCHAR},
+      </if>
+      <if test="acronym != null" >
+        acronym = #{acronym,jdbcType=VARCHAR},
+      </if>
+      <if test="aliasPinyin != null" >
+        alias_pinyin = #{aliasPinyin,jdbcType=VARCHAR},
+      </if>
+      <if test="aliasAcronym != null" >
+        alias_acronym = #{aliasAcronym,jdbcType=VARCHAR},
+      </if>
+      <if test="categoryId != null" >
+        category_id = #{categoryId,jdbcType=INTEGER},
+      </if>
+      <if test="specification != null" >
+        specification = #{specification,jdbcType=VARCHAR},
+      </if>
+      <if test="storePositionNumber != null" >
+        store_position_number = #{storePositionNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="ext != null" >
+        ext = #{ext,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.danny.lvsen.pojo.Goods" >
+    update goods
+    set lvsen_code = #{lvsenCode,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      alias = #{alias,jdbcType=VARCHAR},
+      pinyin = #{pinyin,jdbcType=VARCHAR},
+      acronym = #{acronym,jdbcType=VARCHAR},
+      alias_pinyin = #{aliasPinyin,jdbcType=VARCHAR},
+      alias_acronym = #{aliasAcronym,jdbcType=VARCHAR},
+      category_id = #{categoryId,jdbcType=INTEGER},
+      specification = #{specification,jdbcType=VARCHAR},
+      store_position_number = #{storePositionNumber,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
+      ext = #{ext,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

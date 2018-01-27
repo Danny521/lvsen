@@ -4,13 +4,13 @@ Navicat MySQL Data Transfer
 Source Server         : localhost
 Source Server Version : 50628
 Source Host           : localhost:3306
-Source Database       : lvsen
+Source Database       : lvsen_fast
 
 Target Server Type    : MYSQL
 Target Server Version : 50628
 File Encoding         : 65001
 
-Date: 2018-01-10 10:29:14
+Date: 2018-01-27 19:09:19
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -311,100 +311,241 @@ CREATE TABLE `store_position` (
 -- ----------------------------
 
 -- ----------------------------
+-- Table structure for sys_config
+-- ----------------------------
+DROP TABLE IF EXISTS `sys_config`;
+CREATE TABLE `sys_config` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `key` varchar(50) DEFAULT NULL COMMENT 'key',
+  `value` varchar(2000) DEFAULT NULL COMMENT 'value',
+  `status` tinyint(4) DEFAULT '1' COMMENT '状态   0：隐藏   1：显示',
+  `remark` varchar(500) DEFAULT NULL COMMENT '备注',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `key` (`key`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='系统配置信息表';
+
+-- ----------------------------
+-- Records of sys_config
+-- ----------------------------
+INSERT INTO `sys_config` VALUES ('1', 'CLOUD_STORAGE_CONFIG_KEY', '{\"aliyunAccessKeyId\":\"\",\"aliyunAccessKeySecret\":\"\",\"aliyunBucketName\":\"\",\"aliyunDomain\":\"\",\"aliyunEndPoint\":\"\",\"aliyunPrefix\":\"\",\"qcloudBucketName\":\"\",\"qcloudDomain\":\"\",\"qcloudPrefix\":\"\",\"qcloudSecretId\":\"\",\"qcloudSecretKey\":\"\",\"qiniuAccessKey\":\"NrgMfABZxWLo5B-YYSjoE8-AZ1EISdi1Z3ubLOeZ\",\"qiniuBucketName\":\"ios-app\",\"qiniuDomain\":\"http://7xqbwh.dl1.z0.glb.clouddn.com\",\"qiniuPrefix\":\"upload\",\"qiniuSecretKey\":\"uIwJHevMRWU0VLxFvgy0tAcOdGqasdtVlJkdy6vV\",\"type\":1}', '0', '云存储配置信息');
+
+-- ----------------------------
+-- Table structure for sys_log
+-- ----------------------------
+DROP TABLE IF EXISTS `sys_log`;
+CREATE TABLE `sys_log` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `username` varchar(50) DEFAULT NULL COMMENT '用户名',
+  `operation` varchar(50) DEFAULT NULL COMMENT '用户操作',
+  `method` varchar(200) DEFAULT NULL COMMENT '请求方法',
+  `params` varchar(5000) DEFAULT NULL COMMENT '请求参数',
+  `time` bigint(20) NOT NULL COMMENT '执行时长(毫秒)',
+  `ip` varchar(64) DEFAULT NULL COMMENT 'IP地址',
+  `create_date` datetime DEFAULT NULL COMMENT '创建时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='系统日志';
+
+-- ----------------------------
+-- Records of sys_log
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for sys_menu
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_menu`;
 CREATE TABLE `sys_menu` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `menu_name` varchar(20) DEFAULT '',
-  `menu_order` int(8) DEFAULT NULL COMMENT '菜单顺序，按升序方式展示',
-  `parent_id` int(11) DEFAULT NULL COMMENT '父菜单ID，顶级菜单默认0',
-  `menu_code` varchar(16) DEFAULT NULL COMMENT '菜单权限码',
-  `menu_url` varchar(50) DEFAULT NULL COMMENT '菜单链接地址，父菜单URL为空',
-  `menu_status` tinyint(1) DEFAULT NULL COMMENT '菜单状态0-禁用，1-启用',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+  `menu_id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `parent_id` bigint(20) DEFAULT NULL COMMENT '父菜单ID，一级菜单为0',
+  `name` varchar(50) DEFAULT NULL COMMENT '菜单名称',
+  `menu_name` varchar(20) DEFAULT NULL,
+  `url` varchar(200) DEFAULT NULL COMMENT '菜单URL',
+  `perms` varchar(500) DEFAULT NULL COMMENT '授权(多个用逗号分隔，如：user:list,user:create)',
+  `type` int(11) DEFAULT NULL COMMENT '类型   0：目录   1：菜单   2：按钮',
+  `icon` varchar(50) DEFAULT NULL COMMENT '菜单图标',
+  `order_num` int(11) DEFAULT NULL COMMENT '排序',
+  `status` tinyint(1) DEFAULT NULL COMMENT '状态(0-禁用,1-启用)',
+  PRIMARY KEY (`menu_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=666 DEFAULT CHARSET=utf8 COMMENT='菜单管理';
 
 -- ----------------------------
 -- Records of sys_menu
 -- ----------------------------
-INSERT INTO `sys_menu` VALUES ('1', '单据管理', '1', '0', null, null, '1');
-INSERT INTO `sys_menu` VALUES ('2', '配置管理', '2', '0', null, null, null);
-INSERT INTO `sys_menu` VALUES ('3', null, null, null, null, null, null);
+INSERT INTO `sys_menu` VALUES ('1', '0', '系统管理', 'sys', null, null, '0', 'fa fa-cog', '0', '1');
+INSERT INTO `sys_menu` VALUES ('2', '1', '进货', 'purchase', '/module/purchase/order', null, '1', 'fa fa-user', '1', '1');
+INSERT INTO `sys_menu` VALUES ('3', '1', '销售', 'sale', '/module/sale/order', null, '1', 'fa fa-user-secret', '2', '1');
+INSERT INTO `sys_menu` VALUES ('4', '1', '库存', 'inventory', '/module/inventory/goodslist', null, '1', 'fa fa-th-list', '3', '1');
+INSERT INTO `sys_menu` VALUES ('5', '1', '统计', 'statistics', '/module/statistics/billhistory', null, '1', 'fa fa-bug', '4', '1');
+INSERT INTO `sys_menu` VALUES ('6', '1', '配置', 'config', '/module/settings/usermgr', null, '1', 'fa fa-tasks', '5', '1');
+INSERT INTO `sys_menu` VALUES ('7', '1', '账目', 'accounts', '/module/accounts', '', '1', null, '6', '1');
+INSERT INTO `sys_menu` VALUES ('8', '1', '文件上传', 'file', '/module/oss/oss', 'sys:oss:all', '1', 'fa fa-file-image-o', '7', '0');
+INSERT INTO `sys_menu` VALUES ('9', '1', '参数管理', 'paramMgr', '/module/sys/parammgr', 'sys:config:list,sys:config:info,sys:config:save,sys:config:update,sys:config:delete', '1', 'fa fa-sun-o', '8', '0');
+INSERT INTO `sys_menu` VALUES ('21', '2', '进货订单', 'purchaseOrder', '/module/purchase/order', '', '1', null, '1', '1');
+INSERT INTO `sys_menu` VALUES ('22', '2', '入库单', 'storeOrder', '/module/purchase/store', '', '1', null, '2', '1');
+INSERT INTO `sys_menu` VALUES ('23', '2', '进货退货单', 'purchaseReturnOrder', '/module/purchase/return', '', '1', null, '3', '1');
+INSERT INTO `sys_menu` VALUES ('24', '2', '上传订单', 'uploadOrder', '/module/purchase/upload', 'purchase:save,purchase:select', '1', null, '0', '1');
+INSERT INTO `sys_menu` VALUES ('31', '3', '销售订单', 'saleOrder', '/module/sale/order', null, '1', null, '1', '1');
+INSERT INTO `sys_menu` VALUES ('32', '3', '出库单', 'deliveryOrder', '/module/sale/delivery', null, '1', null, '2', '1');
+INSERT INTO `sys_menu` VALUES ('33', '3', '销售退货单', 'saleReturnOrder', '/module/sale/return', null, '1', null, '3', '1');
+INSERT INTO `sys_menu` VALUES ('41', '4', '商品列表', 'goodsList', '/module/inventory/goodslist', null, '1', null, '1', '1');
+INSERT INTO `sys_menu` VALUES ('51', '5', '历史单据', 'billHistory', '/module/statistics/billhistory', null, '1', null, '1', '1');
+INSERT INTO `sys_menu` VALUES ('52', '5', '日志管理', 'logMgr', '/module/statistics/logmgr', 'sys:log:list', '1', 'fa fa-file-text-o', '2', '1');
+INSERT INTO `sys_menu` VALUES ('61', '6', '用户管理', 'userMgr', '/module/settings/usermgr', null, '1', null, '1', '1');
+INSERT INTO `sys_menu` VALUES ('62', '6', '角色管理', 'roleMgr', '/module/settings/rolemgr', null, '1', null, '2', '1');
+INSERT INTO `sys_menu` VALUES ('63', '6', '部门管理', 'departMgr', '/module/settings/departmgr', null, '1', 'fa fa-file-code-o', '3', '0');
+INSERT INTO `sys_menu` VALUES ('64', '6', '菜单管理', 'menuMgr', '/module/settings/menumgr', null, '1', null, '4', '1');
+INSERT INTO `sys_menu` VALUES ('65', '6', '仓库管理', 'warehouseMgr', '/module/settings/warehousemgr', null, '1', null, '5', '1');
+INSERT INTO `sys_menu` VALUES ('66', '6', '商品管理', 'goodsMgr', '/module/settings/goodsmgr', null, '1', null, '6', '1');
+INSERT INTO `sys_menu` VALUES ('611', '61', '查看', null, null, 'sys:user:list,sys:user:info', '2', null, '0', '1');
+INSERT INTO `sys_menu` VALUES ('612', '61', '新增', null, null, 'sys:user:save,sys:role:select', '2', null, '0', '1');
+INSERT INTO `sys_menu` VALUES ('613', '61', '修改', null, null, 'sys:user:update,sys:role:select', '2', null, '0', '1');
+INSERT INTO `sys_menu` VALUES ('614', '61', '删除', null, null, 'sys:user:delete', '2', null, '0', '1');
+INSERT INTO `sys_menu` VALUES ('621', '62', '查看', null, null, 'sys:role:list,sys:role:info', '2', null, '0', '1');
+INSERT INTO `sys_menu` VALUES ('622', '62', '新增', null, null, 'sys:role:save,sys:menu:perms', '2', null, '0', '1');
+INSERT INTO `sys_menu` VALUES ('623', '62', '修改', null, null, 'sys:role:update,sys:menu:perms', '2', null, '0', '1');
+INSERT INTO `sys_menu` VALUES ('624', '62', '删除', null, null, 'sys:role:delete', '2', null, '0', '1');
+INSERT INTO `sys_menu` VALUES ('631', '63', '查看', null, null, 'sys:dept:list,sys:dept:info', '2', null, '0', '1');
+INSERT INTO `sys_menu` VALUES ('632', '63', '新增', null, null, 'sys:dept:save,sys:dept:select', '2', null, '0', '1');
+INSERT INTO `sys_menu` VALUES ('633', '63', '修改', null, null, 'sys:dept:update,sys:dept:select', '2', null, '0', '1');
+INSERT INTO `sys_menu` VALUES ('634', '63', '删除', null, null, 'sys:dept:delete', '2', null, '0', '1');
+INSERT INTO `sys_menu` VALUES ('641', '64', '查看', null, null, 'sys:menu:list,sys:menu:info', '2', null, '0', '1');
+INSERT INTO `sys_menu` VALUES ('642', '64', '新增', null, null, 'sys:menu:save,sys:menu:select', '2', null, '0', '1');
+INSERT INTO `sys_menu` VALUES ('643', '64', '修改', null, null, 'sys:menu:update,sys:menu:select', '2', null, '0', '1');
+INSERT INTO `sys_menu` VALUES ('644', '64', '删除', null, null, 'sys:menu:delete', '2', null, '0', '1');
+INSERT INTO `sys_menu` VALUES ('661', '66', '查看', null, null, 'sys:goods:list,sys:goods:info', '2', null, '1', '1');
+INSERT INTO `sys_menu` VALUES ('662', '66', '新增', null, null, 'sys:goods:save,sys:goods:select', '2', null, '2', '1');
+INSERT INTO `sys_menu` VALUES ('663', '66', '修改', null, null, 'sys:goods:update,sys:goods:select', '2', null, '3', '1');
+INSERT INTO `sys_menu` VALUES ('664', '66', '删除', null, null, 'sys:goods:delete', '2', null, '4', '1');
+INSERT INTO `sys_menu` VALUES ('665', '66', '设置最低价格', null, null, 'sys:goods:min_price', '2', null, '5', '1');
+
+-- ----------------------------
+-- Table structure for sys_oss
+-- ----------------------------
+DROP TABLE IF EXISTS `sys_oss`;
+CREATE TABLE `sys_oss` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `url` varchar(200) DEFAULT NULL COMMENT 'URL地址',
+  `create_date` datetime DEFAULT NULL COMMENT '创建时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='文件上传';
+
+-- ----------------------------
+-- Records of sys_oss
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for sys_role
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_role`;
 CREATE TABLE `sys_role` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `role_name` varchar(20) DEFAULT NULL COMMENT '角色名称',
-  `role_code` varchar(20) DEFAULT NULL COMMENT '角色代号',
-  `role_status` tinyint(1) DEFAULT NULL COMMENT '状态:0-禁用，1-启用',
-  `remark` varchar(200) DEFAULT NULL COMMENT '备注信息',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `role_id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `role_name` varchar(100) DEFAULT NULL COMMENT '角色名称',
+  `remark` varchar(100) DEFAULT NULL COMMENT '备注',
+  `create_user_id` bigint(20) DEFAULT NULL COMMENT '创建者ID',
+  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+  PRIMARY KEY (`role_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='角色';
 
 -- ----------------------------
 -- Records of sys_role
 -- ----------------------------
+INSERT INTO `sys_role` VALUES ('1', 'manager', '', '1', '2018-01-25 17:51:48');
 
 -- ----------------------------
--- Table structure for sys_role_privilege
+-- Table structure for sys_role_menu
 -- ----------------------------
-DROP TABLE IF EXISTS `sys_role_privilege`;
-CREATE TABLE `sys_role_privilege` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `role_id` int(11) DEFAULT NULL COMMENT '角色ID',
-  `menu_id` int(11) DEFAULT NULL COMMENT '权限ID',
+DROP TABLE IF EXISTS `sys_role_menu`;
+CREATE TABLE `sys_role_menu` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `role_id` bigint(20) DEFAULT NULL COMMENT '角色ID',
+  `menu_id` bigint(20) DEFAULT NULL COMMENT '菜单ID',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='角色与菜单对应关系';
 
 -- ----------------------------
--- Records of sys_role_privilege
+-- Records of sys_role_menu
 -- ----------------------------
+INSERT INTO `sys_role_menu` VALUES ('1', '1', '1');
 
 -- ----------------------------
 -- Table structure for sys_user
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_user`;
 CREATE TABLE `sys_user` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` bigint(20) NOT NULL AUTO_INCREMENT,
   `account` varchar(20) DEFAULT '' COMMENT '用户帐号',
-  `password` varchar(36) DEFAULT '' COMMENT '登录密码',
-  `name` varchar(20) DEFAULT NULL,
-  `pinyin` varchar(36) DEFAULT '' COMMENT '姓名拼音',
-  `acronym` varchar(10) DEFAULT '' COMMENT '姓名缩写',
-  `sex` tinyint(1) DEFAULT NULL COMMENT '性别 1-男，2-女',
-  `phone` varchar(20) DEFAULT '' COMMENT '联系电话',
-  `birthday` varchar(20) DEFAULT NULL,
-  `score` int(8) DEFAULT NULL COMMENT '权限分值',
-  `job_desc` varchar(64) DEFAULT '' COMMENT '职位描述',
-  `phone2` varchar(20) DEFAULT '',
-  `department` varchar(20) DEFAULT '' COMMENT '所属部门',
-  `status` tinyint(1) DEFAULT '1' COMMENT '状态，0-禁用，1-启用',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='用户信息';
+  `username` varchar(50) DEFAULT NULL COMMENT '用户名',
+  `password` varchar(100) DEFAULT NULL COMMENT '密码',
+  `pinyin` varchar(50) DEFAULT NULL,
+  `acronym` varchar(20) DEFAULT NULL,
+  `salt` varchar(20) DEFAULT NULL COMMENT '盐',
+  `email` varchar(30) DEFAULT NULL COMMENT '邮箱',
+  `mobile` varchar(20) DEFAULT NULL COMMENT '手机号',
+  `status` tinyint(4) DEFAULT NULL COMMENT '状态  0：禁用   1：正常',
+  `sex` int(4) DEFAULT NULL COMMENT '性别:1-男，2-女',
+  `create_user_id` int(8) DEFAULT NULL,
+  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+  PRIMARY KEY (`user_id`),
+  UNIQUE KEY `username` (`username`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='系统用户';
 
 -- ----------------------------
 -- Records of sys_user
 -- ----------------------------
-INSERT INTO `sys_user` VALUES ('1', 'admin', '0192023a7bbd73250516f069df18b500', '管理员', 'chaojiguanliyuan', 'cjgly', null, '', null, '100', '超级管理员', '', '', '1');
+INSERT INTO `sys_user` VALUES ('1', 'admin', 'admin', '0192023a7bbd73250516f069df18b500', 'admin', 'admin', '', 'ceozhangtao@qq.com', '13891884094', '1', '1', '1', '2016-11-11 11:11:11');
+INSERT INTO `sys_user` VALUES ('2', 'test', 'test', '0192023a7bbd73250516f069df18b500', 'test', 't', null, 'ceozhangtao@qq.com', '13891884094', '1', '1', '1', '2018-01-25 17:53:55');
 
 -- ----------------------------
 -- Table structure for sys_user_role
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_user_role`;
 CREATE TABLE `sys_user_role` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) DEFAULT NULL,
-  `role_id` int(11) DEFAULT NULL,
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `user_id` bigint(20) DEFAULT NULL COMMENT '用户ID',
+  `role_id` bigint(20) DEFAULT NULL COMMENT '角色ID',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='用户与角色对应关系';
 
 -- ----------------------------
 -- Records of sys_user_role
 -- ----------------------------
+INSERT INTO `sys_user_role` VALUES ('1', '1', '1');
+
+-- ----------------------------
+-- Table structure for sys_user_token
+-- ----------------------------
+DROP TABLE IF EXISTS `sys_user_token`;
+CREATE TABLE `sys_user_token` (
+  `user_id` bigint(20) NOT NULL,
+  `token` varchar(100) NOT NULL COMMENT 'token',
+  `expire_time` datetime DEFAULT NULL COMMENT '过期时间',
+  `update_time` datetime DEFAULT NULL COMMENT '更新时间',
+  PRIMARY KEY (`user_id`),
+  UNIQUE KEY `token` (`token`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='系统用户Token';
+
+-- ----------------------------
+-- Records of sys_user_token
+-- ----------------------------
+INSERT INTO `sys_user_token` VALUES ('1', '0738e396be91eeeec38827268ff551a1', '2018-01-28 19:04:08', '2018-01-27 19:04:08');
+
+-- ----------------------------
+-- Table structure for tb_user
+-- ----------------------------
+DROP TABLE IF EXISTS `tb_user`;
+CREATE TABLE `tb_user` (
+  `user_id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `username` varchar(50) NOT NULL COMMENT '用户名',
+  `mobile` varchar(20) NOT NULL COMMENT '手机号',
+  `password` varchar(64) DEFAULT NULL COMMENT '密码',
+  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+  PRIMARY KEY (`user_id`),
+  UNIQUE KEY `username` (`username`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='用户';
+
+-- ----------------------------
+-- Records of tb_user
+-- ----------------------------
+INSERT INTO `tb_user` VALUES ('1', 'mark', '13612345678', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', '2017-03-23 22:37:41');
 
 -- ----------------------------
 -- Table structure for warehouse
