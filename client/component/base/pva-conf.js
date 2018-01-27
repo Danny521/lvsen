@@ -40,4 +40,4 @@ mainPageTitle = "实战平台",
  * 假数据地址
  * @type {string}
  */
-mockDataUrl = "https://9f6c2551-e40d-4d73-9651-3dabdf1f897a.mock.pstmn.io";
+mockDataUrl = "https://7645fa68-453d-4896-994e-9dd0d714d488.mock.pstmn.io";

@@ -21,20 +21,21 @@ define(['./config',
 		},
 		/*
 		 *	功能:获取该部门的用户
-		 *	@departId : 部门ID
 		 *	@q :查询字符串 (用户真实姓名)
 		 */
-		getUsers: function(departId, q) {
+		getUsers: function(q) {
 			var self = this;
 			jQuery("div#departUsers").empty().show().siblings(".main").hide();
 			debugger
 			userModel.getOrgUsers({
-				current_page: 1,
-				page_size: self.options.itemsPerPage,
-				name: q
+				currentPage: 1,
+				pageSize: self.options.itemsPerPage,
+				orderKey:"",
+				status:"",
+				key: q
 			}).then(function(tem) {
-				if (tem.code === 200 && tem.data.usrs) {
-					var hasMorePages = tem.data.total > 1 ? true : false;
+				if (tem.code === 200 && tem.data.list) {
+					var hasMorePages = tem.data.totalPage > 1 ? true : false;
 					var html = self.options.template({
 						"userList": {
 							"q": q
@@ -44,35 +45,36 @@ define(['./config',
 					jQuery("#departUsers").html(html);
 					jQuery("#departUsers .content-panel #userform").html(self.options.template({
 						userItems: {
-							users: tem.data.usrs
+							users: tem.data.list
 						}
 					}));
 					self.bindDepartUsers();
-					if (tem.data.total > 1) {
-						self.options.setPagination(tem.data.count, "#departUsers .pagination", self.options.itemsPerPage, function(nextPage) {
+					if (hasMorePages) {
+						self.options.setPagination(tem.data.totalCount, "#departUsers .pagination", self.options.itemsPerPage, function(nextPage) {
 							userModel.getOrgUsers({
-								org_id: departId,
-								current_page: nextPage,
-								page_size: self.options.itemsPerPage,
-								name: q
+								currentPage: nextPage,
+								pageSize: self.options.itemsPerPage,
+								orderKey:"",
+								status:"",
+								key: q
 							}).then(function(res) {
-								if (res.code === 200 && res.data.usrs) {
+								if (res.code === 200 && res.data.list) {
 									jQuery("#departUsers .content-panel #userform").html(self.options.template({
 										userItems: {
-											users: res.data.usrs
+											users: res.data.list
 										}
 									}));
 									jQuery(".pagepart .current").html(nextPage);
 									self.bindDepartUsers();
 
 								} else {
-									notify.warn("获取组织用户列表失败！");
+									notify.warn("获取用户列表失败！");
 								}
 							});
 						});
 					}
 				} else {
-					notify.warn("获取组织用户列表失败！");
+					notify.warn("获取用户列表失败！");
 				}
 			});
 		},
@@ -83,7 +85,7 @@ define(['./config',
 			var self = this;
 			//点击搜索按钮查询用户
 			jQuery('#departUsers .go').unbind('click').bind('click', function() {
-				self.getUsers(1, jQuery('#departUsers .selectUsers').val().trim());
+				self.getUsers(jQuery('#departUsers .selectUsers').val().trim());
 				return false;
 			});
 			jQuery("#departUsers input.selectUsers").unbind("keypress").bind("keypress", function(event) {
@@ -127,7 +129,7 @@ define(['./config',
 							}).then(function(res) {
 								if (res.code === 200) {
 									notify.success("用户删除成功！");
-									self.getUsers(1, "");
+									self.getUsers();
 								} else {
 									notify.warn('永久删除用户失败！');
 								}
@@ -155,7 +157,7 @@ define(['./config',
 							}).then(function(res) {
 								if (res.code === 200) {
 									notify.success("用户恢复成功！");
-									self.getUsers(1, "");
+									self.getUsers();
 								} else {
 									notify.warn(res.data.message);
 								}
@@ -172,10 +174,10 @@ define(['./config',
 					if (res.code === 200) {
 						jQuery("#editUser").show().html(self.options.template({
 							editUser: {
-								user: res.usr
+								user: res.data
 							}
 						})).siblings(".main").hide();
-						self.bindEditUser(res.usr.id);
+						self.bindEditUser(res.data.userId);
 					} else {
 						notify.warn("获取用户信息失败！");
 					}
@@ -243,7 +245,7 @@ define(['./config',
 				if (res.code === 200) {
 					notify.success("用户删除成功！");
 					logDict.insertMedialog("m3", "删除" + el.attr("data-username") + "用户信息", "f6", "o3");
-					self.getUsers(1, '');
+					self.getUsers();
 				} else {
 					notify.warn("用户删除失败！");
 				}
@@ -388,14 +390,13 @@ define(['./config',
 			self.volidateUserForm("#editUser", function() {
 				var user = {
 					id: jQuery("#editUser #id").val().trim(),
-					loginName: jQuery("#editUser #username").val().trim(),
+					account: jQuery("#editUser #username").val().trim(),
 					password: jQuery("#editUser #password").val().trim(),
-					name: jQuery("#editUser #realname").val().trim(),
-					gender: jQuery("#editUser .sex:checked").val().trim(),
-					score: jQuery("#editUser #score").val().trim(),
-					phoneNo: jQuery("#editUser #cellphone").val().trim(),
-					status: jQuery("#editUser .sex:checked").val().trim(),
-					department: jQuery("#editUser #cellphone").val().trim()
+					username: jQuery("#editUser #realname").val().trim()
+					// sex: jQuery("#editUser .sex:checked").val().trim(),
+					// mobile: jQuery("#editUser #cellphone").val().trim(),
+					// email: "chenmengchen1990@163.com",
+					// status: jQuery("#editUser .sex:checked").val().trim()
 				};
 				if (jQuery("#mypwd").attr("class") == "pass-len" ) {
 					notify.warn("密码设置不正确");
@@ -415,9 +416,8 @@ define(['./config',
 					}
 				}).then(function(res) {
 					if (res.code === 200) {
-						var fingerData , param = {};
 						notify.success("用户编辑成功！");
-						self.getUsers(1, '');
+						self.getUsers();
 					} else {
 						notify.warn(res.data.message);
 					}
@@ -425,7 +425,7 @@ define(['./config',
 			});
 			// 取消
 			jQuery("#editUser #cancel").unbind("click").bind("click", function() {
-				self.getUsers(1, '');
+				self.getUsers();
 			});
 		},
 
@@ -441,31 +441,9 @@ define(['./config',
 					password: jQuery("#createUser #password").val().trim(),
 					name: jQuery("#createUser #realname").val().trim(),
 					gender: jQuery("#createUser .sex:checked").val().trim(),
-					unitId: 1,
-					officeNo: jQuery("#createUser #phone").val().trim(),
-					roleId: 1,
-					resourceRoleId: 1,
-					// userLevel: jQuery("#createUser #userLevel option:selected").val().trim(),
-					score: jQuery("#createUser #score").val().trim(),
-					idCardNumber: jQuery("#createUser #idNumber").val().trim(),
 					phoneNo: jQuery("#createUser #cellphone").val().trim(),
-					email: jQuery("#createUser #email").val().trim(),
-					orgID: 1,
-					userSourceId: 1,
-					// isManager: userType,
-					// userTypeId: userType,
-					status: 1, //启用和禁用状态：
-					cameraResourceMedifyList: JSON.stringify({
-						"cameraResourceMedifyList": cameraResourceMedifyList
-					}), //	修改的摄像机列表
-					flag: self.isRoleChanged,
-					// pvd组织id
-					pvdOrgId: window.hasPvdFuncs ? (window.pvdOrgRootId || "") : "",
-					// self.options.pvdOrgId == -1 ? (window.hasPvdFuncs ? window.pvdOrgRootId : "") : self.options.pvdOrgId
-				    cloud_limit:jQuery("input[name='cacheSet']:checked").val()==="0"?"":jQuery("input[name='actullayCache']").val(),
-				    standardName:jQuery("#createUser #standardName").val().trim(),
-				    policeNum:jQuery("#createUser #policeNum").val().trim(),
-				    ipAddress: ipString
+					status: jQuery("#createUser .sex:checked").val().trim(),
+					department: jQuery("#createUser #cellphone").val().trim()
 				};
 				user.password = md5(user.password);
                 	userModel.createUser(user, {
@@ -479,7 +457,7 @@ define(['./config',
 					}).then(function(res) {
 						if (res.code === 200) {
 	                        notify.success("用户创建成功！");
-	                        self.getUsers(1, '');
+	                        self.getUsers();
 	                        jQuery("#createUser").html("");
 	                    } else {
 	                        notify.warn(res.data.message);
@@ -488,7 +466,7 @@ define(['./config',
 			});
 			// 取消
 			jQuery("#createUser #cancel").unbind("click").bind("click", function() {
-				self.getUsers(1, '');
+				self.getUsers();
 			});
 		}
 	});

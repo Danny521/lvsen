@@ -10,9 +10,9 @@ define(["ajaxModel","pvaConfig"],function(ajaxModel){
 
 		urls: {
 			/* 获取用户详情信息 */ 
-			get_user_info: window.projectMode === "develop" ? window.mockDataUrl + "/service/usr/get_usr" : "/service/user/get_usr",
+			get_user_info: window.projectMode === "develop" ? window.mockDataUrl + "/service/sys/user/info/" : "/service/sys/user/info/",
 			/* 获取组织下的用户 包含分页 搜索 */ 
-			get_org_users: window.projectMode === "develop" ? window.mockDataUrl + "/service/list_user" : "/service/user/list",
+			get_org_users: window.projectMode === "develop" ? window.mockDataUrl + "/service/sys/user/list" : "/service/sys/user/list",
 			/* 永久删除用户 */
 			delete_user_completely:"/service/user/completely_delete_user",
 			/* 恢复已删除的用户 */
@@ -22,9 +22,9 @@ define(["ajaxModel","pvaConfig"],function(ajaxModel){
 			/* 删除用户 */
 			delete_user:"/service/user/delete",
 			/* 修改用户 */
-			update_user:"/service/user/edit",
+			update_user:"/service/sys/user/update",
 			/* 添加用户 */
-			create_user:"/service/user/add"
+			create_user:"/service/sys/user/save"
 		},
 		/**
 		 * 获取组织的角色列表al

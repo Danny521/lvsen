@@ -10,7 +10,7 @@ define([
 
     var URL = {
             moduleUrl: window.projectMode === "develop" ? window.mockDataUrl + "/service/sys/menu/treeList" : "/service/sys/menu/treeList",
-            getUser: window.projectMode === "develop" ? window.mockDataUrl + "/service/sys/user/info" : "/service/sys/user/info" 
+            userUrl: window.projectMode === "develop" ? window.mockDataUrl + "/service/sys/user/info" : "/service/sys/user/info"
         },
         //定义首页模块列表模板
         _indexTplString = '{{#each modules}}<li><a href="javascript:void(0);" class="icon_{{menuName}}" data-target="{{menuName}}" data-id="{{menuId}}"  data-url="{{url}}"></a><span>{{name}}</span></li>{{/each}}',
@@ -63,15 +63,14 @@ define([
         _saveNav = function(modulesInfo) {
             //遍历模块列表
             $.each(modulesInfo, function(index, val) {
-                debugger
                 if (val.list.length > 0) {
                     //存储各层级导航（二级导航）
-                    val.url && window.localStorage.setItem(val.url.split("/")[1], Handlebars.compile(_secondNavTplString)({
+                    val.url && window.localStorage.setItem(val.url.split("/")[2], Handlebars.compile(_secondNavTplString)({
                         "modules": val.list
                     }));
                 } else {
                     //如果没有二级模块，则存储为空
-                    window.localStorage.setItem(val.url.split("/")[1], "");
+                    window.localStorage.setItem(val.url.split("/")[2], "");
                 }
             });
             //存储一级导航
@@ -125,6 +124,8 @@ define([
             ajaxModel.getData(URL.moduleUrl, {}, {}).then(function (res) {
                 if (res.code === 200) {
                     _handleNavData(res);
+                    //异步请求缓存用户信息
+                    _loadUserInfo();
                 }else{
                     notify.warn("获取模块信息失败！");
                 }
@@ -138,6 +139,28 @@ define([
             ajaxModel.getData("/service/usr/permission", {}, {}).then(function (res) {
                 if (res.code === 200) {
                     window.localStorage.setItem("validFunctionList", JSON.stringify(res));
+                }
+            });
+        },
+         /**
+         * 异步请求缓存用户信息
+         * @private
+         */
+        _loadUserInfo = function() {
+            ajaxModel.getData(URL.userUrl, {},{}).then(function(res){
+                if (res.code === 200) {
+                    //缓存用户信息-用户id
+                    window.localStorage.setItem("userId", res.data.userId);
+                    //缓存用户信息-用户权限
+                //  window.localStorage.setItem("permission", JSON.stringify(res));
+                    //缓存用户信息-用户信息
+                    window.localStorage.setItem("userInfo", JSON.stringify({
+                        "id": res.data.userId,
+                        "name": res.data.username,
+                        "loginName": res.data.account,
+                        "status": res.data.status,
+                        "roleIdList": res.data.roleIdList
+                    }));
                 }
             });
         },

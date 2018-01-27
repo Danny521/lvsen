@@ -84,7 +84,7 @@ define(["broadcast", "/component/base/self/toolkit.js", "/component/base/self/no
                 "logs": "/module/maintenance/logs/", // 运维管理-->日志管理
                 "configdetection": "/module/maintenance/configdetection/works/configMonitor.html", // 运维管理-->配置检测
                 "sipdetection": "/module/maintenance/sipdetection/src/works/watch.html", // 运维管理-->国标检测
-                "user": "/module/settings/usermgr/", // 配置-->用户管理
+                "usermgr": "/module/settings/usermgr/", // 配置-->用户管理
                 "devicemgr": "/module/settings/devicemgr/", // 系统配置-->设备管理
                 "taskmgr": "/module/settings/taskmgr/", // 系统配置-->业务管理
                 "mapconfig": "/module/settings/mapconfig/", // 系统配置-->地图配置
@@ -135,6 +135,7 @@ define(["broadcast", "/component/base/self/toolkit.js", "/component/base/self/no
              * @return {[type]} [一二级导航、iframe地址的对象]
              */
             getCurrentNav: function(params) {
+                debugger
                 var self = this,
                     url = decodeURIComponent(window.location.href),
                     currentModuleUrl,
@@ -213,7 +214,6 @@ define(["broadcast", "/component/base/self/toolkit.js", "/component/base/self/no
                 if (url.indexOf(paramStr) === -1) {
                     return false;
                 }
-
                 return true;
             },
             /**
@@ -353,10 +353,10 @@ define(["broadcast", "/component/base/self/toolkit.js", "/component/base/self/no
                     var param = src.substring(src.indexOf("usercenter/"));
                     src = "/module/settings/" + param;
                 }
-
                 if(src.indexOf("logs") !== -1) {
                     src = "/logs/";
                 }
+                console.log(src);
                 jQuery("#pva-iframe").attr("src", src);
             },
             /**
@@ -369,20 +369,11 @@ define(["broadcast", "/component/base/self/toolkit.js", "/component/base/self/no
                 if(firstNav && firstNav.indexOf("usercenter") !== -1) {
                     return jQuery("#badges").text("用户中心").attr("data-url", '/module/settings/usercenter/');
                 }
-
                 firstNav = firstNav+"/";
                 $('#navigator a.item').each(function(index, val) {
                     var href = jQuery(val).attr('data-url');
                     if (href && href.contains(firstNav)) {
                         var moduleText = jQuery(val).text();
-                        // 云空间模块名称特殊处理
-                        if (moduleText === "我的云空间") {
-                            moduleText = "云空间";
-                        }
-                        // 视图库模块名称特殊处理
-                        if (moduleText === "视图库") {
-                            moduleText = "视频图像信息库";
-                        }
                         jQuery("#badges").text(moduleText).attr("data-url", href);
                         return false;
                     }
@@ -428,15 +419,6 @@ define(["broadcast", "/component/base/self/toolkit.js", "/component/base/self/no
                     self.clickNavCommon(jQuery(this));
                 })
                 .off("click", "#header a.item").on("click", "#header a.item", function(e) { // 二级导航事件
-                    if (jQuery(this).hasClass("xinzhou")) {
-                        top.location.href = jQuery(this).attr("data-url");
-                        return false;
-                    }
-
-                    // 图像研判-->图像处理，试图分析遵照内部的特殊处理，此处不做处理
-                    if (jQuery(this).hasClass("navdisabled")) {
-                        return false;
-                    }
                     self.clickNavCommon(jQuery(this));
                 })
                 .off("click", "#navigator .about-icon").on("click", "#navigator .about-icon", function(e) { // 一级导航事件("关于"功能)
@@ -450,19 +432,18 @@ define(["broadcast", "/component/base/self/toolkit.js", "/component/base/self/no
                     var id = jQuery(this).data("id");
                         ThirdModule = window.localStorage.getItem('ThirdModule'),
                         ThirdArray = [];
+                    if(ThirdModule){
+                        console.log("存在三级菜单并渲染三级菜单");
                         ThirdModule = JSON.parse(ThirdModule);
-                    var Len = ThirdModule.length;
-                        if(Len >0){
-                            for(var i=0; i<Len; i++){
-                                if((ThirdModule[i]["id"]+"").indexOf(id) >-1){
-                                    ThirdArray.push(ThirdModule[i]);
+                        var Len = ThirdModule.length;
+                            if(Len >0){
+                                for(var i=0; i<Len; i++){
+                                    if((ThirdModule[i]["id"]+"").indexOf(id) >-1){
+                                        ThirdArray.push(ThirdModule[i]);
+                                    }
                                 }
                             }
-                        }
-                        //存在三级菜单
-                        if(ThirdArray.length>0){
-                            var ulString = "div"
-                        }
+                    }
                 });
             },
 

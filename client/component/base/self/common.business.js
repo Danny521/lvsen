@@ -50,7 +50,6 @@ define(["broadcast", "jquery", "/component/base/self/toolkit.js", "localStorage"
             $userEntry.attr("data-userid", user.id);
             $userEntry.attr("data-loginname", user.loginName);
             $userEntry.attr("data-truename", user.name);
-            $userEntry.attr("data-score", user.score);
             $userEntry.append(user.name);
         }
         /**
