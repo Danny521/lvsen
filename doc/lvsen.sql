@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50628
 File Encoding         : 65001
 
-Date: 2018-01-26 17:51:39
+Date: 2018-01-27 19:09:19
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -371,30 +371,30 @@ CREATE TABLE `sys_menu` (
 -- Records of sys_menu
 -- ----------------------------
 INSERT INTO `sys_menu` VALUES ('1', '0', '系统管理', 'sys', null, null, '0', 'fa fa-cog', '0', '1');
-INSERT INTO `sys_menu` VALUES ('2', '1', '进货', 'purchase', 'modules/purchase/order', null, '1', 'fa fa-user', '1', '1');
-INSERT INTO `sys_menu` VALUES ('3', '1', '销售', 'sale', 'modules/sale/order', null, '1', 'fa fa-user-secret', '2', '1');
-INSERT INTO `sys_menu` VALUES ('4', '1', '库存', 'inventory', 'modules/inventory/goodslist', null, '1', 'fa fa-th-list', '3', '1');
-INSERT INTO `sys_menu` VALUES ('5', '1', '统计', 'statistics', 'modules/statistics/bill_history', null, '1', 'fa fa-bug', '4', '1');
-INSERT INTO `sys_menu` VALUES ('6', '1', '配置', 'config', 'modules/sys/user', null, '1', 'fa fa-tasks', '5', '1');
-INSERT INTO `sys_menu` VALUES ('7', '1', '账目', 'accounts', 'modules/accounts', '', '1', null, '6', '1');
-INSERT INTO `sys_menu` VALUES ('8', '1', '文件上传', 'file', 'modules/oss/oss', 'sys:oss:all', '1', 'fa fa-file-image-o', '6', '0');
-INSERT INTO `sys_menu` VALUES ('9', '1', '参数管理', 'paramMgr', 'modules/sys/param_mgr', 'sys:config:list,sys:config:info,sys:config:save,sys:config:update,sys:config:delete', '1', 'fa fa-sun-o', '7', '0');
-INSERT INTO `sys_menu` VALUES ('21', '2', '进货订单', 'purchaseOrder', 'modules/purchase/order', '', '1', null, '1', '1');
-INSERT INTO `sys_menu` VALUES ('22', '2', '入库单', 'storeOrder', 'modules/purchase/store', '', '1', null, '2', '1');
-INSERT INTO `sys_menu` VALUES ('23', '2', '进货退货单', 'purchaseReturnOrder', 'modules/purchase/return', '', '1', null, '3', '1');
-INSERT INTO `sys_menu` VALUES ('24', '2', '上传订单', 'uploadOrder', 'modules/purchase/upload', 'purchase:save,purchase:select', '1', null, '0', '1');
-INSERT INTO `sys_menu` VALUES ('31', '3', '销售订单', 'saleOrder', 'modules/sale/order', null, '1', null, '1', '1');
-INSERT INTO `sys_menu` VALUES ('32', '3', '出库单', 'deliveryOrder', 'modules/sale/delivery', null, '1', null, '2', '1');
-INSERT INTO `sys_menu` VALUES ('33', '3', '销售退货单', 'saleReturnOrder', 'modules/sale/return', null, '1', null, '3', '1');
-INSERT INTO `sys_menu` VALUES ('41', '4', '商品列表', 'goodsList', 'modules/inventory/goodslist', null, '1', null, '1', '1');
-INSERT INTO `sys_menu` VALUES ('51', '5', '历史单据', 'billHistory', 'modules/statistics/bill_history', null, '1', null, '1', '1');
-INSERT INTO `sys_menu` VALUES ('52', '6', '日志管理', 'logMgr', 'modules/statistics/log', 'sys:log:list', '1', 'fa fa-file-text-o', '2', '1');
-INSERT INTO `sys_menu` VALUES ('61', '6', '用户管理', 'userMgr', 'modules/sys/user', null, '1', null, '1', '1');
-INSERT INTO `sys_menu` VALUES ('62', '6', '角色管理', 'roleMgr', 'modules/sys/role', null, '1', null, '2', '1');
-INSERT INTO `sys_menu` VALUES ('63', '6', '部门管理', 'departMgr', 'modules/sys/depart', null, '1', 'fa fa-file-code-o', '3', '0');
-INSERT INTO `sys_menu` VALUES ('64', '6', '菜单管理', 'menuMgr', 'modules/sys/menu', null, '1', null, '4', '1');
-INSERT INTO `sys_menu` VALUES ('65', '6', '仓库管理', 'warehouseMgr', 'modules/sys/warehouse', null, '1', null, '5', '1');
-INSERT INTO `sys_menu` VALUES ('66', '6', '商品管理', 'goodsMgr', 'modules/sys/goods', null, '1', null, '6', '1');
+INSERT INTO `sys_menu` VALUES ('2', '1', '进货', 'purchase', '/module/purchase/order', null, '1', 'fa fa-user', '1', '1');
+INSERT INTO `sys_menu` VALUES ('3', '1', '销售', 'sale', '/module/sale/order', null, '1', 'fa fa-user-secret', '2', '1');
+INSERT INTO `sys_menu` VALUES ('4', '1', '库存', 'inventory', '/module/inventory/goodslist', null, '1', 'fa fa-th-list', '3', '1');
+INSERT INTO `sys_menu` VALUES ('5', '1', '统计', 'statistics', '/module/statistics/billhistory', null, '1', 'fa fa-bug', '4', '1');
+INSERT INTO `sys_menu` VALUES ('6', '1', '配置', 'config', '/module/settings/usermgr', null, '1', 'fa fa-tasks', '5', '1');
+INSERT INTO `sys_menu` VALUES ('7', '1', '账目', 'accounts', '/module/accounts', '', '1', null, '6', '1');
+INSERT INTO `sys_menu` VALUES ('8', '1', '文件上传', 'file', '/module/oss/oss', 'sys:oss:all', '1', 'fa fa-file-image-o', '7', '0');
+INSERT INTO `sys_menu` VALUES ('9', '1', '参数管理', 'paramMgr', '/module/sys/parammgr', 'sys:config:list,sys:config:info,sys:config:save,sys:config:update,sys:config:delete', '1', 'fa fa-sun-o', '8', '0');
+INSERT INTO `sys_menu` VALUES ('21', '2', '进货订单', 'purchaseOrder', '/module/purchase/order', '', '1', null, '1', '1');
+INSERT INTO `sys_menu` VALUES ('22', '2', '入库单', 'storeOrder', '/module/purchase/store', '', '1', null, '2', '1');
+INSERT INTO `sys_menu` VALUES ('23', '2', '进货退货单', 'purchaseReturnOrder', '/module/purchase/return', '', '1', null, '3', '1');
+INSERT INTO `sys_menu` VALUES ('24', '2', '上传订单', 'uploadOrder', '/module/purchase/upload', 'purchase:save,purchase:select', '1', null, '0', '1');
+INSERT INTO `sys_menu` VALUES ('31', '3', '销售订单', 'saleOrder', '/module/sale/order', null, '1', null, '1', '1');
+INSERT INTO `sys_menu` VALUES ('32', '3', '出库单', 'deliveryOrder', '/module/sale/delivery', null, '1', null, '2', '1');
+INSERT INTO `sys_menu` VALUES ('33', '3', '销售退货单', 'saleReturnOrder', '/module/sale/return', null, '1', null, '3', '1');
+INSERT INTO `sys_menu` VALUES ('41', '4', '商品列表', 'goodsList', '/module/inventory/goodslist', null, '1', null, '1', '1');
+INSERT INTO `sys_menu` VALUES ('51', '5', '历史单据', 'billHistory', '/module/statistics/billhistory', null, '1', null, '1', '1');
+INSERT INTO `sys_menu` VALUES ('52', '5', '日志管理', 'logMgr', '/module/statistics/logmgr', 'sys:log:list', '1', 'fa fa-file-text-o', '2', '1');
+INSERT INTO `sys_menu` VALUES ('61', '6', '用户管理', 'userMgr', '/module/settings/usermgr', null, '1', null, '1', '1');
+INSERT INTO `sys_menu` VALUES ('62', '6', '角色管理', 'roleMgr', '/module/settings/rolemgr', null, '1', null, '2', '1');
+INSERT INTO `sys_menu` VALUES ('63', '6', '部门管理', 'departMgr', '/module/settings/departmgr', null, '1', 'fa fa-file-code-o', '3', '0');
+INSERT INTO `sys_menu` VALUES ('64', '6', '菜单管理', 'menuMgr', '/module/settings/menumgr', null, '1', null, '4', '1');
+INSERT INTO `sys_menu` VALUES ('65', '6', '仓库管理', 'warehouseMgr', '/module/settings/warehousemgr', null, '1', null, '5', '1');
+INSERT INTO `sys_menu` VALUES ('66', '6', '商品管理', 'goodsMgr', '/module/settings/goodsmgr', null, '1', null, '6', '1');
 INSERT INTO `sys_menu` VALUES ('611', '61', '查看', null, null, 'sys:user:list,sys:user:info', '2', null, '0', '1');
 INSERT INTO `sys_menu` VALUES ('612', '61', '新增', null, null, 'sys:user:save,sys:role:select', '2', null, '0', '1');
 INSERT INTO `sys_menu` VALUES ('613', '61', '修改', null, null, 'sys:user:update,sys:role:select', '2', null, '0', '1');
@@ -482,6 +482,7 @@ CREATE TABLE `sys_user` (
   `mobile` varchar(20) DEFAULT NULL COMMENT '手机号',
   `status` tinyint(4) DEFAULT NULL COMMENT '状态  0：禁用   1：正常',
   `sex` int(4) DEFAULT NULL COMMENT '性别:1-男，2-女',
+  `create_user_id` int(8) DEFAULT NULL,
   `create_time` datetime DEFAULT NULL COMMENT '创建时间',
   PRIMARY KEY (`user_id`),
   UNIQUE KEY `username` (`username`)
@@ -490,8 +491,8 @@ CREATE TABLE `sys_user` (
 -- ----------------------------
 -- Records of sys_user
 -- ----------------------------
-INSERT INTO `sys_user` VALUES ('1', 'admin', 'admin', '0192023a7bbd73250516f069df18b500', 'admin', 'admin', '', 'ceozhangtao@qq.com', '13891884094', '1', '1', '2016-11-11 11:11:11');
-INSERT INTO `sys_user` VALUES ('2', 'test', 'test', '0192023a7bbd73250516f069df18b500', '', '', null, 'ceozhangtao@qq.com', '13891884094', '1', '1', '2018-01-25 17:53:55');
+INSERT INTO `sys_user` VALUES ('1', 'admin', 'admin', '0192023a7bbd73250516f069df18b500', 'admin', 'admin', '', 'ceozhangtao@qq.com', '13891884094', '1', '1', '1', '2016-11-11 11:11:11');
+INSERT INTO `sys_user` VALUES ('2', 'test', 'test', '0192023a7bbd73250516f069df18b500', 'test', 't', null, 'ceozhangtao@qq.com', '13891884094', '1', '1', '1', '2018-01-25 17:53:55');
 
 -- ----------------------------
 -- Table structure for sys_user_role
@@ -525,7 +526,7 @@ CREATE TABLE `sys_user_token` (
 -- ----------------------------
 -- Records of sys_user_token
 -- ----------------------------
-INSERT INTO `sys_user_token` VALUES ('1', '230a09da1b413658d55d8bc4807f0b97', '2018-01-27 05:38:17', '2018-01-26 17:38:17');
+INSERT INTO `sys_user_token` VALUES ('1', '0738e396be91eeeec38827268ff551a1', '2018-01-28 19:04:08', '2018-01-27 19:04:08');
 
 -- ----------------------------
 -- Table structure for tb_user
