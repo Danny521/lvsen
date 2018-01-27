@@ -10,8 +10,8 @@ define([
     var notify = Notify.init();
 
     var URL = {
-            loginUrl: window.projectMode === "develop" ? window.mockDataUrl + "/service/login" : "/service/login",
-            resetPwd: window.projectMode === "develop" ? window.mockDataUrl + "/service/usr/password" : "/service/usr/password" 
+            loginUrl: window.projectMode === "develop" ? window.mockDataUrl + "/service/sys/login" : "/service/sys/login",
+            resetPwd: window.projectMode === "develop" ? window.mockDataUrl + "/service/sys/user/password" : "/service/sys/user/password" 
         },
         /**
          * 清除上下文变量
@@ -160,7 +160,6 @@ define([
          * @private
          */
         _bindEvents = function() {
-            console.log('login-method='+window.loginMethod)
             //用户名登录
             $(".login_name").show();
             $("#login_trigger ul .accout").show();

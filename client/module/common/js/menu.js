@@ -84,7 +84,7 @@ define(["broadcast", "/component/base/self/toolkit.js", "/component/base/self/no
                 "logs": "/module/maintenance/logs/", // 运维管理-->日志管理
                 "configdetection": "/module/maintenance/configdetection/works/configMonitor.html", // 运维管理-->配置检测
                 "sipdetection": "/module/maintenance/sipdetection/src/works/watch.html", // 运维管理-->国标检测
-                "usermgr": "/module/settings/usermgr/", // 系统配置-->组织用户
+                "user": "/module/settings/usermgr/", // 配置-->用户管理
                 "devicemgr": "/module/settings/devicemgr/", // 系统配置-->设备管理
                 "taskmgr": "/module/settings/taskmgr/", // 系统配置-->业务管理
                 "mapconfig": "/module/settings/mapconfig/", // 系统配置-->地图配置
@@ -95,11 +95,7 @@ define(["broadcast", "/component/base/self/toolkit.js", "/component/base/self/no
                 "usercenter": "/module/usercenter/" // 用户中心
             },
             initialize: function(options) {
-                // 判断若是从门户跳转过来的，则隐藏“登出”按钮 by songxj
-                if (localStorage.getItem("isPortal")) {
-                     jQuery("#userLogout").hide();
-                }
-
+                debugger
                 toolkit.initGlobal(); // songxj new add
                 this.setOptions(options);
                 this.registerHelper();
