@@ -79,7 +79,7 @@ float: left;
     background:  #061930;
 }
 #header .ui.menu.nav .active.item { background-color: rgb(242, 125, 0); padding-left: 14px; padding-right: 14px; border-left: 1px solid #1661B2; border-right: 1px solid #f27d00 }
-#header .ui.menu.nav .menu .item { padding-right: 0; line-height: normal }
+#header .ui.menu.nav .menu .item { /*padding-right: 0; */line-height: normal }
 #header .ui.input input { width: 163px;padding-right: 23px; }
 #footer { margin-top: 10px; border-top: 1px solid #DDDDDD }
 #footer .wrapper { margin: 0 auto; text-align: center; padding: 10px 0; line-height: 30px }

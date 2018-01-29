@@ -9,15 +9,15 @@ define([
     "use strict";
 
     var URL = {
-            moduleUrl: window.projectMode === "develop" ? window.mockDataUrl + "/service/usr/module" : "/service/usr/module",
-            getUser: window.projectMode === "develop" ? window.mockDataUrl + "/service/usr/get_usr" : "/service/usr/get_usr" 
+            moduleUrl: window.projectMode === "develop" ? window.mockDataUrl + "/service/sys/menu/treeList" : "/service/sys/menu/treeList",
+            userUrl: window.projectMode === "develop" ? window.mockDataUrl + "/service/sys/user/info" : "/service/sys/user/info"
         },
         //定义首页模块列表模板
-        _indexTplString = '{{#each modules}}<li><a href="javascript:void(0);" class="icon_{{moduleName}}" data-target="{{moduleName}}" data-url="{{url}}"></a><span>{{name}}</span></li>{{/each}}',
+        _indexTplString = '{{#each modules}}<li><a href="javascript:void(0);" class="icon_{{menuName}}" data-target="{{menuName}}" data-id="{{menuId}}"  data-url="{{url}}"></a><span>{{name}}</span></li>{{/each}}',
         //定义一级导航模板
-        _firstNavTplString = '{{#each modules}}<a class="item {{moduleName}}" data-id="{{id}}" target="_self" data-url="{{url}}">{{name}}</a>{{/each}}',
+        _firstNavTplString = '{{#each modules}}<a class="item {{menuName}}" data-id="{{menuId}}" target="_self" data-url="{{url}}">{{name}}</a>{{/each}}',
          //定义二级导航模板
-         _secondNavTplString = '{{#each modules}}<a class="item {{moduleName}}" data-id="{{id}}" target="_self" data-url="{{url}}">{{name}}</a><a class="split-line"></a>{{/each}}';
+         _secondNavTplString = '{{#each modules}}<a class="item {{menuName}}" data-id="{{menuId}}" target="_self" data-url="{{url}}">{{name}}</a><a class="split-line"></a>{{/each}}';
 
     var /**
          * 额外加载
@@ -26,11 +26,11 @@ define([
         _loadExtra = function() {
             //绑定退出按钮事件
             require(["/component/base/self/loginout.js"]);
-            //初始化三级导航
-            require(["/component/base/self/thirdmenu.mgr.js"], function(ThirdMenu) {
-                //初始化全局三级导航逻辑代码块
-                ThirdMenu.initGlobal();
-            });
+            // //初始化三级导航
+            // require(["/component/base/self/thirdmenu.mgr.js"], function(ThirdMenu) {
+            //     //初始化全局三级导航逻辑代码块
+            //     ThirdMenu.initGlobal();
+            // });
         },
         /**
          * 渲染首页内容
@@ -38,44 +38,35 @@ define([
          * @private
          */
         _handleNavData = function(tem) {
-            //过滤未授权时菜单紊乱问题[临时处理，后续基线会直接处理接口，add by zhangyu 2016.06.21]
-            var modules = tem.data.modules;
+            var modules = tem.data[0].list;
             if(!modules || modules.length < 1) {
                 return;
             }
-            var childModule = modules[0].childModule;
-            if(childModule){
-                if(childModule.length === 1 && !childModule[0].childModule && modules[0].moduleName === "config" && childModule[0].moduleName === "authorization") {
-                    modules[0].url = childModule[0].url;
-                }
-            }
             //存储模块信息
-            window.localStorage.setItem("MenuList", JSON.stringify(tem));
+            window.localStorage.setItem("MenuList", JSON.stringify(modules));
             //渲染首页一级模块
-            var modulesInfo = tem.data.modules;
             $("#indexModules").find(".firstList").html(Handlebars.compile(_indexTplString)({
-                "modules": modulesInfo
+                "modules": modules
             }));
             //首页事件绑定
             _bindEvents();
-            //存储一级导航
-            _saveFirstNav(modulesInfo);
-            //将三级菜单的数据过滤出来，并写到 localstorage 中。
-            window.setThirdMenu(tem);
+            //存储一二级导航
+            _saveNav(modules);
+            //将三级菜单的数据过滤出来，由于现在的设计没有三级导航，因此暂时不考虑
+        //    window.setThirdMenu(tem);
         },
         /**
-         * 存储一级导航相关信息
+         * 存储一二级导航相关信息
          * @param modulesInfo - 模块列表信息
          * @private
          */
-        _saveFirstNav = function(modulesInfo) {
+        _saveNav = function(modulesInfo) {
             //遍历模块列表
             $.each(modulesInfo, function(index, val) {
-                debugger
-                if (val.childModule) {
+                if (val.list.length > 0) {
                     //存储各层级导航（二级导航）
                     val.url && window.localStorage.setItem(val.url.split("/")[2], Handlebars.compile(_secondNavTplString)({
-                        "modules": val.childModule
+                        "modules": val.list
                     }));
                 } else {
                     //如果没有二级模块，则存储为空
@@ -95,23 +86,7 @@ define([
             //首页模块导航点击事件
             $("#indexModules").find("a").on("click", function () {
                 var data = $(this).data(),
-                    currentHash;
-                // 模块链接特殊处理
-                if (data.url.indexOf("/module/gate/vim/index.html") !== -1) { // 交通管理
-                    currentHash = "gate";
-                } else if (data.url.indexOf("/module/pvb/") !== -1) { // 视图库
-                    currentHash = "pvb";
-                } else if (data.url.indexOf("/module/imagejudge/resource-process/?type=1") !== -1) { // 图像研判-->图像处理
-                    currentHash = "imageprocess";
-                } else if (data.url.indexOf("/module/imagejudge/resource-process/?type=2") !== -1) { // 图像研判-->视图分析
-                    currentHash = "videoanalysis";
-                } else if (data.url.indexOf("/module/cloudbox/") !== -1) { // 云空间
-                    currentHash = "cloud";
-                }  else if (data.url.indexOf("/module/permissionApply/") !== -1) { // 权限申请
-                    currentHash = "permissionApply";
-                } else {
-                    currentHash = data.url.substring(1).split("/")[2];
-                }
+                    currentHash =  data.url.substring(1).split("/")[2];
                 window.location.href = "/module/iframe/#" + currentHash;
             });
 
@@ -146,14 +121,13 @@ define([
          * 获取当前用户的权限模块
          */
         _loadModules = function() {
-            ajaxModel.getData(URL.moduleUrl, {
-                //当parentId为0时说明是用户登录时的请求
-                "parentId": "0"
-            }, {}).then(function (res) {
+            ajaxModel.getData(URL.moduleUrl, {}, {}).then(function (res) {
                 if (res.code === 200) {
                     _handleNavData(res);
                     //异步请求缓存用户信息
-                    _loadUserInfo(res.data.userId);
+                    _loadUserInfo();
+                }else{
+                    notify.warn("获取模块信息失败！");
                 }
             });
         },
@@ -168,30 +142,25 @@ define([
                 }
             });
         },
-        /**
+         /**
          * 异步请求缓存用户信息
-         * @param userId - 用户id
          * @private
          */
-        _loadUserInfo = function(userId) {
-            ajaxModel.getData(URL.getUser, {
-                "id": userId
-            },{}).then(function(res){
+        _loadUserInfo = function() {
+            ajaxModel.getData(URL.userUrl, {},{}).then(function(res){
                 if (res.code === 200) {
                     //缓存用户信息-用户id
-                    window.localStorage.setItem("userId", userId);
+                    window.localStorage.setItem("userId", res.data.userId);
+                    //缓存用户信息-用户权限
+                //  window.localStorage.setItem("permission", JSON.stringify(res));
                     //缓存用户信息-用户信息
                     window.localStorage.setItem("userInfo", JSON.stringify({
-                        "id": res.usr.id,
-                        "name": res.usr.name,
-                        "loginName": res.usr.loginName,
-                        "score": res.usr.score,
-                        "stauts": res.usr.stauts,
-                        "department" : res.usr.department,
-                        "password": res.usr.password
+                        "id": res.data.userId,
+                        "name": res.data.username,
+                        "loginName": res.data.account,
+                        "status": res.data.status,
+                        "roleIdList": res.data.roleIdList
                     }));
-                    //渲染登录统计数据
-                    _randerUserCount(res.usr.name);
                 }
             });
         },
@@ -206,7 +175,7 @@ define([
             _randerUserCount(permissionJson.data.usr.name);
             //渲染首页模块列表
             $("#indexModules").find(".firstList").html(Handlebars.compile(_indexTplString)({
-                "modules": tem.data.modules
+                "modules": tem
             }));
             //绑定事件
             _bindEvents();
@@ -216,10 +185,15 @@ define([
          * @private
          */
         _init = function() {
-            //加载首页内容
-            _loadModules();
-            //加载权限
-         //   _loadValidFunctionList();
+            //如果已经存在缓存，则直接读取缓存
+            if (window.localStorage.getItem("permission") && window.localStorage.getItem("MenuList")) {
+                _localLoadModules();
+            } else {
+                //加载首页内容
+                _loadModules();
+                //加载权限
+            //    _loadValidFunctionList();
+            }
         };
 
     //页面加载完成后的处理

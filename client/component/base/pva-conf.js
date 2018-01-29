@@ -16,11 +16,15 @@ var
  **/
 version = "1.0.0",
 /**
+ * 当前项目名称
+ */
+projectName = "lvsen-server",
+/**
  * 当前程序版本的开发模式
  * develop：开发环境
  * production:生产环境
  */
-projectMode = "develop",
+projectMode = "production",
 /**
  * PVA系统中网页标题的定制化修改
  * @type {string}
@@ -36,4 +40,4 @@ mainPageTitle = "实战平台",
  * 假数据地址
  * @type {string}
  */
-mockDataUrl = "https://9f6c2551-e40d-4d73-9651-3dabdf1f897a.mock.pstmn.io";
+mockDataUrl = "https://7645fa68-453d-4896-994e-9dd0d714d488.mock.pstmn.io";

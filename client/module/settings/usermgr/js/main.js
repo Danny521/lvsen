@@ -24,19 +24,13 @@ define(["domReady",
 			// 请求页面模板
 			ajaxModel.getTml(settings.templateUrl).then(function(tem) {
 				if (tem) {
-
 					var template = Handlebars.compile(tem);
-
 					var opt = {
 						"template": template,
 						"setPagination": settings.setPagination
 					};
 					var userMgr = new UserMgr(opt);
-
-					userMgr.getUsers(1, '');	
-
-				//	updateThirdNav && updateThirdNav();
-
+					userMgr.getUsers();
 				} else {
 					notify.warn(settings.errorMessage);
 				}

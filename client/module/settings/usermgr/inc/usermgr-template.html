@@ -36,11 +36,11 @@
 			<th class="operate1">操作</th>
 		</tr>
 		{{#each userItems.users}}
-		<tr class="{{even @index}} {{#if endTime}}  {{isAvailable currentDate endTime}} {{/if}}" data-id="{{id}}" data-username="{{loginName}}" >
+		<tr class="{{even @index}} {{#if endTime}}  {{isAvailable currentDate endTime}} {{/if}}" data-id="{{userId}}" data-account="{{account}}" data-username="{{username}}">
 			<td class="id">{{list @index}}</td>
-			<td class="name" ><a data-id="{{id}}" data-name="{{name}}">{{name}}</a></td>
-			<td class="name" ><a data-id="{{id}}" data-name="{{loginName}}">{{loginName}}</a></td>
-			<td  class="sex" >{{genderName gender}}</td>
+			<td class="name" ><a data-id="{{id}}" data-username="{{username}}">{{username}}</a></td>
+			<td class="name" ><a data-id="{{id}}" data-account="{{account}}">{{account}}</a></td>
+			<td  class="sex" >{{genderName sex}}</td>
 			<td  class="status">
 			{{#eq status 2}}
 			<span class="deleted">已删除</span>
@@ -126,23 +126,23 @@
 			</div>
 		<div class="content">
 			<table>
-				<tr><td class="name"><span class="required">*</span><span>登录名：</span></td><td><div class="ui input"><input class="disable" disabled name="username" id="username" value="{{loginName}}" data-default="{{loginName}}" readonly type="text" placeholder=""></div></td></tr>
+				<tr><td class="name"><span class="required">*</span><span>登录名：</span></td><td><div class="ui input"><input class="disable" disabled name="username" id="username" value="{{account}}" data-default="{{account}}" readonly type="text" placeholder=""></div></td></tr>
 				<tr><td class="name"><span class="required">*</span><span>密码：</span></td><td><div class="ui input"><span id="mypwd"></span><input name="password" id="password" value="{{password}}" type="password" placeholder="" data-change=""></div></td></tr>
-				<tr><td class="name"><span class="required">*</span><span>真实姓名：</span></td><td><div class="ui input"><input name="realname" id="realname" value="{{name}}" type="text" placeholder=""></div></td></tr>
-				<tr><td class="name"><span class="required">*</span><span>性别：</span></td><td><input id="male" class="radio sex" value="1" {{selected gender 1 "radio"}} name="sex" type="radio"/><label class="radio-label" for="male">男</label><input id="female" class="radio sex" value="2" {{selected gender 2 "radio"}} name="sex" type="radio"/><label class="radio-label" for="female">女</label></td></tr>
+				<tr><td class="name"><span class="required">*</span><span>真实姓名：</span></td><td><div class="ui input"><input name="realname" id="realname" value="{{username}}" type="text" placeholder=""></div></td></tr>
+				<tr><td class="name"><span class="required">*</span><span>性别：</span></td><td><input id="male" class="radio sex" value="1" {{selected sex 1 "radio"}} name="sex" type="radio"/><label class="radio-label" for="male">男</label><input id="female" class="radio sex" value="2" {{selected sex 2 "radio"}} name="sex" type="radio"/><label class="radio-label" for="female">女</label></td></tr>
 				<tr><td class="name"><span class="required">*</span><span>状态：</span></td><td><input id="on" class="radio status" value="1" name="status" checked type="radio"/><label class="radio-label" for="on">启用</label><input id="off" class="radio status" value="2" name="status" type="radio"/><label class="radio-label" for="off">禁用</label></td></tr>
-				<tr><td class="name"><span class="required">*</span><span>所属部门：</span></td><td><div class="ui input"><input name="belong" id="belong" data-default="{{orgID}}" value="{{allOrgName}}" type="text" placeholder=""></div></td></tr>
-				<tr><td class="name"><span class="required">*</span><span>级别：</span></td><td><div class="ui input"><input id="score" name="score" maxlength="3" type="text" value="{{score}}" placeholder="市局(60) 分局(40) 派出所(20)"></div></td></tr>
+				<!-- <tr><td class="name"><span class="required">*</span><span>所属部门：</span></td><td><div class="ui input"><input name="belong" id="belong" data-default="{{orgID}}" value="{{allOrgName}}" type="text" placeholder=""></div></td></tr>
+				<tr><td class="name"><span class="required">*</span><span>级别：</span></td><td><div class="ui input"><input id="score" name="score" maxlength="3" type="text" value="{{score}}" placeholder="市局(60) 分局(40) 派出所(20)"></div></td></tr> -->
 				<tr>
 				<td class="name"><span>&nbsp;手机号码：</span></td>
 				<td>
-				<div class="ui input"><input name="cellphone" id="cellphone" maxlength="11" value="{{phoneNo}}" type="text" placeholder="">	
+				<div class="ui input"><input name="cellphone" id="cellphone" maxlength="11" value="{{mobile}}" type="text" placeholder="">	
 				</div>
 				</td></tr>
 			</table>
 		</div>
 		<div class="tree-group">
-			<input type="hidden" id="id" value="{{id}}">
+			<input type="hidden" id="id" value="{{userId}}">
 			<button id="saveUser"class="ui button blue btn-blue" type="submit">确定</button> <button type="button" id="cancel" class="ui button">取消</button>
 		</div>
 	</div>
