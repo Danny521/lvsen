@@ -203,7 +203,7 @@
 					<!-- not append assembly id in release file name -->
 					<appendAssemblyId>false</appendAssemblyId>
 					<descriptors>
-						<descriptor>src/main/build/package.xml</descriptor>
+						<descriptor>src/main/tools/package.xml</descriptor>
 					</descriptors>
 				</configuration>
 				<executions>
