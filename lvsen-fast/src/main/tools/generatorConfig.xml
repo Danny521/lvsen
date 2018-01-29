@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <classPathEntry
+            location="D:\Java\maven-repository\mysql\mysql-connector-java\5.1.28\mysql-connector-java-5.1.28.jar"/>
+
+    <context id="DB2Tables" targetRuntime="MyBatis3" defaultModelType="flat">
+        <commentGenerator>
+        	<!-- 抑制警告 -->  
+        	<property name="suppressTypeWarnings" value="true" />
+        	<!-- 是否去除自动生成的注释 true：是 ： false:否 -->  
+            <property name="suppressAllComments" value="true"/>
+            <!-- 是否生成注释代时间戳-->
+            <property name="suppressDate" value="true"/>
+        </commentGenerator>
+
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://127.0.0.1:3306/lvsen?generateSimpleParameterMetadata=true"
+                        userId="root" password="root">
+        </jdbcConnection>
+
+        <javaTypeResolver>
+        	<!-- 默认false，把JDBC DECIMAL 和 NUMERIC 类型解析为 Integer 
+        			true，把JDBC DECIMAL 和    NUMERIC 类型解析为java.math.BigDecimal --> 
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <!-- generate Model -->
+        <javaModelGenerator targetPackage="com.danny.lvsen.pojo"
+                            targetProject="lvsen-pro\src\main\java">
+            <property name="enableSubPackages" value="false"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <!-- generate xml -->
+        <sqlMapGenerator targetPackage="mapper" targetProject="lvsen-pro\src\main\resources">
+            <property name="enableSubPackages" value="false"/>
+        </sqlMapGenerator>
+
+        <!-- generate Mapper -->
+        <javaClientGenerator type="XMLMAPPER"
+                             targetPackage="com.danny.lvsen.mapper"
+                             targetProject="lvsen-pro\src\main\java" implementationPackage="">
+            <property name="enableSubPackages" value="false"/>
+            <property name="exampleMethodVisibility" value="public"/>
+        </javaClientGenerator>
+        
+        
+        <table tableName="bills" domainObjectName="Bill">
+        	<property name="useActualColumnNames" value="false"/>
+            <generatedKey column="id" sqlStatement="JDBC"/>
+        </table>
+        <table tableName="client" domainObjectName="Client">
+        	<property name="useActualColumnNames" value="false"/>
+            <generatedKey column="id" sqlStatement="JDBC"/>
+        </table>
+        <table tableName="client_category" domainObjectName="ClientCategory">
+        	<property name="useActualColumnNames" value="false"/>
+            <generatedKey column="id" sqlStatement="JDBC"/>
+        </table>
+        <table tableName="goods" domainObjectName="Goods">
+        	<property name="useActualColumnNames" value="false"/>
+            <generatedKey column="id" sqlStatement="JDBC"/>
+        </table>
+        <table tableName="goods_bar_code" domainObjectName="GoodsBarCode">
+        	<property name="useActualColumnNames" value="false"/>
+            <generatedKey column="id" sqlStatement="JDBC"/>
+        </table>
+        <table tableName="goods_category" domainObjectName="GoodsCategory">
+        	<property name="useActualColumnNames" value="false"/>
+            <generatedKey column="id" sqlStatement="JDBC"/>
+        </table>
+        <table tableName="goods_unit" domainObjectName="GoodsUnit">
+        	<property name="useActualColumnNames" value="false"/>
+            <generatedKey column="id" sqlStatement="JDBC"/>
+        </table>
+        <table tableName="latest_purchasing_price" domainObjectName="LatestPurchasingPrice">
+        	<property name="useActualColumnNames" value="false"/>
+            <generatedKey column="id" sqlStatement="JDBC"/>
+        </table>
+        <table tableName="order_category" domainObjectName="OrderCategory">
+        	<property name="useActualColumnNames" value="false"/>
+            <generatedKey column="id" sqlStatement="JDBC"/>
+        </table>
+        <table tableName="order_goods" domainObjectName="OrderGoods">
+        	<property name="useActualColumnNames" value="false"/>
+            <generatedKey column="id" sqlStatement="JDBC"/>
+        </table>
+        <table tableName="order_way" domainObjectName="OrderWay">
+        	<property name="useActualColumnNames" value="false"/>
+            <generatedKey column="id" sqlStatement="JDBC"/>
+        </table>
+        <table tableName="orders" domainObjectName="Order">
+        	<property name="useActualColumnNames" value="false"/>
+            <generatedKey column="id" sqlStatement="JDBC"/>
+        </table>
+        <table tableName="repertory" domainObjectName="Repertory">
+        	<property name="useActualColumnNames" value="false"/>
+            <generatedKey column="id" sqlStatement="JDBC"/>
+        </table>
+        <table tableName="warehouse" domainObjectName="Warehouse">
+        	<property name="useActualColumnNames" value="false"/>
+            <generatedKey column="id" sqlStatement="JDBC"/>
+        </table>
+        <table tableName="store_position" domainObjectName="storePosition">
+        	<property name="useActualColumnNames" value="false"/>
+            <generatedKey column="id" sqlStatement="JDBC"/>
+        </table>
+        <table tableName="sys_user" domainObjectName="User">
+        	<property name="useActualColumnNames" value="false"/>
+            <generatedKey column="id" sqlStatement="JDBC"/>
+        </table>
+        <table tableName="sys_user_role" domainObjectName="UserRole">
+        	<property name="useActualColumnNames" value="false"/>
+            <generatedKey column="id" sqlStatement="JDBC"/>
+        </table>
+        <table tableName="sys_role" domainObjectName="Role">
+        	<property name="useActualColumnNames" value="false"/>
+            <generatedKey column="id" sqlStatement="JDBC"/>
+        </table>
+        <table tableName="sys_menu" domainObjectName="Menu">
+        	<property name="useActualColumnNames" value="false"/>
+            <generatedKey column="id" sqlStatement="JDBC"/>
+        </table>
+        <table tableName="sys_permission" domainObjectName="Permission">
+        	<property name="useActualColumnNames" value="false"/>
+            <generatedKey column="id" sqlStatement="JDBC"/>
+        </table>
+        <table tableName="sys_role_permission" domainObjectName="RolePermission">
+        	<property name="useActualColumnNames" value="false"/>
+            <generatedKey column="id" sqlStatement="JDBC"/>
+        </table>
+    </context>
+</generatorConfiguration>
