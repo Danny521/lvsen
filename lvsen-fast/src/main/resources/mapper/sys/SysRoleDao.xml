@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="io.renren.modules.sys.dao.SysRoleDao">
+<mapper namespace="com.lvsen.modules.sys.dao.SysRoleDao">
 
-	<select id="queryObject" resultType="io.renren.modules.sys.entity.SysRoleEntity">
+	<select id="queryObject" resultType="com.lvsen.modules.sys.entity.SysRoleEntity">
 		select * from sys_role where role_id = #{value}
 	</select>
 	
-	<select id="queryList" resultType="io.renren.modules.sys.entity.SysRoleEntity">
+	<select id="queryList" resultType="com.lvsen.modules.sys.entity.SysRoleEntity">
 		select * from sys_role 
 		<where>
 			<if test="roleName != null and roleName.trim() != ''">
@@ -42,7 +42,7 @@
 		</where>
 	</select>
 	
-	<insert id="save" parameterType="io.renren.modules.sys.entity.SysRoleEntity" useGeneratedKeys="true" keyProperty="roleId">
+	<insert id="save" parameterType="com.lvsen.modules.sys.entity.SysRoleEntity" useGeneratedKeys="true" keyProperty="roleId">
 		insert into sys_role
 		(
 			`role_id`, 
@@ -61,7 +61,7 @@
 		)
 	</insert>
 	 
-	<update id="update" parameterType="io.renren.modules.sys.entity.SysRoleEntity">
+	<update id="update" parameterType="com.lvsen.modules.sys.entity.SysRoleEntity">
 		update sys_role 
 		<set> 
 			<if test="roleName != null">`role_name` = #{roleName}, </if>

@@ -15,7 +15,7 @@
         </commentGenerator>
 
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://127.0.0.1:3306/lvsen?generateSimpleParameterMetadata=true"
+                        connectionURL="jdbc:mysql://127.0.0.1:3306/lvsen_fast?generateSimpleParameterMetadata=true"
                         userId="root" password="root">
         </jdbcConnection>
 
@@ -26,21 +26,21 @@
         </javaTypeResolver>
 
         <!-- generate Model -->
-        <javaModelGenerator targetPackage="com.danny.lvsen.pojo"
-                            targetProject="lvsen-pro\src\main\java">
+        <javaModelGenerator targetPackage="com.lvsen.modules.business.pojo"
+                            targetProject="src\main\java">
             <property name="enableSubPackages" value="false"/>
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
 
         <!-- generate xml -->
-        <sqlMapGenerator targetPackage="mapper" targetProject="lvsen-pro\src\main\resources">
+        <sqlMapGenerator targetPackage="mapper\business" targetProject="src\main\resources">
             <property name="enableSubPackages" value="false"/>
         </sqlMapGenerator>
 
         <!-- generate Mapper -->
         <javaClientGenerator type="XMLMAPPER"
-                             targetPackage="com.danny.lvsen.mapper"
-                             targetProject="lvsen-pro\src\main\java" implementationPackage="">
+                             targetPackage="com.lvsen.modules.business.mapper"
+                             targetProject="src\main\java" implementationPackage="">
             <property name="enableSubPackages" value="false"/>
             <property name="exampleMethodVisibility" value="public"/>
         </javaClientGenerator>

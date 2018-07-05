@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lvsen.modules.business.mapper.storePositionMapper" >
+  <resultMap id="BaseResultMap" type="com.lvsen.modules.business.pojo.storePosition" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="position_number" property="positionNumber" jdbcType="VARCHAR" />
+    <result column="warehouse_id" property="warehouseId" jdbcType="INTEGER" />
+    <result column="area" property="area" jdbcType="VARCHAR" />
+    <result column="row" property="row" jdbcType="INTEGER" />
+    <result column="layer" property="layer" jdbcType="INTEGER" />
+    <result column="place" property="place" jdbcType="INTEGER" />
+    <result column="status" property="status" jdbcType="BIT" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, position_number, warehouse_id, area, row, layer, place, status
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.lvsen.modules.business.pojo.storePositionExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from store_position
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from store_position
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from store_position
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.lvsen.modules.business.pojo.storePositionExample" >
+    delete from store_position
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.lvsen.modules.business.pojo.storePosition" useGeneratedKeys="true" keyProperty="id" >
+    insert into store_position (position_number, warehouse_id, area, 
+      row, layer, place, 
+      status)
+    values (#{positionNumber,jdbcType=VARCHAR}, #{warehouseId,jdbcType=INTEGER}, #{area,jdbcType=VARCHAR}, 
+      #{row,jdbcType=INTEGER}, #{layer,jdbcType=INTEGER}, #{place,jdbcType=INTEGER}, 
+      #{status,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lvsen.modules.business.pojo.storePosition" useGeneratedKeys="true" keyProperty="id" >
+    insert into store_position
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="positionNumber != null" >
+        position_number,
+      </if>
+      <if test="warehouseId != null" >
+        warehouse_id,
+      </if>
+      <if test="area != null" >
+        area,
+      </if>
+      <if test="row != null" >
+        row,
+      </if>
+      <if test="layer != null" >
+        layer,
+      </if>
+      <if test="place != null" >
+        place,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="positionNumber != null" >
+        #{positionNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="warehouseId != null" >
+        #{warehouseId,jdbcType=INTEGER},
+      </if>
+      <if test="area != null" >
+        #{area,jdbcType=VARCHAR},
+      </if>
+      <if test="row != null" >
+        #{row,jdbcType=INTEGER},
+      </if>
+      <if test="layer != null" >
+        #{layer,jdbcType=INTEGER},
+      </if>
+      <if test="place != null" >
+        #{place,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.lvsen.modules.business.pojo.storePositionExample" resultType="java.lang.Integer" >
+    select count(*) from store_position
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update store_position
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.positionNumber != null" >
+        position_number = #{record.positionNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.warehouseId != null" >
+        warehouse_id = #{record.warehouseId,jdbcType=INTEGER},
+      </if>
+      <if test="record.area != null" >
+        area = #{record.area,jdbcType=VARCHAR},
+      </if>
+      <if test="record.row != null" >
+        row = #{record.row,jdbcType=INTEGER},
+      </if>
+      <if test="record.layer != null" >
+        layer = #{record.layer,jdbcType=INTEGER},
+      </if>
+      <if test="record.place != null" >
+        place = #{record.place,jdbcType=INTEGER},
+      </if>
+      <if test="record.status != null" >
+        status = #{record.status,jdbcType=BIT},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update store_position
+    set id = #{record.id,jdbcType=INTEGER},
+      position_number = #{record.positionNumber,jdbcType=VARCHAR},
+      warehouse_id = #{record.warehouseId,jdbcType=INTEGER},
+      area = #{record.area,jdbcType=VARCHAR},
+      row = #{record.row,jdbcType=INTEGER},
+      layer = #{record.layer,jdbcType=INTEGER},
+      place = #{record.place,jdbcType=INTEGER},
+      status = #{record.status,jdbcType=BIT}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lvsen.modules.business.pojo.storePosition" >
+    update store_position
+    <set >
+      <if test="positionNumber != null" >
+        position_number = #{positionNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="warehouseId != null" >
+        warehouse_id = #{warehouseId,jdbcType=INTEGER},
+      </if>
+      <if test="area != null" >
+        area = #{area,jdbcType=VARCHAR},
+      </if>
+      <if test="row != null" >
+        row = #{row,jdbcType=INTEGER},
+      </if>
+      <if test="layer != null" >
+        layer = #{layer,jdbcType=INTEGER},
+      </if>
+      <if test="place != null" >
+        place = #{place,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=BIT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lvsen.modules.business.pojo.storePosition" >
+    update store_position
+    set position_number = #{positionNumber,jdbcType=VARCHAR},
+      warehouse_id = #{warehouseId,jdbcType=INTEGER},
+      area = #{area,jdbcType=VARCHAR},
+      row = #{row,jdbcType=INTEGER},
+      layer = #{layer,jdbcType=INTEGER},
+      place = #{place,jdbcType=INTEGER},
+      status = #{status,jdbcType=BIT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

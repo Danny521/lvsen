@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="io.renren.modules.sys.dao.SysUserDao">
-	<select id="queryObject" resultType="io.renren.modules.sys.entity.SysUserEntity">
+<mapper namespace="com.lvsen.modules.sys.dao.SysUserDao">
+	<select id="queryObject" resultType="com.lvsen.modules.sys.entity.SysUserEntity">
 		select * from sys_user where user_id = #{value}
 	</select>
 
-	<select id="queryList" resultType="io.renren.modules.sys.entity.SysUserEntity">
+	<select id="queryList" resultType="com.lvsen.modules.sys.entity.SysUserEntity">
 		select * from sys_user
 		<where>
 			<if test="createUserId != null">
@@ -61,11 +61,11 @@
 		where ur.user_id = #{userId}
 	</select>
 
-	<select id="queryByUserName" resultType="io.renren.modules.sys.entity.SysUserEntity">
+	<select id="queryByUserName" resultType="com.lvsen.modules.sys.entity.SysUserEntity">
 		select * from sys_user where username = #{username}
 	</select>
 
-	<insert id="save" parameterType="io.renren.modules.sys.entity.SysUserEntity" useGeneratedKeys="true" keyProperty="userId">
+	<insert id="save" parameterType="com.lvsen.modules.sys.entity.SysUserEntity" useGeneratedKeys="true" keyProperty="userId">
 		insert into
 		sys_user
 		(
@@ -101,7 +101,7 @@
 		)
 	</insert>
 
-	<update id="update" parameterType="io.renren.modules.sys.entity.SysUserEntity">
+	<update id="update" parameterType="com.lvsen.modules.sys.entity.SysUserEntity">
 		update sys_user
 		<set>
 			<if test="username != null">`account` = #{account}, </if>

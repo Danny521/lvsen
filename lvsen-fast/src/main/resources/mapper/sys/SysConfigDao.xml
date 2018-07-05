@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>  
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">    
-<mapper namespace="io.renren.modules.sys.dao.SysConfigDao">
-	<select id="queryObject" resultType="io.renren.modules.sys.entity.SysConfigEntity">
+<mapper namespace="com.lvsen.modules.sys.dao.SysConfigDao">
+	<select id="queryObject" resultType="com.lvsen.modules.sys.entity.SysConfigEntity">
 		select * from sys_config where id = #{id}
 	</select>
 	
-	<select id="queryList" parameterType="map" resultType="io.renren.modules.sys.entity.SysConfigEntity">
+	<select id="queryList" parameterType="map" resultType="com.lvsen.modules.sys.entity.SysConfigEntity">
 		select * from sys_config where status = 1 
 		<if test="key != null and key.trim() != ''">
 			and `key` like concat('%',#{key},'%') 
@@ -22,12 +22,12 @@
 		</if>
 	</select>
 	
-	<insert id="save" parameterType="io.renren.modules.sys.entity.SysConfigEntity">
+	<insert id="save" parameterType="com.lvsen.modules.sys.entity.SysConfigEntity">
 		insert into sys_config(`key`, `value`, remark)
 			values(#{key},#{value},#{remark})
 	</insert>
 	
-	<update id="update" parameterType="io.renren.modules.sys.entity.SysConfigEntity">
+	<update id="update" parameterType="com.lvsen.modules.sys.entity.SysConfigEntity">
 		update sys_config set `key` = #{key}, `value` = #{value}, remark = #{remark} 
 			 where id = #{id}
 	</update>
@@ -38,7 +38,7 @@
 	</update>
 	
 	<!-- 根据key，查询value -->
-	<select id="queryByKey" parameterType="string" resultType="io.renren.modules.sys.entity.SysConfigEntity">
+	<select id="queryByKey" parameterType="string" resultType="com.lvsen.modules.sys.entity.SysConfigEntity">
 		select * from sys_config where `key` = #{key}
 	</select>
 	
